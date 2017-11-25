@@ -6,6 +6,11 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(GuiResourcePropertySet))]
+	[XmlInclude(typeof(GuiPlanetTypeBaseStats))]
+	[XmlInclude(typeof(GuiPlanetStatsModifier))]
+	[XmlInclude(typeof(GuiHighlightDefinition))]
+	[XmlInclude(typeof(GuiCursor))]
 	[XmlInclude(typeof(RankPattern))]
 	[XmlInclude(typeof(Rank))]
 	[XmlInclude(typeof(PopulationTrait))]
