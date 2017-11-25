@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(BailiffDefinition))]
 	[XmlInclude(typeof(GuiResourcePropertySet))]
 	[XmlInclude(typeof(GuiPlanetTypeBaseStats))]
 	[XmlInclude(typeof(GuiPlanetStatsModifier))]
