@@ -1,10 +1,16 @@
-﻿namespace Amplitude.ES2
+﻿using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Diagnostics;
+
+namespace Amplitude.ES2
 {
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-	[System.SerializableAttribute()]
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[GeneratedCode("xsd", "2.0.50727.3038")]
+	[Serializable]
+	[DebuggerStepThrough]
+	[DesignerCategory("code")]
 	public partial class InterpreterPrerequisite : Prerequisite
 	{
+		// empty
 	}
 }
