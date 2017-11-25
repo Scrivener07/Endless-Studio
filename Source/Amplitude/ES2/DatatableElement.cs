@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(CostReduction))]
 	[XmlInclude(typeof(Droplist))]
 	[XmlInclude(typeof(UnlockDatatableElement))]
 	[XmlInclude(typeof(ConstructibleElement))]
@@ -27,8 +28,8 @@ namespace Amplitude.ES2
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public partial class DatatableElement : INotifyPropertyChanged
-	{ // TODO: remove the partial keyword
+	public class DatatableElement : INotifyPropertyChanged
+	{
 		private string nameField;
 
 
