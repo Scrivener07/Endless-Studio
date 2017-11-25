@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(SimulationDescriptorReference))]
 	[XmlInclude(typeof(GuiCursorImage))]
 	[XmlInclude(typeof(GuiCursorHotSpot))]
 	[XmlInclude(typeof(XmlColor))]

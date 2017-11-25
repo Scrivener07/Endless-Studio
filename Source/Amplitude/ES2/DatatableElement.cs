@@ -6,6 +6,8 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[System.Xml.Serialization.XmlIncludeAttribute(typeof(UnlockDatatableElement))]
+	[System.Xml.Serialization.XmlIncludeAttribute(typeof(HullDefinition))]
 	[XmlInclude(typeof(BailiffDefinition))]
 	[XmlInclude(typeof(GuiResourcePropertySet))]
 	[XmlInclude(typeof(GuiPlanetTypeBaseStats))]
