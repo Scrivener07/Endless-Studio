@@ -13,7 +13,6 @@ namespace Amplitude.ES2.Simulation
 	[DesignerCategory("code")]
 	public class FactionAffinityMapping : FactionTrait
 	{
-
 		private AbstractToShipDesignPair[] shipDesignField;
 
 
@@ -30,5 +29,7 @@ namespace Amplitude.ES2.Simulation
 				this.RaisePropertyChanged("ShipDesign");
 			}
 		}
+
+
 	}
 }

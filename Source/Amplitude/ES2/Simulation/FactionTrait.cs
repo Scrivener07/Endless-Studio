@@ -2,14 +2,18 @@
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace Amplitude.ES2.Simulation
 {
-	[XmlInclude(typeof(FactionTraitStartingSenate))]
 	[XmlInclude(typeof(FactionPopulationTrait))]
 	[XmlInclude(typeof(FactionAffinityMapping))]
 	[XmlInclude(typeof(FactionAffinity))]
+	[GeneratedCode("xsd", "2.0.50727.3038")]
+	[Serializable]
+	[DebuggerStepThrough]
+	[DesignerCategory("code")]
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class FactionTrait : DatatableElement
 	{
@@ -65,7 +69,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute("Command", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement("Command", Form = XmlSchemaForm.Unqualified)]
 		public Command[] Command
 		{
 			get
@@ -80,7 +84,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute("OutpostImprovementReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement("OutpostImprovementReference", Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference[] OutpostImprovementReference
 		{
 			get
@@ -95,7 +99,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute("ColonyImprovementReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement("ColonyImprovementReference", Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference[] ColonyImprovementReference
 		{
 			get
@@ -110,7 +114,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute("SubTrait", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement("SubTrait", Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference[] SubTrait
 		{
 			get
@@ -125,7 +129,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute("SimulationDescriptorReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement("SimulationDescriptorReference", Form = XmlSchemaForm.Unqualified)]
 		public SimulationDescriptorReference[] SimulationDescriptorReference
 		{
 			get
@@ -140,7 +144,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public FactionTraitTooltipOverride FactionTraitTooltipOverride
 		{
 			get
@@ -155,7 +159,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public string Prerequisites
 		{
 			get
@@ -170,8 +174,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(0)]
+		[XmlAttribute]
+		[DefaultValue(0)]
 		public int Cost
 		{
 			get
@@ -186,7 +190,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
+		[XmlAttribute]
 		public string Family
 		{
 			get
@@ -201,8 +205,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(true)]
+		[XmlAttribute]
+		[DefaultValue(true)]
 		public bool Hidden
 		{
 			get
@@ -217,8 +221,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(false)]
+		[XmlAttribute]
+		[DefaultValue(false)]
 		public bool Custom
 		{
 			get
@@ -233,8 +237,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(false)]
+		[XmlAttribute]
+		[DefaultValue(false)]
 		public bool HiddenOnFailPrerequisites
 		{
 			get
@@ -249,8 +253,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(false)]
+		[XmlAttribute]
+		[DefaultValue(false)]
 		public bool ValidWithAtLeastOnePrerequisite
 		{
 			get
@@ -265,8 +269,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(typeof(float), "0")]
+		[XmlAttribute]
+		[DefaultValue(typeof(float), "0")]
 		public float Level
 		{
 			get
@@ -281,7 +285,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
+		[XmlAttribute]
 		public string Root
 		{
 			get
@@ -296,8 +300,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(false)]
+		[XmlAttribute]
+		[DefaultValue(false)]
 		public bool IgnoreForTraitsCount
 		{
 			get
@@ -312,7 +316,7 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
+		[XmlAttribute]
 		public string SubCategory
 		{
 			get
@@ -327,8 +331,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute("")]
+		[XmlAttribute]
+		[DefaultValue("")]
 		public string TraitCategory
 		{
 			get
@@ -343,8 +347,8 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute("")]
+		[XmlAttribute]
+		[DefaultValue("")]
 		public string TraitSubCategory
 		{
 			get
@@ -357,83 +361,7 @@ namespace Amplitude.ES2.Simulation
 				this.RaisePropertyChanged("TraitSubCategory");
 			}
 		}
-	}
 
 
-	[XmlRoot(Namespace = "", IsNullable = true)]
-	public partial class FactionPopulationTrait : FactionTrait
-	{
-
-		private XmlNamedReference[] majorPopulationDescriptorsField;
-
-		private XmlNamedReference[] nonMajorPopulationDescriptorsField;
-
-		private XmlNamedReference[] majorPopulationAspirationsField;
-
-		private XmlNamedReference[] nonMajorPopulationsAspirationsField;
-
-
-		[System.Xml.Serialization.XmlArrayAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-		[System.Xml.Serialization.XmlArrayItemAttribute("SimulationDescriptorReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] MajorPopulationDescriptors
-		{
-			get
-			{
-				return this.majorPopulationDescriptorsField;
-			}
-			set
-			{
-				this.majorPopulationDescriptorsField = value;
-				this.RaisePropertyChanged("MajorPopulationDescriptors");
-			}
-		}
-
-
-		[System.Xml.Serialization.XmlArrayAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-		[System.Xml.Serialization.XmlArrayItemAttribute("SimulationDescriptorReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] NonMajorPopulationDescriptors
-		{
-			get
-			{
-				return this.nonMajorPopulationDescriptorsField;
-			}
-			set
-			{
-				this.nonMajorPopulationDescriptorsField = value;
-				this.RaisePropertyChanged("NonMajorPopulationDescriptors");
-			}
-		}
-
-
-		[System.Xml.Serialization.XmlArrayAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-		[System.Xml.Serialization.XmlArrayItemAttribute("AspirationReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] MajorPopulationAspirations
-		{
-			get
-			{
-				return this.majorPopulationAspirationsField;
-			}
-			set
-			{
-				this.majorPopulationAspirationsField = value;
-				this.RaisePropertyChanged("MajorPopulationAspirations");
-			}
-		}
-
-
-		[System.Xml.Serialization.XmlArrayAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-		[System.Xml.Serialization.XmlArrayItemAttribute("AspirationReference", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] NonMajorPopulationsAspirations
-		{
-			get
-			{
-				return this.nonMajorPopulationsAspirationsField;
-			}
-			set
-			{
-				this.nonMajorPopulationsAspirationsField = value;
-				this.RaisePropertyChanged("NonMajorPopulationsAspirations");
-			}
-		}
 	}
 }

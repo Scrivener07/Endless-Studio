@@ -10,45 +10,25 @@ namespace Amplitude.ES2.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class Command : INotifyPropertyChanged
+	public partial class ColonizablePlanetType : INotifyPropertyChanged
 	{
-		private string nameField;
-		private string argumentsField;
+		private string typeField;
 		private int priorityField;
 
 
-		public Command()
-		{
-			this.priorityField = 0;
-		}
-
-
 		[XmlAttribute]
-		public string Name
+		public string Type
 		{
-			get { return this.nameField; }
+			get { return this.typeField; }
 			set
 			{
-				this.nameField = value;
-				this.RaisePropertyChanged("Name");
+				this.typeField = value;
+				this.RaisePropertyChanged("Type");
 			}
 		}
 
 
 		[XmlAttribute]
-		public string Arguments
-		{
-			get { return this.argumentsField; }
-			set
-			{
-				this.argumentsField = value;
-				this.RaisePropertyChanged("Arguments");
-			}
-		}
-
-
-		[XmlAttribute]
-		[DefaultValue(0)]
 		public int Priority
 		{
 			get { return this.priorityField; }

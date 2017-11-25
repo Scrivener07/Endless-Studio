@@ -23,7 +23,7 @@ namespace Amplitude.ES2.Simulation
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	public partial class DatatableElement : INotifyPropertyChanged
-	{// TODO: remove the partial keyword
+	{ // TODO: remove the partial keyword
 		private string nameField;
 
 
@@ -37,6 +37,7 @@ namespace Amplitude.ES2.Simulation
 				this.RaisePropertyChanged("Name");
 			}
 		}
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

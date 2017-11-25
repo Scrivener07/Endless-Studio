@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.CodeDom.Compiler;
+using System.Xml.Schema;
 
 namespace Amplitude.ES2.Simulation
 {
@@ -13,23 +14,16 @@ namespace Amplitude.ES2.Simulation
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class FactionAffinity : FactionTrait
 	{
-
 		private string defaultColonizerField;
-
 		private string automatedShipField;
-
 		private string unlockedAbstractShipDesignsField;
-
 		private string startingFleetsField;
 
 
-		[System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public string DefaultColonizer
 		{
-			get
-			{
-				return this.defaultColonizerField;
-			}
+			get { return this.defaultColonizerField; }
 			set
 			{
 				this.defaultColonizerField = value;
@@ -38,13 +32,10 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public string AutomatedShip
 		{
-			get
-			{
-				return this.automatedShipField;
-			}
+			get { return this.automatedShipField; }
 			set
 			{
 				this.automatedShipField = value;
@@ -53,13 +44,10 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public string UnlockedAbstractShipDesigns
 		{
-			get
-			{
-				return this.unlockedAbstractShipDesignsField;
-			}
+			get { return this.unlockedAbstractShipDesignsField; }
 			set
 			{
 				this.unlockedAbstractShipDesignsField = value;
@@ -68,19 +56,17 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public string StartingFleets
 		{
-			get
-			{
-				return this.startingFleetsField;
-			}
+			get { return this.startingFleetsField; }
 			set
 			{
 				this.startingFleetsField = value;
 				this.RaisePropertyChanged("StartingFleets");
 			}
 		}
-	}
 
+
+	}
 }

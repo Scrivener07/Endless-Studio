@@ -10,52 +10,32 @@ namespace Amplitude.ES2.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class Command : INotifyPropertyChanged
+	public partial class PoliticsWeight : INotifyPropertyChanged
 	{
-		private string nameField;
-		private string argumentsField;
-		private int priorityField;
-
-
-		public Command()
-		{
-			this.priorityField = 0;
-		}
+		private string politicsField;
+		private float weightField;
 
 
 		[XmlAttribute]
-		public string Name
+		public string Politics
 		{
-			get { return this.nameField; }
+			get { return this.politicsField; }
 			set
 			{
-				this.nameField = value;
-				this.RaisePropertyChanged("Name");
+				this.politicsField = value;
+				this.RaisePropertyChanged("Politics");
 			}
 		}
 
 
 		[XmlAttribute]
-		public string Arguments
+		public float Weight
 		{
-			get { return this.argumentsField; }
+			get { return this.weightField; }
 			set
 			{
-				this.argumentsField = value;
-				this.RaisePropertyChanged("Arguments");
-			}
-		}
-
-
-		[XmlAttribute]
-		[DefaultValue(0)]
-		public int Priority
-		{
-			get { return this.priorityField; }
-			set
-			{
-				this.priorityField = value;
-				this.RaisePropertyChanged("Priority");
+				this.weightField = value;
+				this.RaisePropertyChanged("Weight");
 			}
 		}
 
