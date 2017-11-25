@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(XmlColorReference))]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
@@ -25,6 +26,7 @@ namespace Amplitude.ES2
 				this.RaisePropertyChanged("Name");
 			}
 		}
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
