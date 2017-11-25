@@ -4,27 +4,41 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class XmlNamedReference : INotifyPropertyChanged
+	public partial class PoliticsWeight : INotifyPropertyChanged
 	{
-		private string nameField;
+		private string politicsField;
+		private float weightField;
 
 
 		[XmlAttribute]
-		public string Name
+		public string Politics
 		{
-			get { return this.nameField; }
+			get { return this.politicsField; }
 			set
 			{
-				this.nameField = value;
-				this.RaisePropertyChanged("Name");
+				this.politicsField = value;
+				this.RaisePropertyChanged("Politics");
 			}
 		}
+
+
+		[XmlAttribute]
+		public float Weight
+		{
+			get { return this.weightField; }
+			set
+			{
+				this.weightField = value;
+				this.RaisePropertyChanged("Weight");
+			}
+		}
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

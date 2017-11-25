@@ -4,41 +4,27 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public partial class ColonizablePlanetType : INotifyPropertyChanged
+	public class XmlNamedReference : INotifyPropertyChanged
 	{
-		private string typeField;
-		private int priorityField;
+		private string nameField;
 
 
 		[XmlAttribute]
-		public string Type
+		public string Name
 		{
-			get { return this.typeField; }
+			get { return this.nameField; }
 			set
 			{
-				this.typeField = value;
-				this.RaisePropertyChanged("Type");
+				this.nameField = value;
+				this.RaisePropertyChanged("Name");
 			}
 		}
-
-
-		[XmlAttribute]
-		public int Priority
-		{
-			get { return this.priorityField; }
-			set
-			{
-				this.priorityField = value;
-				this.RaisePropertyChanged("Priority");
-			}
-		}
-
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

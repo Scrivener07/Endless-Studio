@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[XmlInclude(typeof(FactionTrait))]
 	[XmlInclude(typeof(FactionAffinityMapping))]

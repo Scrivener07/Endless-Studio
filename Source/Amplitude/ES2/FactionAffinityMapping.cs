@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]

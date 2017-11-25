@@ -40,6 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ES2\BasicFaction.cs" />
+    <Compile Include="ES2\ColonizablePlanetType.cs" />
+    <Compile Include="ES2\FactionPopulationTrait.cs" />
+    <Compile Include="ES2\FactionTraitStartingSenate.cs" />
+    <Compile Include="ES2\LesserFaction.cs" />
+    <Compile Include="ES2\MajorFaction.cs" />
+    <Compile Include="ES2\MinorFaction.cs" />
+    <Compile Include="ES2\PirateFaction.cs" />
+    <Compile Include="ES2\PoliticsWeight.cs" />
+    <Compile Include="ES2\StartingPopulation.cs" />
     <Compile Include="ES2\Unity\Achievement\StatisticType.cs" />
     <Compile Include="ES2\Unity\Game\Orders\OrderPolicy.cs" />
     <Compile Include="ES2\Unity\Game\Orders\OrderPolicyChain.cs" />
@@ -48,14 +58,14 @@
     <Compile Include="ES2\Unity\Game\Orders\OrderPolicyRegexRule.cs" />
     <Compile Include="ES2\Unity\Game\Orders\OrderPolicyRule.cs" />
     <Compile Include="ES2\Unity\Game\Orders\Setup.cs" />
-    <Compile Include="ES2\Simulation\AbstractToShipDesignPair.cs" />
-    <Compile Include="ES2\Simulation\Command.cs" />
-    <Compile Include="ES2\Simulation\FactionTraitTooltipOverride.cs" />
-    <Compile Include="ES2\Simulation\OverrideType.cs" />
-    <Compile Include="ES2\Simulation\SimulationDescriptorReference.cs" />
-    <Compile Include="ES2\Simulation\ValueType.cs" />
-    <Compile Include="ES2\Simulation\DatatableElement.cs" />
-    <Compile Include="ES2\Simulation\XmlNamedReference.cs" />
+    <Compile Include="ES2\AbstractToShipDesignPair.cs" />
+    <Compile Include="ES2\Command.cs" />
+    <Compile Include="ES2\FactionTraitTooltipOverride.cs" />
+    <Compile Include="ES2\OverrideType.cs" />
+    <Compile Include="ES2\SimulationDescriptorReference.cs" />
+    <Compile Include="ES2\ValueType.cs" />
+    <Compile Include="ES2\DatatableElement.cs" />
+    <Compile Include="ES2\XmlNamedReference.cs" />
     <Compile Include="ES2\Unity\GUI\AdvancedSettingsGroup.cs" />
     <Compile Include="ES2\Unity\GUI\AffinityGuiElement.cs" />
     <Compile Include="ES2\Unity\GUI\AllianceGuiElement.cs" />
@@ -181,7 +191,7 @@
     <Compile Include="ES2\Unity\View\Mapping\Xml\Variation.cs" />
     <Compile Include="ES2\Unity\View\Mapping\Xml\XmlMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AllianceGuiElement.cs" />
+    <Compile Include="ES2\AllianceGuiElement.cs" />
     <Compile Include="ES2\Unity\Achievement\AchievementDefinition.cs" />
     <Compile Include="ES2\Unity\Achievement\AchievementStatisticDefinition.cs" />
     <Compile Include="AnomalyDefinition.cs" />
@@ -218,11 +228,11 @@
     <Compile Include="EncounterSequenceDefinition.cs" />
     <Compile Include="EncounterTargetingRangeDefinition.cs" />
     <Compile Include="EntityActionDefinition.cs" />
-    <Compile Include="ES2\Simulation\Faction.cs" />
-    <Compile Include="ES2\Simulation\FactionAffinity.cs" />
-    <Compile Include="ES2\Simulation\FactionAffinityMapping.cs" />
-    <Compile Include="ES2\Simulation\FactionTrait.cs" />
-    <Compile Include="ES2\Simulation\FactionTraitCategoryDefinition.cs" />
+    <Compile Include="ES2\Faction.cs" />
+    <Compile Include="ES2\FactionAffinity.cs" />
+    <Compile Include="ES2\FactionAffinityMapping.cs" />
+    <Compile Include="ES2\FactionTrait.cs" />
+    <Compile Include="ES2\FactionTraitCategoryDefinition.cs" />
     <Compile Include="FleetMissionDefinition.cs" />
     <Compile Include="FleetNameMappingDefinition.cs" />
     <Compile Include="ForeignAffairsConstructibleElement.cs" />

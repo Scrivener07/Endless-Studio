@@ -4,38 +4,38 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public partial class PoliticsWeight : INotifyPropertyChanged
+	public class AbstractToShipDesignPair : INotifyPropertyChanged
 	{
-		private string politicsField;
-		private float weightField;
+		private string abstractField;
+		private string shipDesignField;
 
 
 		[XmlAttribute]
-		public string Politics
+		public string Abstract
 		{
-			get { return this.politicsField; }
+			get { return this.abstractField; }
 			set
 			{
-				this.politicsField = value;
-				this.RaisePropertyChanged("Politics");
+				this.abstractField = value;
+				this.RaisePropertyChanged("Abstract");
 			}
 		}
 
 
 		[XmlAttribute]
-		public float Weight
+		public string ShipDesign
 		{
-			get { return this.weightField; }
+			get { return this.shipDesignField; }
 			set
 			{
-				this.weightField = value;
-				this.RaisePropertyChanged("Weight");
+				this.shipDesignField = value;
+				this.RaisePropertyChanged("ShipDesign");
 			}
 		}
 

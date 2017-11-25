@@ -4,22 +4,20 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class FactionTraitTooltipOverride : INotifyPropertyChanged
+	public partial class ColonizablePlanetType : INotifyPropertyChanged
 	{
-
-		private OverrideType typeField;
-
-		private string overrideNameField;
+		private string typeField;
+		private int priorityField;
 
 
-		[XmlAttribute()]
-		public OverrideType Type
+		[XmlAttribute]
+		public string Type
 		{
 			get { return this.typeField; }
 			set
@@ -30,16 +28,17 @@ namespace Amplitude.ES2.Simulation
 		}
 
 
-		[XmlAttribute()]
-		public string OverrideName
+		[XmlAttribute]
+		public int Priority
 		{
-			get { return this.overrideNameField; }
+			get { return this.priorityField; }
 			set
 			{
-				this.overrideNameField = value;
-				this.RaisePropertyChanged("OverrideName");
+				this.priorityField = value;
+				this.RaisePropertyChanged("Priority");
 			}
 		}
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

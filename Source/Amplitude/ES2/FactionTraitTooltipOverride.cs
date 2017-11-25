@@ -4,41 +4,42 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Amplitude.ES2.Simulation
+namespace Amplitude.ES2
 {
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class AbstractToShipDesignPair : INotifyPropertyChanged
+	public class FactionTraitTooltipOverride : INotifyPropertyChanged
 	{
-		private string abstractField;
-		private string shipDesignField;
+
+		private OverrideType typeField;
+
+		private string overrideNameField;
 
 
-		[XmlAttribute]
-		public string Abstract
+		[XmlAttribute()]
+		public OverrideType Type
 		{
-			get { return this.abstractField; }
+			get { return this.typeField; }
 			set
 			{
-				this.abstractField = value;
-				this.RaisePropertyChanged("Abstract");
+				this.typeField = value;
+				this.RaisePropertyChanged("Type");
 			}
 		}
 
 
-		[XmlAttribute]
-		public string ShipDesign
+		[XmlAttribute()]
+		public string OverrideName
 		{
-			get { return this.shipDesignField; }
+			get { return this.overrideNameField; }
 			set
 			{
-				this.shipDesignField = value;
-				this.RaisePropertyChanged("ShipDesign");
+				this.overrideNameField = value;
+				this.RaisePropertyChanged("OverrideName");
 			}
 		}
-
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
