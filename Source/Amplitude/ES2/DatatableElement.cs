@@ -6,6 +6,14 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(SystemSupervisorDefinition))]
+	[XmlInclude(typeof(Shot))]
+	[XmlInclude(typeof(SystemDiscoverySequenceDefinition))]
+	[XmlInclude(typeof(SystemDefenseThreshold))]
+	[XmlInclude(typeof(StarSystemNodeDefinition))]
+	[XmlInclude(typeof(UnlockDatatableElement))]
+	[XmlInclude(typeof(WarPointsRewardDefinition))]
+	[XmlInclude(typeof(VictoryConditionDefinition))]
 	[XmlInclude(typeof(AnomalyDefinition))]
 	[XmlInclude(typeof(AnomalyReductionDefinition))]
 	[XmlInclude(typeof(BailiffDefinition))]

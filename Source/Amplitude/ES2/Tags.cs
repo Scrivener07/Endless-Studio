@@ -1,22 +1,24 @@
-﻿namespace Amplitude.ES2
-{
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-	[System.SerializableAttribute()]
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public partial class Tags : object, System.ComponentModel.INotifyPropertyChanged
-	{
+﻿using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Xml.Serialization;
 
+namespace Amplitude.ES2
+{
+	[GeneratedCode("xsd", "2.0.50727.3038")]
+	[Serializable]
+	[DebuggerStepThrough]
+	[DesignerCategory("code")]
+	public class Tags : INotifyPropertyChanged
+	{
 		private string valueField;
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlTextAttribute()]
+
+		[XmlText]
 		public string Value
 		{
-			get
-			{
-				return this.valueField;
-			}
+			get { return this.valueField; }
 			set
 			{
 				this.valueField = value;
@@ -24,15 +26,18 @@
 			}
 		}
 
-		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected void RaisePropertyChanged(string propertyName)
 		{
-			System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
 			if ((propertyChanged != null))
 			{
-				propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+
+
 	}
 }

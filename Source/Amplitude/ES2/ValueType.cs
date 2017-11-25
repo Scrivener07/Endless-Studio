@@ -6,6 +6,11 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(Keyframe))]
+	[XmlInclude(typeof(SerializableQuaternion))]
+	[XmlInclude(typeof(SerializableVector3))]
+	[XmlInclude(typeof(ResourceDepositDefinitionWithSize))]
+	[XmlInclude(typeof(PlanetDefinition))]
 	[XmlInclude(typeof(SimulationDescriptorReference))]
 	[XmlInclude(typeof(GuiCursorImage))]
 	[XmlInclude(typeof(GuiCursorHotSpot))]

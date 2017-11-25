@@ -3,6 +3,7 @@ using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
+using AmbiguousType = Amplitude.ES2.Types.BailiffAuction_Resource.Type;
 
 namespace Amplitude.ES2
 {
@@ -12,12 +13,12 @@ namespace Amplitude.ES2
 	[DesignerCategory("code")]
 	public partial class BailiffAuction_Resource : BailiffAuctionOfAuctionItem_Resource
 	{
-		private Type typeField;
+		private AmbiguousType typeField;
 		private float maxPercentageField;
 
 
 		[XmlAttribute]
-		public Type Type
+		public AmbiguousType Type
 		{
 			get { return this.typeField; }
 			set
@@ -38,20 +39,7 @@ namespace Amplitude.ES2
 				this.RaisePropertyChanged("MaxPercentage");
 			}
 		}
-	}
 
 
-	[GeneratedCode("xsd", "2.0.50727.3038")]
-	[Serializable]
-	public enum Type
-	{
-		Common,
-		Strategic,
-		Luxury,
-		Alias,
-		Gameplay,
-		LateCollect,
-		SystemStrategic,
-		SystemLuxury
 	}
 }

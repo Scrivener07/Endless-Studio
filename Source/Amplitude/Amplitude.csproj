@@ -43,6 +43,7 @@
     <Compile Include="ES2\AIBattleSituation.cs" />
     <Compile Include="ES2\AIGain.cs" />
     <Compile Include="ES2\AllianceGuiElement.cs" />
+    <Compile Include="ES2\AnimationCurve.cs" />
     <Compile Include="ES2\AnomalyDefinition.cs" />
     <Compile Include="ES2\AnomalyReductionDefinition.cs" />
     <Compile Include="ES2\AvailableRange.cs" />
@@ -53,7 +54,8 @@
     <Compile Include="ES2\BailiffAuction_Hero.cs" />
     <Compile Include="ES2\BailiffAuction_Improvement.cs" />
     <Compile Include="ES2\BailiffAuction_Law.cs" />
-    <Compile Include="ES2\BailiffAuction_Resource.cs" />
+    <Compile Include="ES2\Types\BailiffAuction_Resource\BailiffAuction_Resource.cs" />
+    <Compile Include="ES2\Types\BailiffAuction_Resource\Type.cs" />
     <Compile Include="ES2\BailiffAuction_Ship.cs" />
     <Compile Include="ES2\BailiffAuction_TimeBubble.cs" />
     <Compile Include="ES2\BailiffDefinition.cs" />
@@ -62,6 +64,23 @@
     <Compile Include="ES2\BailiffSimulationAuctionOfAuctionItem_GameEntity.cs" />
     <Compile Include="ES2\BasicFaction.cs" />
     <Compile Include="ES2\BridgeModule.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition_Audio.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition_Damping.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition_Event.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition_Focus.cs" />
+    <Compile Include="ES2\Types\CameraAlterationDefinition_PlanetDestruction\CameraAlterationDefinition_PlanetDestruction.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition_Shake.cs" />
+    <Compile Include="ES2\CameraShotKeyDefinition.cs" />
+    <Compile Include="ES2\CameraShotKeyLayerTransitionDefinition.cs" />
+    <Compile Include="ES2\CameraShotKeyLayerTransitionDefinition_Curve.cs" />
+    <Compile Include="ES2\CameraShotKeyTransitionLayerOptions.cs" />
+    <Compile Include="ES2\CameraShotKeyTransitionLayerTags.cs" />
+    <Compile Include="ES2\CameraTargetFilterDefinition.cs" />
+    <Compile Include="ES2\CameraTargetOffsetDefinition.cs" />
+    <Compile Include="ES2\CameraTargetSelectionMethodDefinition.cs" />
+    <Compile Include="ES2\CameraTargetSelectionMethodDefinition_EncounterEntity.cs" />
+    <Compile Include="ES2\CameraTargetSelectionMethodDefinition_Name.cs" />
     <Compile Include="ES2\ColonizablePlanetType.cs" />
     <Compile Include="ES2\ConstructibleElement.cs" />
     <Compile Include="ES2\ConstructionCost.cs" />
@@ -95,6 +114,11 @@
     <Compile Include="ES2\DroppableString.cs" />
     <Compile Include="ES2\DummyGeneratorInfo.cs" />
     <Compile Include="ES2\Element.cs" />
+    <Compile Include="ES2\EmpirePerformanceTracker.cs" />
+    <Compile Include="ES2\EncounterEntityFilterDefinition.cs" />
+    <Compile Include="ES2\EncounterEntityTags.cs" />
+    <Compile Include="ES2\EncounterEntityType.cs" />
+    <Compile Include="ES2\EncounterEventEntityRole.cs" />
     <Compile Include="ES2\FactionPopulationTrait.cs" />
     <Compile Include="ES2\FactionTraitStartingSenate.cs" />
     <Compile Include="ES2\GuiCursor.cs" />
@@ -111,8 +135,10 @@
     <Compile Include="ES2\HullDefinition.cs" />
     <Compile Include="ES2\IconDefinition.cs" />
     <Compile Include="ES2\InfiniteCost.cs" />
+    <Compile Include="ES2\InterpreterBasedVictoryConditionEvaluatorDefinition.cs" />
     <Compile Include="ES2\InterpreterPrerequisite.cs" />
     <Compile Include="ES2\Item.cs" />
+    <Compile Include="ES2\Keyframe.cs" />
     <Compile Include="ES2\LesserFaction.cs" />
     <Compile Include="ES2\LineOfSight.cs" />
     <Compile Include="ES2\LinkedModuleEffectDefinition.cs" />
@@ -128,11 +154,15 @@
     <Compile Include="ES2\Palette.cs" />
     <Compile Include="ES2\PathPrerequisite.cs" />
     <Compile Include="ES2\PathValidityPrerequisite.cs" />
+    <Compile Include="ES2\PerformanceType.cs" />
     <Compile Include="ES2\PirateFaction.cs" />
+    <Compile Include="ES2\PlanetDefinition.cs" />
     <Compile Include="ES2\PlanetFilterNot.cs" />
+    <Compile Include="ES2\PlanetoidRadiusFromPlanetSize.cs" />
     <Compile Include="ES2\PlanetStat.cs" />
     <Compile Include="ES2\PlanetStatDetail.cs" />
     <Compile Include="ES2\PlanetStatModifier.cs" />
+    <Compile Include="ES2\PlanetTransformation.cs" />
     <Compile Include="ES2\PoliticsWeight.cs" />
     <Compile Include="ES2\PopulationCollectionBonusTrait.cs" />
     <Compile Include="ES2\PopulationModifierDefinition.cs" />
@@ -143,15 +173,21 @@
     <Compile Include="ES2\PrerequisiteOperator.cs" />
     <Compile Include="ES2\RandomTrait.cs" />
     <Compile Include="ES2\Rank.cs" />
+    <Compile Include="ES2\RankIndicator.cs" />
     <Compile Include="ES2\RankPattern.cs" />
     <Compile Include="ES2\ReductionPropertyByReductionType.cs" />
     <Compile Include="ES2\ReductionType.cs" />
+    <Compile Include="ES2\ResourceDepositDefinitionWithSize.cs" />
     <Compile Include="ES2\SectionDefinition.cs" />
     <Compile Include="ES2\SectionPatternDefinition.cs" />
     <Compile Include="ES2\SectionPatternDefinition_Eight.cs" />
     <Compile Include="ES2\SectionPatternDefinition_Four.cs" />
     <Compile Include="ES2\SerializableDirection.cs" />
+    <Compile Include="ES2\SerializableQuaternion.cs" />
+    <Compile Include="ES2\SerializableVector3.cs" />
     <Compile Include="ES2\ShipDesignLayoutDefinition.cs" />
+    <Compile Include="ES2\ShipTransformation.cs" />
+    <Compile Include="ES2\Shot.cs" />
     <Compile Include="ES2\SituationMode.cs" />
     <Compile Include="ES2\SlaveModuleDefinition.cs" />
     <Compile Include="ES2\SlotDefinition.cs" />
@@ -161,10 +197,18 @@
     <Compile Include="ES2\SlotLinkModuleConstraintDefinition.cs" />
     <Compile Include="ES2\SquadronModule.cs" />
     <Compile Include="ES2\SquadronType.cs" />
+    <Compile Include="ES2\StarSystemNodeDefinition.cs" />
+    <Compile Include="ES2\StarSystemTransformation.cs" />
     <Compile Include="ES2\StartingPopulation.cs" />
+    <Compile Include="ES2\SubEntityFilterDefinition.cs" />
+    <Compile Include="ES2\SubEntitySelectionMethodEnum.cs" />
     <Compile Include="ES2\SupervisorGain.cs" />
     <Compile Include="ES2\SupportModule.cs" />
     <Compile Include="ES2\SupportPrerequisite.cs" />
+    <Compile Include="ES2\SystemAutomatonPolicy.cs" />
+    <Compile Include="ES2\SystemDefenseThreshold.cs" />
+    <Compile Include="ES2\SystemDiscoverySequenceDefinition.cs" />
+    <Compile Include="ES2\SystemSupervisorDefinition.cs" />
     <Compile Include="ES2\Tags.cs" />
     <Compile Include="ES2\TechnologyPrerequisite.cs" />
     <Compile Include="ES2\TraitType.cs" />
@@ -184,12 +228,18 @@
     <Compile Include="ES2\UnlockDatatableElement.cs" />
     <Compile Include="ES2\ValueType.cs" />
     <Compile Include="ES2\DatatableElement.cs" />
+    <Compile Include="ES2\VictoryConditionAlert.cs" />
+    <Compile Include="ES2\VictoryConditionDefinition.cs" />
+    <Compile Include="ES2\VictoryConditionEvaluatorDefinition.cs" />
+    <Compile Include="ES2\VictoryDefinitionFormula.cs" />
+    <Compile Include="ES2\WarPointsRewardDefinition.cs" />
     <Compile Include="ES2\WeaponModule.cs" />
     <Compile Include="ES2\WeaponSlotDefinition.cs" />
     <Compile Include="ES2\WeaponTargetingSortingCriterionScoreModifier.cs" />
     <Compile Include="ES2\WeaponTargetSortingCriterionDefinition.cs" />
     <Compile Include="ES2\WeaponTargetSortingCriterionDefinition_PropertyMultiplier.cs" />
     <Compile Include="ES2\WeaponType.cs" />
+    <Compile Include="ES2\WrapMode.cs" />
     <Compile Include="ES2\XmlColor.cs" />
     <Compile Include="ES2\XmlColorPalette.cs" />
     <Compile Include="ES2\XmlColorReference.cs" />
@@ -440,10 +490,7 @@
     <Compile Include="SquadronMissionDefinition.cs" />
     <Compile Include="SquadronStanceDefinition.cs" />
     <Compile Include="SquadronStanceSelectorDefinition.cs" />
-    <Compile Include="StarSystemNodeDefinition.cs" />
-    <Compile Include="SystemDefenseThresholdDefinition.cs" />
-    <Compile Include="SystemDiscoverySequenceDefinition.cs" />
-    <Compile Include="SystemSupervisorDefinition.cs" />
+    <Compile Include="ES2\Types\CameraAlterationDefinition_PlanetDestruction\Type.cs" />
     <Compile Include="TechnologyHelperVariableDefinition.cs" />
     <Compile Include="TechnologyLinkDefinition.cs" />
     <Compile Include="TechnologyQuadrantDefinition.cs" />
@@ -456,10 +503,9 @@
     <Compile Include="TradingCompanyDefinition.cs" />
     <Compile Include="TradingCompanyImprovementDefinition.cs" />
     <Compile Include="TutorialDefinition.cs" />
-    <Compile Include="UnlockDatatableElement.cs" />
-    <Compile Include="VictoryConditionDefinition.cs" />
-    <Compile Include="WarPointsRewardDefinition.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ES2\Types\Notes.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
