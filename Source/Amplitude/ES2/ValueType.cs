@@ -6,6 +6,9 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[System.Xml.Serialization.XmlIncludeAttribute(typeof(DummyGeneratorInfo))]
+	[System.Xml.Serialization.XmlIncludeAttribute(typeof(SimulationDescriptorReference))]
+	[XmlIncludeAttribute(typeof(IconDefinition))]
 	[XmlInclude(typeof(SimulationDescriptorReference))]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
