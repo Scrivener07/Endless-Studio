@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(FactionTraitStartingSenate))]
 	[XmlInclude(typeof(FactionPopulationTrait))]
 	[XmlInclude(typeof(FactionAffinityMapping))]
 	[XmlInclude(typeof(FactionAffinity))]
