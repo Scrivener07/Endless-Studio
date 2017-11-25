@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(Rank))]
 	[XmlInclude(typeof(PopulationTrait))]
 	[XmlInclude(typeof(PopulationCollectionBonusTrait))]
 	[XmlInclude(typeof(PopulationModifiersTrait))]
