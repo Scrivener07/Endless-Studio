@@ -6,6 +6,9 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(UnlockDatatableElement))]
+	[XmlInclude(typeof(ConstructibleElement))]
+	[XmlInclude(typeof(AnomalyReductionDefinition))]
 	[XmlInclude(typeof(AnomalyDefinition))]
 	[XmlInclude(typeof(FactionTrait))]
 	[XmlInclude(typeof(FactionAffinityMapping))]
