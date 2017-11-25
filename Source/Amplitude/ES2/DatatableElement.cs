@@ -6,6 +6,10 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(PopulationTrait))]
+	[XmlInclude(typeof(PopulationCollectionBonusTrait))]
+	[XmlInclude(typeof(PopulationModifiersTrait))]
+	[XmlInclude(typeof(PopulationPoliticalTraitDefinition))]
 	[XmlInclude(typeof(CostReduction))]
 	[XmlInclude(typeof(Droplist))]
 	[XmlInclude(typeof(UnlockDatatableElement))]
