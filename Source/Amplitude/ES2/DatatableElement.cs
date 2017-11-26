@@ -6,6 +6,8 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(ContextualDiplomaticTermDefinition))]
+	[XmlInclude(typeof(ConstellationOwnershipBonusDefinition))]
 	[XmlInclude(typeof(GroundBattleViewerConfig))]
 	[XmlInclude(typeof(GroundBattleUnitConfig))]
 	[XmlInclude(typeof(GroundBattleTroopTypeConfig))]
