@@ -4,7 +4,7 @@
 	[System.SerializableAttribute()]
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public partial class PathPrerequisite : Prerequisite
+	public class PathPrerequisite : Prerequisite
 	{
 	}
 }

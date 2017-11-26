@@ -1,38 +1,39 @@
-﻿namespace Amplitude.ES2
+﻿using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Xml.Serialization;
+
+namespace Amplitude.ES2
 {
-	[System.Xml.Serialization.XmlIncludeAttribute(typeof(PathPrerequisite))]
-	[System.Xml.Serialization.XmlIncludeAttribute(typeof(InterpreterPrerequisite))]
-	[System.Xml.Serialization.XmlIncludeAttribute(typeof(PathValidityPrerequisite))]
-	[System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnologyPrerequisite))]
-	[System.Xml.Serialization.XmlIncludeAttribute(typeof(SupportPrerequisite))]
-	[System.Xml.Serialization.XmlIncludeAttribute(typeof(DownloadableContentPrerequisite))]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-	[System.SerializableAttribute()]
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public partial class Prerequisite : object, System.ComponentModel.INotifyPropertyChanged
+	[XmlInclude(typeof(PathPrerequisite))]
+	[XmlInclude(typeof(InterpreterPrerequisite))]
+	[XmlInclude(typeof(PathValidityPrerequisite))]
+	[XmlInclude(typeof(TechnologyPrerequisite))]
+	[XmlInclude(typeof(SupportPrerequisite))]
+	[XmlInclude(typeof(DownloadableContentPrerequisite))]
+	[GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+	[SerializableAttribute()]
+	[DebuggerStepThroughAttribute()]
+	[DesignerCategoryAttribute("code")]
+	public class Prerequisite : INotifyPropertyChanged
 	{
-
 		private bool invertedField;
-
 		private string flagsField;
-
 		private string valueField;
+
 
 		public Prerequisite()
 		{
 			this.invertedField = false;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttributeAttribute()]
-		[System.ComponentModel.DefaultValueAttribute(false)]
+
+		[XmlAttribute]
+		[DefaultValue(false)]
 		public bool Inverted
 		{
-			get
-			{
-				return this.invertedField;
-			}
+			get { return this.invertedField; }
 			set
 			{
 				this.invertedField = value;
@@ -40,14 +41,11 @@
 			}
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttributeAttribute()]
+
+		[XmlAttribute]
 		public string Flags
 		{
-			get
-			{
-				return this.flagsField;
-			}
+			get { return this.flagsField; }
 			set
 			{
 				this.flagsField = value;
@@ -55,14 +53,11 @@
 			}
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlTextAttribute()]
+
+		[XmlText]
 		public string Value
 		{
-			get
-			{
-				return this.valueField;
-			}
+			get { return this.valueField; }
 			set
 			{
 				this.valueField = value;
@@ -70,15 +65,18 @@
 			}
 		}
 
-		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected void RaisePropertyChanged(string propertyName)
 		{
-			System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
 			if ((propertyChanged != null))
 			{
-				propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+
+
 	}
 }
