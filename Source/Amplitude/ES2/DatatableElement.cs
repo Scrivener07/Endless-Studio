@@ -6,12 +6,18 @@ using System.Xml.Serialization;
 
 namespace Amplitude.ES2
 {
+	[XmlInclude(typeof(GameSettingRestrictionDefinition))]
+	[XmlInclude(typeof(ItemDefinition))]
+	[XmlInclude(typeof(GameSettingDefinition))]
+	[XmlInclude(typeof(WorldSettingDefinition))]
+	[XmlInclude(typeof(GameStatisticDefinition))]
+	[XmlInclude(typeof(InterpreterBasedGameStatisticDefinition))]
+	[XmlInclude(typeof(Shot_EncounterEvent))]
 	[XmlInclude(typeof(SystemSupervisorDefinition))]
 	[XmlInclude(typeof(Shot))]
 	[XmlInclude(typeof(SystemDiscoverySequenceDefinition))]
 	[XmlInclude(typeof(SystemDefenseThreshold))]
 	[XmlInclude(typeof(StarSystemNodeDefinition))]
-	[XmlInclude(typeof(UnlockDatatableElement))]
 	[XmlInclude(typeof(WarPointsRewardDefinition))]
 	[XmlInclude(typeof(VictoryConditionDefinition))]
 	[XmlInclude(typeof(AnomalyDefinition))]

@@ -1,5 +1,6 @@
 ﻿namespace Amplitude.ES2
 {
+	[System.Xml.Serialization.XmlIncludeAttribute(typeof(Shot_EncounterEvent))]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
 	[System.SerializableAttribute()]
 	[System.Diagnostics.DebuggerStepThroughAttribute()]

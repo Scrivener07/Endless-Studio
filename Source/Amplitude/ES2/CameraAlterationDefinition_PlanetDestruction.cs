@@ -11,7 +11,7 @@ namespace Amplitude.ES2
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public partial class CameraAlterationDefinition_PlanetDestruction : CameraAlterationDefinition
+	public class CameraAlterationDefinition_PlanetDestruction : CameraAlterationDefinition
 	{
 		private AmbiguousType eventTypeField;
 

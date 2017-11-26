@@ -11,7 +11,7 @@ namespace Amplitude.ES2
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public partial class BailiffAuction_Resource : BailiffAuctionOfAuctionItem_Resource
+	public class BailiffAuction_Resource : BailiffAuctionOfAuctionItem_Resource
 	{
 		private AmbiguousType typeField;
 		private float maxPercentageField;

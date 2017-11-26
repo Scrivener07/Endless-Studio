@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ES2\AccessibilitySetter.cs" />
     <Compile Include="ES2\AIBattleSituation.cs" />
     <Compile Include="ES2\AIGain.cs" />
     <Compile Include="ES2\AllianceGuiElement.cs" />
@@ -54,6 +55,12 @@
     <Compile Include="ES2\BailiffAuction_Hero.cs" />
     <Compile Include="ES2\BailiffAuction_Improvement.cs" />
     <Compile Include="ES2\BailiffAuction_Law.cs" />
+    <Compile Include="ES2\CounterIncrementer.cs" />
+    <Compile Include="ES2\EncounterRealizationEventPrerequisiteDefinition.cs" />
+    <Compile Include="ES2\GameSettingCondition.cs" />
+    <Compile Include="ES2\GameSettingDefinition.cs" />
+    <Compile Include="ES2\GameSettingRestrictionDefinition.cs" />
+    <Compile Include="ES2\GameStatisticDefinition.cs" />
     <Compile Include="ES2\Generator\Definitions\AnomalyDefinition.cs" />
     <Compile Include="ES2\Generator\Definitions\GalaxyShapeMergePlans.cs" />
     <Compile Include="ES2\Generator\Definitions\GeneratorInfo.cs" />
@@ -65,7 +72,13 @@
     <Compile Include="ES2\Generator\Definitions\PlanetTierDefinition.cs" />
     <Compile Include="ES2\Generator\Definitions\PopulationCapacityGroup.cs" />
     <Compile Include="ES2\Generator\Definitions\SizeDivisionUseCase.cs" />
-    <Compile Include="ES2\Types\BailiffAuction_Resource\BailiffAuction_Resource.cs" />
+    <Compile Include="ES2\InterpreterBasedGameStatisticDefinition.cs" />
+    <Compile Include="ES2\ItemDefinition.cs" />
+    <Compile Include="ES2\KeyValuePair.cs" />
+    <Compile Include="ES2\RestrictionSet.cs" />
+    <Compile Include="ES2\RestrictionValue.cs" />
+    <Compile Include="ES2\Shot_EncounterEvent.cs" />
+    <Compile Include="ES2\BailiffAuction_Resource.cs" />
     <Compile Include="ES2\Types\BailiffAuction_Resource\Type.cs" />
     <Compile Include="ES2\BailiffAuction_Ship.cs" />
     <Compile Include="ES2\BailiffAuction_TimeBubble.cs" />
@@ -80,7 +93,7 @@
     <Compile Include="ES2\CameraAlterationDefinition_Damping.cs" />
     <Compile Include="ES2\CameraAlterationDefinition_Event.cs" />
     <Compile Include="ES2\CameraAlterationDefinition_Focus.cs" />
-    <Compile Include="ES2\Types\CameraAlterationDefinition_PlanetDestruction\CameraAlterationDefinition_PlanetDestruction.cs" />
+    <Compile Include="ES2\CameraAlterationDefinition_PlanetDestruction.cs" />
     <Compile Include="ES2\CameraAlterationDefinition_Shake.cs" />
     <Compile Include="ES2\CameraShotKeyDefinition.cs" />
     <Compile Include="ES2\CameraShotKeyLayerTransitionDefinition.cs" />
@@ -223,6 +236,7 @@
     <Compile Include="ES2\Tags.cs" />
     <Compile Include="ES2\TechnologyPrerequisite.cs" />
     <Compile Include="ES2\TraitType.cs" />
+    <Compile Include="ES2\Types\CameraShotDefinition\Type.cs" />
     <Compile Include="ES2\Unity\Achievement\StatisticType.cs" />
     <Compile Include="ES2\Unity\Game\Orders\OrderPolicy.cs" />
     <Compile Include="ES2\Unity\Game\Orders\OrderPolicyChain.cs" />
@@ -250,6 +264,7 @@
     <Compile Include="ES2\WeaponTargetSortingCriterionDefinition.cs" />
     <Compile Include="ES2\WeaponTargetSortingCriterionDefinition_PropertyMultiplier.cs" />
     <Compile Include="ES2\WeaponType.cs" />
+    <Compile Include="ES2\WorldSettingDefinition.cs" />
     <Compile Include="ES2\WrapMode.cs" />
     <Compile Include="ES2\XmlColor.cs" />
     <Compile Include="ES2\XmlColorPalette.cs" />
@@ -384,7 +399,6 @@
     <Compile Include="ES2\Unity\Achievement\AchievementStatisticDefinition.cs" />
     <Compile Include="BattleActionDefinition.cs" />
     <Compile Include="BattleEffectDefinition.cs" />
-    <Compile Include="CameraShotDefinition.cs" />
     <Compile Include="ConstellationOwnershipBonusDefinition.cs" />
     <Compile Include="ConstructibleElement.cs" />
     <Compile Include="ConstructionRefundDefinition.cs" />
@@ -420,9 +434,6 @@
     <Compile Include="FleetNameMappingDefinition.cs" />
     <Compile Include="ForeignAffairsConstructibleElement.cs" />
     <Compile Include="GalaxyGeneratorWeightTableDefinition.cs" />
-    <Compile Include="GameSettingDefinition.cs" />
-    <Compile Include="GameSettingRestrictionDefinition.cs" />
-    <Compile Include="GameStatisticDefinition.cs" />
     <Compile Include="GovernmentDefinition.cs" />
     <Compile Include="GroundBattleStrategyDefinition.cs" />
     <Compile Include="GroundBattleTroopTypeConfig.cs" />
