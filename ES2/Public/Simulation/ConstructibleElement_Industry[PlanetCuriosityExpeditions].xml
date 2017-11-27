@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PlanetCuriosityExpeditionDefinition.xsd">
+
+    <!-- Lower priority = picked first. Faction-specific constructibles must have lower priority value than "common" ones -->
+    <PlanetCuriosityExpeditionDefinition Name="CuriosityExpeditionAtmospheric" Priority="10" TargetType="CuriosityTypeAtmospheric">
+        <InProgressSimulationDescriptorReference Name="ExpeditionInProgress"/>
+        <Cost ResourceName="SystemProduction">100</Cost>
+    </PlanetCuriosityExpeditionDefinition>
+
+    <PlanetCuriosityExpeditionDefinition Name="CuriosityExpeditionRuins" Priority="10" TargetType="CuriosityTypeRuins">
+        <InProgressSimulationDescriptorReference Name="ExpeditionInProgress"/>
+        <Cost ResourceName="SystemProduction">100</Cost>
+    </PlanetCuriosityExpeditionDefinition>
+
+    <PlanetCuriosityExpeditionDefinition Name="CuriosityExpeditionLifeform" Priority="10" TargetType="CuriosityTypeLifeform">
+        <InProgressSimulationDescriptorReference Name="ExpeditionInProgress"/>
+        <Cost ResourceName="SystemProduction">100</Cost>
+    </PlanetCuriosityExpeditionDefinition>
+
+    <PlanetCuriosityExpeditionDefinition Name="CuriosityExpeditionSignal" Priority="10" TargetType="CuriosityTypeSignal">
+        <InProgressSimulationDescriptorReference Name="ExpeditionInProgress"/>
+        <Cost ResourceName="SystemProduction">100</Cost>
+    </PlanetCuriosityExpeditionDefinition>
+
+    <PlanetCuriosityExpeditionDefinition Name="CuriosityExpeditionUnderground" Priority="10" TargetType="CuriosityTypeUnderground">
+        <InProgressSimulationDescriptorReference Name="ExpeditionInProgress"/>
+        <Cost ResourceName="SystemProduction">100</Cost>
+    </PlanetCuriosityExpeditionDefinition>
+
+    <!-- No constructible for quest! -->
+    <!--<PlanetCuriosityExpeditionDefinition Name="CuriosityExpeditionQuest" Priority="10" TargetType="CuriosityTypeQuest">
+        <InProgressSimulationDescriptorReference Name="ExpeditionInProgress"/>
+        <Cost ResourceName="SystemProduction">75</Cost>
+    </PlanetCuriosityExpeditionDefinition>-->
+    
+</Datatable>

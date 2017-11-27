@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+
+
+    <PoliticsGuiElement Name="Politics00">
+        <Title>%Politics00Title</Title>
+        <Description>%Politics00Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsNeutralSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Quests/PoliticsNeutralMedium" />
+        </Icons>
+        <SymbolString>[politics]</SymbolString>
+        <Color Red="220" Green="220" Blue="220" Alpha=" 255"/>
+    </PoliticsGuiElement>
+    
+    <PoliticsGuiElement Name="Politics01">
+        <Title>%Politics01Title</Title>
+        <Description>%Politics01Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsIndustrialistSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/PoliticsIndustrialistMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Atlased/Politics/Inverted/PoliticsIndustrialistMediumInverted" />
+            <Icon Size="Leader" Path="Bitmaps/Atlased/Politics/PoliticsIndustrialistLeader" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Politics/PoliticsIndustrialistLarge" />
+        </Icons>
+        <SymbolString>[industrialist]</SymbolString>
+        <Color Red="223" Green="130" Blue="105" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPoliticalFlagsIndustrialist01</ModelPath>
+        <PoliticsAffectingEvents>%Politics01AffectingEventsDescription</PoliticsAffectingEvents>
+    </PoliticsGuiElement>
+
+    <PoliticsGuiElement Name="Politics03">
+        <Title>%Politics03Title</Title>
+        <Description>%Politics03Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/PoliticsPacifistMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Atlased/Politics/Inverted/PoliticsPacifistMediumInverted" />
+            <Icon Size="Leader" Path="Bitmaps/Atlased/Politics/PoliticsPacifistLeader" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Politics/PoliticsPacifistLarge" />
+        </Icons>
+        <SymbolString>[pacifist]</SymbolString>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPoliticalFlagsPacifist01</ModelPath>
+        <PoliticsAffectingEvents>%Politics03AffectingEventsDescription</PoliticsAffectingEvents>
+    </PoliticsGuiElement>
+
+    <!-- This order is intended-->
+    <PoliticsGuiElement Name="Politics02">
+        <Title>%Politics02Title</Title>
+        <Description>%Politics02Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsScientistSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/PoliticsScientistMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Atlased/Politics/Inverted/PoliticsScientistMediumInverted" />
+            <Icon Size="Leader" Path="Bitmaps/Atlased/Politics/PoliticsScientistLeader" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Politics/PoliticsScientistLarge" />
+        </Icons>
+        <SymbolString>[scientist]</SymbolString>
+        <Color Red="82" Green="201" Blue="231" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPoliticalFlagsScientist01</ModelPath>
+        <PoliticsAffectingEvents>%Politics02AffectingEventsDescription</PoliticsAffectingEvents>
+    </PoliticsGuiElement>
+
+    <PoliticsGuiElement Name="Politics04">
+        <Title>%Politics04Title</Title>
+        <Description>%Politics04Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/PoliticsEcologistMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Atlased/Politics/Inverted/PoliticsEcologistMediumInverted" />
+            <Icon Size="Leader" Path="Bitmaps/Atlased/Politics/PoliticsEcologistLeader" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Politics/PoliticsEcologistLarge" />
+        </Icons>
+        <SymbolString>[ecologist]</SymbolString>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPoliticalFlagsEcologist01</ModelPath>
+        <PoliticsAffectingEvents>%Politics04AffectingEventsDescription</PoliticsAffectingEvents>
+    </PoliticsGuiElement>
+
+    <PoliticsGuiElement Name="Politics06">
+        <Title>%Politics06Title</Title>
+        <Description>%Politics06Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/PoliticsMilitaristMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Atlased/Politics/Inverted/PoliticsMilitaristMediumInverted" />
+            <Icon Size="Leader" Path="Bitmaps/Atlased/Politics/PoliticsMilitaristLeader" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Politics/PoliticsMilitaristLarge" />
+        </Icons>
+        <SymbolString>[militarist]</SymbolString>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPoliticalFlagsMilitarist01</ModelPath>
+        <PoliticsAffectingEvents>%Politics06AffectingEventsDescription</PoliticsAffectingEvents>
+    </PoliticsGuiElement>
+
+    <!-- This order is intended-->
+    <PoliticsGuiElement Name="Politics05">
+        <Title>%Politics05Title</Title>
+        <Description>%Politics05Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/PoliticsReligiousMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Atlased/Politics/Inverted/PoliticsReligiousMediumInverted" />
+            <Icon Size="Leader" Path="Bitmaps/Atlased/Politics/PoliticsReligiousLeader" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Politics/PoliticsReligiousLarge" />
+        </Icons>
+        <SymbolString>[religious]</SymbolString>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPoliticalFlagsReligious01</ModelPath>
+         <PoliticsAffectingEvents>%Politics05AffectingEventsDescription</PoliticsAffectingEvents>
+    </PoliticsGuiElement>
+
+    <!-- Lumeris Families -->
+    <ExtendedGuiElement Name="LumerisFamilyArrakyo">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyArrakyoSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyArrakyoMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyArrakyoLarge" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="LumerisFamilyOmokor">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyOmokorSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyOmokorMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyOmokorLarge" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="LumerisFamilyLancellum">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyLancellumSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyLancellumMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyLancellumLarge" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="LumerisFamilyMeos">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyMeosSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyMeosMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyMeosLarge" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="LumerisFamilyArrakyoOmokor">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyArrakyoOmokorSmall" />
+      <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyArrakyoOmokorMedium" />
+      <Icon Size="Large" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyArrakyoOmokorLarge" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="LumerisFamilyMeosLancellum">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyMeosLancellumSmall" />
+      <Icon Size="Medium" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyMeosLancellumMedium" />
+      <Icon Size="Large" Path="Bitmaps/Atlased/Politics/Families/LumerisFamilyMeosLancellumLarge" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+</Datatable>

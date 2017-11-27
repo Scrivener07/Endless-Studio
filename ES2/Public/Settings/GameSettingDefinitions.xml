@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GameSettingDefinition.xsd">
+
+    <GameSettingDefinition Name="SessionName" Type="string" Default="UserValue" IsEditable="True" NotNullOrEmpty="true" SessionSpecific="True">
+        <EditableValue></EditableValue>
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="SessionMode" Type="SessionMode, Assembly-CSharp-firstpass" Default="Single" SessionSpecific="True">
+        <ItemDefinition Name="Single" />
+        <!--<ItemDefinition Name="Private" />-->
+        <ItemDefinition Name="Protected" />
+        <ItemDefinition Name="Public" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="AllowCustomFactions" Type="bool" Default="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="CompetitorCount" Type="int" Default="8">
+        <ItemDefinition Name="2" />
+        <ItemDefinition Name="3" />
+        <ItemDefinition Name="4" />
+        <ItemDefinition Name="5" />
+        <ItemDefinition Name="6" />
+        <ItemDefinition Name="7" />
+        <ItemDefinition Name="8" IsRecommended="true" />
+        <ItemDefinition Name="9" />
+        <ItemDefinition Name="10" />
+        <ItemDefinition Name="11" />
+        <ItemDefinition Name="12" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="GameSpeed" Type="string" Default="Normal">
+        <ItemDefinition Name="Fast" />
+        <ItemDefinition Name="Normal" IsRecommended="true"/>
+        <ItemDefinition Name="Slow" />
+        <ItemDefinition Name="Endless" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="GameDifficulty" Type="string" Default="Normal">
+        <ItemDefinition Name="Newbie" />
+        <ItemDefinition Name="Easy" IsRecommended="true" />
+        <ItemDefinition Name="Normal" />
+        <ItemDefinition Name="Hard" />
+        <ItemDefinition Name="Serious" />
+        <ItemDefinition Name="Impossible" />
+        <ItemDefinition Name="Endless" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="WithRandomEvents" Type="bool" Default="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="RandomEventsRarity" Type="string" Default="Normal">
+        <Visible Value="False">
+            <If GameSetting="WithRandomEvents" Value="False" />
+        </Visible>
+        <ItemDefinition Name="Rare">
+            <KeyValuePair Key="RandomEventsProbability">0.15</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal">
+            <KeyValuePair Key="RandomEventsProbability">1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Abundant">
+            <KeyValuePair Key="RandomEventsProbability">1.5</KeyValuePair>
+        </ItemDefinition>
+    </GameSettingDefinition>
+
+    <!-- If we decide to use slider instead of checkbox, change the type to float -->
+    <GameSettingDefinition Name="MetaplotProbability" Type="bool" Default="True">
+        <ItemDefinition Name="False"/>
+        <ItemDefinition Name="True"/>
+    </GameSettingDefinition>
+
+    <!-- If we decide to use slider instead of checkbox, change the type to float -->
+    <GameSettingDefinition Name="MultiplayerQuestsEventsProbability" Type="bool" Default="True">
+        <ItemDefinition Name="False"/>
+        <ItemDefinition Name="True"/>
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="UniqueRandom" Type="bool" Default="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <!-- TIME MANAGEMENT -->
+    <!-- Indentation is for a better understanding of the dependencies -->
+
+    <GameSettingDefinition Name="AnimationSpeedMultiplier" Type="int" Default="1">
+        <ItemDefinition Name="1" IsRecommended="true" />
+        <ItemDefinition Name="2" />
+        <ItemDefinition Name="4" />
+    </GameSettingDefinition>
+
+    <!-- Global Timer -->
+
+    <GameSettingDefinition Name="GlobalTimer" Type="bool" Default="False">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="EndTurnTimerGlobalDuration" Type="int" Default="14400">
+                <Visible Value="True">
+                    <If GameSetting="GlobalTimer" Value="True" />
+                </Visible>
+                <ItemDefinition Name="10800" />
+                <ItemDefinition Name="14400" />
+                <ItemDefinition Name="18000" />
+            </GameSettingDefinition>
+
+    <!-- End Turn Timer -->
+
+    <GameSettingDefinition Name="EndTurnTimer" Type="bool" Default="False" SessionSpecific="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="AllPlayerTimer" Type="bool" Default="False" SessionSpecific="True">
+                <Visible Value="True">
+                    <If GameSetting="EndTurnTimer" Value="True" />
+                </Visible>
+                <ItemDefinition Name="False" />
+                <ItemDefinition Name="True" />
+            </GameSettingDefinition>
+
+                    <GameSettingDefinition Name="EndTurnTimerDuration" Type="int" Default="60" SessionSpecific="True">
+                        <Visible Value="True">
+                            <If GameSetting="EndTurnTimer" Value="True" />
+                        </Visible>
+                        <Enable Value="True">
+                            <If GameSetting="AllPlayerTimer" Value="True" />
+                        </Enable>
+                        <ItemDefinition Name="30" />
+                        <ItemDefinition Name="45" />
+                        <ItemDefinition Name="60" />
+                        <ItemDefinition Name="90" />
+                        <ItemDefinition Name="120" />
+                        <ItemDefinition Name="180" />
+                    </GameSettingDefinition>
+
+                    <GameSettingDefinition Name="EndTurnTimerEraAdditionalDuration" Type="int" Default="40" SessionSpecific="True">
+                        <Visible Value="True">
+                            <If GameSetting="EndTurnTimer" Value="True" />
+                        </Visible>
+                        <Enable Value="True">
+                            <If GameSetting="AllPlayerTimer" Value="True" />
+                        </Enable>
+                        <ItemDefinition Name="0" />
+                        <ItemDefinition Name="20" />
+                        <ItemDefinition Name="40" />
+                        <ItemDefinition Name="60" />
+                        <ItemDefinition Name="80" />
+                    </GameSettingDefinition>
+
+                    <GameSettingDefinition Name="EndTurnTimerSystemAdditionalDuration" Type="int" Default="10" SessionSpecific="True">
+                        <Visible Value="True">
+                            <If GameSetting="EndTurnTimer" Value="True" />
+                        </Visible>
+                        <Enable Value="True">
+                            <If GameSetting="AllPlayerTimer" Value="True" />
+                        </Enable>
+                        <ItemDefinition Name="0" />
+                        <ItemDefinition Name="10" />
+                        <ItemDefinition Name="20" />
+                        <ItemDefinition Name="30" />
+                    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="OvertimeMode" Type="bool" Default="False" SessionSpecific="True">
+                <Visible Value="True">
+                    <If GameSetting="EndTurnTimer" Value="True" />
+                </Visible>
+                <Enable Value="True">
+                    <If GameSetting="AllPlayerTimer" Value="True" />
+                    <If GameSetting="LastPlayerTimer" Value="False" />
+                </Enable>
+                <ItemDefinition Name="False" />
+                <ItemDefinition Name="True" />
+            </GameSettingDefinition>
+
+                    <GameSettingDefinition Name="MaxOvertime" Type="int" Default="180" SessionSpecific="True">
+                        <Visible Value="True">
+                            <If GameSetting="EndTurnTimer" Value="True" />
+                        </Visible>
+                        <Enable Value="True">
+                            <If GameSetting="AllPlayerTimer" Value="True" />
+                            <If GameSetting="LastPlayerTimer" Value="False" />
+                            <If GameSetting="OvertimeMode" Value="True" />
+                        </Enable>
+                        <ItemDefinition Name="60" />
+                        <ItemDefinition Name="120" />
+                        <ItemDefinition Name="180" />
+                        <ItemDefinition Name="240" />
+                        <ItemDefinition Name="300" />
+                    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="LastPlayerTimer" Type="bool" Default="False" SessionSpecific="True">
+                <Visible Value="True">
+                    <If GameSetting="EndTurnTimer" Value="True" />
+                </Visible>
+                <Enable Value="True">
+                    <If GameSetting="OvertimeMode" Value="False" />
+                </Enable>
+                <ItemDefinition Name="False" />
+                <ItemDefinition Name="True" />
+            </GameSettingDefinition>
+
+                    <GameSettingDefinition Name="EndTurnTimerLastPlayerDuration" Type="int" Default="60" SessionSpecific="True">
+                        <Visible Value="True">
+                            <If GameSetting="EndTurnTimer" Value="True" />
+                        </Visible>
+                        <Enable Value="True">
+                            <If GameSetting="OvertimeMode" Value="False" />
+                            <If GameSetting="LastPlayerTimer" Value="True" />
+                        </Enable>
+                        <ItemDefinition Name="20" />
+                        <ItemDefinition Name="30" />
+                        <ItemDefinition Name="45" />
+                        <ItemDefinition Name="60" />
+                        <ItemDefinition Name="90" />
+                    </GameSettingDefinition>
+
+    <!-- Space Battle Timer -->
+
+    <GameSettingDefinition Name="SpaceBattleTimer" Type="bool" Default="False" SessionSpecific="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="SpaceBattleTimerDuration" Type="int" Default="15" SessionSpecific="True">
+                <Visible Value="True">
+                    <If GameSetting="SpaceBattleTimer" Value="True" />
+                </Visible>
+                <ItemDefinition Name="15" />
+                <ItemDefinition Name="30" />
+                <ItemDefinition Name="45" />
+            </GameSettingDefinition>
+
+    <!-- Ground Battle Timer -->
+
+    <GameSettingDefinition Name="GroundBattleAutoStartTimer" Type="bool" Default="False" SessionSpecific="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="GroundBattleAutoStartTimerDuration" Type="int" Default="15" SessionSpecific="True">
+                <Visible Value="True">
+                    <If GameSetting="GroundBattleAutoStartTimer" Value="True" />
+                </Visible>
+                <ItemDefinition Name="15" />
+                <ItemDefinition Name="30" />
+                <ItemDefinition Name="45" />
+            </GameSettingDefinition>
+
+    <GameSettingDefinition Name="BattleAutoStartTimer" Type="bool" Default="False" SessionSpecific="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+            <GameSettingDefinition Name="BattleAutoStartTimerDuration" Type="int" Default="20" SessionSpecific="True">
+                <Visible Value="True">
+                    <If GameSetting="BattleAutoStartTimer" Value="True" />
+                </Visible>
+                <ItemDefinition Name="10" />
+                <ItemDefinition Name="15" />
+                <ItemDefinition Name="20" />
+                <ItemDefinition Name="30" />
+            </GameSettingDefinition>
+
+    <GameSettingDefinition Name="AllowSpaceBattleRewatch" Type="bool" Default="True" SessionSpecific="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <!-- VICTORY MANAGEMENT -->
+
+    <GameSettingDefinition Name="Score" Type="bool" Default="True">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Score" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Score" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="Military" Type="bool" Default="True" IsEditable="false" NotNullOrEmpty="true">
+        <!--<IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Military" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Military" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>-->
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="Supremacy" Type="bool" Default="True">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Supremacy" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Supremacy" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="Conquest" Type="bool" Default="True">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Conquest" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Conquest" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="Science" Type="bool" Default="True">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Science" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Science" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <!-- <GameSettingDefinition Name="Temples" Type="bool" Default="False">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Temples" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Temples" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="5" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>-->
+
+    <GameSettingDefinition Name="Economy" Type="bool" Default="True">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Economy" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Economy" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="Wonder" Type="bool" Default="True">
+        <IncrementCount Name="VictoryConditionsCount">
+            <If GameSetting="Wonder" Value="True" />
+        </IncrementCount>
+        <Enable Value="True" Operator="Or">
+            <If GameSetting="Wonder" Value="True" />
+            <If Count="VictoryConditionsCount" LowerEqual="6" />
+        </Enable>
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" >
+            <KeyValuePair Key="WonderVictory">1</KeyValuePair>
+        </ItemDefinition>
+    </GameSettingDefinition>
+
+    <GameSettingDefinition Name="AllowAllianceVictory" Type="bool" Default="True">
+        <ItemDefinition Name="False" />
+        <ItemDefinition Name="True" />
+    </GameSettingDefinition>
+
+    <!-- EARLY ACCESS -->
+    <GameSettingDefinition Name="TutorialMode" Type="string" Default="Advanced">
+        <ItemDefinition Name="None"/>
+        <!--<ItemDefinition Name="Beginner"/>-->
+        <ItemDefinition Name="Advanced" IsRecommended="true"/>
+        <ItemDefinition Name="Expert"/>
+    </GameSettingDefinition>
+
+    <!--<GameSettingDefinition Name="TutorialMode" Type="string" Default="Beginner">
+        <ItemDefinition Name="None" />
+        <ItemDefinition Name="Beginner" IsRecommended="true" />
+        <ItemDefinition Name="Advanced" />
+        <ItemDefinition Name="Expert" />
+    </GameSettingDefinition>-->
+
+    <!-- RUNTIME SETTABLE SETTINGS (runtime edition not implemented yet) -->
+
+</Datatable>

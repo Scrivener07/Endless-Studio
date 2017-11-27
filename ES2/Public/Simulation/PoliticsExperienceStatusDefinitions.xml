@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PoliticsExperienceStatusDefinition.xsd">
+
+    <!--
+            MinValue|MaxValue = -+Infinity // Ignore Value.
+            Example: MinValue=0.8 -> Range=[0.8;+inf[
+    -->
+
+    <PoliticsExperienceStatusDefinition Name="PoliticsExperience0" MaxValue=".2"/>
+    <PoliticsExperienceStatusDefinition Name="PoliticsExperience1" MinValue=".2" MaxValue=".6"/>
+    <PoliticsExperienceStatusDefinition Name="PoliticsExperience2" MinValue=".6" MaxValue="1"/>
+    <PoliticsExperienceStatusDefinition Name="PoliticsExperience3" MinValue="1"/>
+
+</Datatable>

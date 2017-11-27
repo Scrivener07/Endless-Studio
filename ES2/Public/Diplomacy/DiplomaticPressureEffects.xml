@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/DiplomaticPressureEffectDefinition.xsd">
+
+    <!-- PressureWar -->
+    <DiplomaticPressureEffectDefinition_DiplomaticRelationState Name="PressureWar">
+        <SimulationDescriptorReferenceOnInitiator Name="PressureWar" />
+    </DiplomaticPressureEffectDefinition_DiplomaticRelationState>
+
+    <!-- PressureUnknown -->
+    <DiplomaticPressureEffectDefinition_DiplomaticRelationState Name="PressureUnknown">
+        <SimulationDescriptorReferenceOnInitiator Name="PressureUnknown" />
+    </DiplomaticPressureEffectDefinition_DiplomaticRelationState>
+
+    <!-- PressurePeace -->
+    <DiplomaticPressureEffectDefinition_DiplomaticRelationState Name="PressurePeace">
+        <SimulationDescriptorReferenceOnInitiator Name="PressurePeace" />
+    </DiplomaticPressureEffectDefinition_DiplomaticRelationState>
+    
+    <!-- PressureAlliance -->
+    <DiplomaticPressureEffectDefinition_DiplomaticRelationState Name="PressureAlliance">
+        <SimulationDescriptorReferenceOnInitiator Name="PressureAlliance" />
+    </DiplomaticPressureEffectDefinition_DiplomaticRelationState>
+    
+    <!-- PressureOpenBorders -->
+    <DiplomaticPressureEffectDefinition_DiplomaticAbility Name="PressureOpenBorders">
+        <SimulationDescriptorReferenceOnInitiator   Name="PressureOpenBordersInitiator" />
+        <SimulationDescriptorReferenceOnTarget      Name="PressureOpenBordersTarget" />
+    </DiplomaticPressureEffectDefinition_DiplomaticAbility>
+    
+</Datatable>

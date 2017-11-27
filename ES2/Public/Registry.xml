@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Registry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Gameplay>
+        <Galaxy>
+            <Generator>
+                <!--<GeneratorPrefabMapping>Format('Prefabs/GalaxyGenerator/Generator_{0}_{1}', $(GalaxyShape), $(GalaxySize))</GeneratorPrefabMapping>-->
+                <GeneratorPrefabMapping>Format('Prefabs/GalaxyGenerator/Generator_{0}', $(GalaxyShape))</GeneratorPrefabMapping>-->
+            </Generator>
+        </Galaxy>
+        <Empire>
+            <InfluenceStrenghtAttenuationFactor>3</InfluenceStrenghtAttenuationFactor>
+            <!-- 0 for linear attenuation. -->
+            <Agencies>
+                <DepartmentOfCommerce>
+                    <ResourceIncome>
+                        <NeighbourModifier>0.4</NeighbourModifier>
+                        <TradingCompanyHeadquartersModifier>1</TradingCompanyHeadquartersModifier>
+                        <TradingCompanySubsidiaryModifier>0.9</TradingCompanySubsidiaryModifier>
+                    </ResourceIncome>
+                    <!-- Number of turns before a company structure (HQ or subsidiary) located on a lost system is destroyed -->
+                    <TradingCompanyStructureDestructionDelay>5</TradingCompanyStructureDestructionDelay>
+                    <!-- Required accumulated income to unlock new HQ.              Vars: Empire -->
+                    <TradingRoutesIncomeThresholdFormula>Floor(250 * Pow(4.2, Property(Empire, AvailableNumberOfTradingCompanyHeadquarters)))</TradingRoutesIncomeThresholdFormula>
+                    <!-- Required experience to level up.                           Vars: Empire, TradingCompany -->
+                    <TradingRoutesExperienceThresholdFormula>(Floor(500 * (1 + Pow(1.45, Property(TradingCompany, Level))) - 1900)) * Property(TradingCompany, @../ClassEmpire, TradingCompanyLevelUpMultiplier)</TradingRoutesExperienceThresholdFormula>
+                    <!-- TCIncomeMultiplier x TRIncome = TCIncome.                  Vars: Empire, TradingCompany -->
+                    <TradingCompanyIncomeMultiplierFormula>0.75 + Pow(Property(TradingCompany, Level) / 35, 0.75)</TradingCompanyIncomeMultiplierFormula>
+                    <!-- SystemIncome x LengthModifier = TRIncome.                  Vars: TradingCompany, PathLength (int) -->
+                    <TradingRouteLengthModifierFormula>Min((1 + $(PathLength) / 5), (1+1.2*(Logn($(PathLength)^2))))</TradingRouteLengthModifierFormula>
+                    
+                    <!-- Estimated value of the system in scan view.                Vars: ColonizedStarSystem -->
+                    <TradingLocalCurrentScore>Property(ColonizedStarSystem, SystemLevel) * (Property(ColonizedStarSystem, Population) + Property(ColonizedStarSystem, TradingRouteSystemTotalBaseIncome_Luxury))</TradingLocalCurrentScore>
+                    <!-- Estimated potential value of the system in scan view.      Vars: ColonizedStarSystem, LocalScore (float), NeighboursScore (float) -->
+                    <TradingLocalPotentialScore>(4 * Property(ColonizedStarSystem, MaximumPopulation)) + 40</TradingLocalPotentialScore>
+                    <!-- Estimated quality of the system in scan view.              Vars: ColonizedStarSystem, LocalScore (float), NeighboursScore (float) -->
+                    <TradingQualityScore>(1.2 * $(LocalScore)) + (1.1 * $(NeighboursScore))</TradingQualityScore>
+                    <!-- Thresholds for stars in scan view -->
+                    <TradingQualityScoreRatings>0;428;856;1284;1712</TradingQualityScoreRatings>
+                </DepartmentOfCommerce>
+                <DepartmentOfDefense>
+                    <GenericColonyShipDesign>ShipDesignColonizerGeneric</GenericColonyShipDesign>
+                    <!-- Interpreter context variables: EmpireCount, GameNodeCount -->
+                    <StartingMothershipCountFormula>1</StartingMothershipCountFormula>
+                    <!-- Interpreter context variables: Empire, Ship -->
+                    <RetrofitCostFormula>30 * Property(Empire, @ClassEmpire, DustInflation) * Property(Empire, @ClassEmpire, GameSpeedMultiplier)</RetrofitCostFormula>
+					<RepairCostFormula>0.25 * (Property(Ship, @ClassShip, MaximumHealth) - Property(Ship, @ClassShip, Health)) * Property(Empire, @ClassEmpire, GameSpeedMultiplier) * Property(Empire, @ClassEmpire, DustInflation)</RepairCostFormula>
+                    <!-- Interpreter context variables: Empire -->
+                    <InfantryWeightCost>25</InfantryWeightCost>
+                    <TankWeightCost>25</TankWeightCost>
+                    <PlaneWeightCost>25</PlaneWeightCost>
+                    <!-- Play deck modification cost -->
+                    <PlayDeckCostResourceName>EmpireEmpirePoint</PlayDeckCostResourceName>
+                    <PlayDeckCostFormula>(20 + (Property(StockLocation, @ClassEmpire, PlayDeckChangeCostRemainingTurns) * 0.5) * (Property(StockLocation, @ClassEmpire, MaximumCommandPoints) * Property(StockLocation, @ClassEmpire, PlayDeckChangeCostCommandPointsFactor))) * Property(StockLocation, @ClassEmpire, PlayDeckChangeCostRemainingTurnsFactor)</PlayDeckCostFormula>
+                    <FallbackPlayName>PlayPostBalancedOpponentRecycling</FallbackPlayName>
+					<LowManpowerRelativeThreshold>0.1</LowManpowerRelativeThreshold>
+					<LowManpowerRelativeHisteresis>0.5</LowManpowerRelativeHisteresis>
+                </DepartmentOfDefense>
+                <DepartmentOfLabour>
+                    <FleetBaseSpeed>5</FleetBaseSpeed>
+                    <FleetBaseWormholeSpeed>100</FleetBaseWormholeSpeed>
+                    <FleetBaseTransitionTime>2</FleetBaseTransitionTime>
+                    <FleetStartDelay>0.5</FleetStartDelay>
+                </DepartmentOfLabour>
+                <DepartmentOfTheInterior>
+                    <!-- Contact AI when you modify the following key -->
+                    <GrowthFormula>(300 * Property(Empire, @ClassEmpire, GameSpeedMultiplier) * $(Population))</GrowthFormula>
+                    <MothershipGrowthFormula>1200 * Property(Empire, @ClassEmpire, GameSpeedMultiplier) * $(Population)</MothershipGrowthFormula>
+
+                    <PlanetScoreFormula>((Property(Planet, @ClassPlanet, PlanetFood) * 5.0) + (Property(Planet, @ClassPlanet, PlanetIndustry) * 2.0) + (Property(Planet, @ClassPlanet, PlanetDust) * 1.5) + (Property(Planet, @ClassPlanet, PlanetScience) * 1.5) + Property(Planet, @ClassPlanet, PlanetPrestige)) / (11.0 * (Max(1, Property(Planet, @ClassPlanet, Population)))) - Property(Planet, @ClassPlanet, ParasitedPopulation) * 10</PlanetScoreFormula>
+
+                    <!-- Interpreter context variable: Context -->
+                    <InfluenceConversionGain_None>-0.1 * (1-Count(Context, @ColonizedStarSystemStateLost))</InfluenceConversionGain_None>
+                    <!-- Interpreter context variable: Context -->
+                    <InfluenceConversionGain_Owner>-0.2 * (1-Count(Context, @ColonizedStarSystemStateLost))</InfluenceConversionGain_Owner>
+                    <!-- Interpreter context variable: Context, SystemWhichInfluences -->
+                    <InfluenceConversionGain_Friend>(1-Count(Context, @../ClassEmpire/ClassSenate/LawEffectP05L04Vampirilis)) * ((0.1 / (Max(1,Property(Context, Population))^0.5) * (1-Count(Context, @BesiegedColonizedStarSystem))) * Property(SystemWhichInfluences, @'./ClassEmpire', ConversionBonusMultiplier) * Property(SystemWhichInfluences, @'./ClassEmpire', CanConvertSystem) * (1-Count(Context, @ColonizedStarSystemStateLost)))</InfluenceConversionGain_Friend>
+                    <!-- Interpreter context variable: Context, SystemWhichInfluences -->
+                    <InfluenceConversionGain_Neutral>(1-Count(Context, @../ClassEmpire/ClassSenate/LawEffectP05L04Vampirilis)) * ((0.2 / (Max(1,Property(Context, Population))^0.5) * (1-Count(Context, @BesiegedColonizedStarSystem))) * Property(SystemWhichInfluences, @'./ClassEmpire', ConversionBonusMultiplier) * Property(SystemWhichInfluences, @'./ClassEmpire', CanConvertSystem)  * (1-Count(Context, @ColonizedStarSystemStateLost)))</InfluenceConversionGain_Neutral>
+                    <!-- Interpreter context variable: Context, SystemWhichInfluences -->
+                    <InfluenceConversionGain_Foe>(1-Count(Context, @../ClassEmpire/ClassSenate/LawEffectP05L04Vampirilis)) * ((0.5 / (Max(1,Property(Context, Population))^0.5) * (1-Count(Context, @BesiegedColonizedStarSystem))) * Property(SystemWhichInfluences, @'./ClassEmpire', ConversionBonusMultiplier)  * Property(SystemWhichInfluences, @'./ClassEmpire', CanConvertSystem)  * (1-Count(Context, @ColonizedStarSystemStateLost)))</InfluenceConversionGain_Foe>
+
+                    <DelayBetweenInfluenceEvents>5</DelayBetweenInfluenceEvents>
+
+
+                  <!--  <OutpostBuyoutCostFormula>((Ceil(((((Property(Empire, @AffinityGameplayVenetians, OwnedSystems) + Property(Empire, @AffinityGameplayVenetians, OwnedOutposts) - 1) / Property(Empire, @AffinityGameplayVenetians, NumberOfGalaxyNodes)) + 1) * 100) ^ (1 + 1.25 * ((Property(Empire, @AffinityGameplayVenetians, OwnedSystems) + Property(Empire, @AffinityGameplayVenetians, OwnedOutposts) - 1) / Property(Empire, @AffinityGameplayVenetians, NumberOfGalaxyNodes)))) + 100) * Property(Empire, @ClassEmpire, DustInflation))</OutpostBuyoutCostFormula>-->
+                    <OutpostBuyoutCostFormula>((Ceil(((((Property(Empire, @AffinityGameplayVenetians, OwnedSystems) + Property(Empire, @AffinityGameplayVenetians, OwnedOutposts) - 1)) + 1) * 100) ^ (1 + 1.25 * ((Property(Empire, @AffinityGameplayVenetians, OwnedSystems) + Property(Empire, @AffinityGameplayVenetians, OwnedOutposts) - 1) / Property(Empire, @AffinityGameplayVenetians, NumberOfGalaxyNodes)))) + 100) * Property(Empire, @ClassEmpire, DustInflation))</OutpostBuyoutCostFormula>
+                    <OutpostBuyoutRefoundFormula>((Ceil(((((Property(Empire, @AffinityGameplayVenetians, OwnedSystems) + Property(Empire, @AffinityGameplayVenetians, OwnedOutposts) - 2)) + 1) * 100) ^ (1 + 1.25 * ((Property(Empire, @AffinityGameplayVenetians, OwnedSystems) + Property(Empire, @AffinityGameplayVenetians, OwnedOutposts) - 2) / Property(Empire, @AffinityGameplayVenetians, NumberOfGalaxyNodes)))) + 100) * Property(Empire, @ClassEmpire, DustInflation))</OutpostBuyoutRefoundFormula>
+                    <GalaxyDiscoveryMilestones>20;50;80;100</GalaxyDiscoveryMilestones>
+
+                    <!-- Interpreter context variables: Empire, ColonizedStarSystem -->
+                    <EnrollColonizedStarSystemGrowthCostFormula>300 * Property(Empire, @ClassEmpire, GameSpeedMultiplier)</EnrollColonizedStarSystemGrowthCostFormula>
+                    <!-- Interpreter context variables: Empire -->
+                    <EnrollInfluenceCostFormula>150 * Property(Empire, @ClassEmpire,SystemCount)</EnrollInfluenceCostFormula>
+                    <!-- Interpreter context variables: Empire, EmpireGrowthCost -->
+                    <EnrollManpowerGainFormula>1 * $(EmpireGrowthCost)</EnrollManpowerGainFormula>
+
+					<AssimilationThresholdFormula>2 + $(AssimilatedPopulationsCount) * 2</AssimilationThresholdFormula>
+					
+					<NotificationTimeBubbleUnusedPeriod>5</NotificationTimeBubbleUnusedPeriod>
+                    
+                    <RebellionTriggerProbabilityFormula>1</RebellionTriggerProbabilityFormula>
+                    <RebellionImminentThreshold>80.0</RebellionImminentThreshold>
+                    <RebellionImminentHysteresis>20.0</RebellionImminentHysteresis>
+
+                    <!-- System buyout -->
+                    <!--<InfluenceConversionCostFormula>Property(ColonizedStarSystem, ConversionProgress)</InfluenceConversionCostFormula>-->
+                    <InfluenceConversionCostFormula>(1-Count(ColonizedStarSystem, @../ClassEmpire/ClassSenate/LawEffectP05L04Vampirilis)) * ((250 + (1 - $(ConversionProgress)) * (500 * Property(ColonizedStarSystem, Population, true) + 2500 * Property(ColonizedStarSystem, SystemLevel, true))) * Property(ColonizedStarSystem, @'../ClassEmpire', GameSpeedMultiplier) * Property(Empire, @ClassEmpire, InfluenceConversionModifierMultiplier) * Property(ColonizedStarSystem, InfluenceConversionMultiplier, true))</InfluenceConversionCostFormula>
+
+                    <!--<InfluenceConversionCostFormula>1000 * (Property(ColonizedStarSystem, InfluenceConversionMultiplier, true))* Max(0,(-0.99+(Property(ColonizedStarSystem, Ownership, true))) * 100</InfluenceConversionCostFormula>-->
+                    <DescriptorTypesToIgnoreOnSystemCreation>StarSystemState;GuardedGameNode</DescriptorTypesToIgnoreOnSystemCreation>
+                    
+                    <PopulationBoostDuration>10</PopulationBoostDuration>
+                </DepartmentOfTheInterior>
+                <DepartmentOfDomesticAffairs>
+                    <RequiredSupportForPoliticsToEnterSenate>0.1</RequiredSupportForPoliticsToEnterSenate>
+                    <ElectionTaskFormulae>
+                        <ComputeCandidatesCount_Representative>Round(Property(Context, @ClassStarSystem, Population) / Property(Context, @../ClassEmpire, CandidateCountPerPopulation))</ComputeCandidatesCount_Representative>
+                        <ComputePolitics_BasedOnPopulations>($(NaturalAffiliationScore) + ($(UnfulfilledDesireScore) * (1 + (Property(Context, @ClassPopulation, Happiness) / 100)) + $(FulfilledDesireScore) + $(CurrentAffiliationScore)) * Property(Context, @ClassPopulation, PopulationCount))</ComputePolitics_BasedOnPopulations>
+                        <ComputeAbstention_Proportional>0</ComputeAbstention_Proportional>
+                    </ElectionTaskFormulae>
+                    <PoliticsUnlockThreshold>30 * $(UnlockedPoliticsCount)</PoliticsUnlockThreshold>
+                    <PoliticsElectionScores>3,2,1</PoliticsElectionScores>
+					<SurveyCostFormula>10 * Property(Context, @ClassEmpire, ColonizedStarSystemStateColonyCount)</SurveyCostFormula>
+                </DepartmentOfDomesticAffairs>
+                <DepartmentOfEducation>
+                    <HeroUnlockThresholdFormula>(200 + ($(HeroCount) * 300) + (($(HeroCount)-1) * 100)) * (Property(Empire, @ClassEmpire, HeroUnlockThresholdModifier))</HeroUnlockThresholdFormula>
+                    <HeroHealCostFormula>((100 - Property(Hero, Health)) * 7.5)* Property(Hero, @../ClassEmpire, HeroHealingBonus)</HeroHealCostFormula>
+                    <!-- Parameter is the industry cost of the building on completion, with all modifiers applied, as a regular construction or a buyout -->
+                    <ConstructionCompleteExperienceFormula>Max(0.03 * $(Parameter) * Property(Hero, ExperienceMultiplier), 5)</ConstructionCompleteExperienceFormula>
+                    <NodeDiscoveredExperienceFormula>4 * Property(Hero, ExperienceMultiplier)</NodeDiscoveredExperienceFormula>
+                    <CuriosityDiscoveredExperienceFormula>6 * Property(Hero, ExperienceMultiplier)</CuriosityDiscoveredExperienceFormula>
+                </DepartmentOfEducation>
+                <DepartmentOfForeignAffairs>
+                    <RecentBribesMemoryDuration>10</RecentBribesMemoryDuration>
+                    <DifferentPoliticsBaseRelationPoints>0</DifferentPoliticsBaseRelationPoints>
+                    <SamePoliticsBaseRelationPoints>0</SamePoliticsBaseRelationPoints>
+                    <DifferentPoliticsRelationTrendPoints>0</DifferentPoliticsRelationTrendPoints>
+                    <SamePoliticsRelationTrendPoints>0</SamePoliticsRelationTrendPoints>
+                    <DiplomaticTermTechnologyExchangePressureGain>$(TechnologyDefinitionStageNumber) / Max(1, $(CurrentTechnologyStageNumber))</DiplomaticTermTechnologyExchangePressureGain>
+                </DepartmentOfForeignAffairs>
+                <DepartmentOfScience>
+                    <!-- Gives bonuses when percent of empires who discovered a tech is lower or equal to the threshold. The Descriptor applied on empire is "OmniscienceBonusXXPercentsOrLess"-->
+                    <OmniscienceThresholds>0;26;51</OmniscienceThresholds>
+                </DepartmentOfScience>
+            </Agencies>
+            <OmniscienceLinksVisionRadius>0.65</OmniscienceLinksVisionRadius>
+            <OmniscienceNodesVisionRadius>2</OmniscienceNodesVisionRadius>
+            <NodeDiscoveryVisionRadius>3</NodeDiscoveryVisionRadius>
+			<FriendlyRootLaneCostMultiplier>0.5</FriendlyRootLaneCostMultiplier>
+			<HostileRootLaneCostMultiplier>2</HostileRootLaneCostMultiplier>
+        </Empire>
+        <Diplomacy>
+            <Alliance>
+                <MaxEmpires>Floor($(MajorEmpiresCount) * 0.5)</MaxEmpires>
+                <RenouncementTurnDuration>1</RenouncementTurnDuration>
+            </Alliance>
+            <WarInstance>
+                <!-- If you modify the cap, don't forget to update it in the AI (WarGroupSnapshot.cs WarExhaustTrendCap property). -->
+                <WarExhaustTrend>(Max(-10, Min(10, ((1 + $(GroupFromWarPoints))  / (1 + $(GroupOnWarPoints)) - (1 + $(GroupOnWarPoints))  / (1 + $(GroupFromWarPoints))) * (Min(2, (1 + $(Duration) * 0.05)))))) / $(GameSpeed) </WarExhaustTrend>
+                <ForcedTruce>
+                    <!-- "*1" => DustInflation-->
+                    <DustTributeAmount>(Max($(WarExhaustToPayBack) - $(WarExhaustCompensation), 0) * 10 + $(NumberOfEmpiresInWinningWarGroup) * 100) * 1</DustTributeAmount>
+                    <DustTributeDuration>Clamp((15 / ((Max($(LosingWarGroupDustIncome), 0) / $(DustAmountFlat)) * 0.5 + 1)), 5, 15) * $(GameSpeed)</DustTributeDuration>
+                    <StarSystemWarExhaustCompensation>5 + Property(ColonizedStarSystem, @ClassColonizedStarSystem, SystemLevel) + Property(ColonizedStarSystem, @ClassColonizedStarSystem, Population) + Clamp01(Count(ColonizedStarSystem, @'ClassColonizedStarSystem,MajorHomeSystem')) * 10 + Clamp01(Count(ColonizedStarSystem, @'ClassColonizedStarSystem/StarSystemImprovementTradingCompanyHeadquarters')) * 5</StarSystemWarExhaustCompensation>
+                    <RefusalCost>100 * Property(Empire, @ClassEmpire, ColonizedStarSystemStateColonyCount) * Clamp(1 - Property(Empire, @ClassEmpire, ForceTruceRefusalCostReduction), 0, 1)</RefusalCost>
+                </ForcedTruce>
+            </WarInstance>
+        </Diplomacy>
+        <Encounter>
+            <LastSurvivorDescriptorName>EndBattleStatusLastSurvivor</LastSurvivorDescriptorName>
+            <ArenaName>DefaultArena</ArenaName>
+            <StarSystemArenaBackgroundVariationMax>5</StarSystemArenaBackgroundVariationMax>
+            <StarSystemAcademyArenaBackgroundVariationMax>1</StarSystemAcademyArenaBackgroundVariationMax>
+            <SpecialNodeArenaBackgroundVariationMax>0</SpecialNodeArenaBackgroundVariationMax>
+            <SpecialNodeAsteroidFieldArenaBackgroundVariationMax>0</SpecialNodeAsteroidFieldArenaBackgroundVariationMax>
+            <BattleSequenceName>DefaultSequence</BattleSequenceName>
+            <!-- This scale is used to make the gameplay data match with the size of the ships without having to modify them. -->
+            <BattleScale>20</BattleScale>
+            <ArrivalAttackerStartingOffset>-500</ArrivalAttackerStartingOffset>
+            <ArrivalAttackerMotionDuration>0.25</ArrivalAttackerMotionDuration>
+            <Realization>
+                <ShipArrivalDuration>4.5</ShipArrivalDuration>
+                <DelayMaxBeforeHullDeployment>6</DelayMaxBeforeHullDeployment>
+                <DelayMaxBeforeModulesDeployment>10.5</DelayMaxBeforeModulesDeployment>
+                <ModulesDeploymentDuration>6</ModulesDeploymentDuration>
+                <DelayMaxBetweenWeaponDeployements>0.2</DelayMaxBetweenWeaponDeployements>
+                <DelayMaxBeforeShieldActivation>1</DelayMaxBeforeShieldActivation>
+                <DelayMaxBetweenShipArrivals>0.15</DelayMaxBetweenShipArrivals>
+                <DelayMaxBetweenFlotillaArrivals>0.6</DelayMaxBetweenFlotillaArrivals>
+                <MultipleTurretsShootingDelayFactorMin>0.3</MultipleTurretsShootingDelayFactorMin>
+                <MultipleTurretsShootingDelayFactorMax>0.3</MultipleTurretsShootingDelayFactorMax>
+            </Realization>
+            <FlowTimeScale>
+                <Normal>1.0</Normal>
+                <SlowDown>0.5</SlowDown>
+                <Pause>0.0</Pause>
+            </FlowTimeScale>
+            <!-- Only used for simplified battles between AIs -->
+			<SimpleEncounterMaximumMPCoefForRetreat>0.33</SimpleEncounterMaximumMPCoefForRetreat>
+        </Encounter>
+        <Academy>
+            <HeroPickScoreFormula>1 * $(AffinityScore) + 1 * $(PoliticsScore)</HeroPickScoreFormula>
+            <AcademyLevelThresholdFormula>($(PlayerCount) * $(AcademyLevel)) * 0.75</AcademyLevelThresholdFormula>
+            <HeroLevelupPointsFormula>0.07 * $(NewLevel)</HeroLevelupPointsFormula>
+            <HeroChoiceCount>3</HeroChoiceCount>
+            <!-- Maximum value for hero attributes (wit, command, etc.) for GUI reasons -->
+            <HeroMaximumMaximumClassLevel>19</HeroMaximumMaximumClassLevel>
+        </Academy>
+        <Victory>
+            <LobbyDataFilter>GalaxySize,GameDifficulty,GameSpeed</LobbyDataFilter>
+        </Victory>
+        <Marketplace>
+            <!-- Vars: Tradable, RandomNumber (between 0 and 100) -->
+            <ResourcesAutoRefillQuantity>5 + (Max(Property(Tradable, Demand) * 10, 10) - 5) * $(RandomNumber) / 100</ResourcesAutoRefillQuantity>
+            <!-- Vars: Marketplace (SimulationObject), Empire (SimulationObject), TaxRateDifference (between 0 and 1) -->
+            <TaxRateChangeCostFormula>500 + 200 * ((Sqrt($(TaxRateDifference)*$(TaxRateDifference))) * 100)</TaxRateChangeCostFormula>
+            <!-- Localization keys are generated as: %MarketplaceEventDemandVALUEOrLessELEMENT and %MarketplaceEventDemandMoreThanLASTVALUEELEMENT (ELEMENT = Tradable, TradableCategory, etc.) -->
+            <DemandFeedbackThresholds>0;2;4</DemandFeedbackThresholds>
+            <MaximumTransactionCount>50</MaximumTransactionCount>
+        </Marketplace>
+		<CustomFaction>
+            <!-- Comment out the line to remove the limitation -->
+            <FactionTraitsMaxCount>8</FactionTraitsMaxCount>
+			<PopulationPointPool>60</PopulationPointPool>
+            <!-- These values are only used to generate custom faction and does not interfere with a standard faction values -->
+			<MajorPopulationInitialCount>
+                <Default>2</Default>
+                <AffinityGameplayVampirilis>1</AffinityGameplayVampirilis>
+            </MajorPopulationInitialCount>
+		</CustomFaction>
+        <ConstellationOwnership>
+            <!-- Minimal number of colonies an empire/alliance has to own in a constellation to own the constellation without owning all the system in it. -->
+            <MinimalColonyCount>3</MinimalColonyCount>
+        </ConstellationOwnership>
+        <Pirates>
+            <MinimumSpawnDistanceToSystems>2</MinimumSpawnDistanceToSystems>
+            <MaximumSpawnDistanceToSystems>3</MaximumSpawnDistanceToSystems>
+        </Pirates>
+	</Gameplay>
+    <View>
+        <Galaxy>
+            <GalaxyFleet>
+                <MinSmoothingFactor>0.09</MinSmoothingFactor>
+                <MaxSmoothingFactor>0.5</MaxSmoothingFactor>
+                <MinSpeedMultiplierInfluencingSmooth>1</MinSpeedMultiplierInfluencingSmooth>
+                <MaxSpeedMultiplierInfluencingSmooth>5</MaxSpeedMultiplierInfluencingSmooth>
+            </GalaxyFleet>
+            <GalaxyMothership>
+                <MothershipAngle>30</MothershipAngle>
+            </GalaxyMothership>
+            <GalaxyHangar>
+                <HangarAngle>120</HangarAngle>
+            </GalaxyHangar>
+            <GalaxyProbeBay>
+                <ProbeBayAngle>180</ProbeBayAngle>
+                <ProbeBayForwardDelta>-4</ProbeBayForwardDelta>
+            </GalaxyProbeBay>
+            <FleetDockingController_DiplomaticState>
+                <MaxDockingSlots>12</MaxDockingSlots>
+                <AngleBetweenSlots>20</AngleBetweenSlots>
+                <FirstAlliedSlotAngle>120</FirstAlliedSlotAngle>
+                <FirstEnemySlotAngle>-120</FirstEnemySlotAngle>
+                <SlotForwardDelta>-5.5</SlotForwardDelta>
+                <AutomatedFleetSlotForwardDelta>-10</AutomatedFleetSlotForwardDelta>
+            </FleetDockingController_DiplomaticState>
+            <StarSystemOverview>
+                <!-- 1 ; 1;2 ; 1;2;3 ; 1;2;3;4 ; 1;2;3;4;5 ...-->
+                <!--<PlanetAngles>80; 150;45; 170;330;100; 0;200;45;110; 100;350;240;140;30</PlanetAngles>-->
+                <PlanetAngles>170; 240;135; 260;60;190; 90;290;200;135; 190;80;310;210;150</PlanetAngles>
+                <!-- <PlanetAngles>
+                    180;
+                    290;115;
+                    45;115;230;
+                    0;115;230;135;
+                    35;115;230;135;180</PlanetAngles>-->
+            </StarSystemOverview>
+            <EconomyScanView>
+                <AbsoluteMaximumPopulationOnSystem>70</AbsoluteMaximumPopulationOnSystem>
+                <FIDSIThresholds>20;40;60;80;100;200;500;1000;1500;2500</FIDSIThresholds>
+            </EconomyScanView>
+        </Galaxy>
+      <MaximumCoordinationRequestType>1</MaximumCoordinationRequestType>
+    </View>
+    <DefaultGameSettings>
+        <Slot0>
+            <Faction>FactionTerrans</Faction>
+        </Slot0>
+        <Slot1>
+            <Faction>FactionCravers</Faction>
+        </Slot1>
+        <Slot2>
+            <Faction>FactionVampirilis</Faction>
+        </Slot2>
+        <Slot3>
+            <Faction>FactionVenetians</Faction>
+        </Slot3>
+        <Slot4>
+            <Faction>FactionSophons</Faction>
+        </Slot4>
+        <Slot5>
+            <Faction>FactionUnfallen</Faction>
+        </Slot5>
+        <Slot6>
+            <Faction>FactionTimeLords</Faction>
+        </Slot6>
+        <Slot7>
+            <Faction>FactionHoratio</Faction>
+        </Slot7>
+        <Slot8>
+            <Faction>FactionRandom</Faction>
+        </Slot8>
+        <Slot9>
+            <Faction>FactionRandom</Faction>
+        </Slot9>
+        <Slot10>
+            <Faction>FactionRandom</Faction>
+        </Slot10>
+        <Slot11>
+            <Faction>FactionRandom</Faction>
+        </Slot11>
+        <FleetSpeedMultiplier>1</FleetSpeedMultiplier>
+    </DefaultGameSettings>
+    <Miscellaneous>
+        <DebugShipDesigns>DEBUG_LargeCraversERA3;DEBUG_LargeCraversERA3;DEBUG_Cravers_MediumAttackERA3;DEBUG_Cravers_MediumDefenseERA3;DEBUG_Cravers_SmallAttackERA3;DEBUG_Cravers_SmallAttackERA3;DEBUG_Cravers_SmallAttackERA3;DEBUG_Cravers_SmallSupportERA3</DebugShipDesigns>
+        <MeshMaterialProperties>_MainTex;_BumpMap;_MetallicGlossMap;_OcclusionMap;_EmissionMap</MeshMaterialProperties>
+        <PlanetMaterialProperties>_Diffuse;_Illum;_Pop;_PopGradient;_Smoothness;_Ring;_Depth;_WorldNormal;_AnomalyDiffuse;_AnomalyMask;_AnomalySmoothness;_ScanView;_Depth;_Cloud</PlanetMaterialProperties>
+        <PlanetMaterialColors>_Atmosphere;_CloudColor;_Color;_Color2</PlanetMaterialColors>
+        <PlanetTextureSizes>4096;2048;1024;512;256;128</PlanetTextureSizes>
+        <ForceAutoPopupForBeginner>NotificationQuestBegun</ForceAutoPopupForBeginner>
+    </Miscellaneous>
+    <AI>
+        <DeactivatedGenerators>
+        </DeactivatedGenerators>
+    </AI>
+</Registry>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/MinigameDefinition.xsd">
+
+    <!-- Metaplot chapter 1 : discover 50% or more of the nodes -->
+    <ExplorationMinigameDefinition Name="ExplorationMinigame">
+
+        <!-- Teams (at least 2) -->
+        <Team Name="MetaplotTeamA">
+
+            <!-- Parameters: EmpiresCount, EnemyEmpiresCount, IsOnlyAI (0 or 1) -->
+            <BalancingFleetCountFormula>$(EnemyEmpiresCount) - $(EmpiresCount)</BalancingFleetCountFormula>
+
+            <!-- At the end of the first turn, system will calculate the amount of lesser fleets using formula above, and randomly pick amongst the provided fleet designs -->
+            <!-- Fleets are spawned on systems of the team or random systems in constellation of ancient systems and execute GoToAndBlockade mission on the closest ancient system -->
+            <BalancingFleet>
+                <HeroDefinition>HeroEyders01</HeroDefinition>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+            </BalancingFleet>
+        </Team>
+        <Team Name="MetaplotTeamB">
+
+            <BalancingFleetCountFormula>$(EnemyEmpiresCount) - $(EmpiresCount)</BalancingFleetCountFormula>
+
+            <BalancingFleet>
+                <HeroDefinition>HeroHisshos01</HeroDefinition>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+            </BalancingFleet>
+        </Team>
+
+        <FleetMissionName>GotoAndBlockade</FleetMissionName>
+        
+    </ExplorationMinigameDefinition>
+
+    <!-- Metaplot chapter 2 : when all nodes are controlled, control 50% or more of the nodes -->
+    <KingOfTheHillMinigameDefinition Name="KingOfTheHillMinigame">
+        
+        <Team Name="MetaplotTeamA">
+            
+            <BalancingFleetCountFormula>$(EnemyEmpiresCount) - $(EmpiresCount)</BalancingFleetCountFormula>
+            
+            <BalancingFleet>
+                <HeroDefinition>HeroEyders01</HeroDefinition>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+            </BalancingFleet>
+        </Team>
+        <Team Name="MetaplotTeamB">
+
+            <BalancingFleetCountFormula>$(EnemyEmpiresCount) - $(EmpiresCount)</BalancingFleetCountFormula>
+
+            <BalancingFleet>
+                <HeroDefinition>HeroHisshos01</HeroDefinition>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+                <ShipDesign>MFPiratesMediumAttackStrongMetaplot</ShipDesign>
+            </BalancingFleet>
+        </Team>
+
+        <FleetMissionName>KingOfTheHill</FleetMissionName>
+        
+        <!-- Points earned each turn when orbiting the node. When points reach 100, node is won by the fleet's team -->
+        <!-- If fleets of distinct teams orbit the node, nobody scores points -->
+        <!-- If several fleets of the same team orbit the node, only the highest score is kept (scores are not combined) -->
+        <FleetScoreFormula>Property(Context, @'../ClassEmpire', GameSpeedTimeMultiplier) * 10</FleetScoreFormula>
+
+        <GuiNumberOfTurns>10</GuiNumberOfTurns>
+    </KingOfTheHillMinigameDefinition>
+    
+</Datatable>

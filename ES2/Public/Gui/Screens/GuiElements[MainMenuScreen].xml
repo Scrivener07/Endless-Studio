@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <MainMenuScreenGuiElement Name="MainMenuScreen">
+        <Title>%MainMenuScreenTitle</Title>
+        <Description>%MainMenuScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/MainMenuScreen" />
+        </Icons>
+        
+        <Entry Name="MainMenuNewGame" Colored="true" Enabled="true">
+            <SubEntry Name="MainMenuQuickStart" Colored="true" Enabled="true" />
+            <SubEntry Name="MainMenuIntroduction" Colored="true" Enabled="true" />
+        </Entry>
+        
+        <Entry Name="MainMenuLoadGame" Colored="true" Enabled="true" >
+            <SubEntry Name="MainMenuLoadLastSave" Colored="true" Enabled="true" />
+        </Entry>
+        
+        <Entry Name="MainMenuJoinGame" Colored="true" Enabled="true" ></Entry>
+        
+        <Entry Name="MainMenuMods" Colored="true" Enabled="true">
+            <SubEntry Name="MainMenuLastModConfiguration" Colored="true" Enabled="true" />
+            <SubEntry Name="MainMenuResourcesExport" Colored="true" Enabled="true" />
+        </Entry>
+        
+        <Entry Name="MainMenuDLC" Colored="true" Enabled="true" />
+
+        <Entry Name="MainMenuGames2Gether" Colored="true" Enabled="true">
+            <SubEntry Name="MainMenuJournal" Colored="true" Enabled="true" />
+        </Entry>
+        
+        <Entry Name="MainMenuSettings" Colored="true" Enabled="true">
+            <SubEntry Name="MainMenuCredits" Colored="true" Enabled="true" />
+        </Entry>
+        
+        <Entry Name="MainMenuExit" Colored="true" Enabled="true" />
+        
+    </MainMenuScreenGuiElement>
+	
+</Datatable>

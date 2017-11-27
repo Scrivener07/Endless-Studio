@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Game.Orders.OrderPolicySetup.xsd">
+
+    <!--#####################################################-->
+    <!--##                   GAME CLIENT                   ##-->
+    <!--#####################################################-->
+
+    <!-- GameClientState_WaitingForServer -->
+
+    <Setup Name="GameClientState_WaitingForServer">
+        <Chain Type="Input">
+            <Rule Policy="Drop"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Drop"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_ConnectingToServer -->
+
+    <Setup Name="GameClientState_ConnectingToServer">
+        <Chain Type="Input">
+            <Rule Policy="Drop"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Drop"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_ConnectedToServer -->
+
+    <Setup Name="GameClientState_ConnectedToServer">
+        <Chain Type="Input">
+            <Rule Policy="Reject"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_LaunchGame -->
+
+    <Setup Name="GameClientState_LaunchGame">
+        <Chain Type="Input">
+            <Rule Policy="Reject"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_GameLaunched -->
+
+    <Setup Name="GameClientState_GameLaunched">
+        <Chain Type="Input">
+            <Rule Policy="Reject"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_GameLaunchedAndReady -->
+
+    <Setup Name="GameClientState_GameLaunchedAndReady">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_BeginEventDispatch -->
+
+    <Setup Name="GameClientState_Turn_BeginEventDispatch">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_BeginEventDispatched -->
+
+    <Setup Name="GameClientState_Turn_BeginEventDispatched">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_Begin -->
+
+    <Setup Name="GameClientState_Turn_Begin">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Introduction -->
+
+    <Setup Name="GameClientState_Introduction">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+    
+    <!-- GameClientState_Turn_Main -->
+
+    <Setup Name="GameClientState_Turn_Main">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <RegexRule Policy="Reject">GameServer/.*</RegexRule>
+            <!--<PathRule Policy="Reject">DepartmentOfTheInterior/OrderChangeStarSystemState</PathRule>-->
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_Finished -->
+
+    <Setup Name="GameClientState_Turn_Finished">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <RegexRule Policy="Reject">GameServer/.*</RegexRule>
+            <PathRule Policy="Reject">DepartmentOfTheInterior/OrderChangeStarSystemState</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_FinishedAndLocked -->
+
+    <Setup Name="GameClientState_Turn_FinishedAndLocked">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_Elections -->
+
+    <Setup Name="GameClientState_Turn_Elections">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <RegexRule Policy="Accept">DepartmentOfDomesticAffairs/Order.*ElectionResult</RegexRule>
+            <RegexRule Policy="Accept">DepartmentOfDomesticAffairs/OrderApplyElectionAction</RegexRule>
+            <RegexRule Policy="Accept">DepartmentOfDomesticAffairs/OrderActivateLaw</RegexRule>
+            <PathRule Policy="Accept">DepartmentOfTheInterior/OrderApplyPopulationDesires</PathRule>
+            <PathRule Policy="Accept">DepartmentOfTheTreasury/OrderTransferResource</PathRule>
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_ElectionsFinished -->
+
+    <Setup Name="GameClientState_Turn_ElectionsFinished">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_PreResourceCollection -->
+
+    <Setup Name="GameClientState_Turn_PreResourceCollection">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_PreResourceCollectionEnded -->
+
+    <Setup Name="GameClientState_Turn_PreResourceCollectionEnded">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_End -->
+
+    <Setup Name="GameClientState_Turn_End">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+          <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_Ended -->
+
+    <Setup Name="GameClientState_Turn_Ended">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameClientState_Turn_Dump -->
+
+    <Setup Name="GameClientState_Turn_Dump">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+    
+    <Setup Name="GameClientState_Turn_Dump_Finished">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Reject"/>
+        </Chain>
+    </Setup>
+
+</Datatable>

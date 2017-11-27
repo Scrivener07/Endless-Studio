@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/StarSystemNodeDefinition.xsd">
+
+    
+    <!--EXAMPLE-->
+    <StarSystemNodeDefinition Name="QuestNode01">
+        <SimulationDescriptorReference Name="StarTypeDouble"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeHot"/>
+            <SimulationDescriptorReference Name="PlanetSizeTiny"/>
+            <SimulationDescriptorReference Name="PlanetTypeJungle"/>
+            <AnomalyReference Name="PlanetAnomaly01"/>
+        </PlanetDefinition>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeHot"/>
+            <SimulationDescriptorReference Name="PlanetSizeLarge"/>
+            <SimulationDescriptorReference Name="PlanetTypeLava"/>
+            <CuriosityReference Name="Curiosity_PlanetAnomaly03"/>
+            <CuriosityReference Name="Curiosity_PlanetAnomaly04"/>
+            <ResourceDeposit>
+                <DefinitionReference Name="StrategicDeposit1"/>
+                <SizeDescriptorReference Name="DepositSizePoor"/>
+            </ResourceDeposit>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+
+    <!--UNITED EMPIRE-->
+    <StarSystemNodeDefinition Name="QuestNodeRebel">
+        <SimulationDescriptorReference Name="StarTypeDouble"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeTemperate"/>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeTerran"/>
+            <AnomalyReference Name="PlanetAnomaly03"/>
+        </PlanetDefinition>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeCold"/>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeTeeming"/>
+            <SimulationDescriptorReference Name="PlanetSizeLarge"/>
+            <SimulationDescriptorReference Name="PlanetTypeBoreal"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+    
+    <!--SOPHONS EMPIRE-->
+    <StarSystemNodeDefinition Name="QuestNodeMavros">
+        <SimulationDescriptorReference Name="StarTypeWhite"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeHot"/>
+            <SimulationDescriptorReference Name="PlanetSizeLarge"/>
+            <SimulationDescriptorReference Name="PlanetTypeLava"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+    
+    <!--SOPHONS EMPIRE-->
+    <StarSystemNodeDefinition Name="QuestNodeENFER">
+        <SimulationDescriptorReference Name="StarTypeWhite"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeCold"/>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeTeeming"/>
+            <SimulationDescriptorReference Name="PlanetSizeTiny"/>
+            <SimulationDescriptorReference Name="PlanetTypeBoreal"/>           
+        </PlanetDefinition>       
+    </StarSystemNodeDefinition>
+
+    <!--CRAVERS EMPIRE-->
+    <StarSystemNodeDefinition Name="QuestNodeCravers">
+        <SimulationDescriptorReference Name="StarTypeWhite"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeCold"/>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeBarren"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+
+    <!--HORATIO EMPIRE-->
+    <StarSystemNodeDefinition Name="QuestNodeHoratio">
+        <SimulationDescriptorReference Name="StarTypeYellow"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeTemperate"/>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeVeldt"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+
+    <!--UNFALLEN EMPIRE-->
+    <StarSystemNodeDefinition Name="QuestNodeUnfallen">
+        <SimulationDescriptorReference Name="StarTypeBlue"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeTemperate"/>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeVeldt"/>
+        </PlanetDefinition>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeHot"/>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeMeager"/>
+            <SimulationDescriptorReference Name="PlanetSizeMedium"/>
+            <SimulationDescriptorReference Name="PlanetTypeLava"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+
+    <StarSystemNodeDefinition Name="QuestNodeMetaplotBase">
+        <SimulationDescriptorReference Name="StarTypeWhite"/>
+        <SimulationDescriptorReference Name="CannotBeColonized"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeCold"/>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeBarren"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+
+    <StarSystemNodeDefinition Name="QuestNodeMetaplotRestored">
+        <SimulationDescriptorReference Name="StarTypeYellow"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetGameplayTypeTemperate"/>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeTerran"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+
+    <StarSystemNodeDefinition Name="QuestNodeMetaplotDestroyed">
+        <SimulationDescriptorReference Name="StarTypeNone"/>
+        <SimulationDescriptorReference Name="CannotBeColonized"/>
+        <PlanetDefinition>
+            <SimulationDescriptorReference Name="PlanetSizeSmall"/>
+            <SimulationDescriptorReference Name="PlanetTypeDestroyed"/>
+        </PlanetDefinition>
+    </StarSystemNodeDefinition>
+    
+</Datatable>

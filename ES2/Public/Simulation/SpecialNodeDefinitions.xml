@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/SpecialNodeDefinition.xsd">
+
+    <SpecialNodeDefinition Name="SpecialNodeBlackHole" IgnoreForGalaxyDiscovery="false" StartInvisible="false" Category="CategorySpecialNodeBlackHole">
+        <SimulationDescriptorReference Name="SpecialNodeEffectBlackHole"/>
+        <EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNodeBlackHole"/>
+    </SpecialNodeDefinition>
+
+    <SpecialNodeDefinition Name="SpecialNodeAsteroidField" IgnoreForGalaxyDiscovery="false" StartInvisible="false" Category="CategorySpecialNodeAsteroidField">
+        <SimulationDescriptorReference Name="SpecialNodeEffectAsteroidField"/>
+        <EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNodeAsteroidField"/>
+    </SpecialNodeDefinition>
+
+    <SpecialNodeDefinition Name="SpecialNodeAsteroidField2" IgnoreForGalaxyDiscovery="true" StartInvisible="true" Category="CategorySpecialNodeAsteroidField">
+        <TechnologyPrerequisite Flags="Prerequisite,Technology" Inverted="false">TechnologyStellarDiscovery</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="SpecialNodeEffectAsteroidField"/>
+        <EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNodeAsteroidField"/>
+    </SpecialNodeDefinition>
+
+    <SpecialNodeDefinition Name="SpecialNodeCollapsingStar" IgnoreForGalaxyDiscovery="false" StartInvisible="false" Category="CategorySpecialNodeCollapsingStar">
+        <SimulationDescriptorReference Name="SpecialNodeEffectCollapsingStar"/>
+        <EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNodeEffectCollapsingStar"/>
+    </SpecialNodeDefinition>
+
+    <SpecialNodeDefinition Name="SpecialNodeSolarNebula" IgnoreForGalaxyDiscovery="false" StartInvisible="false" Category="CategorySpecialNodeSolarNebula">
+        <SimulationDescriptorReference Name="SpecialNodeEffectSolarNebula"/>
+        <EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNodeSolarNebula"/>
+    </SpecialNodeDefinition>
+
+    <SpecialNodeDefinition Name="SpecialNodeNeutronStar" IgnoreForGalaxyDiscovery="false" StartInvisible="false" Category="CategorySpecialNodeNeutronStar">
+        <SimulationDescriptorReference Name="SpecialNodeEffectNeutronStar"/>
+		<EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNeutronStar"/>
+    </SpecialNodeDefinition>
+
+    <SpecialNodeDefinition Name="SpecialNodeSpaceClouds" IgnoreForGalaxyDiscovery="false" StartInvisible="false" Category="CategorySpecialNodeSpaceClouds">
+        <SimulationDescriptorReference Name="SpecialNodeEffectSpaceClouds"/>
+        <EncounterGlobalEffectDescriptorReference Name="ArenaEffectSpecialNodeSpaceClouds"/>
+    </SpecialNodeDefinition>
+
+    
+</Datatable>

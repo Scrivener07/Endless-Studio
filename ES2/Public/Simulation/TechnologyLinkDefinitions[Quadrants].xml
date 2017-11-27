@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TechnologyLinkDefinition.xsd">
+
+    <!--##########################################################-->
+    <!--##                        LINKS                         ##-->
+    <!--##########################################################-->
+
+    <!-- [PrerequisiteResolution="AND|OR|XOR"] -->
+    
+    <!--<TechnologyLinkDefinition Name="TechnologyLinkDefinitionFood1Food2" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <SimulationDescriptorReference Name="TechnologyLinkFood1Food2"/>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyFood1</TechnologyPrerequisite>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionExclusive1Exclusive2" Category="TechnologyLinkTypeExclusion" PrerequisiteResolution="OR">
+        <SimulationDescriptorReference Name="TechnologyLinkExclusive1Exclusive2"/>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyExclusive1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyExclusive2</TechnologyPrerequisite>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEraProgress1EraProgress2" Category="TechnologyLinkTypeEraProgress">
+        <SimulationDescriptorReference Name="TechnologyLinkEraProgress1EraProgress2"/>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyEraProgress1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyEraProgress2</TechnologyPrerequisite>
+    </TechnologyLinkDefinition>
+    
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionCostReduction1CostReduction2" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <SimulationDescriptorReference Name="TechnologyLinkCostReduction1CostReduction2"/>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyCostReduction1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyCostReduction2</TechnologyPrerequisite>
+    </TechnologyLinkDefinition>
+
+    <InteractiveTechnologyLinkDefinition Name="TechnologyLinkDefinitionUnlock1Unlock2" Category="TechnologyLinkTypeDependency">
+        <SimulationDescriptorReference Name="TechnologyLinkUnlock1Unlock2"/>
+        <Cost ResourceName="EmpireMoney">10</Cost>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyUnlock1</TechnologyPrerequisite>
+    </InteractiveTechnologyLinkDefinition>-->
+
+
+<!--
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionLaser1Rocket1" Category="TechnologyLinkTypeDependency">
+        <SimulationDescriptorReference Name="TechnologyLinkLaser1Rocket1"/>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLaser1</TechnologyPrerequisite>
+    </TechnologyLinkDefinition>
+    
+    <InteractiveTechnologyLinkDefinition Name="TechnologyLinkDefinitionIndustry1Industry2" Category="TechnologyLinkTypeInteractiveDependency">
+        <SimulationDescriptorReference Name="TechnologyLinkIndustry1Industry2"/>
+        <Cost ResourceName="EmpireMoney">10</Cost>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyIndustry1</TechnologyPrerequisite>
+    </InteractiveTechnologyLinkDefinition>
+-->
+
+    <!-- SCIENCE AND EXPLORATION -->
+
+    <!-- STAGE 1 -->
+    
+    <!--HOW LINK WORK-->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To25" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <!--Source: Has to be UNIQUE to one techno-->
+        <!--Espacially for alternative Technologies-->
+        <!--Don't hesitate to duplicate your simulationdescriptors and create empty ones just for that-->
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1</TechnologyPrerequisite>
+        <!--Target: Has to be UNIQUE to one techno-->
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization3</TechnologyPrerequisite>
+        <!--EFFECTIVE formula-->
+        <!--Use it in custom cost formula-->
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To25"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To25Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization3Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To25"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To25TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization3TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To25"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28CommonUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28HoratioUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28HoratioUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28SophonsUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28SophonsUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28TimeLordsUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28TimeLordsUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28TimeLords2" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28CommonTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28HoratioTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28HoratioTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28SophonsTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28SophonsTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration1To28TimeLordsTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization1TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28TimeLordsTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration1To28"/>
+    </TechnologyLinkDefinition>
+
+
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To5" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkColonization7Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To5"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To5Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization7Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To5"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To5TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization7TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To5"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To5Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkColonization7Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To5"/>
+    </TechnologyLinkDefinition>
+
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To4" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization4Commom</TechnologyPrerequisite> 
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To4"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To4Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization4Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To4"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To4TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization4TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To4"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- STAGE 2-->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To6" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization3</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization9Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To6"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To6Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization3Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization9Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To6"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To6TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28CommonTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo6CommonTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To6"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To6HoratioTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28HoratioTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo6HoratioTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To6"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To6SophonsTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28SophonsTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo6SophonsTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To6"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To6TimeLordsTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28TimeLordsTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo6TimeLordsTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To6"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28Common</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7TimeLordsSophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28SophonsTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7SophonsTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7TimeLordsHoratio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28HoratioTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7HoratioTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28CommonUnfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7CommonUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7SophonsUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28SophonsUnfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7SophonsUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration28To7HoratioUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo28HoratioUnfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7HoratioUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration5To7TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5CommonTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7CommonTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration4To7SophonsTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5SophonsTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo7SophonsTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration28To7"/>
+    </TechnologyLinkDefinition>
+
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration5To9" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkColonization7Common</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkColonization8Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration5To9"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration5To9Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization7Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization8Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration5To9"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration5To9Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkColonization7Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkColonization8Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration5To9"/>
+    </TechnologyLinkDefinition>
+    
+   
+
+    <!-- ECONOMY AND TRADE -->
+
+    <!--  STAGE 2  -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade3To10" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMarketplace1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkToMarketplace2Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade3To10"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade3To10Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMarketplace1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkToMarketplace2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade3To10"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade3To10Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMarketplace1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkToMarketplace2Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade3To10"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade3To10VampirilisVenetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMarketplace1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkToMarketplace2VampirilisVenetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade3To10"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade25To8" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization11</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization13</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade25To8"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade25To8TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization11TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization13TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade25To8"/>
+    </TechnologyLinkDefinition>
+
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade25To8Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization11Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization13Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade25To8"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade25To8Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization11Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization13Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade25To8Horatio"/>
+    </TechnologyLinkDefinition>
+
+    <!--  STAGE 3 -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade9To12" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyTrade1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyTrade2Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade9To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade9To12Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyTrade1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyTrade2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEconomyAndTrade9To12"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- STAGE 4 -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEconomyAndTrade16EconomyAndTrade17" Category="TechnologyLinkTypeExclusion" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyTrade3</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyDust3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkExclusionEconomyAndTrade16EconomyAndTrade17"/>
+    </TechnologyLinkDefinition>
+    
+    <!-- MILITARY -->
+    <!-- STAGE 2     -->
+
+
+    <!-- STAGE 3 -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionMilitary8Military9" Category="TechnologyLinkTypeExclusion" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyWeaponModuleStrategic1</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyWeaponModuleStrategic2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkExclusionMilitary8Military9"/>
+    </TechnologyLinkDefinition>
+
+    
+    <!-- STAGE 4 -->
+    
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionMilitary20Military21" Category="TechnologyLinkTypeExclusion" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyWeaponModuleStrategic3</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyWeaponModuleStrategic4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkExclusionMilitary20Military21"/>
+    </TechnologyLinkDefinition>
+    
+
+    <!-- STAGE 5 -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionMilitary22Military23" Category="TechnologyLinkTypeExclusion" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyWeaponModuleStrategic5</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyWeaponModuleStrategic6</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkExclusionMilitary22Military23"/>
+    </TechnologyLinkDefinition>
+
+    
+    <!-- EMPIRE DEVELOPMENT -->
+    
+    <!-- STAGE 2 -->
+
+    <!-- Sophons -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Sophons"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Sophons"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Cravers -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Cravers" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Cravers</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Cravers"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Cravers" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Cravers</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Cravers"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Horatio -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Horatio"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Horatio"/>
+    </TechnologyLinkDefinition>
+    
+    
+    <!-- Terrans / United Empire -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Terrans"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Terrans"/>
+    </TechnologyLinkDefinition>
+   
+    <!-- Venetians / Lumeris -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Venetians"/>
+    </TechnologyLinkDefinition>
+
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Venetians"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Unfallen -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Unfallen"/>
+    </TechnologyLinkDefinition>
+
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Unfallen"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Timelords / Riftborn -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2TimeLords"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3TimeLords"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Vampirilis / Vodyani -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique2Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull1Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Vampirilis"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique1ToUnique3Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull2Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull2Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Vampirilis"/>
+    </TechnologyLinkDefinition>
+    
+    <!-- STAGE 3 -->
+
+    <!-- To 5 -->
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment1To5" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMinorFactionsGameplayCommon</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization12</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment1To5"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment1To5Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMinorFactionsGameplayCommon</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization12Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment1To5"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment1To5TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMinorFactionsGameplayCommon</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization12TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment1To5"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment1To5Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyMinorFactionsGameplayHoratio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization12</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment1To5"/>
+    </TechnologyLinkDefinition>
+
+    
+    <!-- To 17 -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment5To17" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization12</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment5To17"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment5To17Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment5To17"/>
+    </TechnologyLinkDefinition>
+    
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment5To17Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment5To17"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment5To17UnfallenTerrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5TerransUnfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TerransUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment5To17"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment5To17TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment5To17"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment5To17TimeLordsTerrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo5TerransTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TerransTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment5To17"/>
+    </TechnologyLinkDefinition>
+
+    <!-- To 12 -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Common</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12FromCommon</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12FromTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12FromUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12FromTerrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12TerransUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TerransUnfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12FromTerransUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12TerransTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TerransTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12FromTerransTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+    
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12UnfallenUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12UnfallenFromUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12UnfallenTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo17TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12UnfallenFromTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12VenetiansFromCommon</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12VenetiansUnfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12VenetiansUnfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12VenetiansFromUnfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopment17To12VenetiansTimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12VenetiansTimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyLinkTo12VenetiansFromTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopment17To12"/>
+    </TechnologyLinkDefinition>
+    
+
+
+
+    <!-- Cravers -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Cravers" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Cravers</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Cravers"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Cravers" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Cravers</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Cravers"/>
+    </TechnologyLinkDefinition>
+
+    
+    <!-- Horatio -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Horatio"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Horatio"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- Sophons -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Sophons"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Sophons"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- Terran / United Empire-->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Terrans"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Terrans"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- Timelords / Riftborn-->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6TimeLords"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7TimeLords"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- Venetians / Lumeris -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Venetians"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Venetians"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- Unfallen -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Unfallen"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Unfallen"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- Vampirilis / Vodyani -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique4ToUnique6Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull4Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull3Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Vampirilis"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique5ToUnique7Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull5Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull4Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Vampirilis"/>
+    </TechnologyLinkDefinition>
+
+    
+    <!-- STAGE 4 -->
+    
+    <!-- Cravers -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Cravers" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Cravers</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Cravers"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Horatio -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Horatio" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Horatio"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Sophons -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Sophons" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Sophons"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Terrans / United Empire -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Terrans" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Terrans"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Venetians / Lumeris -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Venetians" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Venetians"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Unfallen -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Unfallen" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Unfallen"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Timelords / Riftborn -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9TimeLords" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9TimeLords"/>
+    </TechnologyLinkDefinition>
+
+    <!-- Vampirilis / Vodyani -->
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9Vampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHull6Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyImproveHull5Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Vampirilis"/>
+    </TechnologyLinkDefinition>
+
+
+    <!-- CURIOSITY EXAMPLE 
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionScienceAndExploration2To3" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,EmpireImprovementTechnologyLinksUnlocked</PathPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization2</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyColonization3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkScienceAndExploration2To3"/>
+    </TechnologyLinkDefinition>-->
+	
+	<!-- CURIOSITY  -->
+    
+    <!-- ############################################ -->
+    <!-- #            DEPRECATED LINKS              # -->
+    <!-- ############################################ -->
+
+    <!-- Uncomment if any problem on saves older than 20/10/17 is found! There will be a warning to solve -->
+    <!--<TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9CraversVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Cravers</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Cravers"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9HoratioVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Horatio</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Horatio"/>
+    </TechnologyLinkDefinition>
+    
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9SophonsVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Sophons</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Sophons"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9TerransVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Terrans</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Terrans"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9VenetiansVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Venetians</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Venetians"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9UnfallenVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Unfallen</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Unfallen"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9TimeLordsVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1TimeLords</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9TimeLords"/>
+    </TechnologyLinkDefinition>
+
+    <TechnologyLinkDefinition Name="TechnologyLinkDefinitionEmpireDevelopmentUnique8ToUnique9VampirilisVampirilis" Category="TechnologyLinkTypeCostReduction" PrerequisiteResolution="OR">
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership1Vampirilis</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="TechnologyLinkAvailability">TechnologyHullMothership2Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Vampirilis"/>
+    </TechnologyLinkDefinition>-->
+
+</Datatable>

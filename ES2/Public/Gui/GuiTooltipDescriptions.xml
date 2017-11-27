@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiTooltipDescription.xsd">
+
+    <GuiTooltipDescription TooltipClass="ActiveLaw" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+        <!--<PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureLawAbrogationDetails"/>-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureLawForced"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Anomaly" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAnomalyGameplay"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="BattlePlayCard" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="PlayDeck" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePlayDeck"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="AssimilationTrait" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAssimilationInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Constructible" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsInQueue"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEmpirePointGain"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TerraformationConstructible" TooltipWindow="TooltipWindow">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTerraformationEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/-->
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DecolonizationConstructible" TooltipWindow="TooltipWindow">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDecolonizationEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/-->
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DamageGaugeCell" TooltipWindow="TooltipWindow">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay" />
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAffectedByPlay" />
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="StarSystemResourceConstructible" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsInQueue"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureStarSystemResourcesImprovement"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEmpirePointGain"/>
+    </GuiTooltipDescription>
+
+    <!--<GuiTooltipDescription TooltipClass="ConstructibleEmbedded">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparatorEmbedded"/>
+    </GuiTooltipDescription>-->
+
+    <GuiTooltipDescription TooltipClass="DestroyedConstructible" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ConstructibleOnButton" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsInQueue"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEmpirePointGain"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Curiosity" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCuriosityGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DiplomaticTerm" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" ShowImage="false"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAlignment"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="DiplomaticAbility" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DiplomaticConsequences" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsDynamicTitle"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DeedDescription" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureWonderEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestObjective"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestRank"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestRewards"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DeedOutcome" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureWonderEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestObjective"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestOutcome"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestRewards"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="WonderEmbedded">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Effects" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ExplanationAndEffects" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="EmpireImprovement" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ElectionAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="EmpireHappiness" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHappiness"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHappinessStatus"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="EntityAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="FactionTrait" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+        <!-- The description is short here, we do not hide it in compact mode -->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="FactionTraitStartingTechnology" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyUnlocks"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="FactionTraitPopulation" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationEmbedded"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="CustomFactionTrait" TooltipWindow="TooltipWindow" ShowAnchors="true">
+      <AnchorOffset X="0" Y="0"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+      <!-- The description is short here, we do not hide it in compact mode -->
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="CustomFactionTraitStartingTechnology" TooltipWindow="TooltipWindow" ShowAnchors="true">
+      <AnchorOffset X="0" Y="0"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator" HideInCompactMode="true"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyUnlocks"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="CustomFactionTraitPopulation" TooltipWindow="TooltipWindow" ShowAnchors="true">
+      <AnchorOffset X="0" Y="0"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationEmbedded"/>
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+  <GuiTooltipDescription TooltipClass="FleetGroup" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGarrisonsList"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAdditionalGarrisons"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Garrison" TooltipWindow="TooltipWindow">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGarrisonInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureMilitaryPowerBalance"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRangeEfficiency"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GarrisonListTitle">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparatorEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGarrisonListTitle"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GarrisonInfoEmbedded">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGarrisonInfoEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparatorEmbedded"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GarrisonCompactInfoEmbedded">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGarrisonCompactInfoEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparatorEmbedded"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GarrisonInfoAutomatedFleet">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGarrisonInfoAutomatedFleet"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparatorEmbedded"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GroundBattle" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGroundBattleInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GroundBattleStarSystemAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"  DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureGroundBattleInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GroundBattleStrategy" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureFailureInfos"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="MinorFaction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureMinorFaction"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ProbeBasedFleetAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureMovementPointCost"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureProbeFleetActionInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEmpirePointGain"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TransferResourcesFleetAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipResourceTransferInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DestroyPlanetFleetAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePlanetDestructionInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="DestroyPlanetButton" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePlanetDestructionInfo"/>
+    </GuiTooltipDescription>
+	
+	<GuiTooltipDescription TooltipClass="RootNodeFleetAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+		<PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsNodeRooting"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+    </GuiTooltipDescription>
+
+    <!--<GuiTooltipDescription TooltipClass="RootNodeSystemLabel" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple" />
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureNodeRooting"/>
+    </GuiTooltipDescription>-->
+
+    <GuiTooltipDescription TooltipClass="Government" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="GovernmentWithEffect" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Hero" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeroInfo"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsSetsHero"/-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeroShip" HideInCompactMode="true"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="HeroProperty" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeroClassAffectingOdds"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="HeroClass" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="HeroSkillMastery" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="HeroSkill" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSpacing"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetCurrent"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetNext"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="HeroSkillNoDescription" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetCurrent"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetNext"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="HeroSkillCurrentOnly" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSpacing"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetCurrent"/>
+    </GuiTooltipDescription>
+    
+    <!--GuiTooltipDescription TooltipClass="HeroSkillDefinition" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillDescription"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetCurrent"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillEffectsSetNext"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSkillPrerequisites"/>
+    </GuiTooltipDescription-->
+
+    <GuiTooltipDescription TooltipClass="Ingredient" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureResourceNetIncome"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Law" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticsExperiencePrerequisite"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureLawUpkeep"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureLawForced"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="MinigameTeam" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureMinigameTeam"/>
+    </GuiTooltipDescription>
+        
+    <GuiTooltipDescription TooltipClass="Omniscience" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="OutpostAction" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDuration"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureFailureInfos"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="StarSystemOwnership" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureOwnership"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Planet" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePlanetProperties"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAnomalies"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureFidsi"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureMaxPopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsSetPlanet"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="PlanetSimple" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePlanetStatus"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCuriosityCount"/>
+    </GuiTooltipDescription>
+
+  <GuiTooltipDescription TooltipClass="PlanetDefinition" TooltipWindow="TooltipWindow">
+    <AnchorOffset X="0" Y="0"/>
+    <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+    <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+    <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects">
+      <PropertyFilters>
+        <PropertyFilter PropertyName="PlanetInitialFood"/>
+        <PropertyFilter PropertyName="PlanetInitialIndustry"/>
+        <PropertyFilter PropertyName="PlanetInitialDust"/>
+        <PropertyFilter PropertyName="PlanetInitialScience"/>
+        <PropertyFilter PropertyName="PlanetInitialPrestige"/>
+        <PropertyFilter PropertyName="Happiness"/>
+      </PropertyFilters>
+    </PanelFeatureDescription>
+  </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Politics" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticsAffectingEvents"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="PopulationPoliticalTrait" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalModifier"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="PopulationModifiersTrait" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="PopulationCollectionBonusTrait" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationCollectionBonus"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Population" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalOpinion"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationBooster"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="PopulationEmbedded" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalOpinion"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulation"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="PopulationModel" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="PopulationStarSystem" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalOpinion"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationScore"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationBooster"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="NewPopulation" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalOpinion"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationCollectionBonus"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulationBooster"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Probe" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureProbe"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Recipe" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureIngredients"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSynergyEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="QuestObjectiveHint" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestObjectiveHint"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureQuestProgression"/>
+    </GuiTooltipDescription> 
+        
+    <GuiTooltipDescription TooltipClass="Resource" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SalableResource" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureResourceNetIncome"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TradableResource" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ResourceReward" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureAmount"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="StrategicResourceBanner" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureResourceNetIncome"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="LuxuryResourceEconomy" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureResourceNetIncome"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="RebellionSupressionAction" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="ResourceDeposit" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsResource"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ResourceDepositGroup" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsUpgrade"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureResourceDepositGroup"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureBoostablePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SimulationProperty" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderWithSymbol"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimulationProperty"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Ship" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderShip"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRangeEfficiency"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipResourceTransferInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipWithSimple" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderShip"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRangeEfficiency"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipResourceTransferInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipDesign" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderShip"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRangeEfficiency"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipResourceTransferInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureRemainingTurnsCostProvider"/-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEmpirePointGain"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipDesignHeroRecruitement" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderShip"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipHull" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHullInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipModule" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureModuleEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipEditionModule" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureModuleEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureFailureInfos"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipSlot" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSlotInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="ShipSlotEquiped" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureModuleEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSlotSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSlotInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Simple" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <FreeOffset X="10" Y="10"/>
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SimpleNoAnchors" TooltipWindow="TooltipWindow" ShowAnchors="false">
+        <FreeOffset X="10" Y="10"/>
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SimpleDescription" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <FreeOffset X="10" Y="10"/>
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimpleDescription"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Advanced" TooltipWindow="TooltipWindow">
+        <FreeOffset X="10" Y="10"/>
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Constellation" TooltipWindow="TooltipWindow">
+      <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureConstellationControl"/>
+    </GuiTooltipDescription>
+  
+    <GuiTooltipDescription TooltipClass="SpecialNode" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureArenaEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTimeBubblesContainer"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="StarSystem" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureFidsi"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePopulation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSystemGrowth"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSystemDefense"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTimeBubblesContainer"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureNodeRooting"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="StarSystemHappiness" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHappiness"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureModifiers"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHappinessStatus"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="StarSystemImprovement" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SystemDefense" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSystemDefenseDetailed"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SystemGrowth" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTitle"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSystemGrowth"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="SystemMilitaryStatus" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TechnologyUnlockEmbedded">
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderEmbedded"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffectsInQueue"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureStarSystemResourcesImprovement"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSpacing"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Technology" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <!--MG: description removed for now, will be shown in the research complete notification -->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <!--MG: omniscience has a tooltip on each technology. Removing it here to clarify the tooltip -->
+        <!--PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureOmniscience"/-->
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyStatus"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyUnlocks"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TradableTechnology" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyStatus"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyUnlocks"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TechnologyStage" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescriptionGameplay"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeaturePoliticalImpact"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTechnologyUnlocks"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TimeBubble" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureLocation"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDuration"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureUpkeep"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="TimeBubbleEmbedded" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTimeBubbleHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="TradingCompany" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureDescription" HideInCompactMode="true"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="Troop" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeader" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureTroopStats"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="WreckedMothership" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderShip" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipResourceTransferInfo"/>
+    </GuiTooltipDescription>
+
+    <GuiTooltipDescription TooltipClass="WreckedMothershipsCount" TooltipWindow="TooltipWindow" ShowAnchors="true">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureEffects"/>
+    </GuiTooltipDescription>
+    
+    <GuiTooltipDescription TooltipClass="WreckedMothershipVampirilis" TooltipWindow="TooltipWindow">
+        <AnchorOffset X="0" Y="0"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureHeaderShip" DoNotHandleCompactMode="true"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureShipResourceTransferInfo"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSimple"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureSeparator"/>
+        <PanelFeatureDescription Prefab="Prefabs/GUI/Tooltips/PanelFeatures/PanelFeatureCosts"/>
+    </GuiTooltipDescription>
+
+</Datatable>

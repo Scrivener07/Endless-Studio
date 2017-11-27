@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/ShipDesignDefinition.xsd">
+
+    <!--*****************-->
+    <!--**** TimeLords ****-->
+    <!--*****************-->
+
+    <!-- Unarmed TimeLords colonizer-->
+    <ShipDesignDefinition Name="TimeLords_Colonizer">
+        <HullReference Name="HullSmall03TimeLords"/>
+        <ShipRoleReference Name="ShipRoleColonizer"/>
+
+		<!--Core Section-->
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Support01">
+			<ModuleReference Name="ModuleSupportColonization1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+
+		<!--E Section-->
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="ShipDesignDecolonizationTimeLords" Editable="false" Hidden="true">
+        <HullReference Name="HullSmall03TimeLords"/>
+        <ShipRoleReference Name="ShipRoleColonizer"/>
+
+		<!--Core Section-->
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Support01">
+			<ModuleReference Name="ModuleSupportColonization1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+
+		<!--E Section-->
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+    </ShipDesignDefinition>
+    
+    <ShipDesignDefinition Name="TimeLords_Explorer">
+        <HullReference Name="HullSmall04TimeLords"/>
+        <ShipRoleReference Name="ShipRoleExploration"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+
+		<!--NE Section-->
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.Support01">
+			<ModuleReference Name="ModuleSupportExploration1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_SmallAttack"> 
+        <HullReference Name="HullSmall01TimeLords"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Weapon02">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+
+		<!--NE Section-->
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull2TimeLords</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_SmallSupport">
+        <HullReference Name="HullSmall02TimeLords"/>
+        <ShipRoleReference Name="ShipRoleSmallSupport"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+		<!--TODO
+		<SlotBinding SlotName="SectionE.Support01">
+			<ModuleReference Name="XXX"/>
+		</SlotBinding>-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull3TimeLords</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_MediumAttack">
+        <HullReference Name="HullMedium01TimeLords"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Weapon02">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Weapon01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull4TimeLords</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_MediumDefense">
+        <HullReference Name="HullMedium02TimeLords"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+		<!--TODO
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="XXXX"/>
+		</SlotBinding>-->
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+
+		<!--SE Section-->
+		<!--TODO
+		<SlotBinding SlotName="SectionSE.Support01">
+			<ModuleReference Name="XXXX"/>
+		</SlotBinding>-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5TimeLords</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+	<ShipDesignDefinition Name="TimeLords_Invader">
+		<HullReference Name="HullMedium02TimeLords"/>
+		<ShipRoleReference Name="ShipRoleMediumSupport"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="ModuleSupportCrew1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.Support01">
+			<ModuleReference Name="ModuleSupportCrew1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.Support01">
+			<ModuleReference Name="ModuleSupportCrew1"/>
+		</SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+		<TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5TimeLords</TechnologyPrerequisite>
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_LargeCarrier">
+        <HullReference Name="HullLarge01TimeLords"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+		<!--TODO
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="XXXX"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Support02">
+			<ModuleReference Name="XXXX"/>
+		</SlotBinding>-->
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Defense01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionNE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionS.LargeWeapon01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull6TimeLords</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <!--CUSTOM FACTIONS SUPPORT-->
+    <ShipDesignDefinition Name="TimeLords_Leecher">
+        <HullReference Name="HullSmall05TimeLords"/>
+        <ShipRoleReference Name="ShipRoleLeecher"/>
+
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_RootCreator">
+        <HullReference Name="HullSmall06TimeLords"/>
+        <ShipRoleReference Name="ShipRoleRootCreator"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportRootCreation1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <!--SE Section-->
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="TimeLords_Mothership" Editable="true" Hidden="false">
+        <Tags>NoBuyout</Tags>
+        <HullReference Name="HullLarge00TimeLords"/>
+        <ShipRoleReference Name="ShipRoleMothership"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.SupportDefense01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleMothershipScience1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <!--E Section-->
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleMothershipLifeforce1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+</Datatable>

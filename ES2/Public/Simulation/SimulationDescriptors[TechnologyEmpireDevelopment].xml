@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="TechnologyStageEmpireDevelopment1" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEmpireDevelopment2" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEmpireDevelopment3" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEmpireDevelopment4" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEmpireDevelopment5" Type="TechnologyStage"/>
+
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopment1To3" Type="TechnologyLink"/>
+    
+    <SimulationDescriptor Name="TechnologyCountEmpireDevelopmentIncreaseStage1" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEmpireDevelopmentStage1UnlockedTechnologyCount"    Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"                Value="4" Operation="Addition"   TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEmpireDevelopmentIncreaseStage2" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEmpireDevelopmentStage2UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="6" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEmpireDevelopmentIncreaseStage3" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEmpireDevelopmentStage3UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="8" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEmpireDevelopmentIncreaseStage4" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEmpireDevelopmentStage4UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="10" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEmpireDevelopmentIncreaseStage5" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEmpireDevelopmentStage5UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="12" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyMilitaryGameplay" Type="TechnologyMilitaryGameplay">
+        <Modifier TargetProperty="MilitaryScreenGameplayUnlocked" Operation="Force" Value="1" Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+
+    <!-- STAGE 1 -->
+    <SimulationDescriptor Name="TechnologyMinorFactionsGameplay" Type="TechnologyMinorFactionsGameplay"/>
+    <SimulationDescriptor Name="TechnologyMinorFactionsGameplayCommon" Type="TechnologyMinorFactionsGameplay"/>
+
+    <SimulationDescriptor Name="TechnologyMinorFactionsGameplayHoratio" Type="TechnologyMinorFactionsGameplay">
+        <Modifier TargetProperty="Trend"              Value="1" Operation="Addition"  Path="ClassEmpire/ClassMajorRelationWithMinor"      />
+    </SimulationDescriptor>
+
+
+
+    <SimulationDescriptor Name="TechnologyUniqueFood1"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyApproval1"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPlanetaryInfluence1"             Type="Technology"/>
+
+
+    <!-- STAGE 2 -->
+    <SimulationDescriptor Name="TechnologyFood1"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFood1Common"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFood1Horatio"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFood1Sophons"         Type="Technology"/>    
+
+    <SimulationDescriptor Name="TechnologyAcademyEmbassy"         Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyHull2"                   Type="Technology">
+        <Modifier TargetProperty="HullTypes" Value="1"  Operation="Addition" Path="./ClassEmpire"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyHull2Sophons"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2Cravers"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2Vampirilis"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2Venetians"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2Unfallen"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2TimeLords"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2Terrans"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull2Horatio"            Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyHull3"                    Type="Technology">
+        <Modifier TargetProperty="HullTypes" Value="1"  Operation="Addition" Path="./ClassEmpire"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="TechnologyHull3Sophons"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3Cravers"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3Vampirilis"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3Venetians"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3Unfallen"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3TimeLords"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3Terrans"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull3Horatio"            Type="Technology"/>
+
+
+
+
+    <SimulationDescriptor Name="TechnologyColonization12"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeBarren" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization12Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeBarren" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="TechnologyColonization12TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeAtoll" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- LINK-->
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Sophons"      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Sophons"      Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Cravers"      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Cravers"      Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Horatio"      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Horatio"      Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Terrans"      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Terrans"      Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Venetians"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Venetians"    Type="TechnologyLink"/>
+   
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Unfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Unfallen"    Type="TechnologyLink"/>
+    
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2TimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3TimeLords"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique2Vampirilis"   Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique1ToUnique3Vampirilis"   Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopment1To5"   Type="TechnologyLink"/>
+
+    <!-- STAGE 3 -->
+
+    <SimulationDescriptor Name="TechnologyColonization10"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSwamp" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization10TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeOcean" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization10Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSwamp" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+
+    <SimulationDescriptor Name="TechnologyUniqueInfluence1"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyApproval2"                Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyGovernmentGameplay"        Type="TechnologyGovernmentGameplay"/>
+    <SimulationDescriptor Name="TechnologyGovernmentGameplayTerrans" Type="TechnologyGovernmentGameplay"/>
+    <SimulationDescriptor Name="TechnologyInfluence1"                Type="TechnologyInfluence1"/>
+    
+
+    <SimulationDescriptor Name="TechnologyDiplomacy1"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacyPeace"                   Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyElectionAction"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDisapproval1"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDisapproval1Terrans"                   Type="Technology"/>    
+
+    <SimulationDescriptor Name="TechnologyImproveHull1"                   Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyImproveHull1Cravers"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1Horatio"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1Sophons"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1Terrans"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1Vampirilis"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1Venetians"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1Unfallen"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull1TimeLords"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyImproveHull2Cravers"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2Horatio"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2Sophons"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2Terrans"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2Vampirilis"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2Venetians"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2Unfallen"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull2TimeLords"                Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyImproveHull2"                   Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyHull4"                   Type="Technology">
+        <Modifier TargetProperty="HullTypes" Value="1"  Operation="Addition" Path="./ClassEmpire"/>    
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyHull4Sophons"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4Cravers"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4Vampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4Venetians"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4Unfallen"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4TimeLords"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4Terrans"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull4Horatio"            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyHull5"                   Type="Technology">
+        <Modifier TargetProperty="HullTypes" Value="1"  Operation="Addition" Path="./ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyHull5Sophons"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5Cravers"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5Vampirilis"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5Venetians"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5Unfallen"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5TimeLords"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5Terrans"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull5Horatio"            Type="Technology"/>
+    
+    <!-- Links -->
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3"            Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6"            Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7"            Type="TechnologyLink"/>
+
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Sophons"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Sophons"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Sophons"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Cravers"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Cravers"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Cravers"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Horatio"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Horatio"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Horatio"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Terrans"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Terrans"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Terrans"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Venetians"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Venetians"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Venetians"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Unfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Unfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Unfallen"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3TimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6TimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7TimeLords"    Type="TechnologyLink"/>
+    
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique2Unique3Vampirilis"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique4ToUnique6Vampirilis"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique5ToUnique7Vampirilis"    Type="TechnologyLink"/>
+
+
+    <SimulationDescriptor Name="TechnologyLinkTo5TimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo5Terrans"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo5Unfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo17TerransTimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo5TerransTimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo5TerransUnfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo17TerransUnfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo17Terrans"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo17Unfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo17TimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo17Common"    Type="TechnologyLink"/>
+
+
+    
+    
+    <SimulationDescriptor Name="TechnologyLinkTo12FromTerransTimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12FromTerransUnfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12FromTerrans"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkTo12FromTimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12FromCommon"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12FromUnfallen"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkTo12Venetians"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12VenetiansUnfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12VenetiansTimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12VenetiansFromCommon"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12VenetiansFromUnfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12VenetiansFromTimeLords"    Type="TechnologyLink"/>
+    
+    <SimulationDescriptor Name="TechnologyLinkTo12UnfallenFromUnfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12UnfallenFromCommon"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo12UnfallenFromTimeLords"    Type="TechnologyLink"/>
+
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopment5To17"            Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopment17To12"            Type="TechnologyLink"/>
+    
+
+
+    <!-- STAGE 4 -->
+
+    <SimulationDescriptor Name="TechnologyHullMothership1"                      Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Cravers"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Sophons"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Horatio"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Terrans"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1TimeLords"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Unfallen"              Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Venetians"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership1Vampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyInfluenceConversion"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyApproval3"                            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyDiplomacyAlliance"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacyFactionPact"                 Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule5"                       Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyImproveHull3"                         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Cravers"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Horatio"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Sophons"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Terrans"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Vampirilis"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Venetians"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3Unfallen"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull3TimeLords"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyImproveHull4"                         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Cravers"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Horatio"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Sophons"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Terrans"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Vampirilis"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Venetians"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4Unfallen"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull4TimeLords"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyHull6"                   Type="Technology">
+        <Modifier TargetProperty="HullTypes"            Value="1"  Operation="Addition" Path="./ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyHull6Sophons"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6Cravers"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6Vampirilis"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6Venetians"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6Unfallen"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6TimeLords"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6Terrans"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6Horatio"            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyHull6SophonsNonVampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6CraversNonVampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6VampirilisNonVampirilis"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6VenetiansNonVampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6UnfallenNonVampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6TimeLordsNonVampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6TerransNonVampirilis"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHull6HoratioNonVampirilis"            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyDiplomacy2"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacy2Common"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacy2Venetians"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacy2Unfallen"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacy3Common"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacy3Venetians"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDiplomacy3Unfallen"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyCloneMajorPopulation"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUnique1Venetians"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUnique1Cravers"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUnique1Terrans"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUnique1Vampirilis"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUnique1TimeLords"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUnique1Unfallen"         Type="Technology"/>
+
+    
+
+    <!-- LINK-->
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7"            Type="TechnologyLink"/>
+
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Sophons"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Sophons"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Cravers"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Cravers"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Horatio"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Horatio"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Terrans"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Terrans"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Venetians"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Venetians"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Unfallen"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Unfallen"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9TimeLords"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7TimeLords"    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkEmpireDevelopmentUnique8ToUnique9Vampirilis"    Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionUnique6Unique7Vampirilis"    Type="TechnologyLink"/>
+
+
+    <!-- STAGE 5 -->
+    <SimulationDescriptor Name="TechnologyHullMothership2"                      Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Cravers"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Sophons"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Horatio"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Terrans"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2TimeLords"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Unfallen"              Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Venetians"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyHullMothership2Vampirilis"            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyPlanetFood3"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPlanetInfluence3"                   Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyInfluence3"       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyInfluence3Common"       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyInfluence3Vampirilis"       Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyFoodToIndustryCommon"       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFoodToIndustryVenetians"       Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyFood4"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFood4Common"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFood4Unfallen"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyApproval4"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyVictoryEmpireDevelopment"                Type="Technology">
+        <Modifier TargetProperty="VictoryTechnologyResearchedCount" Operation="Addition"        Value="1"    Path="./ClassEmpire"                                                   TooltipHidden="false"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="TechnologyWonderVictory"                Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyImproveHull5"                         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Cravers"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Horatio"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Sophons"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Terrans"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Vampirilis"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Venetians"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5Unfallen"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5TimeLords"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyImproveHull5CraversNonVampirilis"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5HoratioNonVampirilis"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5SophonsNonVampirilis"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5TerransNonVampirilis"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5VampirilisNonVampirilis"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5VenetiansNonVampirilis"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5UnfallenNonVampirilis"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyImproveHull5TimeLordsNonVampirilis"                Type="Technology"/>
+
+	<!--CURIOSITY-->
+	<SimulationDescriptor Name="TechnologyLinkEmpireDevelopment8To10"           Type="TechnologyLink"/>
+
+</Datatable>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- Filling guidance:
+        - Icons Size
+            Quest => Notification DeedCompleted background
+            Small => Tooltip Header (optionnal)
+            Medium => Lozange in the TechTree
+            Large => Tooltip Header 
+    -->
+
+    <!--======================================
+    ================= WONDER =================
+    ==========================================-->
+
+    
+    
+    <QuestGuiElement Name="Deeds_Wonder1">
+        <Title>%Deeds_Wonder1-Title</Title>
+        <Description>%Deeds_Wonder1-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder1Quest" Size="Quest"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder1Medium" Size="Medium"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder1Large" Size="Large"/>
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <TooltipDescription>%Deeds_Wonder1-ObjectiveTooltip</TooltipDescription>
+                    <OutcomeCompleted>%Deeds_Wonder1-Completed</OutcomeCompleted>
+                    <OutcomeFailed>%Deeds_Wonder1-Failed</OutcomeFailed>
+                    <Objective Name="Step1_Objective1">%Deeds_Wonder1-Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="Deeds_Wonder2">
+        <Title>%Deeds_Wonder2-Title</Title>
+        <Description>%Deeds_Wonder2-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder2Quest" Size="Quest"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder2Medium" Size="Medium"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder2Large" Size="Large"/>
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <TooltipDescription>%Deeds_Wonder2-ObjectiveTooltip</TooltipDescription>
+                    <OutcomeCompleted>%Deeds_Wonder2-Completed</OutcomeCompleted>
+                    <OutcomeFailed>%Deeds_Wonder2-Failed</OutcomeFailed>
+                    <Objective Name="Step1_Objective1">%Deeds_Wonder2-Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="Deeds_Wonder3">
+        <Title>%Deeds_Wonder3-Title</Title>
+        <Description>%Deeds_Wonder3-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder3Quest" Size="Quest"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder3Medium" Size="Medium"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder3Large" Size="Large"/>
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <TooltipDescription>%Deeds_Wonder3-ObjectiveTooltip</TooltipDescription>
+                    <OutcomeCompleted>%Deeds_Wonder3-Completed</OutcomeCompleted>
+                    <OutcomeFailed>%Deeds_Wonder3-Failed</OutcomeFailed>
+                    <Objective Name="Step1_Objective1">%Deeds_Wonder3-Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="Deeds_Wonder4">
+        <Title>%Deeds_Wonder4-Title</Title>
+        <Description>%Deeds_Wonder4-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder4Quest" Size="Quest"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder4Medium" Size="Medium"/>
+            <Icon Path="Bitmaps/Dynamic/Deeds/DeedWonder4Large" Size="Large"/>
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <TooltipDescription>%Deeds_Wonder4-ObjectiveTooltip</TooltipDescription>
+                    <OutcomeCompleted>%Deeds_Wonder4-Completed</OutcomeCompleted>
+                    <OutcomeFailed>%Deeds_Wonder4-Failed</OutcomeFailed>
+                    <Objective Name="Step1_Objective1">%Deeds_Wonder4-Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+
+  <!--======================================
+    ================= REGULAR ================
+    ==========================================-->
+
+  <QuestGuiElement Name="Deeds_Regular_EmpireDevelopment_Stage4_A">
+    <Title>%Deeds_Regular_EmpireDevelopment_Stage4_A-Title</Title>
+    <Description>%Deeds_Regular_EmpireDevelopment_Stage4_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage4_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage4_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage4_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_EmpireDevelopment_Stage4_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_EmpireDevelopment_Stage4_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_EmpireDevelopment_Stage4_A-Failed</OutcomeFailed>
+            <Objective Name="Deeds_Regular_EmpireDevelopment_Stage4_A-Objective">%Deeds_Regular_EmpireDevelopment_Stage4_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>     
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_EmpireDevelopment_Stage4_B">
+    <Title>%Deeds_Regular_EmpireDevelopment_Stage4_B-Title</Title>
+    <Description>%Deeds_Regular_EmpireDevelopment_Stage4_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage4_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage4_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage4_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_EmpireDevelopment_Stage4_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_EmpireDevelopment_Stage4_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_EmpireDevelopment_Stage4_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EmpireDevelopment_Stage4_B-Objective">%Deeds_Regular_EmpireDevelopment_Stage4_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_EmpireDevelopment_Stage5_A">
+    <Title>%Deeds_Regular_EmpireDevelopment_Stage5_A-Title</Title>
+    <Description>%Deeds_Regular_EmpireDevelopment_Stage5_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage5_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage5_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage5_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_EmpireDevelopment_Stage5_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_EmpireDevelopment_Stage5_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_EmpireDevelopment_Stage5_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EmpireDevelopment_Stage5_A-Objective">%Deeds_Regular_EmpireDevelopment_Stage5_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_EmpireDevelopment_Stage5_B">
+    <Title>%Deeds_Regular_EmpireDevelopment_Stage5_B-Title</Title>
+    <Description>%Deeds_Regular_EmpireDevelopment_Stage5_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage5_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage5_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EmpireDevelopment_Stage5_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_EmpireDevelopment_Stage5_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_EmpireDevelopment_Stage5_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_EmpireDevelopment_Stage5_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EmpireDevelopment_Stage5_B-Objective">%Deeds_Regular_EmpireDevelopment_Stage5_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_ScienceAndExploration_Stage2_A">
+    <Title>%Deeds_Regular_ScienceAndExploration_Stage2_A-Title</Title>
+    <Description>%Deeds_Regular_ScienceAndExploration_Stage2_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage2_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage2_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage2_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_ScienceAndExploration_Stage2_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_ScienceAndExploration_Stage2_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_ScienceAndExploration_Stage2_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_ScienceAndExploration_Stage2_A-Objective">%Deeds_Regular_ScienceAndExploration_Stage2_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_ScienceAndExploration_Stage2_B">
+    <Title>%Deeds_Regular_ScienceAndExploration_Stage2_B-Title</Title>
+    <Description>%Deeds_Regular_ScienceAndExploration_Stage2_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage2_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage2_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage2_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_ScienceAndExploration_Stage2_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_ScienceAndExploration_Stage2_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_ScienceAndExploration_Stage2_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_ScienceAndExploration_Stage2_B-Objective">%Deeds_Regular_ScienceAndExploration_Stage2_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_ScienceAndExploration_Stage5_A">
+    <Title>%Deeds_Regular_ScienceAndExploration_Stage5_A-Title</Title>
+    <Description>%Deeds_Regular_ScienceAndExploration_Stage5_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage5_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage5_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage5_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_ScienceAndExploration_Stage5_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_ScienceAndExploration_Stage5_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_ScienceAndExploration_Stage5_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_ScienceAndExploration_Stage5_A-Objective">%Deeds_Regular_ScienceAndExploration_Stage5_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_ScienceAndExploration_Stage5_B">
+    <Title>%Deeds_Regular_ScienceAndExploration_Stage5_B-Title</Title>
+    <Description>%Deeds_Regular_ScienceAndExploration_Stage5_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage5_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage5_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_ScienceAndExploration_Stage5_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_ScienceAndExploration_Stage5_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_ScienceAndExploration_Stage5_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_ScienceAndExploration_Stage5_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_ScienceAndExploration_Stage5_B-Objective">%Deeds_Regular_ScienceAndExploration_Stage5_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_EconomyAndTrade_Stage2_A">
+    <Title>%Deeds_Regular_EconomyAndTrade_Stage2_A-Title</Title>
+    <Description>%Deeds_Regular_EconomyAndTrade_Stage2_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage2_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage2_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage2_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_EconomyAndTrade_Stage2_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_EconomyAndTrade_Stage2_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_EconomyAndTrade_Stage2_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EconomyAndTrade_Stage2_A-Objective">%Deeds_Regular_EconomyAndTrade_Stage2_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_EconomyAndTrade_Stage2_B">
+    <Title>%Deeds_Regular_EconomyAndTrade_Stage2_B-Title</Title>
+    <Description>%Deeds_Regular_EconomyAndTrade_Stage2_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage2_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage2_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage2_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_EconomyAndTrade_Stage2_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_EconomyAndTrade_Stage2_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_EconomyAndTrade_Stage2_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EconomyAndTrade_Stage2_B-Objective">%Deeds_Regular_EconomyAndTrade_Stage2_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+  
+  <QuestGuiElement Name="Deeds_Regular_EconomyAndTrade_Stage3_A">
+    <Title>%Deeds_Regular_EconomyAndTrade_Stage3_A-Title</Title>
+    <Description>%Deeds_Regular_EconomyAndTrade_Stage3_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage3_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage3_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage3_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_EconomyAndTrade_Stage3_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_EconomyAndTrade_Stage3_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_EconomyAndTrade_Stage3_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EconomyAndTrade_Stage3_A-Objective">%Deeds_Regular_EconomyAndTrade_Stage3_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_EconomyAndTrade_Stage3_B">
+    <Title>%Deeds_Regular_EconomyAndTrade_Stage3_B-Title</Title>
+    <Description>%Deeds_Regular_EconomyAndTrade_Stage3_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage3_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage3_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_EconomyAndTrade_Stage3_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_EconomyAndTrade_Stage3_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_EconomyAndTrade_Stage3_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_EconomyAndTrade_Stage3_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_EconomyAndTrade_Stage3_B-Objective">%Deeds_Regular_EconomyAndTrade_Stage3_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_Military_Stage3_A">
+    <Title>%Deeds_Regular_Military_Stage3_A-Title</Title>
+    <Description>%Deeds_Regular_Military_Stage3_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage3_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage3_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage3_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_Military_Stage3_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_Military_Stage3_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_Military_Stage3_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_Military_Stage3_A-Objective">%Deeds_Regular_Military_Stage3_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_Military_Stage3_B">
+    <Title>%Deeds_Regular_Military_Stage3_B-Title</Title>
+    <Description>%Deeds_Regular_Military_Stage3_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage3_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage3_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage3_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_Military_Stage3_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_Military_Stage3_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_Military_Stage3_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_Military_Stage3_B-Objective">%Deeds_Regular_Military_Stage3_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_Military_Stage4_A">
+    <Title>%Deeds_Regular_Military_Stage4_A-Title</Title>
+    <Description>%Deeds_Regular_Military_Stage4_A-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage4_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage4_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage4_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+            <TooltipDescription>%Deeds_Regular_Military_Stage4_A-ObjectiveTooltip</TooltipDescription>
+            <OutcomeCompleted>%Deeds_Regular_Military_Stage4_A-Completed</OutcomeCompleted>
+            <OutcomeFailed>%Deeds_Regular_Military_Stage4_A-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_Military_Stage4_A-Objective">%Deeds_Regular_Military_Stage4_A-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="Deeds_Regular_Military_Stage4_B">
+    <Title>%Deeds_Regular_Military_Stage4_B-Title</Title>
+    <Description>%Deeds_Regular_Military_Stage4_B-Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage4_AQuest" Size="Quest"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage4_A" Size="Medium"/>
+      <Icon Path="Bitmaps/Dynamic/Deeds/Deeds_Regular_Military_Stage4_ALarge" Size="Large"/>
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet>
+          <TooltipDescription>%Deeds_Regular_Military_Stage4_B-ObjectiveTooltip</TooltipDescription>
+          <OutcomeCompleted>%Deeds_Regular_Military_Stage4_B-Completed</OutcomeCompleted>
+          <OutcomeFailed>%Deeds_Regular_Military_Stage4_B-Failed</OutcomeFailed>
+          <Objective Name="Deeds_Regular_Military_Stage4_B-Objective">%Deeds_Regular_Military_Stage4_B-Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+
+</Datatable>

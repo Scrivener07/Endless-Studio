@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="SpecialNodeEffectBlackHole" Type="SpecialNodeEffect" IsSerializable="false">
+        <Modifier TargetProperty="SystemResearch" Operation="Addition" Value="50" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="SpecialNodeEffectAsteroidField" Type="SpecialNodeEffect" IsSerializable="false">
+        <Modifier TargetProperty="SystemProduction" Operation="Addition" Value="50" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="SpecialNodeEffectCollapsingStar" Type="SpecialNodeEffect" IsSerializable="false">
+        <Modifier TargetProperty="SystemEmpirePoint" Operation="Addition" Value="50" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="SpecialNodeEffectSolarNebula" Type="SpecialNodeEffect" IsSerializable="false">
+        <Modifier TargetProperty="SystemMoney" Operation="Addition" Value="50" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="SpecialNodeEffectNeutronStar" Type="SpecialNodeEffect" IsSerializable="false">
+		<BinaryModifier TargetProperty="SystemResearch"	Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemEmpirePoint"	Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="ClassColonizedStarSystem"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="SpecialNodeEffectSpaceClouds" Type="SpecialNodeEffect" IsSerializable="false">
+        <Modifier TargetProperty="SystemMoney" Operation="Addition" Value="10" Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemEmpirePoint" Operation="Addition" Value="10" Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction" Operation="Addition" Value="10" Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch" Operation="Addition" Value="10" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    
+</Datatable>

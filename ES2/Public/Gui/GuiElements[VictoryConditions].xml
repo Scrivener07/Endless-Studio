@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- In the Description, the following keys can be used to provide precise information: -->
+    <!-- $(Turn), $(LastTurn), $(Progress), $(Score), $(Rank) -->
+    
+    <VictoryConditionGuiElement Name="VictoryScore">
+        <Title>%VictoryScoreTitle</Title>
+        <Description>%VictoryScoreDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryScoreSmall" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <ProgressString>%VictoryScoreProgress</ProgressString>
+        <AllianceProgressString>%VictoryScoreProgress</AllianceProgressString>
+    </VictoryConditionGuiElement>
+
+    <VictoryConditionGuiElement Name="VictorySupremacy">
+        <Title>%VictorySupremacyTitle</Title>
+        <Description>%VictorySupremacyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryMilitarySmall" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <ProgressString>%VictorySupremacyProgress</ProgressString>
+        <AllianceProgressString>%VictorySupremacyAllianceProgress</AllianceProgressString>
+    </VictoryConditionGuiElement>
+
+    <!-- This is HIDDEN -->
+    <VictoryConditionGuiElement Name="VictoryMilitary">
+        <Title>%VictoryMilitaryTitle</Title>
+        <Description>%VictoryMilitaryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryMilitarySmall" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </VictoryConditionGuiElement>
+
+    <VictoryConditionGuiElement Name="VictoryConquest">
+        <Title>%VictoryConquestTitle</Title>
+        <Description>%VictoryConquestDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryConquestSmall" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <ProgressString>%VictoryConquestProgress</ProgressString>
+        <AllianceProgressString>%VictoryConquestAllianceProgress</AllianceProgressString>
+    </VictoryConditionGuiElement>
+
+    <VictoryConditionGuiElement Name="VictoryScience">
+        <Title>%VictoryScienceTitle</Title>
+        <Description>%VictoryScienceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryScienceSmall" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <ProgressString>%VictoryScienceProgress</ProgressString>
+        <AllianceProgressString>%VictoryScienceAllianceProgress</AllianceProgressString>
+    </VictoryConditionGuiElement>
+
+    <!--
+    <VictoryConditionGuiElement Name="VictoryTemples">
+        <Title>%VictoryTemplesTitle</Title>
+        <Description>%VictoryTemplesDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryTemplesSmall" />
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </VictoryConditionGuiElement> -->
+
+    <VictoryConditionGuiElement Name="VictoryEconomic">
+        <Title>%VictoryEconomicTitle</Title>
+        <Description>%VictoryEconomicDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryEconomicSmall" /> 
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <ProgressString>%VictoryEconomicProgress</ProgressString>
+        <AllianceProgressString>%VictoryEconomicAllianceProgress</AllianceProgressString>
+    </VictoryConditionGuiElement>
+
+    <VictoryConditionGuiElement Name="VictoryWonder">
+        <Title>%VictoryWonderTitle</Title>
+        <Description>%VictoryWonderDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/VictoryConditions/VictoryWonderSmall" /> 
+        </Icons>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <ProgressString>%VictoryWonderProgress</ProgressString>
+        <AllianceProgressString>%VictoryWonderAllianceProgress</AllianceProgressString>
+    </VictoryConditionGuiElement>
+
+   
+</Datatable>

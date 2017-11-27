@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ForeignAffairsConstructibleElement.xsd">
+
+    <!-- DiplomaticMetaPrerequisite.Operator = [OR|XOR|NOR|AND|NAND] -->
+    
+    <!-- TODO: via custom cost, EmpirePoint inflation at some point, as well as Insults/Compliments modifiers -->
+    <!-- See ES2_Diplo_ContractsTerms for ref -->
+
+    <!-- 
+        Custom cost variables:
+        
+          - RelationDuration [0;+inf]
+
+          - IsHotWar [0,1]
+          - IsWar [0,1]
+          - IsTruce [0,1]
+          - IsColdWar [0,1]
+          - IsPeace [0,1]
+          - IsAlliance [0,1]
+          - IsTeam [0,1]
+    -->
+
+    <!-- Introduce yourself -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="IntroduceYourself" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">DiplomaticRelationStateColdWar</DiplomaticRelationStatePrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">0</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateColdWar</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+    
+    <!-- Peace -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="PeaceRelation" PropositionMethod="Negotiation" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Good" AssociatedPolitics="Politics03">
+        <PathPrerequisite Flags="Prerequisite,Discard,Technology">../ClassEmpire/ClassResearch,TechnologyDiplomacyPeace</PathPrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard">DiplomaticRelationStateColdWar</DiplomaticRelationStatePrerequisite>        
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Inverted="true" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">125 * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,PeacefulTreatyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,PeaceCostReduction) * Property(EmpireWhichProposes,@ClassEmpire,PeacefulTreatyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStatePeace</DiplomaticRelationStateReference>        
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+
+    <!-- Forced Peace -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="ForcedPeaceRelation" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Good" AssociatedPolitics="Politics03">
+        <PathPrerequisite Flags="Prerequisite,Discard,Technology">../ClassEmpire/ClassResearch,TechnologyDiplomacyPeace</PathPrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">
+            <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassSenate/LawEffectP03L00</PathPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard">DiplomaticRelationStateColdWar</DiplomaticRelationStatePrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Inverted="true" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticAbilityChange Operation="Add" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">250 * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,PeacefulTreatyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,PeaceCostReduction) * Property(EmpireWhichProposes,@ClassEmpire,PeacefulTreatyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStatePeace</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+    
+    <!-- ColdWar -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="ColdWarRelation" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <PathPrerequisite Flags="Prerequisite,Discard,Technology">../ClassEmpire/ClassResearch,TechnologyDiplomacyPeace</PathPrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard">DiplomaticRelationStatePeace</DiplomaticRelationStatePrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">(110 + 110*$(IsAlliance)) * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateColdWar</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+    
+    <!-- War -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="WarRelation" Hidden="true" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad" ScoreProviderOnProvider="WarDeclarationSent" ScoreProviderOnReceiver="WarDeclarationReceived">
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Inverted="true" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">0</DiplomaticCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateWar</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+    
+    <!-- Alliance -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="AllianceRelation" Hidden="true" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Good">
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Inverted="true" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">0</DiplomaticCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateAlliance</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+    
+    <!-- Alliance -->
+    <DiplomaticTermAllianceDefinition Name="AskAlliance" PropositionMethod="Negotiation" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Good" AssociatedPolitics="Politics03">
+        <PathPrerequisite Flags="Prerequisite,Discard,Technology">../ClassEmpire/ClassResearch,TechnologyDiplomacyAlliance</PathPrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives" Inverted="true">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticMetaPrerequisite Flags="Prerequisite,Discard" Operator="OR" >
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStatePeace</DiplomaticRelationStatePrerequisite>
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateColdWar</DiplomaticRelationStatePrerequisite>
+        </DiplomaticMetaPrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">250 * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,PeacefulTreatyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,AllianceCostReduction) * Property(EmpireWhichProposes,@ClassEmpire,PeacefulTreatyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateAlliance</DiplomaticRelationStateReference>
+    </DiplomaticTermAllianceDefinition>
+
+    <!-- Truce  -->
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="TruceRelation" PropositionMethod="Negotiation" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Good" AssociatedPolitics="Politics03">
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard">DiplomaticRelationStateWar</DiplomaticRelationStatePrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">125 * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,PeacefulTreatyCostReduction) * Property(EmpireWhichProposes,@ClassEmpire,PeacefulTreatyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateTruce</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+
+
+    <!-- LeaveAlliance -->
+    <DiplomaticTermBreakAllianceDefinition Name="LeaveAlliance" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad">
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard">DiplomaticRelationStateAlliance</DiplomaticRelationStatePrerequisite>
+        <DiplomaticCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">0</DiplomaticCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateColdWar</DiplomaticRelationStateReference>
+    </DiplomaticTermBreakAllianceDefinition>
+
+    <!-- Renounce Alliance (in case of war declaration) -->
+    <DiplomaticTermRenounceAllianceDefinition Name="RenounceAlliance" PropositionMethod="Declaration" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad">
+        <DiplomaticAbilityPrerequisite Flags="Prerequisite,Discard" TargetRelation="ProviderToReceiver">CanRenounceAlliance</DiplomaticAbilityPrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">0</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateColdWar</DiplomaticRelationStateReference>
+    </DiplomaticTermRenounceAllianceDefinition>
+
+    <!-- BreakAlliance -->
+    <DiplomaticTermBreakAllianceDefinition Name="BreakAlliance" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="ReceiverOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad">
+        <DiplomaticRelationStateReference>DiplomaticRelationStatePeace</DiplomaticRelationStateReference>
+    </DiplomaticTermBreakAllianceDefinition>
+    
+    <!-- ProposeAlliance -->
+    <DiplomaticTermProposalDefinition Name="ProposeAllianceRelation" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <AllowedTreaties>
+            <AllowedTreaty Name="AllianceRelation"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+    
+    <!-- ProposePeace -->
+    <DiplomaticTermProposalDefinition Name="ProposePeaceRelation" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral" AssociatedPolitics="Politics03">
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichProvides">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Inverted="false" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">
+            <InterpreterPrerequisite Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire,!FactionTraitEternalWar') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassLaw,LawEffectP03L00') or Path(Context,@'../ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics03')</InterpreterPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <AllowedTreaties>
+            <AllowedTreaty Name="PeaceRelation"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+    
+    <!-- ProposeColdWar -->
+    <DiplomaticTermProposalDefinition Name="ProposeColdWarRelation" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <AllowedTreaties>
+            <AllowedTreaty Name="ColdWarRelation"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+    
+    <!-- DeclareWar -->
+    <DiplomaticTermDeclareWarDefinition Name="DeclareWar" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad" AssociatedPolitics="Politics06" ScoreProviderOnProvider="WarDeclarationSent" ScoreProviderOnReceiver="WarDeclarationReceived">
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticMetaPrerequisite Flags="Prerequisite,Discard" Operator="NOR">
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateWar</DiplomaticRelationStatePrerequisite>
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateHotWar</DiplomaticRelationStatePrerequisite>
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateAlliance</DiplomaticRelationStatePrerequisite>
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateTeam</DiplomaticRelationStatePrerequisite>
+        </DiplomaticMetaPrerequisite>
+        <DiplomaticMetaPrerequisite Flags="Prerequisite,Discard" Operator="NOR">
+            <DiplomaticContractContainsTermPrerequisite>PeaceRelation</DiplomaticContractContainsTermPrerequisite>
+            <DiplomaticContractContainsTermPrerequisite>ColdWarRelation</DiplomaticContractContainsTermPrerequisite>
+            <DiplomaticContractContainsTermPrerequisite>AskAlliance</DiplomaticContractContainsTermPrerequisite>
+        </DiplomaticMetaPrerequisite>
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard" Inverted="true" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticAbilityPrerequisite Flags="Prerequisite,DemandInProgress" Inverted="true" TargetRelation="ReceiverToProvider">DemandInProgress</DiplomaticAbilityPrerequisite>
+        <DiplomaticRelationStateEmpirePrerequisite Flags="Prerequisite,WarDeclarationForbiddenFollowingDemand" Responsible="RelationOfEmpireWhichReceives">
+            <PathPrerequisite Inverted="true">WarDeclarationForbidden</PathPrerequisite>
+        </DiplomaticRelationStateEmpirePrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">(150 - 150*0.25*$(IsColdWar) + 150*2*$(IsTruce)) * Property(Relation,@ClassDiplomaticEmpire,WarDeclarationCostReduction) * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,FreeWarDeclaration) * Property(Relation,@ClassDiplomaticEmpire,AggressiveTreatyCostReduction) * Property(EmpireWhichProposes,@ClassEmpire,AggressiveTreatyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)*1.5</DiplomaticCustomCost>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateWar</DiplomaticRelationStateReference>
+        <PropertyToReset>TurnsBeforeNeighbourColonizationIsAllowed</PropertyToReset>
+        <PropertyToReset>TurnsBeforeAttackIsAllowed</PropertyToReset>
+        <PropertyToReset>TurnsBeforeLeechingIsAllowed</PropertyToReset>
+        <PropertyToReset>TurnsBeforeTimeBubblesAreAllowed</PropertyToReset>
+        <PropertyToReset>TurnsBeforeRootingIsAllowed</PropertyToReset>
+    </DiplomaticTermDeclareWarDefinition>
+
+    <!-- ProposeTruce -->
+    <DiplomaticTermProposalDefinition Name="ProposeTruceRelation" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral" AssociatedPolitics="Politics03">
+        <AllowedTreaties>
+            <AllowedTreaty Name="TruceRelation"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+  
+    <!-- PressureReduction (gift) -->
+    <DiplomaticTermPressureReductionDefinition Name="PressureReduction" PropositionMethod="Negotiation" ApplicationMethod="Symmetrical" Category="CategoryTreaty" Alignment="Good">
+        <!-- Remove term once gifting system is automated by the system -->
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Technology">../ClassEmpire/ClassResearch,TechnologyDiplomacyPeace</PathPrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticRelationStatePrerequisite Inverted="true" Flags="Prerequisite,Discard">DiplomaticRelationStateWar</DiplomaticRelationStatePrerequisite>
+        <DiplomaticRelationStatePrerequisite Inverted="true" Flags="Prerequisite,Discard">DiplomaticRelationStateHotWar</DiplomaticRelationStatePrerequisite>
+        <DiplomaticContractContainsTermPrerequisite Inverted="true" Flags="Prerequisite,Discard">DeclareWar</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">50 * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction)*Property(Relation,@ClassDiplomaticEmpire,PeacefulTreatyCostReduction)*Property(EmpireWhichProposes,@ClassEmpire,PeacefulTreatyCostReduction) * (1 + (Property(EmpireWhichProposes,@ClassEmpire,SystemCount) / 10) * 1.25)*1.5</DiplomaticCustomCost>
+    </DiplomaticTermPressureReductionDefinition>
+  
+    <!-- Generate Pressure -->
+    <DiplomaticTermPressureEffectDefinition Name="GeneratePressure" PropositionMethod="Declaration" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" Alignment="Bad">
+        <InterpreterPrerequisite Flags="Prerequisite,Discard">Property(Context, @../ClassEmpire/ClassDiplomacy/ClassDiplomaticEmpire, GeneratePressureTermActive) lt 1</InterpreterPrerequisite>
+        <DiplomaticRelationStatePrerequisite Inverted="true" Flags="Prerequisite,Discard" Responsible="EmpireWhichReceives">DiplomaticRelationStateUnknown</DiplomaticRelationStatePrerequisite>
+        <DiplomaticMetaPrerequisite Flags="Prerequisite,Discard" Operator="OR">
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateColdWar</DiplomaticRelationStatePrerequisite>
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStatePeace</DiplomaticRelationStatePrerequisite>
+            <DiplomaticRelationStatePrerequisite>DiplomaticRelationStateAlliance</DiplomaticRelationStatePrerequisite>
+        </DiplomaticMetaPrerequisite>
+        <DiplomaticCustomCost Responsible="EmpireWhichProposes" ResourceName="EmpireEmpirePoint">500 * Property(EmpireWhichProposes,@ClassEmpire,DiplomacyCostReduction) * Property(Relation,@ClassDiplomaticEmpire,AggressiveTreatyCostReduction)</DiplomaticCustomCost>
+        <DiplomaticPressureEffectDefinitionReference Name="PressureIncreaseFromDiplomacy"/>
+    </DiplomaticTermPressureEffectDefinition>
+
+</Datatable>

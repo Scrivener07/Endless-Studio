@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.View.Mapping.Xml.XmlMapping.xsd">
+
+    <!-- GALAXY -->
+
+    <XmlMapping Name="ClassGalaxy">
+        <GameObject Name="Format('Galaxy_{0}', $(Shape))" Prefab="Format('Prefabs/Game/Environment/Galaxy/Galaxy_{0}_01', $(Shape))"/>
+    </XmlMapping>
+
+    <!-- CONSTELLATIONS -->
+
+    <XmlMapping Name="ClassConstellation">
+        <GameObject Name="Format('Constellation({0})', $(GUID))" Prefab="Prefabs/Game/Constellation/Constellation_00"/>
+    </XmlMapping>
+
+    <!-- STAR SYSTEMS -->
+
+    <!--<XmlMapping Name="ClassStarSystem">
+    <GameObject Name="Format('{0}({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/StarSystem/StarSystem_{0}_00', $(Type))"/>
+    <Fallback>
+      <Variation Weights="50;50" Values="00;01"/>
+      <GameObject Name="Format('StarTypeDefault({0})', $(GUID))" Prefab="Format('Prefabs/Game/StarSystem/StarSystem_Default_{0}', $(Variation))"/>
+    </Fallback>
+  </XmlMapping>-->
+
+    <XmlMapping Name="ClassStarSystem">
+        <GameObject Name="Format('{0}({1})', $(Type), $(GUID))" Prefab="Prefabs/Game/Environment/StarSystem/StarSystem_Generic_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassStarSystem.Body">
+        <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/StarSystem/StarSystemBody_{0}_00_{1}', $(Type), $(ExplorationState))"/>
+        <Fallback>
+            <GameObject Name="Format('StarGeneric.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/StarSystem/StarSystemBody_Generic_00_{0}', $(ExplorationState))"/>
+            <Fallback>
+                <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/StarSystem/StarSystemBody_{0}_00', $(Type))"/>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+  
+   <XmlMapping Name="ClassStarSystemGalaxyLife">
+       <GameObject Name="Format('{0}.GalaxyLife({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/StarSystem/GalaxyLife/StarSystemLife_{0}_00', $(Type))"/>
+   </XmlMapping>
+
+    <XmlMapping Name="ClassStarSystemDiscovery">
+        <GameObject Name="Format('StarSystemDiscovery_{0}', $(Type))" Prefab="Format('Prefabs/Game/Environment/StarSystem/StarSystem_Discovery_{0}_00', $(Type))"/>
+        <Fallback>
+            <GameObject Name="StarSystemDiscovery" Prefab="Prefabs/Game/Environment/StarSystem/StarSystem_Discovery"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassSpecialNode">
+        <GameObject Name="Format('{0}({1})', $(Category), $(GUID))" Prefab="Prefabs/Game/Environment/SpecialNode/SpecialNode_Generic_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassSpecialNode.Body">
+        <GameObject Name="Format('{0}.Body', $(Category))" Prefab="Format('Prefabs/Game/Environment/SpecialNode/SpecialNodeBody_{0}_00_{1}', $(Category), $(ExplorationState))"/>
+        <Fallback>
+            <GameObject Name="Format('SpecialNodeGeneric.Body')" Prefab="Format('Prefabs/Game/Environment/SpecialNode/SpecialNodeBody_Generic_00_{0}', $(ExplorationState))"/>
+            <Fallback>
+                <GameObject Name="Format('{0}.Body', $(Category))" Prefab="Format('Prefabs/Game/Environment/SpecialNode/SpecialNodeBody_{0}_00', $(Category))"/>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassWreckedMothership">
+        <GameObject Name="WreckedMothership" Prefab="Prefabs/Game/Ship/WreckedMothership"/>
+    </XmlMapping>
+
+    <!-- PLANETS -->
+
+    <!--<XmlMapping Name="ClassPlanet">
+    <GameObject Name="Format('{0}({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/Planet_{0}_00', $(Type))">
+      <Transform UniformScale="0.5" Condition="$(Size) eq 'PlanetSizeTiny'"/>
+      <Transform UniformScale="0.75" Condition="$(Size) eq 'PlanetSizeSmall'"/>
+      <Transform UniformScale="1.0" Condition="$(Size) eq 'PlanetSizeMedium'"/>
+      <Transform UniformScale="1.25" Condition="$(Size) eq 'PlanetSizeLarge'"/>
+      <Transform UniformScale="1.5" Condition="$(Size) eq 'PlanetSizeHuge'"/>
+    </GameObject>
+    <Fallback>
+      <GameObject Name="Format('PlanetTypeDefault({0})', $(GUID))" Prefab="Prefabs/Game/Environment/Planet/Planet_Default_01">
+        <Transform UniformScale="0.5" Condition="$(Size) eq 'PlanetSizeTiny'"/>
+        <Transform UniformScale="0.75" Condition="$(Size) eq 'PlanetSizeSmall'"/>
+        <Transform UniformScale="1.0" Condition="$(Size) eq 'PlanetSizeMedium'"/>
+        <Transform UniformScale="1.25" Condition="$(Size) eq 'PlanetSizeLarge'"/>
+        <Transform UniformScale="1.5" Condition="$(Size) eq 'PlanetSizeHuge'"/>
+      </GameObject>
+    </Fallback>
+    <GameObject Name="Format('PlanetTypeDefault({0})', $(GUID))" Prefab="Prefabs/Game/Environment/Planet/_ArenaBackground/Planet_Default_03">
+      <Transform UniformScale="0.5" Condition="$(Size) eq 'PlanetSizeTiny'"/>
+      <Transform UniformScale="0.75" Condition="$(Size) eq 'PlanetSizeSmall'"/>
+      <Transform UniformScale="1.0" Condition="$(Size) eq 'PlanetSizeMedium'"/>
+      <Transform UniformScale="1.25" Condition="$(Size) eq 'PlanetSizeLarge'"/>
+      <Transform UniformScale="1.5" Condition="$(Size) eq 'PlanetSizeHuge'"/>
+    </GameObject>
+  </XmlMapping>-->
+
+    <XmlMapping Name="ClassPlanet">
+        <GameObject Name="Format('{0}({1})', $(Type), $(GUID))" Prefab="Prefabs/Game/Environment/Planet/Planet_Generic_00">
+            <Transform UniformScale="0.9" Condition="$(Size) eq 'PlanetSizeTiny'"/>
+            <Transform UniformScale="1.2" Condition="$(Size) eq 'PlanetSizeSmall'"/>
+            <Transform UniformScale="1.5" Condition="$(Size) eq 'PlanetSizeMedium'"/>
+            <Transform UniformScale="1.8" Condition="$(Size) eq 'PlanetSizeLarge'"/>
+            <Transform UniformScale="2" Condition="$(Size) eq 'PlanetSizeHuge'"/>
+        </GameObject>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassPlanet.CameraAnchors">
+        <GameObject Name="Format('CameraAnchors_{0}({1})', $(Size), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/Planet_CameraAnchors_{0}', $(Size))"/>
+        <Fallback>
+            <GameObject Name="Format('CameraAnchors_Default({0})', $(GUID))" Prefab="Prefabs/Game/Environment/Planet/Planet_CameraAnchors_Default"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassPlanet.Body">
+        <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}_00_{1}', $(Type), $(ExplorationState))"/>
+        <Fallback>
+            <GameObject Name="Format('PlanetGeneric.Body_{2}({1})', $(Type), $(GUID), $(ExplorationState))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_Generic_00_{0}', $(ExplorationState))"/>
+            <Fallback>
+                <GameObject Name="Format('{0}.Body({1})', $(UniquePlanet), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}_00', $(UniquePlanet))"/>
+                <Fallback>
+                    <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}_00', $(Type))"/>
+                    <Fallback>
+                        <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Prefabs/Game/Environment/Planet/PlanetBody_PlanetTypeTerran_00"/>
+                    </Fallback>
+                </Fallback>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassPlanet.Body.Discovery">
+        <GameObject Name="Format('{0}.Body({1})', $(UniquePlanet), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}Discovery_00', $(UniquePlanet))"/>
+        <Fallback>
+            <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}Discovery_00', $(Type))"/>
+            <Fallback>
+                <GameObject Name="Format('{0}.Body({1})', $(UniquePlanet), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}_00', $(UniquePlanet))"/>
+                <Fallback>
+                    <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Format('Prefabs/Game/Environment/Planet/PlanetBody_{0}_00', $(Type))"/>
+                    <Fallback>
+                        <GameObject Name="Format('{0}.Body({1})', $(Type), $(GUID))" Prefab="Prefabs/Game/Environment/Planet/PlanetBody_PlanetTypeTerran_00"/>
+                    </Fallback>
+                </Fallback>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassPlanet.Terraformation">
+        <GameObject Name="Format('TerraformationTo{0}', $(Type))" Prefab="Format('Materials/Planets/Anomalies/TerraformationTo{0}', $(Type))"/>
+        <Fallback>
+            <GameObject Name="Format('TerraformationTo{0}', $(Type))" Prefab="Materials/Planets/Anomalies/TerraformationToArctic"/>
+        </Fallback>
+    </XmlMapping>
+
+  <XmlMapping Name="ClassPlanet.Anomaly">
+    <GameObject Name="Format('Anomaly_{0}', $(PlanetAnomaly))" Prefab="Format('Prefabs/Game/Environment/Anomaly/{0}', $(PlanetAnomaly))"/>
+  </XmlMapping>
+  
+  <XmlMapping Name="ClassPlanet.Anomaly.Discovery">
+      <GameObject Name="Format('Anomaly_{0}', $(PlanetAnomaly))" Prefab="Format('Prefabs/Game/Environment/Anomaly/{0}Discovery', $(PlanetAnomaly))"/>
+      <Fallback>
+        <GameObject Name="Format('Anomaly_{0}', $(PlanetAnomaly))" Prefab="Format('Prefabs/Game/Environment/Anomaly/{0}', $(PlanetAnomaly))"/>
+      </Fallback>
+  </XmlMapping>
+
+    <XmlMapping Name="ClassPlanet.Anomaly.Battle">
+        <GameObject Name="Format('Anomaly_{0}', $(PlanetAnomaly))" Prefab="Format('Prefabs/Game/Environment/Anomaly/{0}Battle', $(PlanetAnomaly))"/>
+        <Fallback>
+            <GameObject Name="Format('Anomaly_{0}', $(PlanetAnomaly))" Prefab="Format('Prefabs/Game/Environment/Anomaly/{0}', $(PlanetAnomaly))"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassPlanet.OrbitalStation">
+        <GameObject Name="Format('SpaceStation_{0}', $(Faction))" Prefab="Format('Prefabs/Game/Environment/SpaceStation/SpaceStation_{0}_01', $(Faction))"/>
+    </XmlMapping>
+
+    <!-- MOONS -->
+
+    <XmlMapping Name="ClassMoon">
+        <GameObject Name="Format('Moon({0})', $(GUID))" Prefab="Prefabs/Game/Environment/Moon/Moon_Generic_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassMoon.Body">
+        <GameObject Name="Format('Moon.Body({0})', $(GUID))" Prefab="Format('Prefabs/Game/Environment/Moon/MoonBody_00_{0}', $(ExplorationState))"/>
+        <Fallback>
+            <GameObject Name="MoonBody" Prefab="Prefabs/Game/Environment/Moon/MoonBody_00"/>
+        </Fallback>
+    </XmlMapping>
+
+    <!-- LINKS -->
+
+    <XmlMapping Name="WarpLink">
+        <GameObject Name="Warplink" Prefab="Prefabs/Game/Environment/Link/Warplink_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="WormholeLink">
+        <GameObject Name="WormholeLink" Prefab="Prefabs/Game/Environment/Link/WormholeLink_00"/>
+    </XmlMapping>
+
+    <!-- GARISONS -->
+
+    <XmlMapping Name="ClassGarrisonFleet">
+        <GameObject Name="Format('Fleet({0})', $(GUID))" Prefab="Prefabs/Game/GalaxyFleet/GalaxyFleet_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassGarrisonFleet.Body">
+        <GameObject Name="Format('FleetBody({0})', $(GUID))" Prefab="Format('Prefabs/Game/GalaxyFleet/GalaxyFleet_{0}', $(ShortHull))"/>
+        <Fallback>
+            <GameObject Name="Format('FleetBody({0})', $(GUID))" Prefab="Format('Prefabs/Game/GalaxyFleet/GalaxyFleet_Fallback{0}', $(ShortAffinityMapping))"/>
+            <Fallback>
+                <GameObject Name="Format('FleetBody({0})', $(GUID))" Prefab="Prefabs/Game/GalaxyFleet/GalaxyFleet_Fallback"/>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassDockedFleet.Body">
+        <GameObject Name="Format('FleetBody({0})', $(GUID))" Prefab="Format('Prefabs/Game/Dock/DockingFleet_{0}', $(ShortHull))"/>
+        <Fallback>
+            <GameObject Name="Format('FleetBody({0})', $(GUID))" Prefab="Format('Prefabs/Game/Dock/DockingFleet_Fallback{0}', $(ShortAffinityMapping))"/>
+            <Fallback>
+                <GameObject Name="Format('FleetBody({0})', $(GUID))" Prefab="Prefabs/Game/Dock/DockingFleet_Fallback"/>
+            </Fallback>
+        </Fallback>
+        <GameObject Name="Format('DockedFleetBody({0})', $(GUID))" Prefab="Format('Prefabs/Game/Dock/DockingFleet_{0}_00', $(ShortAffinityMapping))"/>
+        <Fallback>
+            <GameObject Name="Format('DockedFleetBody({0})', $(GUID))" Prefab="Prefabs/Game/Dock/DockingFleet_Sophons_00"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassRaidSystemFX">
+        <GameObject Name="RaidSystemFX" Prefab="Prefabs/Game/Effects/Gameplay/Vampirilis_SystemRaided/Vampirilis_SystemRaided"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassRootSystemFX">
+        <GameObject Name="RootSystemFX" Prefab="Prefabs/Game/Effects/Gameplay/Unfallen_SystemRooted/Unfallen_SystemRooted"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassGarrisonHangar">
+        <GameObject Name="Format('Hangar({0})', $(GUID))" Prefab="Prefabs/Game/Hangar/DockingSlot_00"/>
+        <!--<GameObject Name="Format('Hangar({0})', $(GUID))" Prefab="Prefabs/Game/Hangar/DockingSlot_NoMesh_00"/>-->
+    </XmlMapping>
+
+    <!-- SHIPS -->
+
+    <XmlMapping Name="ClassGarrisonShip">
+        <GameObject Name="Format('GarrisonShip({0})', $(GUID))" Prefab="Prefabs/Game/Ship/Ship_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="GarrisonShipHull">
+        <GameObject Name="Format('GarrisonShipHull({0})', Descriptor(Ship, ShipSize))" Prefab="Format('Prefabs/Game/Ship/Ship_{0}', Descriptor(Ship, ShipSize))"/>
+    </XmlMapping>
+
+    <!-- TIME BUBBLES -->
+
+    <XmlMapping Name="ClassTimeBubble">
+        <GameObject Name="Format('TimeBubble_{0} ({1})', $(Name), $(GUID))" Prefab="Format('Prefabs/Game/TimeBubble/TimeBubble_{0}_00', $(Name))"/>
+        <Fallback>
+            <GameObject Name="Format('TimeBubble({0})', $(GUID))" Prefab="Prefabs/Game/TimeBubble/TimeBubble_00"/>
+        </Fallback>
+    </XmlMapping>
+
+    <!-- PROBES -->
+
+    <XmlMapping Name="ClassProbe">
+        <GameObject Name="Format('Probe({0})', $(GUID))" Prefab="Prefabs/Game/Probe/Probe_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassExpeditionProbe">
+        <GameObject Name="ExpeditionProbe" Prefab="Prefabs/Game/Probe/ExpeditionProbe_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassEnemyExpeditionProbe">
+        <GameObject Name="EnemyExpeditionProbe" Prefab="Prefabs/Game/Probe/EnemyExpeditionProbe_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassMothershipProbe">
+        <GameObject Name="MothershipProbe" Prefab="Prefabs/Game/Probe/MothershipProbe_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassEnemyMothershipProbe">
+        <GameObject Name="EnemyMothershipProbe" Prefab="Prefabs/Game/Probe/EnemyMothershipProbe_00"/>
+    </XmlMapping>
+
+    <!-- METAPLOT -->
+    <XmlMapping Name="ClassMetaplot">
+        <GameObject Name="Metaplot" Prefab="Format('Prefabs/Game/Effects/Gameplay/Metaplot/HighlightMetaplot_{0}', $(State))"/>
+    </XmlMapping>
+
+    <!-- ENCOUNTER -->
+
+    <XmlMapping Name="Encounter">
+        <GameObject Name="GalaxyEncounter" Prefab="Prefabs/Game/Encounter/GalaxyEncounter"/>
+    </XmlMapping>
+
+    <XmlMapping Name="EncounterShip">
+        <GameObject Name="Format('Ship({0})', Descriptor(Ship, ShipSize))" Prefab="Format('Prefabs/Game/SpaceShips/SS_{0}{1}_{2}_{3}', Descriptor(Ship, ShipFaction), $(SpecialType), Descriptor(Ship, ShipSize), Descriptor(Ship, ShipHull))"/>
+        <Fallback>
+            <GameObject Name="Format('Ship({0})', Descriptor(Ship, ShipSize))" Prefab="Format('Prefabs/Game/SpaceShips/SS_{0}_{1}_01', Descriptor(Ship, ShipFaction), Descriptor(Ship, ShipSize))"/>
+            <Fallback>
+                <GameObject Name="Format('Ship({0})', Descriptor(Ship, ShipSize))" Prefab="Format('Prefabs/Game/SpaceShips/SS_Sophons_{0}_01', Descriptor(Ship, ShipSize))"/>
+                <Fallback>
+                    <GameObject Name="Format('Ship({0})', Descriptor(Ship, ShipSize))" Prefab="Prefabs/Game/SpaceShips/SS_Sophons_Small_01"/>
+                </Fallback>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="EncounterEffectArea">
+        <GameObject Name="Format('EffectArea({0})', Descriptor(EffectArea, EffectAreaType))" Prefab="Format('Prefabs/Game/Encounter/EffectAreas/EffectArea_{0}', Descriptor(EffectArea, EffectAreaType))"/>
+        <Fallback>
+            <GameObject Name="Format('EffectArea({0})', Descriptor(EffectArea, EffectAreaType))" Prefab="Prefabs/Game/Encounter/EffectAreas/EffectArea_Default"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="EncounterArenaBackground">
+        <GameObject Name="Format('EncounterArenaBackground({0}_{1}_{2})', $(NodeType), $(SpecialType), $(Variation))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/EncounterArenaBackground_{0}_{1}_{2}', $(NodeType), $(SpecialType), $(Variation))"/>
+        <Fallback>
+            <GameObject Name="Format('EncounterArenaBackground({0}_{1})', $(NodeType), $(Variation))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/EncounterArenaBackground_{0}_{1}', $(NodeType), $(Variation))"/>
+            <Fallback>
+                <GameObject Name="Format('EncounterArenaBackground({0})', $(NodeType))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/EncounterArenaBackground_{0}', $(NodeType))"/>
+                <Fallback>
+                    <GameObject Name="EncounterArenaBackgroundDefault" Prefab="Prefabs/Game/Encounter/ArenaBackground/EncounterArenaBackground_Default"/>
+                </Fallback>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+  <XmlMapping Name="EncounterShipScanViewIcon">
+    <GameObject Name="Format('ScanViewIcon({0})', Descriptor(Ship, ShipRole))" Prefab="Format('Prefabs/Game/SpaceShips/ScanView/Icon_{0}', Descriptor(Ship, ShipRole))"/>
+    <Fallback>
+      <GameObject Name="Format('ScanViewIcon({0})', Descriptor(Ship, ShipRole))" Prefab="Prefabs/Game/SpaceShips/ScanView/Icon_Fallback"/>
+    </Fallback>
+  </XmlMapping>
+
+    <XmlMapping Name="EncounterArenaBackground.Skybox">
+        <GameObject Name="Format('Skybox({0})', $(Type))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/Skyboxes/Skybox_{0}', $(Type))"/>
+        <Fallback>
+            <GameObject Name="Skybox" Prefab="Prefabs/Game/Encounter/ArenaBackground/Skyboxes/Skybox_StarTypeWhite"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="EncounterArenaBackground.Star">
+        <GameObject Name="Format('Star({0})', $(Type))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/Stars/Star_{0}', $(Type))"/>
+        <Fallback>
+            <GameObject Name="Format('Star({0})', $(Type))" Prefab="Prefabs/Game/Encounter/ArenaBackground/Stars/Star_StarTypeWhite"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="EncounterArenaBackground.Planet">
+        <GameObject Name="Format('Planet({0})', $(UniquePlanet))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/Planets/Planet_{0}', $(UniquePlanet))"/>
+        <Fallback>
+            <GameObject Name="Format('Planet({0})', $(Type))" Prefab="Format('Prefabs/Game/Encounter/ArenaBackground/Planets/Planet_{0}', $(Type))"/>
+            <Fallback>
+                <GameObject Name="Format('Planet({0})', $(Type))" Prefab="Prefabs/Game/Encounter/ArenaBackground/Planets/Planet_PlanetTypeTundra"/>
+            </Fallback>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="WeaponModule">
+        <GameObject Name="Format('Weapon Module ({0})', $(WeaponType))" Prefab="Format('Prefabs/Game/Weapons/MDL_Wpn_{0}{1}_{2}_{3}_0{4}', $(ShortAffinityMapping), $(SpecialType), $(WeaponType), $(TurretType), $(Tier))"/>
+        <Fallback>
+            <GameObject Name="Format('Weapon Module ({0})', $(WeaponType))" Prefab="Prefabs/Game/Weapons/MDL_Wpn_Cravers_Small_01"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="EncounterShipHatch">
+        <GameObject Name="Hatch" Prefab="Format('Prefabs/Game/Hatches/MDL_Wpn_{0}{1}_Hatch_{2}_01', $(ShortAffinityMapping), $(SpecialType), $(TurretType))"/>
+    </XmlMapping>
+
+    <XmlMapping Name="SquadronModule">
+        <GameObject Name="Format('Squadron Module ({0})', $(SquadronType))" Prefab="Format('Prefabs/Game/Squadrons/SS_{0}_{1}_01', $(ShortAffinityMapping), $(SquadronType))"/>
+        <Fallback>
+            <GameObject Name="Format('Squadron Module ({0})', $(SquadronType))" Prefab="Prefabs/Game/Weapons/SS_Cravers_Fighter_01"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassQuestMarker">
+        <GameObject Name="Format('QuestMarker({0})', $(GUID))" Prefab="Format('Prefabs/Game/Quest/GalaxyQuestMarker_{0}_00', $(Type))"/>
+        <Fallback>
+            <GameObject Name="Format('QuestMarker({0})', $(GUID))" Prefab="Prefabs/Game/Quest/GalaxyQuestMarker_00"/>
+        </Fallback>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassColonizationModule">
+        <GameObject Name="ColonizationModule" Prefab="Prefabs/Game/Colonization/ColonizationModule_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassEnemyColonizationModule">
+        <GameObject Name="EnemyColonizationModule" Prefab="Prefabs/Game/Colonization/EnemyColonizationModule_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="GroundBattle">
+        <GameObject Name="GalaxyGroundBattle" Prefab="Prefabs/Game/GroundBattle/GalaxyGroundBattle"/>
+    </XmlMapping>
+
+    <XmlMapping Name="VictoryWonderFeedback">
+        <GameObject Name="VictoryWonderFeedback" Prefab="Prefabs/Game/Victory/WonderVictoryFeedback_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="ClassCoordinationRequest">
+        <GameObject Name="Format('CoordinationRequest_{0}', $(GUID))" Prefab="Prefabs/Game/CoordinationRequest/CoordinationRequest_00"/>
+    </XmlMapping>
+
+    <XmlMapping Name="PirateLair">
+        <GameObject Name="PirateLair" Prefab="Prefabs/Game/Environment/PirateLair/Encounter_PirateLair_00"/>
+    </XmlMapping>
+</Datatable>

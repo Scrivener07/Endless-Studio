@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/FleetMissionDefinition.xsd">
+
+	<!--+ TargetEmpire GUID: Only one you can attack-->
+	<!--+ Target GUID: game node cible (location)-->
+	<!-- or -->
+	<!--+ Target GUID: fleet to attack-->
+	
+	<!-- BehaviorTree = Defend, Roam, Goto, Find, Idle -->
+	<!-- ActionLevel = Attack, OnlyBlockade, Blockade, Invade, None -->
+    <FleetMissionDefinition Name="DefendSystemIdle" BehaviorTree="Defend" ActionLevel="None" />
+    <FleetMissionDefinition Name="DefendSystem" BehaviorTree="Defend" ActionLevel="Attack" />
+	<FleetMissionDefinition Name="DefendSystemAndBlocade" BehaviorTree="Defend" ActionLevel="Blockade"/>
+    <FleetMissionDefinition Name="DefendSystemAndBlocadeOnly" BehaviorTree="Defend" ActionLevel="OnlyBlockade"/>
+	
+	<FleetMissionDefinition Name="Roam" BehaviorTree="Roam" ActionLevel="None" RoamDistance="15"/>
+	<FleetMissionDefinition Name="LongRoam" BehaviorTree="Roam" ActionLevel="None" RoamDistance="55"/>
+    <FleetMissionDefinition Name="RoamAndAttack" BehaviorTree="Roam" ActionLevel="Attack" RoamDistance="15"/>
+    <FleetMissionDefinition Name="RoamAndBlockade" BehaviorTree="Roam" ActionLevel="Blockade" RoamDistance="15"/>
+	<FleetMissionDefinition Name="RoamAndInvade" BehaviorTree="Roam" ActionLevel="Invade" RoamDistance="15"/>
+	
+	<FleetMissionDefinition Name="Goto" BehaviorTree="Goto" ActionLevel="None"/>
+    <FleetMissionDefinition Name="GotoAndAttack" BehaviorTree="Goto" ActionLevel="Attack"/>
+    <FleetMissionDefinition Name="GotoAndBlockade" BehaviorTree="Goto" ActionLevel="Blockade"/>
+	<FleetMissionDefinition Name="GotoAndInvade" BehaviorTree="Goto" ActionLevel="Invade"/>
+	<FleetMissionDefinition Name="LateGotoAndInvade" BehaviorTree="Goto" ActionLevel="Invade" MinimumInvasionTurn="2"/>
+	
+    <FleetMissionDefinition Name="FindAndAttack" BehaviorTree="Find" ActionLevel="Attack"/>
+	
+    <FleetMissionDefinition Name="Chase" BehaviorTree="Chase" ActionLevel="Attack"/>
+    
+
+    <FleetMissionDefinition Name="Idle" BehaviorTree="Idle" ActionLevel="None"/>
+
+
+    <FleetMissionDefinition Name="CraversRoam" BehaviorTree="Roam" ActionLevel="None" RoamDistance="30"/>
+    <FleetMissionDefinition Name="MinorRoam" BehaviorTree="Roam" ActionLevel="None" RoamDistance="25"/>
+    <FleetMissionDefinition Name="HoratioRoamAndAttack" BehaviorTree="Roam" ActionLevel="Attack" RoamDistance="30"/>
+    <FleetMissionDefinition Name="RoamAndAttackTimeLords" BehaviorTree="Roam" ActionLevel="Attack" RoamDistance="15"/>
+    <FleetMissionDefinition Name="RoamAndAttackCoop04" BehaviorTree="Roam" ActionLevel="Attack" RoamDistance="30"/>
+    <FleetMissionDefinition Name="GreenmanRoam" BehaviorTree="Roam" ActionLevel="None" RoamDistance="100" CanRoamOutsideConstellation="true"/>
+    <!-- Metaplot chapter 2 -->
+    <FleetMissionDefinition Name="KingOfTheHill" BehaviorTree="Roam" ActionLevel="Blockade"/>
+</Datatable>

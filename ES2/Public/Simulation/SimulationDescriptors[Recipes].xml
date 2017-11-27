@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+	<!-- INGREDIENTS -->
+    <!-- Tiers 1 -->
+    <SimulationDescriptor Name="RecipeIngredientEffect01" Type="RecipeIngredient">
+        <Modifier TargetProperty="PlanetRawFood" Value="4" Operation="Addition" Path="./ClassColonizedStarSystem/ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect02" Type="RecipeIngredient">
+        <Modifier TargetProperty="PlanetRawIndustry" Value="4" Operation="Addition" Path="./ClassColonizedStarSystem/ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect03" Type="RecipeIngredient">
+        <Modifier TargetProperty="PlanetRawDust" Value="4" Operation="Addition" Path="./ClassColonizedStarSystem/ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="RecipeIngredientEffect04" Type="RecipeIngredient">
+        <Modifier TargetProperty="PlanetRawScience" Value="4" Operation="Addition" Path="./ClassColonizedStarSystem/ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect05" Type="RecipeIngredient">
+        <Modifier TargetProperty="PlanetRawPrestige" Value="2" Operation="Addition" Path="./ClassColonizedStarSystem/ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect06" Type="RecipeIngredient">
+        <BinaryModifier     TargetProperty="Happiness"          Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)"    Path="./ClassColonizedStarSystem/ClassColonizedPlanet" SearchValueFromPath="true"  />
+    </SimulationDescriptor>
+        
+    <SimulationDescriptor Name="RecipeIngredientEffect07" Type="RecipeIngredient">
+        <Modifier TargetProperty="MaximumSystemManpower"    Operation="Addition" Value="200"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <!-- Supposed to increase the Life point of the GroundBattle Unit in the System... -->
+    <SimulationDescriptor Name="RecipeIngredientEffect08" Type="RecipeIngredient">
+        <Modifier TargetProperty="BuildingBuyoutReduction"                 Operation="Addition"  Value="0.1" Path="./ClassColonizedStarSystem" />
+        <Modifier TargetProperty="ShipBuyoutReduction"                     Operation="Addition"  Value="0.1" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <!-- Tiers 2 -->
+    <SimulationDescriptor Name="RecipeIngredientEffect09" Type="RecipeIngredient">
+        <Modifier TargetProperty="SystemGrowth"    Operation="Addition" Value="100"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="RecipeIngredientEffect10" Type="RecipeIngredient">
+        <Modifier TargetProperty="SystemProduction"    Operation="Addition" Value="100"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect11" Type="RecipeIngredient">
+        <Modifier TargetProperty="SystemMoney"      Operation="Addition" Value="100"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect12" Type="RecipeIngredient">
+        <Modifier TargetProperty="SystemResearch"    Operation="Addition" Value="100"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect13" Type="RecipeIngredient">
+        <Modifier TargetProperty="SystemEmpirePoint"    Operation="Addition" Value="50"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect14" Type="RecipeIngredient">
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction" Value="-0.5" Operation="Addition" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect15" Type="RecipeIngredient">
+        <Modifier TargetProperty="GroundBattleBombardmentAttackerDamages"    Operation="Addition" Value="1000"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="RecipeIngredientEffect16" Type="RecipeIngredient">
+        <BinaryModifier TargetProperty="SystemEmpirePoint"   Operation="Addition"  Left="$(TradingRoutesSystemOutputBonus)" BinaryOperation="Multiplication" Right="0.8" Path="./ClassColonizedStarSystem" SearchValueFromPath="true" TooltipHidden="true"/>    
+    </SimulationDescriptor>
+
+    <!-- INGREDIENT TIERS 3 -->    
+    <SimulationDescriptor Name="RecipeIngredientEffect17" Type="RecipeIngredient">
+        <BinaryModifier TargetProperty="SystemGrowth"       Operation="Percent"      Left="0.15" BinaryOperation="Multiplication" Right="$(SystemLevel)"  Path="./ClassColonizedStarSystem" SearchValueFromPath="true"/>        
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="RecipeIngredientEffect18" Type="RecipeIngredient">
+        <BinaryModifier TargetProperty="SystemProduction"   Operation="Percent"      Left="0.15" BinaryOperation="Multiplication" Right="$(SystemLevel)"  Path="./ClassColonizedStarSystem" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect19" Type="RecipeIngredient">
+        <BinaryModifier TargetProperty="SystemMoney"        Operation="Percent"      Left="0.15" BinaryOperation="Multiplication" Right="$(SystemLevel)"  Path="./ClassColonizedStarSystem" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect20" Type="RecipeIngredient">
+        <BinaryModifier TargetProperty="SystemResearch"    Operation="Percent"      Left="0.15" BinaryOperation="Multiplication" Right="$(SystemLevel)"  Path="./ClassColonizedStarSystem" SearchValueFromPath="true"/>        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect21" Type="RecipeIngredient">
+        <BinaryModifier TargetProperty="SystemEmpirePoint"  Operation="Percent"      Left="0.15" BinaryOperation="Multiplication" Right="$(SystemLevel)"  Path="./ClassColonizedStarSystem" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="RecipeIngredientEffect22" Type="RecipeIngredient">
+        <Modifier       TargetProperty="OverColonizationPenalties" Value="-0.5" Operation="Percent" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>    
+  
+    <SimulationDescriptor Name="RecipeIngredientEffect23" Type="RecipeIngredient">
+        <Modifier TargetProperty="MaximumSystemManpower"   Operation="Percent"  Value="1" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>   
+
+    <SimulationDescriptor Name="RecipeIngredientEffect24" Type="RecipeIngredient">       
+        <Modifier TargetProperty="TradingRouteIncomeModifier"   Operation="Percent"  Value="0.2" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassRecipeImprovement" Type="ClassRecipeImprovement">
+        <Property Name="NbConstructedRecipes" BaseValue="1 "/>
+    </SimulationDescriptor>
+    
+    <!-- feedback level up effect  -->
+    <SimulationDescriptor Name="RecipeSlotEra2Descriptor" Type="RecipeSlotEra">
+        <Modifier       TargetProperty="FakeDescritorForFeedback" Operation="Addition" Value="1" Path="../ClassEmpire,AffinityGameplayVampirilis" TooltipHiddenIfPathInvalid="true" TooltipOverride="%RecipeSlotVampirilisTooltipOverride"/>
+        <BinaryModifier TargetProperty="Happiness"                Operation="Addition"    Left="1" BinaryOperation="Multiplication" Right="$(Population)"   Path="ClassExploitedStarSystem/ClassColonizedPlanet" SearchValueFromPath="true"   TooltipHidden="true"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="RecipeSlotEra3Descriptor" Type="RecipeSlotEra">
+        <Modifier       TargetProperty="FakeDescritorForFeedback" Operation="Addition" Value="1" Path="../ClassEmpire,AffinityGameplayVampirilis" TooltipHiddenIfPathInvalid="true" TooltipOverride="%RecipeSlotVampirilisTooltipOverride"/>
+        <BinaryModifier TargetProperty="Happiness"    Operation="Addition"    Left="1" BinaryOperation="Multiplication" Right="$(Population)"   Path="ClassExploitedStarSystem/ClassColonizedPlanet" SearchValueFromPath="true"   TooltipHidden="true"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="RecipeSlotEra4Descriptor" Type="RecipeSlotEra">
+        <Modifier       TargetProperty="FakeDescritorForFeedback" Operation="Addition" Value="1" Path="../ClassEmpire,AffinityGameplayVampirilis" TooltipHiddenIfPathInvalid="true" TooltipOverride="%RecipeSlotVampirilisTooltipOverride"/>
+        <BinaryModifier TargetProperty="Happiness"    Operation="Addition"    Left="1" BinaryOperation="Multiplication" Right="$(Population)"   Path="ClassExploitedStarSystem/ClassColonizedPlanet" SearchValueFromPath="true"   TooltipHidden="true" />
+    </SimulationDescriptor>
+
+</Datatable>

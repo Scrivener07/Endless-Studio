@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ElectionProcessTaskDefinition.xsd">
+
+    <ElectionProcessTaskDefinition Name="V12_ComputePolitics_PartialProportional"               Type="ElectionProcessTask_ComputeCandidatePolitics_PartialProportional"/>
+    <ElectionProcessTaskDefinition Name="V12_ComputePolitics_PartialWeighted"                   Type="ElectionProcessTask_ComputeCandidatePolitics_PartialWeighted"/>
+    <ElectionProcessTaskDefinition Name="V12_RedistributeRepresentatives"                       Type="ElectionProcessTask_RedistributeRepresentatives"/>
+    <ElectionProcessTaskDefinition Name="V13_ApplyExperienceGain"                               Type="ElectionProcessTask_ApplyExperienceGain"/>
+
+    <ElectionProcessTaskDefinition Name="V6_ComputeCandidateCount_PopulationCentric"            Type="ElectionProcessTask_ComputeCandidateCount_PopulationCentric"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputeCandidateCount_QualityCentric"               Type="ElectionProcessTask_ComputeCandidateCount_QualityCentric"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputePolitics_Majority"                           Type="ElectionProcessTask_ComputeCandidatePolitics_Majority"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputePolitics_Weighted"                           Type="ElectionProcessTask_ComputeCandidatePolitics_Weighted"/>
+    
+    <ElectionProcessTaskDefinition Name="V6_ComputeCandidatesCount_Politics"                    Type="ElectionProcessTask_ComputeCandidatesCount_Politics"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputePolitics_Unity"                              Type="ElectionProcessTask_ComputePolitics_Unity"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputeSupport_Proportional"                        Type="ElectionProcessTask_ComputeSupport_Proportional"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputeSupport_Majority_BasedOnSelectedPolitics"    Type="ElectionProcessTask_ComputeSupport_Majority_BasedOnSelectedPolitics"/>
+    <ElectionProcessTaskDefinition Name="V6_ClampCandidates_SortBySupport"                      Type="ElectionProcessTask_ClampCandidates_SortBySupport"/>
+    <ElectionProcessTaskDefinition Name="V6_ApplySupportMalus"                                  Type="ElectionProcessTask_ApplySupportMalus"/>
+    
+    <ElectionProcessTaskDefinition Name="V6_ComputeSupport_WeightedSurvey"                      Type="ElectionProcessTask_ComputeSupport_WeightedSurvey"/>
+    <ElectionProcessTaskDefinition Name="V6_ComputeSupport_MajoritySurvey"                      Type="ElectionProcessTask_ComputeSupport_MajoritySurvey"/>
+    <ElectionProcessTaskDefinition Name="V6_NormalizeSupport"                                   Type="ElectionProcessTask_NormalizeSupport"/>
+        
+    <ElectionProcessTaskDefinition Name="V3_UI_Results_Local"                                   Type="ElectionProcessTask_UI_Results_Local"/>
+        
+    <ElectionProcessTaskDefinition Name="DEBUG_ShowTextReport"                                  Type="ElectionProcessTask_Debug_ShowTextReport"/>
+    
+    <ElectionProcessMetaTaskDefinition Name="Survey_Weighted" Type="ElectionProcessMetaTask_Survey">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V6_ComputeCandidatesCount_Politics"/>
+        <SubTaskReference Name="V6_ComputePolitics_Unity"/>
+        <SubTaskReference Name="V6_ComputeSupport_WeightedSurvey"/>
+        <SubTaskReference Name="V6_NormalizeSupport"/>
+    </ElectionProcessMetaTaskDefinition>
+    
+    <ElectionProcessMetaTaskDefinition Name="Survey_Majority" Type="ElectionProcessMetaTask_Survey">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V6_ComputeCandidatesCount_Politics"/>
+        <SubTaskReference Name="V6_ComputePolitics_Unity"/>
+        <SubTaskReference Name="V6_ComputeSupport_MajoritySurvey"/>
+        <SubTaskReference Name="V6_NormalizeSupport"/>
+    </ElectionProcessMetaTaskDefinition>
+    
+    <!--<ElectionProcessMetaTaskDefinition Name="Local_PopulationWeighted" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="V6_ComputeCandidateCount_PopulationCentric"/>
+        <SubTaskReference Name="V6_ComputePolitics_Weighted"/>
+    </ElectionProcessMetaTaskDefinition>
+    
+    <ElectionProcessMetaTaskDefinition Name="Local_QualityWeighted" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="V6_ComputeCandidateCount_QualityCentric"/>
+        <SubTaskReference Name="V6_ComputePolitics_Weighted"/>
+    </ElectionProcessMetaTaskDefinition>-->
+        
+    <!--<ElectionProcessMetaTaskDefinition Name="Local_QualityMajority" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="V6_ComputeCandidateCount_QualityCentric"/>
+        <SubTaskReference Name="V6_ComputePolitics_Weighted"/>
+    </ElectionProcessMetaTaskDefinition>-->
+    
+    <!--<ElectionProcessMetaTaskDefinition Name="Senate" Type="ElectionProcessMetaTask_CreateSenators">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V6_ComputeCandidatesCount_Politics"/>
+        <SubTaskReference Name="V6_ComputePolitics_Unity"/>
+        <SubTaskReference Name="V6_ComputeSupport_Proportional"/>
+        <SubTaskReference Name="V6_ClampCandidates_SortBySupport"/>
+        <SubTaskReference Name="ShowUI"/>
+    </ElectionProcessMetaTaskDefinition>-->
+    
+    <!--<ElectionProcessMetaTaskDefinition Name="Senate_Dictatorship" Type="ElectionProcessMetaTask_CreateSenators">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V6_ComputeCandidatesCount_Politics"/>
+        <SubTaskReference Name="V6_ComputePolitics_Unity"/>
+        <SubTaskReference Name="V6_ComputeSupport_Majority_BasedOnSelectedPolitics"/>
+        <SubTaskReference Name="V6_ApplySupportMalus"/>
+        <SubTaskReference Name="V6_ClampCandidates_SortBySupport"/>
+        <SubTaskReference Name="ShowUI"/>
+    </ElectionProcessMetaTaskDefinition>-->
+    
+    <ElectionProcessMetaTaskDefinition Name="ShowUI" Type="ElectionProcessMetaTask">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V3_UI_Results_Local"/>
+    </ElectionProcessMetaTaskDefinition>
+
+    <!-- v12 -->
+
+    <ElectionProcessMetaTaskDefinition Name="Local_PopulationWeighted" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="V6_ComputeCandidateCount_PopulationCentric"/>
+        <SubTaskReference Name="V12_ComputePolitics_PartialProportional"/>
+        <SubTaskReference Name="V12_ComputePolitics_PartialWeighted"/>
+    </ElectionProcessMetaTaskDefinition>
+    
+    <ElectionProcessMetaTaskDefinition Name="Local_QualityWeighted" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="V6_ComputeCandidateCount_QualityCentric"/>
+        <SubTaskReference Name="V12_ComputePolitics_PartialProportional"/>
+        <SubTaskReference Name="V12_ComputePolitics_PartialWeighted"/>
+    </ElectionProcessMetaTaskDefinition>
+
+    <ElectionProcessMetaTaskDefinition Name="Local_QualityMajority" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="V6_ComputeCandidateCount_QualityCentric"/>
+        <SubTaskReference Name="V12_ComputePolitics_PartialProportional"/>
+        <SubTaskReference Name="V12_ComputePolitics_PartialWeighted"/>
+    </ElectionProcessMetaTaskDefinition>
+
+    <ElectionProcessMetaTaskDefinition Name="Senate" Type="ElectionProcessMetaTask_CreateSenators">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V6_ComputeCandidatesCount_Politics"/>
+        <SubTaskReference Name="V6_ComputePolitics_Unity"/>
+        <SubTaskReference Name="V6_ComputeSupport_Proportional"/>
+        <SubTaskReference Name="V6_ClampCandidates_SortBySupport"/>
+        <SubTaskReference Name="V12_RedistributeRepresentatives"/>
+        <SubTaskReference Name="V13_ApplyExperienceGain"/>
+        <SubTaskReference Name="DEBUG_ShowTextReport"/>
+        <SubTaskReference Name="ShowUI"/>
+    </ElectionProcessMetaTaskDefinition>
+
+    <ElectionProcessMetaTaskDefinition Name="Senate_Dictatorship" Type="ElectionProcessMetaTask_CreateSenators">
+        <PathPrerequisite>ClassEmpire</PathPrerequisite>
+        <SubTaskReference Name="V6_ComputeCandidatesCount_Politics"/>
+        <SubTaskReference Name="V6_ComputePolitics_Unity"/>
+        <SubTaskReference Name="V6_ComputeSupport_Majority_BasedOnSelectedPolitics"/>
+        <SubTaskReference Name="V6_ApplySupportMalus"/>
+        <SubTaskReference Name="V6_ClampCandidates_SortBySupport"/>
+        <SubTaskReference Name="V12_RedistributeRepresentatives"/>
+        <SubTaskReference Name="V13_ApplyExperienceGain"/>
+        <SubTaskReference Name="DEBUG_ShowTextReport"/>
+        <SubTaskReference Name="ShowUI"/>
+    </ElectionProcessMetaTaskDefinition>
+
+    <!-- DEBUG EDITOR -->
+    <ElectionProcessMetaTaskDefinition Name="Local_PostProcess" Type="ElectionProcessMetaTask">
+         <SubTaskReference Name="DEBUG_ShowTextReport"/>
+    </ElectionProcessMetaTaskDefinition>
+    
+    <ElectionProcessMetaTaskDefinition Name="Senate_PostProcess" Type="ElectionProcessMetaTask">
+        <SubTaskReference Name="DEBUG_ShowTextReport"/>
+    </ElectionProcessMetaTaskDefinition>
+    
+</Datatable>

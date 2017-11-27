@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ElectionProcessDefinition.xsd">
+
+    <!-- DEMOCRACY -->
+    
+    <ElectionProcessDefinition Name="Democracy_Survey">
+        <TaskReference Name="Survey_Weighted"/>
+    </ElectionProcessDefinition>
+    
+    <ElectionProcessDefinition Name="Democracy_Representatives">
+        <TaskReference Name="Local_PopulationWeighted"/>
+        <TaskReference Name="Local_PostProcess"/>
+    </ElectionProcessDefinition>
+    
+    <ElectionProcessDefinition Name="Democracy_Senators">
+        <TaskReference Name="Senate"/>
+        <TaskReference Name="Senate_PostProcess"/>
+    </ElectionProcessDefinition>
+
+    <!-- DICTATORSHIP -->
+    
+    <ElectionProcessDefinition Name="Dictatorship_Survey">
+        <TaskReference Name="Survey_Majority"/>
+    </ElectionProcessDefinition>
+    
+    <ElectionProcessDefinition Name="Dictatorship_Representatives">
+        <TaskReference Name="Local_QualityMajority"/>
+        <TaskReference Name="Local_PostProcess"/>
+    </ElectionProcessDefinition>
+
+    <ElectionProcessDefinition Name="Dictatorship_Senators">
+        <TaskReference Name="Senate_Dictatorship"/>
+        <TaskReference Name="Senate_PostProcess"/>
+    </ElectionProcessDefinition>
+    
+    <!-- REPUBLIC -->
+    
+    <ElectionProcessDefinition Name="Republic_Survey">
+        <TaskReference Name="Survey_Weighted"/>
+    </ElectionProcessDefinition>
+    
+    <ElectionProcessDefinition Name="Republic_Representatives">
+        <TaskReference Name="Local_PopulationWeighted"/>
+        <TaskReference Name="Local_PostProcess"/>
+    </ElectionProcessDefinition>
+
+    <ElectionProcessDefinition Name="Republic_Senators">
+        <TaskReference Name="Senate"/>
+        <TaskReference Name="Senate_PostProcess"/>
+    </ElectionProcessDefinition>
+    
+    <!-- EMPIRE -->
+    
+    <ElectionProcessDefinition Name="Empire_Survey">
+        <TaskReference Name="Survey_Weighted"/>
+    </ElectionProcessDefinition>
+    
+    <ElectionProcessDefinition Name="Empire_Representatives">
+        <TaskReference Name="Local_QualityWeighted"/>
+        <TaskReference Name="Local_PostProcess"/>
+    </ElectionProcessDefinition>
+
+    <ElectionProcessDefinition Name="Empire_Senators">
+        <TaskReference Name="Senate"/>
+        <TaskReference Name="Senate_PostProcess"/>
+    </ElectionProcessDefinition>
+
+</Datatable>

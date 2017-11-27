@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GameSettingDefinition.xsd">
+
+    <!-- NB: keyname has to be unique, and not be used by the nme of a setting definition -->
+
+    <WorldSettingDefinition Name="GalaxyShape" Default="Ovoid">
+        <ItemDefinition Name="Ovoid" />
+        <ItemDefinition Name="Ring"/>
+        <ItemDefinition Name="Disk4"/>
+        <ItemDefinition Name="Spiral2"/>
+        <ItemDefinition Name="Spiral4"/>
+        <ItemDefinition Name="Spiral8" />
+        <ItemDefinition Name="TwinElliptical"/>
+        <ItemDefinition Name="Random"/>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="GalaxySize" Default="Large">
+        <ItemDefinition Name="Tiny">
+            <KeyValuePair Key="GalaxySizeIndex">1</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers"></KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">1</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">30</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">6</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">6</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">0.75</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">0</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">1</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">1</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">2</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">2</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">3</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">2</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">40</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">20</KeyValuePair>
+            <KeyValuePair Key="WondersMaxQuantity">1</KeyValuePair>
+            <KeyValuePair Key="LootQuantity">30</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Small">
+            <KeyValuePair Key="GalaxySizeIndex">2</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers">4</KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">2</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">40</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">8</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">8</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">0.95</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">6</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">3</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">3</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">2</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">6</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">4</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">52</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">32</KeyValuePair>
+          <KeyValuePair Key="WondersMaxQuantity">2</KeyValuePair>
+          <KeyValuePair Key="LootQuantity">50</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal">
+            <KeyValuePair Key="GalaxySizeIndex">3</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers">6</KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">3</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">60</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">12</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">10</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">1</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">2</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">2</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">6</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">6</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">10</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">7</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">64</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">44</KeyValuePair>
+            <KeyValuePair Key="WondersMaxQuantity">3</KeyValuePair>
+            <KeyValuePair Key="LootQuantity">75</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Large">
+            <KeyValuePair Key="GalaxySizeIndex">4</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers">8</KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">4</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">80</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">16</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">8</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">1.025</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">7</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">6</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">4</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">9</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">9</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">13</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">9</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">76</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">56</KeyValuePair>
+            <KeyValuePair Key="WondersMaxQuantity">4</KeyValuePair>
+            <KeyValuePair Key="LootQuantity">100</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Huge">
+            <KeyValuePair Key="GalaxySizeIndex">5</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers">10</KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">5</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">100</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">20</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">12</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">1.1</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">6</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">7</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">9</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">6</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">11</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">11</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">16</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">12</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">88</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">68</KeyValuePair>
+            <KeyValuePair Key="WondersMaxQuantity">6</KeyValuePair>
+            <KeyValuePair Key="LootQuantity">125</KeyValuePair>
+        </ItemDefinition>        
+        <ItemDefinition Name="Colossal">
+            <KeyValuePair Key="GalaxySizeIndex">6</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers">12</KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">6</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">120</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">24</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">12</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">1.15</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">7</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">14</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">10</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">8</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">13</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">13</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">20</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">14</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">100</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">80</KeyValuePair>
+            <KeyValuePair Key="WondersMaxQuantity">8</KeyValuePair>
+            <KeyValuePair Key="LootQuantity">150</KeyValuePair>
+        </ItemDefinition>        
+        <ItemDefinition Name="Gigantic">
+            <KeyValuePair Key="GalaxySizeIndex">7</KeyValuePair>
+            <KeyValuePair Key="NominalPlayers">14</KeyValuePair>
+            <KeyValuePair Key="UniquePlanetQuantity">7</KeyValuePair>
+            <KeyValuePair Key="NodesQuantity">140</KeyValuePair>
+            <KeyValuePair Key="IsolatedNodesQuantity">28</KeyValuePair>
+            <KeyValuePair Key="QuestNodesQuantity">12</KeyValuePair>
+            <KeyValuePair Key="QuestNodesPerMajorFaction">2</KeyValuePair>
+            <KeyValuePair Key="SizeScale">1.2</KeyValuePair>
+            <KeyValuePair Key="MinorFactionsCount">10</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonTypes">8</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareTypes">4</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceVisibleCommonQuantity">9</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceCommonQuantity">17</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceUncommonQuantity">13</KeyValuePair>
+            <KeyValuePair Key="LuxuryResourceRareQuantity">10</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceVisibleCommonQuantity">15</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceCommonQuantity">15</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceUncommonQuantity">23</KeyValuePair>
+            <KeyValuePair Key="StrategicResourceRareQuantity">17</KeyValuePair>
+            <KeyValuePair Key="AnomaliesVisibleQuantity">112</KeyValuePair>
+            <KeyValuePair Key="AnomaliesQuantity">92</KeyValuePair>
+            <KeyValuePair Key="WondersMaxQuantity">8</KeyValuePair>
+            <KeyValuePair Key="LootQuantity">175</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+  <WorldSettingDefinition Name="EmpireSpawnMethod"  Type="string"   Default="Standard">
+    
+    <ItemDefinition Name="Standard">
+      <KeyValuePair Key="Warp">1</KeyValuePair>
+      <KeyValuePair Key="MajorNeighbour">-7</KeyValuePair>
+      <KeyValuePair Key="LinkDistanceToNearestMajor">1</KeyValuePair>
+      <KeyValuePair Key="EuclidianDistanceToNearestMajor">1</KeyValuePair>
+      <!--KeyValuePair Key="TooCloseToNearestMajor">-7</KeyValuePair-->
+      <!--KeyValuePair Key="TooCloseDistance">15.0</KeyValuePair-->
+      <KeyValuePair Key="MajorInSameConstellation">-1000</KeyValuePair>
+      <KeyValuePair Key="CatchmentArea">1</KeyValuePair>
+    </ItemDefinition>
+    
+    <ItemDefinition Name="Chaotic"/>
+
+    <ItemDefinition Name="Clustered">
+      <KeyValuePair Key="Warp">1</KeyValuePair>
+      <KeyValuePair Key="MajorNeighbour">3</KeyValuePair>
+      <KeyValuePair Key="LinkDistanceToNearestMajor">-1</KeyValuePair>
+      <KeyValuePair Key="EuclidianDistanceToNearestMajor">-0.1</KeyValuePair>
+      <!--KeyValuePair Key="TooCloseToNearestMajor">7</KeyValuePair-->
+      <!--KeyValuePair Key="TooCloseDistance">15.0</KeyValuePair-->
+      <KeyValuePair Key="MajorInSameConstellation">5</KeyValuePair>
+      <KeyValuePair Key="CatchmentArea">1</KeyValuePair>
+    </ItemDefinition>
+    
+  </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="AnomalyQualities" Default="Standard">
+        <ItemDefinition Name="Standard">
+            <KeyValuePair Key="Generator_PlanetAnomaly02_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly03_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly04_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly05_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly06_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly07_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly08_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly09_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly10_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly11_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly12_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly13_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly14_Quality">Positive</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly15_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly16_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly17_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly18_Quality">Negative</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly19_Quality">Mixed</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly20_Quality">Negative</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly21_Quality">Negative</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly22_Quality">Negative</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly23_Quality">Negative</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly24_Quality">Negative</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly25_Quality">Moon</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly26_Quality">Moon</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly27_Quality">Moon</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly25Alt_Quality">Moon</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly26Alt_Quality">Moon</KeyValuePair>
+            <KeyValuePair Key="Generator_PlanetAnomaly27Alt_Quality">Moon</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="GalaxyAge" Default="Normal">
+        <ItemDefinition Name="Young">
+            <KeyValuePair Key="GalaxyAgeYoung">1</KeyValuePair>
+            <KeyValuePair Key="GalaxyAgeNormal">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyAgeOld">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal">
+            <KeyValuePair Key="GalaxyAgeYoung">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyAgeNormal">1</KeyValuePair>
+            <KeyValuePair Key="GalaxyAgeOld">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Old">
+            <KeyValuePair Key="GalaxyAgeYoung">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyAgeNormal">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyAgeOld">1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Random"/>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="GalaxyDensity" Default="Medium">
+        <ItemDefinition Name="Low">
+            <KeyValuePair Key="GalaxyDensityStatus">0.75</KeyValuePair>
+            <KeyValuePair Key="NodeBallSize">3.5</KeyValuePair>
+            <KeyValuePair Key="InterNodeBallMinimalDistance">0.85</KeyValuePair>
+            <KeyValuePair Key="IntraNodeBallShakeDiameter">5</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Medium">
+            <KeyValuePair Key="GalaxyDensityStatus">1</KeyValuePair>
+            <KeyValuePair Key="NodeBallSize">3.5</KeyValuePair>
+            <KeyValuePair Key="InterNodeBallMinimalDistance">0.85</KeyValuePair>
+            <KeyValuePair Key="IntraNodeBallShakeDiameter">4.25</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="High">
+            <KeyValuePair Key="GalaxyDensityStatus">1.25</KeyValuePair>
+            <KeyValuePair Key="NodeBallSize">3.5</KeyValuePair>
+            <KeyValuePair Key="InterNodeBallMinimalDistance">0.85</KeyValuePair>
+            <KeyValuePair Key="IntraNodeBallShakeDiameter">3.5</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Random"/>
+    </WorldSettingDefinition>
+
+
+    <WorldSettingDefinition Name="ConstellationQuantity" Default="Several">
+        <ItemDefinition Name="One">
+            <KeyValuePair Key="ConstellationQuantityUnique">1</KeyValuePair>
+            <KeyValuePair Key="ConstellationQuantityFew">0</KeyValuePair>
+            <KeyValuePair Key="ConstellationQuantityMany">0</KeyValuePair>
+            <KeyValuePair Key="ShortcutWormholeFraction">0</KeyValuePair>
+            <KeyValuePair Key="BackdoorWormholesQuantity">0</KeyValuePair>
+            <KeyValuePair Key="BackdoorWormholesMinLength">0.25</KeyValuePair>
+            <KeyValuePair Key="MaxWormholesBetweenConstellations">1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Several" IsRecommended="true">
+            <KeyValuePair Key="ConstellationQuantityUnique">0</KeyValuePair>
+            <KeyValuePair Key="ConstellationQuantityFew">1</KeyValuePair>
+            <KeyValuePair Key="ConstellationQuantityMany">0</KeyValuePair>
+            <KeyValuePair Key="ShortcutWormholeFraction">0</KeyValuePair>
+            <KeyValuePair Key="BackdoorWormholesQuantity">0</KeyValuePair>
+            <KeyValuePair Key="BackdoorWormholesMinLength">0.25</KeyValuePair>
+            <KeyValuePair Key="MaxWormholesBetweenConstellations">2</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Many">
+            <KeyValuePair Key="ConstellationQuantityUnique">0</KeyValuePair>
+            <KeyValuePair Key="ConstellationQuantityFew">0</KeyValuePair>
+            <KeyValuePair Key="ConstellationQuantityMany">1</KeyValuePair>
+            <KeyValuePair Key="ShortcutWormholeFraction">0</KeyValuePair>
+            <KeyValuePair Key="BackdoorWormholesQuantity">0</KeyValuePair>
+            <KeyValuePair Key="BackdoorWormholesMinLength">0.25</KeyValuePair>
+            <KeyValuePair Key="MaxWormholesBetweenConstellations">3</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="ResourcesAbundance" Default="Normal">
+        <ItemDefinition Name="Rare" >
+            <KeyValuePair Key="GalaxyResourcesAbundance">0.5</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesRare">1</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesAverage">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesAbundant">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal" >
+            <KeyValuePair Key="GalaxyResourcesAbundance">1</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesRare">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesAverage">1</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesAbundant">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Abundant" >
+            <KeyValuePair Key="GalaxyResourcesAbundance">1.5</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesRare">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesAverage">0</KeyValuePair>
+            <KeyValuePair Key="GalaxyResourcesAbundant">1</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="ConnectivityDensity" Default="Medium">
+        <ItemDefinition Name="Low" >
+            <KeyValuePair Key="UpperTargetAverageLinksPerNode">2.1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Medium" >
+            <KeyValuePair Key="UpperTargetAverageLinksPerNode">2.6</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="High" >
+            <KeyValuePair Key="UpperTargetAverageLinksPerNode">4</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="AnomalyAbundance"  Default="Normal">
+        <ItemDefinition Name="Rare" >
+            <KeyValuePair Key="GalaxyAnomalyAbundance">0.5</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal" >
+            <KeyValuePair Key="GalaxyAnomalyAbundance">1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Abundant" >
+            <KeyValuePair Key="GalaxyAnomalyAbundance">1.5</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="CuriosityAbundance" Type="string" Default="Normal">
+        <ItemDefinition Name="Rare" >
+            <KeyValuePair Key="GalaxyCuriosityAbundance">0.5</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal" >
+            <KeyValuePair Key="GalaxyCuriosityAbundance">1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Abundant" >
+            <KeyValuePair Key="GalaxyCuriosityAbundance">1.5</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="SpecialNodesMultiplier" Type="string" Default="Normal">
+        <ItemDefinition Name="None">
+            <KeyValuePair Key="SpecialNodesProbability">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Rare">
+            <KeyValuePair Key="SpecialNodesProbability">0.1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal">
+            <KeyValuePair Key="SpecialNodesProbability">0.2</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Abundant">
+            <KeyValuePair Key="SpecialNodesProbability">0.3</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+     <WorldSettingDefinition Name="StarBasedPlanetOrder" Type="bool" Default="True">
+      
+        <ItemDefinition Name="False"/>
+        <ItemDefinition Name="True"/>
+    </WorldSettingDefinition>
+
+  <!-- TODO: Make sure GUI shows this option, then leave Default value at False and remove the <Enable/>-->
+  <WorldSettingDefinition Name="AllowAnomaliesOnHomePlanet" Type="bool" Default="False">
+    <ItemDefinition Name="True"/>
+    <ItemDefinition Name="False"/>
+  </WorldSettingDefinition>
+  
+    <WorldSettingDefinition Name="HomeSystemQuality"    Type="string"   Default="Normal">
+        <ItemDefinition Name="Normal"/>
+      <ItemDefinition Name="Chaotic"/>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="MinorFactionsQuantity"   Type="string" Default="Medium">
+        <ItemDefinition Name="Low" >
+            <KeyValuePair Key="MinorFactionsMultiplier">0.5</KeyValuePair>
+          <KeyValuePair Key="ExpectedMinorsPerMajor">1</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Medium" >
+            <KeyValuePair Key="MinorFactionsMultiplier">1</KeyValuePair>
+          <KeyValuePair Key="ExpectedMinorsPerMajor">1.5</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="High" >
+          <KeyValuePair Key="MinorFactionsMultiplier">1.5</KeyValuePair>
+          <KeyValuePair Key="ExpectedMinorsPerMajor">2</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="MinorFactionsDifficulty" Type="string" Default="Normal">
+        <ItemDefinition Name="Easy">
+            <KeyValuePair Key="MinorDifficultyEasy">1</KeyValuePair>
+            <KeyValuePair Key="MinorDifficultyNormal">0</KeyValuePair>
+            <KeyValuePair Key="MinorDifficultyHard">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Normal" >
+            <KeyValuePair Key="MinorDifficultyEasy">0</KeyValuePair>
+            <KeyValuePair Key="MinorDifficultyNormal">1</KeyValuePair>
+            <KeyValuePair Key="MinorDifficultyHard">0</KeyValuePair>
+        </ItemDefinition>
+        <ItemDefinition Name="Hard" >
+            <KeyValuePair Key="MinorDifficultyEasy">0</KeyValuePair>
+            <KeyValuePair Key="MinorDifficultyNormal">0</KeyValuePair>
+            <KeyValuePair Key="MinorDifficultyHard">1</KeyValuePair>
+        </ItemDefinition>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="PiratesDifficulty" Type="string" Default="Normal">
+        <ItemDefinition Name="None"/>
+        <ItemDefinition Name="Easy"/>
+        <ItemDefinition Name="Normal"/>
+        <ItemDefinition Name="Hard"/>
+    </WorldSettingDefinition>
+
+    <WorldSettingDefinition Name="GalaxyGenerationSeed" Type="string" Default="0" IsEditable="True" NotNullOrEmpty="true">
+        <EditableValue></EditableValue>
+    </WorldSettingDefinition>
+
+</Datatable>

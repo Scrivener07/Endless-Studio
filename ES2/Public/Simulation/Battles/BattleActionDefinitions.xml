@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/BattleActionDefinition.xsd">
+
+    <!-- ******************** -->
+    <!-- **Guideline Effects** -->
+    <!-- ******************** -->
+
+    <!--InterpreterFormula="Property(Initiator, @ClassModuleWeapon, Damage)"-->
+    <!--InterpreterFormula="Property(Target, @ClassSection, Health)"
+                                  - Target = The thing targeted by the effect (i.e. section)
+                                  - Owner = Owner of the effect (i.e. a module)
+   (Can be undefined Be careful!) - Initiator = Initiator of the effect (Usually same as owner. In case of salvo, salvo is the initiator, owner is the weapon module)
+   (Can be undefined Be careful!) - InitiatorTarget = The target of the Initiator of the effect (Used in the case where the event hits something that is not the target of the owner, if you still want to access the 'original target')
+   
+   EntityTags are always checked against Owner (I.e. OtherGroup will check that the owner and entity target are not from the same group)
+    -->
+
+    <!--
+    EntityRole = Starting point (here owner)
+    ParentEntityFilter = will go through parent, parents parents, parent parents parents and so on, Until it finds the Entity Type (If none it will fail)
+    SubEntityFilter = Will go through children, childrens children and so on, until it finds the 'entity' filter below it. Selection will target either: All, Random (1) or first (1).
+    Encounter Hierachy (from top parent) = Group -> Flotilla -> Ship -> Section -> Module. 
+    Tags are used for sorting only (Alive, SameGroup and OtherGroup are common examples -> Several can be added with a space between them).
+    <TargetFilter>
+        <EntityFilter EntityRole="Owner" EntityTags="SameShip"/>
+        <ParentEntityFilter EntityType="Flotilla" EntityTags="SameFlotilla"/>
+        <SubEntityFilter SelectionMethod="Random">
+            <EntityFilter EntityType="Ship" EntityTags="Alive"/>
+        </SubEntityFilter>
+    </TargetFilter>
+    -->
+
+    <!-- ******************** -->
+    <!-- ** Battle Actions ** -->
+    <!-- ******************** -->
+    
+    <!-- Salvo launched event -->
+    <BattleAction Name="Weapon_SalvoLaunched">
+        <EventPrerequisite EventType="Attack_SalvoLaunched">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_InitShieldAbsorptionValue"/>
+            <BattleEffectReference Name="Salvo_InitHullPlatingAbsorptionValue"/>
+            <BattleEffectReference Name="Salvo_InitShipManpowerKillValue"/>
+        </BattleEffectApplicationContext>
+        
+        <!-- Damage reduction per range -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,ShortRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_InitEffectiveDamageAtShortRange"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,MediumRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_InitEffectiveDamageAtMediumRange"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,LongRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_InitEffectiveDamageAtLongRange"/>
+            <BattleEffectReference Name="Salvo_ApplyDamageBonusPerOpponentShipAtLongRange"/>
+        </BattleEffectApplicationContext>
+
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_ApplyDamageBonusPerTargetCommandPoints"/>
+        </BattleEffectApplicationContext>
+        
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingEntity_IncreaseTotalShotSent"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingEntity_IncreaseTotalShotSent"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="Ship">
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_IncreaseTotalShotReceived"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="Ship">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_IncreaseTotalShotReceived"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Weapon_FlakSalvoLaunchedAgainstSalvo">
+        <EventPrerequisite EventType="Attack_SalvoLaunched">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+			<EventTargetFilter EntityType="Salvo" EntityTags="OtherGroup Alive"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+			<!--Non necessary shield & hull absorption values??-->
+            <BattleEffectReference Name="Salvo_InitShieldAbsorptionValue"/>
+            <BattleEffectReference Name="Salvo_InitHullPlatingAbsorptionValue"/>
+            <BattleEffectReference Name="Salvo_InitEffectiveDamage"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+	<BattleAction Name="Weapon_FlakSalvoLaunchedAgainstSquadron">
+		<EventPrerequisite EventType="Attack_SalvoLaunched">
+			<EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+			<EventTargetFilter EntityType="Module" EntityTags="OtherGroup Alive"/>
+		</EventPrerequisite>
+		
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Initiator"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Salvo_InitEffectiveDamageAgainstSquadron"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+    
+    
+    <!-- Hit shield event -->
+    <BattleAction Name="Weapon_SalvoHitFlotillaShield">
+        <EventPrerequisite EventType="Attack_HitShield">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+            <EventTargetFilter  EntityType="Flotilla" EntityTags="OtherGroup Alive">
+                <InterpreterPrerequisite Flags="">Property(Context, @ClassFlotilla, Shield) gt 0</InterpreterPrerequisite>
+            </EventTargetFilter>
+        </EventPrerequisite>
+        <!-- Compute the damages to apply to flotilla shield -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_ComputeDamageToApplyToFlotillaShield"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Weapon_SalvoHitShipShield">
+        <EventPrerequisite EventType="Attack_HitShield">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+            <EventTargetFilter  EntityType="Ship" EntityTags="OtherGroup Alive">
+                <InterpreterPrerequisite Flags="">Property(Context, @ClassShip, Shield) gt 0</InterpreterPrerequisite>
+            </EventTargetFilter>
+        </EventPrerequisite>
+        <!-- Compute the damages to apply to ship shield -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_ComputeDamageToApplyToShipShield"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Weapon_SalvoApplyShieldDamage">
+        <EventPrerequisite EventType="Attack_HitShield">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+            <EventTargetFilter  EntityType="Undefined" EntityTags="OtherGroup Alive"/>
+        </EventPrerequisite>
+        <!-- Apply damage on the hit shield -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget"/>
+            </TargetFilter>
+            <BattleEffectReference Name="ShieldHolder_DamageShieldFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <!-- Increase the value of damages applied on shield for the salvo -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_IncreaseDamageAbsorbedByShield"/>
+            <BattleEffectReference Name="Salvo_RemoveDamageAbsorbedByLastShieldFromEffectiveDamage"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- Prepare hit target event -->
+    <BattleAction Name="Weapon_SalvoPrepareHitTarget">
+        <EventPrerequisite EventType="Attack_PrepareHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+        </EventPrerequisite>
+        <!-- Compute Hull plating absorption & remove it from effective damage -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_ComputeDamageAbsorbedByHullPlating"/>
+            <BattleEffectReference Name="Salvo_RemoveDamageAbsorbedByHullPlatingFromEffectiveDamage"/>
+            <BattleEffectReference Name="Salvo_InitFleetXPPerDamageAbsorbedByHullPlating"/>
+            <BattleEffectReference Name="Salvo_InitRepairFlatPerDamageAbsorbedByHullPlating"/>
+        </BattleEffectApplicationContext>
+        <!-- Reduce critical hit damage (from special defense) -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite">Property(InitiatorTarget, @../ClassShip, OpponentCriticalHitDamagePercent) ne 0 or Property(Initiator, @ClassSalvo, CriticalHitDamageBonus) ne 0</InterpreterPrerequisite>
+            <InterpreterPrerequisite Flags="Prerequisite">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Salvo_ApplyOpponentCriticalHitDamagePercent"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- Hit target event -->
+    <BattleAction Name="Weapon_SalvoHitTarget">
+        <EventPrerequisite EventType="Attack_HitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+        </EventPrerequisite>
+        <!-- Apply damage to the targeted section -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup Alive">
+                    <PathPrerequisite Flags="Prerequisite" Inverted="true">ClassSectionCore</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="SalvoTarget_UpdateHealthFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <!-- Apply damage to Core section (and HitBySalvo = 1 to avoid splash damage) -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship" EntityTags="OtherGroup Alive"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+                        <PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="SalvoTarget_UpdateHealthFromSalvo"/>
+            <BattleEffectReference Name="SalvoTarget_ActivateHitBySalvo"/>
+        </BattleEffectApplicationContext>
+        
+        <!-- SPLASH: Apply damage to Core section of the ship of the flotilla (exotic effect) -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0 and Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla" EntityTags="OtherGroup Alive"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+                        <PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+                        <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassSectionCore, HitBySalvo) eq 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="SalvoTarget_UpdateHealthFromSplashSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSplashSalvo"/>
+        </BattleEffectApplicationContext> 
+        <!-- SPLASH: Apply the damage to the ship (stats) -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0 and Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla" EntityTags="OtherGroup Alive"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship" EntityTags="Alive">
+                        <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassShip/ClassSectionCore, HitBySalvo) eq 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_UpdateSplashDamageReceived"/>
+            <BattleEffectReference Name="TargetedEntity_UpdateSplashDamageReceivedFromSplashSalvo"/>
+        </BattleEffectApplicationContext> 
+        <!-- SPLASH: Apply the damage to the flotilla (stats) -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0 and Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla" EntityTags="OtherGroup Alive"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Flotilla_UpdateSplashDamageReceived"/>
+        </BattleEffectApplicationContext>
+        <!-- SPLASH: Reset Splash damage -->       
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0 and Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla" EntityTags="OtherGroup Alive"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship" EntityTags="Alive">
+                        <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassShip/ClassSectionCore, HitBySalvo) eq 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_ResetSplashDamageReceivedFromSplashSalvo"/>
+        </BattleEffectApplicationContext>
+        
+        <!-- (HitBySalvo = 0) -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+                        <PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="SalvoTarget_DeactivateHitBySalvo"/>
+        </BattleEffectApplicationContext>
+        <!-- Apply Manpower killing -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, EffectiveDamage) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship" EntityTags="OtherGroup Alive"/>
+            </TargetFilter>
+            <BattleEffectReference Name="SalvoTarget_UpdateShipManpowerStockFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <!--== Apply Temporary Penalties from salvo special effects -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, OpponentEnergyWeaponAccuracyPercent) lt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship" EntityTags="OtherGroup Alive"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_SetEnergyWeaponAccuracyPercentFromOpponent"/>
+            <BattleEffectReference Name="Ship_AddTemporaryEnergyWeaponAccuracyPercent"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, OpponentCooldownReductionPercent) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityType="ShipSection" EntityTags="OtherGroup">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship" EntityTags="OtherGroup Alive"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_SetCooldownReductionPercentFromOpponent"/>
+            <BattleEffectReference Name="Ship_AddTemporaryCooldownReductionPercent"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>    
+
+    <BattleAction Name="Flak_SalvoHitTarget">
+        <EventPrerequisite EventType="Attack_HitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+            <EventTargetFilter EntityTags="OtherGroup Alive"/>
+        </EventPrerequisite>
+        <!-- Apply damage to the targeted salvo -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Initiator, @ClassSalvo, SectionDamage) gt 0</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityTags="OtherGroup Alive"/>
+            </TargetFilter>
+            <BattleEffectReference Name="SalvoTarget_UpdateHealthFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Flak_SalvoPostHitTargetAgainstSquadron">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+            <EventTargetFilter EntityType="Module" EntityTags="OtherGroup"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget">
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+	
+    <!-- Post hit target event -->
+    <BattleAction Name="Weapon_SalvoPostHitTarget">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+        </EventPrerequisite>
+        
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,ShortRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module">
+                    <PathPrerequisite Flags="">ClassModuleWeaponEncounter</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_IncreaseTotalShortHit"/>
+            <BattleEffectReference Name="Weapon_IncreaseTotalShortShot"/>
+            <BattleEffectReference Name="Weapon_UpdateShortRangeAccuracy"/>
+        </BattleEffectApplicationContext>
+
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,MediumRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module">
+                    <PathPrerequisite Flags="">ClassModuleWeaponEncounter</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_IncreaseTotalMediumHit"/>
+            <BattleEffectReference Name="Weapon_IncreaseTotalMediumShot"/>
+            <BattleEffectReference Name="Weapon_UpdateMediumRangeAccuracy"/>
+        </BattleEffectApplicationContext>
+
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,LongRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module">
+                    <PathPrerequisite Flags="">ClassModuleWeaponEncounter</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_IncreaseTotalLongHit"/>
+            <BattleEffectReference Name="Weapon_IncreaseTotalLongShot"/>
+            <BattleEffectReference Name="Weapon_UpdateLongRangeAccuracy"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+    
+    <BattleAction Name="Weapon_SalvoPostHitTarget_StatisticsRecording">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+        </EventPrerequisite>
+        <!-- Add the effective damage to the weapon for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner"/>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedAbsorbedByShieldFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedAbsorbedByHullPlatingFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <!-- Add the effective damage to the attacking ship and flotilla for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedAbsorbedByShieldFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedAbsorbedByHullPlatingFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_IncreaseTotalHitSent"/>
+        </BattleEffectApplicationContext>
+        <!-- Add the effective damage to the attacking ship for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedCurrentPhaseFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedAbsorbedByShieldFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedAbsorbedByHullPlatingFromSalvo"/>
+            <BattleEffectReference Name="AttackingEntity_IncreaseTotalHitSent"/>
+        </BattleEffectApplicationContext>
+        <!-- Update the targeted section's, ship's and flotilla's damage received data -->
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget">
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget">
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedCriticalFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_IncreaseTotalHitReceived"/>
+            <BattleEffectReference Name="Ship_UpdateRepairFlatFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSalvo"/>
+            <BattleEffectReference Name="TargetedEntity_IncreaseTotalHitReceived"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Group">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_UpdateEarnedExperienceFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+    
+    <BattleAction Name="WeaponKinetic_SalvoPostHitTarget_StatisticsRecording">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule">
+                <PathPrerequisite Flags="">../ClassModuleWeaponKinetic</PathPrerequisite>
+            </EventInitiatorFilter>
+        </EventPrerequisite>
+        <!-- Add the effective kinetic damage to the attacking ship for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByKineticFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByKineticCriticalFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="WeaponMissile_SalvoPostHitTarget_StatisticsRecording">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule">
+                <PathPrerequisite Flags="">../ClassModuleWeaponMissile</PathPrerequisite>
+            </EventInitiatorFilter>
+        </EventPrerequisite>
+        <!-- Add the effective Missile damage to the attacking ship for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByMissileFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByMissileCriticalFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="WeaponLaser_SalvoPostHitTarget_StatisticsRecording">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule">
+                <PathPrerequisite Flags="">../ClassModuleWeaponLaser</PathPrerequisite>
+            </EventInitiatorFilter>
+        </EventPrerequisite>
+        <!-- Add the effective Laser damage to the attacking ship for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByLaserFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByLaserCriticalFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="WeaponBeam_SalvoPostHitTarget_StatisticsRecording">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule">
+                <PathPrerequisite Flags="">../ClassModuleWeaponBeam</PathPrerequisite>
+            </EventInitiatorFilter>
+        </EventPrerequisite>
+        <!-- Add the effective Beam damage to the attacking ship for statistics -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByBeamFromSalvo"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,CriticalHit')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Flotilla">
+                </ParentEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedByBeamCriticalFromSalvo"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- Miss event -->
+    <BattleAction Name="Weapon_UpdateAccuracyAfterMiss">
+        <EventPrerequisite EventType="Attack_Miss">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameModule"/>
+        </EventPrerequisite>
+
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,ShortRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module">
+                    <PathPrerequisite Flags="">ClassModuleWeaponEncounter</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_IncreaseTotalShortShot"/>
+            <BattleEffectReference Name="Weapon_UpdateShortRangeAccuracy"/>
+        </BattleEffectApplicationContext>
+
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,MediumRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module">
+                    <PathPrerequisite Flags="">ClassModuleWeaponEncounter</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_IncreaseTotalMediumShot"/>
+            <BattleEffectReference Name="Weapon_UpdateMediumRangeAccuracy"/>
+        </BattleEffectApplicationContext>
+
+        <BattleEffectApplicationContext>
+            <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Initiator, @'ClassSalvo,LongRange')</InterpreterPrerequisite>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module">
+                    <PathPrerequisite Flags="">ClassModuleWeaponEncounter</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_IncreaseTotalLongShot"/>
+            <BattleEffectReference Name="Weapon_UpdateLongRangeAccuracy"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- SUPPORT MODULES -->
+
+    <!--Repair core health and reload shield at the end of each phase (check if first and last trigger it)-->
+    <BattleAction Name="Group_PhaseRepairShipCoreSection">
+        <EventPrerequisite EventType="PhaseEnd"/>
+        <!-- Phase 1 -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupPhase1</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship">
+                        <InterpreterPrerequisite>Property(Context, @ClassShip, Health) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_RepairShipCoreSectionAfterPhaseReceived"/>
+            <BattleEffectReference Name="Ship_ReloadShieldAfterPhase"/>
+            <BattleEffectReference Name="Ship_KillManpowerAfterPhase"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupPhase1</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection">
+                        <PathPrerequisite Inverted="false">ClassSectionCore</PathPrerequisite>
+                        <InterpreterPrerequisite>Property(Context, @../ClassShip, Health) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Core_RepairShipCoreSectionAfterPhase"/>
+        </BattleEffectApplicationContext>
+        
+        <!-- Phase 2 -->
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupPhase2</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship">
+                        <InterpreterPrerequisite>Property(Context, @ClassShip, Health) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_RepairShipCoreSectionAfterPhaseReceived"/>
+            <BattleEffectReference Name="Ship_ReloadShieldAfterPhase"/>
+            <BattleEffectReference Name="Ship_KillManpowerAfterPhase"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupPhase2</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection">
+                        <PathPrerequisite Inverted="false">ClassSectionCore</PathPrerequisite>
+                        <InterpreterPrerequisite>Property(Context, @../ClassShip, Health) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Core_RepairShipCoreSectionAfterPhase"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+    
+    <!--Repair core health before final repair phase.-->
+    <BattleAction Name="Group_RepairShipCoreSection">
+        <!--On healing_prepare -> before proper repair-->
+        <EventPrerequisite EventType="Healing_Prepare"/>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner" EntityType="Group"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="Ship" EntityTags="SameGroup"/>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="Ship_SetRepairIfSurvivingSquadron"/>
+		</BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner" EntityType="Group"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Group_SetRepairPerLostShip"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner" EntityType="Group"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="ShipSection" EntityTags="SameGroup">
+						<PathPrerequisite Inverted="false">ClassSectionCore</PathPrerequisite>
+					</EntityFilter>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="Core_RepairShipCoreSectionAfterBattle"/>
+		</BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- OTHER BATTLE ACTIONS -->
+
+    <BattleAction Name="Ship_UpdateMedalScoreAfterAttack">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventInitiatorFilter EntityType="Salvo" EntityTags="SameShip"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship"/>
+            </TargetFilter>
+            <BattleEffectReference Name="BattleEffectSetMedalScoreSelf"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Ship_UpdateMedalScoreAfterDamage">
+        <EventPrerequisite EventType="Attack_PostHitTarget">
+            <EventTargetFilter EntityType="ShipSection" EntityTags="SameShip"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship"/>
+            </TargetFilter>
+            <BattleEffectReference Name="BattleEffectSetMedalScoreEnemy"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- Group Context -->
+    <BattleAction Name="Group_SetInitialMoraleBonus">
+        <EventPrerequisite EventType="BattleStart">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_ComputeMoraleBonus"/>
+            <BattleEffectReference Name="Group_InitEffectiveFlotillasCount"/>
+            <BattleEffectReference Name="Group_InitOpponentEffectiveFlotillasCount"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Flotilla">
+                        <InterpreterPrerequisite>Property(Context, @ClassFlotilla, MaximumShield) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Flotilla_ResetShield"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_OnEnemyShipDestruction">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityType="Ship" EntityTags="OtherGroup"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_IncreaseEarnedExperience"/>
+            <BattleEffectReference Name="Group_IncreaseDestroyedCP"/>
+            <BattleEffectReference Name="Group_IncreaseDestroyedShip"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_OnFlotillaDestruction">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityType="Flotilla" EntityTags="SameGroup"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_ReduceEffectiveFlotillasCount"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_OnEnemyFlotillaDestruction">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityType="Flotilla" EntityTags="OtherGroup"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_ReduceOpponentEffectiveFlotillasCount"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_MainFlotilla_OnOwnShipDestruction">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityType="Ship" EntityTags="SameGroup">
+                <PathPrerequisite>../FlotillaTypeMain</PathPrerequisite>
+            </EventInitiatorFilter>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_RemoveShipMilitaryPowerFromMain"/>
+            <BattleEffectReference Name="Group_IncreaseLostCP"/>
+            <BattleEffectReference Name="Group_IncreaseLostShip"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship" EntityTags="SameGroup"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_AddTemporaryDamageIncreaseIfLostShip"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ReinforcementFlotilla_OnOwnShipDestruction">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityType="Ship" EntityTags="SameGroup">
+                <PathPrerequisite>../FlotillaTypeReinforcement</PathPrerequisite>
+            </EventInitiatorFilter>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_RemoveShipMilitaryPowerFromReinforcement"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ReportFlotillaDamageAppliedCurrentPhase">
+        <EventPrerequisite EventType="PhaseEnd">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                    <PathPrerequisite Flags="">GroupPhase1</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Flotilla"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_RecordDamageAppliedPhase1"/>
+            <BattleEffectReference Name="AttackingFlotilla_ResetDamageAppliedCurrentPhase"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                    <PathPrerequisite Flags="">GroupPhase2</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Flotilla"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_RecordDamageAppliedPhase2"/>
+            <BattleEffectReference Name="AttackingFlotilla_ResetDamageAppliedCurrentPhase"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                    <PathPrerequisite Flags="">GroupPhase3</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Flotilla"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="AttackingFlotilla_RecordDamageAppliedPhase3"/>
+            <BattleEffectReference Name="AttackingFlotilla_ResetDamageAppliedCurrentPhase"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ComputePlayerRecyclingDustGain">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_PlayerRecyclingDustGainReward"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!--<BattleAction Name="Group_ComputeOpponentRecyclingDustGain">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_OpponentRecyclingDustGainReward"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>-->
+
+    <!-- Law -->
+    <BattleAction Name="Group_ComputeScienceGain">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Law_ScienceReward"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ComputeDustGain">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Law_DustReward"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ComputeScienceGainRepublic">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Law_ScienceRewardRepublic"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ComputeDustGainRepublic">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Law_DustRewardRepublic"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!-- To rename and maybe add all the resource gain -->
+    <BattleAction Name="Group_ComputeShipExperience">
+        <EventPrerequisite EventType="BattleFinalization">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_ApplyShipExperienceBonus"/>
+            <BattleEffectReference Name="Group_PlayerDustPerAliveCP"/>
+            <BattleEffectReference Name="Group_OpponentRecyclingDustGainReward"/>
+            <BattleEffectReference Name="Group_OpponentRecyclingScienceGainReward"/>
+            <BattleEffectReference Name="Group_OpponentRecyclingEmpirePointGainReward"/>
+            <BattleEffectReference Name="Group_ManpowerLostTransfer"/> 
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship" EntityTags="SameGroup"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_SetShipExperienceDefault"/>
+            <BattleEffectReference Name="Ship_KillManpowerAfterPhase"/>
+            <BattleEffectReference Name="Ship_AddBattleMovementGain"/>
+            <BattleEffectReference Name="Ship_AddBattleActionGain"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_SetInitialMilitaryPower">
+        <EventPrerequisite EventType="BattleStart">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetInitialMilitaryPower"/>
+            <BattleEffectReference Name="Group_SetMainMilitaryPower"/>
+            <BattleEffectReference Name="Group_SetInitialReinforcementMilitaryPower"/>
+            <BattleEffectReference Name="Group_SetReinforcementMilitaryPower"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship" EntityTags="SameGroup"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_SetInitialMilitaryPower"/>
+            <BattleEffectReference Name="Ship_SetEffectiveHullPlatingAbsorption"/>
+            <BattleEffectReference Name="Ship_SetEffectiveShieldAbsorption"/>
+            <BattleEffectReference Name="Ship_AddEncounterShipActive"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_AddGroupActive"/>
+            <BattleEffectReference Name="Group_SetShipManpowerStockInitial"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship">
+                        <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassShip, OffensiveMilitaryPower) eq 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_AddDefenseAbsorptionBonusOnCivilians"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Module" EntityTags="SameGroup">
+                        <PathPrerequisite>ClassModuleWeapon</PathPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Weapon_AddEncounterWeaponActive"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+
+
+
+    <BattleAction Name="Group_Retreat">
+        <EventPrerequisite EventType="BattleStart">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupModeRetreat</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection" EntityTags="Alive"/>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_Retreat_DamageShipSections"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupModeRetreat</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_Retreat_Elimination"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_Retreat_RecoverMovementPoint">
+        <EventPrerequisite EventType="Healing">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="">GroupModeRetreat</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Ship" EntityTags="Alive">
+                        <InterpreterPrerequisite Flags="">Property(Context, @ClassShip, Movement) le 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_Retreat_RecoverShipMovementPoint"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Group_ComputeEndBattleStatus">
+        <EventPrerequisite EventType="ComputeEndBattleStatus">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Destroyed">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) eq 0</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_Carnage"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Destroyed">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) lt 0</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_DecisiveDefeat"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Alive">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <PathPrerequisite Flags="Prerequisite" Inverted="true">EndBattleStatusLastSurvivor</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) ge -0.05 and Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) le 0.05</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_Draw"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Alive">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) ge -0.2 and Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) lt -0.05</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_MinorDefeat"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Alive">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) lt -0.2</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_MajorDefeat"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Alive">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <PathPrerequisite Flags="Prerequisite" Inverted="true">EndBattleStatusLastSurvivor</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) gt 0.05 and Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) le 0.2</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_MinorVictory"/>
+            <BattleEffectReference Name="Group_IncreaseBattleWon"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Alive">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <PathPrerequisite Flags="Prerequisite" Inverted="true">EndBattleStatusLastSurvivor</PathPrerequisite>
+                    <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassGroup, MainMilitaryPowerRelativeDelta) gt 0.2</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_MajorVictory"/>
+            <BattleEffectReference Name="Group_IncreaseBattleWon"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityTags="Alive">
+                    <PathPrerequisite Flags="Prerequisite">!GroupModeRetreat</PathPrerequisite>
+                    <PathPrerequisite Flags="Prerequisite">EndBattleStatusLastSurvivor</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_DecisiveVictory"/>
+            <BattleEffectReference Name="Group_IncreaseBattleWon"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Group">
+                    <PathPrerequisite Flags="Prerequisite">GroupModeRetreat</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Group_SetEndBattleStatus_Retreat"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Ship_OnDestruction">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityTags="Me"/>
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_ApplyStatusDestroyed"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Ship_Healing">
+        <EventPrerequisite EventType="Healing"/>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Owner, @ClassShip/ClassSectionCore, Health) gt 0</InterpreterPrerequisite>
+        <BattleEffectApplicationContext>
+            <!-- We reset the shield of the ship -->
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship">
+                    <InterpreterPrerequisite>Property(Context, @ClassShip, MaximumShield) gt 0</InterpreterPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Ship_ResetShield"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <!-- We reset the shield of all the sections -->
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection">
+                        <InterpreterPrerequisite>Property(Context, @ClassSection, MaximumShield) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="ShipSection_ResetShield"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <!-- We repare the core sections (only with specific battle effect) -->
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship">
+                    <PathPrerequisite Inverted="true">../ClassGroup,GroupModeRetreat</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection">
+                        <PathPrerequisite Inverted="false">ClassSectionCore</PathPrerequisite>
+                        <InterpreterPrerequisite Inverted="false">Property(Context, @ClassSection, MaximumHealth) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="ShipSection_RepairCore"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <!-- We repare all the non-core sections -->
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection">
+                        <InterpreterPrerequisite Inverted ="false" >Property(Context, @ClassSection, MaximumHealth) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="ShipSection_Repair"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <!-- We prepare all the modules -->
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship"/>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Module">
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ModuleStatusSlave</PathPrerequisite>
+                        <InterpreterPrerequisite Inverted ="false" >Property(Context, @ClassModule, MaximumHealth) gt 0</InterpreterPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="Module_Repair"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="HeroShip_Revive">
+        <EventPrerequisite EventType="Healing_Prepare"/>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship" EntityTags="Destroyed">
+                    <PathPrerequisite Flags="Prerequisite" Inverted="false">ShipFactionHeroes</PathPrerequisite>
+                </EntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="ShipSection">
+                        <PathPrerequisite Inverted="false">ClassSectionCore</PathPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="HeroShip_Revive"/>
+        </BattleEffectApplicationContext>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Ship" EntityTags="Destroyed">
+                    <PathPrerequisite Flags="Prerequisite" Inverted="false">ShipFactionHeroes</PathPrerequisite>
+                </EntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="HeroShip_SetResurrected"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Weapon_Initialize">
+        <EventPrerequisite EventType="BattleStart">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module"/>
+            </TargetFilter>
+            <BattleEffectReference Name="BattleEffectWeaponAddSpecificDescriptor"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="BattleActionSupportInitialize">
+        <EventPrerequisite EventType="BattleStart">
+        </EventPrerequisite>
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner" EntityType="Module"/>
+            </TargetFilter>
+            <BattleEffectReference Name="BattleEffectSupportAddSpecificDescriptor"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <!--################################-->
+    <!--###         SQUADRONS        ###-->
+    <!--################################-->
+
+	<BattleAction Name="BattleActionSquadronInitialize">
+		<EventPrerequisite EventType="BattleStart">
+		</EventPrerequisite>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner" EntityType="Module"/>
+			</TargetFilter>
+			<BattleEffectReference Name="BattleEffectSquadronAddSpecificDescriptor"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+
+    <BattleAction Name="BattleActionSquadronInitialize_StatisticsRecording">
+        <EventPrerequisite EventType="BattleStart">
+        </EventPrerequisite>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Ship"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Fighter_InitializeUnitsCount"/>
+			<BattleEffectReference Name="Bomber_InitializeUnitsCount"/>
+			<BattleEffectReference Name="Ship_InitializeRemainingSquadronAmount"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+	<!--Squadron attacks Squadron-->
+	<BattleAction Name="Squadron_MatchAction_PrepareAttackOtherSquadron">
+        <EventPrerequisite EventType="Squadron_MatchAction_PrepareAttack">
+            <EventInitiatorFilter EntityTags="Me"/>
+            <EventTargetFilter EntityType="Module" EntityTags="OtherGroup Alive"/>
+        </EventPrerequisite>
+
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Initiator"/>
+            </TargetFilter>
+            <BattleEffectReference Name="Squadron_ComputeOverallDamageAgainstSquadron"/>
+			<BattleEffectReference Name="Squadron_ApplyEffectSquadronDamageIncreasePerSquadron"/>
+            <BattleEffectReference Name="Squadron_ApplySquadronDodgeToOverallDamage"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+    <BattleAction Name="Squadron_MatchAction_AttackOtherSquadron">
+        <EventPrerequisite EventType="Squadron_MatchAction_Hit">
+            <EventInitiatorFilter EntityTags="Me"/>
+            <EventTargetFilter EntityType="Module" EntityTags="OtherGroup Alive"/>
+        </EventPrerequisite>
+        
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget"/>
+            </TargetFilter>
+            <BattleEffectReference Name="TargetedEntity_ApplySquadronDamage"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+	
+	<!--Squadron attacks Ship-->
+	<BattleAction Name="Squadron_MatchAction_PrepareAttackShip">
+		<EventPrerequisite EventType="Squadron_MatchAction_PrepareAttack">
+			<EventInitiatorFilter EntityTags="Me"/>
+			<EventTargetFilter EntityType="Ship" EntityTags="OtherGroup Alive"/>
+		</EventPrerequisite>
+
+		<!--Compute initial damage-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Initiator"/>
+			</TargetFilter>
+			<!-- Reset values -->
+			<BattleEffectReference Name="Squadron_ResetDamageAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_ResetDamageAbsorbedByHullPlating"/>
+			<!-- Compute damages -->
+			<BattleEffectReference Name="Squadron_ComputeOverallDamageAgainstShip"/>
+			<BattleEffectReference Name="Squadron_ApplyEffectSquadronDamageIncreasePerSquadron"/>
+		</BattleEffectApplicationContext>
+
+		<!--Track shots-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner">
+				</EntityFilter>
+				<ParentEntityFilter EntityType="Ship">
+				</ParentEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="AttackingEntity_IncreaseTotalShotSent"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner">
+				</EntityFilter>
+				<ParentEntityFilter EntityType="Flotilla">
+				</ParentEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="AttackingEntity_IncreaseTotalShotSent"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget" EntityType="Ship">
+				</EntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_IncreaseTotalShotReceived"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget" EntityType="Ship">
+				</EntityFilter>
+				<ParentEntityFilter EntityType="Flotilla">
+				</ParentEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_IncreaseTotalShotReceived"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+
+	<!--Compute what shield absorbs and all-->
+	<BattleAction Name="Squadron_MatchAction_AttackShip_HitShield">
+		<EventPrerequisite EventType="Squadron_MatchAction_Hit">
+			<EventInitiatorFilter EntityTags="Me"/>
+			<EventTargetFilter EntityType="Ship" EntityTags="OtherGroup Alive">
+				<InterpreterPrerequisite Flags="">Property(Context, @ClassShip, Shield) gt 0</InterpreterPrerequisite>
+			</EventTargetFilter>
+		</EventPrerequisite>
+
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Initiator"/>
+			</TargetFilter>
+			<!-- Compute the damages to apply to ship shield -->
+			<BattleEffectReference Name="Squadron_ComputeDamageToApplyToShipShield"/>
+			<!-- Increase the value of damages applied on shield for the salvo -->
+			<BattleEffectReference Name="Squadron_IncreaseDamageAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_RemoveDamageAbsorbedByLastShieldFromOverallDamage"/>
+		</BattleEffectApplicationContext>
+
+		<!-- Apply damage on the hit shield -->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+			</TargetFilter>
+			<BattleEffectReference Name="ShieldHolder_DamageShieldFromSquadron"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+
+	<BattleAction Name="Squadron_MatchAction_AttackShip">
+		<EventPrerequisite EventType="Squadron_MatchAction_Hit">
+			<EventInitiatorFilter EntityTags="Me"/>
+			<EventTargetFilter EntityType="Ship" EntityTags="OtherGroup Alive"/>
+		</EventPrerequisite>
+
+		<!--Compute damage absorbed by Hull Plating-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Initiator"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Squadron_ComputeDamageAbsorbedByHullPlating"/>
+			<BattleEffectReference Name="Squadron_RemoveDamageAbsorbedByHullPlatingFromOverallDamage"/>
+		</BattleEffectApplicationContext>
+		
+		<!--Apply damage on Ship-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+						<PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+					</EntityFilter>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_ApplySquadronDamage"/>
+		</BattleEffectApplicationContext>
+		
+    </BattleAction>
+
+	<!--Against ships-->
+	<BattleAction Name="Fighter_MatchAction_PostAttackAgainstShip_StatisticsRecording">
+		<EventPrerequisite EventType="Squadron_MatchAction_PostAttack">
+			<EventInitiatorFilter EntityTags="Me"/>
+			<EventTargetFilter EntityType="Ship" EntityTags="OtherGroup"/>
+		</EventPrerequisite>
+
+		<!--Update damage applied on Squadron, Ship & Flotilla-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Ship"/>
+			</TargetFilter>
+			<BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedFromSquadron"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"/>
+			<BattleEffectReference Name="AttackingEntity_IncreaseTotalHitSent"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Flotilla"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Fighter_IncreaseTotalDamage"/>
+			<BattleEffectReference Name="Fighter_IncreaseTotalDamageCritical"/>
+			<BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedFromSquadron"/>
+			<BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedCurrentPhaseFromSquadron"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"/>
+			<BattleEffectReference Name="AttackingEntity_IncreaseTotalHitSent"/>
+		</BattleEffectApplicationContext>
+
+		<!-- Make damage label appear if dmg > 0 & non critical-->
+		<BattleEffectApplicationContext>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				(Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack) eq 0)
+				and (Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) gt 0)
+			</InterpreterPrerequisite>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+						<PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+					</EntityFilter>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+		</BattleEffectApplicationContext>
+
+		<!-- Make damage label appear if dmg > 0 & critical-->
+		<BattleEffectApplicationContext>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				(Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack) eq 1)
+				and (Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) gt 0)
+			</InterpreterPrerequisite>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+						<PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+					</EntityFilter>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageCriticalReceivedFromSquadron"/>
+		</BattleEffectApplicationContext>
+		
+		<!--Update enemy ship & flotilla damage received-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_IncreaseTotalHitReceived"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<ParentEntityFilter EntityType="Flotilla"/>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_IncreaseTotalHitReceived"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+	
+	<!--Used to feedback damage on Squadron labels-->
+	<BattleAction Name="Fighter_MatchAction_PostAttackAgainstSquadron_StatisticsRecording">
+		<EventPrerequisite EventType="Squadron_MatchAction_PostAttack">
+			<EventInitiatorFilter EntityTags="Me"/>
+			<EventTargetFilter EntityType="Module" EntityTags="OtherGroup"/>
+		</EventPrerequisite>
+
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+
+	<!--Against ships-->
+	<BattleAction Name="Bomber_MatchAction_PostAttack_StatisticsRecording">
+		<EventPrerequisite EventType="Squadron_MatchAction_PostAttack">
+			<EventInitiatorFilter EntityTags="Me"/>
+		</EventPrerequisite>
+
+		<!--Update damage applied on Squadron, Ship & Flotilla-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Ship"/>
+			</TargetFilter>
+			<BattleEffectReference Name="AttackingEntity_UpdateDamageAppliedFromSquadron"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"/>
+			<BattleEffectReference Name="AttackingEntity_IncreaseTotalHitSent"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Flotilla"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Bomber_IncreaseTotalDamage"/>
+			<BattleEffectReference Name="Bomber_IncreaseTotalDamageCritical"/>
+			<BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedFromSquadron"/>
+			<BattleEffectReference Name="AttackingFlotilla_UpdateDamageAppliedCurrentPhaseFromSquadron"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByShield"/>
+			<BattleEffectReference Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"/>
+			<BattleEffectReference Name="AttackingEntity_IncreaseTotalHitSent"/>
+		</BattleEffectApplicationContext>
+
+		<!-- Make damage label appear if dmg > 0 & non critical-->
+		<BattleEffectApplicationContext>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				(Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack) eq 0)
+				and (Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) gt 0)
+			</InterpreterPrerequisite>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+						<PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+					</EntityFilter>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+		</BattleEffectApplicationContext>
+
+		<!-- Make damage label appear if dmg > 0 & critical-->
+		<BattleEffectApplicationContext>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				(Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack) eq 1)
+				and (Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) gt 0)
+			</InterpreterPrerequisite>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<SubEntityFilter SelectionMethod="All">
+					<EntityFilter EntityType="ShipSection" EntityTags="OtherGroup Alive">
+						<PathPrerequisite Flags="Prerequisite">ClassSectionCore</PathPrerequisite>
+					</EntityFilter>
+				</SubEntityFilter>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageCriticalReceivedFromSquadron"/>
+		</BattleEffectApplicationContext>
+
+		<!--Update enemy ship & flotilla damage received-->
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_IncreaseTotalHitReceived"/>
+		</BattleEffectApplicationContext>
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="InitiatorTarget"/>
+				<ParentEntityFilter EntityType="Flotilla"/>
+			</TargetFilter>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSquadron"/>
+			<BattleEffectReference Name="TargetedEntity_IncreaseTotalHitReceived"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+	
+	<!-- Squadron End Status -->
+	<BattleAction Name="SquadronFighter_BattleEnd_FeedbackRemainingUnits">
+		<EventPrerequisite EventType="ComputeEndBattleStatus"/>
+		
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Ship"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Fighter_SetDestructionCount"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+
+	<BattleAction Name="SquadronBomber_BattleEnd_FeedbackRemainingUnits">
+		<EventPrerequisite EventType="ComputeEndBattleStatus"/>
+
+		<BattleEffectApplicationContext>
+			<TargetFilter>
+				<EntityFilter EntityRole="Owner"/>
+				<ParentEntityFilter EntityType="Ship"/>
+			</TargetFilter>
+			<BattleEffectReference Name="Bomber_SetDestructionCount"/>
+		</BattleEffectApplicationContext>
+	</BattleAction>
+
+    <BattleAction Name="Squadron_Destruction_StatisticsRecording">
+        <EventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityTags="Me"/>
+        </EventPrerequisite>
+
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="Owner">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship">
+                </ParentEntityFilter>
+            </TargetFilter>
+			<BattleEffectReference Name="Squadron_DecreaseRemainingSquadronCount"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+
+    <BattleAction Name="DeactivateShield">
+        <EventPrerequisite EventType="Attack_HitTarget">
+            <EventInitiatorFilter EntityTags="SameModule"/>
+        </EventPrerequisite>
+
+        <BattleEffectApplicationContext>
+            <TargetFilter>
+                <EntityFilter EntityRole="InitiatorTarget" EntityTags="OtherGroup Alive">
+                </EntityFilter>
+                <ParentEntityFilter EntityType="Ship">
+                </ParentEntityFilter>
+                <SubEntityFilter SelectionMethod="All">
+                    <EntityFilter EntityType="Module">
+                        <PathPrerequisite Inverted="false">ClassModuleWeapon</PathPrerequisite>
+                    </EntityFilter>
+                </SubEntityFilter>
+            </TargetFilter>
+            <BattleEffectReference Name="DisableWeapon"/>
+        </BattleEffectApplicationContext>
+    </BattleAction>
+
+
+</Datatable>

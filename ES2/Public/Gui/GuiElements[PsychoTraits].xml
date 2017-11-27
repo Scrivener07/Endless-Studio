@@ -1,0 +1,2302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- ############ FAKE FOR SAVE ############-->
+    
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScheming">
+        <Title>%PopulationPoliticalTraitIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitCooperative">
+        <Title>%PopulationPoliticalTraitAntiIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+
+    <!-- ############ PSYCHO TRAITS BASICS ############-->
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitIndustrialist">
+        <Title>%PopulationPoliticalTraitIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAntiIndustrialist">
+        <Title>%PopulationPoliticalTraitAntiIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScientist">
+        <Title>%PopulationPoliticalTraitScientistTitle</Title>
+        <Description>%PopulationPoliticalTraitScientistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitScientistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAntiScientist">
+        <Title>%PopulationPoliticalTraitAntiScientistTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiScientistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiScientistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitPacifist">
+        <Title>%PopulationPoliticalTraitPacifistTitle</Title>
+        <Description>%PopulationPoliticalTraitPacifistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitPacifistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAntiPacifist">
+        <Title>%PopulationPoliticalTraitAntiPacifistTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiPacifistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiPacifistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitEcologist">
+        <Title>%PopulationPoliticalTraitEcologistTitle</Title>
+        <Description>%PopulationPoliticalTraitEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitEcologistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAntiEcologist">
+        <Title>%PopulationPoliticalTraitAntiEcologistTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiEcologistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitReligious">
+        <Title>%PopulationPoliticalTraitReligiousTitle</Title>
+        <Description>%PopulationPoliticalTraitReligiousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitReligiousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAntiReligious">
+        <Title>%PopulationPoliticalTraitAntiReligiousTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiReligiousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiReligiousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitMilitarist">
+        <Title>%PopulationPoliticalTraitMilitaristTitle</Title>
+        <Description>%PopulationPoliticalTraitMilitaristDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitMilitaristTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAntiMilitarist">
+        <Title>%PopulationPoliticalTraitAntiMilitaristTitle</Title>
+        <Description>%PopulationPoliticalTraitAntiMilitaristDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAntiMilitaristTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+    <!--PSYCHO TRAITS ADVANCED-->
+    
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAggressive">
+        <Title>%PopulationPoliticalTraitAggressiveTitle</Title>
+        <Description>%PopulationPoliticalTraitAggressiveDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAggressiveTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitAtheist">
+        <Title>%PopulationPoliticalTraitAtheistTitle</Title>
+        <Description>%PopulationPoliticalTraitAtheistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitAtheistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    
+    <ExtendedGuiElement Name="PopulationPoliticalTraitCurious">
+        <Title>%PopulationPoliticalTraitCuriousTitle</Title>
+        <Description>%PopulationPoliticalTraitCuriousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitCuriousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>  
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitFanatic">
+        <Title>%PopulationPoliticalTraitFanaticTitle</Title>
+        <Description>%PopulationPoliticalTraitFanaticDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitFanaticTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitHedonist">
+        <Title>%PopulationPoliticalTraitHedonistTitle</Title>
+        <Description>%PopulationPoliticalTraitHedonistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitHedonistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+     <ExtendedGuiElement Name="PopulationPoliticalTraitMerciful">
+        <Title>%PopulationPoliticalTraitMercifulTitle</Title>
+        <Description>%PopulationPoliticalTraitMercifulDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitMercifulTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitPragmatic">
+        <Title>%PopulationPoliticalTraitPragmaticTitle</Title>
+        <Description>%PopulationPoliticalTraitPragmaticDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitPragmaticTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitPious">
+        <Title>%PopulationPoliticalTraitPiousTitle</Title>
+        <Description>%PopulationPoliticalTraitPiousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitPiousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitOptimised">
+        <Title>%PopulationPoliticalTraitOptimisedTitle</Title>
+        <Description>%PopulationPoliticalTraitOptimisedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitOptimisedTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitRelativist">
+        <Title>%PopulationPoliticalTraitRelativistTitle</Title>
+        <Description>%PopulationPoliticalTraitRelativistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitRelativistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PopulationPoliticalTraitSagacious">
+        <Title>%PopulationPoliticalTraitSagaciousTitle</Title>
+        <Description>%PopulationPoliticalTraitSagaciousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitSagaciousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScientist02">
+        <Title>%PopulationPoliticalTraitScientist02Title</Title>
+        <Description>%PopulationPoliticalTraitScientist02Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitScientist02TooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScientist03">
+        <Title>%PopulationPoliticalTraitScientistTitle</Title>
+        <Description>%PopulationPoliticalTraitScientistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitScientistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitSearcher">
+        <Title>%PopulationPoliticalTraitSearcherTitle</Title>
+        <Description>%PopulationPoliticalTraitSearcherDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitSearcherTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PopulationPoliticalTraitWary">
+        <Title>%PopulationPoliticalTraitWaryTitle</Title>
+        <Description>%PopulationPoliticalTraitWaryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitWaryTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitWarmonger">
+        <Title>%PopulationPoliticalTraitWarmongerTitle</Title>
+        <Description>%PopulationPoliticalTraitWarmongerDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitWarmongerTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitXenophobic">
+        <Title>%PopulationPoliticalTraitXenophobicTitle</Title>
+        <Description>%PopulationPoliticalTraitXenophobicDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitXenophobicTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitIndustryToScience">
+        <Title>%PopulationPoliticalTraitIndustryToScienceTitle</Title>
+        <Description>%PopulationPoliticalTraitIndustryToScienceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitIndustryToScienceTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitEcologistToScience">
+        <Title>%PopulationPoliticalTraitEcologistToScienceTitle</Title>
+        <Description>%PopulationPoliticalTraitEcologistToScienceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitEcologistToScienceTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitIndustrialistToPacifist">
+        <Title>%PopulationPoliticalTraitIndustrialistToPacifistTitle</Title>
+        <Description>%PopulationPoliticalTraitIndustrialistToPacifistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitIndustrialistToPacifistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitIndustrialistToReligious">
+        <Title>%PopulationPoliticalTraitIndustrialistToReligiousTitle</Title>
+        <Description>%PopulationPoliticalTraitIndustrialistToReligiousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitIndustrialistToReligiousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitPacifistToIndustrialist">
+        <Title>%PopulationPoliticalTraitPacifistToIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitPacifistToIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitPacifistToIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitPacifistToEcologist">
+        <Title>%PopulationPoliticalTraitPacifistToEcologistTitle</Title>
+        <Description>%PopulationPoliticalTraitPacifistToEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitPacifistToEcologistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScientificToIndustrialist">
+        <Title>%PopulationPoliticalTraitScientificToIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitScientificToIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitScientificToIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScientificToPacifist">
+        <Title>%PopulationPoliticalTraitScientificToPacifistTitle</Title>
+        <Description>%PopulationPoliticalTraitScientificToPacifistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitScientificToPacifistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitScientificToEcologist">
+        <Title>%PopulationPoliticalTraitScientificToEcologistTitle</Title>
+        <Description>%PopulationPoliticalTraitScientificToEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitScientificToEcologistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitReligiousToIndustrialist">
+        <Title>%PopulationPoliticalTraitReligiousToIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitReligiousToIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitReligiousToIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitReligiousToPacifist">
+        <Title>%PopulationPoliticalTraitReligiousToPacifistTitle</Title>
+        <Description>%PopulationPoliticalTraitReligiousToPacifistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitReligiousToPacifistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitMilitaristToScientific">
+        <Title>%PopulationPoliticalTraitMilitaristToScientificTitle</Title>
+        <Description>%PopulationPoliticalTraitMilitaristToScientificDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitMilitaristToScientificTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitMilitaristToReligious">
+        <Title>%PopulationPoliticalTraitMilitaristToReligiousTitle</Title>
+        <Description>%PopulationPoliticalTraitMilitaristToReligiousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitMilitaristToReligiousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitReligiousToScientific">
+        <Title>%PopulationPoliticalTraitReligiousToScientificTitle</Title>
+        <Description>%PopulationPoliticalTraitReligiousToScientificDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitReligiousToScientificTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitReligiousToMilitarist">
+        <Title>%PopulationPoliticalTraitReligiousToMilitaristTitle</Title>
+        <Description>%PopulationPoliticalTraitReligiousToMilitaristDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitReligiousToMilitaristTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitReligiousToEcologist">
+        <Title>%PopulationPoliticalTraitReligiousToEcologistTitle</Title>
+        <Description>%PopulationPoliticalTraitReligiousToEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitReligiousToEcologistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitMilitaristToEcologist">
+        <Title>%PopulationPoliticalTraitMilitaristToEcologistTitle</Title>
+        <Description>%PopulationPoliticalTraitMilitaristToEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitMilitaristToEcologistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitEcologistToIndustrialist">
+        <Title>%PopulationPoliticalTraitEcologistToIndustrialistTitle</Title>
+        <Description>%PopulationPoliticalTraitEcologistToIndustrialistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitEcologistToIndustrialistTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitEcologistToReligious">
+        <Title>%PopulationPoliticalTraitEcologistToReligiousTitle</Title>
+        <Description>%PopulationPoliticalTraitEcologistToReligiousDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitEcologistToReligiousTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalTraitEcologistToMilitarist">
+        <Title>%PopulationPoliticalTraitEcologistToMilitaristTitle</Title>
+        <Description>%PopulationPoliticalTraitEcologistToMilitaristDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="StarSystemPopulation" />
+        </Icons>
+        <TooltipElement>
+            <EffectOverride>%PopulationPoliticalTraitEcologistToMilitaristTooltipEffect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+    
+    
+    
+    
+    <!--##### EVENT Outpost #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventOutpostConcurrenced">
+        <Title>%PopulationPoliticalEventOutpostConcurrencedTitle</Title>
+        <Description>%PopulationPoliticalEventOutpostConcurrencedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderSystem" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventOutpostLost">
+        <Title>%PopulationPoliticalEventOutpostLostTitle</Title>
+        <Description>%PopulationPoliticalEventOutpostLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderSystem" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventLoneOutpostCreated">
+        <Title>%PopulationPoliticalEventLoneOutpostCreatedTitle</Title>
+        <Description>%PopulationPoliticalEventLoneOutpostCreatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderSystem" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventSharedOutpostCreated">
+        <Title>%PopulationPoliticalEventSharedOutpostCreatedTitle</Title>
+        <Description>%PopulationPoliticalEventSharedOutpostCreatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderSystem" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventOutpostTurnedToColony">
+        <Title>%PopulationPoliticalEventOutpostTurnedToColonyTitle</Title>
+        <Description>%PopulationPoliticalEventOutpostTurnedToColonyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderSystem" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <!--##### EVENT GENERIC CONSTRUCTION #####-->
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionIndustrialist">
+		<Title>%PopulationPoliticalEventBuildingConstructionIndustrialistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionIndustrialistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+	
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionScientist">
+		<Title>%PopulationPoliticalEventBuildingConstructionScientistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionScientistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+	
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionPacifist">
+		<Title>%PopulationPoliticalEventBuildingConstructionPacifistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionPacifistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+	
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionEcologist">
+		<Title>%PopulationPoliticalEventBuildingConstructionEcologistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionEcologistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionReligious">
+		<Title>%PopulationPoliticalEventBuildingConstructionReligiousTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionReligiousDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionMilitarist">
+		<Title>%PopulationPoliticalEventBuildingConstructionMilitaristTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionMilitaristDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+	
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueIndustrialist">
+		<Title>%PopulationPoliticalEventBuildingConstructionUniqueIndustrialistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionUniqueIndustrialistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueScientist">
+		<Title>%PopulationPoliticalEventBuildingConstructionUniqueScientistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionUniqueScientistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniquePacifist">
+		<Title>%PopulationPoliticalEventBuildingConstructionUniquePacifistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionUniquePacifistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueEcologist">
+		<Title>%PopulationPoliticalEventBuildingConstructionUniqueEcologistTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionUniqueEcologistDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueReligious">
+		<Title>%PopulationPoliticalEventBuildingConstructionUniqueReligiousTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionUniqueReligiousDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+
+	<ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueMilitarist">
+		<Title>%PopulationPoliticalEventBuildingConstructionUniqueMilitaristTitle</Title>
+		<Description>%PopulationPoliticalEventBuildingConstructionUniqueMilitaristDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="HeaderContructionQueue" />
+		</Icons>
+	</ExtendedGuiElement>
+	
+    <!--##### EVENT Construction #####-->
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionIndustry1">
+        <Title>%PopulationPoliticalEventBuildingConstructionIndustry1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionIndustry1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetaryImprovementIndustry1">
+        <Title>%PopulationPoliticalEventPlanetaryImprovementIndustry1Title</Title>
+        <Description>%PopulationPoliticalEventPlanetaryImprovementIndustry1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventScienceBuildingConstruction1">
+        <Title>%PopulationPoliticalEventScienceBuildingConstruction1Title</Title>
+        <Description>%PopulationPoliticalEventScienceBuildingConstruction1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetaryImprovementScience1">
+        <Title>%PopulationPoliticalEventPlanetaryImprovementScience1Title</Title>
+        <Description>%PopulationPoliticalEventPlanetaryImprovementScience1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventSendingProbe1">
+        <Title>%PopulationPoliticalEventSendingProbe1Title</Title>
+        <Description>%PopulationPoliticalEventSendingProbe1Description</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionFood1">
+        <Title>%PopulationPoliticalEventBuildingConstructionFood1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionFood1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionDefense1">
+        <Title>%PopulationPoliticalEventBuildingConstructionDefense1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionDefense1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionBuyout1">
+        <Title>%PopulationPoliticalEventBuildingConstructionBuyout1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionBuyout1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetaryImprovementFood1">
+        <Title>%PopulationPoliticalEventPlanetaryImprovementFood1Title</Title>
+        <Description>%PopulationPoliticalEventPlanetaryImprovementFood1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionApproval1">
+        <Title>%PopulationPoliticalEventBuildingConstructionApproval1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionApproval1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionWonderEcologist">
+        <Title>%PopulationPoliticalEventBuildingConstructionWonderEcologistTitle</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionWonderEcologistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionWonderScientist">
+        <Title>%PopulationPoliticalEventBuildingConstructionWonderScientistTitle</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionWonderScientistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionWonderPacifist">
+        <Title>%PopulationPoliticalEventBuildingConstructionWonderPacifistTitle</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionWonderPacifistDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionWonderMilitarist">
+        <Title>%PopulationPoliticalEventBuildingConstructionWonderMilitaristTitle</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionWonderMilitaristDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionDenarqueUniversity">
+        <Title>%PopulationPoliticalEventBuildingConstructionDenarqueUniversityTitle</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionDenarqueUniversityTitle</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionAcademyEmbassy">
+        <Title>%PopulationPoliticalEventBuildingConstructionAcademyEmbassyTitle</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionAcademyEmbassyTitle</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionWonder2">
+        <Title>%PopulationPoliticalEventBuildingConstructionWonder2Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionWonder2Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionInfluence1">
+        <Title>%PopulationPoliticalEventBuildingConstructionInfluence1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionInfluence1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueInfluence1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueInfluence1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueInfluence1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueIndustry1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueIndustry1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueIndustry1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetaryImprovementInfluence1">
+        <Title>%PopulationPoliticalEventPlanetaryImprovementInfluence1Title</Title>
+        <Description>%PopulationPoliticalEventPlanetaryImprovementInfluence1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetImprovementResource1">
+        <Title>%PopulationPoliticalEventPlanetImprovementResource1Title</Title>
+        <Description>%PopulationPoliticalEventPlanetImprovementResource1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueFood1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueFood1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueFood1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueTrade1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueTrade1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueTrade1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueScience1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueScience1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueScience1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionTrade1">
+        <Title>%PopulationPoliticalEventBuildingConstructionTrade1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionTrade1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionDust1">
+        <Title>%PopulationPoliticalEventBuildingConstructionDust1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionDust1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueDust1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueDust1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueDust1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventBuildingConstructionUniqueDefense1">
+        <Title>%PopulationPoliticalEventBuildingConstructionUniqueDefense1Title</Title>
+        <Description>%PopulationPoliticalEventBuildingConstructionUniqueDefense1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetaryImprovementDust1">
+        <Title>%PopulationPoliticalEventPlanetaryImprovementDust1Title</Title>
+        <Description>%PopulationPoliticalEventPlanetaryImprovementDust1Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventConstructionBuyout">
+        <Title>%PopulationPoliticalEventConstructionBuyoutTitle</Title>
+        <Description>%PopulationPoliticalEventConstructionBuyoutDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventSystemLevelUp">
+        <Title>%PopulationPoliticalEventSystemLevelUpTitle</Title>
+        <Description>%PopulationPoliticalEventSystemLevelUpDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderContructionQueue" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <!--##### EVENT Techno #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventTechnologyEra">
+        <Title>%PopulationPoliticalEventTechnologyEraTitle</Title>
+        <Description>%PopulationPoliticalEventTechnologyEraDescription</Description>
+    </ExtendedGuiElement>
+
+    <!--##### EVENT Exploration #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventCuriosityGeneric">
+        <Title>%PopulationPoliticalEventCuriosityGenericTitle</Title>
+        <Description>%PopulationPoliticalEventCuriosityGenericDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryCuriositySmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventCuriosityTypeLifeform">
+        <Title>%PopulationPoliticalEventCuriosityTypeLifeformTitle</Title>
+        <Description>%PopulationPoliticalEventCuriosityTypeLifeformDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryCuriositySmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventCuriosityTypeUnderground">
+        <Title>%PopulationPoliticalEventCuriosityTypeUndergroundTitle</Title>
+        <Description>%PopulationPoliticalEventCuriosityTypeUndergroundDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryCuriositySmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventCuriosityTypeAtmospheric">
+        <Title>%PopulationPoliticalEventCuriosityTypeAtmosphericTitle</Title>
+        <Description>%PopulationPoliticalEventCuriosityTypeAtmosphericDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryCuriositySmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventCuriosityTypeRuins">
+        <Title>%PopulationPoliticalEventCuriosityTypeRuinsTitle</Title>
+        <Description>%PopulationPoliticalEventCuriosityTypeRuinsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryCuriositySmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventCuriosityTypeSignal">
+        <Title>%PopulationPoliticalEventCuriosityTypeSignalTitle</Title>
+        <Description>%PopulationPoliticalEventCuriosityTypeSignalDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryCuriositySmall" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventGuardianAwakened">
+        <Title>%PopulationPoliticalEventGuardianAwakenedTitle</Title>
+        <Description>%PopulationPoliticalEventGuardianAwakenedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="AffinityGuardiansSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventGalaxyDiscoveredAt20Percents">
+        <Title>%PopulationPoliticalEventGalaxyDiscoveredAt20PercentsTitle</Title>
+        <Description>%PopulationPoliticalEventGalaxyDiscoveredAt20PercentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderGalaxy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventGalaxyDiscoveredAt50Percents">
+        <Title>%PopulationPoliticalEventGalaxyDiscoveredAt50PercentsTitle</Title>
+        <Description>%PopulationPoliticalEventGalaxyDiscoveredAt50PercentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderGalaxy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventGalaxyDiscoveredAt80Percents">
+        <Title>%PopulationPoliticalEventGalaxyDiscoveredAt80PercentsTitle</Title>
+        <Description>%PopulationPoliticalEventGalaxyDiscoveredAt80PercentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderGalaxy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventGalaxyDiscoveredAt100Percents">
+        <Title>%PopulationPoliticalEventGalaxyDiscoveredAt100PercentsTitle</Title>
+        <Description>%PopulationPoliticalEventGalaxyDiscoveredAt100PercentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderGalaxy" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventMajorEmpireMet">
+        <Title>%PopulationPoliticalEventMajorEmpireMetTitle</Title>
+        <Description>%PopulationPoliticalEventMajorEmpireMetDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventMinorEmpireMet">
+        <Title>%PopulationPoliticalEventMinorEmpireMetTitle</Title>
+        <Description>%PopulationPoliticalEventMinorEmpireMetDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventMinorEmpireBribed">
+        <Title>%PopulationPoliticalEventMinorEmpireBribedTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventMinorWarDeclared">
+        <Title>%PopulationPoliticalEventMinorWarDeclaredTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventMinorPeaceDeclared">
+        <Title>%PopulationPoliticalEventMinorPeaceDeclaredTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventMinorEmpireAssimilated">
+        <Title>%PopulationPoliticalEventMinorEmpireAssimilatedTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventMinorBrainWash">
+        <Title>%PopulationPoliticalEventMinorBrainWashTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="ButtonDiplomacy" />
+        </Icons>
+    </ExtendedGuiElement>
+    
+
+    <!--##### CAPTURE #####-->
+
+    <!-- Influence -->
+    <ExtendedGuiElement Name="PopulationPoliticalEventSystemLostToInfluence">
+        <Title>%PopulationPoliticalEventSystemLostToInfluenceTitle</Title>
+        <Description>%PopulationPoliticalEventSystemLostToInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="SystemPolicyEmpirePoint" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventSystemGainedFromInfluence">
+        <Title>%PopulationPoliticalEventSystemGainedFromInfluenceTitle</Title>
+        <Description>%PopulationPoliticalEventSystemGainedFromInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="SystemPolicyEmpirePoint" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetLostToInfluence">
+        <Title>%PopulationPoliticalEventPlanetLostToInfluenceTitle</Title>
+        <Description>%PopulationPoliticalEventPlanetLostToInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="SystemPolicyEmpirePoint" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetGainedFromInfluence">
+        <Title>%PopulationPoliticalEventPlanetGainedFromInfluenceTitle</Title>
+        <Description>%PopulationPoliticalEventPlanetGainedFromInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="SystemPolicyEmpirePoint" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <!-- Ground battle -->
+    <ExtendedGuiElement Name="PopulationPoliticalEventSystemLostToGroundBattle">
+        <Title>%PopulationPoliticalEventSystemLostToGroundBattleTitle</Title>
+        <Description>%PopulationPoliticalEventSystemLostToGroundBattleDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationGroundBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventSystemGainedFromGroundBattle">
+        <Title>%PopulationPoliticalEventSystemGainedFromInfluenceTitle</Title>
+        <Description>%PopulationPoliticalEventSystemGainedFromInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationGroundBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetLostToGroundBattle">
+        <Title>%PopulationPoliticalEventPlanetLostToGroundBattleTitle</Title>
+        <Description>%PopulationPoliticalEventPlanetLostToGroundBattleDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationGroundBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <!--##### EVENT HERO #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited">
+        <Title>%PopulationPoliticalEventHeroRecruitedTitle</Title>
+        <Description>%PopulationPoliticalEventHeroRecruitedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited_Politics01">
+        <Title>%PopulationPoliticalEventHeroRecruited_Politics01Title</Title>
+        <Description>%PopulationPoliticalEventHeroRecruited_Politics01Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited_Politics02">
+        <Title>%PopulationPoliticalEventHeroRecruited_Politics02Title</Title>
+        <Description>%PopulationPoliticalEventHeroRecruited_Politics02Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited_Politics03">
+        <Title>%PopulationPoliticalEventHeroRecruited_Politics03Title</Title>
+        <Description>%PopulationPoliticalEventHeroRecruited_Politics03Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited_Politics04">
+        <Title>%PopulationPoliticalEventHeroRecruited_Politics04Title</Title>
+        <Description>%PopulationPoliticalEventHeroRecruited_Politics04Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited_Politics05">
+        <Title>%PopulationPoliticalEventHeroRecruited_Politics05Title</Title>
+        <Description>%PopulationPoliticalEventHeroRecruited_Politics05Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroRecruited_Politics06">
+        <Title>%PopulationPoliticalEventHeroRecruited_Politics06Title</Title>
+        <Description>%PopulationPoliticalEventHeroRecruited_Politics06Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroAssignedToFleet_Politics01">
+        <Title>%PopulationPoliticalEventHeroAssignedToFleet_Politics01Title</Title>
+        <Description>%PopulationPoliticalEventHeroAssignedToFleet_Politics01Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroAssignedToFleet_Politics02">
+        <Title>%PopulationPoliticalEventHeroAssignedToFleet_Politics02Title</Title>
+        <Description>%PopulationPoliticalEventHeroAssignedToFleet_Politics02Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroAssignedToFleet_Politics03">
+        <Title>%PopulationPoliticalEventHeroAssignedToFleet_Politics03Title</Title>
+        <Description>%PopulationPoliticalEventHeroAssignedToFleet_Politics03Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroAssignedToFleet_Politics04">
+        <Title>%PopulationPoliticalEventHeroAssignedToFleet_Politics04Title</Title>
+        <Description>%PopulationPoliticalEventHeroAssignedToFleet_Politics04Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroAssignedToFleet_Politics05">
+        <Title>%PopulationPoliticalEventHeroAssignedToFleet_Politics05Title</Title>
+        <Description>%PopulationPoliticalEventHeroAssignedToFleet_Politics05Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventHeroAssignedToFleet_Politics06">
+        <Title>%PopulationPoliticalEventHeroAssignedToFleet_Politics06Title</Title>
+        <Description>%PopulationPoliticalEventHeroAssignedToFleet_Politics06Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Hero" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <!--##### COLONIZATION #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationBarren">
+        <Title>%PopulationPoliticalEventColonizationBarrenTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationBarrenDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationSnow">
+        <Title>%PopulationPoliticalEventColonizationSnowTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationSnowDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationArctic">
+        <Title>%PopulationPoliticalEventColonizationArcticTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationArcticDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationTundra">
+        <Title>%PopulationPoliticalEventColonizationTundraTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationTundraDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationBoreal">
+        <Title>%PopulationPoliticalEventColonizationBorealTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationBorealDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationIce">
+        <Title>%PopulationPoliticalEventColonizationIceTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationIceDescription</Description>
+    </ExtendedGuiElement>
+
+    <!-- Temperate -->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationSteppes">
+        <Title>%PopulationPoliticalEventColonizationSteppesTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationSteppesDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationArid">
+        <Title>%PopulationPoliticalEventColonizationAridTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationAridDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationTerran">
+        <Title>%PopulationPoliticalEventColonizationTerranTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationTerranDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationMonsoon">
+        <Title>%PopulationPoliticalEventColonizationMonsoonTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationMonsoonDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationForest">
+        <Title>%PopulationPoliticalEventColonizationForestTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationForestDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationOcean">
+        <Title>%PopulationPoliticalEventColonizationOceanTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationOceanDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationVeldt">
+        <Title>%PopulationPoliticalEventColonizationVeldtTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationVeldtDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationSwamp">
+        <Title>%PopulationPoliticalEventColonizationSwampTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationSwampDescription</Description>
+    </ExtendedGuiElement>
+
+    <!-- Hot -->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationDesert">
+        <Title>%PopulationPoliticalEventColonizationDesertTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationDesertDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationTropical">
+        <Title>%PopulationPoliticalEventColonizationTropicalTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationTropicalDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationJungle">
+        <Title>%PopulationPoliticalEventColonizationJungleTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationJungleDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationAtoll">
+        <Title>%PopulationPoliticalEventColonizationAtollTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationAtollDescription</Description>
+    </ExtendedGuiElement>
+
+    <!-- Burning -->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationLava">
+        <Title>%PopulationPoliticalEventColonizationLavaTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationLavaDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationAsh">
+        <Title>%PopulationPoliticalEventColonizationAshTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationAshDescription</Description>
+    </ExtendedGuiElement>
+
+    <!-- Gaz -->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationGasFrozen">
+        <Title>%PopulationPoliticalEventColonizationGasFrozenTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationGasFrozenDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationGasCold">
+        <Title>%PopulationPoliticalEventColonizationGasColdTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationGasColdDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationGasTemperate">
+        <Title>%PopulationPoliticalEventColonizationGasTemperateTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationGasTemperateDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationGasWarm">
+        <Title>%PopulationPoliticalEventColonizationGasWarmTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationGasWarmDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationGasHot">
+        <Title>%PopulationPoliticalEventColonizationGasHotTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationGasHotDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventColonizationGasBurning">
+        <Title>%PopulationPoliticalEventColonizationGasBurningTitle</Title>
+        <Description>%PopulationPoliticalEventColonizationGasBurningDescription</Description>
+    </ExtendedGuiElement>
+
+
+
+
+    <!--##### AFFINITY #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinitySophons">
+        <Title>%PopulationPoliticalFlatAffinitySophonsTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinitySophonsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityTerrans">
+        <Title>%PopulationPoliticalFlatAffinityTerransTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityTerransDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityMezari">
+        <Title>%PopulationPoliticalFlatAffinityMezariTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityMezariDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinitySheredyn">
+        <Title>%PopulationPoliticalFlatAffinitySheredynTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinitySheredynDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityCravers">
+        <Title>%PopulationPoliticalFlatAffinityCraversTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityCraversDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityVenetians">
+        <Title>%PopulationPoliticalFlatAffinityVenetiansTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityVenetiansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityUnfallen">
+        <Title>%PopulationPoliticalFlatAffinityUnfallenTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityUnfallenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityVampirilis">
+        <Title>%PopulationPoliticalFlatAffinityVampirilisTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityVampirilisDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityHoratio">
+        <Title>%PopulationPoliticalFlatAffinityHoratioTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityHoratioDescription</Description>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityTimeLords">
+        <Title>%PopulationPoliticalFlatAffinityTimeLordsTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityTimeLordsDescription</Description>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityHaroshems">
+        <Title>%PopulationPoliticalFlatAffinityHaroshemsTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityHaroshemsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityMavros">
+        <Title>%PopulationPoliticalFlatAffinityMavrosTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityMavrosDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityBots">
+        <Title>%PopulationPoliticalFlatAffinityBotsTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityBotsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityHisshos">
+        <Title>%PopulationPoliticalFlatAffinityHisshosTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityHisshosDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityAmoeba">
+        <Title>%PopulationPoliticalFlatAffinityAmoebaTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityAmoebaDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityBenthys">
+        <Title>%PopulationPoliticalFlatAffinityBenthysTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityBenthysDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityDeuyivans">
+        <Title>%PopulationPoliticalFlatAffinityDeuyivansTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityDeuyivansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityPilgrims">
+        <Title>%PopulationPoliticalFlatAffinityPilgrimsTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityPilgrimsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityZvali">
+        <Title>%PopulationPoliticalFlatAffinityZvaliTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityZvaliDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityTikanans">
+        <Title>%PopulationPoliticalFlatAffinityTikanansTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityTikanansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityGnashasts">
+        <Title>%PopulationPoliticalFlatAffinityGnashastsTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityGnashastsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityEyders">
+        <Title>%PopulationPoliticalFlatAffinityEydersTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityEydersDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityRemnant">
+        <Title>%PopulationPoliticalFlatAffinityRemnantTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityRemnantDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityPulsos">
+        <Title>%PopulationPoliticalFlatAffinityPulsosTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityPulsosDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalFlatAffinityGuardians">
+        <Title>%PopulationPoliticalFlatAffinityGuardiansTitle</Title>
+        <Description>%PopulationPoliticalFlatAffinityGuardiansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventNewPopulationInEmpire">
+        <Title>%PopulationPoliticalEventNewPopulationInEmpireTitle</Title>
+        <Description>%PopulationPoliticalEventNewPopulationInEmpireDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderAffinity" />
+        </Icons>
+    </ExtendedGuiElement>
+
+
+    <!--##### PROPAGANDA #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalActionPolitics01PropagandaSystemAction">
+        <Title>%PopulationPoliticalActionPolitics01PropagandaSystemActionTitle</Title>
+        <Description>%PopulationPoliticalActionPolitics01PropagandaSystemActionDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalActionPolitics02PropagandaSystemAction">
+        <Title>%PopulationPoliticalActionPolitics02PropagandaSystemActionTitle</Title>
+        <Description>%PopulationPoliticalActionPolitics02PropagandaSystemActionDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalActionPolitics03PropagandaSystemAction">
+        <Title>%PopulationPoliticalActionPolitics03PropagandaSystemActionTitle</Title>
+        <Description>%PopulationPoliticalActionPolitics03PropagandaSystemActionDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalActionPolitics04PropagandaSystemAction">
+        <Title>%PopulationPoliticalActionPolitics04PropagandaSystemActionTitle</Title>
+        <Description>%PopulationPoliticalActionPolitics04PropagandaSystemActionDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalActionPolitics05PropagandaSystemAction">
+        <Title>%PopulationPoliticalActionPolitics05PropagandaSystemActionTitle</Title>
+        <Description>%PopulationPoliticalActionPolitics05PropagandaSystemActionDescription</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalActionPolitics06PropagandaSystemAction">
+        <Title>%PopulationPoliticalActionPolitics06PropagandaSystemActionTitle</Title>
+        <Description>%PopulationPoliticalActionPolitics06PropagandaSystemActionDescription</Description>
+    </ExtendedGuiElement>
+
+    <!--##### PROPAGANDA #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative01">
+        <Title>%PopulationPoliticalEventNarrative01Title</Title>
+        <Description>%PopulationPoliticalEventNarrative01Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative02">
+        <Title>%PopulationPoliticalEventNarrative02Title</Title>
+        <Description>%PopulationPoliticalEventNarrative02Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative03">
+        <Title>%PopulationPoliticalEventNarrative03Title</Title>
+        <Description>%PopulationPoliticalEventNarrative03Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative04">
+        <Title>%PopulationPoliticalEventNarrative04Title</Title>
+        <Description>%PopulationPoliticalEventNarrative04Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative05">
+        <Title>%PopulationPoliticalEventNarrative05Title</Title>
+        <Description>%PopulationPoliticalEventNarrative05Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative06">
+        <Title>%PopulationPoliticalEventNarrative06Title</Title>
+        <Description>%PopulationPoliticalEventNarrative06Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative07">
+        <Title>%PopulationPoliticalEventNarrative07Title</Title>
+        <Description>%PopulationPoliticalEventNarrative07Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative08">
+        <Title>%PopulationPoliticalEventNarrative08Title</Title>
+        <Description>%PopulationPoliticalEventNarrative08Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative09">
+        <Title>%PopulationPoliticalEventNarrative09Title</Title>
+        <Description>%PopulationPoliticalEventNarrative09Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative10">
+        <Title>%PopulationPoliticalEventNarrative10Title</Title>
+        <Description>%PopulationPoliticalEventNarrative10Description</Description>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative11">
+        <Title>%PopulationPoliticalEventNarrative11Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative12">
+        <Title>%PopulationPoliticalEventNarrative12Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative13">
+        <Title>%PopulationPoliticalEventNarrative13Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative14">
+        <Title>%PopulationPoliticalEventNarrative14Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative15">
+        <Title>%PopulationPoliticalEventNarrative15Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative16">
+        <Title>%PopulationPoliticalEventNarrative16Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative17">
+        <Title>%PopulationPoliticalEventNarrative17Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative18">
+        <Title>%PopulationPoliticalEventNarrative18Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative19">
+        <Title>%PopulationPoliticalEventNarrative19Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative20">
+        <Title>%PopulationPoliticalEventNarrative20Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative21">
+        <Title>%PopulationPoliticalEventNarrative21Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative22">
+        <Title>%PopulationPoliticalEventNarrative22Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative23">
+        <Title>%PopulationPoliticalEventNarrative23Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative24">
+        <Title>%PopulationPoliticalEventNarrative24Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative25">
+        <Title>%PopulationPoliticalEventNarrative24Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative26">
+        <Title>%PopulationPoliticalEventNarrative26Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative27">
+        <Title>%PopulationPoliticalEventNarrative26Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative28">
+        <Title>%PopulationPoliticalEventNarrative28Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative29">
+        <Title>%PopulationPoliticalEventNarrative29Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative33">
+        <Title>%PopulationPoliticalEventNarrative33Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative34">
+        <Title>%PopulationPoliticalEventNarrative34Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative35">
+        <Title>%PopulationPoliticalEventNarrative35Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative36">
+        <Title>%PopulationPoliticalEventNarrative36Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative37">
+        <Title>%PopulationPoliticalEventNarrative37Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative38">
+        <Title>%PopulationPoliticalEventNarrative38Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative39">
+        <Title>%PopulationPoliticalEventNarrative38Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative40">
+        <Title>%PopulationPoliticalEventNarrative38Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative43">
+        <Title>%PopulationPoliticalEventNarrative43Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative44">
+        <Title>%PopulationPoliticalEventNarrative44Title</Title>
+    </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative45">
+    <Title>%PopulationPoliticalEventNarrative45Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative46">
+    <Title>%PopulationPoliticalEventNarrative45Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative47">
+    <Title>%PopulationPoliticalEventNarrative47Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative48">
+    <Title>%PopulationPoliticalEventNarrative48Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative49">
+    <Title>%PopulationPoliticalEventNarrative49Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative50">
+    <Title>%PopulationPoliticalEventNarrative50Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative51">
+    <Title>%PopulationPoliticalEventNarrative51Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative52">
+    <Title>%PopulationPoliticalEventNarrative51Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative53">
+    <Title>%PopulationPoliticalEventNarrative53Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative54">
+    <Title>%PopulationPoliticalEventNarrative54Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative55">
+    <Title>%PopulationPoliticalEventNarrative55Title</Title>
+  </ExtendedGuiElement> 
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative57">
+    <Title>%PopulationPoliticalEventNarrative57Title</Title>
+  </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationPoliticalEventNarrative58">
+    <Title>%PopulationPoliticalEventNarrative57Title</Title>
+  </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative59">
+        <Title>%PopulationPoliticalEventNarrative59Title</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative70">
+        <Title>%PopulationPoliticalEventNarrative70Title</Title>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative71">
+        <Title>%PopulationPoliticalEventNarrative71Title</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative72">
+        <Title>%PopulationPoliticalEventNarrative72Title</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventNarrative73">
+        <Title>%PopulationPoliticalEventNarrative73Title</Title>
+    </ExtendedGuiElement>
+  <!--#####      LORE QUEST     #####-->
+   
+     <ExtendedGuiElement Name="PopulationEventSophons01Military">
+        <Title>%PopulationEventSophons01MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons01Science">
+        <Title>%PopulationEventSophons01ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons01Pacifist">
+        <Title>%PopulationEventSophons01PacifistTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventSophons02.1Military">
+        <Title>%PopulationEventSophons02.1MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.2Military">
+        <Title>%PopulationEventSophons02.2MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.3Military">
+        <Title>%PopulationEventSophons02.3MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.1Science">
+        <Title>%PopulationEventSophons02.1ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.2Science">
+        <Title>%PopulationEventSophons02.2ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.3Science">
+        <Title>%PopulationEventSophons02.3ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.1Pacifist">
+        <Title>%PopulationEventSophons02.1PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.2Pacifist">
+        <Title>%PopulationEventSophons02.2PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons02.3Pacifist">
+        <Title>%PopulationEventSophons02.3PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.1Military">
+        <Title>%PopulationEventSophons03.1MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.1Scientist">
+        <Title>%PopulationEventSophons03.1ScientistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.1Pacifist">
+        <Title>%PopulationEventSophons03.1PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.2Military">
+        <Title>%PopulationEventSophons03.2MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.2Scientist">
+        <Title>%PopulationEventSophons03.2ScientistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.2Pacifist">
+        <Title>%PopulationEventSophons03.2PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.3Military">
+        <Title>%PopulationEventSophons03.3MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.3Scientist">
+        <Title>%PopulationEventSophons03.2ScientistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons03.3Pacifist">
+        <Title>%PopulationEventSophons03.3PacifistTitle</Title>
+    </ExtendedGuiElement>
+  <ExtendedGuiElement Name="PopulationEventSophons04Military">
+        <Title>%PopulationEventSophons04MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons04Scientist">
+        <Title>%PopulationEventSophons04ScientistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventSophons04Pacifist">
+        <Title>%PopulationEventSophons04PacifistTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventCravers01Industry">
+        <Title>%PopulationEventCravers01IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventCravers01Religious">
+        <Title>%PopulationEventCravers01ReligiousTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventCravers01.1Industry">
+        <Title>%PopulationEventCravers01.1IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventCravers01.1Religious">
+        <Title>%PopulationEventCravers01.1ReligiousTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventCravers02.1Industry">
+        <Title>%PopulationEventCravers02.1IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventCravers02.1Religious">
+        <Title>%PopulationEventCravers02.1ReligiousTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventCravers02.2Industry">
+        <Title>%PopulationEventCravers02.2IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventCravers02.2Religious">
+        <Title>%PopulationEventCravers02.2ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PopulationEventCravers031Industry">
+        <Title>%PopulationEventCravers031IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventCravers031Religious">
+        <Title>%PopulationEventCravers031ReligiousTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventCravers04Industry">
+        <Title>%PopulationEventCravers04IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventCravers04Religious">
+        <Title>%PopulationEventCravers04ReligiousTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventVampirilis01Religious">
+        <Title>%PopulationEventVampirilis01ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventVampirilis01.2Religious">
+        <Title>%PopulationEventVampirilis01.2ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventVampirilis02Religious">
+        <Title>%PopulationEventVampirilis02ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventVampirilis03Religious">
+        <Title>%PopulationEventVampirilis03ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventVampirilis04Religious">
+        <Title>%PopulationEventVampirilis04ReligiousTitle</Title>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="PopulationEventUE01.1Military">
+        <Title>%PopulationEventUE01.1MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE01.1Industry">
+        <Title>%PopulationEventUE01.1IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE01.1Science">
+        <Title>%PopulationEventUE01.1ScienceTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventUE01.2Military">
+        <Title>%PopulationEventUE01.2MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE01.2Industry">
+        <Title>%PopulationEventUE01.2IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE01.2Science">
+        <Title>%PopulationEventUE01.2ScienceTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventUE02.1Military">
+        <Title>%PopulationEventUE02.1MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE02.1Industry">
+        <Title>%PopulationEventUE02.1IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE02.1Science">
+        <Title>%PopulationEventUE02.1ScienceTitle</Title>
+    </ExtendedGuiElement>    
+    
+    <ExtendedGuiElement Name="PopulationEventUE02.2Military">
+        <Title>%PopulationEventUE02.2MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE02.2Industry">
+        <Title>%PopulationEventUE02.2IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE02.2Science">
+        <Title>%PopulationEventUE02.2ScienceTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventUE03Military">
+        <Title>%PopulationEventUE03MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE03Industry">
+        <Title>%PopulationEventUE03IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE03Science">
+        <Title>%PopulationEventUE03ScienceTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventUE04.1Military">
+        <Title>%PopulationEventUE04.1MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE04.2Military">
+        <Title>%PopulationEventUE04.2MilitaryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE04.1Industry">
+        <Title>%PopulationEventUE04.1IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE04.2Industry">
+        <Title>%PopulationEventUE04.2IndustryTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUE04.1Science">
+        <Title>%PopulationEventUE04.1ScienceTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventHoratio01-Ecologist">
+        <Title>%PopulationEventHoratio01-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio01-Religious">
+        <Title>%PopulationEventHoratio01-ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio01-Industrialist">
+        <Title>%PopulationEventHoratio01-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio02-Ecologist">
+        <Title>%PopulationEventHoratio02-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio02-Religious">
+        <Title>%PopulationEventHoratio02-ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio02-Industrialist">
+        <Title>%PopulationEventHoratio02-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio03-Ecologist">
+        <Title>%PopulationEventHoratio03-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio03-Religious">
+        <Title>%PopulationEventHoratio03-ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio03-Industrialist">
+        <Title>%PopulationEventHoratio03-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio04-Ecologist">
+        <Title>%PopulationEventHoratio04-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio04-Religious">
+        <Title>%PopulationEventHoratio04-ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio04-Industrialist">
+        <Title>%PopulationEventHoratio04-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio05-Ecologist">
+        <Title>%PopulationEventHoratio05-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio05-Religious">
+        <Title>%PopulationEventHoratio05-ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventHoratio05-Industrialist">
+        <Title>%PopulationEventHoratio05-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords01-Ecologist">
+        <Title>%PopulationEventTimeLords01-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords01-Industrialist">
+        <Title>%PopulationEventTimeLords01-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords01-Pacifist">
+        <Title>%PopulationEventTimeLords01-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords02-Ecologist">
+        <Title>%PopulationEventTimeLords02-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords02-Industrialist">
+        <Title>%PopulationEventTimeLords02-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords02-Pacifist">
+        <Title>%PopulationEventTimeLords02-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords03-Ecologist">
+        <Title>%PopulationEventTimeLords03-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords03-Industrialist">
+        <Title>%PopulationEventTimeLords03-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords03-Pacifist">
+        <Title>%PopulationEventTimeLords03-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords03Bis-Pacifist">
+        <Title>%PopulationEventTimeLords03Bis-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords04-Ecologist">
+        <Title>%PopulationEventTimeLords04-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords04-Industrialist">
+        <Title>%PopulationEventTimeLords04-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords04-Pacifist">
+        <Title>%PopulationEventTimeLords04-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords05-Ecologist">
+        <Title>%PopulationEventTimeLords05-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords05-Industrialist">
+        <Title>%PopulationEventTimeLords05-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords05-Pacifist">
+        <Title>%PopulationEventTimeLords05-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords05Bis-Pacifist">
+        <Title>%PopulationEventTimeLords05Bis-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords06-Industrialist">
+        <Title>%PopulationEventTimeLords06-IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventTimeLords06-Pacifist">
+        <Title>%PopulationEventTimeLords06-PacifistTitle</Title>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationEventUnfallen01-Science">
+        <Title>%PopulationEventUnfallen01-ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen01-Ecologist">
+        <Title>%PopulationEventUnfallen01-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen02-Pacifist">
+        <Title>%PopulationEventUnfallen02-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen02-Militarist">
+        <Title>%PopulationEventUnfallen02-MilitaristTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen03-Science">
+        <Title>%PopulationEventUnfallen03-ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen03-Ecologist">
+        <Title>%PopulationEventUnfallen03-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen04-Science">
+        <Title>%PopulationEventUnfallen04-ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen04-Ecologist">
+        <Title>%PopulationEventUnfallen04-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen05-Pacifist">
+        <Title>%PopulationEventUnfallen05-PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen05-Militarist">
+        <Title>%PopulationEventUnfallen05-MilitaristTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen06-Science">
+        <Title>%PopulationEventUnfallen06-ScienceTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventUnfallen06-Ecologist">
+        <Title>%PopulationEventUnfallen06-EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventExplorationQuest17-Militarist">
+        <Title>%PopulationEventExplorationQuest17-MilitaristTitle</Title>
+    </ExtendedGuiElement>
+
+    
+    <!--GLOBAL QUESTS GUI for old saves-->
+    <ExtendedGuiElement Name="PopulationEventAcademyAndGlobalQuests_Militarist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyAndGlobalQuests_Ecologist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyAndGlobalQuests_Industrialist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyAndGlobalQuests_Pacifist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyAndGlobalQuests_Scientist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplot01-Religious">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplot02-Religious">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplot01-Scientist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplot02-Scientist">
+        <Title>%PopulationEventGlobalQuestsTitle</Title>
+    </ExtendedGuiElement>
+
+    <!--GLOBAL Quests - Compet & coop-->
+    <ExtendedGuiElement Name="PopulationEventGlobalQuest01-Compet_Militarist">
+        <Title>%PopulationEventGlobalQuest01-Compet_MilitaristTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventGlobalQuest02-Compet_Ecologist">
+        <Title>%PopulationEventGlobalQuest02-Compet_EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventGlobalQuest03-Compet_Industrialist">
+        <Title>%PopulationEventGlobalQuest03-Compet_IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventGlobalQuest01-Coop_Pacifist">
+        <Title>%PopulationEventGlobalQuest01-Coop_PacifistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventGlobalQuest02-Coop_Scientist">
+        <Title>%PopulationEventGlobalQuest02-Coop_ScientistTitle</Title>
+    </ExtendedGuiElement>
+
+    <!--ACADEMY Quests-->
+    <ExtendedGuiElement Name="PopulationEventAcademyQuest03-A-Coop_Militarist">
+        <Title>%PopulationEventAcademyQuest03-A-Coop_MilitaristTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyQuest03-B-Coop_Ecologist">
+        <Title>%PopulationEventAcademyQuest03-B-Coop_EcologistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyQuest04-A-Compet_Industrialist">
+        <Title>%PopulationEventAcademyQuest04-A-Compet_IndustrialistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventAcademyQuest04-B-Compet_Pacifist">
+        <Title>%PopulationEventAcademyQuest04-B-Compet_PacifistTitle</Title>
+    </ExtendedGuiElement>
+    
+    <!--ACADEMY Metaplot quests-->
+    <ExtendedGuiElement Name="PopulationEventMetaplotQuest-TeamPlay-Chapter1_Religious">
+        <Title>%PopulationEventMetaplotQuest-TeamPlay-Chapter1_ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplotQuest-TeamPlay-Chapter1_Scientist">
+        <Title>%PopulationEventMetaplotQuest-TeamPlay-Chapter1_ScientistTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplotQuest-TeamPlay-Chapter2_Religious">
+        <Title>%PopulationEventMetaplotQuest-TeamPlay-Chapter2_ReligiousTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationEventMetaplotQuest-TeamPlay-Chapter2_Scientist">
+        <Title>%PopulationEventMetaplotQuest-TeamPlay-Chapter2_ScientistTitle</Title>
+    </ExtendedGuiElement>
+    
+
+    <!--##### FLEET INTERACTION #####-->
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventFleetHasAttackedAnEnemy">
+        <Title>%PopulationPoliticalEventFleetHasAttackedAnEnemyTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventFleetGotAttackedByAnEnemy">
+        <Title>%PopulationPoliticalEventFleetGotAttackedByAnEnemyTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventBattleWon">
+        <Title>%PopulationPoliticalEventBattleWonTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventBattleLost">
+        <Title>%PopulationPoliticalEventBattleLostTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventFleetHasInterceptedAnEnemy">
+        <Title>%PopulationPoliticalEventFleetHasInterceptedAnEnemyTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventFleetGotInterceptedByAnEnemy">
+        <Title>%PopulationPoliticalEventFleetGotInterceptedByAnEnemyTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventMilitaryShip">
+        <Title>%PopulationPoliticalEventMilitaryShipTitle</Title>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventCivilianShip">
+        <Title>%PopulationPoliticalEventCivilianShipTitle</Title>
+    </ExtendedGuiElement>
+	<ExtendedGuiElement Name="PopulationPoliticalEventReligiousShip">
+		<Title>%PopulationPoliticalEventReligiousShipTitle</Title>
+	</ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventExplorationShip">
+        <Title>%PopulationPoliticalEventExplorationShipTitle</Title>
+    </ExtendedGuiElement>
+    
+
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetDestroyedByOwnedFleet">
+        <Title>%PopulationPoliticalEventPlanetDestroyedByOwnedFleetTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    <ExtendedGuiElement Name="PopulationPoliticalEventPlanetDestroyedByEnemyFleet">
+        <Title>%PopulationPoliticalEventPlanetDestroyedByEnemyFleetTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBattleSetupSmall" />
+        </Icons>
+    </ExtendedGuiElement>
+    
+</Datatable>

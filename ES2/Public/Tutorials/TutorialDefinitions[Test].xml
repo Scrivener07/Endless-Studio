@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TutorialDefinition.xsd">
+
+    <TutorialDefinition Name="TutorialHighlightTest" Category="Tutorial" SubCategory="Exploration" ForcePin="true" Priority="1000" MinimumTutorialLevel="None" Layer="AboveModalWindows">
+        <Tags>Hidden</Tags>
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$MajorEmpire">
+                <Any>
+                    <From Source="$MajorEmpires"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$MajorEmpireName" Source="$MajorEmpire"/>
+            
+            <Var VarName="$MinorEmpire">
+                <Any>
+                    <From Source="$MinorEmpires"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$EmpireName" Source="$MinorEmpire"/>
+            
+            <Var VarName="$Fleet">
+                <Any>
+                    <From Source="$Empire.$Fleets"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$FleetName" Source="$Fleet"/>
+            
+            <Var VarName="$ColonizedStarSystem">
+                <Any>
+                    <From Source="$Empire.$ColonizedStarSystems"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$SystemName" Source="$ColonizedStarSystem"/>
+
+            <!--Commenting this just because it makes it more complicated to test, un-comment at will!--> 
+            <!--<Var VarName="$Curiosity">
+                <Any>
+                    <From Source="$Empire.$ColonizedStarSystems.$ColonizedPlanets.$Planet.$Curiosities"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$CuriosityName" Source="$Curiosity"/>-->
+
+            <Var VarName="$Hero">
+                <Any>
+                    <From Source="$Empire.$Heroes"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$HeroName" Source="$Hero"/>
+
+            <Var VarName="$Ship">
+                <Any>
+                    <From Source="$Fleet.$Ships"/>
+                </Any>
+            </Var>
+
+            <Var VarName="$ShipDesigns">
+                <From Source="$Empire.$ShipDesigns"/>
+            </Var>
+            
+            <!--<Var VarName="$MotherShip">
+                <Any>
+                    <From Source="$ShipDesigns">
+                        <Where>
+                            <FilterShipDesignByModule ModuleName="ModuleMothershipDust01"/>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$Vampirilis_MothershipLocalized"  Source="$MotherShip"/>-->
+            
+            <!--<Var VarName="$ShipDesign">
+                <Any>
+                    <From Source="$ShipDesigns">
+                        <Where>
+                            <FilterShipDesignByModule ModuleName="ModuleWeaponKineticEra1"/>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$ShipDesignName" Source="$ShipDesign"/>-->
+            
+            <!--<Var VarName="$TradeCompany">
+                <Any>
+                    <From Source="$Empire.$TradeCompanies"/>
+                </Any>
+            </Var>
+            <LocalizationVar LocalizationKey="$TradeCompanyName" Source="$TradeCompany"/>-->
+            
+            <Var VarName="$OneTHOUSANDTurns" IntValue="1000"/>
+        </Vars>
+        
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">false</InterpreterPrerequisite>
+        </Prerequisites>
+        
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1" StartValue="0" EndValue="4">
+                        <Sequence>
+                            <Action_SetNotificationSilent Key="NotificationTechnologyNeeded" Silent="true"/>
+                            <Decorator_TutorialPageOpened Tutorial="TutorialHighlightTest" Page="2"/>
+                            <Action_HighlightGui Key="EndTurnWindow_EndTurnButton" Type="Interactive" Highlighted="true"/>
+                            <Decorator_TutorialPageOpened Tutorial="TutorialHighlightTest" Page="1"/>
+                            <Action_HighlightGui Key="EndTurnWindow_EndTurnButton" Type="Interactive" Highlighted="false"/>
+                            <Decorator_BeginTurn/>
+                            <Action_SetNotificationSilent Key="NotificationConstructionQueueEmpty" Silent="true"/>
+                            <Decorator_Wait>
+                                <Input_WaitDuration VarName="$OneTHOUSANDTurns"/>
+                            </Decorator_Wait>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="TestTutorialSpaceport" Category="Test" SubCategory="" Layer="AboveModalWindows" Priority="0" MinimumTutorialLevel="Advanced">
+
+        <!--============ TAGS ============-->
+        <Tags></Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="0"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_PopulationTransferredToSpaceport/>
+                            <Decorator_HasTutorialKeys Composition="InputKeysIncludedInTutorialKeys">
+                                <Key>SystemSelectionModalWindow_SpaceportDestination</Key>
+                            </Decorator_HasTutorialKeys>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="TestTutorialHasTutorialKeys" Category="Test" SubCategory="" Layer="AboveModalWindows" Priority="0" MinimumTutorialLevel="Advanced">
+
+        <Tags/>
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="0" NumberOfConcurrentInstances="0"/>
+        <Vars/>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_HasTutorialKeys Composition="InputKeysIncludedInTutorialKeys">
+                                <Key>ScanView</Key>
+                            </Decorator_HasTutorialKeys>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+    </TutorialDefinition>
+
+</Datatable>

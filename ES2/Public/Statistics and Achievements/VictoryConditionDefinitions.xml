@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/VictoryConditionDefinition.xsd">
+
+    <!-- Variables used in the formulas, alerts and expressions: -->
+    <!-- Empire, VictoryManager: SimulationObject -->
+    <!-- Turn, NumberOfMajorEmpires, NumberOfMajorEmpiresEliminated, NumberOfMajorEmpiresLeft: float -->
+    <!-- Highest score for each victory ('HighestVICTORYNAMEScore'): float -->
+    
+    <!-- For alliance only : -->
+    <!-- SummedMajorEmpiresScore: float-->
+    <!-- NumberOfMajorEmpiresInAlliance: float-->
+    
+    <!-- Score / Time limit -->
+    <VictoryConditionDefinition Name="VictoryScore" SettingName="Score" RankIndicator="Score">
+        <!-- PERFORMANCE TRACKERS -->
+        <PerformanceTracker Name="PerformancePopulation" Type="SingleValue">
+            <Variable>Population</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformancOwnedHeroes" Type="SingleValue">
+            <Variable>HeroCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceCuriositiesDiscovered" Type="SingleValue">
+            <Variable>CuriositiesDiscovered</Variable>
+        </PerformanceTracker>
+        <SoloEvaluator>
+            <!-- ALERTS -->
+            <!-- 50 turns remaining -->
+            <Alert Repeat="false">($(Turn) eq Floor(Property(VictoryManager, @ClassVictoryManager, LastTurn) - Property(VictoryManager, @ClassVictoryManager, LastTurn) * 0.2)) and (Property(Empire, EmpireGlobalScore) ge $(HighestVictoryScoreScore))</Alert>
+              <!-- 10 turns remaining -->
+            <Alert Repeat="false">($(Turn) eq Floor(Property(VictoryManager, @ClassVictoryManager, LastTurn) - Property(VictoryManager, @ClassVictoryManager, LastTurn) * 0.1)) and (Property(Empire, EmpireGlobalScore) ge $(HighestVictoryScoreScore))</Alert>
+            <!--EXPRESSION-->
+            <ScoreFormula>Property(Empire, EmpireGlobalScore)</ScoreFormula>
+            <ProgressFormula>($(Turn) / Property(VictoryManager, @ClassVictoryManager, LastTurn))</ProgressFormula>
+            <DiscreteProgressFormula>$(Turn)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, @ClassVictoryManager, LastTurn)</DiscreteObjectiveFormula>
+            <VictoryExpression>(($(Turn) ge Property(VictoryManager, @ClassVictoryManager, LastTurn)) or ($(GlobalGameTimerProgress) ge 1)) and (Property(Empire, EmpireGlobalScore) ge $(HighestVictoryScoreScore))</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!-- ALERTS -->
+            <!-- 50 turns remaining -->
+            <Alert Repeat="false">($(Turn) eq Floor(Property(VictoryManager, @ClassVictoryManager, LastTurn) - Property(VictoryManager, @ClassVictoryManager, LastTurn) * 0.2)) and ($(SummedMajorEmpiresScore) ge $(HighestVictoryScoreScore))</Alert>
+            <!-- 10 turns remaining -->
+            <Alert Repeat="false">($(Turn) eq Floor(Property(VictoryManager, @ClassVictoryManager, LastTurn) - Property(VictoryManager, @ClassVictoryManager, LastTurn) * 0.1)) and ($(SummedMajorEmpiresScore) ge $(HighestVictoryScoreScore))</Alert>
+            <!--EXPRESSION-->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>$(Turn) / Property(VictoryManager, @ClassVictoryManager, LastTurn)</ProgressFormula>
+            <VictoryExpression>(($(Turn) ge Property(VictoryManager, @ClassVictoryManager, LastTurn)) or ($(GlobalGameTimerProgress) ge 1)) and ($(SummedMajorEmpiresScore) ge $(HighestVictoryScoreScore))</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+
+    <!-- Elimination (Military) -->
+    <VictoryConditionDefinition Name="VictoryMilitary" SettingName="Military" Hidden="true">
+        <SoloEvaluator>
+            <!--ALERTS-->
+            <Alert Repeat="false">(($(NumberOfMajorEmpiresEliminated) eq ($(NumberOfMajorEmpires)*0.5)) and (Count(Empire, @'./ClassEmpire,EmpireEliminated') eq 0) and ($(NumberOfMajorEmpires) gt 2))</Alert>
+            <Alert Repeat="false">(($(NumberOfMajorEmpiresEliminated) eq ($(NumberOfMajorEmpires)*0.75)) and (Count(Empire, @'./ClassEmpire,EmpireEliminated') eq 0) and ($(NumberOfMajorEmpires) gt 2))</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>Property(Empire, MilitaryVictoryScore)</ScoreFormula>
+            <ProgressFormula>($(NumberOfMajorEmpiresEliminated) + 1) / $(NumberOfMajorEmpires)</ProgressFormula>
+            <VictoryExpression>($(NumberOfMajorEmpiresLeft) eq 1) and (Count(Empire, @'./ClassEmpire,EmpireEliminated') eq 0)</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!--ALERTS-->
+            <Alert Repeat="false">(($(NumberOfMajorEmpiresEliminated) eq ($(NumberOfMajorEmpires)*0.5)) and (Count(Empire, @'./ClassEmpire,EmpireEliminated') eq 0) and ($(NumberOfMajorEmpires)-$(NumberOfMajorEmpiresInAlliance)) gt 1)</Alert>
+            <Alert Repeat="false">(($(NumberOfMajorEmpiresEliminated) eq ($(NumberOfMajorEmpires)*0.75)) and (Count(Empire, @'./ClassEmpire,EmpireEliminated') eq 0) and ($(NumberOfMajorEmpires)-$(NumberOfMajorEmpiresInAlliance)) gt 1)</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>($(NumberOfMajorEmpiresEliminated) + $(NumberOfMajorEmpiresInAlliance)) / $(NumberOfMajorEmpires)</ProgressFormula>
+            <VictoryExpression>($(NumberOfMajorEmpiresLeft) eq $(NumberOfMajorEmpiresInAlliance)) and (Count(Empire, @'./ClassEmpire,EmpireEliminated') eq 0)</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+
+    <!-- Supremacy -->
+    <VictoryConditionDefinition Name="VictorySupremacy" SettingName="Supremacy">
+        <!-- PERFORMANCE TRACKERS -->
+        <!--<PerformanceTracker Name="PerformanceMajorHomeSystem" Type="SingleValue">
+            <Variable>ColonizedMajorHomeSystemCount</Variable>
+        </PerformanceTracker>-->
+        <PerformanceTracker Name="PerformanceManpower" Type="SingleValue">
+            <Variable>EmpireManpowerTotal</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceBattleWon" Type="SingleValue">
+            <Variable>EmpireBattleWonStock</Variable>
+        </PerformanceTracker>
+         <PerformanceTracker Name="PerformanceMaximumCommandPoints" Type="SingleValue">
+            <Variable>MaximumCommandPoints</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceCurrentColonizedMajorHomeSystemCount" Type="SingleValue" Hidden="true">
+            <Variable>ColonizedMajorHomeSystemCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceMajorHomeSystemCount" Type="SingleValue" Hidden="true">
+            <Variable>NumberOfMajorEmpires</Variable>
+        </PerformanceTracker>
+        <SoloEvaluator>
+            <!-- ALERTS -->
+            <Alert Repeat="false">(Property(Empire, ColonizedMajorHomeSystemCount) / $(NumberOfMajorEmpires)) ge 0.5 and $(NumberOfMajorEmpires) gt 2</Alert>
+            <Alert Repeat="false">(Property(Empire, ColonizedMajorHomeSystemCount) / $(NumberOfMajorEmpires)) ge 0.75 and $(NumberOfMajorEmpires) gt 2</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>Property(Empire, ColonizedMajorHomeSystemCount)</ScoreFormula>
+            <ProgressFormula>(Property(Empire, ColonizedMajorHomeSystemCount) / $(NumberOfMajorEmpires))</ProgressFormula>
+            <DiscreteProgressFormula>Property(Empire, ColonizedMajorHomeSystemCount)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>$(NumberOfMajorEmpires)</DiscreteObjectiveFormula>
+            <VictoryExpression>Property(Empire, ColonizedMajorHomeSystemCount) ge $(NumberOfMajorEmpires)</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!-- ALERTS -->
+            <Alert Repeat="false">($(SummedMajorEmpiresScore) / $(NumberOfMajorEmpires)) ge 0.5 and ($(NumberOfMajorEmpires)-$(NumberOfMajorEmpiresInAlliance)) gt 1</Alert>
+            <Alert Repeat="false">($(SummedMajorEmpiresScore) / $(NumberOfMajorEmpires)) ge 0.75 and ($(NumberOfMajorEmpires)-$(NumberOfMajorEmpiresInAlliance)) gt 1</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>($(SummedMajorEmpiresScore) / $(NumberOfMajorEmpires))</ProgressFormula>
+            <DiscreteProgressFormula>$(SummedMajorEmpiresScore)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>$(NumberOfMajorEmpires)</DiscreteObjectiveFormula>
+            <VictoryExpression>$(SummedMajorEmpiresScore) ge $(NumberOfMajorEmpires)</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+
+    <!-- Conquest -->
+    <VictoryConditionDefinition Name="VictoryConquest" SettingName="Conquest">
+        <!-- PERFORMANCE TRACKERS -->
+        <PerformanceTracker Name="PerformanceSystemCount" Type="SingleValue">
+            <Variable>ColonizedStarSystemStateColonyCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformancePlanetCount" Type="SingleValue">
+            <Variable>OwnedPlanets</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceMinorTraitsAssimilated" Type="SingleValue">
+            <Variable>MinorTraitsAssimilated</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceColonizedStarSystemStateColonyCount" Type="SingleValue" Hidden="true">
+            <Variable>ColonizedStarSystemStateColonyCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceNumberOfInitialAvailableStarSystemNode" Type="SingleValue" Hidden="true">
+            <Variable>VictoryConquestThreshold</Variable>
+        </PerformanceTracker>
+        <SoloEvaluator>
+            <!--A Player has reached 50% of the needed ratio-->
+            <Alert Repeat="false">Property(Empire, ColonizedStarSystemStateColonyCount) ge (Property(VictoryManager, VictoryConquestThresholdAlert50))</Alert>
+            <!--A Player has reached 75% of the needed ratio-->
+            <Alert Repeat="false">Property(Empire, ColonizedStarSystemStateColonyCount) ge (Property(VictoryManager, VictoryConquestThresholdAlert75))</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>Property(Empire, ColonizedStarSystemStateColonyCount)</ScoreFormula>
+            <ProgressFormula>Property(Empire, ColonizedStarSystemStateColonyCount) / Property(VictoryManager, VictoryConquestThreshold)</ProgressFormula>
+            <DiscreteProgressFormula>Property(Empire, ColonizedStarSystemStateColonyCount)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryConquestThreshold)</DiscreteObjectiveFormula>
+            <VictoryExpression>Property(Empire, ColonizedStarSystemStateColonyCount) ge Property(VictoryManager, VictoryConquestThreshold)</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!--ALERTS-->
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryConquestThresholdAlert50) * ( $(NumberOfMajorEmpiresInAlliance) * (1-(0.05 * $(NumberOfMajorEmpiresInAlliance)))))</Alert>
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryConquestThresholdAlert75) * ( $(NumberOfMajorEmpiresInAlliance) * (1-(0.05 * $(NumberOfMajorEmpiresInAlliance)))))</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>$(SummedMajorEmpiresScore) / Property(VictoryManager, VictoryConquestThreshold) * ( $(NumberOfMajorEmpiresInAlliance) * (1-(0.05 * $(NumberOfMajorEmpiresInAlliance))))</ProgressFormula>
+            <DiscreteProgressFormula>$(SummedMajorEmpiresScore)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryConquestThreshold) * $(NumberOfMajorEmpiresInAlliance) * (1-(0.05 * $(NumberOfMajorEmpiresInAlliance)))</DiscreteObjectiveFormula>
+            <VictoryExpression>$(SummedMajorEmpiresScore) ge Property(VictoryManager, VictoryConquestThreshold) * ( $(NumberOfMajorEmpiresInAlliance) * (1-(0.05 * $(NumberOfMajorEmpiresInAlliance))))</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+
+    <!-- Science -->
+    <VictoryConditionDefinition Name="VictoryScience" SettingName="Science">
+        <!-- PERFORMANCE TRACKERS -->
+        <PerformanceTracker Name="PerformanceNumberOfUnlockedTechnologyStages" Type="SingleValue">
+            <Variable>TechnologyTotalStageUnlocked</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceNetEmpireResearch" Type="SingleValue">
+            <Variable>NetEmpireResearch</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceTotalTechnology" Type="SingleValue">
+            <Variable>TotalTechnology</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceCurrentNumberVictoryTechnology" Type="SingleValue" Hidden="true">
+            <Variable>VictoryTechnologyResearchedCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceNumberVictoryTechnology" Type="SingleValue" Hidden="true">
+            <Variable>EndlessTechCount</Variable>
+        </PerformanceTracker>
+        <SoloEvaluator>
+            <!-- ALERTS -->
+            <Alert Repeat="false">Property(Empire, VictoryTechnologyResearchedCount) ge Property(VictoryManager, VictoryScienceThresholdAlert50)</Alert>
+            <Alert Repeat="false">Property(Empire, VictoryTechnologyResearchedCount) ge Property(VictoryManager, VictoryScienceThresholdAlert75)</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>Property(Empire, VictoryTechnologyResearchedCount)</ScoreFormula>
+            <ProgressFormula>(Property(Empire, VictoryTechnologyResearchedCount) / (Property(VictoryManager, VictoryScienceNumberOfTechnologies)))</ProgressFormula>
+            <DiscreteProgressFormula>Property(Empire, VictoryTechnologyResearchedCount)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryScienceNumberOfTechnologies)</DiscreteObjectiveFormula>
+            <VictoryExpression>Property(Empire, VictoryTechnologyResearchedCount) ge Property(VictoryManager, VictoryScienceNumberOfTechnologies)</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!-- ALERTS -->
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge Property(VictoryManager, VictoryScienceThresholdAlert50)</Alert>
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge Property(VictoryManager, VictoryScienceThresholdAlert75)</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>($(SummedMajorEmpiresScore) / (Property(VictoryManager, VictoryScienceNumberOfTechnologies) + Property(VictoryManager, VictoryScienceNumberOfTechnologies)* ($(NumberOfMajorEmpiresInAlliance)-1) *Property(VictoryManager, VictoryScienceAllianceMultiplier)))</ProgressFormula>
+            <DiscreteProgressFormula>$(SummedMajorEmpiresScore)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryScienceNumberOfTechnologies) + Property(VictoryManager, VictoryScienceNumberOfTechnologies)* ($(NumberOfMajorEmpiresInAlliance)-1) *Property(VictoryManager, VictoryScienceAllianceMultiplier)</DiscreteObjectiveFormula>
+            <VictoryExpression>$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryScienceNumberOfTechnologies) + Property(VictoryManager, VictoryScienceNumberOfTechnologies)* ($(NumberOfMajorEmpiresInAlliance)-1) *Property(VictoryManager, VictoryScienceAllianceMultiplier))</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+
+    <!--
+    <VictoryConditionDefinition Name="VictoryTemples" SettingName="Temples">
+        <PerformanceTracker Name="PerformanceEmpireTemplePointsStock" Type="SingleValue">
+            <Variable>EmpireTemplePointsStock</Variable>
+        </PerformanceTracker>       
+        <SoloEvaluator>
+            <ScoreFormula>Property(Empire, EmpireTemplePointsStock)</ScoreFormula>
+            <ProgressFormula>Property(Empire, EmpireTemplePointsStock) / 100</ProgressFormula>
+            <VictoryExpression>Property(Empire, EmpireTemplePointsStock) ge 100</VictoryExpression>
+        </SoloEvaluator>
+    </VictoryConditionDefinition> -->
+
+    <!-- Economic -->
+    <VictoryConditionDefinition Name="VictoryEconomic" SettingName="Economy">
+        <!-- PERFORMANCE TRACKERS -->
+        <PerformanceTracker Name="PerformanceNetEmpireMoney" Type="SingleValue" Hidden="true">
+            <Variable>EmpireMoneyAccumulator</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceTradeCompanies" Type="SingleValue">
+            <Variable>NumberOfTradingCompanies</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceTradeRoutes" Type="SingleValue">
+            <Variable>TotalTradingRoutesCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceNumberOfImprovementsBuilt" Type="SingleValue">
+            <Variable>NumberOfImprovementsBuilt</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceEconomicVictoryTreshold" Type="SingleValue" Hidden="true">
+            <Variable>EconomicVictoryDustAmountRequired</Variable>
+        </PerformanceTracker>
+        <SoloEvaluator>
+            <!-- ALERTS -->
+            <Alert Repeat="false">Property(Empire, EmpireMoneyAccumulator) ge (Property(VictoryManager, VictoryEconomyThresholdAlert50))</Alert>
+            <Alert Repeat="false">Property(Empire, EmpireMoneyAccumulator) ge (Property(VictoryManager, VictoryEconomyThresholdAlert75))</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>Property(Empire, EmpireMoneyAccumulator)</ScoreFormula>
+            <ProgressFormula>(Property(Empire, EmpireMoneyAccumulator) / Property(VictoryManager, VictoryEconomyDustThreshold))</ProgressFormula>
+            <DiscreteProgressFormula>Property(Empire, EmpireMoneyAccumulator)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryEconomyDustThreshold)</DiscreteObjectiveFormula>
+            <VictoryExpression>Property(Empire, EmpireMoneyAccumulator) ge (Property(VictoryManager, VictoryEconomyDustThreshold))</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!-- ALERTS -->
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryEconomyThresholdAlert50))</Alert>
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryEconomyThresholdAlert75))</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>($(SummedMajorEmpiresScore) / (Property(VictoryManager, VictoryEconomyDustThreshold) + Property(VictoryManager, VictoryEconomyDustThreshold) * ($(NumberOfMajorEmpiresInAlliance)-1)*Property(VictoryManager, VictoryEconomyAllianceMultiplier)))</ProgressFormula>
+            <DiscreteProgressFormula>$(SummedMajorEmpiresScore)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryEconomyDustThreshold) + Property(VictoryManager, VictoryEconomyDustThreshold) * ($(NumberOfMajorEmpiresInAlliance)-1)*Property(VictoryManager, VictoryEconomyAllianceMultiplier)</DiscreteObjectiveFormula>
+            <VictoryExpression>$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryEconomyDustThreshold) + Property(VictoryManager, VictoryEconomyDustThreshold) * ($(NumberOfMajorEmpiresInAlliance)-1)*Property(VictoryManager, VictoryEconomyAllianceMultiplier))</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+
+    <!-- Wonder -->
+    <VictoryConditionDefinition Name="VictoryWonder" SettingName="Wonder">
+        <!-- PERFORMANCE TRACKERS -->
+        <PerformanceTracker Name="PerformanceNumberOfWondersBuilt" Type="SingleValue">
+            <Variable>WonderBuiltCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceDeedsAchieved" Type="SingleValue">
+            <Variable>DeedsAchieved</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceQuestsCompleted" Type="SingleValue">
+            <Variable>QuestsCompleted</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceVictoryWonderBuiltCount" Type="SingleValue" Hidden="true">
+            <Variable>VictoryWonderBuiltCount</Variable>
+        </PerformanceTracker>
+        <PerformanceTracker Name="PerformanceVictoryWonderThreshold" Type="SingleValue" Hidden="true">
+            <Variable>VictoryWonderRequiredAmount</Variable>
+        </PerformanceTracker>
+        <SoloEvaluator>
+            <!--ALERTS-->
+            <Alert Repeat="false">
+                (Property(Empire, VictoryWonderBuiltCount) ge Property(VictoryManager, VictoryWonderAlert1)) and (Property(VictoryManager, VictoryWonderAlert1) gt 1) or
+                (Property(Empire, TechnologyQuadrantEmpireDevelopmentActualStageNumber) ge 5) and (Property(VictoryManager, VictoryWonderAlert1) le 1)
+            </Alert> 
+            <Alert Repeat="false">Property(Empire, VictoryWonderBuiltCount) ge Property(VictoryManager, VictoryWonderAlert2)</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>Property(Empire, VictoryWonderBuiltCount)</ScoreFormula>
+            <ProgressFormula>(Property(Empire, VictoryWonderBuiltCount) / Property(VictoryManager, VictoryWonderThreshold))</ProgressFormula>
+            <DiscreteProgressFormula>Property(Empire, VictoryWonderBuiltCount)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryWonderThreshold)</DiscreteObjectiveFormula>
+            <VictoryExpression>Property(Empire, VictoryWonderBuiltCount) ge Property(VictoryManager, VictoryWonderThreshold)</VictoryExpression>
+        </SoloEvaluator>
+        <AllianceEvaluator>
+            <!--ALERTS-->
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge Property(VictoryManager, VictoryWonderAlert1)</Alert>
+            <Alert Repeat="false">$(SummedMajorEmpiresScore) ge Property(VictoryManager, VictoryWonderAlert2)</Alert>
+            <!-- EXPRESSION -->
+            <ScoreFormula>$(SummedMajorEmpiresScore)</ScoreFormula>
+            <ProgressFormula>($(SummedMajorEmpiresScore) / (Property(VictoryManager, VictoryWonderThreshold) + Property(VictoryManager, VictoryWonderThreshold)*($(NumberOfMajorEmpiresInAlliance)-1)*Property(VictoryManager, VictoryWonderAllianceMultiplier)))</ProgressFormula>
+            <DiscreteProgressFormula>$(SummedMajorEmpiresScore)</DiscreteProgressFormula>
+            <DiscreteObjectiveFormula>Property(VictoryManager, VictoryWonderThreshold) + Property(VictoryManager, VictoryWonderThreshold)*($(NumberOfMajorEmpiresInAlliance)-1)*Property(VictoryManager, VictoryWonderAllianceMultiplier)</DiscreteObjectiveFormula>
+            <VictoryExpression>$(SummedMajorEmpiresScore) ge (Property(VictoryManager, VictoryWonderThreshold) + Property(VictoryManager, VictoryWonderThreshold)*($(NumberOfMajorEmpiresInAlliance)-1)*Property(VictoryManager, VictoryWonderAllianceMultiplier))</VictoryExpression>
+        </AllianceEvaluator>
+    </VictoryConditionDefinition>
+    
+</Datatable>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/FactionTrait.xsd">
+
+    <!-- ########################################## -->
+    <!-- ######        MAJOR FACTIONS        ###### -->
+    <!-- ########################################## -->
+
+    <!-- Cravers -->
+    <FactionAffinityMapping Name="AffinityMappingCravers" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="5">
+        <Command Name="RecruitHero"                     Arguments="HeroCravers03"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingCravers" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Cravers_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Cravers_Explorer"/>
+        <ShipDesign Abstract="Leecher"          ShipDesign="Cravers_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="Cravers_RootCreator"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Cravers_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Cravers_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Cravers_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Cravers_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Cravers_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Cravers_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="Cravers_Mothership"/>
+    </FactionAffinityMapping>
+
+    <!-- Sophons -->
+    <FactionAffinityMapping Name="AffinityMappingSophons" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="5">
+        <Command Name="RecruitHero"                     Arguments="HeroSophons04"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingSophons" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Sophons_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Sophons_Explorer"/>
+        <ShipDesign Abstract="Leecher"          ShipDesign="Sophons_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="Sophons_RootCreator"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Sophons_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Sophons_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Sophons_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Sophons_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Sophons_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Sophons_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="Sophons_Mothership"/>
+    </FactionAffinityMapping>
+
+    <!-- Terrans -->
+    <FactionAffinityMapping Name="AffinityMappingTerrans" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="10">
+        <Command Name="RecruitHero"                     Arguments="HeroTerrans04"/>
+
+		<SimulationDescriptorReference Name="AffinityMappingTerrans" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Terrans_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Terrans_Explorer"/>
+        <ShipDesign Abstract="Leecher"          ShipDesign="Terrans_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="Terrans_RootCreator"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Terrans_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Terrans_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Terrans_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Terrans_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Terrans_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Terrans_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="Terrans_Mothership"/>
+    </FactionAffinityMapping>
+	
+	<!-- Mezari -->
+    <FactionAffinityMapping Name="AffinityMappingMezari" SubCategory="MajorFactionAffinityMapping" Hidden="true" Custom="false" Cost="10">
+        <Command Name="RecruitHero"                     Arguments="HeroTerrans04"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingMezari" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Terrans_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Terrans_Explorer"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Terrans_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Terrans_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Terrans_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Terrans_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Terrans_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Terrans_LargeCarrier"/>
+    </FactionAffinityMapping>
+	
+	<!-- Sheredyn -->
+    <FactionAffinityMapping Name="AffinityMappingSheredyn" SubCategory="MajorFactionAffinityMapping" Hidden="true" Custom="false" Cost="10">
+        <Command Name="RecruitHero"                     Arguments="HeroTerrans04"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingSheredyn" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Terrans_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Terrans_Explorer"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Terrans_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Terrans_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Terrans_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Terrans_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Terrans_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Terrans_LargeCarrier"/>
+    </FactionAffinityMapping>
+
+    <!-- Horatio -->
+    <FactionAffinityMapping Name="AffinityMappingHoratio" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="10">
+        <Command Name="RecruitHero"                     Arguments="HeroHoratio01"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingHoratio" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Horatio_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Horatio_Explorer"/>
+        <ShipDesign Abstract="Leecher"          ShipDesign="Horatio_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="Horatio_RootCreator"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Horatio_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Horatio_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Horatio_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Horatio_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Horatio_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Horatio_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="Horatio_Mothership"/>
+    </FactionAffinityMapping>
+    
+    <!-- Vampirilis -->
+    <FactionAffinityMapping Name="AffinityMappingVampirilis" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="5">
+        <Command Name="RecruitHero"                     Arguments="HeroVampirilis02"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingVampirilis" />
+
+        <ShipDesign Abstract="Mothership"          ShipDesign="Vampirilis_Mothership"/>
+        <ShipDesign Abstract="Leecher"             ShipDesign="Vampirilis_Leecher"/>
+        <ShipDesign Abstract="Colonizer"           ShipDesign="Vampirilis_Colonizer"/>
+        <ShipDesign Abstract="RootCreator"         ShipDesign="Vampirilis_RootCreator"/>
+        <ShipDesign Abstract="Explorer"            ShipDesign="Vampirilis_Explorer"/>
+        <ShipDesign Abstract="SmallAttack"         ShipDesign="Vampirilis_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"        ShipDesign="Vampirilis_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"        ShipDesign="Vampirilis_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"       ShipDesign="Vampirilis_MediumDefense"/>
+        <ShipDesign Abstract="Invader"             ShipDesign="Vampirilis_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"        ShipDesign="Vampirilis_LargeCarrier"/>
+    </FactionAffinityMapping>
+
+    <!-- Venetians -->
+    <FactionAffinityMapping Name="AffinityMappingVenetians" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="10">
+        <Command Name="RecruitHero"                     Arguments="HeroVenetians03"/>
+        
+        <SimulationDescriptorReference Name="AffinityMappingVenetians" />
+
+        <ShipDesign Abstract="Leecher"          ShipDesign="Venetians_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="Venetians_RootCreator"/>
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Venetians_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Venetians_Explorer"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Venetians_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Venetians_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Venetians_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Venetians_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Venetians_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Venetians_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="Venetians_Mothership"/>
+    </FactionAffinityMapping>
+
+    <!-- Time Lords -->
+    <FactionAffinityMapping Name="AffinityMappingTimeLords" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="5">
+        <Command Name="RecruitHero"                     Arguments="HeroTimeLords01"/>
+
+        <SimulationDescriptorReference Name="AffinityMappingTimeLords" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="TimeLords_Colonizer"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="TimeLords_Explorer"/>
+        <ShipDesign Abstract="Leecher"          ShipDesign="TimeLords_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="TimeLords_RootCreator"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="TimeLords_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="TimeLords_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="TimeLords_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="TimeLords_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="TimeLords_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="TimeLords_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="TimeLords_Mothership"/>
+    </FactionAffinityMapping>
+
+    <!-- Unfallen -->
+    <FactionAffinityMapping Name="AffinityMappingUnfallen" SubCategory="MajorFactionAffinityMapping" Hidden="false" Custom="true" Cost="5">
+        <Command Name="RecruitHero"                     Arguments="HeroUnfallen02"/>
+        
+        <SimulationDescriptorReference Name="AffinityMappingUnfallen" />
+
+        <ShipDesign Abstract="Colonizer"        ShipDesign="Unfallen_Colonizer"/>
+        <ShipDesign Abstract="Leecher"          ShipDesign="Unfallen_Leecher"/>
+        <ShipDesign Abstract="RootCreator"      ShipDesign="Unfallen_RootCreator"/>
+        <ShipDesign Abstract="Explorer"         ShipDesign="Unfallen_Explorer"/>
+        <ShipDesign Abstract="SmallAttack"      ShipDesign="Unfallen_SmallAttack"/>
+        <ShipDesign Abstract="SmallSupport"     ShipDesign="Unfallen_SmallSupport"/>
+        <ShipDesign Abstract="MediumAttack"     ShipDesign="Unfallen_MediumAttack"/>
+        <ShipDesign Abstract="MediumDefense"    ShipDesign="Unfallen_MediumDefense"/>
+        <ShipDesign Abstract="Invader"          ShipDesign="Unfallen_Invader"/>
+        <ShipDesign Abstract="LargeCarrier"     ShipDesign="Unfallen_LargeCarrier"/>
+        <ShipDesign Abstract="Mothership"       ShipDesign="Unfallen_Mothership"/>
+    </FactionAffinityMapping>
+
+    <!-- Haroshems -->
+    <FactionAffinityMapping Name="AffinityMappingHaroshems" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingHaroshems" />
+    </FactionAffinityMapping>
+
+    <!-- Hisshos -->
+    <FactionAffinityMapping Name="AffinityMappingHisshos" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingHisshos" />
+    </FactionAffinityMapping>
+
+    <!-- Benthys -->
+    <FactionAffinityMapping Name="AffinityMappingBenthys" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingBenthys" />
+    </FactionAffinityMapping>
+
+    <!-- Bots -->
+    <FactionAffinityMapping Name="AffinityMappingBots" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingBots" />
+    </FactionAffinityMapping>
+
+    <!-- Mavros -->
+    <FactionAffinityMapping Name="AffinityMappingMavros" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingMavros" />
+    </FactionAffinityMapping>
+
+    <!-- Deuyivans -->
+    <FactionAffinityMapping Name="AffinityMappingDeuyivans" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingDeuyivans" />
+    </FactionAffinityMapping>
+    
+    <!-- Amoeba -->
+    <FactionAffinityMapping Name="AffinityMappingAmoeba" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingAmoeba" />
+    </FactionAffinityMapping>
+
+    <!-- Pilgrims -->
+    <FactionAffinityMapping Name="AffinityMappingPilgrims" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingPilgrims" />
+    </FactionAffinityMapping>
+
+    <!-- Zvali -->
+    <FactionAffinityMapping Name="AffinityMappingZvali" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingZvali" />
+    </FactionAffinityMapping>
+
+    <!-- Tikanans -->
+    <FactionAffinityMapping Name="AffinityMappingTikanans" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingTikanans" />
+    </FactionAffinityMapping>
+
+    <!-- Gnashasts -->
+    <FactionAffinityMapping Name="AffinityMappingGnashasts" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingGnashasts" />
+    </FactionAffinityMapping>
+
+    <!-- Eyders -->
+    <FactionAffinityMapping Name="AffinityMappingEyders" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingEyders" />
+    </FactionAffinityMapping>
+
+    <!-- Niris -->
+    <FactionAffinityMapping Name="AffinityMappingNiris" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingNiris" />
+    </FactionAffinityMapping>
+
+    <!-- Bhagabas -->
+    <FactionAffinityMapping Name="AffinityMappingBhagabas" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingBhagabas" />
+    </FactionAffinityMapping>
+
+    <!-- Remnant -->
+    <FactionAffinityMapping Name="AffinityMappingRemnant" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingRemnant" />
+    </FactionAffinityMapping>
+
+    <!-- Pulsos -->
+    <FactionAffinityMapping Name="AffinityMappingPulsos" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingPulsos" />
+    </FactionAffinityMapping>
+
+    <!-- Greenman -->
+    <FactionAffinityMapping Name="AffinityMappingGreenman" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingGreenman" />
+    </FactionAffinityMapping>
+
+    <!-- Guardians -->
+    <FactionAffinityMapping Name="AffinityMappingGuardians" SubCategory="MinorFactionAffinityMapping" Hidden="false" Custom="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingGuardians" />
+    </FactionAffinityMapping>
+
+    <!-- Pirates -->
+    <FactionAffinityMapping Name="AffinityMappingMinorFactionPirates" SubCategory="MinorFactionAffinityMapping" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingMinorFactionPirates" />
+    </FactionAffinityMapping>
+ 
+    <!-- Lesser -->
+    <FactionAffinityMapping Name="AffinityMappingLesserEmpire" SubCategory="MinorFactionAffinityMapping" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="AffinityMappingLesserEmpire" />
+    </FactionAffinityMapping>
+
+</Datatable>

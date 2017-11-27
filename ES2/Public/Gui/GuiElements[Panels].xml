@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <ControlBannerGuiElement Name="ControlBanner">
+        <ControlBannerElement Type="Button" WindowName="EmpireScreen" />
+        <ControlBannerElement Type="Button" WindowName="SenateScreen" />
+        <ControlBannerElement Type="Button" WindowName="EconomyScreen" />
+        <ControlBannerElement Type="Button" WindowName="TechnologyScreen" />
+        <ControlBannerElement Type="Button" WindowName="MilitaryScreen" />
+        <ControlBannerElement Type="Button" WindowName="AcademyScreen" />
+        <ControlBannerElement Type="Button" WindowName="NarrativeScreen" />
+        <ControlBannerElement Type="Button" WindowName="DiplomacyScreen" />
+        <!--<ControlBannerElement Type="Separator" />-->
+        <!--<ControlBannerElement Type="Button" WindowName="PauseWindow" />-->
+    </ControlBannerGuiElement>
+
+    <WindowGuiElement Name="EmpireScreen">
+        <Title>%EmpireScreenTitle</Title>
+        <Description>%EmpireScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonEmpireScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/EmpireScreenWide" />
+        </Icons>
+    </WindowGuiElement>
+    
+    <WindowGuiElement Name="SenateScreen">
+        <Title>%SenateScreenTitle</Title>
+        <Description>%SenateScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonSenateScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/SenateScreenWide" />
+        </Icons>
+    </WindowGuiElement>
+    
+    <WindowGuiElement Name="TechnologyScreen">
+        <Title>%TechnologyScreenTitle</Title>
+        <Description>%TechnologyScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonTechnologyScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/TechnologyScreenWide" />
+        </Icons>
+    </WindowGuiElement>
+
+    <WindowGuiElement Name="NarrativeScreen">
+        <Title>%NarrativeScreenTitle</Title>
+        <Description>%NarrativeScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonNarrativeScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/NarrativeScreenWide" />
+        </Icons>
+    </WindowGuiElement>
+
+    <WindowGuiElement Name="AcademyScreen">
+        <Title>%AcademyScreenTitle</Title>
+        <Description>%AcademyScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonAcademyScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/AcademyScreenWide" />
+        </Icons>
+    </WindowGuiElement>
+
+    <WindowGuiElement Name="MilitaryScreen">
+        <Title>%MilitaryScreenTitle</Title>
+        <Description>%MilitaryScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonMilitaryScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/MilitaryScreenWide" />
+        </Icons>
+    </WindowGuiElement>
+
+    <WindowGuiElement Name="DiplomacyScreen">
+        <Title>%DiplomacyScreenTitle</Title>
+        <Description>%DiplomacyScreenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonDiplomacyScreen" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/ControlBanner/DiplomacyScreenWide" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Backgrounds/DiplomacyScreenBackground" />
+        </Icons>
+    </WindowGuiElement>
+
+    <WindowGuiElement Name="LoadSaveModalWindow">
+        <Title>%LoadSaveModalWindowTitle</Title>
+        <Description>%LoadSaveModalWindowDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Button/LoadSaveModalWindow" />
+        </Icons>
+    </WindowGuiElement>
+
+    <VictoryScreenGuiElement Name="VictoryScreen">
+        <Movies>
+            <Movie Path="Movies/Outro.mp4" Type="Default" />
+            <Movie Path="Movies/Metaplot/Metaplot_LostBackVictory.mp4" Type="MetaplotLostBackSuccess"/>
+        </Movies>
+        <GameStatistics>
+            <GameStatisticReference>GlobalScore</GameStatisticReference>
+            <GameStatisticReference>AccumulatorFood</GameStatisticReference>
+            <GameStatisticReference>AccumulatorIndustry</GameStatisticReference>
+            <GameStatisticReference>AccumulatorMoney</GameStatisticReference>
+            <GameStatisticReference>AccumulatorResearch</GameStatisticReference>
+            <GameStatisticReference>AccumulatorInfluence</GameStatisticReference>
+            <GameStatisticReference>PopulationScore</GameStatisticReference>
+            <GameStatisticReference>ResearchScore</GameStatisticReference>
+            <GameStatisticReference>TradeScore</GameStatisticReference>
+            <GameStatisticReference>HappinessScore</GameStatisticReference>
+            <GameStatisticReference>ExpansionScore</GameStatisticReference>
+            <GameStatisticReference>HeroesScore</GameStatisticReference>
+            <GameStatisticReference>MilitaryScore</GameStatisticReference>
+        </GameStatistics>
+    </VictoryScreenGuiElement>
+
+    <WindowGuiElement Name="GameScreenBackgroundWindow">
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Backgrounds/GameScreenBackground" />
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Gui/BackgroundStatic.MP4" Type="Default" />
+        </Movies>
+    </WindowGuiElement>
+    
+</Datatable>

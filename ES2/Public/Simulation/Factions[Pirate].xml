@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Faction.xsd">
+
+    <!-- ########################################## -->
+    <!-- ######        PIRATE FACTIONS       ###### -->
+    <!-- ########################################## -->
+
+    <!-- Pirate (Minor armies) -->
+    <PirateFaction Name="FactionPirateEmpire" Standard="false" Author="AMPLITUDE Studios" Priority="100" Hidden="true">
+        <Affinity Name="AffinityGameplayPirateEmpire"/>
+        <Trait Name="IsPirateFaction"/>
+        <AffinityMapping Name="AffinityMappingMinorFactionPirates" />
+    </PirateFaction>
+
+</Datatable>

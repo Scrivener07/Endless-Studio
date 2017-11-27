@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!-- #########################-->
+    <!-- ##  QUEST TUTORIAL ###-->
+    <!-- #########################-->
+  
+
+    <QuestDefinition Name="TutorialExploration00" Category="Quest" SubCategory="Exploration" MinimumTurn="2">
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$ExplorerFleets">                
+                <From Source="$CurrentEmpire.$Fleets">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassGarrisonFleet/ClassShip,ShipRoleExploration</PathPrerequisite>
+                    </Where>
+                </From>               
+            </Var>
+
+            <Var VarName="$AllSystems">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassStarSystem/ClassPlanet/ClassCuriosity', DetectionLevel, true) ge 1</InterpreterPrerequisite>
+                    </Where>
+                </From>
+               <!--Verified that the System has Curiosity: visible and explorable one-->
+            </Var>
+            <Var VarName="$UnknownSystem"/>
+            <Var IsGlobal="true" VarName="$CuriosityNode"/>
+            <Var IsGlobal="true" VarName="$FleetGUID"/>
+        </Vars>
+
+    <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+     <!-- Cannot be launched except by a quest action -->
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,GamescomTutorialActivated</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                           <!--Verify that the player is ORIBITING arround the Curiosity-Node -->
+                            <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">
+                                <Input_NodeList VarName="$AllSystems"/>                                
+                                <Output_Node VarName="$CuriosityNode"/>
+                            </Decorator_ExploredNode>
+                            <Decorator_FleetDocked>
+                                <Condition_ShipStats>
+                                    <Input_ShipList VarName="$ExplorerFleets"/>
+                                </Condition_ShipStats>                                
+                            </Decorator_FleetDocked>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--########################
+        ###### FREE MOVE #######
+        ########################-->
+    
+    <QuestDefinition Name="TutorialQuest_FreeMove00Bis" Category="Test" SubCategory="" MinimumTurn="2">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IsolatedNodes" IgnoreLockedTargets="true">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem,IsolatedNode</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$MyHomeSystem">
+                <From Source="$CurrentEmpire.$StartingNode"/>
+            </Var>
+            <Var VarName="$HomeConstellation">
+                <From Source="$MyHomeSystem.$Constellation"/>
+            </Var>
+            <Var VarName="$OtherConstellations" IgnoreLockedTargets="true">
+                <From Source="$Constellations">
+                    <Where>
+                        <IsNot EntityVarName="$HomeConstellation"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$OtherSystems" IgnoreLockedTargets="true">
+                <From Source="$OtherConstellations.$StarSystems"/>
+            </Var>
+            <Var VarName="$GlobalNodeTutorial" IsGlobal="true"/>
+
+            <Var VarName="$Tutorial01" StringValue="Tutorial_FreeMove01"/>
+            <Var VarName="$Tutorial02" StringValue="Tutorial_FreeMove02"/>
+            <Var VarName="$Expression01" StringValue="ClassEmpire/ClassResearch,TechnologyFreeMovement"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove02" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove01" QuestState="Completed"/>
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassEmpire', TutorialLevel) ge 1 </InterpreterPrerequisite>
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Parallel CompletionPolicy="First">
+                                        <Sequence>
+                                            <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">
+                                                <Condition_CheckPath>
+                                                    <Input_SimulationObject VarName="$CurrentEmpire"/>
+                                                    <Input_Path VarName="$Expression01"/>
+                                                </Condition_CheckPath>
+                                                <Input_NodeList VarName="$IsolatedNodes"/>
+                                                <Output_Node VarName="$GlobalNodeTutorial"/>
+                                            </Decorator_ExploredNode>
+                                        </Sequence>
+                                        <Sequence>
+                                            <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">
+                                                <Condition_CheckPath>
+                                                    <Input_SimulationObject VarName="$CurrentEmpire"/>
+                                                    <Input_Path VarName="$Expression01"/>
+                                                </Condition_CheckPath>
+                                                <Input_NodeList VarName="$OtherSystems"/>
+                                                <Output_Node VarName="$GlobalNodeTutorial"/>
+                                            </Decorator_ExploredNode>
+                                        </Sequence>
+                                    </Parallel>
+
+                                    <Action_TriggerTutorial>
+                                        <Input_TutorialName VarName="$Tutorial01"/>
+                                    </Action_TriggerTutorial>
+                                </Sequence>
+
+                                <Sequence>
+                                    <Parallel CompletionPolicy="Any">
+                                        
+                                        <Sequence>
+                                            <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">                                                
+                                                <Input_NodeList VarName="$IsolatedNodes"/>
+                                                <Output_Node VarName="$GlobalNodeTutorial"/>
+                                            </Decorator_ExploredNode>
+                                        </Sequence>
+                                        <Sequence>
+                                            <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">                                                
+                                                <Input_NodeList VarName="$OtherSystems"/>
+                                                <Output_Node VarName="$GlobalNodeTutorial"/>
+                                            </Decorator_ExploredNode>
+                                        </Sequence>
+                                    
+                                    </Parallel>
+                                    
+                                    <Action_TriggerTutorial>
+                                        <Input_TutorialName VarName="$Tutorial02"/>
+                                    </Action_TriggerTutorial>
+                                </Sequence>
+                            </Parallel>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--########################
+        ## GROUND BATTLE MOVE ##
+        ########################-->
+    <QuestDefinition Name="TutorialQuest_GroundBattle00" Category="Test" SubCategory="" MinimumTurn="2">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Duration" IntValue="22"/>
+            <Var VarName="$ByAtWar" StringValue="DiplomaticRelationStateWar"/>
+            <Var VarName="$ByAtWarWithMinor" StringValue="DiplomaticRelationStateMinorAdvancedWar"/>
+
+
+            <Var VarName="$OtherEmpires">
+                <From Source="$MajorEmpires">
+                    <Where>
+                        <IsNot EntityVarName="$CurrentEmpire"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$MyCurrentState"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove02" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove01" QuestState="Completed"/>
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_Wait>
+                                    <Input_WaitDuration VarName="$Duration"/>
+                                </Decorator_Wait>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+
+                            <Sequence>
+                                <Decorator_DiplomaticRelationChanged>
+                                    <Condition_AreEqual>
+                                        <Input_Variable1 VarName="$MyCurrentState" />
+                                        <Input_Variable2 VarName="$ByAtWar"/>
+                                    </Condition_AreEqual>
+                                    <Output_DiplomaticRelationState VarName="$ByAtWar"/>
+                                </Decorator_DiplomaticRelationChanged>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_MinorFactionRelation>
+                                    <Input_PlayerEmpire VarName="$CurrentEmpire"/>
+                                    <Input_RelationState VarName="$ByAtWarWithMinor"/>
+                                </Decorator_MinorFactionRelation>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_GroundBattle05</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    <!--########################
+        ##### PROBE MOVE ######
+        ########################-->
+    
+    <QuestDefinition Name="Tutorial_Probe00" Category="Test" SubCategory="" MinimumTurn="2">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="3"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_ProbeLaunched Initiator="Empire"/>
+                            <Decorator_CuriosityDiscovered OnlyAllowDiscoveryByFleet="true" Initiator="Empire"/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--########################
+        ##### TIME LORDS  ######
+        ########################-->
+
+    <QuestDefinition Name="Tutorial_TimeLords00" Category="Test" SubCategory="">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            
+            <Var VarName="$Expression01" StringValue="Property(Context, @'ClassEmpire', Strategic1Stock) ge 5"/>
+            <Var VarName="$Expression02" StringValue="Property(Context, @'ClassEmpire', Strategic2Stock) ge 5"/>
+            <Var VarName="$Expression03" StringValue="Property(Context, @'ClassEmpire', BankAccount) ge 250"/>
+            <Var VarName="$TutorialTimeLords" StringValue="Tutorial_TimeLords04"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassEmpire', TutorialLevel) ge 1 </InterpreterPrerequisite> 
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>                   
+                    <Objective Name="Step1_Objective1">                     
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn>
+                                    <Condition_CheckInterpreter>
+                                        <Input_Context VarName="$CurrentEmpire"/>
+                                        <Input_Expression VarName="$Expression01"/>
+                                    </Condition_CheckInterpreter>
+                                    <Condition_CheckInterpreter>
+                                        <Input_Context VarName="$CurrentEmpire"/>
+                                        <Input_Expression VarName="$Expression03"/>
+                                    </Condition_CheckInterpreter>
+                                </Decorator_BeginTurn>
+                                <Action_TriggerTutorial>
+                                    <Input_TutorialName VarName="$TutorialTimeLords"/>
+                                </Action_TriggerTutorial>                           
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_BeginTurn>
+                                    <Condition_CheckInterpreter>
+                                        <Input_Context VarName="$CurrentEmpire"/>
+                                        <Input_Expression VarName="$Expression02"/>
+                                    </Condition_CheckInterpreter>
+                                    <Condition_CheckInterpreter>
+                                        <Input_Context VarName="$CurrentEmpire"/>
+                                        <Input_Expression VarName="$Expression03"/>
+                                    </Condition_CheckInterpreter>
+                                </Decorator_BeginTurn>
+                                <Action_TriggerTutorial>
+                                    <Input_TutorialName VarName="$TutorialTimeLords"/>
+                                </Action_TriggerTutorial>
+                            </Sequence>                           
+                        </Parallel>  
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--########################
+        #####  WAR STATUS  ######
+        ########################-->
+
+    <QuestDefinition Name="Tutorial_WarStatus00" Category="Test" SubCategory="" MinimumTurn="2">
+
+       <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="10"
+                          NumberOfConcurrentInstances="0"/>
+
+       <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>           
+            <Var VarName="$TutorialName01" StringValue="Tutorial_WarStatus01"/>
+            <Var VarName="$DiplomaticRelationStateMajor" StringValue="DiplomaticRelationStateWar"/>           
+        </Vars>
+
+       <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">         
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassEmpire', TutorialLevel) ge 2 </InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_WarStatus01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_WarStatus01" QuestState="Completed"/>
+        </Prerequisites>
+        
+        <!--============ STEPS ============-->
+        
+        <Steps>
+         <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_DiplomaticRelationChanged Initiator="Empire">
+                                <Input_DiplomaticRelationState VarName="$DiplomaticRelationStateMajor"/>
+                            </Decorator_DiplomaticRelationChanged>
+                            <Action_TriggerTutorial>
+                                <Input_TutorialName VarName="$TutorialName01"/>
+                            </Action_TriggerTutorial>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!-- ############################################# -->
+    <!-- ###### CONFORT FLEET ACTIONS - UNLOCK ####### -->
+    <!-- ############################################# -->
+
+    <QuestDefinition Name="TutorialQuest_UnlockConfortFleetActions" Category="Tutorial" SubCategory="Tutorial">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$GameSpeed">
+                <From Source="$GameSpeedMultiplier"/>
+            </Var>
+
+            <InterpretedVar VarName="$Duration">
+                <Expression>26 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_GuardFleetAction" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ OBJECTIVE ============-->
+                <ObjectiveSet>
+                    <Objective Name="Objective">
+                        <Sequence>
+                            <Decorator_Wait>
+                                <Input_WaitDuration VarName="$Duration"/>
+                            </Decorator_Wait>
+                            <Action_SetForceGuiDisable Key="FleetsScreen_AutoExploreFleetActionButton" ForceDisable="false"/>
+                            <Action_SetForceGuiDisable Key="FleetsScreen_SleepFleetActionButton" ForceDisable="false"/>
+                            <Action_SetForceGuiDisable Key="FleetsScreen_SleepForThisTurnFleetActionButton" ForceDisable="false"/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!--#############################
+        ##### START EXPEDITION ######
+        #############################-->
+
+    <QuestDefinition Name="TutorialQuest_StartExpedition" Category="Tutorial" SubCategory="Tutorial">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+        
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+        
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <!--============ OBJECTIVE ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Objective">
+                        <Sequence>
+                            <Decorator_CuriosityDiscovered OnlyAllowDiscoveryByFleet="true" Initiator="Empire"/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!--DEPRECATED-->
+    <QuestDefinition Name="TutorialQuest_FreeMove00" Category="Test" SubCategory="" MinimumTurn="2">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IsolatedNodes">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem,IsolatedNode</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$MyHomeSystem">
+                <From Source="$CurrentEmpire.$HomeStarSystem"/>
+            </Var>
+            <Var VarName="$HomeConstellation">
+                <From Source="$MyHomeSystem.$Constellation"/>
+            </Var>
+            <Var VarName="$OtherConstellations">
+                <From Source="$Constellations">
+                    <Where>
+                        <IsNot EntityVarName="$HomeConstellation"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$OtherSystems">
+                <From Source="$OtherConstellations.$StarSystems"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove02" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove01" QuestState="Completed"/>
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">
+                                    <Input_NodeList VarName="$IsolatedNodes"/>
+                                </Decorator_ExploredNode>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ExploredNode Initiator="Empire" MinimumState="Revealed">
+                                    <Input_NodeList VarName="$OtherSystems"/>
+                                </Decorator_ExploredNode>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_FreeMove01</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+</Datatable>

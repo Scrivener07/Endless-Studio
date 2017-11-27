@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- Note : Hidden supervisors (i.e.: IA stuff) don't have GuiElements, that's why they are not shown in the UI droplist -->
+
+    
+
+    <!--<GuiElement Name="SystemSupervisorAIBalancedPopulation">
+        <Description>%SystemSupervisorNoneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PopulationSmall" />
+        </Icons>
+    </GuiElement>-->
+
+    <GuiElement Name="SystemSupervisorNone">
+        <Description>%SystemSupervisorNoneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="SystemPolicyNone" />
+        </Icons>
+    </GuiElement>
+    
+    <GuiElement Name="SystemSupervisorFood">
+        <Description>%SystemSupervisorFoodDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="FIDSIFood" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="SystemSupervisorIndustry">
+        <Description>%SystemSupervisorIndustryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="FIDSIIndustry" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="SystemSupervisorDust">
+        <Description>%SystemSupervisorDustDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="FIDSIDust" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="SystemSupervisorScience">
+        <Description>%SystemSupervisorScienceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="FIDSIScience" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="SystemSupervisorInfluence">
+        <Description>%SystemSupervisorInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="FIDSIEmpire" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="SystemSupervisorApproval">
+        <Description>%SystemSupervisorApprovalDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="ApprovalSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="SystemSupervisorMilitary">
+        <Description>%SystemSupervisorMilitaryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="BattleMilitaryPowerSmall" />
+        </Icons>
+    </GuiElement>
+
+</Datatable>

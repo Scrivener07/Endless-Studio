@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!--###########################-->
+    <!--##### NARRATIVE EVENT #####-->
+    <!--###########################-->
+    
+    <QuestGuiElement Name="TestChoiceEvent">
+        <Title>%TestChoiceEvent-Title</Title>
+        <Description>%TestChoiceEvent-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/TestChoiceEvent" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Title>%TestChoiceEvent-Step2_1-Title</Title>
+                    <Description>%TestChoiceEvent-Step2_1-Description</Description>
+                    <OutcomeCompleted>%TestChoiceEvent-Step2_1-Outcome</OutcomeCompleted>
+                    <OutcomeFailed>%TestChoiceEvent-Step2_1-OutcomeFailed</OutcomeFailed>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <Title>%TestChoiceEvent-Step2_2-Title</Title>
+                    <Description>%TestChoiceEvent-Step2_2-Description</Description>
+                    <OutcomeCompleted>%TestChoiceEvent-Step2_2-Outcome</OutcomeCompleted>
+                    <OutcomeFailed>%TestChoiceEvent-Step2_2-OutcomeFailed</OutcomeFailed>
+                    <Objective Name="Step2_2_Objective1">%TestChoiceEvent-Step2_2_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <Title>%TestChoiceEvent-Step2_3-Title</Title>
+                    <Description>%TestChoiceEvent-Step2_3-Description</Description>
+                    <OutcomeCompleted>%TestChoiceEvent-Step2_3-Outcome</OutcomeCompleted>
+                    <OutcomeFailed>%TestChoiceEvent-Step2_3-OutcomeFailed</OutcomeFailed>
+                    <Objective Name="Step2_3_Objective1">%TestChoiceEvent-Step2_3_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity01">
+        <Title>%EventCuriosity01Title</Title>
+        <Description>%EventCuriosity01Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventCuriosity01Choice01Title</Title>
+                    <Description>%EventCuriosity01Choice01Description</Description>               
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>     
+                <ObjectiveSet>
+                    <Title>%EventCuriosity01Choice02Title</Title>
+                    <Description>%EventCuriosity01Choice02Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>                       
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity02">
+        <Title>%EventCuriosity02Title</Title>
+        <Description>%EventCuriosity02Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventCuriosity02Choice01Title</Title>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity02Bis">
+        <Title>%EventCuriosity02Title</Title>
+        <Description>%EventCuriosity02Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventCuriosity02Choice01Title</Title>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity03">
+        <Title>%EventCuriosity03Title</Title>
+        <Description>%EventCuriosity03Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity03Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventCuriosity03Choice01Title</Title>
+                    <Description>%EventCuriosity03Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics04">
+                    <Title>%EventCuriosity03Choice02Title</Title>
+                    <Description>%EventCuriosity03Choice02Description</Description>
+                    <Objective Name="Step2_2_Objective1">%TestChoiceEvent-Step2_2_Objective</Objective>
+                </ObjectiveSet>
+            </Step>          
+        </Steps>
+    </QuestGuiElement>
+    
+    <QuestGuiElement Name="EventCuriosity04">
+        <Title>%EventCuriosity04Title</Title>
+        <Description>%EventCuriosity04Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity04Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventCuriosity04Choice01Title</Title>
+                    <Description>%EventCuriosity04Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity05">
+        <Title>%EventCuriosity05Title</Title>
+        <Description>%EventCuriosity05Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity05Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventCuriosity05Choice01Title</Title>
+                    <Description>%EventCuriosity05Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventCuriosity05Choice02Title</Title>
+                    <Description>%EventCuriosity05Choice02Description</Description>
+                    <Objective Name="Step2_2_Objective1">%TestChoiceEvent-Step2_2_Objective</Objective>
+                </ObjectiveSet>    
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity06">
+        <Title>%EventCuriosity06Title</Title>
+        <Description>%EventCuriosity06Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity05Large" Size="Quest" />
+        </Icons>
+        <Steps>            
+            <Step Name="Step2_1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventCuriosity06Choice01Title</Title>
+                    <Description>%EventCuriosity06Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>            
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity07">
+        <Title>%EventCuriosity07Title</Title>
+        <Description>%EventCuriosity07Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity05Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity07Choice01Title</Title>
+                    <Description>%EventCuriosity07Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+      <QuestGuiElement Name="EventCuriosity08">
+        <Title>%EventCuriosity08Title</Title>
+        <Description>%EventCuriosity08Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity08Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity08Choice01Title</Title>
+                    <Description>%EventCuriosity08Choice01Description</Description>           
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+    
+    <QuestGuiElement Name="EventCuriosity09">
+        <Title>%EventCuriosity09Title</Title>
+        <Description>%EventCuriosity09Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventCuriosity09Choice01Title</Title>
+                    <Description>%EventCuriosity09Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics05">
+                    <Title>%EventCuriosity09Choice02Title</Title>
+                    <Description>%EventCuriosity09Choice02Description</Description>
+                    <Objective Name="Step2_2_Objective1">%TestChoiceEvent-Step2_2_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity10">
+        <Title>%EventCuriosity10Title</Title>
+        <Description>%EventCuriosity10Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity10Choice01Title</Title>
+                    <Description>%EventCuriosity10Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity11">
+        <Title>%EventCuriosity11Title</Title>
+        <Description>%EventCuriosity11Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity11Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity11Choice01Title</Title>
+                    <Description>%EventCuriosity11Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <Title>%EventCuriosity11Choice02Title</Title>
+                    <Description>%EventCuriosity11Choice02Description</Description>
+                    <Objective Name="Step2_2_Objective1">%TestChoiceEvent-Step2_2_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity12">
+        <Title>%EventCuriosity12Title</Title>
+        <Description>%EventCuriosity12Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity12Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity12Choice01Title</Title>
+                    <Description>%EventCuriosity12Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity13">
+        <Title>%EventCuriosity13Title</Title>
+        <Description>%EventCuriosity13Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity13Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                <Title>%EventCuriosity13Choice01Title</Title>
+                <Description>%EventCuriosity13Choice01Description</Description>
+                <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+    
+    <QuestGuiElement Name="EventCuriosity15">
+        <Title>%EventCuriosity15Title</Title>
+        <Description>%EventCuriosity15Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity15Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity15Choice01Title</Title>
+                    <Description>%EventCuriosity15Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+    
+   <QuestGuiElement Name="EventCuriosity16">
+        <Title>%EventCuriosity16Title</Title>
+        <Description>%EventCuriosity16Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity16Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventCuriosity16Choice01Title</Title>
+                    <Description>%EventCuriosity16Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventCuriosity16Choice02Title</Title>
+                    <Description>%EventCuriosity16Choice02Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventCuriosity17">
+        <Title>%EventCuriosity17Title</Title>
+        <Description>%EventCuriosity17Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity16Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Name="Step2_1" Politics="Politics03">
+                    <Title>%EventCuriosity17Choice01Title</Title>
+                    <Description>%EventCuriosity17Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Name="Step2_2" Politics="Politics06">
+                    <Title>%EventCuriosity17Choice02Title</Title>
+                    <Description>%EventCuriosity17Choice02Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+    
+    <QuestGuiElement Name="EventCuriosity18">
+        <Title>%EventCuriosity18Title</Title>
+        <Description>%EventCuriosity18Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity18Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Title>%EventCuriosity18Choice01Title</Title>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+
+    <QuestGuiElement Name="EventRandom01">
+        <Title>%EventRandom01Title</Title>
+        <Description>%EventRandom01Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventRandom01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                <Title>%EventRandom01Choice01Title</Title>
+                <Description>%EventRandom01Choice01Description</Description>
+                <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventRandom02">
+        <Title>%EventRandom02Title</Title>
+        <Description>%EventRandom02Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventRandom02Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventRandom02Choice01Title</Title>
+                    <Description>%EventRandom02Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventRandom02Choice02Title</Title>
+                    <Description>%EventRandom02Choice02Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>           
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventRandom04">
+        <Title>%EventRandom04Title</Title>
+        <Description>%EventRandom04Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventRandom04Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventRandom04Choice01Title</Title>
+                    <Description>%EventRandom04Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics05">
+                    <Title>%EventRandom04Choice02Title</Title>
+                    <Description>%EventRandom04Choice02Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventRandom05">
+        <Title>%EventRandom05Title</Title>
+        <Description>%EventRandom05Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity19Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventRandom05Choice01Title</Title>
+                    <Description>%EventRandom05Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics05">
+                    <Title>%EventRandom05Choice02Title</Title>
+                    <Description>%EventRandom05Choice02Description</Description>
+                    <Objective Name="Step2_2_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+
+    <QuestGuiElement Name="EventRandom06">
+        <Title>%EventRandom06Title</Title>
+        <Description>%EventRandom06Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity17Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventRandom06Choice01Title</Title>
+                    <Description>%EventRandom06Choice01Description</Description>
+                    <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>               
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+  <QuestGuiElement Name="EventRandom07">
+    <Title>%EventRandom07Title</Title>
+    <Description>%EventRandom07Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/Quests/MinorQuest/MinorFactionQuest01" Size="Quest" />
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet Politics="Politics02">
+          <Title>%EventRandom07Choice01Title</Title>
+          <Description>%EventRandom07Choice01Description</Description>
+          <Objective Name="Step2_1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+    
+    <QuestGuiElement Name="EventRandom08">
+        <Title>%EventRandom08Title</Title>
+        <Description>%EventRandom08Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventReveal01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Name="Step2_1" Politics="Politics04">
+                    <Title>%EventRandom08Choice01Title</Title>
+                    <Description>%EventRandom08Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Name="Step2_2" Politics="Politics06">
+                    <Title>%EventRandom08Choice02Title</Title>
+                    <Description>%EventRandom08Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventRandom09">
+        <Title>%EventRandom09-Title</Title>
+        <Description>%EventRandom09-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventRandom09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Name="Step2_1_Objective1" Politics="Politics00">
+                    <Title>%EventRandom09-Choice01Title</Title>
+                    <Description>%EventRandom09-Choice01Description</Description>                    
+                </ObjectiveSet>                
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventRandom10">
+        <Title>%EventRandom10-Title</Title>
+        <Description>%EventRandom10-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventRandom10Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Name="Step1_Objective1" Politics="Politics00">
+                    <Title>%EventRandom10-Choice01Title</Title>
+                    <Description>%EventRandom10-Choice01Description</Description>                    
+                </ObjectiveSet>
+                <ObjectiveSet Name="Step1_Objective2" Politics="Politics00">
+                    <Title>%EventRandom10-Choice02Title</Title>
+                    <Description>%EventRandom10-Choice02Description</Description>                    
+                </ObjectiveSet>
+                <ObjectiveSet Name="Step1_Objective3" Politics="Politics00">
+                    <Title>%EventRandom10-Choice03Title</Title>
+                    <Description>%EventRandom10-Choice03Description</Description>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+    
+    <QuestGuiElement Name="EventReveal01">
+        <Title>%EventReveal01Title</Title>
+        <Description>%EventReveal01Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventReveal01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+           <Step Name="Step1">
+               <ObjectiveSet Name="Step2_1">
+                   <Title>%EventReveal01Choice01Title</Title>
+                   <Description>%EventReveal01Choice01Description</Description>
+                   <Objective Name="Step1_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+               </ObjectiveSet>
+               <ObjectiveSet Name="Step2_2">
+                   <Title>%EventReveal01Choice02Title</Title>
+                   <Description>%EventReveal01Choice02Description</Description>
+                   <Objective Name="Step2_Objective1">%TestChoiceEvent-Step2_1_Objective</Objective>
+               </ObjectiveSet>             
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventReveal02">
+        <Title>%EventReveal02Title</Title>
+        <Description>%EventReveal02Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventReveal01Large" Size="Quest" />
+        </Icons>
+        <Steps>          
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventReveal02Choice01Title</Title>
+                    <Description>%EventReveal02Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventReveal01Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>          
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventReveal03">
+        <Title>%EventReveal03Title</Title>
+        <Description>%EventReveal03Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventReveal01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventReveal03Choice01Title</Title>
+                    <Description>%EventReveal03Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventReveal01Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical01">
+        <Title>%EventPolitical01Title</Title>
+        <Description>%EventPolitical01Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventPolitical01Choice01Title</Title>
+                    <Description>%EventPolitical01Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical01Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical01Choice02Title</Title>
+                    <Description>%EventPolitical01Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical01Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical02">
+        <Title>%EventPolitical02Title</Title>
+        <Description>%EventPolitical02Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventPolitical02Choice01Title</Title>
+                    <Description>%EventPolitical02Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical02Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical02Choice02Title</Title>
+                    <Description>%EventPolitical02Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical02Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical03">
+        <Title>%EventPolitical03Title</Title>
+        <Description>%EventPolitical03Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical03Choice01Title</Title>
+                    <Description>%EventPolitical03Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical03Choice01Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical04">
+        <Title>%EventPolitical04Title</Title>
+        <Description>%EventPolitical04Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical04Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical04Choice01Title</Title>
+                    <Description>%EventPolitical04Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical04Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventPolitical04Choice02Title</Title>
+                    <Description>%EventPolitical04Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical04Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical05">
+        <Title>%EventPolitical05Title</Title>
+        <Description>%EventPolitical05Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical04Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical05Choice01Title</Title>
+                    <Description>%EventPolitical05Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical05Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics04">
+                    <Title>%EventPolitical05Choice02Title</Title>
+                    <Description>%EventPolitical05Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical05Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical06">
+        <Title>%EventPolitical06Title</Title>
+        <Description>%EventPolitical06Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical06Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventPolitical06Choice01Title</Title>
+                    <Description>%EventPolitical06Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical06Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventPolitical06Choice02Title</Title>
+                    <Description>%EventPolitical06Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical06Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical07">
+        <Title>%EventPolitical07Title</Title>
+        <Description>%EventPolitical07Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical06Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventPolitical07Choice01Title</Title>
+                    <Description>%EventPolitical07Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical06Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventPolitical07Choice02Title</Title>
+                    <Description>%EventPolitical07Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical07Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical08">
+      <Title>%EventPolitical08Title</Title>
+      <Description>%EventPolitical08Description</Description>
+      <Icons>
+        <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical06Large" Size="Quest" />
+      </Icons>
+      <Steps>
+        <Step Name="Step1">
+          <ObjectiveSet Politics="Politics00">
+            <Title>%EventPolitical08Choice01Title</Title>
+            <Description>%EventPolitical08Choice01Description</Description>
+            <Objective Name="Step1_Objective1">%EventPolitical08Choice01Description</Objective>
+          </ObjectiveSet>
+        </Step>
+      </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical09">
+        <Title>%EventPolitical09Title</Title>
+        <Description>%EventPolitical09Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventPolitical09Choice01Title</Title>
+                    <Description>%EventPolitical09Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical09Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventPolitical09Choice02Title</Title>
+                    <Description>%EventPolitical09Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical09Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical10">
+        <Title>%EventPolitical10Title</Title>
+        <Description>%EventPolitical10Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventPolitical10Choice01Title</Title>
+                    <Description>%EventPolitical10Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical10Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical10Choice02Title</Title>
+                    <Description>%EventPolitical10Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical10Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical13">
+        <Title>%EventPolitical13Title</Title>
+        <Description>%EventPolitical13Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical13Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventPolitical13Choice01Title</Title>
+                    <Description>%EventPolitical13Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical13Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical13Choice02Title</Title>
+                    <Description>%EventPolitical13Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical13Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical14">
+        <Title>%EventPolitical14Title</Title>
+        <Description>%EventPolitical14Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical13Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics06">
+                    <Title>%EventPolitical14Choice01Title</Title>
+                    <Description>%EventPolitical14Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical14Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPolitical14Choice02Title</Title>
+                    <Description>%EventPolitical14Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical14Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical15">
+        <Title>%EventPolitical15Title</Title>
+        <Description>%EventPolitical15Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical15Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventPolitical15Choice01Title</Title>
+                    <Description>%EventPolitical15Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical15Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics05">
+                    <Title>%EventPolitical15Choice02Title</Title>
+                    <Description>%EventPolitical15Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical15Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical16">
+        <Title>%EventPolitical16Title</Title>
+        <Description>%EventPolitical16Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical16Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics05">
+                    <Title>%EventPolitical16Choice01Title</Title>
+                    <Description>%EventPolitical16Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical16Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventPolitical16Choice02Title</Title>
+                    <Description>%EventPolitical16Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical16Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical17Bis">
+        <Title>%EventPolitical17BisTitle</Title>
+        <Description>%EventPolitical17BisDescription</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical17Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventPolitical17BisChoice01Title</Title>
+                    <Description>%EventPolitical17BisChoice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical17BisChoice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics04">
+                    <Title>%EventPolitical17BisChoice02Title</Title>
+                    <Description>%EventPolitical17BisChoice02Description</Description>
+                    <Objective Name="Step1_Objective2">%EventPolitical17BisChoice02Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventPolitical17BisChoice03Title</Title>
+                    <Description>%EventPolitical17BisChoice03Description</Description>
+                    <Objective Name="Step1_Objective3">%EventPolitical17BisChoice03Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventPolitical18">
+        <Title>%EventPolitical18Title</Title>
+        <Description>%EventPolitical18Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical18Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventPolitical18Choice01Title</Title>
+                    <Description>%EventPolitical18Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical18Choice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics01">
+                    <Title>%EventPolitical18Choice02Title</Title>
+                    <Description>%EventPolitical18Choice02Description</Description>
+                    <Objective Name="Step2_Objective1">%EventPolitical18Choice02Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+  <QuestGuiElement Name="EventPolitical20">
+    <Title>%EventPolitical20Title</Title>
+    <Description>%EventPolitical20Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical13Large" Size="Quest" />
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet Politics="Politics02">
+          <Title>%EventPolitical20Choice01Title</Title>
+          <Description>%EventPolitical20Choice01Description</Description>
+          <Objective Name="Step1_Objective1">%EventPolitical20Choice01Description</Objective>
+        </ObjectiveSet>
+        <ObjectiveSet Politics="Politics05">
+          <Title>%EventPolitical20Choice02Title</Title>
+          <Description>%EventPolitical20Choice02Description</Description>
+          <Objective Name="Step2_Objective1">%EventPolitical20Choice02Description</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="EventPolitical21">
+    <Title>%EventPolitical21Title</Title>
+    <Description>%EventPolitical21Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventCuriosity14Large" Size="Quest" />
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet Politics="Politics04">
+          <Title>%EventPolitical21Choice01Title</Title>
+          <Description>%EventPolitical21Choice01Description</Description>
+          <Objective Name="Step1_Objective1">%EventPolitical21Choice01Description</Objective>
+        </ObjectiveSet>
+        <ObjectiveSet Politics="Politics01">
+          <Title>%EventPolitical21Choice02Title</Title>
+          <Description>%EventPolitical21Choice02Description</Description>
+          <Objective Name="Step2_Objective1">%EventPolitical21Choice02Description</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="EventPolitical22">
+    <Title>%EventPolitical22Title</Title>
+    <Description>%EventPolitical22Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical22Large" Size="Quest" />
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet Politics="Politics04">
+          <Title>%EventPolitical22Choice01Title</Title>
+          <Description>%EventPolitical22Choice01Description</Description>
+          <Objective Name="Step1_Objective1">%EventPolitical22Choice01Description</Objective>
+        </ObjectiveSet>
+        <ObjectiveSet Politics="Politics01">
+          <Title>%EventPolitical22Choice02Title</Title>
+          <Description>%EventPolitical22Choice02Description</Description>
+          <Objective Name="Step2_Objective1">%EventPolitical22Choice02Description</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+  
+  <QuestGuiElement Name="EventPolitical23">
+    <Title>%EventPolitical23Title</Title>
+    <Description>%EventPolitical23Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical23Large" Size="Quest" />
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet Politics="Politics02">
+          <Title>%EventPolitical23Choice01Title</Title>
+          <Description>%EventPolitical23Choice01Description</Description>
+          <Objective Name="Step1_Objective1">%EventPolitical23Choice01Description</Objective>
+        </ObjectiveSet>
+        <ObjectiveSet Politics="Politics05">
+          <Title>%EventPolitical23Choice02Title</Title>
+          <Description>%EventPolitical23Choice02Description</Description>
+          <Objective Name="Step2_Objective1">%EventPolitical23Choice02Description</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>
+
+  <QuestGuiElement Name="EventPolitical24">
+    <Title>%EventPolitical24Title</Title>
+    <Description>%EventPolitical24Description</Description>
+    <Icons>
+      <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19Large" Size="Quest" />
+    </Icons>
+    <Steps>
+      <Step Name="Step1">
+        <ObjectiveSet Politics="Politics05">
+          <Title>%EventPolitical24Choice01Title</Title>
+          <Description>%EventPolitical24Choice01Description</Description>
+          <Objective Name="Step1_Objective1">%EventPolitical24Choice01Description</Objective>
+        </ObjectiveSet>
+        <ObjectiveSet Politics="Politics02">
+          <Title>%EventPolitical24Choice02Title</Title>
+          <Description>%EventPolitical24Choice02Description</Description>
+          <Objective Name="Step2_Objective1">%EventPolitical24Choice02Description</Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestGuiElement>  
+    
+    <QuestGuiElement Name="ExplorationEvent13">
+        <Title>%ExplorationEvent13Title</Title>
+        <Description>%ExplorationEvent13Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%ExplorationEvent13Choice01Title</Title>
+                    <Description>%ExplorationEvent13Description</Description>
+                    <Objective Name="Step1_Objective1">%ExplorationEvent13Description</Objective>
+                </ObjectiveSet>                
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+  
+  
+</Datatable>

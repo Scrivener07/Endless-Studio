@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/HeroSkillDefinition.xsd">   
+  
+  <!-- Amoeba02 -->
+  <HeroSkillDefinition Name="HeroSkill01Amoeba02">
+      <SkillLevel Name="HeroSkill01Amoeba02_1">
+          <ShipSimulationDescriptorReference Name="HeroSkillShip41_FleetUpkeep_Percent_0"/>
+          <MasteryLevel Class="HeroMasteryCommand" Levels="1"/>
+      </SkillLevel>
+  </HeroSkillDefinition>
+  <HeroSkillDefinition Name="HeroSkill02Amoeba02">
+      <Tags>ColonizedStarSystem</Tags>
+      <SkillLevel Name="HeroSkill02Amoeba02_1">
+          <SystemSimulationDescriptorReference Name="HeroSkillSystem60_Dust_Perpop_0"/>
+          <MasteryLevel Class="HeroMasteryWit" Levels="1"/>
+      </SkillLevel>
+  </HeroSkillDefinition>
+</Datatable>

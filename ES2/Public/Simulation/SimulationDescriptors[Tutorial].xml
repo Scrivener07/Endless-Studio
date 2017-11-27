@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="TutorialModeNone" Type="TutorialMode"/>
+
+    <SimulationDescriptor Name="TutorialModeBeginner" Type="TutorialMode">
+        <Modifier TargetProperty="TutorialLevel" Operation="Force" Value="3" />
+        <Modifier TargetProperty="AdditionalMinimumTurnForQuests" Operation="Addition" Value="20"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TutorialModeAdvanced" Type="TutorialMode">
+        <Modifier TargetProperty="TutorialLevel" Operation="Force" Value="2" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TutorialModeExpert" Type="TutorialMode">
+        <Modifier TargetProperty="TutorialLevel" Operation="Force" Value="1" />
+    </SimulationDescriptor>
+
+</Datatable>

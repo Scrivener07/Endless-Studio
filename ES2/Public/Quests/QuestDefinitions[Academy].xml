@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!-- ##### ACADEMY QUEST 00 BIS - HIDDEN #####-->
+
+    <QuestDefinition Name="AcademyQuest00Bis" Category="AcademyQuest" SubCategory="Academy" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$Players"/>
+
+        <!--============ OCCURENCES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$Players">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$AcademySystem">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite">/ClassStarSystem,WorldAcademy</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_ExploredNode MinimumState="Revealed" Initiator="Participants">
+                                <Input_NodeList VarName="$AcademySystem"/>
+                            </Decorator_ExploredNode>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+
+    <!-- ##### ACADEMY QUEST 00 - HIDDEN #####-->
+
+    <QuestDefinition Name="AcademyQuest00" Category="AcademyQuest" SubCategory="Academy" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextMulti ParticipantsVarName="$Players"/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$Players">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <InterpretedVar VarName="$NumberOfEmpires" Target="$(Participants)">
+                <Expression>Count(Context, @EmpireTypeMajor)</Expression>
+            </InterpretedVar>
+            <Var VarName="$Duration" IntValue="15"/>
+
+            <Var VarName="$AcademySystem">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite">/ClassStarSystem,WorldAcademy</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_Wait>
+                                    <Input_WaitDuration VarName="$Duration"/>
+                                </Decorator_Wait>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ExploredNode MinimumState="Revealed" Initiator="Participants">
+                                    <Input_NodeList VarName="$AcademySystem"/>
+                                </Decorator_ExploredNode>
+                                <Action_Fail/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>AcademyQuest01</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Players"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+
+    <!-- #########################################-->
+    <!-- ######### ACADEMY MULTI QUEST 01 ########-->
+    <!-- #########################################-->
+
+    <QuestDefinition Name="AcademyQuest01" Category="AcademyQuest" SubCategory="Academy">
+
+        <!--============ TAGS ============-->
+        <Tags>AcademyQuest01</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti/>
+
+        <!--============ OCCURENCES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$Players">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <InterpretedVar VarName="$NumberOfEmpires" Target="$(Participants)">
+                <Expression>Count(Context, @EmpireTypeMajor)</Expression>
+            </InterpretedVar>
+            <Var VarName="$Duration" IntValue="5"/>
+            <Var VarName="$AcademySystem">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite">/ClassStarSystem,WorldAcademy</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$CuriosityTypeAtmospheric" StringValue="CuriosityTypeAtmospheric"/>
+            <InterpretedVar VarName="$Minimum">
+                <Expression>Ceil($(Duration)*0.01)</Expression>
+            </InterpretedVar>
+            <LocalizationVar LocalizationKey="$CuriosityAmount" Source="$Duration"/>
+            <LocalizationVar LocalizationKey="$MinimumName" Source="$Minimum"/>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1" StartValue="0" EndValue="5">
+                        <AIHint Category="Minimal"/>
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Loop Count="5">
+                                    <Decorator_CuriosityDiscovered ProgressionIncrement="1" Initiator="Participants">
+                                        <Input_DisplayedType VarName="$CuriosityTypeAtmospheric"/>
+                                    </Decorator_CuriosityDiscovered>
+                                </Loop>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ExploredNode MinimumState="Revealed" Initiator="Participants">
+                                    <Input_NodeList VarName="$AcademySystem"/>
+                                </Decorator_ExploredNode>
+                                <Action_ChooseOutcome Name="Outcome2"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>AcademyQuest02</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Players">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                        <Outcome Name="Outcome2">                           
+                        </Outcome>
+                    </Objective>
+
+                    <!--============ REWARD ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMoney" Picks="1"/>
+                        <Reward Droplist="DroplistPrestige" Picks="1"/>
+                        <Reward Droplist="DroplistStrategics" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+
+    <!-- #########################################-->
+    <!-- ######### ACADEMY MULTI QUEST 02 ########-->
+    <!-- #########################################-->
+
+    <QuestDefinition Name="AcademyQuest02" Category="AcademyQuest" SubCategory="Academy" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>AcademyQuest02</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$Players">
+            <Distribution Type="FreeForAll"></Distribution>
+        </QuestContextMulti>
+
+        <!--============ OCCURENCES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$Players">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <InterpretedVar VarName="$NumberOfEmpires" Target="$(Participants)">
+                <Expression>Count(Context, @EmpireTypeMajor)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$AcademySystem">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite">/ClassStarSystem,WorldAcademy</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$AcademyConstellation">
+                <From Source="$AcademySystem.$Constellation"/>
+            </Var>
+
+            <Var VarName="$AllAcademySystems">
+                <From Source="$AcademyConstellation.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                        <FilterSystemByStatus ColonizationState="NotColonized"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$System01">
+                <Any>
+                    <From Source="$AllAcademySystems">
+                        <Where>
+                            <IsNot EntityVarName="$AcademySystem"/>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+
+            <Var VarName="$System02">
+                <Any>
+                    <From Source="$AllAcademySystems">
+                        <Where>
+                            <IsNot EntityVarName="$AcademySystem"/>
+                            <IsNot EntityVarName="$System01"/>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+
+            <Var VarName="$Marker01"/>
+            <Var VarName="$Marker02"/>
+            <Var VarName="$Marker03"/>
+
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <StartActions>
+                    <Action_AddQuestMarkers>
+                        <Input_Targets VarName="$System01"/>
+                        <Input_Empires VarName="$Players"/>
+                        <Output_Markers VarName="$Marker01"/>
+                    </Action_AddQuestMarkers>
+                    <Action_AddQuestMarkers>
+                        <Input_Targets VarName="$System02"/>
+                        <Input_Empires VarName="$Players"/>
+                        <Output_Markers VarName="$Marker02"/>
+                    </Action_AddQuestMarkers>
+                    <Action_AddQuestMarkers>
+                        <Input_Targets VarName="$AcademySystem"/>
+                        <Input_Empires VarName="$Players"/>
+                        <Output_Markers VarName="$Marker03"/>
+                    </Action_AddQuestMarkers>
+                </StartActions>
+
+                <ObjectiveSet>
+                    
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+
+                        <AIHint Category="Exploration" Motivation="0.6">
+                            <Input_Var VarName="$System01"/>
+                            <Input_Var VarName="$System02"/>
+                            <Input_Var VarName="$AcademySystem"/>
+                        </AIHint>
+                        
+                        <Parallel CompletionPolicy="Any">
+                            
+                        <Sequence>
+                            <Decorator_FleetDocked Initiator="Participants">
+                                <Input_System VarName="$AcademySystem"/>
+                            </Decorator_FleetDocked>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker02"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker03"/>
+                            </Action_RemoveQuestMarkers>
+                        </Sequence>
+
+                        <Sequence>
+                            <Decorator_ExploredNode MinimumState="Revealed" Initiator="Participants">                                
+                                <Input_NodeList VarName="$AcademySystem"/>                                
+                            </Decorator_ExploredNode>                      
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker02"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker03"/>
+                            </Action_RemoveQuestMarkers>
+                        </Sequence>
+                            
+                        </Parallel>
+                    </Objective>
+
+                    <!--============ REWARD ============-->
+                    <Reward Droplist="DroplistMultiDust" Picks="1"/>
+
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!-- #########################################-->
+    <!-- ####### ACADEMY MULTI QUEST 03 - A ######-->
+    <!-- #########################################-->
+
+    <QuestDefinition Name="AcademyQuest03-A-Coop" Category="AcademyQuest" SubCategory="Academy" MinimumTurn="100">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$LivingEmpires"/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$LivingEmpires">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor,!EmpireEliminated</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <InterpretedVar VarName="$NumberOfLivingEmpires" Target="$(Participants)">
+                <Expression>Count(Context, @'EmpireTypeMajor,!EmpireEliminated')</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$QuestEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+
+            <!--Academy System-->
+            <Var VarName="$AcademySystem">
+                <Any>
+                    <From Source="$Constellations.$StarSystems">
+                        <Where>
+                            <PathPrerequisite Flags="Prerequisite">WorldAcademy</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+
+            <Var VarName="$AcademyConstellation">
+                <From Source="$AcademySystem.$Constellation"/>
+            </Var>
+            <!--Systems must not be isolated-->
+            <Var VarName="$AcademyConstellationStarSystems">
+                <From Source="$AcademyConstellation.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem,!IsolatedNode,!QuestNode,!WorldAcademy</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Nearby systems where to spawn the other quest fleets-->
+            <Var VarName="$SortedCandidateSystems">
+                <From Source="$AcademyConstellationStarSystems">
+                    <OrderBy>
+                        <SortSystemByDistance OriginVarName="$AcademySystem" SortBy="Farthest" MinimumDistance="1" MaximumDistance="5" MinimumCandidateCount="2"/>
+                    </OrderBy>
+                </From>
+            </Var>
+
+            <Var VarName="$Count1" IntValue="2"/>
+            <InterpretedVar VarName="$Count2">
+                <Expression>Clamp($(NumberOfLivingEmpires), 3, 7)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$FleetObjective">
+                <Expression>$(Count1) + $(Count2)</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$FleetAmount" Source="$FleetObjective"/>
+
+            <Var VarName="$FleetGroup1GUIDs"/>
+            <Var VarName="$FleetGroup2GUIDs"/>
+
+            <Var VarName="$FleetMission_A" StringValue="DefendSystem"/>
+            <Var VarName="$FleetMission_B" StringValue="RoamAndAttack"/>
+
+            <Var VarName="$MarkerAcademySystem01"/>
+            <Var VarName="$FleetGroup1Markers"/>
+            <Var VarName="$FleetGroup2Markers"/>
+
+            <Var VarName="$DroplistName" StringValue="DroplistShip-AcademyQuest03-A-Coop"/>
+
+            <Var VarName="$Timer"/>
+
+            <Var VarName="$GameSpeed">
+                <From Source="$GameSpeedMultiplier"/>
+            </Var>
+
+            <InterpretedVar VarName="$Duration">
+                <Expression>20 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$PoliticalEffect" StringValue="PopulationEventAcademyQuest03-A-Coop_Militarist"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empires)" AnyTarget="true">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="AcademyQuest03-B-Coop" QuestState="NotStarted"/>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="AcademyQuest00Bis" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="GlobalQuest04-Coop" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="GlobalQuest04-Coop" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$LivingEmpires"/>
+                            <Input_Target VarName="$LivingEmpires"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffect"/>
+                        </Action_TriggerPopulationEvent>
+
+                        <!--Timer started-->
+                        <Action_StartTimer>
+                            <Input_Duration VarName="$Duration"/>
+                            <Output_Timer VarName="$Timer"/>
+                        </Action_StartTimer>
+
+                        <!--Academy System revealed and marked-->
+                        <Action_AddQuestMarkers RevealsLocation="true">
+                            <Input_Targets VarName="$AcademySystem"/>
+                            <Input_Empires VarName="$LivingEmpires"/>
+                            <Output_Markers VarName="$MarkerAcademySystem01"/>
+                        </Action_AddQuestMarkers>
+
+                        <!--2 enemy fleets spawn on Academy System to defend-->
+                        <Action_SpawnFleets LockShipsInTheFleet="true">
+                            <Input_Empire VarName="$QuestEmpire"/>
+                            <Input_Locations VarName="$AcademySystem"/>
+                            <Input_DroplistName VarName="$DroplistName"/>
+                            <Input_Count VarName="$Count1"/>
+                            <Output_FleetGUIDs VarName="$FleetGroup1GUIDs"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMission_A"/>
+                            <Input_FleetGUIDs VarName="$FleetGroup1GUIDs"/>
+                        </Action_CreateFleetMissions>
+                        <Action_AddQuestMarkers>
+                            <Input_TargetGUIDs VarName="$FleetGroup1GUIDs"/>
+                            <Input_Empires VarName="$QuestEmpire"/>
+                            <Output_Markers VarName="$FleetGroup1Markers"/>
+                        </Action_AddQuestMarkers>
+
+                        <!--Various enemy fleets spawn on various Systems to attack major empires-->
+                        <Action_SpawnFleets LockShipsInTheFleet="true">
+                            <Input_Empire VarName="$QuestEmpire"/>
+                            <Input_Locations VarName="$SortedCandidateSystems"/>
+                            <Input_DroplistName VarName="$DroplistName"/>
+                            <Input_Count VarName="$Count2"/>
+                            <Output_FleetGUIDs VarName="$FleetGroup2GUIDs"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMission_B"/>
+                            <Input_FleetGUIDs VarName="$FleetGroup2GUIDs"/>
+                        </Action_CreateFleetMissions>
+                        <Action_AddQuestMarkers>
+                            <Input_TargetGUIDs VarName="$FleetGroup2GUIDs"/>
+                            <Input_Empires VarName="$QuestEmpire"/>
+                            <Output_Markers VarName="$FleetGroup2Markers"/>
+                        </Action_AddQuestMarkers>
+
+                    </StartActions>
+
+                    <!--===== QUEST OBJECTIVE: Destroy all the rebels fleets in the Academy system constellation =====-->
+                    <Objective Name="Objective" StartValue="0" EndValue="$FleetObjective">
+                        <!--<AIHint Category="DestroyFleet" Motivation="0.7">
+                            <Input_Var VarName="$FleetGroup1GUIDs"/>
+                            <Input_Var VarName="$FleetGroup2GUIDs"/>
+                        </AIHint>-->
+                        <Sequence>
+
+                            <Parallel CompletionPolicy="First">
+
+                                <!--Check that empires have destroyed all the rebel fleets-->
+                                <Sequence>
+                                    <Loop>
+                                        <Parallel CompletionPolicy="Any">
+
+                                            <Sequence>
+                                                <Decorator_BattleEnded Status="Won" ProgressionIncrement="1" Initiator="Participants">
+                                                    <Condition_BattleEnded_FleetDestroyed>
+                                                        <Input_FleetGUIDs VarName="$FleetGroup1GUIDs"/>
+                                                    </Condition_BattleEnded_FleetDestroyed>
+                                                </Decorator_BattleEnded>
+                                            </Sequence>
+
+                                            <Sequence>
+                                                <Decorator_BattleEnded Status="Won" ProgressionIncrement="1" Initiator="Participants">
+                                                    <Condition_BattleEnded_FleetDestroyed>
+                                                        <Input_FleetGUIDs VarName="$FleetGroup2GUIDs"/>
+                                                    </Condition_BattleEnded_FleetDestroyed>
+                                                </Decorator_BattleEnded>
+                                            </Sequence>
+
+                                        </Parallel>
+                                        <Input_Count VarName="$FleetObjective"/>
+                                    </Loop>
+
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$MarkerAcademySystem01"/>
+                                    </Action_RemoveQuestMarkers>
+
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$FleetGroup1Markers"/>
+                                    </Action_RemoveQuestMarkers>
+
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$FleetGroup2Markers"/>
+                                    </Action_RemoveQuestMarkers>
+
+                                    <Action_ChooseOutcome Name="Outcome1"/>
+                                </Sequence>
+
+                                <!--Check that Timer is ended-->
+                                <Sequence>
+                                    <Decorator_BeginTurn>
+                                        <Condition_TimerEnded>
+                                            <Input_Timer VarName="$Timer"/>
+                                        </Condition_TimerEnded>
+                                    </Decorator_BeginTurn>
+
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$MarkerAcademySystem01"/>
+                                    </Action_RemoveQuestMarkers>
+
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$FleetGroup1Markers"/>
+                                    </Action_RemoveQuestMarkers>
+
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$FleetGroup2Markers"/>
+                                    </Action_RemoveQuestMarkers>
+
+                                    <Action_ChooseOutcome Name="Outcome1"/>
+
+                                    <Action_Fail/>
+                                </Sequence>
+
+                            </Parallel>
+
+                        </Sequence>
+
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>AcademyQuest04-A-Compet</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>AcademyQuest04-B-Compet</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMultiDust" Picks="1"/>
+                        <Reward Droplist="DroplistMultiStrategics" Picks="1"/>
+                        <Reward Droplist="DroplistMultiInfluence" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!-- #########################################-->
+    <!-- ####### ACADEMY MULTI QUEST 03 - B ######-->
+    <!-- #########################################-->
+
+    <QuestDefinition Name="AcademyQuest03-B-Coop" Category="AcademyQuest" SubCategory="Academy" MinimumTurn="100">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$LivingEmpires">
+                <From Source="$Participants"/>
+            </Var>
+
+            <Var VarName="$Expression" StringValue="SumProperty(Context, @'EmpireTypeMajor/ClassPopulation,PopulationNonMajor',PopulationCount)"/>
+
+            <InterpretedVar VarName="$StartAmount" Target="$(Participants)">
+                <Expression>SumProperty(Context, @'EmpireTypeMajor/ClassPopulation,PopulationNonMajor',PopulationCount)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$GoalToReach">
+                <Expression>Max($(StartAmount) * 2,10)</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$PopulationAmount" Source="$GoalToReach"/>
+
+            <Var VarName="$Timer"/>
+
+            <Var VarName="$GameSpeed">
+                <From Source="$GameSpeedMultiplier"/>
+            </Var>
+
+            <InterpretedVar VarName="$Duration">
+                <Expression>20 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$PoliticalEffect" StringValue="PopulationEventAcademyQuest03-B-Coop_Ecologist"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empires)" AnyTarget="true">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="AcademyQuest03-A-Coop" QuestState="NotStarted"/>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="AcademyQuest00Bis" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+
+                    <StartActions>
+
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$LivingEmpires"/>
+                            <Input_Target VarName="$LivingEmpires"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffect"/>
+                        </Action_TriggerPopulationEvent>
+
+                        <Action_StartTimer>
+                            <Input_Duration VarName="$Duration"/>
+                            <Output_Timer VarName="$Timer"/>
+                        </Action_StartTimer>
+
+                    </StartActions>
+
+                    <!--===== QUEST OBJECTIVE: Ensure that the Dust production in the galaxy reaches a sertain amount =====-->
+                    <Objective Name="Objective" StartValue="$StartAmount" EndValue="$GoalToReach">
+                        <Sequence>
+
+                            <Action_ChooseOutcome Name="Outcome1"/>
+
+                            <!--Set the progression start value of all participants-->
+                            <Action_SetComparativeProgress SetProgressStart="true" ProgressCalculation="Sum">
+                                <Input_Empires VarName="$LivingEmpires"/>
+                                <Input_Expression VarName="$Expression"/>
+                            </Action_SetComparativeProgress>
+
+                            <Parallel CompletionPolicy="First">
+
+                                <Loop Count="10000000">
+                                    <!--Set the progression of all participants-->
+                                    <Action_SetComparativeProgress ProgressCalculation="Sum">
+                                        <Input_Empires VarName="$LivingEmpires"/>
+                                        <Input_Expression VarName="$Expression"/>
+                                    </Action_SetComparativeProgress>
+                                    <Parallel CompletionPolicy="First">
+                                        <Decorator_BeginTurn/>
+                                        <Decorator_MinorEmpireIntegrated Initiator="Participants"/>
+                                        <Decorator_CuriosityDiscovered Initiator="Participants"/>
+                                        <Decorator_PopulationGained Initiator="Participants"/>
+                                    </Parallel>
+                                </Loop>
+
+                                <Decorator_BeginTurn>
+                                    <Condition_IsProgressionComplete/>
+                                </Decorator_BeginTurn>
+
+                                <Decorator_MinorEmpireIntegrated Initiator="Participants">
+                                    <Condition_IsProgressionComplete/>
+                                </Decorator_MinorEmpireIntegrated>
+
+                                <Decorator_CuriosityDiscovered Initiator="Participants">
+                                    <Condition_IsProgressionComplete/>
+                                </Decorator_CuriosityDiscovered>
+
+                                <Decorator_PopulationGained Initiator="Participants">
+                                    <Condition_IsProgressionComplete/>
+                                </Decorator_PopulationGained>
+
+                                <Sequence>
+                                    <Decorator_BeginTurn>
+                                        <Condition_TimerEnded>
+                                            <Input_Timer VarName="$Timer"/>
+                                        </Condition_TimerEnded>
+                                    </Decorator_BeginTurn>
+                                    <Action_Fail/>
+                                </Sequence>
+
+                            </Parallel>
+
+                        </Sequence>
+
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>AcademyQuest04-A-Compet</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>AcademyQuest04-B-Compet</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMultiDust" Picks="1"/>
+                        <Reward Droplist="DroplistMultiStrategics" Picks="1"/>
+                        <Reward Droplist="DroplistMultiInfluence" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+
+
+    <!-- #########################################-->
+    <!-- ####### ACADEMY MULTI QUEST 04 - A ######-->
+    <!-- #########################################-->
+
+    <QuestDefinition Name="AcademyQuest04-A-Compet" Category="AcademyQuest" SubCategory="Academy">
+
+        <!--============ TAGS ============-->
+        <Tags>AcademyQuest04-A-Compet</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti>
+            <Distribution Type="FreeForAll"></Distribution>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <!-- Not needed: code removes eliminated empires by itself -->
+            <Var VarName="$LivingEmpires">
+                <From Source="$Participants"/>
+            </Var>
+
+            <Var VarName="$Expression" StringValue="Property(Context, @'EmpireTypeMajor',Happiness)"/>
+
+            <Var VarName="$Timer"/>
+
+            <Var VarName="$GameSpeed">
+                <From Source="$GameSpeedMultiplier"/>
+            </Var>
+
+            <InterpretedVar VarName="$Duration">
+                <Expression>20 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$DurationBeforeWarning">
+                <Expression>16 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$PoliticalEffect" StringValue="PopulationEventAcademyQuest04-A-Compet_Industrialist"/>
+
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+
+                <StartActions>
+                    <Action_TriggerPopulationEvent>
+                        <Input_Empire VarName="$LivingEmpires"/>
+                        <Input_Target VarName="$LivingEmpires"/>
+                        <Input_PopulationEventDefinition VarName="$PoliticalEffect"/>
+                    </Action_TriggerPopulationEvent>
+                    <Action_StartTimer>
+                        <Input_Duration VarName="$Duration"/>
+                        <Output_Timer VarName="$Timer"/>
+                    </Action_StartTimer>
+                </StartActions>
+
+                <ObjectiveSet>
+                    <Vars>
+                        <Var VarName="$CurrentEmpire">
+                            <From Source="$Team"/>
+                        </Var>
+                    </Vars>
+
+                    <!--===== QUEST OBJECTIVE: At the end of the timer make sure you have the highest empire Happiness =====-->
+                    <Objective Name="Objective">
+                        <Sequence>
+                            <Parallel CompletionPolicy="All">
+
+                                <Sequence>
+                                    <Loop>
+                                        <Decorator_BeginTurn/>
+                                        <Input_Count VarName="$DurationBeforeWarning"/>
+                                    </Loop>
+                                    <Action_CompetitiveQuestWarning>
+                                        <Input_Timer VarName="$Timer"/>
+                                    </Action_CompetitiveQuestWarning>
+                                </Sequence>
+
+                                <Parallel CompletionPolicy="Any">
+                                    <Loop Count="10000000">
+                                        <Action_SetComparativeProgress SetProgressEndAsBestValue="true">
+                                            <Input_Empires VarName="$LivingEmpires"/>
+                                            <Input_Expression VarName="$Expression"/>
+                                        </Action_SetComparativeProgress>
+                                        <Decorator_BeginTurn/>
+                                    </Loop>
+
+                                    <Sequence>
+                                        <Decorator_BeginTurn>
+                                            <Condition_TimerEnded>
+                                                <Input_Timer VarName="$Timer"/>
+                                            </Condition_TimerEnded>
+                                            <Condition_IsProgressionComplete/>
+                                        </Decorator_BeginTurn>
+                                    </Sequence>
+                                </Parallel>
+
+                            </Parallel>
+
+                            <Action_ChooseOutcome Name="Outcome1"/>
+
+                        </Sequence>
+
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>MetaplotQuest-TeamPlay-Chapter1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+
+                    </Objective>
+
+                    <Reward Droplist="DroplistMultiDust" Picks="1"/>
+                    <Reward Droplist="DroplistMultiScience" Picks="1"/>
+
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+
+
+
+    <!-- #########################################-->
+    <!-- ####### ACADEMY MULTI QUEST 04 - B ######-->
+    <!-- #########################################-->
+
+    <QuestDefinition Name="AcademyQuest04-B-Compet" Category="AcademyQuest" SubCategory="Academy">
+
+        <!--============ TAGS ============-->
+        <Tags>AcademyQuest04-B-Compet</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+            <Distribution Type="FreeForAll"></Distribution>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$LivingEmpires">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor,!EmpireEliminated</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$Expression" StringValue="MaxProperty(Context, @'EmpireTypeMajor/DepartmentOfCommerce/ClassTradingCompany',EmpireMoney)"/>
+
+            <Var VarName="$Timer"/>
+
+            <Var VarName="$GameSpeed">
+                <From Source="$GameSpeedMultiplier"/>
+            </Var>
+
+            <InterpretedVar VarName="$Duration">
+                <Expression>20 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$DurationBeforeWarning">
+                <Expression>16 * $(GameSpeed)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$PoliticalEffect" StringValue="PopulationEventAcademyQuest04-B-Compet_Pacifist"/>
+
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+
+                <StartActions>
+
+                    <Action_TriggerPopulationEvent>
+                        <Input_Empire VarName="$LivingEmpires"/>
+                        <Input_Target VarName="$LivingEmpires"/>
+                        <Input_PopulationEventDefinition VarName="$PoliticalEffect"/>
+                    </Action_TriggerPopulationEvent>
+
+                    <Action_StartTimer>
+                        <Input_Duration VarName="$Duration"/>
+                        <Output_Timer VarName="$Timer"/>
+                    </Action_StartTimer>
+
+                </StartActions>
+
+                <ObjectiveSet>
+
+                    <Vars>
+                        <Var VarName="$CurrentEmpire">
+                            <From Source="$Team"/>
+                        </Var>
+                    </Vars>
+
+                    <!--===== QUEST OBJECTIVE: At the end of the timer make sure you have the Trade Company producing the most of Dust =====-->
+                    <Objective Name="Objective">
+
+                        <AIHint Category="MaximizeTradeCompagny" Motivation="0.5">
+                            <Resource>Industry</Resource>
+                        </AIHint>
+
+                        <Sequence>
+                            <Parallel CompletionPolicy="All">
+
+                                <Sequence>
+                                    <Loop>
+                                        <Decorator_BeginTurn/>
+                                        <Input_Count VarName="$DurationBeforeWarning"/>
+                                    </Loop>
+                                    <Action_CompetitiveQuestWarning>
+                                        <Input_Timer VarName="$Timer"/>
+                                    </Action_CompetitiveQuestWarning>
+                                </Sequence>
+
+                                <Parallel CompletionPolicy="Any">
+
+                                    <Loop Count="10000000">
+                                        <Action_SetComparativeProgress SetProgressEndAsBestValue="true">
+                                            <Input_Empires VarName="$LivingEmpires"/>
+                                            <Input_Expression VarName="$Expression"/>
+                                        </Action_SetComparativeProgress>
+                                        <Decorator_BeginTurn/>
+                                    </Loop>
+
+                                    <Sequence>
+                                        <Decorator_BeginTurn>
+                                            <Condition_TimerEnded>
+                                                <Input_Timer VarName="$Timer"/>
+                                            </Condition_TimerEnded>
+                                            <Condition_IsProgressionComplete/>
+                                        </Decorator_BeginTurn>
+                                    </Sequence>
+
+                                </Parallel>
+
+                            </Parallel>
+
+                            <Action_ChooseOutcome Name="Outcome1"/>
+
+                        </Sequence>
+
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>MetaplotQuest-TeamPlay-Chapter1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+
+                    <Reward Droplist="DroplistMultiInfluence" Picks="1"/>
+                    <Reward Droplist="DroplistMultiScience" Picks="1"/>
+
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+</Datatable>

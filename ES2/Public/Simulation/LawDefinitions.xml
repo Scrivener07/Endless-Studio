@@ -1,0 +1,1631 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/LawDefinition.xsd">
+
+    <!-- TODO: DEBUG -->
+
+    <!-- Note: Effects should only be given in the LawEffects. Do NOT reference descriptors in both Effects and at the end of the definition -->
+
+    <!--<LawDefinition Name="LawDebug01" SubCategory="LawPolitics02" Forced="true">
+        <Politics Name="Politics02"/>
+        <PathPrerequisite Flags="Prerequisite" Inverted="true">../ClassSenate/LawP02L01</PathPrerequisite>
+    </LawDefinition>
+
+    <LawDefinition Name="LawDebug02" SubCategory="LawPolitics02" Duration="2">
+        <Politics Name="Politics02"/>
+        <Cost ResourceName="EmpireEmpirePoint">100</Cost>
+        <Cost ResourceName="EmpireMoney">50</Cost>
+        <PathPrerequisite Flags="Prerequisite" Inverted="true">../ClassSenate/LawP02L01</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawDebug02"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawDebug03" SubCategory="LawPolitics02" Duration="2">
+        <Politics Name="Politics02"/>
+        <Cost ResourceName="EmpireEmpirePoint">100</Cost>
+        <Cost ResourceName="EmpireMoney">50</Cost>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">5</SupportPrerequisite>
+        <SimulationDescriptorReference Name="LawDebug03"/>
+    </LawDefinition>-->
+
+    <!-- POLITICS 01 -->
+
+
+    <!-- INDUSTRIALIST -->
+    <LawDefinition Name="LawP01L00" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics01"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics01,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/> <!-- Free -->
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L00Republic" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics01"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L00Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics01,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">0</PoliticsExperiencePrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+        <!-- Free -->
+    </LawDefinition>
+
+
+    <LawDefinition Name="LawP01L01" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" >
+        <Politics Name="Politics01"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,!AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">0</PoliticsExperiencePrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L01Vampirilis" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" > 
+        <Politics Name="Politics01"/>
+    <LawEffectSimulation>
+        <SimulationDescriptorReference Name="LawEffectP01L01Vampirilis" />
+    </LawEffectSimulation>
+    <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+    <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+    <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+    <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+    <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">0</PoliticsExperiencePrerequisite>
+    <SimulationDescriptorReference Name="LawPolitics01"/>
+    <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L01Republic" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" >
+        <Politics Name="Politics01"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,!AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">0</PoliticsExperiencePrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L01VampirilisRepublic" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" >
+        <Politics Name="Politics01"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L01VampirilisRepublic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">0</PoliticsExperiencePrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <!-- "Expand Production Budget" - Increase production but lower growth and science -->
+    <LawDefinition Name="LawP01L02" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1">
+        <Politics Name="Politics01"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L02Republic" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1">
+        <Politics Name="Politics01"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <!-- "Centralize Efforts" - Reduce Building Cost, but increase outpost growth -->
+    <LawDefinition Name="LawP01L03" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1">
+        <Politics Name="Politics01"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">9</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L03Republic" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1">
+        <Politics Name="Politics01"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L03Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L04" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1">
+        <!-- TODO : ai gain for militaryshipstats (loss in this case) -->
+        <Politics Name="Politics01"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP01L04Republic" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1">
+        <!-- TODO : ai gain for militaryshipstats (loss in this case) -->
+        <Politics Name="Politics01"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+
+
+    <!-- Venetians: Industrialist law-->
+    <LawDefinition Name="LawP01QuestVenetians05" SubCategory="LawPolitics01" ScoreProvider="IndustrialistLawEnacted" Duration="1" >
+        <Politics Name="Politics01"/>        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01QuestVenetians05" />
+        </LawEffectSimulation>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestVenetians05</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>        
+
+    <!-- SCIENTISTS -->
+    <LawDefinition Name="LawP02L00" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics02"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics02,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L00Republic" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics02"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L00Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics02,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!-- "Expand Production Budget" - Increase production but lower growth and science -->
+    <LawDefinition Name="LawP02L02" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1">
+        <Politics Name="Politics02"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L02Republic" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1">
+        <Politics Name="Politics02"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L01" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1" >
+        <!-- AI Gain: Need explo gain -->
+        <Politics Name="Politics02"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L01Republic" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1" >
+        <!-- AI Gain: Need explo gain -->
+        <Politics Name="Politics02"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+
+
+    <!-- "Centralize Efforts" - Reduce Building Cost, but increase outpost growth -->
+    <LawDefinition Name="LawP02L03" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1">
+        <Politics Name="Politics02"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L03Republic" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1">
+        <Politics Name="Politics02"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L03Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L04" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1">
+        <Politics Name="Politics02"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP02L04Republic" SubCategory="LawPolitics02" ScoreProvider="ScientistLawEnacted" Duration="1">
+        <Politics Name="Politics02"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <!-- PACIFISTS -->
+    <LawDefinition Name="LawP03L00" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics03"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate,!GovernmentRepublic/ClassSenator,Politics03,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L00Republic" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics03"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L00" /> <!-- for Forced Peace -->
+            <SimulationDescriptorReference Name="LawEffectP03L00Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics03,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!-- "Centralize Efforts" - Reduce Building Cost, but increase outpost growth -->
+    <LawDefinition Name="LawP03L03" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics03"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L03Republic" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics03"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L03Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+
+
+    <!-- "Expand Production Budget" - Increase production but lower growth and science -->
+    <LawDefinition Name="LawP03L02" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics03"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L02Republic" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics03"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L01" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1" >
+        <Politics Name="Politics03"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">9</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L01Republic" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1" >
+        <Politics Name="Politics03"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">9</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L04" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics03"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+ 
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP03L04Republic" SubCategory="LawPolitics03" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics03"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+ 
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+
+    <!-- ECOLOGISTS -->
+    <LawDefinition Name="LawP04L00" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics04"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics04,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP04L00Republic" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics04"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L00Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics04,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP04L01" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1" >
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+    
+
+    <LawDefinition Name="LawP04L01Republic" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1" >
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+
+    <LawDefinition Name="LawP04L02" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1">
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP04L02Republic" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1">
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+
+    <LawDefinition Name="LawP04L03" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1">
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">9</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP04L03Republic" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1">
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L03Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">9</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP04L04" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1">
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP04L04Republic" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1">
+        <Politics Name="Politics04"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <!--Venetians Quest -->
+    <LawDefinition Name="LawP03QuestVenetians04" SubCategory="LawPolitics04" ScoreProvider="EcologistLawEnacted" Duration="1" >
+        <Politics Name="Politics04"/>        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03QuestVenetians04" />
+        </LawEffectSimulation>       
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestVenetians04</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">0</PoliticsExperiencePrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <!-- RELIGIOUS -->
+    <LawDefinition Name="LawP05L00" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics05"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics05,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L00Republic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics05"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics05,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+
+
+    <!-- "Expand Production Budget" - Increase production but lower growth and science -->
+    <LawDefinition Name="LawP05L02" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L02Republic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L02Vampirilis" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L02Vampirilis" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L02VampirilisRepublic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L02VampirilisRepublic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L01" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1" >
+        <Politics Name="Politics05"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L01Republic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1" >
+        <Politics Name="Politics05"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+    </LawDefinition>
+
+    <!-- "Centralize Efforts" - Reduce Building Cost, but increase outpost growth -->
+    <LawDefinition Name="LawP05L03" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L03Republic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L03Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L04" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L04Republic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L04Vampirilis" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L04VampirilisCommon" />
+            <SimulationDescriptorReference Name="LawEffectP05L04Vampirilis" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP05L04VampirilisRepublic" SubCategory="LawPolitics05" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics05"/>
+
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L04VampirilisCommon" />
+            <SimulationDescriptorReference Name="LawEffectP05L04VampirilisRepublic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+    </LawDefinition>
+
+    <!-- MILITARISTS -->
+    <LawDefinition Name="LawP06L00" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics06"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L00" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics06,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L00Republic" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1" Forced="true" >
+        <Politics Name="Politics06"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L00Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,PrimeSenator">ClassSenate/ClassSenator,Politics06,PrimeSenator</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">0</PoliticsExperiencePrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L01" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1" >
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L01Republic" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1" >
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">0</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel1"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L02" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+        
+        <BattleActionReference Name="Group_ComputeScienceGain"/>
+        <BattleActionReference Name="Group_ComputeDustGain"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L02Republic" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 2 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel2"/>
+        
+        <BattleActionReference Name="Group_ComputeScienceGainRepublic"/>
+        <BattleActionReference Name="Group_ComputeDustGainRepublic"/>
+    </LawDefinition>
+
+    <!-- "Centralize Efforts" - Reduce Building Cost, but increase outpost growth -->
+    <LawDefinition Name="LawP06L03" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L03Republic" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L03Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 3 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel3"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L04" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">15</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+     
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+
+    </LawDefinition>
+
+    <LawDefinition Name="LawP06L04Republic" SubCategory="LawPolitics06" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics06"/>
+        
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">15</PoliticsExperiencePrerequisite>
+        
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 4 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+ 
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel4"/>
+
+    </LawDefinition>
+
+
+    <!-- POLITICS 00 -->
+    <!-- Law 1 -->
+    <LawDefinition Name="LawP00L01" SubCategory="LawPolitics00" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L01" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L01Republic" SubCategory="LawPolitics00" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L01Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!-- Law 7 -->
+    <LawDefinition Name="LawP00L07" SubCategory="LawPolitics00" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L07" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L07Republic" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L07Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!-- Law 5 -->
+    <LawDefinition Name="LawP00L05" SubCategory="LawPolitics00" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L05" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L05Republic" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L05Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    
+    <!-- Law 4 -->
+    <LawDefinition Name="LawP00L04" SubCategory="LawPolitics00" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L04" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">3</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L04Republic" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L04Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">3</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!-- Law 3 -->
+    <LawDefinition Name="LawP00L03" SubCategory="LawPolitics00" ScoreProvider="PacifistLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L03" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">9</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L03Republic" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L03Republic" />
+        </LawEffectSimulation>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">9</PoliticsExperiencePrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+   
+
+    <!-- Law 6 -->
+    <LawDefinition Name="LawP00L06" SubCategory="LawPolitics00" ScoreProvider="ReligiousLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L06" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic,!GovernmentDictatorshipCommon</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L06Republic" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L06Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L06Dictatorship" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L06Dictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentDictatorshipCommon</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">9</PoliticsExperiencePrerequisite>
+
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!-- Law 2 -->
+    <LawDefinition Name="LawP00L02" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L02" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,!GovernmentRepublic,!GovernmentDictatorshipCommon</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L02Republic" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L02Republic" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00L02Dictatorship" SubCategory="LawPolitics00" ScoreProvider="MilitaristLawEnacted" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L02Dictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government">ClassSenate,GovernmentDictatorshipCommon</PathPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics00">15</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+
+
+    <!-- FACTION LAW SOPHONS: Military -->
+    <LawDefinition Name="LawP00QuestSophons08" SubCategory="LawPolitics00" Duration="1">
+        <Politics Name="Politics00"/>  
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L08-QuestSophons" />
+        </LawEffectSimulation>
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestSophons08</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+   
+
+    <!-- NEUTRAL LAW SOPHONS: Science -->
+    <LawDefinition Name="LawP00QuestSophons09" SubCategory="LawPolitics00" Duration="1" > 
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L09-QuestSophons" />
+        </LawEffectSimulation>
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestSophons09</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+    <!-- NEUTRAL LAW SOPHONS: Diplomacy -->
+    <LawDefinition Name="LawP00QuestSophons10" SubCategory="LawPolitics00" Duration="1" >
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L10-QuestSophons"/>
+        </LawEffectSimulation>
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestSophons10</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+    <!-- FACTION LAW TimeLords: Pacifist -->
+    <LawDefinition Name="LawP00QuestTimeLords01" SubCategory="LawPolitics00" Duration="1">       
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L01-QuestTimeLords" />
+        </LawEffectSimulation>
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords03</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+    <!-- FACTION LAW TimeLords: Industrialist -->
+    <LawDefinition Name="LawP00QuestTimeLords02" SubCategory="LawPolitics00" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L02-QuestTimeLords" />
+        </LawEffectSimulation>
+        <PathPrerequisite           Inverted="false"    Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords04</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+    
+	<!--####################################-->
+	<!--#### POPULATION COLLECTION LAWS ####-->
+	<!--####################################-->
+	<LawDefinition Name="LawP00PopulationCollectionHaroshems" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L11-PopulationCollectionHaroshems"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusHaroshems3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+	
+	<LawDefinition Name="LawP00PopulationCollectionBenthys" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L12-PopulationCollectionBenthys"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusBenthys3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionBots" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L13-PopulationCollectionBots"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusBots3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionDeuyivans" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L14-PopulationCollectionDeuyivans"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusDeuyivans3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionHisshos" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L15-PopulationCollectionHisshos"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusHisshos3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionMavros" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L16-PopulationCollectionMavros"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusMavros3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionAmoeba" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L17-PopulationCollectionAmoeba"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusAmoeba3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionPilgrims" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L18-PopulationCollectionPilgrims"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusPilgrims3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+	<LawDefinition Name="LawP00PopulationCollectionZvali" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L19-PopulationCollectionZvali"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusZvali3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+	
+	<LawDefinition Name="LawP00PopulationCollectionEyders" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L20-PopulationCollectionEyders"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusEyders3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+	
+	<LawDefinition Name="LawP00PopulationCollectionNiris" SubCategory="LawPolitics00" Duration="1">
+		<Politics Name="Politics00"/>
+		<LawEffectSimulation>
+			<SimulationDescriptorReference Name="LawEffectP00L21-PopulationCollectionNiris"/>
+		</LawEffectSimulation>
+		<PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusNiris3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+		<SimulationDescriptorReference Name="LawPolitics00"/>
+	</LawDefinition>
+
+    <LawDefinition Name="LawP00PopulationCollectionRemnant" SubCategory="LawPolitics00" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L22-PopulationCollectionRemnant"/>
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusRemnant3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00PopulationCollectionPulsos" SubCategory="LawPolitics00" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L23-PopulationCollectionPulsos"/>
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusPulsos3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00PopulationCollectionGreenman" SubCategory="LawPolitics00" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L26-PopulationCollectionGreenman"/>
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusGreenman3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+    <LawDefinition Name="LawP00PopulationCollectionGuardians" SubCategory="LawPolitics00" Duration="1">
+        <Politics Name="Politics00"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP00L24-PopulationCollectionGuardians"/>
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassPopulationEmpire,PopulationCollectionBonusGuardians3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics00"/>
+    </LawDefinition>
+
+
+    <!--DICTATORSHIP PROPAGANDA-->
+    <!--Industrialist-->
+    <LawDefinition Name="LawP01L00PropagandaDictatorship" SubCategory="LawPolitics01" Duration="1" Forced="false" >
+        <Politics Name="Politics01"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP01L00PropagandaDictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">FALSE</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentEmpire</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentDemocracy</PathPrerequisite>
+        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics01">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics01">1</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics01"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+    
+    <!--Scientist-->
+    <LawDefinition Name="LawP02L00PropagandaDictatorship" SubCategory="LawPolitics02" Duration="1" Forced="false" >
+        <Politics Name="Politics02"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP02L00PropagandaDictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">FALSE</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentEmpire</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentDemocracy</PathPrerequisite>        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics02">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics02">1</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics02"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!--Pacifist-->
+    <LawDefinition Name="LawP03L00PropagandaDictatorship" SubCategory="LawPolitics03" Duration="1" Forced="false" >
+        <Politics Name="Politics03"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP03L00PropagandaDictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">FALSE</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentEmpire</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentDemocracy</PathPrerequisite>        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics03">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics03">1</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics03"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!--Ecologist-->
+    <LawDefinition Name="LawP04L00PropagandaDictatorship" SubCategory="LawPolitics04" Duration="1" Forced="false" >
+        <Politics Name="Politics04"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP04L00PropagandaDictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">FALSE</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentEmpire</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentDemocracy</PathPrerequisite>        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics04">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics04">1</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics04"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!--Religious-->
+    <LawDefinition Name="LawP05L00PropagandaDictatorship" SubCategory="LawPolitics05" Duration="1" Forced="false" >
+        <Politics Name="Politics05"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP05L00PropagandaDictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">FALSE</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentEmpire</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentDemocracy</PathPrerequisite>        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics05">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics05">1</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics05"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+    <!--Militarist-->
+    <LawDefinition Name="LawP06L00PropagandaDictatorship" SubCategory="LawPolitics06" Duration="1" Forced="false" >
+        <Politics Name="Politics06"/>
+        <LawEffectSimulation>
+            <SimulationDescriptorReference Name="LawEffectP06L00PropagandaDictatorship" />
+        </LawEffectSimulation>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="false">FALSE</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard" Inverted="true">GovernmentAnarchy</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentRepublic</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentEmpire</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Government" Inverted="true">ClassSenate,GovernmentDemocracy</PathPrerequisite>        <SupportPrerequisite Flags="Prerequisite,Disable,Support" Politics="Politics06">1</SupportPrerequisite>
+        <PoliticsExperiencePrerequisite Flags="Prerequisite,Disable,Experience" Politics="Politics06">1</PoliticsExperiencePrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Disable">(Property(Context,@'../ClassEmpire',NetEmpireEmpirePoint) +  Property(Context,@'../ClassEmpire',EmpireEmpirePointStock)) ge 1 * Property(Context, @'../ClassEmpire', Population)</InterpreterPrerequisite>
+        <SimulationDescriptorReference Name="LawPolitics06"/>
+        <SimulationDescriptorReference Name="LawUpkeepLevel0"/>
+    </LawDefinition>
+
+
+</Datatable>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationPoliticalTraitDefinition.xsd">
+
+    <!-- 
+        Type.Major: Faction-related trait. Usually 1 per population.
+        Type.Minor: Other traits.
+    -->
+
+    <!--I HAVE NO IDEA WHAT THOSE ARE (Not part of the specs)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitScheming" Type="Minor" ShowInCustom="false">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitScheming"/>
+    </PopulationPoliticalTraitDefinition>
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitCooperative" Type="Minor" ShowInCustom="false">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitCooperative"/>
+    </PopulationPoliticalTraitDefinition>
+
+ <!--######################################
+     ######## PSYCHO TRAITS ###############
+     ######################################-->
+
+    
+    <!--#########################
+        ###   INDUSTRIALIST   ###
+        #########################-->
+        <!--Industrialists (Industrialist gives more Industrialist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitIndustrialist" Type="Major" PoliticalType="Politics01" Cost="10">
+        <SimulationDescriptorReference Name="PoliticalProfileIndustrialist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Anti-Industrialists (Industrialist gives less Industrialist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAntiIndustrialist" Type="Minor" Cost="10">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAntiIndustrialist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Merchants (Industrialist gives Pacifist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitIndustrialistToPacifist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitIndustrialistToPacifist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Technophiles (Industrialist gives Scientist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitSearcher" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitSearcher"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Monumentalists (Industrialist gives Religious)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitIndustrialistToReligious" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitIndustrialistToReligious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Aggressive (Industrialist gives Militarist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAggressive" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAggressive"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Utopian (Industrialist gives Ecologist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitOptimised" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitOptimised"/>
+    </PopulationPoliticalTraitDefinition>
+    
+    <!--#########################
+        #####   PACIFIST   ######
+        #########################-->
+        <!--Pacifists (Pacifist gives more Pacifist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitPacifist" Type="Major" PoliticalType="Politics03" Cost="10">
+        <SimulationDescriptorReference Name="PoliticalProfilePacifist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Anti-Pacifists (Pacifist gives less Pacifist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAntiPacifist" Type="Minor" Cost="10">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAntiPacifist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Investors (Pacifist gives Industrialist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitPacifistToIndustrialist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitPacifistToIndustrialist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Curious (Pacifist gives Scientific) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitCurious" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitCurious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Pious (Pacifist gives Religious)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitPious" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitPious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Xenophobic (Pacifist gives Militarist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitXenophobic" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitXenophobic"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Conservationist (Pacifist gives Ecologist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitPacifistToEcologist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitPacifistToEcologist"/>
+    </PopulationPoliticalTraitDefinition>
+    
+    <!--#########################
+        #####  SCIENTIFIC   #####
+        #########################-->
+        <!--Scientific (Scientific gives more Scientific)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitScientist" Type="Major" PoliticalType="Politics02" Cost="10">
+        <SimulationDescriptorReference Name="PoliticalProfileScientist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Anti-Scientific (Scientific gives less Scientific)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAntiScientist" Type="Minor" Cost="10">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAntiScientist02"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Automatists (Scientific gives Industrialist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitScientificToIndustrialist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitScientificToIndustrialist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Sociologists (Scientific gives Pacifist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitScientificToPacifist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitScientificToPacifist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Relativists (Scientific gives Religious-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitRelativist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitRelativist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Audacious (Scientific gives Militarist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitWarmonger" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitWarmonger"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Biologists (Scientific gives Ecologist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitScientificToEcologist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitScientificToEcologist"/>
+    </PopulationPoliticalTraitDefinition>
+
+    <!--#########################
+        ####   RELIGIOUS   ######
+        #########################-->
+        <!--Religious (Religious gives more Religious)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitReligious" Type="Major" PoliticalType="Politics05" Cost="10">
+        <SimulationDescriptorReference Name="PoliticalProfileReligious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Anti-Religious (Religious gives less Religious)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAntiReligious" Type="Minor" Cost="10">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAntiReligious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Dutiful (Religious gives Industrialist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitReligiousToIndustrialist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitReligiousToIndustrialist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Virtuous (Religious gives Pacifist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitReligiousToPacifist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitReligiousToPacifist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Skeptics (Religious gives Scientific) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitReligiousToScientific" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitReligiousToScientific"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Fanatics (Religious gives Militarist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitReligiousToMilitarist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitReligiousToMilitarist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Sanctuarists (Religious gives Ecologist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitReligiousToEcologist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitReligiousToEcologist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Atheist (dampen all religious events -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAtheist" Type="Minor" Cost="0" ShowInCustom="false">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAtheist"/>
+    </PopulationPoliticalTraitDefinition>
+  
+
+    <!--#########################
+        ####   MILITARIST   #####
+        #########################-->
+        <!--Militarist (Militarist gives more Militarist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitMilitarist" Type="Major" PoliticalType="Politics06" Cost="10">
+        <SimulationDescriptorReference Name="PoliticalProfileMilitarist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Anti-Militarist (Militarist gives less Militarist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAntiMilitarist" Type="Minor" Cost="10">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAntiMilitarist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Sagacious (Militarist gives Industrialist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitSagacious" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitSagacious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Merciful (Militarist gives Pacifist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitMerciful" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitMerciful"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Pragmatic (Militarist gives Scientific)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitMilitaristToScientific" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitMilitaristToScientific"/>
+    </PopulationPoliticalTraitDefinition>
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitPragmatic" Type="Minor" ShowInCustom="false" Cost="0">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitPragmatic"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Faithful (Militarist gives Religious)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitMilitaristToReligious" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitFanatic"/>
+    </PopulationPoliticalTraitDefinition>
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitFanatic" Type="Minor" ShowInCustom="false" Cost="0">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitFanatic"/>
+    </PopulationPoliticalTraitDefinition>
+        <!-- Preservationists (Militarist gives Ecologist) -->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitMilitaristToEcologist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitMilitaristToEcologist"/>
+    </PopulationPoliticalTraitDefinition>   
+
+    <!--#########################
+        #####   ECOLOGIST  ######
+        #########################-->
+        <!--Ecologists (Ecologist gives more Ecologist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitEcologist" Type="Major" PoliticalType="Politics04" Cost="10">
+        <SimulationDescriptorReference Name="PoliticalProfileEcologist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Anti-Ecologists (Ecologist gives less Ecologist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitAntiEcologist" Type="Minor" Cost="10">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitAntiEcologist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Harversters (Ecologist gives Industrialist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitEcologistToIndustrialist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitEcologistToIndustrialist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Hedonistic (Ecologist gives Pacifist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitHedonist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitHedonist"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Futurists (Ecologist gives Scientific)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitEcologistToScience" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitEcologistToScience"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Druids (Ecologist gives Religious)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitEcologistToReligious" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitEcologistToReligious"/>
+    </PopulationPoliticalTraitDefinition>
+        <!--Territorial (Ecologist gives Militarist)-->
+    <PopulationPoliticalTraitDefinition Name="PopulationPoliticalTraitEcologistToMilitarist" Type="Minor" Cost="5">
+        <SimulationDescriptorReference Name="PopulationPoliticalTraitEcologistToMilitarist"/>
+    </PopulationPoliticalTraitDefinition>
+
+</Datatable>

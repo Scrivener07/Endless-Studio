@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- ******************** -->
+    <!-- **MODULE CLASS** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassModule" Type="Class">
+        <Property Name="Health"                         BaseValue="0"   IsSealed="true" IsSerializable="true"/>
+        <Property Name="MaximumHealth"                  BaseValue="0"   MinValue="1"/>      
+        
+        <!--Military Power-->
+        <Property Name="OffensiveMilitaryPower"/>
+        <Property Name="DefensiveMilitaryPower"/>
+        <Property Name="UpkeepFromModules" BaseValue="1"/>
+        
+        <!-- Fake duration for special strat effect-->
+        <Property Name="SpecialEffectDuration" BaseValue="0"/>
+        
+        <!-- Module multiplier for ship size: 1 for small, 2 for medium and 4 for large -->
+        <Property Name="Multiplier"                     BaseValue="1"   MinValue="1"/>
+
+        <!-- Multiplying module variables by the multiplier (for ship size)-->
+        <Modifier TargetProperty="OffensiveMilitaryPower" Operation="Multiplication" Value="$(Multiplier)" />
+        <Modifier TargetProperty="DefensiveMilitaryPower" Operation="Multiplication" Value="$(Multiplier)" />
+        <Modifier TargetProperty="MaximumHealth"          Operation="Multiplication" Value="$(Multiplier)" />
+        <Modifier TargetProperty="UpkeepFromModules"      Operation="Multiplication" Value="$(Multiplier)" />  
+        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleStatusSlave"  Type="ModuleStatus"/>
+    <SimulationDescriptor Name="WeaponTypePhysical" Type="WeaponType"/>
+    <SimulationDescriptor Name="WeaponTypeEnergy"   Type="WeaponType"/>
+    
+    <SimulationDescriptor Name="VenetiansQuest-Chapter1.2-Military-Reward"   Type="VenetiansQuest"/>
+
+
+
+    <!-- ******************** -->
+    <!-- ******* MISC ******* -->
+    <!-- ******************** -->
+         
+    <!-- TAGS -->
+    <SimulationDescriptor Name="SideWeaponWest" Type="SideWeapon"/>
+    <SimulationDescriptor Name="SideWeaponEast" Type="SideWeapon"/>
+    <SimulationDescriptor Name="TopWeapon"      Type="TopWeapon"/>
+    <SimulationDescriptor Name="LargeWeapon"    Type="LargeWeapon">
+      <Modifier TargetProperty="MaximumHealth"            Operation="Percent"         Value="3"   Path="ClassModule" />
+      <Modifier TargetProperty="OffensiveMilitaryPower"   Operation="Percent"         Value="1"   Path="ClassModule" />
+      <Modifier TargetProperty="Cooldown"                 Operation="Percent"         Value="1"   Path="ClassModuleWeapon" />
+      <Modifier TargetProperty="Damage"                   Operation="Percent"         Value="3"   Path="ClassModuleWeapon" />
+        <!-- Cooldown /2 & Damage x4 => DPS x2-->
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="MultiplierX2"     Type="Multiplier">
+      <Modifier TargetProperty="Multiplier"               Operation="Multiplication"  Value="2"   Path="ClassModule" />
+        <!-- Old method below for ref just in case-->
+      <!--<Modifier TargetProperty="MaximumHealth" Operation="Percent" Value="2" Path="ClassModule" />
+      <Modifier TargetProperty="OffensiveMilitaryPower" Operation="Percent" Value="2" Path="ClassModule" />
+      <Modifier TargetProperty="DefensiveMilitaryPower" Operation="Percent" Value="2" Path="ClassModule" />
+      <Modifier TargetProperty="Damage" Operation="Percent" Value="2" Path="ClassModuleWeapon" />-->
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="MultiplierX3" Type="Multiplier">
+      <Modifier TargetProperty="Multiplier"               Operation="Multiplication"  Value="3"   Path="ClassModule" />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="MultiplierX4" Type="Multiplier">
+      <Modifier TargetProperty="Multiplier"               Operation="Multiplication"  Value="4"   Path="ClassModule" />
+    </SimulationDescriptor>
+    <!-- Use this tag for all strategic modules (used to identify them)-->
+    <SimulationDescriptor Name="ModuleTypeStrategic" Type="ModuleTypeStrategic">
+      <Property Name="PassiveModuleExperienceRewardForAdmirals" BaseValue="1" MaxValue="1" MinValue="1"/>
+      <Modifier TargetProperty="PassiveShipExperienceRewardForAdmirals" Operation="Addition" Value="$(PassiveModuleExperienceRewardForAdmirals)" Path="ClassModule/./ClassSection/./ClassShip" Priority="5"/>
+    </SimulationDescriptor>
+
+    
+    <!-- ONLY TO TEST LINK EFFECTS -->
+    <SimulationDescriptor Name="ClassModuleLinkEffectOnDefense"     Type="ClassModuleLinkEffect"/>
+    <SimulationDescriptor Name="ClassModuleOwnEffectOnDefense"      Type="ClassModuleOwnEffect"/>
+    <SimulationDescriptor Name="ClassModuleLinkedEffectOnWeapon"    Type="ClassModuleLinkedEffect"/>
+
+    <!-- ONLY FOR QUEST SIMULATION PATH -->
+    <SimulationDescriptor Name="ClassModuleSupportEngineQuestMF01"  Type="ClassModuleSupportEngineQuestMF01"/>
+    
+
+    <!-- ******************** -->
+    <!-- ******* QUEST ******* -->
+    <!-- ******************** -->
+
+    <SimulationDescriptor Name="ClassModuleSupportExplorationQuestSophons" Type="ClassModuleSupportExploration">
+        <Modifier TargetProperty="SectionHealthBonus"   Operation="Addition"  Value="20"      Path="ClassModule"/>
+        <Modifier TargetProperty="MaximumMovement"      Operation="Addition"  Value="4"       Path="ModuleSupportExploration"/>
+        <Modifier TargetProperty="VisionRange"          Operation="Addition"  Value="2"     Path="ModuleSupportExploration"/>       
+    </SimulationDescriptor>
+
+    
+    <SimulationDescriptor Name="ClassModuleQuestEnferWeak" Type="ClassModuleQuestEnfer">
+        <Modifier TargetProperty="MaximumHealth"    Operation="Percent" Value="-0.2"   Path="../ClassShip/ClassSectionCore"/>    
+    </SimulationDescriptor>
+        
+    <SimulationDescriptor Name="ClassModuleSupportExplorationQuestVampirilis" Type="ClassModuleSupportExploration">
+        <Modifier TargetProperty="SectionHealthBonus"                   Operation="Addition"        Value="70"      Path="ClassModule"/>
+        <Modifier TargetProperty="MaximumMovement"                      Operation="Addition"        Value="3"       Path="ModuleSupportExploration"/>
+        <Modifier TargetProperty="VisionRange"                          Operation="Addition"        Value="1"       Path="ModuleSupportExploration"/>
+    </SimulationDescriptor>
+
+    
+    <SimulationDescriptor Name="ClassQuestModuleDefenseStrategic01" Type="ClassQuestModule">  
+        <Modifier TargetProperty="SectionHealthMultiplier"                   Operation="Addition"        Value="0.1"      Path="ClassModuleDefense"/>       
+    </SimulationDescriptor>
+    
+    
+    <!--##### Venetians Support Speed Module ####-->
+    <SimulationDescriptor Name="ClassModuleSupportExplorationQuestVenetians03" Type="ClassModuleSupportExploration">
+        <Modifier TargetProperty="SectionHealthBonus"   Operation="Addition"  Value="70"  Path="ClassModule"/>
+        <Modifier TargetProperty="FreeMovementSpeed"    Operation="Addition"  Value="2"   Path="ModuleSupportEngine"/>
+        <Modifier TargetProperty="MaximumMovement"      Operation="Addition"  Value="3"   Path="ModuleSupportEngine"/>
+    </SimulationDescriptor>
+   
+    
+    <!--##### UNITER EMPIRE Laser Weapon ####-->
+    <SimulationDescriptor Name="ClassQuestModuleWeaponLaserQuestUE03"  Type="ClassQuestModuleWeapon">
+        <Modifier TargetProperty="Damage"                          Operation="Addition" Value="78"      TooltipHidden="true"/>
+        <Modifier TargetProperty="CriticalHitChance"                Operation="Addition" Value="0.1"    TooltipHidden="true"/>
+        <Modifier TargetProperty="Cooldown"                         Operation="Addition"  Value="-0.2"  TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!--##### UNITER EMPIRE Emperor Support ####-->
+    <SimulationDescriptor Name="ClassModuleQuestUnitedEmpire01"  Type="ClassModuleQuest">
+        <Modifier TargetProperty="FlotillaDmgReductionAgainstPhysical"  Operation="Addition"    Value="10" Path="ClassModuleSupport"/>
+        <Modifier TargetProperty="FlotillaDmgReductionAgainstEnergy"    Operation="Addition"    Value="10" Path="ClassModuleSupport"/>
+    </SimulationDescriptor>
+
+    <!--##### UNFALLEN ####-->
+    <SimulationDescriptor Name="ModuleSupportJournalistQuest1"                  Type="ModuleSupportJournalist">
+        <Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP" Operation="Addition" Value="7" Path="ModuleSupportJournalist"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleDefenseShieldQuest3"  Type="ModuleDefense">
+        <Modifier TargetProperty="SectionHealthBonus"               Operation="Addition" Value="50"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldAbsorption"                 Operation="Addition" Value="286"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldBonus"                      Operation="Addition" Value="900"   Path="ClassModuleDefense"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleWeaponBeamQuest4"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                       Operation="Addition" Value="260"     TooltipHidden="true"/>
+        <Modifier TargetProperty="CriticalHitChance"            Operation="Addition"  Value="0.15"    TooltipHidden="true"/>
+        <Modifier TargetProperty="ShipManpowerKillPerHit"       Operation="Addition" Value="4"      TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!--##### UNFALLEN ####-->
+    <SimulationDescriptor Name="ModuleWeaponKineticQuest1"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                    Operation="Addition" Value="82"     TooltipHidden="true"/>
+        <Modifier TargetProperty="CriticalHitChance"         Operation="Addition"  Value="0.10"  TooltipHidden="true"/>
+        <Modifier TargetProperty="Cooldown"                  Operation="Addition"  Value="-0.1"  TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="DefensiveMilitaryPower"    Operation="Addition" Left="$(FlakDPSMissile)" BinaryOperation="Division" Right="2"      Path="ClassModule" TooltipHidden="true"/>
+
+        <!--DPS against Missile / Squadrons-->
+        <Modifier TargetProperty="FlakDPSMissile"            Operation="Addition" Value="24"     Path="ClassModule" TooltipHidden="true"/>
+        <Modifier TargetProperty="EfficiencyAgainstSquadron" Operation="Addition" Value="0.125"     Path="ClassModule" TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="FlakDPSquadron"      Operation="Addition" Left="24" BinaryOperation="Multiplication" Right="$(EfficiencyAgainstSquadron)"     Path="ClassModule" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleWeaponLaserQuestExploration01"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                       Operation="Addition" Value="70"      TooltipHidden="true"/>
+		<Modifier TargetProperty="CriticalHitChance"         Operation="Addition"  Value="0.05"  TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- ERA 2 -->
+    <SimulationDescriptor Name="ModuleDefenseShieldExploration01"  Type="ModuleDefense">
+        <Modifier TargetProperty="SectionHealthBonus"               Operation="Addition" Value="30"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldAbsorption"                 Operation="Addition" Value="104"     Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldBonus"                      Operation="Addition" Value="540"   Path="ClassModuleDefense"/>
+    </SimulationDescriptor>
+
+<!--##### EXPLORATION QUEST N5 ####-->
+    <SimulationDescriptor Name="ModuleSupportExplorationQuest01" Type="ModuleSupportExploration">
+        <Modifier TargetProperty="VisionRange"           Operation="Addition" Value="1"         Path="ModuleSupportExploration"/>
+        <Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition" Value="1"      Path="ModuleSupportExploration"/>
+        <Modifier TargetProperty="NetShipProbe"             Operation="Addition" Value="0.25"   Path="ModuleSupportExploration"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleWeaponBeamQuest3"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                       Operation="Addition" Value="214"     TooltipHidden="true"/>
+        <Modifier TargetProperty="CriticalHitChance"            Operation="Addition" Value="0.05"   TooltipHidden="true"/>
+        <Modifier TargetProperty="ShipManpowerKillPerHit"       Operation="Addition" Value="8"      TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+</Datatable>

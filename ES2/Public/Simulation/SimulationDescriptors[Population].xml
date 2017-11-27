@@ -1,0 +1,2160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassPopulation" Type="Class">
+		<Property Name="PopulationCount"              BaseValue="0"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationCustomAffinity" Type="ClassPopulation"/>
+
+	<!-- ClassPopulationEmpires -->
+
+	<!-- Major-->
+	<SimulationDescriptor Name="ClassPopulationEmpire" Type="ClassPopulation">
+        <Property Name="PopulationGrowthScoreModifier" BaseValue="1"/>
+        <Property Name="CanBeBoosted" BaseValue="1"/>
+        <Property Name="PopulationEmpireDepletedPlanetCount"  BaseValue="0" MinValue="0"/>
+
+
+
+        <Modifier TargetProperty="Population" Operation="Addition" Value="$(PopulationCount)" Path="./ClassEmpire" TooltipHidden="true"/>
+		<Modifier TargetProperty="VampirilisPopulation"     Operation="Addition" Value="$(PopulationCount)" Path="ClassPopulationEmpireAffinityVampirilis/./ClassEmpire" TooltipHidden="true"/>
+		<Modifier TargetProperty="NonVampirilisPopulation"  Operation="Addition" Value="$(PopulationCount)" Path="!ClassPopulationEmpireAffinityVampirilis/./ClassEmpire" TooltipHidden="true"/>
+
+		<Modifier TargetProperty="PopulationTypeCount"          Operation="Addition"       Value="1"     Path="./ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinitySophons" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCravers" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityVenetians" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityVampirilis" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityTerrans" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityMezari" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinitySheredyn" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityHoratio" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityTimeLords" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="CanBeBoosted" Operation="Force" Value="0" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityUnfallen" Type="ClassPopulationEmpire"/>
+
+    <!-- Minor-->
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityAmoeba" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityBenthys" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityBots" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityDeuyivans" Type="ClassPopulationEmpire"/>
+	<SimulationDescriptor Name="ClassPopulationEmpireAffinityHaroshems" Type="ClassPopulationEmpire"/>
+	<SimulationDescriptor Name="ClassPopulationEmpireAffinityHisshos" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityMavros" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityPilgrims" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityZvali" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityTikanans" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityGnashasts" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityEyders" Type="ClassPopulationEmpire"/>
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityNiris" Type="ClassPopulationEmpire"/>
+	<SimulationDescriptor Name="ClassPopulationEmpireAffinityBhagabas" Type="ClassPopulationEmpire"/>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityRemnant" Type="ClassPopulationEmpire"/>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityPulsos" Type="ClassPopulationEmpire"/>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityGreenman" Type="ClassPopulationEmpire"/>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityGuardians" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="CanBeBoosted" Operation="Force" Value="0" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+	<!-- ClassPopulationStarSystemAffinities -->
+
+	<SimulationDescriptor Name="ClassPopulationStarSystem" Type="ClassPopulation">
+		<!-- ########################################################## -->
+		<!-- ######################## PROPERTY ######################## -->
+		<!-- ########################################################## -->
+		<Property Name="PopulationTypeCount"          BaseValue="1"/>
+		<Property Name="PopulationCountSuperiorToZero"			  BaseValue="0" MinValue="0" MaxValue="1"/>
+
+		<Property Name="PopulationScoreStock"         BaseValue="0"                 MinValue="Negative"     IsSealed="true"    IsSerializable="true"/>
+		<Property Name="NetPopulationScore"           BaseValue="0"                 MinValue="Negative"    />
+
+		<Property Name="PoliticsTrend01"              BaseValue="0" IsSealed="true"/>
+		<Property Name="PoliticsTrend02"              BaseValue="0" IsSealed="true"/>
+		<Property Name="PoliticsTrend03"              BaseValue="0" IsSealed="true"/>
+		<Property Name="PoliticsTrend04"              BaseValue="0" IsSealed="true"/>
+		<Property Name="PoliticsTrend05"              BaseValue="0" IsSealed="true"/>
+		<Property Name="PoliticsTrend06"              BaseValue="0" IsSealed="true"/>
+
+		<!-- MinValue is a safe guard. -->
+		<Property Name="PoliticsScoreDecayStep"       BaseValue="1"  MinValue="0.1"/>
+
+		<Property Name="PopulationGrowthMalus"        BaseValue="1"         MinValue="Negative"/>
+		
+		<Property Name="CannotMigrate"               MinValue="0" MaxValue="1" />
+
+		<!-- Happiness -->
+		<!-- #PopulationHappiness -->
+		<!--<Property Name="HappinessStock"         BaseValue="50"   IsSealed="true" IsSerializable="true" MinValue="0" MaxValue="100"/>
+        <Property Name="NetHappiness"           MinValue="Negative"/>-->
+
+		<Property Name="ShouldPopulationGrow"        BaseValue="1" MinValue="Negative" MaxValue="1"/>
+		
+		<!--Bonus Collection Properties-->
+		<Property Name="SystemFIDSIPercentBonusFromCollection"/>
+		<Property Name="SystemGrowthBonusFromCollection"/>
+		<Property Name="SystemProductionBonusFromCollection"/>
+		<Property Name="SystemMoneyBonusFromCollection"/>
+		<Property Name="SystemResearchBonusFromCollection"/>
+		<Property Name="SystemResearchZvaliBonusFromCollection01"/>
+		<Property Name="SystemResearchZvaliBonusFromCollection02"/>
+		<Property Name="SystemEmpirePointBonusFromCollection"/>
+		<Property Name="HappinessBonusFromCollection"/>
+		<Property Name="ShipsConstructionProductionBonusFromCollection"/>
+		<Property Name="BuildingConstructionBonusFromCollection"/>
+		<Property Name="BuildingBuyoutReductionBonusFromCollection"/>
+		<Property Name="MaximumSystemManpowerBonusFromCollection"/>
+		<Property Name="NetSystemManpowerBonusFromCollection"/>
+		<Property Name="GroundBattleBombardmentAttackerDamagesBonusFromCollection"/>
+		<Property Name="LuxuryBonusFromCollection"/>
+		<Property Name="VisionRangeBonusFromCollection"/>
+    <Property Name="DockedFleetsHealthRegenerationRatioBonusFromCollection"/>
+		
+		<!-- ########################################################## -->
+		<!-- ######################## MODIFIER ######################## -->
+		<!-- ########################################################## -->
+
+
+		<BinaryModifier TargetProperty="PopulationType"	Operation="Addition"   Left="1" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem" TooltipHidden="true"/>
+		<Modifier TargetProperty="PopulationCountSuperiorToZero" Operation="Addition"   Value="$(PopulationCount)"      TooltipHidden="true"/>
+
+		<!-- Score evolution -->
+		<Modifier TargetProperty="NetPopulationScore"          Operation="Addition"             			Value="50"                            			TooltipHidden="true"/>
+		<Modifier TargetProperty="NetPopulationScore"          Operation="Multiplication"                	Value="$(PopulationGrowthMalus)"           		TooltipHidden="true"/>
+		<Modifier TargetProperty="NetPopulationScore"          Operation="Multiplication"                	Value="$(ShouldPopulationGrow)"                	TooltipHidden="true"   Priority="2"/>
+
+		<!--Bonus Collection checks if population is > 0-->
+		<BinaryModifier TargetProperty="SystemGrowthFromCollection"				Operation="Addition"    Left="$(SystemFIDSIPercentBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemProductionFromCollection"			Operation="Addition"    Left="$(SystemFIDSIPercentBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemMoneyFromCollection"				Operation="Addition"    Left="$(SystemFIDSIPercentBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemResearchFromCollection"			Operation="Addition"    Left="$(SystemFIDSIPercentBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemEmpirePointFromCollection"		Operation="Addition"    Left="$(SystemFIDSIPercentBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemGrowthFromCollection"				Operation="Addition"    Left="$(SystemGrowthBonusFromCollection)"			BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemProductionFromCollection"			Operation="Addition"    Left="$(SystemProductionBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem" />
+		<BinaryModifier TargetProperty="SystemMoneyFromCollection"				Operation="Addition"    Left="$(SystemMoneyBonusFromCollection)"			BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemResearchFromCollection"			Operation="Addition"	Left="$(SystemResearchBonusFromCollection)"			BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="SystemResearchFromCollection"			Operation="Addition"    Left="$(SystemResearchZvaliBonusFromCollection01)"	BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem,HappinessStatusStarSystem3"/>
+		<BinaryModifier TargetProperty="SystemResearchFromCollection"			Operation="Addition"	Left="$(SystemResearchZvaliBonusFromCollection02)"	BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem,HappinessStatusStarSystem4"/>
+		<BinaryModifier TargetProperty="SystemEmpirePointFromCollection"		Operation="Addition"    Left="$(SystemEmpirePointBonusFromCollection)"		BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem" />
+		<BinaryModifier TargetProperty="HappinessFromCollection"				Operation="Addition"    Left="$(HappinessBonusFromCollection)"				BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem" />
+    <BinaryModifier TargetProperty="DockedFleetsHealthRegenerationRatioFromCollection" Operation="Addition" Left="$(DockedFleetsHealthRegenerationRatioBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem" />
+    
+		<BinaryModifier TargetProperty="ShipProductionCostReduction"			Operation="Subtraction" Left="$(ShipsConstructionProductionBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem"/>
+		<BinaryModifier TargetProperty="BuildingProductionCostReduction"		Operation="Subtraction" Left="$(BuildingConstructionBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem" />
+		<BinaryModifier TargetProperty="BuildingBuyoutReduction"				Operation="Addition"    Left="$(BuildingBuyoutReductionBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="MaximumSystemManpower"					Operation="Percent"     Left="$(MaximumSystemManpowerBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassStarSystem"/>
+		<BinaryModifier TargetProperty="NetSystemManpower"						Operation="Addition"    Left="$(NetSystemManpowerBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="GroundBattleBombardmentAttackerDamages" Operation="Addition"    Left="$(GroundBattleBombardmentAttackerDamagesBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem"/>
+		<BinaryModifier TargetProperty="DepositValue"							Operation="Percent"     Left="$(LuxuryBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem/ClassColonizedPlanet/ClassResourceDeposit,ResourceTypeLuxury" />
+		<BinaryModifier TargetProperty="VisionRange"							Operation="Addition"    Left="$(VisionRangeBonusFromCollection)" BinaryOperation="Multiplication" Right="$(PopulationCountSuperiorToZero)" Path="./ClassColonizedStarSystem" />
+		
+	</SimulationDescriptor>
+
+	<!-- Sophons -->
+	<SimulationDescriptor Name="ClassPopulationStarSystemAffinitySophons" Type="ClassPopulationStarSystem">
+	</SimulationDescriptor>
+
+    <!-- Cravers -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCravers" Type="ClassPopulationStarSystem">
+   </SimulationDescriptor>
+    
+
+
+
+    <!-- Venetians -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityVenetians" Type="ClassPopulationStarSystem"/>
+
+
+    <!-- Vampirilis -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityVampirilis" Type="ClassPopulationStarSystem"/>
+
+
+    <!-- Terrans -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityTerrans" Type="ClassPopulationStarSystem"/>
+    <!-- Mezari -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityMezari" Type="ClassPopulationStarSystem"/>
+   
+    <!-- Sheredyn -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinitySheredyn" Type="ClassPopulationStarSystem"/>
+       
+    <!-- Horatio -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityHoratio" Type="ClassPopulationStarSystem">
+    </SimulationDescriptor>
+
+
+    <!-- Time Lords -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityTimeLords" Type="ClassPopulationStarSystem">
+		<Modifier 		TargetProperty="CannotMigrate"     		        Operation="Force"    Value="1" TooltipHidden="true"/> 
+		<Modifier 		TargetProperty="ShouldPopulationGrow"           Operation="Force"    Value="-1" TooltipHidden="true"/>		
+        <Modifier 		TargetProperty="MaximumSystemProductionStock"   Operation="Force"    Value="$(MaximumSystemGrowthStock)"  Path="../ClassColonizedStarSystem,ColonizedStarSystemStateOutpost" SearchValueFromPath="true" Priority="1" TooltipHidden="true"/>
+		<Modifier       TargetProperty="PopulationWithGrowth"       Operation="Subtraction" Value="$(PopulationCount)"                      Path="./ClassStarSystem" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <!-- Unfallen -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityUnfallen" Type="ClassPopulationStarSystem"/>
+
+
+    <!-- Minor-->
+
+    <!-- Haroshems -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityHaroshems" Type="ClassPopulationStarSystem"/>
+    <!-- Benthys -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityBenthys" Type="ClassPopulationStarSystem"/>
+   
+    <!-- Bots -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityBots" Type="ClassPopulationStarSystem"/>
+
+    <!-- Deuyivans -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityDeuyivans" Type="ClassPopulationStarSystem"/>
+
+    <!-- Hisshos -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityHisshos" Type="ClassPopulationStarSystem"/>
+
+    <!-- Mavros -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityMavros" Type="ClassPopulationStarSystem"/>
+   
+    <!-- Amoeba -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityAmoeba" Type="ClassPopulationStarSystem"/>
+	
+    <!-- Pilgrims -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityPilgrims" Type="ClassPopulationStarSystem"/>
+   
+    <!-- Zvali -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityZvali" Type="ClassPopulationStarSystem"/>
+        
+    <!-- Gnashasts -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityGnashasts" Type="ClassPopulationStarSystem"/>
+
+	<!-- Tikanans -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityTikanans" Type="ClassPopulationStarSystem"/>
+
+	<!-- Eyders -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityEyders" Type="ClassPopulationStarSystem"/>
+
+	<!-- Niris -->
+	<SimulationDescriptor Name="ClassPopulationStarSystemAffinityNiris" Type="ClassPopulationStarSystem"/>
+	
+	<!-- Bhagabas -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityBhagabas" Type="ClassPopulationStarSystem"/>
+   
+    <!-- Remnant -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityRemnant" Type="ClassPopulationStarSystem"/>
+    <!-- Pulsos -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityPulsos" Type="ClassPopulationStarSystem"/>
+    <!-- Greenman -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityGreenman" Type="ClassPopulationStarSystem"/>
+
+    <!-- Guardians -->
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityGuardians" Type="ClassPopulationStarSystem">
+        <Modifier 		      TargetProperty="ShouldPopulationGrow"           Operation="Force"    Value="-1" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+	<!-- ClassPopulationStarSystemGrowthTypes -->
+
+	<SimulationDescriptor Name="ClassPopulationStarSystemGrowthTypeFood" Type="ClassPopulationStarSystemGrowthType">
+        <Property Name="PopulationUsingGrowth" MinValue="1"/>
+        <Modifier TargetProperty="PopulationUsingGrowth"              Operation="Addition" Value="$(PopulationCount)"         TooltipHidden="true"/>
+        <Modifier TargetProperty="PopulationUsingGrowth"              Operation="Addition" Value="$(PopulationUsingGrowth)"  Path="../ClassColonizedStarSystem"            TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+	<SimulationDescriptor Name="ClassPopulationStarSystemGrowthTypeIndustry" Type="ClassPopulationStarSystemGrowthType">
+        <Modifier TargetProperty="PopulationNotUsingGrowth"              Operation="Addition" Value="$(PopulationCount)" Path="../ClassColonizedStarSystem"            TooltipHidden="true"/>
+    </SimulationDescriptor>    
+
+	<SimulationDescriptor Name="ClassPopulationStarSystemGrowthTypeDust" Type="ClassPopulationStarSystemGrowthType">
+
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ClassPopulationStarSystemGrowthTypeScience" Type="ClassPopulationStarSystemGrowthType">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ClassPopulationStarSystemGrowthTypePrestige" Type="ClassPopulationStarSystemGrowthType">
+	</SimulationDescriptor>
+                                                                                   
+    <SimulationDescriptor Name="ClassPopulationStarSystemGrowthTypeNot"  Type="ClassPopulationStarSystemGrowthType">
+        <Modifier TargetProperty="PopulationNotUsingGrowth"              Operation="Addition" Value="$(PopulationCount)" Path="../ClassColonizedStarSystem"              TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+	<!-- PopulationMainPolitics -->
+
+	<SimulationDescriptor Name="PopulationMainPolitics01" Type="PopulationMainPolitics" IsSerializable="false">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationMainPolitics02" Type="PopulationMainPolitics" IsSerializable="false">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationMainPolitics03" Type="PopulationMainPolitics" IsSerializable="false">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationMainPolitics04" Type="PopulationMainPolitics" IsSerializable="false">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationMainPolitics05" Type="PopulationMainPolitics" IsSerializable="false">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationMainPolitics06" Type="PopulationMainPolitics" IsSerializable="false">
+	</SimulationDescriptor>
+
+	<!-- ClassPopulationPlanetAffinities -->
+
+	<SimulationDescriptor Name="ClassPopulationPlanet" Type="ClassPopulation">
+		<Property Name="RawPopulationFood"          MinValue="Negative"/>
+		<Property Name="RawPopulationIndustry"      MinValue="Negative"/>
+		<Property Name="RawPopulationDust"          MinValue="Negative"/>
+		<Property Name="RawPopulationScience"       MinValue="Negative"/>
+		<Property Name="RawPopulationPrestige"      MinValue="Negative"/>
+
+		<Property Name="PopulationFood"       MinValue="Negative"  />
+		<Property Name="PopulationIndustry"   MinValue="Negative"  />
+		<Property Name="PopulationDust"       MinValue="Negative"  />
+		<Property Name="PopulationScience"    MinValue="Negative"  />
+		<Property Name="PopulationPrestige"   MinValue="Negative"  />
+
+		<Property Name="DepletingPopulationFood"       MinValue="Negative"  />
+		<Property Name="DepletingPopulationIndustry"   MinValue="Negative"  />
+		<Property Name="DepletingPopulationDust"       MinValue="Negative"  />
+		<Property Name="DepletingPopulationScience"    MinValue="Negative"  />
+		<Property Name="DepletingPopulationPrestige"   MinValue="Negative"  />
+
+		<Property Name="ParasitedPopulationFood"       MinValue="Negative"  />
+		<Property Name="ParasitedPopulationIndustry"   MinValue="Negative"  />
+		<Property Name="ParasitedPopulationDust"       MinValue="Negative"  />
+		<Property Name="ParasitedPopulationScience"    MinValue="Negative"  />
+		<Property Name="ParasitedPopulationPrestige"   MinValue="Negative"  />
+
+		<Property Name="BonusPopulationFood"									MinValue="Negative"/>
+		<Property Name="BonusPopulationGrowthConsumption"						MinValue="Negative"/>
+		<Property Name="BonusPopulationGrowthConsumptionFromGeneHunter"			MinValue="Negative"/>
+
+		<Property Name="BonusPopulationIndustry"       MinValue="Negative" />
+		<Property Name="BonusPopulationDust"           MinValue="Negative" />
+		<Property Name="BonusPopulationScience"        MinValue="Negative" />
+		<Property Name="BonusPopulationPrestige"       MinValue="Negative" />
+		<Property Name="BonusPopulationTrade"          MinValue="Negative" />
+		<Property Name="BonusPopulationDefense"        MinValue="Negative" />
+		<Property Name="BonusPopulationHappiness"      MinValue="Negative" />
+		<Property Name="BonusPopulationSystemManpower" MinValue="Negative" />
+
+		<Property Name="BonusPopulationFIDS"           MinValue="Negative" />
+		<Property Name="BonusPopulationFIDSPercent"    MinValue="Negative" />
+		<Property Name="BonusPopulationFIDSI"          MinValue="Negative" />
+		<Property Name="BonusPopulationFIDSIPercent"   MinValue="Negative" />
+		
+		<Property Name="BonusPopulationGroundBattleBombardmentAttackerDamages"/>
+		<Property Name="BonusPopulationGroundBattleBombardmentAttackerDamagesMin"/>
+		<Property Name="BonusPopulationGroundBattleBombardmentAttackerDamagesMax"/>
+		
+		<Property Name="PlanetHasAnomaly" BaseValue="0"/>
+		<Property Name="HappinessStarSystemIsHappy" BaseValue="0"/>
+
+		<!-- For Cravers  -->
+        
+
+
+        <!-- #### ECONOMY PROCESS ##### -->
+		<!-- Common trunk -->
+		<Modifier   TargetProperty="BonusPopulationFood"              Operation="Addition"     Value="$(BonusPopulationFIDSI)"   />
+		<Modifier   TargetProperty="BonusPopulationIndustry"          Operation="Addition"     Value="$(BonusPopulationFIDSI)"   />
+		<Modifier   TargetProperty="BonusPopulationDust"              Operation="Addition"     Value="$(BonusPopulationFIDSI)"   />
+		<Modifier   TargetProperty="BonusPopulationScience"           Operation="Addition"     Value="$(BonusPopulationFIDSI)"   />
+		<Modifier   TargetProperty="BonusPopulationPrestige"          Operation="Addition"     Value="$(BonusPopulationFIDSI)"   />
+
+
+		<Modifier   TargetProperty="BonusPopulationFood"              Operation="Addition"     Value="$(BonusPopulationFIDS)"   />
+		<Modifier   TargetProperty="BonusPopulationIndustry"          Operation="Addition"     Value="$(BonusPopulationFIDS)"   />
+		<Modifier   TargetProperty="BonusPopulationDust"              Operation="Addition"     Value="$(BonusPopulationFIDS)"   />
+		<Modifier   TargetProperty="BonusPopulationScience"           Operation="Addition"     Value="$(BonusPopulationFIDS)"   />
+
+
+		<Modifier   TargetProperty="PopulationIndustry"          Operation="Addition"    Value="$(RawPopulationIndustry)"   Priority="-3" />
+		<Modifier   TargetProperty="PopulationDust"              Operation="Addition"    Value="$(RawPopulationDust)"       Priority="-3" />
+		<Modifier   TargetProperty="PopulationScience"           Operation="Addition"    Value="$(RawPopulationScience)"    Priority="-3" />
+		<Modifier   TargetProperty="PopulationPrestige"          Operation="Addition"    Value="$(RawPopulationPrestige)"   Priority="-3" />
+		<Modifier   TargetProperty="PopulationFood"              Operation="Addition"    Value="$(RawPopulationFood)"       Priority="-3" />
+
+		<Modifier   TargetProperty="DepletingPopulationIndustry"          Operation="Addition"    Value="$(RawPopulationIndustry)"   Priority="-3" />
+		<Modifier   TargetProperty="DepletingPopulationDust"              Operation="Addition"    Value="$(RawPopulationDust)"       Priority="-3" />
+		<Modifier   TargetProperty="DepletingPopulationScience"           Operation="Addition"    Value="$(RawPopulationScience)"    Priority="-3" />
+		<Modifier   TargetProperty="DepletingPopulationPrestige"          Operation="Addition"    Value="$(RawPopulationPrestige)"   Priority="-3" />
+		<Modifier   TargetProperty="DepletingPopulationFood"              Operation="Addition"    Value="$(RawPopulationFood)"       Priority="-3" />
+
+		<Modifier   TargetProperty="ParasitedPopulationIndustry"          Operation="Addition"    Value="$(RawPopulationIndustry)"   Priority="-3" />
+		<Modifier   TargetProperty="ParasitedPopulationDust"              Operation="Addition"    Value="$(RawPopulationDust)"       Priority="-3" />
+		<Modifier   TargetProperty="ParasitedPopulationScience"           Operation="Addition"    Value="$(RawPopulationScience)"    Priority="-3" />
+		<Modifier   TargetProperty="ParasitedPopulationPrestige"          Operation="Addition"    Value="$(RawPopulationPrestige)"   Priority="-3" />
+		<Modifier   TargetProperty="ParasitedPopulationFood"              Operation="Addition"    Value="$(RawPopulationFood)"       Priority="-3" />
+
+		<!-- Special trunk -->
+		<Modifier   TargetProperty="PopulationFood"                       Operation="Addition"     Value="$(BonusPopulationFood)"         Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationIndustry"                   Operation="Addition"     Value="$(BonusPopulationIndustry)"     Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationDust"                       Operation="Addition"     Value="$(BonusPopulationDust)"         Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationScience"                    Operation="Addition"     Value="$(BonusPopulationScience)"      Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationPrestige"                   Operation="Addition"     Value="$(BonusPopulationPrestige)"     Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+
+		<Modifier   TargetProperty="PopulationFood"                       Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"   Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationIndustry"                   Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"   Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationDust"                       Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"   Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationScience"                    Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"   Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+
+		<Modifier   TargetProperty="PopulationFood"                       Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"  Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationIndustry"                   Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"  Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationDust"                       Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"  Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationScience"                    Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"  Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+		<Modifier   TargetProperty="PopulationPrestige"                   Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"  Priority="-2" Path="!PopulationExploitingPlanetWhileDepleting,!PopulationParasited"/>
+
+		<Modifier   TargetProperty="DepletingPopulationFood"              Operation="Addition"     Value="$(BonusPopulationFood)"         Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationIndustry"          Operation="Addition"     Value="$(BonusPopulationIndustry)"     Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationDust"              Operation="Addition"     Value="$(BonusPopulationDust)"         Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationScience"           Operation="Addition"     Value="$(BonusPopulationScience)"      Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationPrestige"          Operation="Addition"     Value="$(BonusPopulationPrestige)"     Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+
+		<Modifier   TargetProperty="DepletingPopulationFood"              Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"         Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationIndustry"          Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"     Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationDust"              Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"         Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationScience"           Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"      Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+
+		<Modifier   TargetProperty="DepletingPopulationFood"              Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"         Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationIndustry"          Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"     Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationDust"              Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"         Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationScience"           Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"      Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+		<Modifier   TargetProperty="DepletingPopulationPrestige"          Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"     Priority="-2" Path="PopulationExploitingPlanetWhileDepleting"/>
+
+		<Modifier   TargetProperty="ParasitedPopulationFood"              Operation="Addition"     Value="$(BonusPopulationFood)"         Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationIndustry"          Operation="Addition"     Value="$(BonusPopulationIndustry)"     Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationDust"              Operation="Addition"     Value="$(BonusPopulationDust)"         Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationScience"           Operation="Addition"     Value="$(BonusPopulationScience)"      Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationPrestige"          Operation="Addition"     Value="$(BonusPopulationPrestige)"     Priority="-2" Path="PopulationParasited"/>
+
+		<Modifier   TargetProperty="ParasitedPopulationFood"              Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"         Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationIndustry"          Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"     Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationDust"              Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"         Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationScience"           Operation="Percent"     Value="$(BonusPopulationFIDSPercent)"      Priority="-2" Path="PopulationParasited"/>
+
+		<Modifier   TargetProperty="ParasitedPopulationFood"              Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"         Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationIndustry"          Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"     Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationDust"              Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"         Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationScience"           Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"      Priority="-2" Path="PopulationParasited"/>
+		<Modifier   TargetProperty="ParasitedPopulationPrestige"          Operation="Percent"     Value="$(BonusPopulationFIDSIPercent)"     Priority="-2" Path="PopulationParasited"/>
+
+		<!-- Common trunk -->
+		<Modifier   TargetProperty="PopulationIndustry"          Operation="Subtraction" Value="$(RawPopulationIndustry)"   Priority="1" />
+		<Modifier   TargetProperty="PopulationDust"              Operation="Subtraction" Value="$(RawPopulationDust)"       Priority="-1" />
+		<Modifier   TargetProperty="PopulationScience"           Operation="Subtraction" Value="$(RawPopulationScience)"    Priority="-1" />
+		<Modifier   TargetProperty="PopulationPrestige"          Operation="Subtraction" Value="$(RawPopulationPrestige)"   Priority="-1" />
+		<Modifier   TargetProperty="PopulationFood"              Operation="Subtraction" Value="$(RawPopulationFood)"       Priority="-1" />
+
+		<Modifier   TargetProperty="DepletingPopulationIndustry"          Operation="Subtraction" Value="$(RawPopulationIndustry)"   Priority="1" />
+		<Modifier   TargetProperty="DepletingPopulationDust"              Operation="Subtraction" Value="$(RawPopulationDust)"       Priority="-1" />
+		<Modifier   TargetProperty="DepletingPopulationScience"           Operation="Subtraction" Value="$(RawPopulationScience)"    Priority="-1" />
+		<Modifier   TargetProperty="DepletingPopulationPrestige"          Operation="Subtraction" Value="$(RawPopulationPrestige)"   Priority="-1" />
+		<Modifier   TargetProperty="DepletingPopulationFood"              Operation="Subtraction" Value="$(RawPopulationFood)"       Priority="-1" />
+
+		<Modifier   TargetProperty="ParasitedPopulationIndustry"          Operation="Subtraction" Value="$(RawPopulationIndustry)"   Priority="1" />
+		<Modifier   TargetProperty="ParasitedPopulationDust"              Operation="Subtraction" Value="$(RawPopulationDust)"       Priority="-1" />
+		<Modifier   TargetProperty="ParasitedPopulationScience"           Operation="Subtraction" Value="$(RawPopulationScience)"    Priority="-1" />
+		<Modifier   TargetProperty="ParasitedPopulationPrestige"          Operation="Subtraction" Value="$(RawPopulationPrestige)"   Priority="-1" />
+		<Modifier   TargetProperty="ParasitedPopulationFood"              Operation="Subtraction" Value="$(RawPopulationFood)"       Priority="-1" />
+
+		<!-- Special trunk -->
+		<BinaryModifier       TargetProperty="PlanetPopulationIndustry"   Operation="Addition"    Left="$(PopulationIndustry)" BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetPopulationDust"       Operation="Addition"    Left="$(PopulationDust)"     BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetPopulationScience"    Operation="Addition"    Left="$(PopulationScience)"  BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetPopulationPrestige"   Operation="Addition"    Left="$(PopulationPrestige)" BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetPopulationFood"       Operation="Addition"    Left="$(PopulationFood)"     BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+
+
+		<BinaryModifier       TargetProperty="PlanetDepletingPopulationIndustry"   Operation="Addition"    Left="$(DepletingPopulationIndustry)" BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetDepletingPopulationDust"       Operation="Addition"    Left="$(DepletingPopulationDust)"     BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetDepletingPopulationScience"    Operation="Addition"    Left="$(DepletingPopulationScience)"  BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetDepletingPopulationPrestige"   Operation="Addition"    Left="$(DepletingPopulationPrestige)" BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetDepletingPopulationFood"       Operation="Addition"    Left="$(DepletingPopulationFood)"     BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+
+		<BinaryModifier       TargetProperty="PlanetParasitedPopulationIndustry"   Operation="Addition"    Left="$(ParasitedPopulationIndustry)" BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetParasitedPopulationDust"       Operation="Addition"    Left="$(ParasitedPopulationDust)"     BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetParasitedPopulationScience"    Operation="Addition"    Left="$(ParasitedPopulationScience)"  BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetParasitedPopulationPrestige"   Operation="Addition"    Left="$(ParasitedPopulationPrestige)" BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<BinaryModifier       TargetProperty="PlanetParasitedPopulationFood"       Operation="Addition"    Left="$(ParasitedPopulationFood)"     BinaryOperation="Multiplication" Right="$(PopulationCount)"    Path="./ClassPlanet"         />
+		<!-- #### END ECONOMY PROCESS ##### -->
+
+
+        <BinaryModifier   TargetProperty="Happiness"                Operation="Addition"     Left="$(BonusPopulationHappiness)" BinaryOperation="Multiplication" Right="$(PopulationCount)"     Priority="-2" Path="../ClassStarSystem" />
+		<BinaryModifier   TargetProperty="MaximumSystemManpower"    Operation="Addition"     Left="$(BonusPopulationDefense)" BinaryOperation="Multiplication" Right="$(PopulationCount)"     Priority="-2" Path="../ClassStarSystem" />
+		<BinaryModifier   TargetProperty="NetSystemManpower"        Operation="Addition"     Left="$(BonusPopulationSystemManpower)" BinaryOperation="Multiplication" Right="$(PopulationCount)"     Priority="-2" Path="../ClassStarSystem" />
+
+		<BinaryModifier		TargetProperty="GroundBattleBombardmentAttackerDamagesMin"	Operation="Addition" Left="$(BonusPopulationGroundBattleBombardmentAttackerDamagesMin)" BinaryOperation="Multiplication" Right="$(PopulationCount)"  Priority="-2" Path="../ClassColonizedStarSystem" />
+		<BinaryModifier		TargetProperty="GroundBattleBombardmentAttackerDamagesMax"	Operation="Addition" Left="$(BonusPopulationGroundBattleBombardmentAttackerDamagesMax)" BinaryOperation="Multiplication" Right="$(PopulationCount)"  Priority="-2" Path="../ClassColonizedStarSystem" />
+
+		<BinaryModifier		TargetProperty="GroundBattleBombardmentAttackerDamagesMin"	Operation="Addition" Left="$(BonusPopulationGroundBattleBombardmentAttackerDamages)" BinaryOperation="Multiplication" Right="$(PopulationCount)"  Priority="-2" Path="../ClassColonizedStarSystem" />
+		<BinaryModifier		TargetProperty="GroundBattleBombardmentAttackerDamagesMax"	Operation="Addition" Left="$(BonusPopulationGroundBattleBombardmentAttackerDamages)" BinaryOperation="Multiplication" Right="$(PopulationCount)"  Priority="-2" Path="../ClassColonizedStarSystem" />
+
+		<BinaryModifier TargetProperty="PopulationGrowthUpkeep"	   Operation="Percent" Left="$(BonusPopulationGrowthConsumption)" BinaryOperation="Multiplication" Right="$(PopulationCount)" Priority="-1" Path="../ClassStarSystem"/>
+		
+		<BinaryModifier TargetProperty="PopulationGrowthUpkeepFromGeneHunter"	   Operation="Percent" Left="$(BonusPopulationGrowthConsumptionFromGeneHunter)" BinaryOperation="Multiplication" Right="$(PopulationCount)" Priority="-1" Path="../ClassStarSystem"/>
+
+
+		<Modifier         TargetProperty="PopulationTypeCount"     Operation="Addition" Value="1"                  Path="../ClassPlanet"            TooltipHidden="true"/>
+		<Modifier         TargetProperty="Population"              Operation="Addition" Value="$(PopulationCount)" Path="../ClassPlanet"            TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationMajor" Type="Population">
+        <Property Name="HasMajorPopulation" BaseValue="1"/>
+        
+        <Modifier TargetProperty="MajorPopulationCount"              Operation="Addition" Value="$(PopulationCount)" Path="../ClassPlanet"            TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationNonMajor" Type="Population">
+        <Property Name="HasNonMajorPopulation" BaseValue="1"/>
+        <Modifier TargetProperty="NonMajorPopulationCount"              Operation="Addition" Value="$(PopulationCount)" Path="../ClassPlanet"            TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+    <!-- Horatio -->
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryHappiness" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationHappiness"        Operation="Addition"    Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <!-- Cravers -->
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryDepletionFIDS" Type="ClassPopulationPlanet">
+        <Property             Name="BonusFromDepletion" BaseValue="1"/>
+		<Modifier             TargetProperty="PlanetDepletionPerTurn"          Operation="Addition"     Value="1"                           Path="False/./ClassPlanet"     />
+        <BinaryModifier       TargetProperty="PlanetDepletionPerTurn"         Operation="Addition"     Left="1"                          BinaryOperation="Multiplication"     Right="$(PopulationCount)"          Path="./ClassPlanet"   TooltipHidden="true" />
+        <Modifier             TargetProperty="BonusFromDepletion"              Operation="Force"        Value="0"                           TooltipHidden="true"                 Priority="-1" />
+		<BinaryModifier       TargetProperty="BonusPopulationFIDSPercent"      Operation="Addition"     Left="1.5"                          BinaryOperation="Multiplication"     Right="$(BonusFromDepletion)"          Path="PopulationExploitingPlanetWhileDepleting"   />
+    </SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationExploitingPlanetWhileDepleting" Type="PopulationExploitingPlanetWhileDepleting">
+	</SimulationDescriptor>
+
+   
+	<!-- ################################################################-->
+	<!-- ############################# COUNT ############################-->
+	<!-- ################################################################-->
+
+    <!-- Cravers -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCraversCount" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount" Operation="Addition" Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCraversCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCraversCount" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" Operation="Addition" Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCraversCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCraversCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCraversCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Sophons -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinitySophonsCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"     Operation="Addition" Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinitySophonsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinitySophonsCount" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" Operation="Addition" Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinitySophonsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinitySophonsCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinitySophonsCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Venetians -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityVenetiansCount" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"              Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityVenetiansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityVenetiansCount" Type="ClassPopulationStarSystem">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition" Value="$(PopulationCount)"   Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityVenetiansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityVenetiansCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityVenetiansCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Vampirilis -->
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDSCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityVampirilisCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityVampirilisCount" Type="ClassPopulationStarSystem">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition" Value="$(PopulationCount)"   Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityVampirilisCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityVampirilisCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityVampirilisCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Terrans -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityTerransCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"   Operation="Addition" Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityTerransCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityTerransCount" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount"      Operation="Addition" Value="$(PopulationCount)"     Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityTerransCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityTerransCount"   Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityTerransCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Mezari -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityMezariCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"   Operation="Addition" Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityMezariCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityMezariCount" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount"      Operation="Addition" Value="$(PopulationCount)"     Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityMezariCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityMezariCount"   Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityMezariCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Sheredyn -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinitySheredynCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"   Operation="Addition" Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinitySheredynCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinitySheredynCount" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount"      Operation="Addition" Value="$(PopulationCount)"     Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinitySheredynCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinitySheredynCount"   Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinitySheredynCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Unfallen -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityUnfallenCount" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"              Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityUnfallenCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityUnfallenCount" Type="ClassPopulationStarSystem">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition" Value="$(PopulationCount)"   Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityUnfallenCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityUnfallenCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityUnfallenCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Horatio -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityHoratioCount" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"  Operation="Addition" Value="$(PopulationCount)"     Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityHoratioCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityHoratioCount" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" Operation="Addition" Value="$(PopulationCount)"     Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityHoratioCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityHoratioCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityHoratioCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Time Lords-->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityTimeLordsCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityTimeLordsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityTimeLordsCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)"     					Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityTimeLordsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityTimeLordsCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityTimeLordsCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Haroshems -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityHaroshemsCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityHaroshemsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityHaroshemsCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityHaroshemsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityHaroshemsCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityHaroshemsCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Hisshos -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityHisshosCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityHisshosCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityHisshosCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityHisshosCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityHisshosCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityHisshosCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Benthys -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityBenthysCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityBenthysCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityBenthysCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityBenthysCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityBenthysCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityBenthysCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Bots -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityBotsCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityBotsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityBotsCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityBotsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityBotsCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityBotsCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Mavros -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityMavrosCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityMavrosCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityMavrosCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityMavrosCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityMavrosCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityMavrosCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Deuyivans -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityDeuyivansCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityDeuyivansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityDeuyivansCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityDeuyivansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityDeuyivansCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityDeuyivansCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Amoeba -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityAmoebaCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityAmoebaCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityAmoebaCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityAmoebaCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityAmoebaCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityAmoebaCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Pilgrims -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityPilgrimsCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityPilgrimsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityPilgrimsCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityPilgrimsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityPilgrimsCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityPilgrimsCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Zvali -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityZvaliCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityZvaliCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityZvaliCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityZvaliCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityZvaliCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityZvaliCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Tikanans -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityTikanansCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityTikanansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityTikanansCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityTikanansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityTikanansCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityTikanansCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Gnashasts -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityGnashastsCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityGnashastsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityGnashastsCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityGnashastsCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityGnashastsCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityGnashastsCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Eyders -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityEydersCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityEydersCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityEydersCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityEydersCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityEydersCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityEydersCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Niris -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityNirisCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityNirisCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityNirisCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityNirisCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityNirisCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityNirisCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Bhagabas -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityBhagabasCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityBhagabasCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityBhagabasCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityBhagabasCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityBhagabasCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityBhagabasCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Remnant -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityRemnantCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityRemnantCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityRemnantCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityRemnantCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityRemnantCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityRemnantCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Pulsos -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityPulsosCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityPulsosCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityPulsosCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityPulsosCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityPulsosCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityPulsosCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityGreenmanCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityGreenmanCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityGreenmanCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityGreenmanCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityGreenmanCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityGreenmanCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Guardians -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityGuardiansCount" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="../ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityGuardiansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityGuardiansCount" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityGuardiansCount" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityGuardiansCount" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityGuardiansCount" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 0 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom0Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom0Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom0Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom0Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom0Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom0Count" Priority="100" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 1 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom1Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom1Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom1Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom1Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom1Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom1Count" Priority="111" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 2 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom2Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom2Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom2Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom2Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom2Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom2Count" Priority="122" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 3 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom3Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom3Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom3Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom3Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom3Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom3Count" Priority="133" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 4 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom4Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom4Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom4Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom4Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom4Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom4Count" Priority="144" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 5 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom5Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom5Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom5Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom5Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom5Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom5Count" Priority="155" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 6 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom6Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom6Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom6Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom6Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom6Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom6Count" Priority="166" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 7 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom7Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom7Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom7Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom7Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom7Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom7Count" Priority="177" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 8 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom8Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom8Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom8Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom8Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom8Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom8Count" Priority="188" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 9 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom9Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom9Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom9Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom9Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom9Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom9Count" Priority="199" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 10 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom10Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom10Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom10Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom10Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom10Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom10Count" Priority="11010" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Custom 11 -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityCustom11Count" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="PopulationCount"          Operation="Addition"    Value="$(PopulationCount)" Path="././ClassStarSystem/ClassPopulation,ClassPopulationStarSystemAffinityCustom11Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemAffinityCustom11Count" Type="ClassPopulationStarSystem">
+        <Modifier TargetProperty="PopulationCount" 			Operation="Addition" 	Value="$(PopulationCount)" Path="./!ClassExploitedStarSystem/../ClassEmpire/ClassPopulation,ClassPopulationEmpireAffinityCustom11Count" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationEmpireAffinityCustom11Count" Type="ClassPopulationEmpire">
+        <Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="$(PopulationGrowthScoreModifier)" Path="../ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystemAffinityCustom11Count" Priority="11111" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- ################################################################-->
+	<!-- ######################### ASSIMILATION #########################-->
+	<!-- ################################################################-->
+
+	  <!-- Horatio -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityHoratio" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	  <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetHappiness" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationHappiness"        Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+	  </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetHappinessFertile" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationHappiness"        Operation="Addition"    Value="1"      Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+	  <!-- Cravers -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityCravers" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	  <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDepletionFIDS" Type="ClassPopulationAssimilated">
+		  <Modifier		TargetProperty="BonusPopulationFIDSPercent"			Operation="Addition"		Value="0.05" Path="ClassPopulation"/>
+		  <Modifier		TargetProperty="BonusPopulationFIDSPercent"			Operation="Multiplication"	Value="$(PopulationCount)" TooltipHidden="true"/>
+	  </SimulationDescriptor>
+
+	  <!-- Sophons-->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinitySophons" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	  <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScience01" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	  </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScienceCold" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScienceHappy" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScienceAnomaly01" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScienceAnomaly02" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+	<!-- Terrans -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityTerrans" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	  <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetInfluence" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Addition"    Value="1"      Path="ClassPopulation"/>
+	  </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetInfluenceTemperate" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Addition"    Value="1"      Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetInfluenceFertile" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Addition"    Value="1"      Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinitySheredyn" Type="ClassPopulationAssimilated">
+        <Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDefense" Type="ClassPopulationAssimilated">
+        <Modifier TargetProperty="BonusPopulationDefense"      Operation="Addition"    Value="10"      Path="ClassPopulation"/>
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDefenseSterile" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationDefense"      Operation="Addition"    Value="5"      Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityMezari" Type="ClassPopulationAssimilated">
+        <Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityMezari" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="2"   Path="ClassPopulation"/>
+    </SimulationDescriptor>
+     
+    <!-- Venetians -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityVenetians" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	  <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDust" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationDust"          Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	  </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDustFertile" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationDust"          Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDustGas" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationDust"          Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDustHappy" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationDust"          Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+
+    <!-- Unfallen -->
+    <SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityUnfallen" Type="ClassPopulationAssimilated">
+        <Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFood03" Type="ClassPopulationAssimilated">
+        <Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="3" Priority="-3" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFoodFertile01" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="1" Priority="-3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFoodFertile02" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="1" Priority="-3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFoodSterile" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="1" Priority="-3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFoodSterile2" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="1" Priority="-3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFoodGas" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="1" Priority="-3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+
+	<!-- Vampirilis -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityVampirilis" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	  <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFIDS" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationFood"      Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+	  </SimulationDescriptor>
+	
+	<!-- TimeLords -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityTimeLords" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetIDS" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+    <!-- Minor -->
+    <!-- Amoeba -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityAmoeba" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFood02" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood" Operation="Addition" Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFood04" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood" Operation="Addition" Value="2" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+    <!-- Benthys -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityBenthys" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityBenthys" Type="ClassPopulationAssimilated">
+        <Modifier TargetProperty="BonusPopulationHappiness"          Operation="Addition"    Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <!-- Bots -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityBots" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetIndustry" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"    Value="2"      Path="ClassPopulation"/>
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetIndustryHot" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"    Value="1"      Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetHappinessHot" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationHappiness"  Operation="Addition"    Value="1"     Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+    <!-- Deuyivans -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityDeuyivans" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScience02" Type="ClassPopulationAssimilated">
+        <Modifier TargetProperty="BonusPopulationScience"       Operation="Addition"    Value="2"       Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+	<!-- Hisshos -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityHisshos" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityHisshos" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationDefense"      Operation="Addition"    Value="20"     Path="ClassPopulation" />
+	</SimulationDescriptor>
+
+	<!-- Haroshems -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityHaroshems" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetFood01" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationFood"       Operation="Addition"    Value="2"     Path="ClassPopulation" />
+	</SimulationDescriptor>
+	
+    <!-- Mavros -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityMavros" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityMavros" Type="ClassPopulationAssimilated">
+        <Modifier TargetProperty="BonusPopulationIndustry"      Operation="Addition"    Value="2"     Path="ClassPopulation" />
+    </SimulationDescriptor>
+    
+    <!-- Pilgrims -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityPilgrims" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityPilgrims" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationScience" Operation="Addition" Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <!-- Zvali -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityZvali" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityZvali" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationScience"				Operation="Addition"	Value="2" Path="ClassPopulation"/>
+        <Modifier TargetProperty="BonusPopulationHappiness"				Operation="Addition"	Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+	
+	<!-- Tikanans -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityTikanans" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetManpower" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationSystemManpower"				Operation="Addition" Value="3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetManpowerFertile" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationSystemManpower"				Operation="Addition" Value="2" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	
+	<!-- Gnashasts -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityGnashasts" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetGroundBattleAttackerDamage" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Addition" Value="30" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetGroundBattleAttackerDamageFertile" Type="ClassPopulationAssimilated">
+		<Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Addition" Value="20" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+	<!-- Eyders -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityEyders" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityEyders" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	
+	<!-- Niris -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityNiris" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityNiris" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationFood"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+	
+	<!-- Bhagabas -->
+	<SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityBhagabas" Type="ClassPopulationAssimilated">
+		<Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityBhagabas" Type="ClassPopulationAssimilated">
+		<Modifier       TargetProperty="BonusPopulationPrestige"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+    <!-- Remnant -->
+    <SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityRemnant" Type="ClassPopulationAssimilated">
+        <Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityRemnant" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationIndustry"      Operation="Addition"    Value="1"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="1"/>
+    </SimulationDescriptor>
+    
+    <!-- Pulsos -->
+    <SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityPulsos" Type="ClassPopulationAssimilated">
+        <Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetAffinityPulsos" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationIndustry"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationScience"      Operation="Addition"    Value="2"  Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationAssimilated" Type="ClassPopulationAssimilated">
+    </SimulationDescriptor>
+
+    <!-- _Population traits -->
+    <SimulationDescriptor Name="ClassPopulationAssimilatedEmpireAffinityGreenman" Type="ClassPopulationAssimilated">
+        <Modifier		TargetProperty="PopulationsAssimilated"			Operation="Addition"		Value="1"	Path="../ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetIndustrySterile" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationIndustry"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDustSterile" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetHappinessTemperate" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationHappiness"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetIndustryCold" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationIndustry"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetScienceHot" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationScience"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetDefenseFertile" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationDefense"      Operation="Addition"    Value="20" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationAssimilatedPlanetPrimaryFIDSI" Type="ClassPopulationAssimilated">
+        <Modifier       TargetProperty="BonusPopulationFIDSI"      Operation="Addition"    Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <!-- ################################################################-->
+	<!-- ######################### WILL EFFECTS #########################-->
+	<!-- ################################################################-->
+
+	<!-- Parasite affinity -->
+
+	<SimulationDescriptor Name="PopulationParasite" Type="PopulationParasite">
+
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationParasited" Type="PopulationParasite"/>
+	<SimulationDescriptor Name="PopulationParasitedPlanet" Type="PopulationParasite">
+		<Modifier TargetProperty="ParasitedPopulation" Operation="Addition" Value="$(PopulationCount)" Path="../ClassColonizedPlanet"/>
+		<BinaryModifier TargetProperty="Happiness"     Operation="Subtraction" Left="10" BinaryOperation="Multiplication" Right="$(PopulationCount)" Path="../ClassColonizedStarSystem"/>
+
+		<Modifier TargetProperty="BonusPopulationFIDSPercent"     Operation="Addition" Value="1" Path="ClassPopulationPlanet"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationParasitedSystem" Type="PopulationParasite">
+		<Modifier TargetProperty="NetPopulationScore" Operation="Multiplication" Value="0.5" Priority="2" />
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationParasiteInactive" Type="PopulationParasite">
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="PopulationParasiteActive"   Type="PopulationParasite">
+
+	</SimulationDescriptor>
+
+    <!-- ################################################################-->
+    <!-- ######################### WILL EFFECTS #########################-->
+    <!-- ################################################################-->
+
+    <SimulationDescriptor Name="PoliticalProfileMilitarist"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="1"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="1"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="1"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="1"/>
+        <Property Name="Politics05ToPolitics05" BaseValue="1"/>
+        <Property Name="Politics06ToPolitics06" BaseValue="2"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PoliticalProfilePacifist"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="1"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="1"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="2"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="1"/>
+        <Property Name="Politics05ToPolitics05" BaseValue="1"/>
+        <Property Name="Politics06ToPolitics06" BaseValue="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PoliticalProfileIndustrialist"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="2"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="1"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="1"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="1"/>
+        <Property Name="Politics05ToPolitics05" BaseValue="1"/>
+        <Property Name="Politics06ToPolitics06" BaseValue="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PoliticalProfileEcologist"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="1"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="1"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="1"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="2"/>
+        <Property Name="Politics05ToPolitics05" BaseValue="1"/>
+        <Property Name="Politics06ToPolitics06" BaseValue="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PoliticalProfileScientist"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="1"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="2"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="1"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="1"/>
+        <Property Name="Politics05ToPolitics05" BaseValue="1"/>
+        <Property Name="Politics06ToPolitics06" BaseValue="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PoliticalProfileReligious"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="1"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="1"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="1"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="1"/>
+        <Property Name="Politics05ToPolitics05" BaseValue="2"/>
+        <Property Name="Politics06ToPolitics06" BaseValue="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PoliticalProfileDeuyivan"   Type="PoliticalProfile">
+        <Property Name="Politics01ToPolitics01" BaseValue="1"/>
+        <Property Name="Politics02ToPolitics02" BaseValue="2"/>
+        <Property Name="Politics03ToPolitics03" BaseValue="1"/>
+        <Property Name="Politics04ToPolitics04" BaseValue="1"/>       
+        <Property Name="Politics06ToPolitics06" BaseValue="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAggressive"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics06"/>
+        <Modifier TargetProperty="Politics01ToPolitics06" Operation="Multiplication" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAtheist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics05"/>
+        <Modifier TargetProperty="Politics05ToPolitics05" Operation="Multiplication" Value="0.25"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitCurious"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics02"/>
+        <Modifier TargetProperty="Politics03ToPolitics02" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitFanatic"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics05"/>
+        <Modifier TargetProperty="Politics06ToPolitics05" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitHedonist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics04ToPolitics03"/>
+        <Modifier TargetProperty="Politics04ToPolitics03" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitMerciful"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics03"/>
+        <Modifier TargetProperty="Politics06ToPolitics03" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitPragmatic"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics01"/>
+        <Modifier TargetProperty="Politics02ToPolitics01" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitOptimised"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics04"/>
+        <Modifier TargetProperty="Politics01ToPolitics04" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitPious"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics05"/>
+        <Modifier TargetProperty="Politics03ToPolitics05" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="PopulationPoliticalTraitRelativist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics05"/>
+        <Modifier TargetProperty="Politics02ToPolitics05" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitSagacious"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics01"/>
+        <Modifier TargetProperty="Politics06ToPolitics01" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitScientist02"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics02"/>
+        <Property Name="Politics01ToPolitics01"/>      
+        <Property Name="Politics03ToPolitics03"/>
+        <Property Name="Politics04ToPolitics04"/>    
+        <Property Name="Politics06ToPolitics06"/>
+        <Modifier TargetProperty="Politics02ToPolitics02" Operation="Addition" Value="2"/>
+        <Modifier TargetProperty="Politics01ToPolitics01" Operation="Addition" Value="1"/>
+        <Modifier TargetProperty="Politics03ToPolitics03" Operation="Addition" Value="1"/>
+        <Modifier TargetProperty="Politics04ToPolitics04" Operation="Addition" Value="1"/>
+        <Modifier TargetProperty="Politics06ToPolitics06" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitScientist03"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics02"/>     
+        <Modifier TargetProperty="Politics02ToPolitics02" Operation="Addition" Value="2"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitSearcher"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics02"/>
+        <Modifier TargetProperty="Politics01ToPolitics02" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitWary"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics06"/>
+        <Modifier TargetProperty="Politics03ToPolitics06" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitWarmonger"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics06"/>
+        <Modifier TargetProperty="Politics02ToPolitics06" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitXenophobic"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics06"/>
+        <Modifier TargetProperty="Politics03ToPolitics06" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitIndustryToScience"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics02"/>
+        <Modifier TargetProperty="Politics01ToPolitics02" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitEcologistToScience"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics04ToPolitics02"/>
+        <Modifier TargetProperty="Politics04ToPolitics02" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAntiIndustrialist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics01"/>
+        <Modifier TargetProperty="Politics01ToPolitics01" Operation="Addition" Value="-0.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAntiScientist02" Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics02"/>
+        <Modifier TargetProperty="Politics02ToPolitics02" Operation="Addition" Value="-0.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAntiPacifist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics03"/>
+        <Modifier TargetProperty="Politics03ToPolitics03" Operation="Addition" Value="-0.5"/>
+    </SimulationDescriptor>   
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAntiEcologist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics04ToPolitics04"/>
+        <Modifier TargetProperty="Politics04ToPolitics04" Operation="Addition" Value="-0.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitAntiReligious"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics05"/>
+        <Modifier TargetProperty="Politics05ToPolitics05" Operation="Addition" Value="-0.5"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="PopulationPoliticalTraitAntiMilitarist"   Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics06"/>
+        <Modifier TargetProperty="Politics06ToPolitics06" Operation="Addition" Value="-0.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitIndustrialistToPacifist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics03"/>
+        <Modifier TargetProperty="Politics01ToPolitics03" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitIndustrialistToReligious" Type="PopulationPoliticalTrait">
+        <Property Name="Politics01ToPolitics05"/>
+        <Modifier TargetProperty="Politics01ToPolitics05" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitPacifistToIndustrialist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics01"/>
+        <Modifier TargetProperty="Politics03ToPolitics01" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitPacifistToEcologist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics03ToPolitics04"/>
+        <Modifier TargetProperty="Politics03ToPolitics04" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitScientificToIndustrialist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics01"/>
+        <Modifier TargetProperty="Politics02ToPolitics01" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitScientificToPacifist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics03"/>
+        <Modifier TargetProperty="Politics02ToPolitics03" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitScientificToEcologist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics02ToPolitics04"/>
+        <Modifier TargetProperty="Politics02ToPolitics04" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitReligiousToIndustrialist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics01"/>
+        <Modifier TargetProperty="Politics05ToPolitics01" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitReligiousToPacifist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics03"/>
+        <Modifier TargetProperty="Politics05ToPolitics03" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="PopulationPoliticalTraitMilitaristToScientific" Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics02"/>
+        <Modifier TargetProperty="Politics06ToPolitics02" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitMilitaristToReligious" Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics05"/>
+        <Modifier TargetProperty="Politics06ToPolitics05" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="PopulationPoliticalTraitReligiousToScientific" Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics02"/>
+        <Modifier TargetProperty="Politics05ToPolitics02" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitReligiousToMilitarist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics06"/>
+        <Modifier TargetProperty="Politics05ToPolitics06" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitReligiousToEcologist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics05ToPolitics04"/>
+        <Modifier TargetProperty="Politics05ToPolitics04" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitMilitaristToEcologist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics06ToPolitics04"/>
+        <Modifier TargetProperty="Politics06ToPolitics04" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitEcologistToIndustrialist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics04ToPolitics01"/>
+        <Modifier TargetProperty="Politics04ToPolitics01" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitEcologistToReligious" Type="PopulationPoliticalTrait">
+        <Property Name="Politics04ToPolitics05"/>
+        <Modifier TargetProperty="Politics04ToPolitics05" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitEcologistToMilitarist" Type="PopulationPoliticalTrait">
+        <Property Name="Politics04ToPolitics06"/>
+        <Modifier TargetProperty="Politics04ToPolitics06" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+    
+    
+    
+    
+    <SimulationDescriptor Name="PopulationPoliticalTraitScheming"   Type="PopulationPoliticalTrait">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PopulationPoliticalTraitCooperative"   Type="PopulationPoliticalTrait">
+    </SimulationDescriptor>
+
+    
+    
+
+
+    <SimulationDescriptor Name="GuardianDiplomacyPeacePopulationStarSystem" Type="GuardianDiplomacy" >
+        <Modifier TargetProperty="SystemEmpirePointFromGuardians" Operation="Addition" Value="20" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GuardianDiplomacyWarPopulationStarSystem" Type="GuardianDiplomacy" >
+        <Modifier TargetProperty="SystemEmpirePointFromGuardians" Operation="Subtraction" Value="20" Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+	 
+	 <SimulationDescriptor Name="GuardianDiplomacyPeacePopulationPlanet" Type="GuardianDiplomacy" />
+	 
+	 <SimulationDescriptor Name="GuardianDiplomacyWarPopulationPlanet" Type="GuardianDiplomacy" />
+
+    <!-- ######## CUSTOM FACTIONS ######## -->
+    	<!-- Vampirilis -->
+	<SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS" Type="ClassPopulationPlanet">
+		<Modifier       TargetProperty="BonusPopulationFood"      Operation="Addition"    Value="4" Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"    Value="4" Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="4" Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"    Value="4" Path="ClassPopulation"/>        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemModifiersTraitPrimarySlowGrowthFIDS" Type="ClassPopulationStarSystem">
+        <Modifier 		TargetProperty="SystemGrowth"          Operation="Percent"     Value="-0.5" Priority="10" Path="../ClassStarSystem"/>
+    </SimulationDescriptor>
+                          
+                          
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryFoodFertile02" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFood"    Operation="Force"       Value="5"   Priority="-4"   Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryFoodFertile02"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationFood"    Operation="Addition"    Value="5"   Priority="-3"   Path="./PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+
+    
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly02" Type="ClassPopulationPlanet">
+        <Modifier		TargetProperty="BonusPopulationScience"       Operation="Force"    Value="5" Priority="-4"  Path="./PlanetAnomaly/ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly02"  TooltipHidden="true"/>
+        <Modifier		TargetProperty="BonusPopulationScience"       Operation="Addition" Value="5"  Path="./PlanetAnomaly"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryDustHappy" Type="ClassPopulationPlanet">
+        <BinaryModifier TargetProperty="BonusPopulationDust"		Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(HappinessStarSystemIsHappy)" TooltipHidden="true" />
+        <Modifier		TargetProperty="BonusPopulationDust"	    Operation="Addition" Value="2" Path="./ClassColonizedStarSystem,HappinessStatusStarSystem3"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryInfluenceFertile" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Force"       Value="1"   Priority="-4"   Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryInfluenceFertile"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Addition"    Value="1"   Priority="-3"   Path="./PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryInfluenceTemperate" Type="ClassPopulationPlanet">
+		<Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Force"       Value="1"   Priority="-4"   Path="./PlanetGameplayTypeTemperate/ClassPopulationPlanetModifiersTraitSecondaryInfluenceTemperate"  TooltipHidden="true"/>
+		<Modifier       TargetProperty="BonusPopulationPrestige"    Operation="Addition"    Value="1"   Priority="-3"   Path="./PlanetGameplayTypeTemperate"/>
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryFoodFertile01" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFood"    Operation="Force"       Value="3"   Priority="-4"   Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryFoodFertile01"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationFood"    Operation="Addition"    Value="3"   Priority="-3"   Path="./PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryManpowerFertile" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationSystemManpower"				Operation="Force"    Value="5" Priority="-4" Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryManpowerFertile" TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationSystemManpower"				Operation="Addition" Value="5" Path="./PlanetGameplayTypeTeeming" />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryGroundBattleAttackerDamageFertile" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Force"    Value="50" Priority="-4" Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryGroundBattleAttackerDamageFertile" TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Addition" Value="50" Path="./PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly01" Type="ClassPopulationPlanet">
+        <Modifier		TargetProperty="BonusPopulationScience"       Operation="Force"    Value="3"     Priority="-4"  Path="./PlanetAnomaly/ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly01"  TooltipHidden="true"/>
+        <Modifier		TargetProperty="BonusPopulationScience"       Operation="Addition" Value="3"     Priority="-3"  Path="./PlanetAnomaly"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryIndustryHot" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry"      Operation="Force"       Value="2" Priority="-4"   Path="./PlanetGameplayTypeHot/ClassPopulationPlanetModifiersTraitSecondaryIndustryHot"  TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationIndustry"      Operation="Addition"    Value="2" Priority="-3"   Path="./PlanetGameplayTypeHot"  />
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryHappinessHot" Type="ClassPopulationPlanet">
+		<Modifier TargetProperty="BonusPopulationHappiness"      Operation="Force"       Value="2" Priority="-4"   Path="./PlanetGameplayTypeHot/ClassPopulationPlanetModifiersTraitSecondaryHappinessHot"  TooltipHidden="true"/>
+		<Modifier TargetProperty="BonusPopulationHappiness"      Operation="Addition"    Value="2" Priority="-3"   Path="./PlanetGameplayTypeHot"  />
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetTraitSecondaryHisshos" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense"		Operation="Force"       Value="30" Priority="-4"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetTraitSecondaryHisshos"  TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationDefense"		Operation="Addition"    Value="30" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryHappinessFertile" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationHappiness"          Operation="Force"       Value="4" Priority="-4"   Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryHappinessFertile"  TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationHappiness"          Operation="Addition"    Value="4" Priority="-3"   Path="./PlanetGameplayTypeTeeming"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryFoodSterile" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"       Operation="Force"       Value="5" Priority="-4"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryFoodSterile"  TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationFood"       Operation="Addition"    Value="5" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryFoodSterile2" Type="ClassPopulationPlanet">
+		<Modifier TargetProperty="BonusPopulationFood"       Operation="Force"       Value="3" Priority="-4"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryFoodSterile2"  TooltipHidden="true"/>
+		<Modifier TargetProperty="BonusPopulationFood"       Operation="Addition"    Value="3" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+	</SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetTraitSecondaryMezari" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationScience"     Operation="Force"       Value="3" Priority="-4"   Path="./PlanetGameplayTypeCold/ClassPopulationPlanetTraitSecondaryMezari"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="3" Priority="-3"   Path="./PlanetGameplayTypeCold"  />
+    </SimulationDescriptor>
+   
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryDustFertile" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationDust"     Operation="Force"       Value="3" Priority="-4"   Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryDustFertile"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationDust"     Operation="Addition"    Value="3" Priority="-3"   Path="./PlanetGameplayTypeTeeming"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryScienceCold" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationScience"     Operation="Force"       Value="3" Priority="-4"   Path="./PlanetGameplayTypeCold/ClassPopulationPlanetModifiersTraitSecondaryScienceCold"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationScience"     Operation="Addition"    Value="3" Priority="-3"   Path="./PlanetGameplayTypeCold"  />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryDefenseSterile" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense"		Operation="Force"       Value="30" Priority="-4"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryDefenseSterile"  TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationDefense"		Operation="Addition"    Value="30" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryScienceHappy" Type="ClassPopulationPlanet">
+        <BinaryModifier TargetProperty="BonusPopulationScience"			Operation="Addition" Left="3" BinaryOperation="Multiplication" Right="$(HappinessStarSystemIsHappy)" TooltipHidden="true" />
+        <Modifier		TargetProperty="BonusPopulationScience"			Operation="Addition" Value="3" Path="./ClassColonizedStarSystem,HappinessStatusStarSystem3"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryDustGas" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Force"       Value="5"  Priority="-4" Path="./PlanetGameplayTypeGas/ClassPopulationPlanetModifiersTraitSecondaryDustGas" TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="5"  Priority="-3" Path="./PlanetGameplayTypeGas"/>
+    </SimulationDescriptor>
+    <!-- Unfallen -->
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryFood03" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="5" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+	<SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryFood04" Type="ClassPopulationPlanet">
+		<Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="3" Path="ClassPopulation"/>
+	</SimulationDescriptor>
+
+
+    <!--TimeLords-->
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryIDS" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"    Value="5" Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"    Value="5" Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"    Value="5" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <!-- Minor -->
+
+    <!-- Benthys -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityBenthys" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationHappiness"      Operation="Addition"    Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <!-- Zvali -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityZvali" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationHappiness"      Operation="Addition"    Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <!-- Niris -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityNiris" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFood"      Operation="Addition"    Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+
+    <!-- Guardians -->
+    <SimulationDescriptor Name="ClassPopulationPlanetAffinityGuardians" Type="ClassPopulationPlanet">
+        <Modifier		TargetProperty="BonusPopulationHappiness"		                        Operation="Addition" Value="5"   Path="ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages"  Operation="Addition" Value="200" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryFood01" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood" Operation="Addition" Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryFood02" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood" Operation="Addition" Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryIndustry" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Addition" Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryDust" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDust" Operation="Addition" Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryScience01" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Addition" Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryScience02" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Addition" Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryInfluence" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationPrestige" Operation="Addition" Value="1" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryIndustrySterile" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationIndustry"   Operation="Addition"     Value="2" Priority="-3"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryIndustrySterile"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationIndustry"   Operation="Addition"     Value="2" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryDustSterile" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationDust"   Operation="Addition"     Value="5" Priority="-3"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryDustSterile"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationDust"   Operation="Addition"     Value="5" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryHappinessTemperate" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationHappiness"   Operation="Addition"     Value="3" Priority="-3"   Path="./PlanetGameplayTypeTemperate/ClassPopulationPlanetModifiersTraitSecondaryHappinessTemperate"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationHappiness"   Operation="Addition"     Value="3" Priority="-3"   Path="./PlanetGameplayTypeTemperate"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryIndustryCold" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationIndustry"   Operation="Addition"     Value="2" Priority="-3"   Path="./PlanetGameplayTypeCold/ClassPopulationPlanetModifiersTraitSecondaryIndustryCold"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationIndustry"   Operation="Addition"     Value="2" Priority="-3"   Path="./PlanetGameplayTypeCold"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryScienceHot" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"     Value="2" Priority="-3"   Path="./PlanetGameplayTypeHot/ClassPopulationPlanetModifiersTraitSecondaryScienceHot"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"     Value="2" Priority="-3"   Path="./PlanetGameplayTypeHot"  />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryDefenseFertile" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationDefense"   Operation="Addition"     Value="30" Priority="-3"   Path="./PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryDefenseFertile"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationDefense"   Operation="Addition"     Value="30" Priority="-3"   Path="./PlanetGameplayTypeTeeming"  />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitSecondaryFoodGas" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"          Operation="Force"       Value="5" Priority="-4"   Path="./PlanetGameplayTypeGas/ClassPopulationPlanetModifiersTraitSecondaryFoodGas"  TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"    Value="5" Priority="-3"   Path="./PlanetGameplayTypeGas"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetTraitSecondaryBots" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFood"  Operation="Force"       Value="5" Priority="-4"   Path="./PlanetGameplayTypeMeager/ClassPopulationPlanetTraitSecondaryBots"  TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationFood"  Operation="Addition"    Value="5" Priority="-3"   Path="./PlanetGameplayTypeMeager"  />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryDefense" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense" Operation="Addition" Value="20" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryManpower" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationSystemManpower" Operation="Addition" Value="5" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryGroundBattleAttackerDamage" Type="ClassPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Addition" Value="50" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassPopulationPlanetModifiersTraitPrimaryFIDSI" Type="ClassPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFIDSI"   Operation="Addition"     Value="2" Path="ClassPopulation"/>
+    </SimulationDescriptor>
+    
+
+    <!-- Local bonus trackers -->
+    <SimulationDescriptor Name="PopulationGrowthScoreBoosted" Type="PopulationGrowthScoreBoosted">
+        <Modifier TargetProperty="PopulationGrowthScoreModifier" Operation="Percent" Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryScience01"                                                 Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Addition" Value="1"              Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryScience01,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryScience02"                                                 Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Addition" Value="2"              Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryScience02,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryScienceCold"                                             Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience"   Operation="Force"    Value="6" Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeCold/ClassPopulationPlanetModifiersTraitSecondaryScienceCold" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationScience"   Operation="Addition" Value="3"                 Path="PlanetGameplayTypeCold"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryDust"                                                      Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDust"  Operation="Addition" Value="1"                  Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryDust,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryIDS"                                                       Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Addition" Value="5"               Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryIDS,ClassPopulation"/>
+        <Modifier TargetProperty="BonusPopulationDust" Operation="Addition" Value="5"                   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryIDS,ClassPopulation"/>
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Addition" Value="5"                Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryIDS,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryDepletionFIDS"                                             Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFIDS" Operation="Addition" Value="2"                    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryDepletionFIDS,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryDustFertile"                                             Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDust"   Operation="Force"    Value="10" Priority="-3"  Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryDustFertile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationDust"   Operation="Addition"   Value="7"               Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS"                                            Type="WithPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFood"      Operation="Addition"          Value="4"                       Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS,ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationIndustry"  Operation="Addition"          Value="4"                       Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS,ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationDust"      Operation="Addition"          Value="4"                       Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS,ClassPopulation"/>
+        <Modifier       TargetProperty="BonusPopulationScience"   Operation="Addition"          Value="4"                       Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryInfluence"                                                 Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationPrestige" Operation="Addition" Value="1"            Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryInfluence,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryInfluenceTemperate"                                      Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationPrestige"   Operation="Force"    Value="2" Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTemperate/ClassPopulationPlanetModifiersTraitSecondaryInfluenceTemperate" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationPrestige"   Operation="Addition" Value="1"                 Path="PlanetGameplayTypeTemperate"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryInfluenceFertile"                                        Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationPrestige"   Operation="Force"    Value="2" Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryInfluenceFertile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationPrestige"   Operation="Addition"    Value="1"              Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryDefense"                                                   Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense" Operation="Addition" Value="20"       Priority="-2" Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryDefense,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryHappiness"                                                 Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationHappiness" Operation="Addition" Value="2"          Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryHappiness,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryDefenseSterile"                                          Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense"		Operation="Force"       Value="60" Priority="-3"    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryDefenseSterile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationDefense"		Operation="Addition"    Value="30"                  Path="PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryFood01"                                                    Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood" Operation="Addition" Value="1"                    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryFood01,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryFood02"                                                    Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood" Operation="Addition" Value="2"                    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryFood02,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryFood03"                                                    Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"  Operation="Addition" Value="5"                  Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryFood03,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryFood04"                                                    Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"  Operation="Addition" Value="3"                  Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryFood04,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryFoodSterile"                                             Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Force"      Value="10"  Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryFoodSterile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Addition"   Value="5"                   Path="PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryFoodSterile2"                                            Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Force"      Value="6" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryFoodSterile2" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Addition"   Value="3"                   Path="PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetTraitSecondaryHisshos"                                                          Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense"   Operation="Force"       Value="60" Priority="-3"    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetTraitSecondaryHisshos" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationDefense"   Operation="Addition"    Value="30"                  Path="PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryHappinessFertile"                                        Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationHappiness"   Operation="Force"     Value="8" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryHappinessFertile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationHappiness"   Operation="Addition"  Value="4"                   Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryIndustry"                                                  Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Addition" Value="1"            Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryIndustry,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetTraitSecondaryBots"                                                             Type="WithPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationFood"    Operation="Force"           Value="10"  Priority="-3"         Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetTraitSecondaryBots" TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationFood"    Operation="Addition"        Value="5"   Priority="-3"         Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryFoodGas"                                                 Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"          Operation="Force"           Value="10"  Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeGas/ClassPopulationPlanetModifiersTraitSecondaryFoodGas" TooltipHidden="true"/>
+        <Modifier TargetProperty="BonusPopulationFood"          Operation="Addition"        Value="5"                   Path="PlanetGameplayTypeGas"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryScienceAnomaly01"                                        Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience"   Operation="Force"       Value="6" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetAnomaly/ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly01,ClassPopulation" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationScience"   Operation="Addition"    Value="3"                   Path="PlanetAnomaly"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryScienceHappy"                                            Type="WithPopulationPlanet">
+        <BinaryModifier TargetProperty="BonusPopulationScience"			Operation="Addition" Left="3"   BinaryOperation="Multiplication" Right="$(HappinessStarSystemIsHappy)" Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitSecondaryScienceHappy" TooltipHidden="true" SearchValueFromPath="true" />
+        <Modifier       TargetProperty="BonusPopulationScience"		    Operation="Addition" Value="3"  Path="HappinessStatusStarSystem3"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryManpower"                                                  Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationSystemManpower" Operation="Addition" Value="5" Priority="-2" Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryManpower,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryManpowerFertile"                                         Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationSystemManpower"   Operation="Force"        Value="10" Priority="-3"    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryManpowerFertile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationSystemManpower"   Operation="Addition"     Value="5"                   Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryGroundBattleAttackerDamage"                                Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Addition" Value="50" Priority="-3" Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryGroundBattleAttackerDamage,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryGroundBattleAttackerDamageFertile"                       Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages"   Operation="Force"    Value="100" Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryGroundBattleAttackerDamageFertile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages"   Operation="Addition"    Value="50" Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryDustGas"                                                 Type="WithPopulationPlanet">
+        <Modifier       TargetProperty="BonusPopulationDust"    Operation="Force"       Value="10"   Priority="-2"      Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeGas/ClassPopulationPlanetModifiersTraitSecondaryDustGas" TooltipHidden="true"/>
+        <Modifier       TargetProperty="BonusPopulationDust"    Operation="Addition"    Value="5"                       Path="PlanetGameplayTypeGas"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryFoodFertile01"                                           Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Force"    Value="6" Priority="-3"       Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryFoodFertile01" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Addition"    Value="3"                  Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryFoodFertile02"                                           Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Force"      Value="10" Priority="-3"    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryFoodFertile02" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationFood"   Operation="Addition"   Value="5"                   Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryDustHappy"                                               Type="WithPopulationPlanet">
+        <BinaryModifier TargetProperty="BonusPopulationDust"		Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(HappinessStarSystemIsHappy)" Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitSecondaryDustHappy" TooltipHidden="true" SearchValueFromPath="true" />
+        <Modifier       TargetProperty="BonusPopulationDust"		Operation="Addition" Value="2"          Path="HappinessStatusStarSystem3"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryScienceAnomaly02"                                        Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience"   Operation="Force"    Value="10" Priority="-3"   Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetAnomaly/ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly02,ClassPopulation" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationScience"   Operation="Addition"    Value="5"               Path="PlanetAnomaly"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryIndustrySterile"                                         Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Force" Value="4" Priority="-3"        Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryIndustrySterile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Addition" Value="2"                   Path="PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryDustSterile"                                             Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDust" Operation="Force"        Value="10" Priority="-3"    Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeMeager/ClassPopulationPlanetModifiersTraitSecondaryDustSterile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationDust" Operation="Addition"     Value="5"                   Path="PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryHappinessTemperate"                                      Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationHappiness" Operation="Force"       Value="6" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTemperate/ClassPopulationPlanetModifiersTraitSecondaryHappinessTemperate" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationHappiness" Operation="Addition"    Value="3"                   Path="PlanetGameplayTypeTemperate"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryIndustryCold"                                            Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Force"        Value="4" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeCold/ClassPopulationPlanetModifiersTraitSecondaryIndustryCold" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationIndustry" Operation="Addition"     Value="2"                   Path="PlanetGameplayTypeCold"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryScienceHot"                                              Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Force"         Value="4" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeHot/ClassPopulationPlanetModifiersTraitSecondaryScienceHot" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationScience" Operation="Addition"      Value="2"                   Path="PlanetGameplayTypeHot"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryDefenseFertile"                                          Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationDefense" Operation="Force"         Value="4" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeTeeming/ClassPopulationPlanetModifiersTraitSecondaryDefenseFertile" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationDefense" Operation="Addition"      Value="2"                   Path="PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitPrimaryFIDSI"                                                     Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationFIDSI" Operation="Addition" Value="2" Priority="-3" Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetModifiersTraitPrimaryFIDSI,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetAffinityGuardians"                                                              Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationHappiness" Operation="Addition" Value="5"                                          Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetAffinityGuardians,ClassPopulation"/>
+        <Modifier TargetProperty="BonusPopulationGroundBattleBombardmentAttackerDamages" Operation="Addition" Value="200"           Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassPopulationPlanetAffinityGuardians,ClassPopulation"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryHappinessHot"                                            Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationHappiness"   Operation="Force"     Value="4" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeHot/ClassPopulationPlanetModifiersTraitSecondaryHappinessHot" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationHappiness"   Operation="Addition"  Value="2"                   Path="PlanetGameplayTypeHot"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="WithPopulationPlanetModifiersTraitSecondaryIndustryHot"                                             Type="WithPopulationPlanet">
+        <Modifier TargetProperty="BonusPopulationIndustry"   Operation="Force"      Value="4" Priority="-3"     Path="PopulationGrowthScoreBoosted/./ClassEmpire/ClassColonizedStarSystem/PlanetGameplayTypeHot/ClassPopulationPlanetModifiersTraitSecondaryIndustryHot" TooltipHidden="true" />
+        <Modifier TargetProperty="BonusPopulationIndustry"   Operation="Addition"   Value="2"                   Path="PlanetGameplayTypeHot"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassPopulationStarSystemCustomFaction" Type="ClassPopulationStarSystem" />
+    
+</Datatable>

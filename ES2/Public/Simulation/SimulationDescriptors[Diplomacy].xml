@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="DiplomacyCountUnknown" Type="DiplomacyCount">
+        <Modifier TargetProperty="UnknownCount"         Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DiplomacyCountWar" Type="DiplomacyCount">
+        <Modifier TargetProperty="WarCount"             Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DiplomacyCountColdWar" Type="DiplomacyCount">
+        <Modifier TargetProperty="ColdWarCount"         Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DiplomacyCountPeace" Type="DiplomacyCount">
+        <Modifier TargetProperty="PeaceCount"           Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DiplomacyCountAlliance" Type="DiplomacyCount">
+        <Modifier TargetProperty="AllianceCount"        Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DiplomacyCountTeam" Type="DiplomacyCount">
+        <Modifier TargetProperty="AllianceCount"        Operation="Addition" Value="1" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TeamCount"            Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DiplomacyCountTradeAgreementIncrement" Type="DiplomacyCount">
+        <Modifier TargetProperty="TradeAgreementCount"        Operation="Addition" Value="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MinorFactionDiplomacyUnknown" Type="MinorFactionDiplomacy">
+        <!-- <Modifier TargetProperty="RelationPointsTrend"        Operation="Force" Value="0" Path="../ClassEmpire" TooltipHidden="true"/> -->
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MinorFactionDiplomacyKnown" Type="MinorFactionDiplomacy"/>
+
+</Datatable>

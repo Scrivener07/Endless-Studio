@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/MedalDefinition.xsd">
+
+    <Medal Name="BronzeMedal">
+      <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">false</InterpreterPrerequisite>
+      <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Context, @ClassShipEncounter, MedalScore) gt 10 and Property(Context, @ClassShipEncounter, MedalScore) le 20</InterpreterPrerequisite>
+    </Medal>
+
+    <Medal Name="SilverMedal">
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">false</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Context, @ClassShipEncounter, MedalScore) gt 20 and Property(Context, @ClassShipEncounter, MedalScore) le 40</InterpreterPrerequisite>
+    </Medal>
+
+    <Medal Name="GoldMedal">
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">false</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Property(Context, @ClassShipEncounter, MedalScore) gt 40</InterpreterPrerequisite>
+    </Medal>
+    
+</Datatable>

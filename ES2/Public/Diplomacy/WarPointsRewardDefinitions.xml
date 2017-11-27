@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/WarPointsRewardDefinition.xsd">
+
+    <!-- Parameters: EncounterGroup, EnemyEncounterGroup. -->
+    <WarPointsRewardDefinition Name="BattleWon">
+        <Formula>
+            (1.5 * Property(EncounterGroup, @ClassGroup, VictoryLevel)) 
+            + Clamp01(Property(EncounterGroup, @ClassGroup, MyHeroesCount)) 
+            + Clamp01(Property(EncounterGroup, @ClassGroup, EnemyHeroesKilledCount))
+        </Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- Parameters: EncounterGroup, EnemyEncounterGroup. -->
+    <WarPointsRewardDefinition Name="BattleLost">
+        <Formula>
+            ((1.5 * Property(EnemyEncounterGroup, @ClassGroup, VictoryLevel)) 
+            + Clamp01(Property(EnemyEncounterGroup, @ClassGroup, MyHeroesCount)) 
+            + Clamp01(Property(EnemyEncounterGroup, @ClassGroup, EnemyHeroesKilledCount)) - 1.5) 
+            * -0.1
+        </Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- Parameter: ColonizedStarSystem. Note: influence conversion is for peace only so this will never be used... -->
+    <WarPointsRewardDefinition Name="SystemCapturedByInfluence">
+        <Formula>
+            Property(ColonizedStarSystem, @ClassColonizedStarSystem, SystemLevel)
+            + Clamp01(Count(ColonizedStarSystem, @ClassColonizedStarSystem/StarSystemImprovementTradingCompanyHeadquarters)) 
+            + Count(ColonizedStarSystem, @ClassColonizedStarSystem/ClassColonizedPlanet) 
+            + 15
+        </Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- Parameter: ColonizedStarSystem. -->
+    <WarPointsRewardDefinition Name="SystemCapturedWithGroundBattle">
+        <Formula>
+            Property(ColonizedStarSystem, @ClassColonizedStarSystem, SystemLevel) 
+            + Clamp01(Count(ColonizedStarSystem, @ClassColonizedStarSystem/StarSystemImprovementTradingCompanyHeadquarters)) 
+            + Count(ColonizedStarSystem, @ClassColonizedStarSystem/ClassColonizedPlanet)
+            + 15
+        </Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- Parameter: RoundVictoryStatus. -->
+    <WarPointsRewardDefinition Name="GroundBattleRoundWon">
+        <Formula>0.2 * $(RoundVictoryStatus)</Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- Parameter: ColonizedStarSystem. Note: influence conversion is for peace only so this will never be used... -->
+    <WarPointsRewardDefinition Name="HomeSystemCapturedByInfluence">
+        <Formula>
+            Property(ColonizedStarSystem, @ClassColonizedStarSystem, SystemLevel) 
+            + Clamp01(Count(ColonizedStarSystem, @ClassColonizedStarSystem/StarSystemImprovementTradingCompanyHeadquarters)) 
+            + Count(ColonizedStarSystem, @ClassColonizedStarSystem/ClassColonizedPlanet) 
+            + 25
+        </Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- Parameter: ColonizedStarSystem. -->
+    <WarPointsRewardDefinition Name="HomeSystemCapturedWithGroundBattle">
+        <Formula>
+            Property(ColonizedStarSystem, @ClassColonizedStarSystem, SystemLevel) 
+            + Clamp01(Count(ColonizedStarSystem, @ClassColonizedStarSystem/StarSystemImprovementTradingCompanyHeadquarters)) 
+            + Count(ColonizedStarSystem, @ClassColonizedStarSystem/ClassColonizedPlanet) 
+            + 25
+        </Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- No parameters. -->
+    <WarPointsRewardDefinition Name="BlockadeTurnEnded">
+        <Formula>0.25</Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- No parameters. -->
+    <WarPointsRewardDefinition Name="TradingRouteBlockadeTurnEnded">
+        <Formula>0.1</Formula>
+    </WarPointsRewardDefinition>
+    
+    <!-- No parameters. -->
+    <WarPointsRewardDefinition Name="TradingRouteStructureBlockadeTurnEnded">
+        <Formula>0.25</Formula>
+    </WarPointsRewardDefinition>
+
+    <!-- No parameters. -->
+    <WarPointsRewardDefinition Name="StandByGroundBattle">
+        <Formula>0.25</Formula>
+    </WarPointsRewardDefinition>
+</Datatable>

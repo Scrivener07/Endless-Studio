@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationStateDefinition.xsd">
+    
+    <!-- All this elements are automatically handled by game systems. If you need more, ask a programmer. -->
+
+    <!-- Argument {0} is the happiness status name. -->
+    <PopulationStateDefinition_HappinessStatus Name="PopulationStateHappinessStatusEmpire" HappinessProviderLocation="Empire">
+        <EventName>PopulationPoliticalEvent{0}</EventName>
+    </PopulationStateDefinition_HappinessStatus>
+
+    <!-- Argument {0} is the happiness status name. -->
+    <PopulationStateDefinition_HappinessStatus Name="PopulationStateHappinessStatusSystem" HappinessProviderLocation="Context">
+        <EventName>PopulationPoliticalEvent{0}</EventName>
+    </PopulationStateDefinition_HappinessStatus>
+
+    <!-- Argument {0} is the diplomatic ability name. -->
+    <PopulationStateDefinition_DiplomaticAbility Name="PopulationStateDiplomaticAbility">
+        <EventName>PopulationPoliticalEventDiplomaticAbility{0}</EventName>
+    </PopulationStateDefinition_DiplomaticAbility>
+
+    <PopulationStateDefinition_AcademyColonized Name="PopulationStateAcademyColonized">
+        <EventName>PopulationPoliticalEventAcademyColonized</EventName>
+    </PopulationStateDefinition_AcademyColonized>
+
+    <!-- Argument {0} is the event name from the construction definition. -->
+    <PopulationStateDefinition_StarSystemImprovement Name="PopulationStateStarSystemImprovement">
+        <EventName>{0}</EventName>
+    </PopulationStateDefinition_StarSystemImprovement>
+
+    <PopulationStateDefinition_SystemBlockaded Name="PopulationStateSystemBlockaded">
+        <EventName>PopulationPoliticalEventSystemBlockaded</EventName>
+    </PopulationStateDefinition_SystemBlockaded>
+
+    <PopulationStateDefinition_SystemBesieged Name="PopulationStateSystemBesieged" DescriptorName="BesiegedColonizedStarSystem">
+        <EventName>PopulationPoliticalEventSystemBesieged</EventName>
+    </PopulationStateDefinition_SystemBesieged>
+
+    <!-- Argument {0} is the hero politics name. -->
+    <PopulationStateDefinition_HeroAssignedOnSystem Name="PopulationStateHeroAssignedOnSystem">
+        <EventName>PopulationPoliticalEventHeroAssignedToSystem{0}</EventName>
+    </PopulationStateDefinition_HeroAssignedOnSystem>
+
+    <!-- Argument {0} is the influence state (Neutral|Owner|Friendly|Hostil). -->
+    <PopulationStateDefinition_SystemInfluenceState Name="PopulationStateSystemInfluenceState">
+        <EventName>PopulationPoliticalEventSystemInfluence{0}</EventName>
+    </PopulationStateDefinition_SystemInfluenceState>
+    
+</Datatable>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/MouseCursorRule.xsd">
+    <MouseCursorRule Name="Default" Priority="0" GuiCursorName="Default">
+    </MouseCursorRule>
+
+    <!-- Loading & video -->
+    <MouseCursorRule Name="Loading" Priority="1000" GuiCursorName="Timer">
+        <Condition Key="Loading"/>
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="Turn_End" Priority="1000" GuiCursorName="Timer">
+        <Condition Key="Turn_End" />
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="Video" Priority="1000" GuiCursorName="Default" AccessLevel="Public">
+        <Condition Key="Video"/>
+    </MouseCursorRule>
+
+    <!-- Camera -->
+    <MouseCursorRule Name="CameraDrag" Priority="500" GuiCursorName="Grab" AccessLevel="Public">
+        <Condition Key="CameraDrag"/>
+    </MouseCursorRule>
+
+    <!-- Drag&Drop -->
+    <MouseCursorRule Name="DragDrop" Priority="410" GuiCursorName="Grab" AccessLevel="Public">
+        <Condition Key="DragDrop"/>
+    </MouseCursorRule>
+    
+    <MouseCursorRule Name="DragDroppable" Priority="400" GuiCursorName="Grab" AccessLevel="Public">
+        <Condition Key="DragDroppable"/>
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="Colonize" Priority="200" GuiCursorName="Colonize" AccessLevel="Public">
+        <Condition Key="Colonizable"/>
+    </MouseCursorRule>
+
+    <!-- Coordination Request -->
+    <MouseCursorRule Name="CoordinationRequest" Priority="200" GuiCursorName="CoordinationRequest" AccessLevel="Public">
+      <Condition Key="CoordinationRequestCursor"/>
+    </MouseCursorRule>
+  
+    <!-- We allow the god cursor in GUI -->
+    <MouseCursorRule Name="GodCursor" Priority="110" GuiCursorName="God" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions Key="GodGalaxyCursor"/>
+        </Condition>
+    </MouseCursorRule>
+
+    <!-- Interface 2D -->
+    <MouseCursorRule Name="MouseCovered" Priority="100" GuiCursorName="Default" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions Key="MouseCovered"/>
+        </Condition>
+    </MouseCursorRule>
+
+    <!-- Misunderstood -->
+    <!--<MouseCursorRule Name="GalaxyGarrison_Zoom" Priority="3" GuiCursorName="MagnifyingGlassAndSelectable" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions>
+                <Conditions Key="DockingGalaxyGarrisonCursor"/>
+                <Conditions Key="GalaxyGarrisonCursor"/>
+            </Conditions>
+            <Conditions>
+                <Conditions Key="GalaxyStarSystemCursorTarget"/>
+            </Conditions>
+        </Condition>
+    </MouseCursorRule>-->
+
+    <!-- TimeBubble -->
+    <MouseCursorRule Name="TimeBubbleClickable" Priority="3" GuiCursorName="TimeBubbleClickable" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions>
+                <Conditions Key="TimeBubbleCursor"/>
+            </Conditions>
+            <Conditions>
+                <Conditions Key="GalaxyStarSystemCursorTarget"/>
+            </Conditions>
+        </Condition>
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="TimeBubble" Priority="2" GuiCursorName="TimeBubble" AccessLevel="Public">
+        <Condition Key="TimeBubbleCursor"/>
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="Selectable0" Priority="2" GuiCursorName="Selectable" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions>
+                <Conditions Key="GalaxyCursor"/>
+                <Conditions Key="GalaxyGarrisonCursor"/>
+                <Conditions Key="DockingGalaxyGarrisonCursor"/>
+            </Conditions>
+            <Conditions>
+                <Conditions Key="DockingSlotCursorTarget"/>
+                <Conditions Key="GalaxyFleetCursorTarget"/>
+            </Conditions>
+        </Condition>
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="Zoom0" Priority="2" GuiCursorName="MagnifyingGlass" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions>
+                <Conditions Key="GalaxyCursor"/>
+                <Conditions Key="ScanGalaxyCursor"/>
+                <Conditions Key="GalaxyGarrisonCursor"/>
+                <Conditions Key="DockingGalaxyGarrisonCursor"/>
+            </Conditions>
+            <Conditions>
+                <Conditions Key="GalaxyStarSystemCursorTarget"/>
+                <Conditions Key="GalaxySpecialNodeCursorTarget"/>
+                <Conditions Key="WreckedMothershipCursorTarget"/>
+            </Conditions>
+        </Condition>
+    </MouseCursorRule>
+
+    <MouseCursorRule Name="Zoom1" Priority="2" GuiCursorName="MagnifyingGlass" AccessLevel="Public">
+        <Condition And="true">
+            <Conditions>
+                <Conditions Key="StarSystemCursor"/>
+                <Conditions Key="ScanStarSystemCursor"/>
+            </Conditions>
+            <Conditions Key="PlanetOverviewLayer"  Not="true"/>
+            <Conditions>
+                <Conditions Key="GalaxyPlanetCursorTarget"/>
+            </Conditions>
+        </Condition>
+    </MouseCursorRule>
+
+</Datatable>

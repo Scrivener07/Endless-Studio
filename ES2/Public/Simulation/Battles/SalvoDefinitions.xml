@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/SalvoDefinition.xsd">
+
+    <!-- Kinetics -->
+    <Salvo Name="SalvoKinetic1">
+        <SimulationDescriptorReference Name="SalvoKinetic1"/>
+        <!-- Used to define specific prefabs according to weapon parameters. -->
+        <!--<ProjectilePrefab>
+            <PathPrerequisite Flags="Prerequisite">LargeWeapon</PathPrerequisite>
+            <PrefabName>Prefabs/Game/Weapons/WIP/KineticCommon02</PrefabName>
+        </ProjectilePrefab>-->
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic2">
+        <SimulationDescriptorReference Name="SalvoKinetic2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticCommon02</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic3">
+        <SimulationDescriptorReference Name="SalvoKinetic3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticCommon03</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic4">
+        <SimulationDescriptorReference Name="SalvoKinetic4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticCommon04</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic5">
+        <SimulationDescriptorReference Name="SalvoKinetic5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    
+    <!-- Kinetics Strategics -->
+    <Salvo Name="SalvoKinetic2Strategic1">
+        <SimulationDescriptorReference Name="SalvoKinetic1Strategic1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticStrat01_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic3Strategic1">
+        <SimulationDescriptorReference Name="SalvoKinetic2Strategic1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticStrat01_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic3Strategic3">
+        <SimulationDescriptorReference Name="SalvoKinetic3Strategic3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticStrat03_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic4Strategic3">
+        <SimulationDescriptorReference Name="SalvoKinetic4Strategic3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticStrat03_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic4Strategic5">
+        <SimulationDescriptorReference Name="SalvoKinetic4Strategic5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticStrat05_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoKinetic5Strategic5">
+        <SimulationDescriptorReference Name="SalvoKinetic5Strategic5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/KineticStrat05_01</ProjectilePrefabFallback>
+    </Salvo>
+
+    <!-- Missile -->
+    <Salvo Name="SalvoMissile1" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile2" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileCommon02</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile3" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileCommon03</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile4" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileCommon04</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile5" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    
+    <!-- Missile Strategics -->
+    <Salvo Name="SalvoMissile2Strategic1" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile1Strategic1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileStrat01_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile3Strategic1" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile2Strategic1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileStrat01_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile3Strategic3" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile3Strategic3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileStrat03_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile4Strategic3" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile4Strategic3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileStrat03_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile4Strategic5" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile4Strategic5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileStrat05_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoMissile5Strategic5" AvailableAsTarget="true">
+        <SimulationDescriptorReference Name="SalvoMissile5Strategic5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/MissileStrat05_01</ProjectilePrefabFallback>
+    </Salvo>
+
+    <!-- Beam -->
+    <Salvo Name="SalvoBeam1">
+        <SimulationDescriptorReference Name="SalvoBeam1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam2">
+        <SimulationDescriptorReference Name="SalvoBeam2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamCommon02</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam3">
+        <SimulationDescriptorReference Name="SalvoBeam3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamCommon03</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam4">
+        <SimulationDescriptorReference Name="SalvoBeam4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamCommon04</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam5">
+        <SimulationDescriptorReference Name="SalvoBeam5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamCommon05</ProjectilePrefabFallback>
+    </Salvo>
+    
+    <!-- Beam Strategics -->
+    <Salvo Name="SalvoBeam2Strategic2">
+        <SimulationDescriptorReference Name="SalvoBeam1Strategic2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamStrat02_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam3Strategic2">
+        <SimulationDescriptorReference Name="SalvoBeam2Strategic2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamStrat02_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam3Strategic4">
+        <SimulationDescriptorReference Name="SalvoBeam3Strategic4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamStrat04_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam4Strategic4">
+        <SimulationDescriptorReference Name="SalvoBeam4Strategic4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamStrat04_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam4Strategic6">
+        <SimulationDescriptorReference Name="SalvoBeam4Strategic6"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamStrat06_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoBeam5Strategic6">
+        <SimulationDescriptorReference Name="SalvoBeam5Strategic6"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/BeamStrat06_01</ProjectilePrefabFallback>
+    </Salvo>
+
+    <!-- Laser -->
+    <Salvo Name="SalvoLaser1">
+        <SimulationDescriptorReference Name="SalvoLaser1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser2">
+        <SimulationDescriptorReference Name="SalvoLaser2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserCommon02</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser3">
+        <SimulationDescriptorReference Name="SalvoLaser3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserCommon03</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser4">
+        <SimulationDescriptorReference Name="SalvoLaser4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserCommon04</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser5">
+        <SimulationDescriptorReference Name="SalvoLaser5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    
+    <!-- Laser Strategics -->
+    <Salvo Name="SalvoLaser2Strategic2">
+        <SimulationDescriptorReference Name="SalvoLaser1Strategic2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserStrat02_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser3Strategic2">
+        <SimulationDescriptorReference Name="SalvoLaser2Strategic2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserStrat02_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser3Strategic4">
+        <SimulationDescriptorReference Name="SalvoLaser3Strategic4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserStrat04_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser4Strategic4">
+        <SimulationDescriptorReference Name="SalvoLaser4Strategic4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserStrat04_01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser4Strategic6">
+        <SimulationDescriptorReference Name="SalvoLaser4Strategic6"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserStrat06_00</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoLaser5Strategic6">
+        <SimulationDescriptorReference Name="SalvoLaser5Strategic6"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/LaserStrat06_01</ProjectilePrefabFallback>
+    </Salvo>
+
+    <!--Flack-->
+    <Salvo Name="SalvoFlack1">
+        <SimulationDescriptorReference Name="SalvoFlack1"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/FlakKineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoFlack2">
+        <SimulationDescriptorReference Name="SalvoFlack2"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/FlakKineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoFlack3">
+        <SimulationDescriptorReference Name="SalvoFlack3"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/FlakKineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoFlack4">
+        <SimulationDescriptorReference Name="SalvoFlack4"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/FlakKineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoFlack5">
+        <SimulationDescriptorReference Name="SalvoFlack5"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/FlakKineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    <Salvo Name="SalvoFlack6">
+        <SimulationDescriptorReference Name="SalvoFlack6"/>
+        <ProjectilePrefabFallback>Prefabs/Game/Weapons/Projectiles/FlakKineticCommon01</ProjectilePrefabFallback>
+    </Salvo>
+    
+
+</Datatable>

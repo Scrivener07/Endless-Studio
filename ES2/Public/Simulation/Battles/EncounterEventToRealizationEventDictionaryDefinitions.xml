@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/EncounterEventToRealizationEventDictionaryDefinition.xsd">
+
+    <EncounterEventToRealizationEventDictionary Name="DictionaryDefault">        
+        <EncounterEventToRealizationEvent EncounterEvent="Attack_Start" RealizationEvent="AttackStart"/>
+        <EncounterEventToRealizationEvent EncounterEvent="Attack_HitShield" RealizationEvent="HitShield"/>
+        <!--<EncounterEventToRealizationEvent EncounterEvent="Attack_HitTarget" RealizationEvent="Hit"/>-->
+        
+        <EncounterEventToRealizationEvent EncounterEvent="Deactivation" RealizationEvent="Deactivation"/>
+        <EncounterEventToRealizationEvent EncounterEvent="Destruction" RealizationEvent="Destruction"/>
+        <EncounterEventToRealizationEvent EncounterEvent="DestructionComplete" RealizationEvent="DestructionComplete"/>
+
+        <EncounterEventToRealizationEvent EncounterEvent="Squadron_MatchAction_Attack" RealizationEvent="SquadronAttackStart"/>
+    </EncounterEventToRealizationEventDictionary>
+
+</Datatable>

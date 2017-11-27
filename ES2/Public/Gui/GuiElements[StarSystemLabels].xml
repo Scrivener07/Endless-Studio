@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+  <!-- Star System Label Name Background Colors -->
+  <ExtendedGuiElement Name="StarSystemNameBackgroundNeutralColor">
+    <Color Red="16" Green="16" Blue="16" Alpha="255" />
+  </ExtendedGuiElement>
+  
+  <!-- Star System label colored bars -->
+  <ExtendedGuiElement Name="StarSystemEmpireUnknown">
+    <Color Red="255" Green="255" Blue="255" Alpha="64" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="StarSystemEmpireNeutral">
+    <Color Red="255" Green="255" Blue="255" Alpha="192" />
+  </ExtendedGuiElement>
+
+  <!-- Planet Circles -->
+  <ExtendedGuiElement Name="PlanetUnknown">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleEmpty" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetColonizable">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleFull" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetUncolonizable">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleEmpty" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetDestroyed">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleDestroyed" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetColonized">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleFull" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetColonizedEnemy">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleFull" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetOutpost">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleFull" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetOutpostEnemy">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleFull" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="PlanetUncolonizableInPirateLairSystem">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleEmptyCrossed" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetColonizableInPirateLairSystem">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/PlanetCircleFullCrossed" />
+    </Icons>
+    <Color Red="255" Green="255" Blue="255" Alpha="255" />
+  </ExtendedGuiElement>
+  
+  <!-- Star System Levels -->
+  <ExtendedGuiElement Name="StarSystemLabelSystemLevel0">
+    <Color Red="0" Green="0" Blue="0" Alpha="110" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="StarSystemLabelSystemLevel1">
+    <Color Red="0" Green="0" Blue="0" Alpha="100" />
+  </ExtendedGuiElement>
+  
+  <ExtendedGuiElement Name="StarSystemLabelSystemLevel2">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/StarSystemLevelFrameNS" />
+    </Icons>
+    <Color Red="0" Green="0" Blue="0" Alpha="100" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="StarSystemLabelSystemLevel3">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/StarSystemLevelFrameNSEW" />
+    </Icons>
+    <Color Red="0" Green="0" Blue="0" Alpha="100" />
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="StarSystemLabelSystemLevel4">
+    <Color Red="0" Green="0" Blue="0" Alpha="220" />
+  </ExtendedGuiElement>
+  
+  <!-- System Defense -->
+  <GuiElement Name="SystemDefenseThreshold0">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/SystemDefenseThreshold_0" />
+    </Icons>
+  </GuiElement>
+
+  <GuiElement Name="SystemDefenseThreshold1">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/SystemDefenseThreshold_1" />
+    </Icons>
+  </GuiElement>
+
+  <GuiElement Name="SystemDefenseThreshold2">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/SystemDefenseThreshold_2" />
+    </Icons>
+  </GuiElement>
+
+  <GuiElement Name="SystemDefenseThreshold3">
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Atlased/Labels/SystemDefenseThreshold_3" />
+    </Icons>
+  </GuiElement>
+  
+</Datatable>

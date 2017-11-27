@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- STAR SYSTEM IMPROVEMENTS -->
+
+    <!-- FOOD PLANETARY IMPROVEMENT -->
+
+    <SimulationDescriptor Name="PlanetImprovementFood1" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawFood"       Operation="Addition" Value="1"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawFood"       Operation="Addition" Value="1"     Path="./ClassColonizedPlanet,PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementFood2" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawFood"       Operation="Addition" Value="2"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawFood"       Operation="Addition" Value="2"     Path="./ClassColonizedPlanet,PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementFood3" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawFood"       Operation="Addition" Value="3"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawFood"       Operation="Addition" Value="3"     Path="./ClassColonizedPlanet,PlanetGameplayTypeTeeming"/>
+    </SimulationDescriptor>
+
+    <!-- INDUSTRY PLANETARY IMPROVEMENT -->
+
+    <SimulationDescriptor Name="PlanetImprovementIndustry1" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawIndustry"       Operation="Addition" Value="1"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"       Operation="Addition" Value="1"     Path="./ClassColonizedPlanet,PlanetGameplayTypeHot"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementIndustry2" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawIndustry"       Operation="Addition" Value="2"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"       Operation="Addition" Value="2"     Path="./ClassColonizedPlanet,PlanetGameplayTypeHot"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementIndustry3" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawIndustry"       Operation="Addition" Value="3"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"       Operation="Addition" Value="3"     Path="./ClassColonizedPlanet,PlanetGameplayTypeHot"/>
+    </SimulationDescriptor>
+
+    <!-- SCIENCE PLANETARY IMPROVEMENT -->
+
+    <SimulationDescriptor Name="PlanetImprovementScience1" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawScience"        Operation="Addition" Value="1"     Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawScience"        Operation="Addition" Value="1"     Path="./ClassColonizedPlanet,PlanetGameplayTypeCold"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementScience2" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawScience"    Operation="Addition" Value="2"         Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawScience"    Operation="Addition" Value="2"         Path="./ClassColonizedPlanet,PlanetGameplayTypeCold"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementScience3" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawScience"    Operation="Addition" Value="3"         Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawScience"    Operation="Addition" Value="3"         Path="./ClassColonizedPlanet,PlanetGameplayTypeCold"/>
+    </SimulationDescriptor>
+
+    <!-- DUST PLANETARY IMPROVEMENT -->
+
+    <SimulationDescriptor Name="PlanetImprovementDust1" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawDust"       Operation="Addition" Value="1"         Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawDust"       Operation="Addition" Value="1"         Path="./ClassColonizedPlanet,PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementDust2" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawDust"       Operation="Addition" Value="2"         Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawDust"       Operation="Addition" Value="2"         Path="./ClassColonizedPlanet,PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementDust3" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawDust"       Operation="Addition" Value="3"         Path="./ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawDust"       Operation="Addition" Value="3"         Path="./ClassColonizedPlanet,PlanetGameplayTypeMeager"/>
+    </SimulationDescriptor>
+
+    <!-- INFLUENCE PLANETARY IMPROVEMENT -->
+
+    <SimulationDescriptor Name="PlanetImprovementInfluence1" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawPrestige"       Operation="Addition" Value="1"     Path="./ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementInfluence2" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawPrestige"       Operation="Addition" Value="2"     Path="./ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementInfluence3" Type="PlanetImprovement">
+        <Modifier TargetProperty="PlanetRawPrestige"       Operation="Addition" Value="3"     Path="./ClassColonizedPlanet"/>
+    </SimulationDescriptor>
+
+    <!-- RESOURCES PLANETARY IMPROVEMENT -->
+
+    <SimulationDescriptor Name="PlanetImprovementResource1" Type="PlanetImprovement">
+        <Modifier TargetProperty="ResourceBonus"       Operation="Addition" Value="1"     Path="./ClassColonizedPlanet/ClassResourceDeposit"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementResource2" Type="PlanetImprovement">
+        <Modifier TargetProperty="ResourceBonus"       Operation="Addition" Value="2"     Path="./ClassColonizedPlanet/ClassResourceDeposit"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlanetImprovementResource3" Type="PlanetImprovement">
+        <Modifier TargetProperty="ResourceBonus"       Operation="Addition" Value="3"     Path="./ClassColonizedPlanet/ClassResourceDeposit"/>
+    </SimulationDescriptor>
+
+
+
+
+</Datatable>

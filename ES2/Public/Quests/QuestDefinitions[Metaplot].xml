@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    
+    <!-- ############################################-->
+    <!-- #### GLOBAL METAPLOT QUEST - CHAPTER 1 #####-->
+    <!-- ############################################-->
+    
+    <QuestDefinition Name="MetaplotQuest-TeamPlay-Chapter1" Category="TeamPlay" SubCategory="Metaplot">
+        
+        <!--============ TAGS ============-->
+        <Tags>MetaplotQuest-TeamPlay-Chapter1</Tags>
+        
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$Players">
+            <Distribution Type="Teams">
+                <Team Name="A" MembersVarName="$TeamA"/>
+                <Team Name="B" MembersVarName="$TeamB"/>
+            </Distribution>
+        </QuestContextMulti>
+        
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+        
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$QuestInProgressDescriptorName" StringValue="MetaplotQuestInProgress"/>
+
+            <Var VarName="$TeamA"/>
+            <Var VarName="$TeamB"/>
+
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+
+            <Var VarName="$Players">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor,!EmpireEliminated</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$PlayersCount">
+                <Count>
+                    <From Source="$Empires">
+                        <Where>
+                            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor,!EmpireEliminated</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Count>
+            </Var>
+
+            <InterpretedVar VarName="$MetaplotSystemsCount">
+                <Expression>$(PlayersCount) + 1 - ($(PlayersCount) % 2)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$AllQuestNodes">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem,QuestNode</PathPrerequisite>
+                    </Where>
+                    <OrderBy>
+                        <SortSystemByQuestNodeRank SortBy="Ascending"/>
+                    </OrderBy>
+                </From>
+            </Var>
+
+            <Var VarName="$MetaplotSystems" IsGlobal="true"/>
+            <Var VarName="$DiscoveredSystem"/>
+
+            <Var VarName="$MinigameName" StringValue="ExplorationMinigame"/>
+            <Var VarName="$MinigameGUID"/>
+
+            <Var VarName="$MinigameTeamAName" StringValue="MetaplotTeamA"/>
+            <Var VarName="$MinigameTeamBName" StringValue="MetaplotTeamB"/>
+
+            <Var VarName="$BaseSystemDefinitionName" StringValue="QuestNodeMetaplotBase"/>
+
+            <Var VarName="$Zero" IntValue="0"/>
+
+            <Var VarName="$PoliticalEffectReligious"  StringValue="PopulationEventMetaplotQuest-TeamPlay-Chapter1_Religious"/>
+            <Var VarName="$PoliticalEffectScientist"   StringValue="PopulationEventMetaplotQuest-TeamPlay-Chapter1_Scientist"/>
+            
+        </Vars>
+        
+        <!--============ STEPS ============-->
+        <Steps>
+
+            <!--============ STEP 1 - Choose ============-->
+            <Step Name="Step1">
+
+                <Choice DefaultChoiceIndex="0" IsVote="false">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+                <StartActions>
+                    
+                    <!-- Block hero recruitment & healing -->
+                    <Action_ApplyDescriptor>
+                        <Input_DescriptorName VarName="$QuestInProgressDescriptorName"/>
+                        <Input_Targets VarName="$Players"/>
+                    </Action_ApplyDescriptor>
+
+                    <!-- Refine systems selection -->
+                    <Action_TruncateVariable>
+                        <Input_Variable VarName="$AllQuestNodes"/>
+                        <Input_Count VarName="$MetaplotSystemsCount"/>
+                        <Output_Variable VarName="$MetaplotSystems"/>
+                    </Action_TruncateVariable>
+
+                    <!-- Apply system definitions -->
+                    <Action_ApplyStarSystemDefinition>
+                        <Input_DefinitionName VarName="$BaseSystemDefinitionName"/>
+                        <Input_StarSystemNode VarName="$MetaplotSystems"/>
+                    </Action_ApplyStarSystemDefinition>
+
+                    <!-- Make systems discoverable -->
+                    <Action_SetInvisibility Invisible="false">
+                        <Input_Empires VarName="$Players"/>
+                        <Input_TargetEntities VarName="$MetaplotSystems"/>
+                    </Action_SetInvisibility>
+
+                    <!-- Reveal systems to AI -->
+                    <Action_SetInvisibility Invisible="false">
+                        <Input_Empires VarName="$IAEmpire"/>
+                        <Input_TargetEntities VarName="$MetaplotSystems"/>
+                    </Action_SetInvisibility>
+
+                    <Action_RevealEntities NewExplorationState="Revealed">
+                        <Input_Empires VarName="$IAEmpire"/>
+                        <Input_TargetSystems VarName="$MetaplotSystems"/>
+                    </Action_RevealEntities>
+
+                    <!-- Add quest markers everywhere -->
+                    <Action_AddQuestMarkers >
+                        <Input_Targets VarName="$MetaplotSystems"/>
+                        <Input_Empires VarName="$Players"/>
+                    </Action_AddQuestMarkers>
+
+                    <!-- Start minigame -->
+                    <Action_StartMinigame>
+                        <Input_MinigameName VarName="$MinigameName"/>
+                        <Input_GameNodes VarName="$MetaplotSystems"/>
+                        <Output_MinigameGUID VarName="$MinigameGUID"/>
+                    </Action_StartMinigame>
+
+                </StartActions>
+
+                <!--============ Choice Index 0: Team A ============-->
+                <ObjectiveSet TeamName="A">
+
+                    <StartActions>
+
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$TeamA"/>
+                            <Input_Target VarName="$TeamA"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                        
+                    </StartActions>
+
+                    <!--============ OBJECTIVE: Orbit around a majority of systems ============-->
+                    <Objective Name="Step1_A_Objective1" StartValue="$Zero" EndValue="$MetaplotSystemsCount">
+                        <AIHint Category="Exploration" Motivation="0.5">
+                          <Input_Var VarName="$MetaplotSystems"/>
+                        </AIHint>
+                        <Parallel CompletionPolicy="First">
+
+                            <Sequence>
+                                <!-- Build team A with empires of team A -->
+                                <Action_BuildMinigameTeam>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamAName"/>
+                                    <Input_Empires VarName="$TeamA"/>
+                                </Action_BuildMinigameTeam>
+
+                                <!-- Wait for the team to win -->
+                                <Decorator_MinigameWon>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamAName"/>
+                                </Decorator_MinigameWon>
+
+                                <!-- Clear the markers -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$MetaplotSystems"/>
+                                </Action_RemoveQuestMarkers>
+
+                                <!-- Start second quest -->
+                                <Action_ChooseOutcome Name="OutcomeAWins"/>
+                            </Sequence>
+
+                            <Loop Count="-1">
+                                <!-- Wait for team to secure an objective-->
+                                <Decorator_MinigameObjectiveSecured>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamAName"/>
+                                    <Output_System VarName="$DiscoveredSystem"/>
+                                </Decorator_MinigameObjectiveSecured>
+
+                                <!-- Remove the quest marker -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$DiscoveredSystem"/>
+                                </Action_RemoveQuestMarkers>
+                            </Loop>
+
+                            <Loop Count="-1">
+                                <!-- Increment progress by 1 everytime an objective is secured -->
+                                <Decorator_MinigameObjectiveSecured ProgressionIncrement="1">
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                </Decorator_MinigameObjectiveSecured>
+                            </Loop>
+
+                        </Parallel>
+                        
+                        <!--============ OUTCOME: Trigger Chapter 2 ============-->
+                        <Outcome Name="OutcomeAWins">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>MetaplotQuest-TeamPlay-Chapter2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Players">
+                                        <Distribution Type="Teams">
+                                            <Team Name="A" MembersVarName="$TeamA"/>
+                                            <Team Name="B" MembersVarName="$TeamB"/>
+                                        </Distribution>
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                        
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMetaplotQuestChapter1_Rank1" Picks="1"/>
+                        <Reward Droplist="DroplistMetaplotQuestChapter1_Rank2" Picks="1"/>
+                        <Reward Droplist="DroplistMultiMetaplot1" Picks="1"/>
+                    </PodiumReward>
+                    
+                </ObjectiveSet>
+
+                <!--============ Choice Index 1: Team B ============-->
+                <ObjectiveSet TeamName="B">
+
+                    <StartActions>
+
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$TeamB"/>
+                            <Input_Target VarName="$TeamB"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectScientist"/>
+                        </Action_TriggerPopulationEvent>
+
+                    </StartActions>
+                    
+                    <!--============ OBJECTIVE: Orbit around a majority of systems ============-->
+                    <Objective Name="Step1_B_Objective1" StartValue="$Zero" EndValue="$MetaplotSystemsCount">
+                        <AIHint Category="Exploration" Motivation="0.5">
+                          <Input_Var VarName="$MetaplotSystems"/>
+                        </AIHint>
+                        <Parallel CompletionPolicy="First">
+
+                            <Sequence>
+                                <!-- Build team B with empires of team B -->
+                                <Action_BuildMinigameTeam>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamBName"/>
+                                    <Input_Empires VarName="$TeamB"/>
+                                </Action_BuildMinigameTeam>
+
+                                <!-- Wait for the team to win -->
+                                <Decorator_MinigameWon>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamBName"/>
+                                </Decorator_MinigameWon>
+
+                                <!-- Clear the markers -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$MetaplotSystems"/>
+                                </Action_RemoveQuestMarkers>
+
+                                <!-- Start second quest -->
+                                <Action_ChooseOutcome Name="OutcomeBWins"/>
+                            </Sequence>
+
+                            <Loop Count="-1">
+                                <!-- Wait for team to secure an objective-->
+                                <Decorator_MinigameObjectiveSecured>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamBName"/>
+                                    <Output_System VarName="$DiscoveredSystem"/>
+                                </Decorator_MinigameObjectiveSecured>
+
+                                <!-- Remove the quest marker -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$DiscoveredSystem"/>
+                                </Action_RemoveQuestMarkers>
+                            </Loop>
+
+                            <Loop Count="-1">
+                                <!-- Increment progress by 1 everytime an objective is secured -->
+                                <Decorator_MinigameObjectiveSecured ProgressionIncrement="1">
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                </Decorator_MinigameObjectiveSecured>
+                            </Loop>
+
+                        </Parallel>
+                        
+                        <!--============ OUTCOME: Trigger Chapter 2 ============-->
+                        <Outcome Name="OutcomeBWins">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>MetaplotQuest-TeamPlay-Chapter2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Players">
+                                        <Distribution Type="Teams">
+                                            <Team Name="A" MembersVarName="$TeamA"/>
+                                            <Team Name="B" MembersVarName="$TeamB"/>
+                                        </Distribution>
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                        
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMetaplotQuestChapter1_Rank1" Picks="1"/>
+                        <Reward Droplist="DroplistMetaplotQuestChapter1_Rank2" Picks="1"/>
+                        <Reward Droplist="DroplistMultiMetaplot1" Picks="1"/>
+                    </PodiumReward>
+                    
+                </ObjectiveSet>
+
+            </Step>
+        </Steps>
+
+    </QuestDefinition>
+
+
+    <!-- ############################################-->
+    <!-- #### GLOBAL METAPLOT QUEST - CHAPTER 2 #####-->
+    <!-- ############################################-->
+    
+    <QuestDefinition Name="MetaplotQuest-TeamPlay-Chapter2" Category="TeamPlay" SubCategory="Metaplot">
+
+        <!--============ TAGS ============-->
+        <Tags>MetaplotQuest-TeamPlay-Chapter2,MetaplotFinalQuest</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$Players">
+            <Distribution Type="Teams">
+                <Team Name="A" MembersVarName="$TeamA"/>
+                <Team Name="B" MembersVarName="$TeamB"/>
+            </Distribution>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            
+            <Var VarName="$QuestInProgressDescriptorName" StringValue="MetaplotQuestInProgress"/>
+
+            <Var VarName="$TeamA"/>
+            <Var VarName="$TeamB"/>
+
+            <Var VarName="$Players">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$MetaplotSystems" IsGlobal="true"/>
+            <Var VarName="$SecuredSystem"/>
+
+            <Var VarName="$MinigameName" StringValue="KingOfTheHillMinigame"/>
+            <Var VarName="$MinigameGUID"/>
+
+            <Var VarName="$MinigameTeamAName" StringValue="MetaplotTeamA"/>
+            <Var VarName="$MinigameTeamBName" StringValue="MetaplotTeamB"/>
+
+            <Var VarName="$RestoredSystemDefinitionName" StringValue="QuestNodeMetaplotRestored"/>
+            <Var VarName="$DestroyedSystemDefinitionName" StringValue="QuestNodeMetaplotDestroyed"/>
+
+            <Var VarName="$Zero" IntValue="0"/>
+
+            <Var VarName="$MetaplotSystemsCount">
+                <Count>
+                    <From Source="$MetaplotSystems"/>
+                </Count>
+            </Var>
+
+            <Var VarName="$PoliticalEffectReligious"  StringValue="PopulationEventMetaplotQuest-TeamPlay-Chapter2_Religious"/>
+            <Var VarName="$PoliticalEffectScientist"   StringValue="PopulationEventMetaplotQuest-TeamPlay-Chapter2_Scientist"/>
+
+            <Var VarName="$LostBackDescriptor" StringValue="MetaplotLostBack"/>
+            <Var VarName="$LostNotBackDescriptor" StringValue="MetaplotLostNotBack"/>
+            <Var VarName="$MetaplotWonDescriptor" StringValue="MetaplotWon"/>
+            <Var VarName="$MetaplotLostDescriptor" StringValue="MetaplotLost"/>
+            <Var VarName="$SystemRestoredDescriptor" StringValue="MetaplotSystemRestored"/>
+            <Var VarName="$SystemDestroyedDescriptor" StringValue="MetaplotSystemDestroyed"/>
+
+            <!--Decrease Happiness-->
+            <!--<Var VarName="$EffectName1"  StringValue="EventEffect76"/>
+
+            <Var VarName="$EffectGUID1"/>-->
+
+            <Var VarName="$DescriptorName" StringValue="CannotBeColonized"/>
+
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+
+                <StartActions>
+
+                    <!-- Reveal all systems -->
+                    <Action_SetInvisibility Invisible="false">
+                        <Input_Empires VarName="$Players"/>
+                        <Input_TargetEntities VarName="$MetaplotSystems"/>
+                    </Action_SetInvisibility>
+
+                    <Action_RevealEntities NewExplorationState="Revealed">
+                        <Input_Empires VarName="$Players"/>
+                        <Input_TargetSystems VarName="$MetaplotSystems"/>
+                    </Action_RevealEntities>
+
+                    <!-- Add quest markers everywhere -->
+                    <Action_AddQuestMarkers RevealsLocation="true">
+                        <Input_Targets VarName="$MetaplotSystems"/>
+                        <Input_Empires VarName="$Players"/>
+                    </Action_AddQuestMarkers>
+
+                    <!-- Start minigame -->
+                    <Action_StartMinigame>
+                        <Input_MinigameName VarName="$MinigameName"/>
+                        <Input_GameNodes VarName="$MetaplotSystems"/>
+                        <Output_MinigameGUID VarName="$MinigameGUID"/>
+                    </Action_StartMinigame>
+
+                </StartActions>
+
+                <!--============ Team A ============-->
+                <ObjectiveSet TeamName="A">
+
+                    <StartActions>
+
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$TeamA"/>
+                            <Input_Target VarName="$TeamA"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+
+                    </StartActions>
+
+                    <!--============ Team A Objective: Restore the systems ============-->
+                    <Objective Name="Step1_A_Objective1" StartValue="$Zero" EndValue="$MetaplotSystemsCount">
+                        <AIHint Category="Metaplot" Motivation="0.5">
+                          <Input_Var VarName="$MetaplotSystems"/>
+                        </AIHint>
+                        <Parallel CompletionPolicy="First">
+
+                            <Sequence>
+                                <!-- Build team A with empires of team A -->
+                                <Action_BuildMinigameTeam>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamAName"/>
+                                    <Input_Empires VarName="$TeamA"/>
+                                </Action_BuildMinigameTeam>
+
+                                <!-- Wait for the team to win -->
+                                <Decorator_MinigameWon>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamAName"/>
+                                </Decorator_MinigameWon>
+
+                                <!-- Clear the markers -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$MetaplotSystems"/>
+                                </Action_RemoveQuestMarkers>
+
+                                <!-- Mark all the empire to keep track of the result of the quest (Outro Video) -->
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$LostBackDescriptor"/>
+                                    <Input_Targets VarName="$Players"/>
+                                </Action_ApplyDescriptor>
+
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$MetaplotWonDescriptor"/>
+                                    <Input_Targets VarName="$TeamA"/>
+                                </Action_ApplyDescriptor>
+
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$MetaplotLostDescriptor"/>
+                                    <Input_Targets VarName="$TeamB"/>
+                                </Action_ApplyDescriptor>
+
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$SystemRestoredDescriptor"/>
+                                    <Input_Targets VarName="$MetaplotSystems"/>
+                                </Action_ApplyDescriptor>
+
+                                <!-- Allow hero recruitment & healing -->
+                                <Action_ApplyDescriptor Remove="true">
+                                    <Input_DescriptorName VarName="$QuestInProgressDescriptorName"/>
+                                    <Input_Targets VarName="$Players"/>
+                                </Action_ApplyDescriptor>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+
+                            </Sequence>
+
+                            <Loop Count="-1">
+                                <!-- Wait for team to secure an objective-->
+                                <Decorator_MinigameObjectiveSecured>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamAName"/>
+                                    <Output_System VarName="$SecuredSystem"/>
+                                </Decorator_MinigameObjectiveSecured>
+
+                                <!-- Change definition of the secured objective's system-->
+                                <Action_ApplyStarSystemDefinition>
+                                    <Input_DefinitionName VarName="$RestoredSystemDefinitionName"/>
+                                    <Input_StarSystemNode VarName="$SecuredSystem"/>
+                                </Action_ApplyStarSystemDefinition>
+
+                                <Action_ApplyDescriptor Remove="true">
+                                    <Input_DescriptorName VarName="$DescriptorName"/>
+                                    <Input_Targets VarName="$SecuredSystem"/>
+                                </Action_ApplyDescriptor>
+
+                                <!-- Remove the quest marker -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$SecuredSystem"/>
+                                </Action_RemoveQuestMarkers>
+                            </Loop>
+
+                            <Loop Count="-1">
+                                <!-- Increment progress by 1 everytime an objective is secured -->
+                                <Decorator_MinigameObjectiveSecured ProgressionIncrement="1">
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                </Decorator_MinigameObjectiveSecured>
+                            </Loop>
+
+                        </Parallel>                        
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventMetaplotHiddenTeamA</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$Players"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                        
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMetaplotQuestChapter2_Rank1" Picks="1" LocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event1Title" DescriptionLocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event1Description"/>
+                        <Reward Droplist="DroplistMetaplotQuestChapter2_Rank2" Picks="1" LocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event2Title" DescriptionLocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event2Description"/>
+                        <Reward Droplist="DroplistMetaplotQuestChapter2_TeamA_Rank3" Picks="1"/>
+                    </PodiumReward>
+                    
+                </ObjectiveSet>
+
+                <!--============ Team B ============-->
+                <ObjectiveSet TeamName="B">
+                    
+                    <StartActions>
+
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$TeamB"/>
+                            <Input_Target VarName="$TeamB"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectScientist"/>
+                        </Action_TriggerPopulationEvent>
+
+                    </StartActions>
+
+                    <!--============ Team B Objective: Destroy the systems ============-->
+                    <Objective Name="Step1_B_Objective1" StartValue="$Zero" EndValue="$MetaplotSystemsCount">
+                        <AIHint Category="Metaplot" Motivation="0.5">
+                          <Input_Var VarName="$MetaplotSystems"/>
+                        </AIHint>
+                        <Parallel CompletionPolicy="First">
+
+                            <Sequence>
+                                <!-- Build team B with empires of team B -->
+                                <Action_BuildMinigameTeam>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamBName"/>
+                                    <Input_Empires VarName="$TeamB"/>
+                                </Action_BuildMinigameTeam>
+
+                                <!-- Wait for the team to win -->
+                                <Decorator_MinigameWon>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamBName"/>
+                                </Decorator_MinigameWon>
+
+                                <!-- Clear the markers -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$MetaplotSystems"/>
+                                </Action_RemoveQuestMarkers>
+
+                                <!-- Mark all the empire to keep track of the result of the quest (Outro Video) -->
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$LostNotBackDescriptor"/>
+                                    <Input_Targets VarName="$Players"/>
+                                </Action_ApplyDescriptor>
+
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$MetaplotLostDescriptor"/>
+                                    <Input_Targets VarName="$TeamA"/>
+                                </Action_ApplyDescriptor>
+
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$MetaplotWonDescriptor"/>
+                                    <Input_Targets VarName="$TeamB"/>
+                                </Action_ApplyDescriptor>
+
+                                <Action_ApplyDescriptor>
+                                    <Input_DescriptorName VarName="$SystemDestroyedDescriptor"/>
+                                    <Input_Targets VarName="$MetaplotSystems"/>
+                                </Action_ApplyDescriptor>
+                                
+                                <!-- Allow hero recruitment & healing -->
+                                <Action_ApplyDescriptor Remove="true">
+                                    <Input_DescriptorName VarName="$QuestInProgressDescriptorName"/>
+                                    <Input_Targets VarName="$Players"/>
+                                </Action_ApplyDescriptor>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+
+                            <Loop Count="-1">
+                                <!-- Wait for team to secure an objective-->
+                                <Decorator_MinigameObjectiveSecured>
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                    <Input_TeamName VarName="$MinigameTeamBName"/>
+                                    <Output_System VarName="$SecuredSystem"/>
+                                </Decorator_MinigameObjectiveSecured>
+
+                                <!-- Change definition of the secured objective's system-->
+                                <Action_ApplyStarSystemDefinition>
+                                    <Input_DefinitionName VarName="$DestroyedSystemDefinitionName"/>
+                                    <Input_StarSystemNode VarName="$SecuredSystem"/>
+                                </Action_ApplyStarSystemDefinition>
+
+                                <!-- Remove the quest marker -->
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Targets VarName="$SecuredSystem"/>
+                                </Action_RemoveQuestMarkers>
+                            </Loop>
+
+                            <Loop Count="-1">
+                                <!-- Increment progress by 1 everytime an objective is secured -->
+                                <Decorator_MinigameObjectiveSecured ProgressionIncrement="1">
+                                    <Input_MinigameGUID VarName="$MinigameGUID"/>
+                                </Decorator_MinigameObjectiveSecured>
+                            </Loop>
+
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventMetaplotHiddenTeamB</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$Players"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMetaplotQuestChapter2_Rank1" Picks="1" LocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event1Title" DescriptionLocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event1Description"/>
+                        <Reward Droplist="DroplistMetaplotQuestChapter2_Rank2" Picks="1" LocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event2Title" DescriptionLocalizationKey="%MetaplotQuest-TeamPlay-Chapter2Event2Description"/>
+                        <Reward Droplist="DroplistMetaplotQuestChapter2_TeamB_Rank3" Picks="1"/>
+                    </PodiumReward>
+                    
+                </ObjectiveSet>
+
+            </Step>
+        </Steps>
+
+    </QuestDefinition>
+    
+    
+</Datatable>

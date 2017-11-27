@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+
+  <!-- ######################### -->
+  <!-- ######## MODULES ######## -->
+  <!-- ######################### -->
+  <!-- MODULE QUEST -->
+  <ExtendedGuiElement Name="ModuleDefenseHullPlatingQuest1">
+    <Title>%ModuleDefenseHullPlatingQuest1Title</Title>
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleDefenseHullPlatingQuest1" />
+    </Icons>
+    <Sounds>
+      <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddDefenseModule" Type="OnEquipModule" />
+      <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+    </Sounds>
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="ModuleWeaponMissileQuest1">
+    <Title>%ModuleWeaponMissileQuest1Title</Title>
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleWeaponMissileQuest1" />
+    </Icons>
+    <Sounds>
+      <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+      <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+    </Sounds>
+  </ExtendedGuiElement>
+
+  <ExtendedGuiElement Name="ModuleSupportEngineQuest1">
+    <Title>%ModuleSupportEngineQuest1Title</Title>
+    <Icons>
+      <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleSupportEngineQuest1" />
+    </Icons>
+    <Sounds>
+      <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddSupportModule" Type="OnEquipModule" />
+      <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+    </Sounds>
+  </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ModuleDefenseHullQuest01">
+        <Title>%ModuleDefenseHullQuest01Title</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleDefenseHullQuest01" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>
+        <TooltipElement Ignore="false">
+            <EffectOverride>%ModuleDefenseHullQuest01Effect</EffectOverride>
+        </TooltipElement>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ModuleSupportExperienceQuest01">
+        <Title>%ModuleSupportExperienceQuest01Title</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleSupportExperienceQuest01" />
+        </Icons>  
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>       
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ModuleWeaponKineticFlackQuest01">
+        <Title>%ModuleWeaponKineticFlackQuest01Title</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleWeaponKineticFlackQuest01Small" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>       
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ClassModuleSpecialHeroOnly">
+        <Title>%ClassModuleSpecialHeroOnlyTitle</Title>
+        <Description>%ClassModuleSpecialHeroOnlyDescription</Description>
+    </GuiElement>
+
+  
+
+
+
+  
+  <!-- EVENTPOLITICAL19 -->
+
+        <QuestGuiElement Name="EventPolitical19">
+        <Title>%EventPolitical19Title</Title>
+        <Description>%EventPolitical19Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics02">
+                <Title>%EventPolitical19Choice01Title</Title>
+                <Description>%EventPolitical19Choice01Description</Description>
+                <Objective Name="Step1_Objective1">%EventPolitical19Choice01Description</Objective>
+            </ObjectiveSet>
+            <ObjectiveSet Politics="Politics04">
+                <Title>%EventPolitical19Choice02Title</Title>
+                <Description>%EventPolitical19Choice02Description</Description>
+                <Objective Name="Step2_Objective1">%EventPolitical19Choice02Description</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        </QuestGuiElement>  
+
+  <!-- EVENTPOLITICAL19ALT-->
+    
+  
+          <QuestGuiElement Name="EventPolitical19Alt">
+            <Title>%EventPolitical19AltTitle</Title>
+            <Description>%EventPolitical19AltDescription</Description>
+            <Icons>
+              <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19AltLarge" Size="Quest" />
+            </Icons>
+            <Steps>
+              <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                  <Title>%EventPolitical19AltChoice01Title</Title>
+                  <Description>%EventPolitical19AltChoice01Description</Description>
+                  <Objective Name="Step1_Objective1">%EventPolitical19AltChoice01Description</Objective>
+                </ObjectiveSet>
+                <ObjectiveSet Politics="Politics01">
+                  <Title>%EventPolitical19AltChoice02Title</Title>
+                  <Description>%EventPolitical19AltChoice02Description</Description>
+                  <Objective Name="Step2_Objective1">%EventPolitical19AltChoice02Description</Objective>
+                </ObjectiveSet>
+              </Step>
+            </Steps>
+          </QuestGuiElement>
+
+    <!--EVENT RANDOM 12-->
+
+    <QuestGuiElement Name="EventRandom12">
+        <Title>%EventRandom12-Title</Title>
+        <Description>%EventRandom12-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19AltLarge" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventRandom12-Choice01Title</Title>
+                    <Description>%EventRandom12-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical19AltChoice01Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventRandom13">
+        <Title>%EventRandom13-Title</Title>
+        <Description>%EventRandom13-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19AltLarge" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventRandom13-Choice01Title</Title>
+                    <Description>%EventRandom13-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPolitical19AltChoice01Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>   
+    
+    <!--######################-->
+    <!--####   METAPLOT   ####-->
+    <!--######################-->
+
+    <QuestGuiElement Name="EventMetaplot01">
+        <Title>%EventMetaplot01-Title</Title>
+        <Description>%EventMetaplot01-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventMetaplot01Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventMetaplot01-Choice01Title</Title>
+                    <Description>%EventMetaplot01-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventMetaplot01-Choice01Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventMetaplot02">
+        <Title>%EventMetaplot02-Title</Title>
+        <Description>%EventMetaplot02-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventMetaplot02Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventMetaplot02-Choice01Title</Title>
+                    <Description>%EventMetaplot02-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventMetaplot02-Choice01Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+
+    <QuestGuiElement Name="EventMetaplotHiddenTeamA">
+        <Title>%EventMetaplotHiddenTeamA-Title</Title>
+        <Description>%EventMetaplotHiddenTeamA-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19AltLarge" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventMetaplotHiddenTeamA-Choice01Title</Title>
+                    <Description>%EventMetaplotHiddenTeamA-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventMetaplotHiddenTeamA-Choice01Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <QuestGuiElement Name="EventMetaplotHiddenTeamB">
+        <Title>%EventMetaplotHiddenTeamB-Title</Title>
+        <Description>%EventMetaplotHiddenTeamB-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical19AltLarge" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventMetaplotHiddenTeamB-Choice01Title</Title>
+                    <Description>%EventMetaplotHiddenTeamB-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventMetaplotHiddenTeamB-Choice01Objective</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <!--#######################################
+      #####           EVENTS          #######
+      ####################################### -->
+        
+    <!-- EVENTPOLITICAL12 -->
+    <QuestGuiElement Name="EventPoliticalResult12">
+        <Title>%EventPoliticalResult12-Title</Title>
+        <Description>%EventPoliticalResult12-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics00">
+                    <Title>%EventPoliticalResult12-Choice01Title</Title>
+                    <Description>%EventPoliticalResult12-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPoliticalResult12-Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+    <!-- EVENTPOLITICAL12a -->
+
+    <QuestGuiElement Name="EventPoliticalResult12a">
+        <Title>%EventPoliticalResult12a-Title</Title>
+        <Description>%EventPoliticalResult12a-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics03">
+                    <Title>%EventPoliticalResult12a-Choice01Title</Title>
+                    <Description>%EventPoliticalResult12a-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventPoliticalResult12a-Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement> 
+
+    <QuestGuiElement Name="EventReveal04">
+        <Title>%EventReveal04-Title</Title>
+        <Description>%EventReveal04-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventReveal04-Choice01Title</Title>
+                    <Description>%EventReveal04-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventReveal04-Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+
+    <QuestGuiElement Name="EventReveal05">
+        <Title>%EventReveal05-Title</Title>
+        <Description>%EventReveal05-Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/NarrativeEvents/EventPolitical09Large" Size="Quest" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet Politics="Politics02">
+                    <Title>%EventReveal05-Choice01Title</Title>
+                    <Description>%EventReveal05-Choice01Description</Description>
+                    <Objective Name="Step1_Objective1">%EventReveal05-Description</Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestGuiElement>
+
+
+
+
+
+</Datatable>

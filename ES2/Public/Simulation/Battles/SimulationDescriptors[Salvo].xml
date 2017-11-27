@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassSalvo" Type="Class">
+        <Property Name="Health"                                 BaseValue="0"   IsSealed="true" IsSerializable="true"/>
+        <Property Name="MaximumHealth"                          BaseValue="0"/>
+
+        <Property Name="ShieldAbsorptionValueFromWeapon"        BaseValue="0" IsSealed="true"/>
+        <Property Name="HullPlatingAbsorptionValueFromWeapon"   BaseValue="0" IsSealed="true"/>
+
+        <Property Name="ShieldAbsorptionValue"                  BaseValue="0" />
+        <Property Name="HullPlatingAbsorptionValue"             BaseValue="0" />
+
+        <Property Name="DamageAbsorbedByLastShield"             BaseValue="0"    IsSealed="true"/>
+        
+        <Property Name="DamageAbsorbedByShield"                 BaseValue="0"    IsSealed="true"/>
+        <Property Name="DamageAbsorbedByHullPlating"            BaseValue="0"    IsSealed="true"/>
+        
+        <Property Name="DamageAbsorbedByShieldMultiplier"       BaseValue="1" />
+
+        <Property Name="SectionDamageFactor"                    BaseValue="1"   IsSealed="true"/>
+        <Property Name="SectionDamage"                          BaseValue="0"/>
+        <Property Name="ModuleDamage"                           BaseValue="0"/>
+
+        <Property Name="CriticalHitDamageBonus"                 BaseValue="0" />
+        <Property Name="EffectiveDamage"                        BaseValue="0"    IsSealed="true" />
+        
+        <Property Name="ShipManpowerKillFromWeapon"             BaseValue="0"    IsSealed="true" />
+
+        <Property Name="SplashFlotillaDamagePercent"            BaseValue="0"/>
+        <Property Name="OpponentEnergyWeaponAccuracyPercent"    BaseValue="0" MinValue="Negative"/>
+        <Property Name="OpponentCooldownReductionPercent"       BaseValue="0"/>
+
+        <Property Name="Accuracy"                               BaseValue="0"/>
+
+        <Property Name="FleetXPPerDamageAbsorbedByHullPlating"  BaseValue="0"    IsSealed="true"/>
+        <Property Name="FleetXPFromDamageAbsorbedByHullPlating" BaseValue="0"/>
+
+        <Property Name="RepairFlatPerDamageAbsorbedByHullPlating"  BaseValue="0"   IsSealed="true"/>
+        <Property Name="RepairFlatFromDamageAbsorbedByHullPlating" BaseValue="0"/>
+
+        <Property Name="ManpowerDamageOverTime"                 BaseValue="0" IsSealed="true"/>
+        <Property Name="InfantryEfficiency"                     BaseValue="0" IsSealed="true"/>
+        <Property Name="ManpowerDamageAbsorbed"                 BaseValue="0" IsSealed="true"/>
+
+
+        <Modifier TargetProperty="ShieldAbsorptionValue"       Operation="Addition" Value="$(ShieldAbsorptionValueFromWeapon)" Path="ClassSalvo"/>
+        <Modifier TargetProperty="HullPlatingAbsorptionValue"  Operation="Addition" Value="$(HullPlatingAbsorptionValueFromWeapon)" Path="ClassSalvo"/>
+
+        <BinaryModifier TargetProperty="SectionDamage" Operation="Force" Left="$(EffectiveDamage)" BinaryOperation="Multiplication" Right="$(SectionDamageFactor)" Path="ClassSalvo" />
+        <BinaryModifier TargetProperty="ModuleDamage" Operation="Force" Left="$(EffectiveDamage)" BinaryOperation="Subtraction" Right="$(SectionDamage)" Path="ClassSalvo" Priority="1" />
+
+        <BinaryModifier TargetProperty="FleetXPFromDamageAbsorbedByHullPlating"     Operation="Addition" Left="$(FleetXPPerDamageAbsorbedByHullPlating)"    BinaryOperation="Multiplication" Right="$(DamageAbsorbedByHullPlating)" Path="ClassSalvo" Priority="1" />
+        <BinaryModifier TargetProperty="RepairFlatFromDamageAbsorbedByHullPlating"  Operation="Addition" Left="$(RepairFlatPerDamageAbsorbedByHullPlating)" BinaryOperation="Multiplication" Right="$(DamageAbsorbedByHullPlating)" Path="ClassSalvo" Priority="1" />
+    </SimulationDescriptor>
+
+    <!--Corresponds to ranges in EncounterTargetingRangeDefinitions - These are dynamically added to Salvos-->
+    <SimulationDescriptor Name="LongRange" Type ="LongRange">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MediumRange" Type ="MediumRange">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ShortRange" Type ="ShortRange">
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="FlakRange" Type ="FlakRange">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="DeadZoneRange" Type ="DeadZoneRange">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="CriticalHit" Type="CriticalHit">
+        <Modifier TargetProperty="ShieldAbsorptionValue"        Operation="Force" Value="0" Path="ClassSalvo"/>
+        <Modifier TargetProperty="HullPlatingAbsorptionValue"   Operation="Force" Value="0" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+
+
+    <!-- Kinetics -->
+    <SimulationDescriptor Name="SalvoKinetic1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="140" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="200" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="250" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <!-- Kinetics Strategics -->
+    <SimulationDescriptor Name="SalvoKinetic1Strategic1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic2Strategic1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic3Strategic3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="210" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic4Strategic3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="210" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic4Strategic5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="330" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoKinetic5Strategic5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="330" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+
+
+    <!-- Flack -->
+    <SimulationDescriptor Name="SalvoFlack1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoFlack2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoFlack3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoFlack4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoFlack5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+
+    
+    <!-- Missiles -->
+    <SimulationDescriptor Name="SalvoMissile1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="60" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="75" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="90" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="115" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <!-- Missile Strategics -->
+    <SimulationDescriptor Name="SalvoMissile1Strategic1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="90" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile2Strategic1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="90" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile3Strategic3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="115" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile4Strategic3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="115" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile4Strategic5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="140" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoMissile5Strategic5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="140" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+
+
+    <!-- Beam -->
+    <SimulationDescriptor Name="SalvoBeam1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="140" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="250" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="300" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <!-- Beam Strategics -->
+    <SimulationDescriptor Name="SalvoBeam1Strategic2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam2Strategic2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam3Strategic4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="210" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam4Strategic4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="210" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam4Strategic6" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="330" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoBeam5Strategic6" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="330" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+
+    
+    <!-- Laser -->
+    <SimulationDescriptor Name="SalvoLaser1" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="140" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser3" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="250" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser5" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="300" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <!-- Laser Strategics -->
+    <SimulationDescriptor Name="SalvoLaser1Strategic2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser2Strategic2" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser3Strategic4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="210" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser4Strategic4" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="210" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser4Strategic6" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="330" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="SalvoLaser5Strategic6" Type="Salvo">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="330" Path="ClassSalvo"/>
+    </SimulationDescriptor>
+
+    
+</Datatable>

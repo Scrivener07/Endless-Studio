@@ -1,0 +1,1993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationModifiersTrait.xsd">
+
+    <!-- ############################################################################## -->
+    <!-- #############################  MAJOR FACTIONS ################################ -->
+    <!-- ############################################################################## -->
+    
+    <!-- ####################################### -->
+    <!--                SOPHONS                  -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSophons" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinitySophons"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinitySophons"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinitySophons"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryScience01" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Analysts-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryScience01"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+1 Science per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryScience01"/>
+            </Modifier>
+          </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScience01"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryScienceCold" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Cryologists-->
+        <Tags>PlanetGameplayTypeCold,BonusPopulationScience</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryScienceCold"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+3 Science per Population on Cold-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryScienceCold"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScienceCold"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSophonsCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinitySophonsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinitySophonsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinitySophonsCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    
+    <!-- ####################################### -->
+    <!--                CRAVERS                  -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCravers" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCravers"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCravers"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--<SimulationDescriptorReference Name="PopulationExploitingPlanetWhileDepleting"/>-->
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityCravers"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryDepletionFIDS" SubCategory="Primary" ShowInCustom="true" Cost="15"><!--Local Bonus: Extreme Foremen -->
+        <Tags>PlanetDepletionPerTurn,BonusPopulationFIDSPercent</Tags>
+        <Command Name="SetHomePlanetDepletion"          Arguments="0.25"/>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <!--Allows tracking by Traits rather than Affinities for CustomFactions-->
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryDepletionFIDS"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryDepletionFIDS"/>
+                <SimulationDescriptorReference Name="PopulationExploitingPlanetWhileDepleting"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDepletionFIDS"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--NO SECONDARY TRAIT-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCraversCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCraversCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCraversCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCraversCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    
+    <!-- ####################################### -->
+    <!--               Venetians                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitVenetians" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityVenetians"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityVenetians"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityVenetians"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryDust" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Bankers-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryDust"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+1 Dust per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryDust"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDust"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryDustFertile" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Dust Seekers-->
+        <Tags>PlanetGameplayTypeTeeming,BonusPopulationDust</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryDustFertile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryDustFertile"/><!--+5 Dust per Population on Fertile-->
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDustFertile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitVenetiansCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityVenetiansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityVenetiansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityVenetiansCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               VAMPIRILIS                -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitVampirilis" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityVampirilis"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityVampirilis"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityVampirilis"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimarySlowGrowthFIDS" SubCategory="Primary" ShowInCustom="true" Cost="15"><!--Local Bonus: Gargantuan Populations-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <!--+4 FIDS-->
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemModifiersTraitPrimarySlowGrowthFIDS"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+4 FIDS-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDS"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFIDS"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--NO SECONDARY TRAIT-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitVampirilisCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimarySlowGrowthFIDSCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityVampirilisCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityVampirilisCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    
+    <!-- ####################################### -->
+    <!--               TERRANS                   -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitTerrans" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityTerrans"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityTerrans"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityTerrans"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryInfluence" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Loyal Citizens-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryInfluence"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+1 Influence per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryInfluence"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetInfluence"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryInfluenceTemperate" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Engaging Denizens-->
+        <Tags>PlanetGameplayTypeTemperate,BonusPopulationPrestige</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryInfluenceTemperate"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+1 Influence per Population on Temperate-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryInfluenceTemperate"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetInfluenceTemperate"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+	<PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryInfluenceFertile" SubCategory="Secondary" ShowInCustom="false" Cost="0">
+		<Tags>PlanetGameplayTypeTeeming,BonusPopulationPrestige</Tags>
+		<Modifiers>
+			<Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+				<SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryInfluenceFertile"/>
+			</Modifier>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--+1 Influence per Population on Fertile-->
+				<SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryInfluenceFertile"/>
+			</Modifier>
+		</Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetInfluenceFertile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+	</PopulationModifiersTrait> <!--Actual UE trait-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitTerransCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityTerransCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityTerransCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityTerransCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                MEZARI                   -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitMezari" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityMezari"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityMezari"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityMezari"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!-- SAME PRIMARY AND SECONDARY TRAITS AS SOPHON-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitMezariCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityMezariCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityMezariCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityMezariCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+
+    <!-- ####################################### -->
+    <!--               SHEREDYN                  -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSheredyn" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinitySheredyn"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinitySheredyn"/>
+
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityTerrans"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryDefense" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Martial Traditions-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryDefense"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryDefense"/>
+            </Modifier>
+          </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDefense"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryDefenseSterile" SubCategory="Secondary" ShowInCustom="true" Cost="5"> <!--Contextual Bonus: Harsh-Trained Combattants-->
+        <Tags>PlanetGameplayTypeMeager,BonusPopulationDefense</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryDefenseSterile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryDefenseSterile"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDefenseSterile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSheredynCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinitySheredynCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinitySheredynCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinitySheredynCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    
+
+    <!-- ####################################### -->
+    <!--                HORATIO                  -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitHoratio" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityHoratio"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityHoratio"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityHoratio"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryHappiness" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Hedonists-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryHappiness"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Happiness per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryHappiness"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetHappiness"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+	<PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryHappinessHot" SubCategory="Secondary" ShowInCustom="true" Cost="5">
+		<Tags>PlanetGameplayTypeHot,BonusPopulationHappiness</Tags>
+		<Modifiers>
+			<Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+				<SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryHappinessHot"/>
+			</Modifier>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--+2 Happiness on Hot-->
+				<SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryHappinessHot"/>
+			</Modifier>
+		</Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetHappinessHot"/>
+			</Modifier>
+		</AssimilatedModifiers>
+	</PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitHoratioCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityHoratioCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityHoratioCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityHoratioCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               TIME LORDS                -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitTimeLords" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityTimeLords"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeIndustry"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityTimeLords"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityTimeLords"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryIDS" SubCategory="Primary" ShowInCustom="true" Cost="25"><!--Local Bonus: Adept Workers-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryIDS"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Industry, Dust and Science-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryIDS"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetIDS"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--NO SECONDARY TRAIT-->
+    
+    <PopulationModifiersTrait Name="PopulationModifiersTraitTimeLordsCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityTimeLordsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityTimeLordsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityTimeLordsCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               UNFALLENS                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitUnfallen" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityUnfallen"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityUnfallen"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityUnfallen"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryFood03" SubCategory="Primary" ShowInCustom="true" Cost="15"><!--Local Bonus: Epicureans-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryFood03"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Food per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryFood03"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFood03"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryFoodFertile02" SubCategory="Secondary" ShowInCustom="true" Cost="15">
+        <Tags>PlanetGameplayTypeTeeming,BonusPopulationFood</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryFoodFertile02"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Food per Population on Fertile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryFoodFertile02"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFoodFertile02"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitUnfallenCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityUnfallenCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityUnfallenCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityUnfallenCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ############################################################################## -->
+    <!-- #############################  MINOR FACTIONS ################################ -->
+    <!-- ############################################################################## -->
+
+    <!-- ####################################### -->
+    <!--               HAROSHEMS                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitHaroshems" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityHaroshems"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityHaroshems"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityHaroshems"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryFood01" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Agriculturalists-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryFood01"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+1 Food per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryFood01"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFood01"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryFoodSterile" SubCategory="Secondary" ShowInCustom="true" Cost="10"><!--Contextual Bonus: Efficient Farmers-->
+        <Tags>PlanetGameplayTypeMeager,BonusPopulationFood</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryFoodSterile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Food per Population on Sterile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryFoodSterile"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFoodSterile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+	
+	<PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryFoodSterile2" SubCategory="Secondary" ShowInCustom="false" Cost="0">
+		<Tags>PlanetGameplayTypeMeager,BonusPopulationFood</Tags>
+		<Modifiers>
+			<Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+				<SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryFoodSterile2"/>
+			</Modifier>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--+3 Food per Population on Sterile-->
+				<SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryFoodSterile2"/>
+			</Modifier>
+		</Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFoodSterile2"/>
+			</Modifier>
+		</AssimilatedModifiers>
+	</PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitHaroshemsCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityHaroshemsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityHaroshemsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityHaroshemsCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                HISSHOS                  -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitHisshos" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityHisshos"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityHisshos"/>
+
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityHisshos"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!-- SAME PRIMARY AND SECONDARY TRAITS AS SHEREDYN-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitHisshosCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityHisshosCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityHisshosCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityHisshosCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                BENTHYS                  -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitBenthys" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityBenthys"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityBenthys"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityBenthys"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!-- SAME PRIMARY TRAIT AS HORATIO-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryHappinessFertile" SubCategory="Secondary" ShowInCustom="true" Cost="10"><!--Contextual Bonus: Euphorists-->
+        <Tags>PlanetGameplayTypeTeeming,BonusPopulationHappiness</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryHappinessFertile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+4 Happiness on Fertile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryHappinessFertile"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetHappinessFertile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitBenthysCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityBenthysCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityBenthysCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityBenthysCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                  BOTS                   -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitBots" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityBots"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityBots"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityBots"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryIndustry" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: Craftsmen-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryIndustry"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryIndustry"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetIndustry"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!-- SAME SECONDARY TRAIT AS HAROSHEM-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitBotsCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityBotsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityBotsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityBotsCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                  MAVROS                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitMavros" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityMavros"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityMavros"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityMavros"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!-- SAME PRIMARY TRAIT AS EPISTIS-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryIndustryHot" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Hephaesitian Workers-->
+        <Tags>PlanetGameplayTypeHot,BonusPopulationIndustry</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryIndustryHot"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Industry on Hot-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryIndustryHot"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetIndustryHot"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitMavrosCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityMavrosCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityMavrosCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityMavrosCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                Deuyivans                -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitDeuyivans" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityDeuyivans"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityDeuyivans"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityDeuyivans"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryScience02" SubCategory="Primary" ShowInCustom="true" Cost="10"><!--Local Bonus: Methodists-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryScience02"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+2 Science per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryScience02"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScience02"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryFoodGas" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Hydroponics Specialists-->
+        <Tags>PlanetGameplayTypeGas,BonusPopulationFood</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryFoodGas"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Food per Population on Gas-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryFoodGas"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFoodGas"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitDeuyivansCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityDeuyivansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityDeuyivansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityDeuyivansCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                AMOEBA                   -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitAmoeba" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityAmoeba"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityAmoeba"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityAmoeba"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryFood02" SubCategory="Primary" ShowInCustom="true" Cost="10"><!--Local Bonus: Nurturers-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryFood02"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Food per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryFood02"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFood02"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+	
+	<PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryFood04" SubCategory="Primary" ShowInCustom="false" Cost="0">
+		<Modifiers>
+			<Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+				<SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryFood04"/>
+			</Modifier>
+			<Modifier Class="ClassPopulationPlanet">
+				<SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryFood04"/>
+			</Modifier>
+		</Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFood04"/>
+			</Modifier>
+		</AssimilatedModifiers>
+	</PopulationModifiersTrait>
+    
+    <!--NO SECONDARY TRAIT-->
+    
+    <PopulationModifiersTrait Name="PopulationModifiersTraitAmoebaCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityAmoebaCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityAmoebaCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityAmoebaCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                PILGRIMS                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPilgrims" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityPilgrims"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityPilgrims"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityPilgrims"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY AS SOPHON-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryScienceAnomaly01" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Experimentalists-->
+        <Tags>PlanetAnomaly,BonusPopulationScience</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryScienceAnomaly01"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Science per Population on Planet with Anomalies-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly01"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScienceAnomaly01"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPilgrimsCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityPilgrimsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityPilgrimsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityPilgrimsCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               Z'VALI                -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitZvali" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityZvali"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityZvali"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityZvali"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY AS HORATIO-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryScienceHappy" SubCategory="Secondary" ShowInCustom="true" Cost="10"><!--Contextual Bonus: Scientific Hobbyists-->
+        <Tags>HappinessStatusStarSystem3,BonusPopulationScience</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryScienceHappy"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+3 Science on Happy-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryScienceHappy"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScienceHappy"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitZvaliCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityZvaliCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityZvaliCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityZvaliCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               TIKANANS	                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitTikanans" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityTikanans"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityTikanans"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityTikanans"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryManpower" SubCategory="Primary" ShowInCustom="true" Cost="10"><!--Local Bonus: Eager Volunteers-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryManpower"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+5 Free Manpower per Turn per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryManpower"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetManpower"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryManpowerFertile" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Bountiful Troops-->
+        <Tags>PlanetGameplayTypeTeeming,BonusPopulationSystemManpower</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryManpowerFertile"/>
+            </Modifier>
+			<Modifier Class="ClassPopulationPlanet"><!--+5 Free Manpower per Turn per Population on Fertile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryManpowerFertile"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetManpowerFertile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+	</PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitTikanansCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityTikanansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityTikanansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityTikanansCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               GNASHASTS                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGnashasts" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityGnashasts"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityGnashasts"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityGnashasts"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryGroundBattleAttackerDamage" SubCategory="Primary" ShowInCustom="true" Cost="5"><!--Local Bonus: [Tough Defenders] -->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <!--+50 Damage to Attacker in Ground Battle-->
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryGroundBattleAttackerDamage"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+50 Damage to Attacker in Ground Battle-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryGroundBattleAttackerDamage"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet"><!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetGroundBattleAttackerDamage"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryGroundBattleAttackerDamageFertile" SubCategory="Secondary" ShowInCustom="true" Cost="10"><!--Contextual Bonus: Ruthless Defenders-->
+        <!--<Tags>PlanetGameplayTypeTeeming,BonusPopulationGroundBattleBombardmentAttackerDamages</Tags>--> <!-- No picto for that property -->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryGroundBattleAttackerDamageFertile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+50 Damage to Attacker in Ground Battle on Fertile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryGroundBattleAttackerDamageFertile"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetGroundBattleAttackerDamageFertile"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGnashastsCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityGnashastsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityGnashastsCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityGnashastsCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               EYDERS	                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitEyders" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityEyders"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityEyders"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityEyders"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY AS LUMERIS-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryDustGas" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Catalyzation Specialists-->
+        <Tags>PlanetGameplayTypeGas,BonusPopulationDust</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryDustGas"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Dust per Population on Gas-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryDustGas"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDustGas"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitEydersCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityEydersCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityEydersCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityEydersCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               NIRIS	                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitNiris" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityNiris"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityNiris"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityNiris"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY AS AMOEBA-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryFoodFertile01" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Prolific Farmers-->
+        <Tags>PlanetGameplayTypeTeeming,BonusPopulationFood</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryFoodFertile01"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+3 Food per Population of Fertile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryFoodFertile01"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetFoodFertile01"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitNirisCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityNirisCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityNirisCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityNirisCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               BHAGABAS	                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitBhagabas" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityBhagabas"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityBhagabas"/>
+
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityBhagabas"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY AS UNITED EMPIRE-->
+
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitBhagabasCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityBhagabasCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityBhagabasCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityBhagabasCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                 REMNANT                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitRemnant" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityRemnant"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityRemnant"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityRemnant"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY TRAIT AS EPISTIS-->
+    
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryDustHappy" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Treasure Hunters-->
+        <Tags>HappinessStatusStarSystem3,BonusPopulationDust</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryDustHappy"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Dust on Happy-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryDustHappy"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDustHappy"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitRemnantCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityRemnantCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityRemnantCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityRemnantCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                  PULSOS                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPulsos" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityPulsos"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityPulsos"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityPulsos"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!--SAME PRIMARY TRAIT AS EPISTIS-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryScienceAnomaly02" SubCategory="Secondary" ShowInCustom="true" Cost="10"><!--Contextual Bonus: Anomaly Stalkers-->
+        <Tags>PlanetAnomaly,BonusPopulationScience</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <!--+5 Science on Planets with Anomaly-->
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryScienceAnomaly02"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Science on Planets with Anomaly-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryScienceAnomaly02"/>
+            </Modifier>
+        </Modifiers>
+		<AssimilatedModifiers>
+			<Modifier Class="ClassPopulationPlanet">
+				<!--Bonus given to the Population that assimilates them-->
+				<SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScienceAnomaly02"/>
+			</Modifier>
+		</AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPulsosCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityPulsosCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityPulsosCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityPulsosCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                 GREENMAN                -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGreenman" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityGreenman"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeFood"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityGreenman"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityGreenman"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <!-- First trait is same as Lumeris -->
+    <!-- Second Trait already exists-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGreenmanCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityGreenmanCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityGreenmanCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityGreenmanCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--                GUARDIANS                -->
+    <!-- ####################################### --> <!-- GUARDIANS ARE NOT CUSTOM - THEY DON'T NEED TO FOLLOW THE REGULAR NAMING CONVENTION-->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGuardians" SubCategory="Affinity" ShowInCustom="false">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityGuardians"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemGrowthTypeNot"/>
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityGuardians"/>
+            </Modifier>
+        </Modifiers>
+
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedEmpireAffinityGuardians"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGuardiansPrimary" SubCategory="Primary" ShowInCustom="false" Cost="0">
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetAffinityGuardians"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityGuardians"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitGuardiansCount" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityGuardiansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityGuardiansCount"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityGuardiansCount"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+    <!-- ####################################### -->
+    <!--               CUSTOMS	                 -->
+    <!-- ####################################### -->
+
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom0Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom0Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom0Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom0Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom1Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom1Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom1Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom1Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom2Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom2Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom2Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom2Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom3Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom3Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom3Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom3Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom4Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom4Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom4Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom4Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom5Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom5Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom5Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom5Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom6Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom6Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom6Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom6Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom7Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom7Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom7Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom7Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom8Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom8Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom8Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom8Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom9Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom9Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom9Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom9Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom10Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom10Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom10Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom10Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitCustom11Count" SubCategory="Count">
+        <Modifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <SimulationDescriptorReference Name="ClassPopulationPlanetAffinityCustom11Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationStarSystem">
+                <SimulationDescriptorReference Name="ClassPopulationStarSystemAffinityCustom11Count"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationEmpire">
+                <SimulationDescriptorReference Name="ClassPopulationEmpireAffinityCustom11Count"/>
+            </Modifier>
+        </Modifiers>
+    </PopulationModifiersTrait>
+
+
+    <!-- ######## CUSTOM FACTIONS ######## -->
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryIndustrySterile" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Self-Sustaining Laborers-->
+        <Tags>PlanetGameplayTypeMeager,BonusPopulationIndustry</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryIndustrySterile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Industry on Sterile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryIndustrySterile"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetIndustrySterile"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryDustSterile" SubCategory="Secondary" ShowInCustom="true" Cost="10"><!--Contextual Bonus: Dust Purists-->
+        <Tags>PlanetGameplayTypeMeager,BonusPopulationDust</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryDustSterile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+5 Dust on Sterile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryDustSterile"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDustSterile"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryHappinessTemperate" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Naturalists-->
+        <Tags>PlanetGameplayTypeTemperate,BonusPopulationHappiness</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryHappinessTemperate"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+3 Happiness on Temperate-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryHappinessTemperate"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetHappinessTemperate"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryIndustryCold" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Geothermal Specialists-->
+        <Tags>PlanetGameplayTypeCold,BonusPopulationIndustry</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryIndustryCold"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Industry on Cold-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryIndustryCold"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetIndustryCold"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryScienceHot" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Insulation Specialists-->
+        <Tags>PlanetGameplayTypeHot,BonusPopulationScience</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryScienceHot"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--+2 Industry on Cold-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryScienceHot"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetScienceHot"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitSecondaryDefenseFertile" SubCategory="Secondary" ShowInCustom="true" Cost="5"><!--Contextual Bonus: Logisticians-->
+        <Tags>PlanetGameplayTypeTeeming,BonusPopulationDefense</Tags>
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitSecondaryDefenseFertile"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--+30 Maximum Manpower on Fertile-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitSecondaryDefenseFertile"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetDefenseFertile"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    <PopulationModifiersTrait Name="PopulationModifiersTraitPrimaryFIDSI" SubCategory="Primary" ShowInCustom="true" Cost="15"><!--Contextual Bonus: Meritocratic Cosmopolites-->
+        <Modifiers>
+            <Modifier Class="ClassPopulationEmpire" DisplayWhenBoostedOnly="true">
+                <SimulationDescriptorReference Name="WithPopulationPlanetModifiersTraitPrimaryFIDSI"/>
+            </Modifier>
+            <Modifier Class="ClassPopulationPlanet"><!--Tag-->
+                <!--+2 FIDSI per Population-->
+                <SimulationDescriptorReference Name="ClassPopulationPlanetModifiersTraitPrimaryFIDSI"/>
+            </Modifier>
+        </Modifiers>
+        <AssimilatedModifiers>
+            <Modifier Class="ClassPopulationPlanet">
+                <!--Bonus given to the Population that assimilates them-->
+                <SimulationDescriptorReference Name="ClassPopulationAssimilatedPlanetPrimaryFIDSI"/>
+            </Modifier>
+        </AssimilatedModifiers>
+    </PopulationModifiersTrait>
+    
+</Datatable>

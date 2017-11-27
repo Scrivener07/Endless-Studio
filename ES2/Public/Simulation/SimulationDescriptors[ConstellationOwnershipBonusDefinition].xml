@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassConstellationBonusTest1" Type="ClassConstellationBonus">
+        <Modifier Operation="Percent" Value=".15" TargetProperty="SystemGrowth" Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassConstellationBonusTest2" Type="ClassConstellationBonus">
+        <Modifier Operation="Percent" Value=".15" TargetProperty="SystemProduction" Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassConstellationBonusTest3" Type="ClassConstellationBonus">
+        <Modifier Operation="Percent" Value=".15" TargetProperty="SystemMoney" Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassConstellationBonusTest4" Type="ClassConstellationBonus">
+        <Modifier Operation="Percent" Value=".15" TargetProperty="SystemResearch" Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ClassConstellationBonusTest5" Type="ClassConstellationBonus">
+        <Modifier Operation="Percent" Value=".15" TargetProperty="SystemEmpirePoint" Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+</Datatable>

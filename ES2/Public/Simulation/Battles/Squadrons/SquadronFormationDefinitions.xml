@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../../Schemas/SquadronFormationDefinition.xsd">
+
+	<!--#################################-->
+	<!--####		FIGHTERS		 ####-->
+	<!--#################################-->
+	<SquadronFormationDefinition Name="FightersFormationDefault">
+		<!-- Sophons, UE, Cravers, Vodya, Unfallen, Horatio, Lumeris fighters (Standard Fighters)-->
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeFighter</PathPrerequisite>
+			<PathPrerequisite Flags="Prerequisite" Inverted="true">../ShipFactionTimeLords</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 0</InterpreterPrerequisite> <!--Pair-->
+            <Slot>
+                <Offset X="0" Y="0.01" Z="0"/>
+            </Slot>
+            <Slot>
+                <Offset X="-0.04" Y="-0.01" Z="-0.05"/>
+            </Slot>
+            <Slot>
+                <Offset X="0.04" Y="-0.01" Z="-0.05"/>
+            </Slot>
+			<Slot>
+				<Offset X="0" Y="0.05" Z="-0.05"/>
+			</Slot>
+		</Pattern>
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeFighter</PathPrerequisite>
+			<PathPrerequisite Flags="Prerequisite" Inverted="true">../ShipFactionTimeLords</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 1</InterpreterPrerequisite>  <!--Odd-->
+			<Slot>
+				<Offset X="0" Y="0.01" Z="0"/>
+			</Slot>
+			<Slot>
+				<Offset X="-0.04" Y="-0.01" Z="-0.05"/>
+			</Slot>
+			<Slot>
+				<Offset X="0.04" Y="-0.01" Z="-0.05"/>
+			</Slot>
+		</Pattern>
+		<!-- Riftborn fighters (Large Fighters)-->
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeFighter</PathPrerequisite>
+			<PathPrerequisite Flags="Prerequisite" Inverted="false">../ShipFactionTimeLords</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 0</InterpreterPrerequisite> <!--Pair-->
+            <Slot>
+                <Offset X="0" Y="0.01" Z="0"/>
+            </Slot>
+            <Slot>
+                <Offset X="-0.045" Y="-0.01" Z="-0.1"/>
+            </Slot>
+            <Slot>
+                <Offset X="0.045" Y="-0.01" Z="-0.1"/>
+            </Slot>
+            <Slot>
+                <Offset X="0" Y="0.05" Z="-0.1"/>
+            </Slot>
+		</Pattern>
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeFighter</PathPrerequisite>
+			<PathPrerequisite Flags="Prerequisite" Inverted="false">../ShipFactionTimeLords</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 1</InterpreterPrerequisite> <!--Odd-->
+            <Slot>
+                <Offset X="0" Y="0.01" Z="0"/>
+            </Slot>
+            <Slot>
+                <Offset X="-0.045" Y="-0.01" Z="-0.1"/>
+            </Slot>
+            <Slot>
+                <Offset X="0.045" Y="-0.01" Z="-0.1"/>
+            </Slot>
+		</Pattern>
+    </SquadronFormationDefinition>
+
+	<!--#################################-->
+	<!--####		BOMBERS			 ####-->
+	<!--#################################-->
+
+	<SquadronFormationDefinition Name="BomberFormationDefault">
+		<!-- Sophons, UE, Riftborn & Lumeris bombers & Scavengers (Standard Bombers)-->
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionSophons') or Path(Context, @'../ShipFactionTerrans') or Path(Context, @'../ShipFactionTimeLords')
+				or Path(Context, @'../ShipFactionVenetians') or Path(Context, @'../ShipFactionMinorFactionPirates')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 0</InterpreterPrerequisite> <!--Pair-->
+			<Slot>
+				<Offset X="-0.04" Y="0" Z="0"/>
+			</Slot>
+			<Slot>
+				<Offset X="0.04" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+                Path(Context, @'../ShipFactionSophons') or Path(Context, @'../ShipFactionTerrans') or Path(Context, @'../ShipFactionTimeLords')
+                or Path(Context, @'../ShipFactionVenetians') or Path(Context, @'../ShipFactionMinorFactionPirates')
+            </InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 1</InterpreterPrerequisite> <!--Odd-->
+			<Slot>
+				<Offset X="0" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<!-- Primitive & Advanced Bombers (Semi-Large Bombers)-->
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionMinorFactionAdvanced') or Path(Context, @'../ShipFactionMinorFactionPrimitive')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 0</InterpreterPrerequisite>
+			<!--Pair-->
+			<Slot>
+				<Offset X="-0.06" Y="0" Z="0"/>
+			</Slot>
+			<Slot>
+				<Offset X="0.06" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionMinorFactionAdvanced') or Path(Context, @'../ShipFactionMinorFactionPrimitive')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 1</InterpreterPrerequisite>
+			<!--Odd-->
+			<Slot>
+				<Offset X="0" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<!-- Vodyani & Eusocial Bombers (Large Bombers)-->
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionVampirilis') or Path(Context, @'../ShipFactionMinorFactionInsectoid')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 0</InterpreterPrerequisite> <!--Pair-->
+			<Slot>
+				<Offset X="-0.075" Y="0" Z="0"/>
+			</Slot>
+			<Slot>
+				<Offset X="0.075" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionVampirilis') or Path(Context, @'../ShipFactionMinorFactionInsectoid')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 1</InterpreterPrerequisite> <!--Odd-->
+			<Slot>
+				<Offset X="0" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<!-- Craver, Unfallen & Horatio bomber (Tall Bombers)-->
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionCravers') or Path(Context, @'../ShipFactionUnfallen') or Path(Context, @'../ShipFactionHoratio')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 0</InterpreterPrerequisite> <!--Pair-->
+			<Slot>
+				<Offset X="-0.04" Y="0" Z="0"/>
+			</Slot>
+			<Slot>
+				<Offset X="0.04" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+		<Pattern>
+			<PathPrerequisite Flags="Prerequisite">SquadronTypeBomber</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">
+				Path(Context, @'../ShipFactionCravers') or Path(Context, @'../ShipFactionUnfallen') or Path(Context, @'../ShipFactionHoratio')
+			</InterpreterPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassModuleSquadronEncounter, RemainingUnitsCount) % 2) eq 1</InterpreterPrerequisite> <!--Odd-->
+			<Slot>
+				<Offset X="0" Y="0" Z="0"/>
+			</Slot>
+		</Pattern>
+	</SquadronFormationDefinition>
+</Datatable>

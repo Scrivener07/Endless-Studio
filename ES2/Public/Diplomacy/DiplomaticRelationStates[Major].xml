@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/DiplomaticRelationState.xsd">
+
+    <!--======================================================================================================-->
+    <!--                                                                                                      -->
+    <!--                                      M A J O R     E M P I R E S                                     -->
+    <!--                                                                                                      -->
+    <!--======================================================================================================-->
+    
+    <DiplomaticRelationState Name="DiplomaticRelationStateUnknown" StateEvaluation="10">
+        <DiplomaticPressureEffectReference Name="PressureUnknown" />
+    
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareTradingRouteBranches" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+		<DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+    </DiplomaticRelationState>
+
+
+    <DiplomaticRelationState Name="DiplomaticRelationStateDead" StateEvaluation="-10">
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add" 	DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareTradingRouteBranches" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+		<DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+    </DiplomaticRelationState>
+        
+    <DiplomaticRelationState Name="DiplomaticRelationStateHotWar" StateEvaluation="1">
+        <DiplomaticPressureEffectReference Name="PressureWar" />
+
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Add" 	DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />        
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareTradingRouteBranches" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+        
+        <TurnTransition DestinationState="DiplomaticRelationStateWar" Duration="10"/>
+    </DiplomaticRelationState>
+
+    <DiplomaticRelationState Name="DiplomaticRelationStateWar" StateEvaluation="2">
+        <DiplomaticPressureEffectReference Name="PressureWar" />
+
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Add" 	DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareTradingRouteBranches" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+		<DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+        
+    </DiplomaticRelationState>
+
+    <DiplomaticRelationState Name="DiplomaticRelationStateTruce" StateEvaluation="3">
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Add"        DiplomaticAbilityReference="FakeCloseBorders" />
+        
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+		<DiplomaticAbilityChange Operation="Remove"     DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+        
+        <TurnTransition DestinationState="DiplomaticRelationStateColdWar" Duration="10"/>
+    </DiplomaticRelationState>
+
+
+    <DiplomaticRelationState Name="DiplomaticRelationStateColdWar" StateEvaluation="4">
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareTradingRouteBranches" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+		<DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+    </DiplomaticRelationState>
+
+
+    <DiplomaticRelationState Name="DiplomaticRelationStatePeace" StateEvaluation="5">
+        <DiplomaticPressureEffectReference Name="PressurePeace" />
+    
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+		<DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanRootStarSystems" /> 
+        
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AllowFactionPacts" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FactionPact"/>
+
+        <PrerequisiteTransition DestinationState="DiplomaticRelationStateColdWar">
+            <PathPrerequisite Inverted="false" Flags="Prerequisite">ClassEmpire,FactionTraitEternalWar/ClassSenate/ClassSenator,Politics06</PathPrerequisite>
+        </PrerequisiteTransition>
+    </DiplomaticRelationState>
+
+
+    <DiplomaticRelationState Name="DiplomaticRelationStateAlliance" StateEvaluation="6">
+        <DiplomaticPressureEffectReference Name="PressureAlliance" />
+    
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="VisionSharing" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+		<DiplomaticAbilityChange Operation="Add" 	DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AllowFactionPacts" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedFleets" /> 
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WarExhaustCompensation" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BreakDiplomaticTributes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+    </DiplomaticRelationState>
+
+    <DiplomaticRelationState Name="DiplomaticRelationStateTeam" StateEvaluation="-10">
+        <DiplomaticPressureEffectReference Name="PressureAlliance" />
+    
+        <!-- Team specifics -->
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Team" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="ShareScience" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="VisionSharing" />
+
+        <!-- Inherited from alliance -->
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Alliance" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="FriendlyInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="UnitRecovery" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="Migration" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardProtect" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="RelayTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="DropLootOnSystem" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="WelcomeFleetsAfterRetreat" />
+        <DiplomaticAbilityChange Operation="Add" 	DiplomaticAbilityReference="CanRootStarSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AllowFactionPacts" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Unknown" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Truce" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ColdWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HotWar" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="War" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="Peace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ForcedPeace" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedFleets" /> 
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockTradingRoutes" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="RaidSystem" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="HostileInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="NeutralInfluence" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="WarExhaustCompensation" />
+        <!-- <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BreakDiplomaticTributes" /> -->
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="BlockOutpostBuyout" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+        
+    </DiplomaticRelationState>
+    
+</Datatable>

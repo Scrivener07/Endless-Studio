@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- Minor faction difficulty -->
+    <SimulationDescriptor Name="MinorFactionDifficultyEasy" Type="MinorFactionDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"           Value="0"   Path="ClassEmpire" />
+        <Modifier TargetProperty="RelationPointsTrend"      Operation="Addition"        Value="1"   Path="ClassEmpire,EmpireTypeMinor"   Priority="-100"/>
+        <Modifier TargetProperty="RelationPointsBaseValue"  Operation="Addition"        Value="20"  Path="ClassEmpire,EmpireTypeMinor"  Priority="-100"/>
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="0.5" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+        <!--Minor Faction Difficulty debuffing the Ground Battle Defense-->
+        <Modifier TargetProperty="TroopHealthBonuses"            Operation="Subtraction"    Value="0.3"     Path="ClassEmpire,EmpireTypeMinor" TooltipHidden="true" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MinorFactionDifficultyNormal" Type="MinorFactionDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"       Value="1"   Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MinorFactionDifficultyHard" Type="MinorFactionDifficulty">
+        <Modifier       TargetProperty="DifficultyLevel"                Operation="Force"           Value="2"     Path="ClassEmpire" />
+        <Modifier       TargetProperty="RelationPointsTrend"            Operation="Addition"        Value="-1"    Path="ClassEmpire,EmpireTypeMinor"   Priority="-100"    />
+        <Modifier       TargetProperty="NetMinorEmpireMoney"            Operation="Multiplication"  Value="1.3"   Path="ClassEmpire,EmpireTypeMinor"   Priority="2"  />
+        <!--Minor Faction Difficulty buffing the Ground Battle Defense-->
+        <Modifier TargetProperty="TroopHealthBonuses"            Operation="Addition"    Value="0.3"     Path="ClassEmpire,EmpireTypeMinor" TooltipHidden="true" />
+    </SimulationDescriptor>
+
+    <!-- Game difficulty (AI) -->
+    <SimulationDescriptor Name="GameDifficultyAINewbie" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="0"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Subtraction"    Value="1"   Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="PlanetRawPrestige"                         Operation="Addition"       Value="1"   Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Subtraction"    Value="10"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationPenaltiesReduction"        Operation="Addition"       Value="0.1" Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Addition"       Value="0.1" Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="0.1" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"            Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="0.1" Path="ClassEmpire//ClassGarrison/ClassShip"                       Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="0.1" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"  Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="0.1" Path="ClassEmpire/ClassGarrison/ClassHero"             Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="0.1" Path="ClassEmpire/ClassHero"                           Priority="100" />
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="GameDifficultyAIEasy" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="1"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Subtraction"    Value="0.5"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="PlanetRawPrestige"                         Operation="Addition"       Value="0.5"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Subtraction"    Value="5"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationPenaltiesReduction"        Operation="Addition"       Value="0.05"  Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Addition"       Value="0.05"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="0.05" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"            Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="0.05" Path="ClassEmpire//ClassGarrison/ClassShip"                       Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="0.05" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"  Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="0.05" Path="ClassEmpire/ClassGarrison/ClassHero"             Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="0.05" Path="ClassEmpire/ClassHero"                           Priority="100" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyAINormal" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="2"   Path="ClassEmpire" />
+        <!-- Lifeforce compensation -->
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Addition"          Value="$(MothershipCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Multiplication"    Value="10"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Division"          Value="$(LeechingFleetsCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce"           Operation="Addition"          Value="$(NetEmpireLifeforce_AIBonus)"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyAIHard" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="3"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Addition"       Value="1"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="PlanetRawPrestige"                         Operation="Subtraction"    Value="1"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Addition"       Value="10"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationPenaltiesReduction"        Operation="Subtraction"    Value="0.1"  Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Subtraction"    Value="0.1"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"            Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="-0.1" Path="ClassEmpire//ClassGarrison/ClassShip"                       Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"  Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassGarrison/ClassHero"             Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassHero"                           Priority="100" />
+        <!-- Lifeforce compensation -->
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Addition"          Value="$(MothershipCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Multiplication"    Value="25"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Division"          Value="$(LeechingFleetsCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce"           Operation="Addition"          Value="$(NetEmpireLifeforce_AIBonus)"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyAISerious" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="4"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Addition"       Value="2"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="PlanetRawPrestige"                         Operation="Subtraction"    Value="1.5"  Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Addition"       Value="20"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationPenaltiesReduction"        Operation="Subtraction"    Value="0.2"  Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Subtraction"    Value="0.2"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"             Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="-0.2" Path="ClassEmpire//ClassGarrison/ClassShip"                Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"   Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassGarrison/ClassHero"              Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassHero"                            Priority="100" />
+        <!-- Lifeforce compensation -->
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Addition"          Value="$(MothershipCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Multiplication"    Value="30"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Division"          Value="$(LeechingFleetsCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce"           Operation="Addition"          Value="$(NetEmpireLifeforce_AIBonus)"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyAIImpossible" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="5"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Addition"       Value="3"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="PlanetRawPrestige"                         Operation="Subtraction"    Value="1.5"  Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Addition"       Value="40"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationPenaltiesReduction"        Operation="Subtraction"    Value="0.4"  Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Subtraction"    Value="0.4"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="-0.4" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"            Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="-0.4" Path="ClassEmpire//ClassGarrison/ClassShip"                       Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.4" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"  Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.4" Path="ClassEmpire/ClassGarrison/ClassHero"             Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.4" Path="ClassEmpire/ClassHero"                           Priority="100" />
+        <!-- Lifeforce compensation -->
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Addition"          Value="$(MothershipCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Multiplication"    Value="40"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Division"          Value="$(LeechingFleetsCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce"           Operation="Addition"          Value="$(NetEmpireLifeforce_AIBonus)"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyAIEndless" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="6"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Addition"       Value="4"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="PlanetRawPrestige"                         Operation="Subtraction"    Value="1.5"  Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Addition"       Value="60"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationPenaltiesReduction"        Operation="Subtraction"    Value="0.6"  Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Subtraction"    Value="0.6"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="-0.6" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"             Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="-0.6" Path="ClassEmpire//ClassGarrison/ClassShip"                        Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.6" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"   Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.6" Path="ClassEmpire/ClassGarrison/ClassHero"              Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.6" Path="ClassEmpire/ClassHero"                            Priority="100" />
+        <!-- Lifeforce compensation -->
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Addition"          Value="$(MothershipCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Multiplication"    Value="45"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce_AIBonus"   Operation="Division"          Value="$(LeechingFleetsCount)"  Path="ClassEmpire" />
+        <Modifier TargetProperty="NetEmpireLifeforce"           Operation="Addition"          Value="$(NetEmpireLifeforce_AIBonus)"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <!-- Game difficulty (Human) -->
+    <SimulationDescriptor Name="GameDifficultyHumanNewbie" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="0"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Addition"       Value="2"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Addition"       Value="20"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationThreshold"                 Operation="Addition"       Value="2"    Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Subtraction"    Value="0.2"  Path="ClassEmpire"                                      Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"             Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="-0.2" Path="ClassEmpire//ClassGarrison/ClassShip"                        Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"   Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassGarrison/ClassHero"              Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.2" Path="ClassEmpire/ClassHero"                            Priority="100" />
+        <!-- Minor Factions -->
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="0.5" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyHumanEasy" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"                           Operation="Force"          Value="1"   Path="ClassEmpire" />
+        <Modifier TargetProperty="PlanetRawFIDSI"                            Operation="Addition"       Value="1"    Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet" Priority="-100" />
+        <Modifier TargetProperty="Happiness"                                 Operation="Addition"       Value="10"   Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverColonizationThreshold"                 Operation="Addition"       Value="1"    Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="OverPopulationPenaltiesReduction"          Operation="Subtraction"    Value="0.1"  Path="ClassEmpire/ClassColonizedStarSystem"             Priority="-100" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"                         Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassColonizedStarSystem/ClassImprovement"             Priority="100" />
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"                       Operation="Percent"        Value="-0.1" Path="ClassEmpire//ClassGarrison"                        Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassColonizedStarSystem/ClassHero"   Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassGarrison/ClassHero"              Priority="100" />
+        <Modifier TargetProperty="Upkeep"                                    Operation="Percent"        Value="-0.1" Path="ClassEmpire/ClassHero"                            Priority="100" />
+        <!-- Minor Factions -->
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="0.75" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyHumanNormal" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"           Value="2"   Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyHumanHard" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"           Value="3"   Path="ClassEmpire" />
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="1.1" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyHumanSerious" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"           Value="4"   Path="ClassEmpire" />
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="1.2" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyHumanImpossible" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"           Value="5"   Path="ClassEmpire" />
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="1.3" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GameDifficultyHumanEndless" Type="GameDifficulty">
+        <Modifier TargetProperty="DifficultyLevel"          Operation="Force"           Value="6"   Path="ClassEmpire" />
+        <Modifier TargetProperty="NetMinorStress"           Operation="Multiplication"  Value="1.4" Path="ClassEmpire,EmpireTypeMinor"   Priority="2"/>
+    </SimulationDescriptor>
+    
+    <!--PIRATE DIFFICULTY-->
+    <!--Easy-->
+    <SimulationDescriptor Name="PirateDifficultyEasy" Type="PirateDifficulty">
+        <Modifier TargetProperty="PirateDifficultyMultiplier" Operation="Force" Value="0.38" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <!--Normal-->
+    <SimulationDescriptor Name="PirateDifficultyNormal" Type="PirateDifficulty">
+        <Modifier TargetProperty="PirateDifficultyMultiplier" Operation="Force" Value="0.42" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+    
+    <!--Hard-->
+    <SimulationDescriptor Name="PirateDifficultyHard" Type="PirateDifficulty">
+        <Modifier TargetProperty="PirateDifficultyMultiplier" Operation="Force" Value="0.46" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+</Datatable>

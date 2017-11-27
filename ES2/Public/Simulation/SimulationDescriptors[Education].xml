@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassEducation" Type="Class">
+        <Property Name="HeroCount" BaseValue="0"/>
+        <Property Name="HeroLevelCount" BaseValue="0"/>
+        <Property Name="HeroUnlockGauge01Points" BaseValue="0"/>
+
+
+      <Modifier TargetProperty="HeroLevelCount"       Operation="Addition"    Value="$(HeroLevelCount)"     Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroUnlockGaugeClassAdventurer" Type="HeroUnlockGaugeClassAdventurer">
+        <Property Name="HeroUnlockGaugeClassAdventurerPointsStock" IsSealed="true"/>
+        <Property Name="NetHeroUnlockGaugeClassAdventurerPoints"/>
+        <Property Name="HeroUnlockGaugeClassAdventurerPointsBaseStock" IsSealed="true"/>
+
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassAdventurerPoints" Operation="Addition" Value="$(HeroUnlockGaugeClassAdventurerPointsBaseStock)" Path="ClassEducation,HeroUnlockGaugeClassAdventurer"/>
+        <Modifier TargetProperty="HeroUnlockGauge01Points" Operation="Addition" Value="$(HeroUnlockGaugeClassAdventurerPointsStock)" Path="ClassEducation,HeroUnlockGaugeClassAdventurer"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroUnlockGaugeClassAdmiral" Type="HeroUnlockGaugeClassAdmiral">
+        <Property Name="HeroUnlockGaugeClassAdmiralPointsStock" IsSealed="true"/>
+        <Property Name="NetHeroUnlockGaugeClassAdmiralPoints"/>
+        <Property Name="HeroUnlockGaugeClassAdmiralPointsBaseStock" IsSealed="true"/>
+
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassAdmiralPoints" Operation="Addition" Value="$(HeroUnlockGaugeClassAdmiralPointsBaseStock)" Path="ClassEducation,HeroUnlockGaugeClassAdmiral"/>
+        <Modifier TargetProperty="HeroUnlockGauge01Points" Operation="Addition" Value="$(HeroUnlockGaugeClassAdmiralPointsStock)" Path="ClassEducation,HeroUnlockGaugeClassAdmiral"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroUnlockGaugeClassAdministrator" Type="HeroUnlockGaugeClassAdministrator">
+        <Property Name="HeroUnlockGaugeClassAdministratorPointsStock" IsSealed="true"/>
+        <Property Name="NetHeroUnlockGaugeClassAdministratorPoints"/>
+        <Property Name="HeroUnlockGaugeClassAdministratorPointsBaseStock" IsSealed="true"/>
+
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassAdministratorPoints" Operation="Addition" Value="$(HeroUnlockGaugeClassAdministratorPointsBaseStock)" Path="ClassEducation,HeroUnlockGaugeClassAdministrator"/>
+        <Modifier TargetProperty="HeroUnlockGauge01Points" Operation="Addition" Value="$(HeroUnlockGaugeClassAdministratorPointsStock)" Path="ClassEducation,HeroUnlockGaugeClassAdministrator"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroUnlockGaugeClassCorporate" Type="HeroUnlockGaugeClassCorporate">
+        <Property Name="HeroUnlockGaugeClassCorporatePointsStock" IsSealed="true"/>
+        <Property Name="NetHeroUnlockGaugeClassCorporatePoints"/>
+        <Property Name="HeroUnlockGaugeClassCorporatePointsBaseStock" IsSealed="true"/>
+
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassCorporatePoints" Operation="Addition" Value="$(HeroUnlockGaugeClassCorporatePointsBaseStock)" Path="ClassEducation,HeroUnlockGaugeClassCorporate"/>
+        <Modifier TargetProperty="HeroUnlockGauge01Points" Operation="Addition" Value="$(HeroUnlockGaugeClassCorporatePointsStock)" Path="ClassEducation,HeroUnlockGaugeClassCorporate"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroUnlockFrozen" Type="HeroUnlockFrozen">
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassAdventurerPoints" Operation="Force" Value="0" Path="ClassEducation,HeroUnlockGaugeClassAdventurer" TooltipHidden="true"/>
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassAdmiralPoints" Operation="Force" Value="0" Path="ClassEducation,HeroUnlockGaugeClassAdmiral" TooltipHidden="true"/>
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassAdministratorPoints" Operation="Force" Value="0" Path="ClassEducation,HeroUnlockGaugeClassAdministrator" TooltipHidden="true"/>
+        <Modifier TargetProperty="NetHeroUnlockGaugeClassCorporatePoints" Operation="Force" Value="0" Path="ClassEducation,HeroUnlockGaugeClassCorporate" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+</Datatable>

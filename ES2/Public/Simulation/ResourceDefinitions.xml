@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ResourceDefinition.xsd">
+
+    <!-- Default property names are generated with the name of the resource :
+  * Net{ResourceName}
+  * {ResourceName}Stock
+  * Maximum{ResourceName}Stock
+  * Minimum{ResourceName}Stock
+  * {ResourceName}Count
+  
+  Each resource is affiliated to a type:
+  * Common: the more basic type
+  * Strategic: resources displayed in the control banner
+  * Luxury: resources displayed in the empire screen
+  * Alias
+  * Gameplay: resources which doesn't stack up over turns and that are hard coded.
+  
+  It is possible to override default property names with following tags :
+  <ResourceDefinition Name="MyResource" LocationPath="ClassEmpire">
+    
+    <ResourceLocation Name="EmpireMoney" LocationPath="ClassEmpire">
+      <NetPropertyName>MyNetPropertyName</NetPropertyName>
+      <StockPropertyName>MyStockPropertyName</StockPropertyName>
+      <MaximumStockPropertyName>MyMaximumStockPropertyName</MaximumStockPropertyName>
+      <MinimumStockPropertyName>MyMinimumStockPropertyName</MinimumStockPropertyName>
+      <CountPropertyName>MyResourceCountPropertyName</CountPropertyName>
+    </ResourceLocation>
+    
+    <SimulationEffect />
+    
+  </ResourceDefinition> -->
+
+    <!-- Example of resource & context-dependent descriptors that could be applied on an empire
+    <ResourceDefinition Name="EmpireMoney">
+        <ResourceLocation (...)>
+            (...)
+        </ResourceLocation>
+        
+        <ConditionalDescriptorsGroup>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,AffinitySophons</PathPrerequisite>
+            <ConditionalDescriptor Name="Test 1">
+                <InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @ClassEmpire, BankAccount)) gt 500</InterpreterPrerequisite>
+                <SimulationDescriptorReference Name="EmpireIsRich"/>
+            </ConditionalDescriptor>
+        </ConditionalDescriptorsGroup>
+    </ResourceDefinition>  -->
+
+    <!-- Empire resources -->
+
+    <ResourceDefinition Name="EmpireLifeforce" Type="Common">
+        <ResourceLocation Name="EmpireLifeforce" LocationPath="ClassEmpire">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+
+    <ResourceDefinition Name="EmpireBattleWon" Type="Gameplay">
+        <ResourceLocation Name="EmpireBattleWon" LocationPath="ClassEmpire">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireMoney" Type="Common">
+        <ResourceLocation Name="EmpireMoney" LocationPath="ClassEmpire">
+            <AccumulatorPropertyName>EmpireMoneyAccumulator</AccumulatorPropertyName>
+            <StockPropertyName>BankAccount</StockPropertyName>
+            <!--<MinimumStockPropertyName>MinimumBankAccount</MinimumStockPropertyName>-->
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireResearch" Type="Common">
+        <ResourceLocation Name="EmpireResearch" LocationPath="ClassEmpire">
+            <AccumulatorPropertyName>EmpireResearchAccumulator</AccumulatorPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireEmpirePoint" Type="Common">
+        <ResourceLocation Name="EmpireEmpirePoint" LocationPath="ClassEmpire">
+            <AccumulatorPropertyName>EmpireEmpirePointAccumulator</AccumulatorPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireOutpostSupply" Type="Common">
+        <ResourceLocation Name="EmpireOutpostSupply" LocationPath="ClassEmpire">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireManpower" Type="LateCollect">
+        <ResourceLocation Name="EmpireManpower" LocationPath="ClassEmpire">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireTemplePoints" Type="Common">
+        <ResourceLocation Name="EmpireTemplePoints" LocationPath="ClassEmpire">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="MinorStress" Type="Common">
+        <ResourceLocation Name="MinorStress" LocationPath="EmpireTypeMinor">
+            <StockPropertyName>Stress</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="MinorEmpireShipMoney" Type="Common">
+        <ResourceLocation Name="MinorEmpireShipMoney" LocationPath="EmpireTypeMinor">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="MinorEmpireImprovementMoney" Type="Common">
+        <ResourceLocation Name="MinorEmpireImprovementMoney" LocationPath="EmpireTypeMinor">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="MinorFleetSpawnCooldown" Type="Common">
+        <ResourceLocation Name="MinorFleetSpawnCooldown" LocationPath="EmpireTypeMinor">
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <!-- Only for accumulator -->
+
+    <ResourceDefinition Name="EmpireGrowth" Type="Common">
+        <ResourceLocation Name="EmpireGrowth" LocationPath="ClassEmpire">
+            <AccumulatorPropertyName>EmpireGrowthAccumulator</AccumulatorPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="EmpireProduction" Type="Common">
+        <ResourceLocation Name="EmpireProduction" LocationPath="ClassEmpire">
+            <AccumulatorPropertyName>EmpireProductionAccumulator</AccumulatorPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="CommandPoints" Type="Common">
+        <ResourceLocation Name="CommandPoints" LocationPath="ClassEmpire">
+            <AccumulatorPropertyName>CommandPointsAccumulator</AccumulatorPropertyName>
+            <NetPropertyName>CommandPoints</NetPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+	
+
+    <!-- Law Resources -->
+
+    <ResourceDefinition Name="TurnElapsed" Type="Common">
+        <ResourceLocation Name="TurnElapsed" LocationPath="ClassEmpire/ClassSenate"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="LawActivationTime" Type="Common">
+
+        <ResourceLocation Name="LawActivationTime" LocationPath="ClassEmpire/ClassSenate/ClassLaw">
+        </ResourceLocation>
+
+    </ResourceDefinition>
+
+
+
+    <!-- System resources -->
+    <ResourceDefinition Name="SystemGrowth" Type="Common">
+        <ResourceLocation Name="SystemGrowth" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumSystemGrowthStock</MaximumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemProduction" Type="Common">
+        <ResourceLocation Name="SystemProduction" LocationPath="ClassEmpire/ClassColonizedStarSystem"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemTurnBased" Type="Common">
+        <ResourceLocation Name="SystemTurnBased" LocationPath="ClassEmpire/ClassColonizedStarSystem"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemInfluence" Type="Common">
+        <ResourceLocation Name="SystemInfluence" LocationPath="ClassEmpire/ClassColonizedStarSystem"/>
+
+        <ResourceLocation Name="SystemInfluence" LocationPath="ClassEmpire/ClassLostSystems/ClassColonizedStarSystem"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemManpower" Type="LateCollect">
+        <ResourceLocation Name="SystemManpower" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumSystemManpower</MaximumStockPropertyName>
+            <NetPropertyName>NetSystemManpower</NetPropertyName>
+            <StockPropertyName>SystemManpowerStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="OutpostProgress" Type="Gameplay">
+        <ResourceLocation Name="OutpostProgress" LocationPath="ClassEmpire/ClassColonizedStarSystem"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemMigrationGrowth" Type="Common">
+        <ResourceLocation Name="SystemMigrationGrowth" LocationPath="ClassEmpire/ClassColonizedStarSystem,SystemPopulationMigrationEmigrating"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemOutpostMigrationGrowth" Type="Common">
+        <ResourceLocation Name="SystemOutpostMigrationGrowth" LocationPath="ClassEmpire/ClassColonizedStarSystem/ClassOutpostMigrationFlux"/>
+    </ResourceDefinition>
+
+    <!--<ResourceDefinition Name="TradeRouteHistory" Type="Common">
+        <ResourceLocation Name="TradeRouteHistory" LocationPath="ClassEmpire/ClassStarSystem">
+            <StockPropertyName>TradeRouteHistory</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>-->
+
+    <!-- Ship Resources -->
+
+    <ResourceDefinition Name="ShipProbe" Type="Common">
+        <ResourceLocation Name="ShipProbe" LocationPath="ClassEmpire/ClassGarrison/ClassShip">
+            <MaximumStockPropertyName>MaximumShipProbeStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumShipProbeStock</MinimumStockPropertyName>
+        </ResourceLocation>
+        <ResourceLocation Name="ShipProbe" LocationPath="ClassEmpire/ClassColonizedStarSystem/ClassGarrison/ClassShip">
+            <MaximumStockPropertyName>MaximumShipProbeStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumShipProbeStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="ShipManpower" Type="LateCollect">
+        <ResourceLocation Name="ShipManpower" LocationPath="ClassEmpire/ClassGarrison/ClassShip">
+            <MaximumStockPropertyName>MaximumShipManpower</MaximumStockPropertyName>
+            <NetPropertyName>NetShipManpower</NetPropertyName>
+            <StockPropertyName>ShipManpowerStock</StockPropertyName>
+        </ResourceLocation>
+        <ResourceLocation Name="ShipManpower" LocationPath="ClassEmpire/ClassColonizedStarSystem/ClassGarrison/ClassShip">
+            <MaximumStockPropertyName>MaximumShipManpower</MaximumStockPropertyName>
+            <NetPropertyName>NetShipManpower</NetPropertyName>
+            <StockPropertyName>ShipManpowerStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <!-- Strategic Resource -->
+    <!-- Titanium -->
+
+    <ResourceDefinition Name="Strategic1" Type="Strategic">
+        <ResourceLocation Name="Strategic1" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemStrategic1" Type="SystemStrategic">
+        <ResourceLocation Name="Strategic1" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="Strategic2" Type="Strategic">
+        <ResourceLocation Name="Strategic2" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemStrategic2" Type="SystemStrategic">
+        <ResourceLocation Name="Strategic2" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="Strategic3" Type="Strategic">
+        <ResourceLocation Name="Strategic3" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemStrategic3" Type="SystemStrategic">
+        <ResourceLocation Name="Strategic3" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="Strategic4" Type="Strategic">
+        <ResourceLocation Name="Strategic4" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemStrategic4" Type="SystemStrategic">
+        <ResourceLocation Name="Strategic4" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="Strategic5" Type="Strategic">
+        <ResourceLocation Name="Strategic5" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemStrategic5" Type="SystemStrategic">
+        <ResourceLocation Name="Strategic5" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="Strategic6" Type="Strategic">
+        <ResourceLocation Name="Strategic6" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="SystemStrategic6" Type="SystemStrategic">
+        <ResourceLocation Name="Strategic6" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumStrategicStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumStrategicStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+
+    <!-- Luxury -->
+    <LuxuryResourceDefinition Name="Luxury1" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury1" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury1" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury1" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury2" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury2" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury2" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury2" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury3" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury3" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury3" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury3" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury4" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury4" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury4" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury4" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury5" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury5" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury5" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury5" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury6" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury6" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury6" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury6" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury7" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury7" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury7" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury7" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury8" Type="Luxury" Level="1">
+        <ResourceLocation Name="Luxury8" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury8" Type="SystemLuxury" Level="1">
+        <ResourceLocation Name="Luxury8" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury9" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury9" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury9" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury9" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury10" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury10" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury10" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury10" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury11" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury11" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury11" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury11" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury12" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury12" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury12" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury12" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury13" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury13" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury13" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury13" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury14" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury14" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury14" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury14" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury15" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury15" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury15" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury15" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury16" Type="Luxury" Level="2">
+        <ResourceLocation Name="Luxury16" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury16" Type="SystemLuxury" Level="2">
+        <ResourceLocation Name="Luxury16" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury17" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury17" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury17" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury17" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury18" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury18" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury18" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury18" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury19" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury19" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury19" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury19" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury20" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury20" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury20" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury20" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury21" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury21" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury21" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury21" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury22" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury22" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury22" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury22" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury23" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury23" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury23" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury23" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="Luxury24" Type="Luxury" Level="3">
+        <ResourceLocation Name="Luxury24" LocationPath="ClassEmpire">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+
+    <LuxuryResourceDefinition Name="SystemLuxury24" Type="SystemLuxury" Level="3">
+        <ResourceLocation Name="Luxury24" LocationPath="ClassEmpire/ClassColonizedStarSystem">
+            <MaximumStockPropertyName>MaximumLuxuryStock</MaximumStockPropertyName>
+            <MinimumStockPropertyName>MinimumLuxuryStock</MinimumStockPropertyName>
+            <StockPropertyName>FakeResourceStock</StockPropertyName>
+        </ResourceLocation>
+    </LuxuryResourceDefinition>
+    
+    <!-- Improvement -->
+    <ResourceDefinition Name="DustOverTime" Type="Common">
+        <ResourceLocation Name="DustOverTime" LocationPath="ClassEmpire/ClassColonizedStarSystem/StarSystemImprovementUniqueTimeLords"/>
+    </ResourceDefinition>
+    <!-- Ship resources -->
+    <ResourceDefinition Name="ActionPoint" Type="Common">
+        <ResourceLocation Name="ActionPoint" LocationPath="ClassEmpire/ClassGarrison/ClassShip"/>
+        <ResourceLocation Name="ActionPoint" LocationPath="ClassEmpire/ClassColonizedStarSystem/ClassGarrison/ClassShip"/>
+    </ResourceDefinition>
+
+
+    <!-- Population -->
+    <ResourceDefinition Name="PopulationScore" Type="Common">
+        <ResourceLocation Name="PopulationScore" LocationPath="ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystem"/>
+    </ResourceDefinition>
+
+    <!-- #PopulationHappiness -->
+    <!--<ResourceDefinition Name="SystemPopulationHappiness" Type="Common">
+        <ResourceLocation Name="Happiness" LocationPath="ClassEmpire/ClassColonizedStarSystem/ClassPopulationStarSystem">
+            <NetPropertyName>NetHappiness</NetPropertyName>
+            <StockPropertyName>HappinessStock</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>-->
+
+    <!-- Hero -->
+
+    <ResourceDefinition Name="HeroUnlockGaugeClassAdventurerPoints" Type="LateCollect">
+        <ResourceLocation Name="HeroUnlockGaugeClassAdventurerPoints" LocationPath="ClassEmpire/ClassEducation,HeroUnlockGaugeClassAdventurer"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="HeroUnlockGaugeClassAdmiralPoints" Type="LateCollect">
+        <ResourceLocation Name="HeroUnlockGaugeClassAdmiralPoints" LocationPath="ClassEmpire/ClassEducation,HeroUnlockGaugeClassAdmiral"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="HeroUnlockGaugeClassAdministratorPoints" Type="LateCollect">
+        <ResourceLocation Name="HeroUnlockGaugeClassAdministratorPoints" LocationPath="ClassEmpire/ClassEducation,HeroUnlockGaugeClassAdministrator"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="HeroUnlockGaugeClassCorporatePoints" Type="LateCollect">
+        <ResourceLocation Name="HeroUnlockGaugeClassCorporatePoints" LocationPath="ClassEmpire/ClassEducation,HeroUnlockGaugeClassCorporate"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="ParasitePoints" Type="Common">
+        <ResourceLocation Name="ParasitePoints" LocationPath="ClassEmpire/ClassColonizedStarSystem"/>
+    </ResourceDefinition>
+
+    <!-- Pirate stuff -->
+    <ResourceDefinition Name="PowerPoints" Type="Common">
+        <ResourceLocation Name="PowerPoints" LocationPath="ClassEmpire,EmpireTypePirate"/>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="TurnsBeforeFleetSpawn" Type="Common">
+        <ResourceLocation Name="TurnsBeforeFleetSpawn" LocationPath="ClassEmpire,EmpireTypePirate">
+            <NetPropertyName>NetTurnsBeforeFleetSpawn</NetPropertyName>
+            <StockPropertyName>TurnsBeforeFleetSpawn</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+
+    <ResourceDefinition Name="AdditionalShipsMoney" Type="Common">
+        <ResourceLocation Name="AdditionalShipsMoney" LocationPath="ClassEmpire,EmpireTypePirate">
+            <StockPropertyName>AdditionalShipsMoney</StockPropertyName>
+        </ResourceLocation>
+    </ResourceDefinition>
+    
+</Datatable>

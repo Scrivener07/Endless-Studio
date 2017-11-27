@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GameSettingRestrictionDefinition.xsd">
+
+    <!--    <GameSettingRestrictionDefinition Name="CompetitorCount_GalaxySize" RestrictingSetting="CompetitorCount" RestrictedSetting="GalaxySize">
+        <RestrictionSet>
+            <If Value="4" />
+            <If Value="5" />
+            <Disable Value="Tiny" />
+        </RestrictionSet>
+        <RestrictionSet>
+            <If Value="6" />
+            <Disable Value="Tiny" />
+            <Disable Value="Small" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+   <GameSettingRestrictionDefinition Name="GalaxySize_CompetitorCount" RestrictingSetting="GalaxySize" RestrictedSetting="CompetitorCount">
+        <RestrictionSet>
+            <If Value="Tiny" />
+            <Disable Value="4" />
+            <Disable Value="5" />
+            <Disable Value="6" />
+        </RestrictionSet>
+        <RestrictionSet>
+            <If Value="Small" />
+            <Disable Value="6" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="GameDifficulty_MinorFactionsDifficulty" RestrictingSetting="GameDifficulty" RestrictedSetting="MinorFactionsDifficulty">
+        <RestrictionSet>
+            <If Value="Newbie" />
+            <Disable Value="Normal" />
+            <Disable Value="Hard" />
+        </RestrictionSet>
+        <RestrictionSet>
+            <If Value="Easy" />
+            <Disable Value="Hard" />
+        </RestrictionSet>
+        <RestrictionSet>
+            <If Value="Serious" />
+            <Disable Value="Easy" />
+        </RestrictionSet>
+        <RestrictionSet>
+            <If Value="Impossible" />
+            <If Value="Endless" />
+            <Disable Value="Easy" />
+            <Disable Value="Normal" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <!- When selecting Beginner tutorial, the game starts immediately. But when starting a new game after that, the beginner option is selected and stuff must be locked ->
+    <GameSettingRestrictionDefinition Name="TutorialMode_CompetitorCount" RestrictingSetting="TutorialMode" RestrictedSetting="CompetitorCount">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="2" />
+            <Disable Value="3" />
+            <Disable Value="5" />
+            <Disable Value="6" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_GameSpeed" RestrictingSetting="TutorialMode" RestrictedSetting="GameSpeed">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Fast" />
+            <Disable Value="Slow" />
+            <Disable Value="Endless" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_GameDifficulty" RestrictingSetting="TutorialMode" RestrictedSetting="GameDifficulty">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Newbie" />
+            <Disable Value="Normal" />
+            <Disable Value="Hard" />
+            <Disable Value="Serious" />
+            <Disable Value="Impossible" />
+            <Disable Value="Endless" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_GalaxySize" RestrictingSetting="TutorialMode" RestrictedSetting="GalaxySize">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Tiny" />
+            <Disable Value="Small" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_GalaxyDensity" RestrictingSetting="TutorialMode" RestrictedSetting="GalaxyDensity">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Low" />
+            <Disable Value="High" />
+            <Disable Value="Random" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_ConstellationQuantity" RestrictingSetting="TutorialMode" RestrictedSetting="ConstellationQuantity">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="One" />
+            <Disable Value="Many" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_ResourcesAbundance" RestrictingSetting="TutorialMode" RestrictedSetting="ResourcesAbundance">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Rare" />
+            <Disable Value="Abundant" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_ConnectivityDensity" RestrictingSetting="TutorialMode" RestrictedSetting="ConnectivityDensity">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Low" />
+            <Disable Value="High" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_MinorFactionsQuantity" RestrictingSetting="TutorialMode" RestrictedSetting="MinorFactionsQuantity">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Low" />
+            <Disable Value="High" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>
+
+    <GameSettingRestrictionDefinition Name="TutorialMode_MinorFactionsDifficulty" RestrictingSetting="TutorialMode" RestrictedSetting="MinorFactionsDifficulty">
+        <RestrictionSet>
+            <If Value="Beginner" />
+            <Disable Value="Easy" />
+            <Disable Value="Hard" />
+        </RestrictionSet>
+    </GameSettingRestrictionDefinition>-->
+
+</Datatable>

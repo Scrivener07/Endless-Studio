@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/EmpireImprovementDefinition.xsd">
+
+   
+    <!-- ################################################### -->
+    <!-- #######         SCIENCE AND EXPLORATION     ####### -->
+    <!-- ################################################### -->
+
+    <!-- Stage Unlock -->
+    <EmpireImprovementDefinition Name="EmpireImprovementStageScienceAndExploration1" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyStageScienceAndExploration1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageScienceAndExploration1" />
+    </EmpireImprovementDefinition>
+
+
+    <!--
+    <EmpireImprovementDefinition Name="EmpireImprovementStageScienceAndExploration2" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyStageScienceAndExploration2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageScienceAndExploration2" />
+    </EmpireImprovementDefinition>-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageScienceAndExploration3" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyStageScienceAndExploration3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageScienceAndExploration3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageScienceAndExploration4" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyStageScienceAndExploration4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageScienceAndExploration4" />
+    </EmpireImprovementDefinition>
+
+    <!--
+    <EmpireImprovementDefinition Name="EmpireImprovementStageScienceAndExploration5" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageScienceAndExploration5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageScienceAndExploration5" />
+    </EmpireImprovementDefinition>-->
+
+    <!-- Stage 2 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementCuriosityLevel1" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyExploration1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementCuriosityLevel1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementFreeMovement1" Category="CategoryMovementBonus" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyFreeMovement</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementFreeMovement1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementHappiness" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyGlobalHappinessCommon</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHappiness" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementHappinessOnCold" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyGlobalHappinessSophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHappinessOnCold" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementHappinessOnHot" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyGlobalHappinessHoratio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHappinessOnHot" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementHappinessOnSterile" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyGlobalHappinessTimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHappinessOnSterile" />
+    </EmpireImprovementDefinition>
+
+    <!-- Stage 3 -->  
+    <EmpireImprovementDefinition Name="EmpireImprovementCuriosityLevel2" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyCuriosityLevel2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementCuriosityLevel2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementAnomalyReduction1" Category="CategoryPlanetImprovement" SubCategory="PlanetAnomalyReduction">
+        <TechnologyPrerequisite>TechnologyAnomalyReduction1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementAnomalyReduction1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementMoonExploration" Category="CategoryPlanetImprovement" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyMoonExploration</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementMoonExploration" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTerraformation1" Category="CategoryPlanetImprovement" SubCategory="SubCategoryTerraformation">
+        <TechnologyPrerequisite>TechnologyTerraformation1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTerraformation1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTerraformation1TimeLords" Category="CategoryPlanetImprovement" SubCategory="SubCategoryTerraformation">
+        <TechnologyPrerequisite>TechnologyTerraformation1TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTerraformation1TimeLords" />
+    </EmpireImprovementDefinition>
+
+    <!-- Stage 4 -->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementWormhole" Category="CategoryMovementBonus" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyWormhole</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementWormhole" />
+    </EmpireImprovementDefinition>
+    
+
+    <EmpireImprovementDefinition Name="EmpireImprovementFreeMovement2" Category="CategoryMovementBonus" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyFreeMovement2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementFreeMovement2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStellarDiscovery" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyStellarDiscovery</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStellarDiscovery" />
+    </EmpireImprovementDefinition>
+
+    <!-- Stage 5 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementCuriosityLevel3" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyCuriosityLevel3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementCuriosityLevel3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementAnomalyReduction2" Category="CategoryPlanetImprovement" SubCategory="PlanetAnomalyReduction">
+        <TechnologyPrerequisite>TechnologyAnomalyReduction2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementAnomalyReduction2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTerraformation2" Category="CategoryPlanetImprovement" SubCategory="SubCategoryTerraformation">
+        <TechnologyPrerequisite>TechnologyTerraformation2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTerraformation2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTerraformation2TimeLords" Category="CategoryPlanetImprovement" SubCategory="SubCategoryTerraformation">
+        <TechnologyPrerequisite>TechnologyTerraformation2TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTerraformation2TimeLords" />
+    </EmpireImprovementDefinition>
+    
+
+    <!-- ################################################### -->
+    <!-- #######           EMPIRE DEVELOPMENT        ####### -->
+    <!-- ################################################### -->
+    
+    <!-- Stage Unlock -->
+
+    <!--
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEmpireDevelopment1" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryFIDSI">
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEmpireDevelopment1" />
+    </EmpireImprovementDefinition>
+
+    
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEmpireDevelopment2" Category="CategoryLaw" SubCategory="SubCategoryPolitics">
+        <PathPrerequisite Flags="Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEmpireDevelopment2" />
+    </EmpireImprovementDefinition>-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEmpireDevelopment3" Category="CategoryLaw" SubCategory="SubCategoryPolitics">
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEmpireDevelopment3" />
+    </EmpireImprovementDefinition>
+  
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEmpireDevelopment5" Category="CategoryLaw" SubCategory="SubCategoryPolitics">
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEmpireDevelopment5" />
+    </EmpireImprovementDefinition>
+
+    <!-- STAGE 1 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus1" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyMinorFactionsGameplay</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus1" />
+    </EmpireImprovementDefinition>
+
+    <!-- STAGE 2 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus2" Category="CategoryTreaty" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyDiplomacyPeace</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementExpansionDisapproval1" Category="CategoryOverColonization" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyDisapproval1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementExpansionDisapproval1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementExpansionDisapproval1Terrans" Category="CategoryOverColonization" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyDisapproval1Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementExpansionDisapproval1Terrans" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementElectionAction" Category="CategoryElectionAction" SubCategory="SubCategoryPolitics">
+        <TechnologyPrerequisite>TechnologyElectionAction</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementElectionAction" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementGovernment" Category="CategoryGovernment" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyGovernmentGameplay</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementGovernment" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementGovernmentTerrans" Category="CategoryGovernment" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyGovernmentGameplayTerrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementGovernmentTerrans" />
+    </EmpireImprovementDefinition>
+  
+
+    <!-- Hull4 (medium attacker) unlocks additional slots for small attacker ships -->
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Sophons" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull1Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Sophons" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Cravers" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull1Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Cravers" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Vampirilis" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull1Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Vampirilis" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Venetians" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull1Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Terrans" Category="CategoryHullUpgrade"  SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull1Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Terrans" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01TimeLords" Category="CategoryHullUpgrade"  SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull1TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01TimeLords" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Unfallen" Category="CategoryHullUpgrade"  SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull1Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Unfallen" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall01Horatio" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull1Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall01Horatio" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+
+    <!-- Hull5 (medium defender) unlocks additional slots for small support ships -->
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Sophons" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary"  >
+        <TechnologyPrerequisite>TechnologyImproveHull2Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Sophons" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Cravers"    Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull2Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Cravers" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Vampirilis" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull2Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Vampirilis" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Venetians" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Terrans" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull2Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Terrans" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02TimeLords" Category="CategoryHullUpgrade"  SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull2TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02TimeLords" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Unfallen" Category="CategoryHullUpgrade"  SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull2Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Unfallen" />
+        <!-- Points to the actual tooltip description that will be displayed -->
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsSmall02Horatio" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull2Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsSmall02Horatio" />
+    </EmpireImprovementDefinition>
+  
+  
+    <!-- STAGE 3 -->
+    <!-- Increase movement of automated ships -->
+    <EmpireImprovementDefinition Name="EmpireImprovementAutomatedShipMovement1" Category="CategoryMovementBonus" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment3</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="true">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementAutomatedShipMovement1" />
+    </EmpireImprovementDefinition>
+  
+
+    <!-- STAGE 4 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementInfluenceConversion" Category="CategoryConversion" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyInfluenceConversion</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementInfluenceConversion" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementExpansionDisapproval2" Category="CategoryOverColonization" SubCategory="SubCategoryApproval">
+        <TechnologyPrerequisite>TechnologyApproval3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementExpansionDisapproval2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus3" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyDiplomacy2Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus3Venetians" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyDiplomacy2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus3Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus3Unfallen" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyDiplomacy2Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus3Unfallen" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus4" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyDiplomacy3Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus4Venetians" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyDiplomacy3Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus4Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDiplomacyBonus4Unfallen" Category="CategoryTreaty" SubCategory="SubCategoryDiplomacy">
+        <TechnologyPrerequisite>TechnologyDiplomacy3Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDiplomacyBonus4Unfallen" />
+    </EmpireImprovementDefinition>
+
+    <!-- Increase movement of automated ships -->
+    <EmpireImprovementDefinition Name="EmpireImprovementAutomatedShipMovement2" Category="CategoryMovementBonus" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment4</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="true">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementAutomatedShipMovement2" />
+    </EmpireImprovementDefinition>
+  
+
+    <!-- Hull6 (large ship) unlocks additional slots for all medium ships -->
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Sophons" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Sophons" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Sophons" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Sophons" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Cravers" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Cravers" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Cravers" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Cravers" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Vampirilis" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Vampirilis" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Vampirilis" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Vampirilis" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Venetians" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Venetians" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Venetians" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Terrans" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Terrans" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Terrans" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Terrans" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01TimeLords" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01TimeLords" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02TimeLords" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02TimeLords" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Unfallen" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Unfallen" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Unfallen" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Unfallen" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium01Horatio" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull3Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium01Horatio" />
+    </EmpireImprovementDefinition>
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMedium02Horatio" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite>TechnologyImproveHull4Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMedium02Horatio" />
+    </EmpireImprovementDefinition>
+    
+
+    <!-- STAGE 5-->
+    <EmpireImprovementDefinition Name="EmpireImprovementHeroBonus" Category="CategoryHero" SubCategory="SubCategoryAcademy">
+        <TechnologyPrerequisite>TechnologyInfluence3Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHeroBonus" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementHeroBonusVampirilis" Category="CategoryHero" SubCategory="SubCategoryAcademy">
+        <TechnologyPrerequisite>TechnologyInfluence3Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHeroBonusVampirilis" />
+    </EmpireImprovementDefinition>
+
+    <!-- Increase movement of automated ships -->
+    <EmpireImprovementDefinition Name="EmpireImprovementAutomatedShipMovement3" Category="CategoryMovementBonus" SubCategory="SubCategoryEmpire">
+        <TechnologyPrerequisite>TechnologyStageEmpireDevelopment5</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="true">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementAutomatedShipMovement3" />
+    </EmpireImprovementDefinition>
+  
+
+    <!-- Hull6Slots unlocks additional slots for large ships-->
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Sophons" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Sophons</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Sophons" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Cravers" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Cravers" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Vampirilis" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Vampirilis</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Vampirilis" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Venetians" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Terrans" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Terrans</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Terrans" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01TimeLords" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5TimeLords</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01TimeLords" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Unfallen" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Unfallen</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Unfallen" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsLarge01Horatio" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary">
+        <TechnologyPrerequisite>TechnologyImproveHull5Horatio</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsLarge01Horatio" />
+    </EmpireImprovementDefinition>
+
+    <!-- ################################################### -->
+    <!-- #######           ECONOMY AND TRADE         ####### -->
+    <!-- ################################################### -->
+
+    <!-- Stage Unlock -->
+    <!---
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEconomyAndTrade1" Category="CategoryRecipeImprovement" SubCategory="CategoryRecipe">
+        <PathPrerequisite Flags="Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEconomyAndTrade1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEconomyAndTrade2" Category="CategoryRecipeImprovement" SubCategory="CategoryRecipe">
+        <PathPrerequisite Flags="Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEconomyAndTrade2" />
+    </EmpireImprovementDefinition>-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEconomyAndTrade3" Category="CategoryRecipeImprovement" SubCategory="SubCategoryRecipe">
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEconomyAndTrade3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEconomyAndTrade4" Category="CategoryRecipeImprovement" SubCategory="SubCategoryRecipe">
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEconomyAndTrade4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageEconomyAndTrade5" Category="CategoryRecipeImprovement" SubCategory="SubCategoryRecipe">
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageEconomyAndTrade5" />
+    </EmpireImprovementDefinition>
+
+    <!-- STAGE 1 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementStrategic1" Category="CategoryStrategic1" SubCategory="SubCategoryResourceExploitation">
+        <TechnologyPrerequisite>TechnologyStrategicDeposit1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStrategic1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStrategic2" Category="CategoryStrategic2" SubCategory="SubCategoryResourceExploitation">
+        <TechnologyPrerequisite>TechnologyStrategicDeposit2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStrategic2" />
+    </EmpireImprovementDefinition>
+
+    <!-- STAGE 2 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementBuyout" Category="CategoryBuyout" SubCategory="SubCategoryBuyout">
+        <TechnologyPrerequisite>TechnologyBuyout</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementBuyout" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementMarketplace1" Category="CategoryMarketplace" SubCategory="SubCategoryMarketplace">
+        <TechnologyPrerequisite>TechnologyMarketplace1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementMarketplace1" />
+    </EmpireImprovementDefinition>
+
+
+    <!-- STAGE 3 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementMarketplace2" Category="CategoryMarketplace" SubCategory="SubCategoryMarketplace">
+        <TechnologyPrerequisite>TechnologyMarketplace2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementMarketplace2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementGasColonization" Category="CategoryPlanetColonization" SubCategory="PlanetColonization">
+        <TechnologyPrerequisite>TechnologyColonizationGasPlanetNonVampirilis</TechnologyPrerequisite>
+        <PathPrerequisite Flags="Prerequisite" Inverted="true">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementGasColonization" />
+        <SimulationDescriptorReference Name="EmpireImprovementGasColonizationAlt" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementGasColonizationVampirilis" Category="CategoryPlanetColonization" SubCategory="PlanetColonization">
+        <TechnologyPrerequisite>TechnologyColonizationGasPlanetVampirilis</TechnologyPrerequisite>
+        <PathPrerequisite Flags="Prerequisite">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementGasColonization" />
+    </EmpireImprovementDefinition>
+
+    <!-- Additional slots for Ark -->
+    <EmpireImprovementDefinition Name="EmpireImprovementImprovedArk2" Category="CategoryHullUpgrade" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade3</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="false">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementImprovedArk2" />
+    </EmpireImprovementDefinition>    
+
+
+    <!-- STAGE 4 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementStrategic3" Category="CategoryStrategic3" SubCategory="SubCategoryResourceExploitation">
+        <TechnologyPrerequisite>TechnologyStrategicDeposit3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStrategic3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStrategic4" Category="CategoryStrategic4" SubCategory="SubCategoryResourceExploitation">
+        <TechnologyPrerequisite>TechnologyStrategicDeposit4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStrategic4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSubsidiaries1" Category="CategoryTradeSubsidiaries" SubCategory="SubCategoryTradingCompanyStructure">
+        <TechnologyPrerequisite>TechnologyTrade2Common</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSubsidiaries1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSubsidiaries1Venetians" Category="CategoryTradeSubsidiaries" SubCategory="SubCategoryTradingCompanyStructure">
+        <TechnologyPrerequisite>TechnologyTrade2Venetians</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSubsidiaries1Venetians" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDamageBonusTroop1" Category="CategoryTroop" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyIndustry6</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDamageBonusTroop1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementHealthBonusTroop1" Category="CategoryTroop" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyDust6</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementHealthBonusTroop1" />
+    </EmpireImprovementDefinition>
+
+    <!-- Additional slots for Ark -->
+    <EmpireImprovementDefinition Name="EmpireImprovementImprovedArk3" Category="CategoryHullUpgrade" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade4</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="false">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementImprovedArk3" />
+    </EmpireImprovementDefinition>
+    
+    
+    <!-- STAGE 5 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementGasImprovement" Category="CategoryEmpireImprovement" SubCategory="SubCategoryPopulation">
+        <TechnologyPrerequisite>TechnologyImproveGasPlanet</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementGasImprovement" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStrategic5" Category="CategoryStrategic5" SubCategory="SubCategoryResourceExploitation">
+        <TechnologyPrerequisite>TechnologyStrategicDeposit5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStrategic5" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStrategic6" Category="CategoryStrategic6" SubCategory="SubCategoryResourceExploitation">
+        <TechnologyPrerequisite>TechnologyStrategicDeposit6</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStrategic6" />
+    </EmpireImprovementDefinition>
+
+    <!-- Additional slots for Ark -->
+    <EmpireImprovementDefinition Name="EmpireImprovementImprovedArk4" Category="CategoryHullUpgrade" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageEconomyAndTrade5</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="false">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementImprovedArk4" />
+    </EmpireImprovementDefinition>
+
+
+    <!-- ################################################### -->
+    <!-- #######               MILITARY              ####### -->
+    <!-- ################################################### -->
+
+    <!-- Stage Unlock -->
+    
+    <!--
+    <EmpireImprovementDefinition Name="EmpireImprovementStageMilitary1" Category="CategoryShip" SubCategory="SubCategoryShip">
+        <PathPrerequisite Flags="Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageMilitary1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageMilitary1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageMilitary2" Category="CategoryTechnologyMilitary" SubCategory="SubCategoryShip">
+        <PathPrerequisite Flags="Discard">false</PathPrerequisite>
+        <TechnologyPrerequisite>TechnologyStageMilitary2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageMilitary2" />
+    </EmpireImprovementDefinition>-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageMilitary3" Category="CategoryTechnologyMilitary" SubCategory="SubCategoryShip">
+        <TechnologyPrerequisite>TechnologyStageMilitary3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageMilitary3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageMilitary4" Category="CategoryTechnologyMilitary" SubCategory="SubCategoryShip">
+        <TechnologyPrerequisite>TechnologyStageMilitary4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageMilitary4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementStageMilitary5" Category="CategoryTechnologyMilitary" SubCategory="SubCategoryShip">
+        <TechnologyPrerequisite>TechnologyStageMilitary5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementStageMilitary5" />
+    </EmpireImprovementDefinition>
+
+
+
+    <!-- STAGE 2 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementEmpireManpowerStockBoost1" Category="CategoryManpower" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageMilitary2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementEmpireManpowerStockBoost1" />
+    </EmpireImprovementDefinition>
+
+    <!-- Additional slots for Ark -->
+    <EmpireImprovementDefinition Name="EmpireImprovementImprovedArk1" Category="CategoryHullUpgrade" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageMilitary2</TechnologyPrerequisite>
+        <PathPrerequisite Flags="FactionTechnology" Inverted="false">AffinityGameplayVampirilis</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementImprovedArk1" />
+    </EmpireImprovementDefinition>
+    
+
+    <!-- STAGE 3 -->
+    <EmpireImprovementDefinition Name="EmpireImprovementEmpireManpowerStockBoost2" Category="CategoryManpower" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageMilitary3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementEmpireManpowerStockBoost2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTroopTanks" Category="CategoryTroopTank" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyTankUnlock</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTroopTanks" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementArmyCap1" Category="CategoryCommandPoints" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyArmyCap1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementArmyCap1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPlayDeck1" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlayDeck1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPlayDeck1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPlayDeck2" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlayDeck2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPlayDeck2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementArmyCap2" Category="CategoryCommandPoints" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyArmyCap2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementArmyCap2" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementArmyCap2Cravers" Category="CategoryCommandPoints" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyArmyCap2Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementArmyCap2Cravers" />
+    </EmpireImprovementDefinition>
+
+
+    <!-- STAGE 4-->
+    <EmpireImprovementDefinition Name="EmpireImprovementEmpireManpowerStockBoost3" Category="CategoryManpower" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageMilitary4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementEmpireManpowerStockBoost3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPlayDeck3" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlayDeck3</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPlayDeck3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPlayDeck4" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlayDeck4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPlayDeck4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementGlobalBonusTroops1" Category="CategoryTroop" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyImprovementGlobalBonusTroops</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementGlobalBonusTroops1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPrivateers" Category="CategoryPrivateers" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyPrivateers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPrivateers" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementArmyCap3" Category="CategoryCommandPoints" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlaneUnlock</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementArmyCap3" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementArmyCap4" Category="CategoryCommandPoints" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyArmyCap4</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementArmyCap4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementArmyCap4Cravers" Category="CategoryCommandPoints" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyArmyCap4Cravers</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementArmyCap4Cravers" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTroopPlanes" Category="CategoryTroopPlane" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyPlaneUnlock</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTroopPlanes" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementMovementBonus1Vampirilis" Category="CategoryMovementBonus" SubCategory="SubCategoryExploration">
+        <TechnologyPrerequisite>TechnologyMovementVampirilis1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementMovementBonus1Vampirilis" />
+    </EmpireImprovementDefinition>
+
+    <!-- STAGE 5-->
+    <EmpireImprovementDefinition Name="EmpireImprovementEmpireManpowerStockBoost4" Category="CategoryManpower" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite>TechnologyStageMilitary5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementEmpireManpowerStockBoost4" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPlayDeck5" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlayDeck5</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite">False</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPlayDeck5" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementPlayDeck6" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+        <TechnologyPrerequisite>TechnologyPlayDeck6</TechnologyPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite">False</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementPlayDeck6" />
+    </EmpireImprovementDefinition>
+	
+	<EmpireImprovementDefinition Name="EmpireImprovementPlayDeck7" Category="CategoryBattlePlayDeck" SubCategory="SubCategoryFleet">
+		<TechnologyPrerequisite>TechnologyPlayDeck7</TechnologyPrerequisite>
+		<SimulationDescriptorReference Name="EmpireImprovementPlayDeck7" />
+	</EmpireImprovementDefinition>
+    
+    
+    
+    <!-- VICTORY TECHNOLOGIES EFFECTS -->
+    <EmpireImprovementDefinition Name="EmpireImprovementVictoryTechnologyEmpireDevelopment" Category="CategoryEmpireImprovement" SubCategory="SubCategoryUnique">
+        <TechnologyPrerequisite>TechnologyVictoryEmpireDevelopment</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementVictoryTechnologyEmpireDevelopment" />
+    </EmpireImprovementDefinition>
+    
+    <EmpireImprovementDefinition Name="EmpireImprovementVictoryTechnologyMilitary" Category="CategoryEmpireImprovement" SubCategory="SubCategoryUnique">
+        <TechnologyPrerequisite>TechnologyVictoryMilitary</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementVictoryTechnologyMilitary" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementVictoryTechnologyTrade" Category="CategoryEmpireImprovement" SubCategory="SubCategoryUnique">
+        <TechnologyPrerequisite>TechnologyVictoryTrade</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementVictoryTechnologyTrade" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementTechnologyVictoryScience" Category="CategoryEmpireImprovement" SubCategory="SubCategoryUnique">
+        <TechnologyPrerequisite>TechnologyVictoryScience</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementTechnologyVictoryScience" />
+    </EmpireImprovementDefinition>
+    
+
+	<!-- ################################################### -->
+	<!-- #######               CURIOSITY             ####### -->
+	<!-- ################################################### -->
+
+	<!-- TECH REDUCTION LINKS -->
+	<!---->
+	<EmpireImprovementDefinition Name="EmpireImprovementCuriosityLinkEmpireDevelopment8To10" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+		<TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">false</TechnologyPrerequisite>
+	</EmpireImprovementDefinition>
+	<!---->
+	<EmpireImprovementDefinition Name="EmpireImprovementCuriosityLinkScienceAndExploration18To24" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+		<TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">false</TechnologyPrerequisite>
+	</EmpireImprovementDefinition>
+	<!---->
+	<EmpireImprovementDefinition Name="EmpireImprovementCuriosityLinkEconomyAndTrade4To6" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+		<TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">false</TechnologyPrerequisite>
+	</EmpireImprovementDefinition>
+	<!---->
+	<EmpireImprovementDefinition Name="EmpireImprovementCuriosityLinkMilitary28To18" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+		<TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">false</TechnologyPrerequisite>
+	</EmpireImprovementDefinition>
+	<!---->
+	<EmpireImprovementDefinition Name="EmpireImprovementCuriosityLinkMilitary29To32" Category="CategoryCuriosity" SubCategory="SubCategoryExploration">
+		<TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">false</TechnologyPrerequisite>
+	</EmpireImprovementDefinition>
+	
+	<!-- STAR SYSTEM IMPROVEMENTS -->
+	<!-- HONEYCOMB SCOPE -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosity1" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryVision">
+		<SimulationDescriptorReference Name="StarSystemImprovementCuriosity1"/>
+	</EmpireImprovementDefinition>
+	<!-- THE ANALYTICAL MACHINE -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementUniqueCuriosity1" Category="CategoryStarSystemImprovementUnique" SubCategory="SubCategoryDust">
+		<SimulationDescriptorReference Name="StarSystemImprovementUniqueCuriosity1"/>
+	</EmpireImprovementDefinition>
+	<!-- SIM CAMP -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosity2" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryIndustry">
+		<SimulationDescriptorReference Name="StarSystemImprovementCuriosity2"/>
+	</EmpireImprovementDefinition>
+	<!-- STIM CITY -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosity3" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryApproval">
+		<SimulationDescriptorReference Name="StarSystemImprovementCuriosity3"/>
+	</EmpireImprovementDefinition>
+	<!-- THE VAULT OF GOVERNANCE -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementUniqueCuriosity2" Category="CategoryStarSystemImprovementUnique" SubCategory="SubCategoryHero">
+		<SimulationDescriptorReference Name="StarSystemImprovementUniqueCuriosity2"/>
+	</EmpireImprovementDefinition>
+	<!-- THE REJUVENATION MAZE -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementUniqueCuriosity3" Category="CategoryStarSystemImprovementUnique" SubCategory="SubCategoryShip">
+		<SimulationDescriptorReference Name="StarSystemImprovementUniqueCuriosity3"/>
+	</EmpireImprovementDefinition>
+	<!-- NANOHAZE DEFENSES -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosity4" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryGroundBattle">
+		<SimulationDescriptorReference Name="StarSystemImprovementCuriosity4"/>
+	</EmpireImprovementDefinition>
+	<!-- LUNAR SURVEILLANCE STATION -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosity5" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryScience">
+		<SimulationDescriptorReference Name="StarSystemImprovementCuriosity5"/>
+	</EmpireImprovementDefinition>
+	<!-- VIRTUAL DUSTYLIZER -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosityGrowthToDust" Category="CategoryStarSystemResourceImprovement" SubCategory="SubCategoryDust">
+		<SimulationDescriptorReference Name="EmpireImprovementStarSystemImprovementCuriosityGrowthToDust"/>
+	</EmpireImprovementDefinition>
+	<!-- ENDLESS ARCHIVE -->
+	<EmpireImprovementDefinition Name="EmpireImprovementStarSystemImprovementCuriosity6" Category="CategoryStarSystemImprovement" SubCategory="SubCategoryInfluence">
+		<SimulationDescriptorReference Name="StarSystemImprovementCuriosity6"/>
+	</EmpireImprovementDefinition>
+
+
+    <!-- ################################################### -->
+    <!-- #######              DEPRECATED             ####### -->
+    <!-- ################################################### -->
+    <!-- Slots for Mothership 1 -->
+    <!-- Should have variation for each faction -->
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMothership01" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyHullMothership1</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMothership01" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementSlotsMothership02" Category="CategoryHullUpgrade" SubCategory="SubCategoryHullMilitary" >
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyHullMothership2</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementSlotsMothership02" />
+    </EmpireImprovementDefinition>
+
+</Datatable>

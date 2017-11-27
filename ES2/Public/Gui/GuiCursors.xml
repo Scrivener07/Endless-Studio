@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GuiCursor.xsd">
+    <!-- Careful, X and Y are swapped from Photoshop coordinates! -->
+    <!-- Also, cursors seem to be displayed in 32x32 in any case, even if the texture is 64x64, so the hotspot should be calculated for a 32x32 image -->
+    <GuiCursor Name="Default">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_default" />
+    </GuiCursor>
+    <GuiCursor Name="Attack">
+        <HotSpot X="8" Y="11" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_temp_0" />
+    </GuiCursor>
+    <GuiCursor Name="Selectable">
+        <HotSpot X="8" Y="11" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_temp_2" />
+    </GuiCursor>
+    <GuiCursor Name="Interact">
+        <HotSpot X="8" Y="11" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_temp_3" />
+    </GuiCursor>
+    <GuiCursor Name="God">
+        <HotSpot X="8" Y="11" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_temp_7" />
+    </GuiCursor>
+    <GuiCursor Name="Timer">
+        <HotSpot X="7" Y="11" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_wait" />
+    </GuiCursor>
+    <GuiCursor Name="MagnifyingGlass">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/magnifying_glass" />
+    </GuiCursor>
+    <GuiCursor Name="MagnifyingGlassAndSelectable">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/magnifying_glass_and_click" />
+    </GuiCursor>
+    <GuiCursor Name="Grab">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_grab" />
+    </GuiCursor>
+    <GuiCursor Name="Forbidden">
+        <HotSpot X="17" Y="16" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_forbidden" />
+    </GuiCursor>
+    <GuiCursor Name="Colonize">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_colonize" />
+    </GuiCursor>
+    <GuiCursor Name="TimeBubble">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_timeBubbleDisabled" />
+    </GuiCursor>
+    <GuiCursor Name="TimeBubbleClickable">
+        <HotSpot X="9" Y="12" />
+        <Image Path="Bitmaps/Dynamic/Cursors/cursor_timeBubble" />
+    </GuiCursor>
+    <GuiCursor Name="CoordinationRequest">
+      <HotSpot X="9" Y="12" />
+      <Image Path="Bitmaps/Dynamic/Cursors/cursor_coordination" />
+    </GuiCursor>
+</Datatable>

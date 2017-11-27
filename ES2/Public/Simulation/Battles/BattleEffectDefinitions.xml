@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/BattleEffectDefinition.xsd">
+
+    <!-- ******************** -->
+    <!-- **Guideline Effects** -->
+    <!-- ******************** -->
+
+    <!--Guideline for removing effect after effect initiator is destroyed-->
+    <!--<BattleEffect>
+        <CancellationEventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityTags="EffectInitiator"/>
+        </CancellationEventPrerequisite>
+    </BattleEffect>-->
+
+    <!--InterpreterFormula="Property(Initiator, @ClassModuleWeapon, Damage)"-->
+    <!--InterpreterFormula="Property(Target, @ClassSection, Health)"
+                                  - Target = The thing targeted by the effect (i.e. section)
+                                  - Owner = Owner of the effect (i.e. a module)
+   (Can be undefined Be careful!) - Initiator = Initiator of the effect (Usually same as owner. In case of salvo, salvo is the initiator, owner is the weapon module)
+   (Can be undefined Be careful!) - InitiatorTarget = The target of the Initiator of the effect (Usually same as owner. In case of salvo, salvo is the initiator, owner is the weapon module)
+    -->
+
+
+    <!-- Salvo related : from attack start to post hit events -->
+    <BattleEffect_SetPropertyValue Name="Salvo_InitShieldAbsorptionValue"           PropertyName="ShieldAbsorptionValueFromWeapon"              Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, ShieldAbsorptionValue)"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitHullPlatingAbsorptionValue"      PropertyName="HullPlatingAbsorptionValueFromWeapon"         Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, HullPlatingAbsorptionValue)"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitShipManpowerKillValue"           PropertyName="ShipManpowerKillFromWeapon"                   Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, ShipManpowerKillPerHit)"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitEffectiveDamageAtShortRange"     PropertyName="EffectiveDamage"          Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, Damage) * (1 - (Property(InitiatorTarget, @ClassShip, DefenseBonusAtShortRange) + Property(InitiatorTarget, @ClassShip, DefenseBonusOverall)))"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitEffectiveDamageAtMediumRange"    PropertyName="EffectiveDamage"          Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, Damage) * (1 - (Property(InitiatorTarget, @ClassShip, DefenseBonusAtMediumRange) + Property(InitiatorTarget, @ClassShip, DefenseBonusOverall)))"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitEffectiveDamageAtLongRange"      PropertyName="EffectiveDamage"          Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, Damage) * (1 - (Property(InitiatorTarget, @ClassShip, DefenseBonusAtLongRange) + Property(InitiatorTarget, @ClassShip, DefenseBonusOverall)))"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitEffectiveDamage"                 PropertyName="EffectiveDamage"          Operation="Set"             InterpreterFormula="Property(Owner, @ClassModuleWeapon, Damage)"/>
+	<BattleEffect_SetPropertyValue Name="Salvo_InitEffectiveDamageAgainstSquadron"  PropertyName="EffectiveDamage"          Operation="Set"             InterpreterFormula="(Property(Owner, @ClassModuleWeapon, Damage) - Property(Owner, @ClassModuleWeapon, Damage) * Property(InitiatorTarget, @ClassModuleSquadron, DodgeChance)) * Property(Owner, @ClassModuleWeapon, EfficiencyAgainstSquadron) / Property(InitiatorTarget, @ClassModuleSquadron, SquadronDefense) * (1 - Property(InitiatorTarget, @ClassModuleSquadron, FlakEvasionSquadron))"/>
+
+	<BattleEffect_SetPropertyValue Name="Salvo_ApplyDamageBonusPerTargetCommandPoints"      PropertyName="EffectiveDamage"          Operation="Addition"            InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * Property(Owner, @../ClassShip, DamageBonusPerTargetCommandPoints) * Property(InitiatorTarget, @ClassShip, CommandPoints)"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_ApplyDamageBonusPerOpponentShipAtLongRange"  PropertyName="EffectiveDamage"          Operation="Addition"            InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * Property(Owner, @../ClassShip, DamageBonusPerOpponentShipAtLongRange) * Property(InitiatorTarget, @../ClassGroup, InitialShipsCount)"/>
+
+    <BattleEffect_SetPropertyValue Name="Salvo_ComputeDamageToApplyToFlotillaShield"    PropertyName="DamageAbsorbedByLastShield"    Operation="Set"     InterpreterFormula="Min(Property(Initiator, @ClassSalvo, ShieldAbsorptionValue) * (Property(InitiatorTarget, @ClassFlotilla, ShieldAbsorption) / (Property(InitiatorTarget, @ClassFlotilla, ShieldAbsorption) + Property(InitiatorTarget, @ClassFlotilla, HullWeakness)) * Property(InitiatorTarget, @ClassFlotilla, ShieldAbsorptionPercent)), Property(InitiatorTarget, @ClassFlotilla, Shield), Property(Initiator, @ClassSalvo, ShieldAbsorptionValue))"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_ComputeDamageToApplyToShipShield"        PropertyName="DamageAbsorbedByLastShield"    Operation="Set"     InterpreterFormula="Min(Property(Initiator, @ClassSalvo, ShieldAbsorptionValue) * (Property(InitiatorTarget, @ClassShip, ShieldAbsorption) / (Property(InitiatorTarget, @ClassShip, ShieldAbsorption) + Property(InitiatorTarget, @ClassShip, HullWeakness)) * Property(InitiatorTarget, @ClassShip, ShieldAbsorptionPercent)), Property(InitiatorTarget, @ClassShip, Shield), Property(Initiator, @ClassSalvo, ShieldAbsorptionValue))"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_IncreaseDamageAbsorbedByShield"          PropertyName="DamageAbsorbedByShield"   Operation="Addition"     InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByLastShield)"/>
+
+    <BattleEffect_SetPropertyValue Name="Salvo_ComputeDamageAbsorbedByHullPlating"          PropertyName="DamageAbsorbedByHullPlating"   Operation="Addition"     InterpreterFormula="Min(Property(Initiator, @ClassSalvo, HullPlatingAbsorptionValue) * (Property(InitiatorTarget, @../ClassShip, HullPlatingAbsorption) / (Property(InitiatorTarget, @../ClassShip, HullPlatingAbsorption) + Property(InitiatorTarget, @../ClassShip, HullWeakness))) * Property(InitiatorTarget, @../ClassShip, HullPlatingAbsorptionPercent), Property(Initiator, @ClassSalvo, HullPlatingAbsorptionValue))"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitFleetXPPerDamageAbsorbedByHullPlating"   PropertyName="FleetXPPerDamageAbsorbedByHullPlating"   Operation="Addition"     InterpreterFormula="Property(InitiatorTarget, @../ClassShip, FleetXPPerDamageAbsorbedByHullPlating)"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_InitRepairFlatPerDamageAbsorbedByHullPlating"   PropertyName="RepairFlatPerDamageAbsorbedByHullPlating"   Operation="Addition"     InterpreterFormula="Property(InitiatorTarget, @../ClassShip, RepairFlatPerDamageAbsorbedByHullPlating)"/>
+    
+    <BattleEffect_SetPropertyValue Name="ShieldHolder_DamageShieldFromSalvo"            PropertyName="Shield"                   Operation="Subtraction"     InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByLastShield) * Property(Initiator, @ClassSalvo, DamageAbsorbedByShieldMultiplier)"/>
+
+    <BattleEffect_SetPropertyValue Name="Salvo_RemoveDamageAbsorbedByLastShieldFromEffectiveDamage"   PropertyName="EffectiveDamage"         Operation="Subtraction"     InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByShield)"/>
+    <BattleEffect_SetPropertyValue Name="Salvo_RemoveDamageAbsorbedByHullPlatingFromEffectiveDamage"   PropertyName="EffectiveDamage"         Operation="Subtraction"     InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByHullPlating)"/>
+    
+    <BattleEffect_SetPropertyValue Name="Salvo_ApplyOpponentCriticalHitDamagePercent"   PropertyName="EffectiveDamage"               Operation="Set"     InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * (1 + Property(InitiatorTarget, @../ClassShip, OpponentCriticalHitDamagePercent) + Property(Initiator, @ClassSalvo, CriticalHitDamageBonus))"/>
+
+    <BattleEffect_SetPropertyValue Name="SalvoTarget_UpdateHealthFromSalvo"         PropertyName="Health"               Operation="Subtraction" InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="SalvoTarget_ActivateHitBySalvo"         PropertyName="HitBySalvo"           Operation="Set" InterpreterFormula="1" />
+    <BattleEffect_SetPropertyValue Name="SalvoTarget_UpdateHealthFromSplashSalvo"   PropertyName="Health"               Operation="Subtraction" InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent)" />
+    <BattleEffect_SetPropertyValue Name="SalvoTarget_DeactivateHitBySalvo"         PropertyName="HitBySalvo"           Operation="Set" InterpreterFormula="0" />
+    <BattleEffect_SetPropertyValue Name="SalvoTarget_UpdateShipManpowerStockFromSalvo"         PropertyName="ShipManpowerStock"               Operation="Subtraction" InterpreterFormula="Property(Initiator, @ClassSalvo, ShipManpowerKillFromWeapon) * (1 - Property(Target, @ClassShip, ShipManpowerKillAbsorption))" />
+
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedFromSquadron"        PropertyName="DamageApplied"              Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)" />
+	<BattleEffect_SetPropertyValue Name="AttackingEntity_UpdateDamageAppliedFromSquadron"        PropertyName="DamageApplied"              Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)" />
+
+    <BattleEffect_SetPropertyValue Name="AttackingEntity_UpdateDamageAppliedFromSalvo"     PropertyName="DamageApplied"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingEntity_UpdateDamageAppliedAbsorbedByShieldFromSalvo"     PropertyName="DamageAppliedAbsorbedByShield"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByShield)" />
+    <BattleEffect_SetPropertyValue Name="AttackingEntity_UpdateDamageAppliedAbsorbedByHullPlatingFromSalvo"     PropertyName="DamageAppliedAbsorbedByHullPlating"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByHullPlating)" />
+    <BattleEffect_SetPropertyValue Name="AttackingEntity_IncreaseTotalShotSent"     PropertyName="TotalShotSent"        Operation="Addition"    InterpreterFormula="1" />
+    <BattleEffect_SetPropertyValue Name="AttackingEntity_IncreaseTotalHitSent"     PropertyName="TotalHitSent"        Operation="Addition"    InterpreterFormula="1" />
+
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedCurrentPhaseFromSalvo"     PropertyName="DamageAppliedCurrentPhase"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_ResetDamageAppliedCurrentPhase"     PropertyName="DamageAppliedCurrentPhase"        Operation="Set"    InterpreterFormula="0" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_RecordDamageAppliedPhase1"     PropertyName="DamageAppliedPhase1"        Operation="Set"    InterpreterFormula="Property(Target, @ClassFlotilla, DamageAppliedCurrentPhase)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_RecordDamageAppliedPhase2"     PropertyName="DamageAppliedPhase2"        Operation="Set"    InterpreterFormula="Property(Target, @ClassFlotilla, DamageAppliedCurrentPhase)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_RecordDamageAppliedPhase3"     PropertyName="DamageAppliedPhase3"        Operation="Set"    InterpreterFormula="Property(Target, @ClassFlotilla, DamageAppliedCurrentPhase)" />
+
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByKineticFromSalvo"  PropertyName="DamageAppliedByKinetic"     Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByMissileFromSalvo"  PropertyName="DamageAppliedByMissile"     Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByLaserFromSalvo"    PropertyName="DamageAppliedByLaser"       Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByBeamFromSalvo"     PropertyName="DamageAppliedByBeam"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByKineticCriticalFromSalvo"     PropertyName="DamageAppliedByKineticCritical"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByMissileCriticalFromSalvo"     PropertyName="DamageAppliedByMissileCritical"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByLaserCriticalFromSalvo"     PropertyName="DamageAppliedByLaserCritical"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedByBeamCriticalFromSalvo"     PropertyName="DamageAppliedByBeamCritical"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedFromSalvo"     PropertyName="DamageReceived"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedFromSplashSalvo"     PropertyName="DamageReceived"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateSplashDamageReceivedFromSplashSalvo"     PropertyName="SplashDamageReceivedTemp"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedCriticalFromSalvo"     PropertyName="DamageReceivedCritical"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSalvo"     PropertyName="DamageReceivedAbsorbedByShield"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByShield)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSalvo"     PropertyName="DamageReceivedAbsorbedByHullPlating"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, DamageAbsorbedByHullPlating)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_IncreaseTotalShotReceived"     PropertyName="TotalShotReceived"        Operation="Addition"    InterpreterFormula="1" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_IncreaseTotalHitReceived"     PropertyName="TotalHitReceived"        Operation="Addition"    InterpreterFormula="1" />
+
+    <BattleEffect_SetPropertyValue Name="Ship_UpdateSplashDamageReceived"     PropertyName="DamageReceived"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, EffectiveDamage) * Property(Initiator, @ClassSalvo, SplashFlotillaDamagePercent)" />
+    <BattleEffect_SetPropertyValue Name="Flotilla_UpdateSplashDamageReceived"     PropertyName="DamageReceived"        Operation="Addition"    InterpreterFormula="SumProperty(Target, @ClassFlotilla/ClassShip, SplashDamageReceivedTemp)" />
+    <BattleEffect_SetPropertyValue Name="TargetedEntity_ResetSplashDamageReceivedFromSplashSalvo"     PropertyName="SplashDamageReceivedTemp"        Operation="Set"    InterpreterFormula="0" />
+
+    <BattleEffect_SetPropertyValue Name="Group_UpdateEarnedExperienceFromSalvo"     PropertyName="EarnedExperience"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, FleetXPFromDamageAbsorbedByHullPlating)" />
+    <BattleEffect_SetPropertyValue Name="Ship_UpdateRepairFlatFromSalvo"            PropertyName="RepairAfterBattleFlat"   Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, RepairFlatFromDamageAbsorbedByHullPlating)" />
+
+
+    <!-- Support Modules -->
+    <BattleEffect_SetPropertyValue Name="Core_RepairShipCoreSectionAfterBattle"          PropertyName="Health"       Operation="Set"    InterpreterFormula="Min(Property(Target, @ClassSectionCore, Health) + Property(Target, @ClassSectionCore, MaximumHealth) * Property(Target, @../ClassShip, RepairAfterBattle) + Property(Target, @../ClassShip, RepairAfterBattleFlat), Property(Target, @ClassSectionCore, MaximumHealth))"/>
+    <BattleEffect_SetPropertyValue Name="Core_RepairShipCoreSectionAfterPhase"           PropertyName="Health"       Operation="Set"    InterpreterFormula="Min(Property(Target, @ClassSectionCore, Health) + Property(Target, @ClassSectionCore, MaximumHealth) * Property(Target, @../ClassShip, RepairAfterPhase), Property(Target, @ClassSectionCore, MaximumHealth))"/>
+    <BattleEffect_SetPropertyValue Name="Ship_RepairShipCoreSectionAfterPhaseReceived"   PropertyName="DamageReceived"       Operation="Subtraction"    InterpreterFormula="Min(Property(Target, @ClassShip/ClassSectionCore, Health) + Property(Target, @ClassShip/ClassSectionCore, MaximumHealth) * Property(Target, @ClassShip, RepairAfterPhase), Property(Target, @ClassShip/ClassSectionCore, MaximumHealth)) - Property(Target, @ClassShip/ClassSectionCore, Health)"/>
+
+    <!-- Medal Score -->
+    <BattleEffect_SetPropertyValue Name="BattleEffectSetMedalScoreSelf"                 PropertyName="MedalScore"           Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, SectionDamage)" />
+    <BattleEffect_SetPropertyValue Name="BattleEffectSetMedalScoreEnemy"                PropertyName="MedalScore"           Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassSalvo, SectionDamage) / 2" />
+
+    <!-- Group Context -->
+    <BattleEffect_SetPropertyValue Name="Group_IncreaseEarnedExperience" PropertyName="EarnedExperience" Operation="Addition" InterpreterFormula="Property(Initiator, @ClassShip, ExperienceReward)" />
+    <BattleEffect_SetPropertyValue Name="Group_IncreaseDestroyedCP"      PropertyName="DestroyedCP"      Operation="Addition" InterpreterFormula="Property(Initiator, @ClassShip, CommandPoints)" />
+    <BattleEffect_SetPropertyValue Name="Group_IncreaseDestroyedShip"      PropertyName="DestroyedShip"      Operation="Addition" InterpreterFormula="1" />
+    
+    <BattleEffect_SetPropertyValue Name="Group_IncreaseLostCP"         PropertyName="LostCP"      Operation="Addition" InterpreterFormula="Property(Initiator, @ClassShip, CommandPoints)" /> 
+    <BattleEffect_SetPropertyValue Name="Group_IncreaseLostShip"       PropertyName="LostShip"      Operation="Addition" InterpreterFormula="1" />
+
+
+    <BattleEffect_SetPropertyValue Name="Group_RemoveShipMilitaryPowerFromMain"             PropertyName="MainMilitaryPower"                 Operation="Subtraction" InterpreterFormula="Property(Initiator, @ClassShip, InitialMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Group_RemoveShipMilitaryPowerFromReinforcement"    PropertyName="ReinforcementMilitaryPower"        Operation="Subtraction" InterpreterFormula="Property(Initiator, @ClassShip, InitialMilitaryPower)" />
+
+    <BattleEffect_ApplyDescriptor Name="Group_ComputeMoraleBonus" StackingBehaviour="Reset" Duration="-1">
+        <SimulationDescriptorReference Name="MoraleBonusDescriptor"/>
+    </BattleEffect_ApplyDescriptor>
+    <BattleEffect_SetPropertyValue Name="Group_InitEffectiveFlotillasCount"           PropertyName="EffectiveFlotillasCount"          Operation="Addition" InterpreterFormula="Property(Owner, @ClassGroup, InitialEffectiveFlotillasCount)"/>
+    <BattleEffect_SetPropertyValue Name="Group_InitOpponentEffectiveFlotillasCount"   PropertyName="OpponentEffectiveFlotillasCount"  Operation="Addition" InterpreterFormula="Property(Owner, @ClassGroup, InitialOpponentEffectiveFlotillasCount)"/>
+    
+    <BattleEffect_SetPropertyValue Name="Group_ReduceEffectiveFlotillasCount"           PropertyName="EffectiveFlotillasCount"          Operation="Subtraction" InterpreterFormula="1" />
+    <BattleEffect_SetPropertyValue Name="Group_ReduceOpponentEffectiveFlotillasCount"   PropertyName="OpponentEffectiveFlotillasCount"  Operation="Subtraction" InterpreterFormula="1" />
+
+    <BattleEffect_SetPropertyValue Name="Group_SetInitialMilitaryPower"                     PropertyName="InitialMainMilitaryPower"             Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, MainRelativeMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Group_SetMainMilitaryPower"                        PropertyName="MainMilitaryPower"                    Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, MainRelativeMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Group_SetInitialReinforcementMilitaryPower"        PropertyName="InitialReinforcementMilitaryPower"    Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, ReinforcementRelativeMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Group_SetReinforcementMilitaryPower"               PropertyName="ReinforcementMilitaryPower"           Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, ReinforcementRelativeMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Group_SetShipManpowerStockInitial"                 PropertyName="ShipManpowerStockInitial"             Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, ShipManpowerStock)" />
+
+    <BattleEffect_SetPropertyValue Name="Ship_SetInitialMilitaryPower"                  PropertyName="InitialMilitaryPower"             Operation="Set" InterpreterFormula="Property(Target, @ClassShip, RelativeMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Ship_SetEffectiveHullPlatingAbsorption"        PropertyName="EffectiveHullPlatingAbsorption"   Operation="Set" InterpreterFormula="Property(Target, @ClassShip, HullPlatingAbsorption) / (Property(Target, @ClassShip, HullPlatingAbsorption) + Property(Target, @ClassShip, HullWeakness))" />
+    <BattleEffect_SetPropertyValue Name="Ship_SetEffectiveShieldAbsorption"             PropertyName="EffectiveShieldAbsorption"        Operation="Set" InterpreterFormula="Property(Target, @ClassShip, ShieldAbsorption) / (Property(Target, @ClassShip, ShieldAbsorption) + Property(Target, @ClassShip, HullWeakness))" />
+    
+    <BattleEffect_ApplyDescriptor Name="Group_AddGroupActive" Duration="-1">
+        <SimulationDescriptorReference Name="GroupActive"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Ship_AddTemporaryDamageIncreaseIfLostShip" Duration="10">
+        <SimulationDescriptorReference Name="EncounterShipTemporaryDamageIncreaseIfLostShip"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_SetPropertyValue Name="Ship_SetEnergyWeaponAccuracyPercentFromOpponent"             PropertyName="EnergyWeaponAccuracyPercentFromOpponent"        Operation="Set" InterpreterFormula="Property(Initiator, @ClassSalvo, OpponentEnergyWeaponAccuracyPercent)" />
+    <BattleEffect_ApplyDescriptor Name="Ship_AddTemporaryEnergyWeaponAccuracyPercent" Duration="10">
+        <SimulationDescriptorReference Name="EncounterShipTemporaryEnergyWeaponAccuracyPercent"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_SetPropertyValue Name="Ship_SetCooldownReductionPercentFromOpponent"             PropertyName="CooldownReductionPercentFromOpponent"        Operation="Set" InterpreterFormula="Property(Initiator, @ClassSalvo, OpponentCooldownReductionPercent)" />
+    <BattleEffect_ApplyDescriptor Name="Ship_AddTemporaryCooldownReductionPercent" Duration="10">
+        <SimulationDescriptorReference Name="EncounterShipTemporaryCooldownReductionPercent"/>
+    </BattleEffect_ApplyDescriptor>
+    
+    <BattleEffect_ApplyDescriptor Name="Ship_AddEncounterShipActive" Duration="-1">
+        <SimulationDescriptorReference Name="EncounterShipActive"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Ship_AddDefenseAbsorptionBonusOnCivilians" Duration="-1">
+        <SimulationDescriptorReference Name="EncounterShipDefenseAbsorptionBonusOnCivilians"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Weapon_AddEncounterWeaponActive" Duration="-1">
+        <SimulationDescriptorReference Name="EncounterWeaponActive"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_SetPropertyValue Name="Group_SetFinalMainMilitaryPower"               PropertyName="MainMilitaryPower"      Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, MainRelativeMilitaryPower)" />
+    <BattleEffect_SetPropertyValue Name="Group_SetFinalReinforcementMilitaryPower"      PropertyName="ReinforcementMilitaryPower"      Operation="Set" InterpreterFormula="Property(Owner, @ClassGroup, ReinforcementRelativeMilitaryPower)" />
+
+    <BattleEffect_EmpireReward_Resource Name="Group_PlayerRecyclingDustGainReward"          ResourceName="EmpireMoney"          InterpreterFormula="Property(Owner, @ClassGroup, PlayerRecyclingDustPerCP) * Property(Owner, @ClassGroup, LostCP)" />
+    <BattleEffect_EmpireReward_Resource Name="Group_OpponentRecyclingDustGainReward"        ResourceName="EmpireMoney"          InterpreterFormula="Property(Owner, @ClassGroup, OpponentRecyclingDustPerCP) * Property(Owner, @ClassGroup, DestroyedCP)" />
+    <BattleEffect_EmpireReward_Resource Name="Group_OpponentRecyclingScienceGainReward"     ResourceName="EmpireResearch"       InterpreterFormula="Property(Owner, @ClassGroup, OpponentRecyclingSciencePerCP) * Property(Owner, @ClassGroup, DestroyedCP)" />
+    <BattleEffect_EmpireReward_Resource Name="Group_OpponentRecyclingEmpirePointGainReward" ResourceName="EmpireEmpirePoint"    InterpreterFormula="Property(Owner, @ClassGroup, OpponentRecyclingEmpirePointPerCP) * Property(Owner, @ClassGroup, DestroyedCP) + Property(Owner, @ClassGroup, EmpirePointGainPerCP) * Property(Owner, @ClassGroup, CommandPoints)" />
+    
+    <BattleEffect_EmpireReward_Resource Name="Group_ManpowerLostTransfer" ResourceName="EmpireManpower"    InterpreterFormula="(Property(Owner, @ClassGroup, ShipManpowerStockInitial) - Property(Owner, @ClassGroup, ShipManpowerStock)) * Property(Owner, @ClassGroup, ManpowerLostTransferPercent)" />
+    
+    <BattleEffect_EmpireReward_Resource Name="Group_PlayerDustPerAliveCP"               ResourceName="EmpireMoney"     InterpreterFormula="Property(Owner, @ClassGroup, PlayerDustPerAliveCP) * (Property(Owner, @ClassGroup, CommandPoints) - Property(Owner, @ClassGroup, LostCP))" />
+    
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_Retreat" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusRetreat"/>
+    </BattleEffect_ApplyDescriptor>
+    
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_Carnage" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusCarnage"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_DecisiveDefeat" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusDecisiveDefeat"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_Draw" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusDraw"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_MinorDefeat" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusMinorDefeat"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_MajorDefeat" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusMajorDefeat"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_MinorVictory" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusMinorVictory"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_MajorVictory" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusMajorVictory"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="Group_SetEndBattleStatus_DecisiveVictory" Duration="-1">
+        <SimulationDescriptorReference Name="EndBattleStatusDecisiveVictory"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_EmpireReward_Resource Name="Group_IncreaseBattleWon" ResourceName="EmpireBattleWon" InterpreterFormula="1" />
+
+    <BattleEffect_ApplyDescriptor Name="Ship_ApplyStatusDestroyed" Duration="-1">
+        <SimulationDescriptorReference Name="EncounterShipStatusDestroyed"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_SetPropertyValue Name="Group_Retreat_DamageShipSections" PropertyName="Health" Operation="Subtraction" InterpreterFormula="Property(Target, @ClassSection, MaximumHealth) * 0.6"/>
+    <BattleEffect_SetStatus Name="Group_Retreat_Elimination" Status="Eliminated"/>
+
+    <BattleEffect_SetPropertyValue Name="Group_Retreat_RecoverShipMovementPoint" PropertyName="SpentMovement" Operation="Set" InterpreterFormula="Property(Target, @ClassShip, MaximumMovement) - 1"/>
+
+    <!-- Laws -->                                                                               <!--0 because these were duplicate values that caused the Law effect to apply twice-->
+    <BattleEffect_EmpireReward_Resource Name="Law_ScienceReward"         ResourceName="EmpireResearch"  InterpreterFormula="0 * Property(Owner, @ClassGroup, DestroyedCP)" />
+    <BattleEffect_EmpireReward_Resource Name="Law_ScienceRewardRepublic" ResourceName="EmpireResearch"  InterpreterFormula="0 * Property(Owner, @ClassGroup, DestroyedCP)" />
+    <BattleEffect_EmpireReward_Resource Name="Law_DustReward"            ResourceName="EmpireMoney"     InterpreterFormula="0  * Property(Owner, @ClassGroup, DestroyedCP)" />
+    <BattleEffect_EmpireReward_Resource Name="Law_DustRewardRepublic"    ResourceName="EmpireMoney"     InterpreterFormula="0  * Property(Owner, @ClassGroup, DestroyedCP)" />
+
+    <!-- Placeholders used to test the rewards calculations process... -->
+    <BattleEffect_SetPropertyValue Name="Group_ApplyShipExperienceBonus" PropertyName="EarnedExperience" Operation="Set" InterpreterFormula="(Property(Owner, @ClassGroup, EarnedExperience) + (Property(Target, @ClassGroup, LostCP) * Property(Target, @ClassGroup, ExperiencePerLostCP)) ) * (1 + Property(Owner, @ClassGroup, ExperienceBonusPercent))" />
+    <BattleEffect_SetPropertyValue Name="Ship_SetShipExperienceDefault" PropertyName="Experience" Operation="Addition" InterpreterFormula="Property(Owner, @ClassGroup, EarnedExperience) / Property(Owner, @ClassGroup, InitialShipsCount) * (1 + Property(Target, @ClassShip, ExperienceBonusFromBattle))" />
+
+    <BattleEffect_EmpireReward_Resource Name="Ship_TestResource" ResourceName="EmpireMoney" InterpreterFormula="Property(Owner, @ClassGroup, EarnedExperience)" />
+    <BattleEffect_EmpireReward_SpawnShips Name="Group_TestSpawnShip" ShipDesignName="ShipDesignAttack01Sophons" InterpreterFormula="3" />
+
+    <BattleEffect_SetPropertyValue Name="Ship_ResetShield" PropertyName="Shield" Operation="Set" InterpreterFormula="Property(Target, @ClassShip, MaximumShield)"/>
+    <BattleEffect_SetPropertyValue Name="Flotilla_ResetShield" PropertyName="Shield" Operation="Set" InterpreterFormula="Property(Target, @ClassFlotilla, MaximumShield)"/>
+
+	<BattleEffect_SetPropertyValue Name="Ship_SetRepairIfSurvivingSquadron" PropertyName="ShipRepairAfterBattle" Operation="Addition" InterpreterFormula="Property(Target, @ClassShipEncounter, RepairAfterBattleIfSurvivingSquadron) * Max(Property(Target, @ClassShipEncounter, RemainingSquadronAmount), 0)"/>
+    <BattleEffect_SetPropertyValue Name="Group_SetRepairPerLostShip" PropertyName="GroupRepairAfterBattle" Operation="Addition" InterpreterFormula="Property(Target, @ClassGroup, RepairAfterBattlePerLostShip) * Property(Target, @ClassGroup, LostShip)"/>
+    
+    <BattleEffect_SetPropertyValue Name="ShipSection_RepairCore" PropertyName="Health" Operation="Addition" InterpreterFormula="Min(Property(Target, @ClassSectionCore, MaximumHealth) * Property(Owner, @ClassShip, CoreHealthRepair), Property(Target, @ClassSectionCore, MaximumHealth) - Property(Target, @ClassSectionCore, Health))"/>
+
+    <BattleEffect_SetPropertyValue Name="ShipSection_Repair" PropertyName="Health" Operation="Set" InterpreterFormula="(Property(Owner, @ClassShip/ClassSectionCore, Health) / Property(Owner, @ClassShip/ClassSectionCore, MaximumHealth)) * Property(Target, @ClassSection, MaximumHealth)"/>
+    <BattleEffect_SetPropertyValue Name="ShipSection_ResetShield" PropertyName="Shield" Operation="Set" InterpreterFormula="Property(Target, @ClassSection, MaximumShield)"/>
+
+    <BattleEffect_SetPropertyValue Name="Ship_ReloadShieldAfterPhase" PropertyName="Shield" Operation="Set" InterpreterFormula="Min(Property(Target, @ClassShip, Shield) + Property(Target, @ClassShip, ShieldReloadPerPhase), Property(Target, @ClassShip, MaximumShield))"/>
+
+    <BattleEffect_SetPropertyValue Name="Ship_KillManpowerAfterPhase" PropertyName="ShipManpowerStock" Operation="Subtraction" InterpreterFormula="Property(Target, @ClassShip, ShipManpowerStock) * Property(Target, @ClassShip, ManpowerPercentKillPerPhase) * (1 - Property(Target, @ClassShip, ShipManpowerKillAbsorption))"/>
+    <BattleEffect_SetPropertyValue Name="Ship_AddBattleMovementGain" PropertyName="SpentMovement" Operation="Subtraction" InterpreterFormula="Property(Target, @ClassShip, BattleMovementGain)"/>
+    <BattleEffect_SetPropertyValue Name="Ship_AddBattleActionGain" PropertyName="ActionPointStock" Operation="Addition" InterpreterFormula="Property(Target, @ClassShip, BattleActionGain)"/>
+
+    <BattleEffect_SetPropertyValue Name="Module_Repair" PropertyName="Health" Operation="Set" InterpreterFormula="(Property(Owner, @ClassShip/ClassSectionCore, Health) / Property(Owner, @ClassShip/ClassSectionCore, MaximumHealth)) * Property(Target, @ClassModule, MaximumHealth)"/>
+
+    <BattleEffect_SetPropertyValue Name="HeroShip_Revive" PropertyName="Health" Operation="Set" InterpreterFormula="1"/>
+    <BattleEffect_SetStatus Name="HeroShip_SetResurrected" Status="Resurrected"/>
+
+    <BattleEffect_ApplyDescriptor Name="BattleEffectWeaponAddSpecificDescriptor" Duration="-1">
+        <SimulationDescriptorReference Name="ClassModuleWeaponEncounter"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="BattleEffectSupportAddSpecificDescriptor" Duration="-1">
+        <SimulationDescriptorReference Name="ClassModuleSupportEncounter"/>
+    </BattleEffect_ApplyDescriptor>
+
+    <BattleEffect_ApplyDescriptor Name="BattleEffectSquadronAddSpecificDescriptor" Duration="-1">
+        <SimulationDescriptorReference Name="ClassModuleSquadronEncounter"/>
+    </BattleEffect_ApplyDescriptor>
+
+
+    <!--<BattleEffect_ApplyDescriptor Name="EffectArea_Test01" Duration="-1">
+        -->
+    <!-- This example of battle effect applied by an effect area is cancelled if the target exits the area or if the area is being deactivated or destroyed. -->
+    <!--
+        <CancellationEventPrerequisite EventType="ExitArea">
+            <EventInitiatorFilter EntityType="EffectArea" EntityTags="EffectInitiator">
+            </EventInitiatorFilter>
+            <EventTargetFilter EntityType="Ship" EntityTags="EffectTarget">
+            </EventTargetFilter>
+        </CancellationEventPrerequisite>
+        <CancellationEventPrerequisite EventType="Deactivation">
+            <EventInitiatorFilter EntityType="EffectArea" EntityTags="EffectInitiator">
+            </EventInitiatorFilter>
+        </CancellationEventPrerequisite>
+        <CancellationEventPrerequisite EventType="Destruction">
+            <EventInitiatorFilter EntityType="EffectArea" EntityTags="EffectInitiator">
+            </EventInitiatorFilter>
+        </CancellationEventPrerequisite>
+        <SimulationDescriptorReference Name="Undefined"/>
+    </BattleEffect_ApplyDescriptor>-->
+
+
+
+    <!-- ACCURACY MANAGEMENT -->
+    <BattleEffect_SetPropertyValue Name="Weapon_UpdateLongRangeAccuracy" PropertyName="AdditionalAccuracy" Operation="Set"    InterpreterFormula=" Property(Target, @ClassModuleWeapon, InitialLongRangeAccuracy)  - (Property(Target, @ClassModuleWeapon, TotalLongHit)  / Property(Target, @ClassModuleWeapon, TotalLongShot) )"/>
+    <BattleEffect_SetPropertyValue Name="Weapon_UpdateMediumRangeAccuracy" PropertyName="AdditionalAccuracy" Operation="Set"    InterpreterFormula=" Property(Target, @ClassModuleWeapon, InitialMediumRangeAccuracy)  - (Property(Target, @ClassModuleWeapon, TotalMediumHit)  / Property(Target, @ClassModuleWeapon, TotalMediumShot) )"/>
+    <BattleEffect_SetPropertyValue Name="Weapon_UpdateShortRangeAccuracy" PropertyName="AdditionalAccuracy" Operation="Set"    InterpreterFormula=" Property(Target, @ClassModuleWeapon, InitialShortRangeAccuracy)  - (Property(Target, @ClassModuleWeapon, TotalShortHit)  / Property(Target, @ClassModuleWeapon, TotalShortShot) )"/>
+
+    <BattleEffect_SetPropertyValue Name="Weapon_IncreaseTotalLongShot" PropertyName="TotalLongShot" Operation="Addition" InterpreterFormula="1"/>
+    <BattleEffect_SetPropertyValue Name="Weapon_IncreaseTotalLongHit"  PropertyName="TotalLongHit" Operation="Addition" InterpreterFormula="1"/>
+
+    <BattleEffect_SetPropertyValue Name="Weapon_IncreaseTotalMediumShot" PropertyName="TotalMediumShot" Operation="Addition" InterpreterFormula="1"/>
+    <BattleEffect_SetPropertyValue Name="Weapon_IncreaseTotalMediumHit"  PropertyName="TotalMediumHit" Operation="Addition" InterpreterFormula="1"/>
+
+    <BattleEffect_SetPropertyValue Name="Weapon_IncreaseTotalShortShot" PropertyName="TotalShortShot" Operation="Addition" InterpreterFormula="1"/>
+    <BattleEffect_SetPropertyValue Name="Weapon_IncreaseTotalShortHit"  PropertyName="TotalShortHit" Operation="Addition" InterpreterFormula="1"/>
+
+	<!--SQUADRON BATTLE EFFECTS-->
+    <BattleEffect_SetPropertyValue Name="Fighter_InitializeUnitsCount" PropertyName="InitialFightersCount" Operation="Addition" InterpreterFormula="Property(Owner, @ClassModuleSquadron, FighterUnitsCount)"/>
+    <BattleEffect_SetPropertyValue Name="Bomber_InitializeUnitsCount" PropertyName="InitialBombersCount" Operation="Addition" InterpreterFormula="Property(Owner, @ClassModuleSquadron, BomberUnitsCount)"/>
+	<BattleEffect_SetPropertyValue Name="Ship_InitializeRemainingSquadronAmount" PropertyName="RemainingSquadronAmount" Operation="Set" InterpreterFormula="Property(Target, @ClassShipEncounter, SquadronAmount)"/>
+
+	<BattleEffect_SetPropertyValue Name="Fighter_SetDestructionCount" PropertyName="DestroyedFightersCount" Operation="Set" InterpreterFormula="Property(Target, @ClassShipEncounter, InitialFightersCount) - Property(Owner, @ClassModuleSquadronEncounter, RemainingUnitsCount)"/>
+	<BattleEffect_SetPropertyValue Name="Bomber_SetDestructionCount" PropertyName="DestroyedBombersCount" Operation="Set" InterpreterFormula="Property(Target, @ClassShipEncounter, InitialBombersCount) - Property(Owner, @ClassModuleSquadronEncounter, RemainingUnitsCount)"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_DecreaseRemainingSquadronCount" PropertyName="RemainingSquadronAmount" Operation="Subtraction" InterpreterFormula="1"/>
+
+    <BattleEffect_SetPropertyValue Name="Squadron_ComputeOverallDamageAgainstShip"         PropertyName="LastAttackOverallDamage"   Operation="Set" InterpreterFormula="(Property(Initiator, @ClassModuleSquadron, Damage) * (Property(Initiator, @ClassModuleSquadronEncounter, RemainingUnitsCount) / Property(Initiator, @ClassModuleSquadron, BaseUnitsCount)) * (1 + Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack))) * (1 - Property(InitiatorTarget, @ClassShip, DefenseBonusOverall)) * (Property(Initiator, @ClassModuleSquadron, DamageAgainstSmallShipsModifier) * Count(InitiatorTarget, @'ClassShip,ShipSizeSmall') + Property(Initiator, @ClassModuleSquadron, DamageAgainstMediumShipsModifier) * Count(InitiatorTarget, @'ClassShip,ShipSizeMedium') + Property(Initiator, @ClassModuleSquadron, DamageAgainstLargeShipsModifier) * Count(InitiatorTarget, @'ClassShip,ShipSizeLarge') + Property(Initiator, @ClassModuleSquadron, DamageAgainstLargeShipsModifier) * Count(InitiatorTarget, @'ClassShip,ShipSizeMothership'))" />
+    <BattleEffect_SetPropertyValue Name="Squadron_ComputeOverallDamageAgainstSquadron"         PropertyName="LastAttackOverallDamage"   Operation="Set" InterpreterFormula="(Property(Initiator, @ClassModuleSquadron, Damage) * (Property(Initiator, @ClassModuleSquadronEncounter, RemainingUnitsCount) / Property(Initiator, @ClassModuleSquadron, BaseUnitsCount)) * (1 + Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack))) / Property(InitiatorTarget, @ClassModuleSquadron, SquadronDefense)" />
+	<BattleEffect_SetPropertyValue Name="Squadron_ApplySquadronDodgeToOverallDamage" PropertyName="LastAttackOverallDamage"   Operation="Subtraction" InterpreterFormula="Min(Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage), (Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) * Property(InitiatorTarget, @ClassModuleSquadronEncounter, LastSquadronAttackCriticalDodge)) + (Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) * Property(InitiatorTarget, @ClassModuleSquadron, DodgeChance)))" />
+	<BattleEffect_SetPropertyValue Name="Squadron_ApplyEffectSquadronDamageIncreasePerSquadron" PropertyName="LastAttackOverallDamage" Operation="Set" InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) + Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage) * (Property(Initiator, @'../ClassGroup', SquadronAmount)/100) * Property(Initiator, @'../ClassGroup', HasEffectSquadronDamageIncreasePerSquadron)"/>
+
+	<BattleEffect_SetPropertyValue Name="Squadron_ComputeDamageAbsorbedByHullPlating"  PropertyName="DamageAbsorbedByHullPlating"   Operation="Set"     InterpreterFormula="Min(Property(Initiator, @ClassModuleSquadron, HullPlatingAbsorptionValue) * (Property(InitiatorTarget, @ClassShip, HullPlatingAbsorption) / (Property(InitiatorTarget, @ClassShip, HullPlatingAbsorption) + Property(InitiatorTarget, @ClassShip, HullWeakness))) * Property(InitiatorTarget, @ClassShip, HullPlatingAbsorptionPercent), Property(Initiator, @ClassModuleSquadron, HullPlatingAbsorptionValue))"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_ResetDamageAbsorbedByHullPlating"          PropertyName="DamageAbsorbedByHullPlating"   Operation="Set"     InterpreterFormula="0"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_RemoveDamageAbsorbedByHullPlatingFromOverallDamage"   PropertyName="LastAttackOverallDamage"         Operation="Subtraction"     InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByHullPlating)"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_UpdateDamageAppliedAbsorbedByHullPlating"     PropertyName="DamageAppliedAbsorbedByHullPlating"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByHullPlating)" />
+
+	<BattleEffect_SetPropertyValue Name="Squadron_ComputeDamageToApplyToShipShield"        PropertyName="DamageAbsorbedByLastShield"    Operation="Set"     InterpreterFormula="Min(Property(Initiator, @ClassModuleSquadron, ShieldAbsorptionValue) * (Property(InitiatorTarget, @ClassShip, ShieldAbsorption) / (Property(InitiatorTarget, @ClassShip, ShieldAbsorption) + Property(InitiatorTarget, @ClassShip, HullWeakness)) * Property(InitiatorTarget, @ClassShip, ShieldAbsorptionPercent)), Property(InitiatorTarget, @ClassShip, Shield), Property(Initiator, @ClassModuleSquadron, ShieldAbsorptionValue))"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_ResetDamageAbsorbedByShield"          PropertyName="DamageAbsorbedByShield"   Operation="Set"     InterpreterFormula="0"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_IncreaseDamageAbsorbedByShield"          PropertyName="DamageAbsorbedByShield"   Operation="Set"     InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByLastShield)"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_RemoveDamageAbsorbedByLastShieldFromOverallDamage"   PropertyName="LastAttackOverallDamage"         Operation="Subtraction"     InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByLastShield)"/>
+	<BattleEffect_SetPropertyValue Name="ShieldHolder_DamageShieldFromSquadron"            PropertyName="Shield"                   Operation="Subtraction"     InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByLastShield)"/>
+	<BattleEffect_SetPropertyValue Name="Squadron_UpdateDamageAppliedAbsorbedByShield"     PropertyName="DamageAppliedAbsorbedByShield"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByShield)" />
+	
+	<BattleEffect_SetPropertyValue Name="TargetedEntity_ApplySquadronDamage"         PropertyName="Health"               Operation="Subtraction" InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)" />
+    
+	<BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedFromSquadron"     PropertyName="DamageReceived"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)" />
+	<BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageCriticalReceivedFromSquadron"     PropertyName="DamageReceivedCritical"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)" />
+	<BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedAbsorbedByShieldFromSquadron"     PropertyName="DamageReceivedAbsorbedByShield"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByShield)" />
+	<BattleEffect_SetPropertyValue Name="TargetedEntity_UpdateDamageReceivedAbsorbedByHullPlatingFromSquadron"     PropertyName="DamageReceivedAbsorbedByHullPlating"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, DamageAbsorbedByHullPlating)" />
+
+
+	<BattleEffect_SetPropertyValue Name="Fighter_IncreaseTotalDamage" PropertyName="DamageAppliedByFighter" Operation="Addition" InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)"/>
+    <BattleEffect_SetPropertyValue Name="Fighter_IncreaseTotalDamageCritical" PropertyName="DamageAppliedByFighterCritical" Operation="Addition" InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack) * Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)"/>
+    
+    <BattleEffect_SetPropertyValue Name="Bomber_IncreaseTotalDamage" PropertyName="DamageAppliedByBomber" Operation="Addition" InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)"/>
+    <BattleEffect_SetPropertyValue Name="Bomber_IncreaseTotalDamageCritical" PropertyName="DamageAppliedByBomberCritical" Operation="Addition" InterpreterFormula="Property(Initiator, @ClassModuleSquadronEncounter, LastAttackCriticalAttack) * Property(Initiator, @ClassModuleSquadronEncounter, LastAttackOverallDamage)"/>
+
+    <BattleEffect_SetPropertyValue Name="AttackingFlotilla_UpdateDamageAppliedCurrentPhaseFromSquadron"     PropertyName="DamageAppliedCurrentPhase"        Operation="Addition"    InterpreterFormula="Property(Initiator, @ClassModuleSquadron, LastAttackOverallDamage)" />
+
+    
+</Datatable>

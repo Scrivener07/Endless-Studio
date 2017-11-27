@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TechnologyHelperVariableDefinition.xsd">
+
+    <!-- HELPER VARIABLES -->
+    <!-- These are used by the TechnologyHelper formulas in the TechnologyDefinitions to suggest which tech should be researched next. -->
+    <!-- Add Operations, RefinedProperties, Int and Values to get the value you desire. -->
+    <!-- Then use the result in the TechnologyDefinition's formula to calculate the technology score (interest) -->
+    
+    <!-- Values allow you to get simulation-dependent information and use the following as sources: -->
+    <!-- - Empire: the empire for which the technology is evaluated -->
+    <!-- - KnownEmpires: the empires with which the empire has the IsKnown diplomatic ability -->
+    <!-- - AllEmpires: all empires including empire for which tech is evaluated -->
+    <!-- - VisibleSystems: all systems which are at least revealed for the empire -->
+    <!-- - OwnedSystems: StarSystemNodes of the systems owned by the empire. Attention! Not ColonizedStarSystems! Use Empire and a path to access ColonizedStarSystems. -->
+    <!-- - NeutralSystems: StarSystemNodes of the galaxy which are not owned by anyone -->
+    <!-- - AllSystems: All the StarSystemNodes of the galaxy, which are not undiscoverables for the empire -->
+    
+    <!-- Note that the score calculated with the formula is then divided by the cost of the technology to get the final score -->
+
+    <!-- ################################################ -->
+    <!-- #######                EMPIRE           ####### -->
+    <!-- ################################################ -->
+    <TechnologyHelperVariableDefinition Name="SumSystemLevels">
+        <Value Source="Empire" Path="ClassEmpire" PropertyName="SystemLevelSum"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="TotalSystems">
+        <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="KnownEmpires">
+        <Value Source="KnownEmpires" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="EnemyEmpires">
+        <Value Source="Empire" Path="ClassEmpire" PropertyName="WarCount"/>
+            </TechnologyHelperVariableDefinition>
+    <!-- ################################################ -->
+    <!-- #######                LAMBDA             ####### -->
+    <!-- ################################################ -->
+    <TechnologyHelperVariableDefinition Name="TurnVariable">
+        <RefinedProperty Property="ProportionalTurns"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!--  MINOR EMPIRES DIPLOMACY -->
+    <TechnologyHelperVariableDefinition Name="MinorEmpiresDiplomacyVariable">
+        <Value Source="KnownEmpires" Path="ClassEmpire,EmpireTypeMinor,PersonalityTraitPacifist"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!--  MINOR EMPIRES DIPLOMACY -->
+    <TechnologyHelperVariableDefinition Name="MajorEmpiresDiplomacyVariable">
+        <Operation Operator="Subtraction">
+            <Value Source="KnownEmpires" Path="ClassEmpire,EmpireTypeMajor" Multiplier="1.5"/>
+            <Value Source="KnownEmpires" Path="ClassEmpire,EmpireTypeMinor,AffinityGameplayCravers"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- NODE REVEALED PERCENTAGE -->
+    <TechnologyHelperVariableDefinition Name="ExplorationRatioVariable">
+        <Operation Operator="Division">
+            <!-- Add 1 for each revealed system -->
+            <Value Source="VisibleSystems"/>
+            <!-- And divide by a value incremented by 1 for each system -->
+            <Value Source="AllSystems"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="TradeCompanyVariable">
+        <Value Source="Empire" PropertyName="PeaceCount" Multiplier="5"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="TradeSubsidiaryVariable">
+        <Value Source="Empire" Path="ClassEmpire" PropertyName="NumberOfTradingCompanies" Multiplier="2"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- ################################################ -->
+    <!-- #######                PLANETS           ####### -->
+    <!-- ################################################ -->
+    <TechnologyHelperVariableDefinition Name="AvailablePlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableMoonAnomaly">
+        <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetMoon" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableMixedAnomaly">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetAnomalyMixed" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableNegativeAnomaly">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetAnomalyNegative" />
+    </TechnologyHelperVariableDefinition>
+    
+
+    <TechnologyHelperVariableDefinition Name="AvailableTeemingPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeTeeming" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableMeagerPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeMeager"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableHotPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeHot" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableColdPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeCold" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableTemperatePlanets">
+        <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeTemperate" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PlanetsWithStrategic">
+        <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet/ResourceTypeStrategic" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PlanetsWithLuxury">
+        <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet/ResourceTypeLuxury" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableGasPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeGas" />
+    </TechnologyHelperVariableDefinition>
+    
+    <TechnologyHelperVariableDefinition Name="AvailableTerranPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeTerran"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeTerran" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedTerranPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeTerran" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableForestPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeForest"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeForest" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedForestPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeForest" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableAtollPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeAtoll"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeAtoll" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedAtollPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeAtoll" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableOceanPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeOcean"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeOcean" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedOceanPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeOcean" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableMonsoonPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeMonsoon"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeMonsoon" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedMonsoonPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeMonsoon" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableBorealPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeBoreal"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeBoreal" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedBorealPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeBoreal" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableJunglePlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeJungle"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeJungle" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedJunglePlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeJungle" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableTundraPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeTundra"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeTundra" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedTundraPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeTundra" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableTropicalPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeTropical"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeTropical" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedTropicalPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeTropical" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableSteppesPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeSteppes"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeSteppes" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedSteppesPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeSteppes" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableVeldtPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeVeldt"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeVeldt" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedVeldtPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeVeldt" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableSnowPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeSnow"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeSnow" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedSnowPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeSnow" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableArcticPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeArctic"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeArctic" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedArcticPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeArctic" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableAridPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeArid"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeArid" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedAridPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeArid" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableDesertPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeDesert"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeDesert" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedDesertPlanets">
+        <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeDesert" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableIcePlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeIce"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeIce" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedIcePlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeIce" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableSwampPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeSwamp"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeSwamp" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedSwampPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeSwamp" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableAshPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeAsh"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeAsh" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedAshPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeAsh" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableBarrenPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeBarren"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeBarren" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedBarrenPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeBarren" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableLavaPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeLava"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeLava" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedLavaPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetTypeLava" />
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableGasColonizationPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeGas"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetGameplayTypeGas" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="OwnedGasPlanets">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeGas" />
+    </TechnologyHelperVariableDefinition>
+
+    <!-- ############################################################ -->
+    <!-- #######                STRATEGIC RESOURCES           ####### -->
+    <!-- ############################################################ -->
+    <TechnologyHelperVariableDefinition Name="AvailableDepositStrategic1">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems"  Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic1" Multiplier="0.5"/>
+            <Value Source="OwnedSystems"    Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic1" />
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableDepositStrategic2">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems"  Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic2" Multiplier="0.5"/>
+            <Value Source="OwnedSystems"    Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic2" />
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableDepositStrategic3">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems"  Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic3" Multiplier="0.5"/>
+            <Value Source="OwnedSystems"    Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic3" />
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableDepositStrategic4">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems"  Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic4" Multiplier="0.5"/>
+            <Value Source="OwnedSystems"    Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic4" />
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+    
+    <TechnologyHelperVariableDefinition Name="AvailableDepositStrategic5">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems"  Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic5" Multiplier="0.5"/>
+            <Value Source="OwnedSystems"    Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic5" />
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="AvailableDepositStrategic6">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems"  Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic6" Multiplier="0.5"/>
+            <Value Source="OwnedSystems"    Path="ClassStarSystem/ClassPlanet/ClassResourceDeposit,ResourceStrategic6" />
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasStrategic1">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasStrategic2">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="2"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasStrategic3">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="3"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasStrategic4">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="4"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasStrategic5">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasStrategic6">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="6"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- ############################################################ -->
+    <!-- #######                LUXURY    RESOURCES           ####### -->
+    <!-- ############################################################ -->
+    <TechnologyHelperVariableDefinition Name="HasLuxury1">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury2">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="2"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury3">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="3"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury4">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="4"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury5">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury6">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="6"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury7">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="7"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury8">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="8"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury9">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="9"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury10">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="10"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury11">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="11"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury12">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="12"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury13">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="13"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury14">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="14"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury15">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="15"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury16">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="16"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury17">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="17"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury18">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="18"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury19">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="19"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury20">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="20"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury21">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="21"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury22">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="22"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury23">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="23"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HasLuxury24">
+        <Operation Operator="Multiplication">
+            <Int Value="1"/>
+            <RefinedProperty Property="HasLuxury" ResourceIndex="24"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- ############################################################ -->
+    <!-- #######                FIDSI ECONOMY                 ####### -->
+    <!-- ############################################################ -->
+    <TechnologyHelperVariableDefinition Name="IndustryVariable">
+        <RefinedProperty Property="AverageImprovementsTurns"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="ScienceVariable">
+        <RefinedProperty Property="HighestTechnologyTurns"/>
+    </TechnologyHelperVariableDefinition>
+    
+    <TechnologyHelperVariableDefinition Name="FoodVariable">
+        <RefinedProperty Property="AveragePopulationTurns"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="DustVariable">
+        <Int Value="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="InfluenceVariable">
+        <Int Value="1"/>
+    </TechnologyHelperVariableDefinition>
+    
+    <TechnologyHelperVariableDefinition Name="ImprovementsVariable">
+        <RefinedProperty Property="AverageAvailableStarSystemImprovementsCount"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PopulationVariable">
+        <RefinedProperty Property="AverageFullness"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="HappinessVariable">
+        <RefinedProperty Property="AverageHappiness"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="IndustryFlat">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="AverageImprovementsTurns"/>
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" Multiplier="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="ScienceFlat">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="HighestTechnologyTurns"/>
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" Multiplier="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="FoodFlat">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="AveragePopulationTurns"/>
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" Multiplier="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="DustFlat">
+        <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="InfluenceFlat">
+        <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="IndustryPercent">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="AverageImprovementsTurns"/>
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" PropertyName="NetSystemProduction"  Multiplier="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="SciencePercent">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="HighestTechnologyTurns"/>
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" PropertyName="NetSystemResearch"  Multiplier="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="FoodPercent">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="AveragePopulationTurns"/>
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" PropertyName="NetSystemGrowth"  Multiplier="1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="DustPercent">
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" PropertyName="NetSystemMoney"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="InfluencePercent">
+            <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem" PropertyName="NetSystemEmpireEmpoint"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="IndustryPopulation">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="AverageImprovementsTurns"/>
+            <Value Source="Empire" Path="ClassEmpire" PropertyName="Population"  Multiplier="0.1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="SciencePopulation">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="HighestTechnologyTurns"/>
+            <Value Source="Empire" Path="ClassEmpire" PropertyName="Population"  Multiplier="0.1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="FoodPopulation">
+        <Operation Operator="Multiplication">
+            <RefinedProperty Property="AveragePopulationTurns"/>
+            <Value Source="Empire" Path="ClassEmpire" PropertyName="Population"  Multiplier="0.1"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="DustPopulation">
+            <Value Source="Empire" Path="ClassEmpire" PropertyName="Population"  Multiplier="0.1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="InfluencePopulation">
+            <Value Source="Empire" Path="ClassEmpire" PropertyName="Population"  Multiplier="0.1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- ############################################################ -->
+    <!-- #######                POPULATION                   ####### -->
+    <!-- ############################################################ -->
+
+    <TechnologyHelperVariableDefinition Name="ForeignPopulations">
+        <Value Source="Empire" Path="ClassEmpire/ClassStarSystem/ClassPopulation,PopulationNonMajor" PropertyName="PopulationCount"/>
+    </TechnologyHelperVariableDefinition>
+    
+    <TechnologyHelperVariableDefinition Name="PopulationOnTeeming">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeTeeming" PropertyName="Population"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PopulationOnMeager">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeMeager" PropertyName="Population"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PopulationOnCold">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeCold" PropertyName="Population"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PopulationOnTemperate">
+        <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeTemperate" PropertyName="Population"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+
+    <TechnologyHelperVariableDefinition Name="PopulationOnHot">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeHot" PropertyName="Population"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+
+    <TechnologyHelperVariableDefinition Name="PopulationOnGas">
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassColonizedPlanet,PlanetGameplayTypeGas" PropertyName="Population"  Multiplier="1"/>
+    </TechnologyHelperVariableDefinition>
+    
+    
+    <!-- EXAMPLE: COUNTING TAGS ON PLANETS -->
+    <TechnologyHelperVariableDefinition Name="ExampleAvailableAshPlanets">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeAsh"/>
+            <Value Source="OwnedSystems" Path="ClassStarSystem/ClassPlanet,PlanetTypeAsh" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: POPULATION COUNT WITH A MULTIPLIER -->
+    <TechnologyHelperVariableDefinition Name="DoublePopulationCount">
+        <Value Source="Empire" Path="ClassEmpire/ClassStarSystem" PropertyName="Population" Multiplier="2"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: INVERTED RESOURCE NET -->
+    <TechnologyHelperVariableDefinition Name="DustNeed">
+        <Operation Operator="Subtraction">
+            <Int Value="200"/>
+            <Value Source="Empire" PropertyName="NetEmpireMoney"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: RESOURCE POSSESSION -->
+    <TechnologyHelperVariableDefinition Name="HasStrategic5Template">
+        <Operation Operator="Multiplication">
+            <Int Value="100"/>
+            <RefinedProperty Property="HasStrategic" ResourceIndex="5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: ENTITY COUNT (DEPOSITS) -->
+    <TechnologyHelperVariableDefinition Name="OwnedDepositCount">
+        <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet/ClassResourceDeposit"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: ENTITY COUNT (PLANETS) -->
+    <TechnologyHelperVariableDefinition Name="OwnedPlanetsCount">
+        <Value Source="Empire" Path="ClassEmpire/ClassColonizedStarSystem/ClassPlanet"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: FLAT TURNS -->
+    <TechnologyHelperVariableDefinition Name="FlatTurns">
+        <Value Source="Empire" PropertyName="Lifetime"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: PROPORTIONAL TURNS -->
+    <TechnologyHelperVariableDefinition Name="ProportionalTurns">
+        <RefinedProperty Property="ProportionalTurns"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: MINOR EMPIRES -->
+    <TechnologyHelperVariableDefinition Name="PacifistMinorEmpires">
+        <Value Source="KnownEmpires" Path="ClassEmpire,EmpireTypeMinor,PersonalityTraitPacifist"/>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: EXPLORATION -->
+    <TechnologyHelperVariableDefinition Name="ExplorationRatio">
+        <Operation Operator="Division">
+            <!-- Add 1 for each revealed system -->
+            <Value Source="VisibleSystems"/>
+            <!-- And divide by a value incremented by 1 for each system -->
+            <Value Source="AllSystems"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+
+    <!-- EXAMPLE: CURIOSITY COUNT -->
+    <TechnologyHelperVariableDefinition Name="Level1CuriosityCount">
+        <Operation Operator="Addition">
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet" PropertyName="CuriositiesLevel3Count"/>
+            
+            <!-- Add level 2 and 4 with a lower value -->
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet" PropertyName="CuriositiesLevel2Count" Multiplier="0.5"/>
+            <Value Source="VisibleSystems" Path="ClassStarSystem/ClassPlanet" PropertyName="CuriositiesLevel4Count" Multiplier="0.5"/>
+        </Operation>
+    </TechnologyHelperVariableDefinition>
+    
+</Datatable>

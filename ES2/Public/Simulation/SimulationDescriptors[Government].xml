@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- ANARCHY -->
+
+    <SimulationDescriptor Name="GovernmentAnarchy" Type="Government">
+        <Modifier TargetProperty="HappinessBonusPerRepresentative"              Operation="Force"       Value="0"     Path="./ClassEmpire/ClassColonizedStarSystem" TooltipHidden="true" Priority="100"/>
+        <Modifier TargetProperty="HappinessPenaltyPerRepresentative"            Operation="Force"       Value="0"     Path="./ClassEmpire/ClassColonizedStarSystem" TooltipHidden="true" Priority="100"/>
+
+        <Modifier TargetProperty="RebellionStarSystemIncreasePerTurn"            Operation="Force"       Value="0"     Path="./ClassEmpire/ClassSenate" TooltipHidden="true" Priority="100"/>
+        <Modifier TargetProperty="RebellionStarSystemDecreasePerTurn"            Operation="Force"       Value="0"     Path="./ClassEmpire/ClassSenate" TooltipHidden="true" Priority="100"/>
+        <Modifier TargetProperty="RebellionEmpireIncreasePerTurn"                Operation="Force"       Value="0"     Path="./ClassEmpire/ClassSenate" TooltipHidden="true" Priority="100"/>
+        <Modifier TargetProperty="RebellionEmpireDecreasePerTurn"                Operation="Force"       Value="0"     Path="./ClassEmpire/ClassSenate" TooltipHidden="true" Priority="100"/>
+    </SimulationDescriptor>
+    
+    <!-- DEMOCRACY -->
+    
+    <SimulationDescriptor Name="GovernmentDemocracy" Type="Government">
+        <Modifier TargetProperty="NumberOfSenatorSlots"                 Operation="Force"         Value="3"       Path="ClassSenate"  />
+        <Modifier TargetProperty="NumberOfActiveLawSlots"               Operation="Addition"    Value="1"       Path="ClassSenate"  />
+        <BinaryModifier TargetProperty="Happiness"                      Operation="Addition"    Left="1" BinaryOperation="Multiplication" Right="$(Population)"       Path="./ClassEmpire/ClassColonizedStarSystem"  SearchValueFromPath="true" />
+        <Modifier TargetProperty="CandidateCountPerPopulation"          Operation="Force"       Value="1"       Path="./ClassEmpire/ClassColonizedStarSystem" TooltipHidden="true"/>
+    </SimulationDescriptor>
+        
+
+    <!-- DICTATORSHIP -->
+    <SimulationDescriptor Name="GovernmentDictatorshipCommon" Type="GovernmentDictatorshipCommon"/>
+
+    <SimulationDescriptor Name="GovernmentDictatorship" Type="Government">
+        <Modifier TargetProperty="HappinessStatusMinimumRebellionIndex"    Operation="Addition"     Value="1"      Path="./ClassEmpire" TooltipOverride="%GovernmentDictatorshipTooltipEffect"   />
+        
+        <Modifier TargetProperty="NumberOfSenatorSlots"                 Operation="Force"       Value="1"      Path="ClassSenate"   />
+        <Modifier TargetProperty="NumberOfActiveLawSlots"               Operation="Force"       Value="2"      Path="ClassSenate"   />        
+    </SimulationDescriptor>
+
+    
+    <SimulationDescriptor Name="GovernmentDictatorshipCravers" Type="Government">
+        <Modifier TargetProperty="HappinessStatusMinimumRebellionIndex"    Operation="Addition"     Value="-1"      Path="./ClassEmpire" TooltipOverride="%GovernmentDictatorshipCraversTooltipEffect"   />
+        <Modifier TargetProperty="GovernmentGameplayLocked"                 Operation="Addition"    Value="1"       Path="./ClassEmpire" TooltipHidden="true"/>
+
+        <Modifier TargetProperty="NumberOfSenatorSlots"                 Operation="Force"       Value="1"      Path="ClassSenate"   />
+        <Modifier TargetProperty="NumberOfActiveLawSlots"               Operation="Force"       Value="3"      Path="ClassSenate"   />
+
+        <Modifier TargetProperty="Politics01ToPolitics01"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics01ToPolitics02"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics01ToPolitics03"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics01ToPolitics04"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics01ToPolitics05"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics01ToPolitics06"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics02ToPolitics01"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics02ToPolitics02"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics02ToPolitics03"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics02ToPolitics04"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics02ToPolitics05"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics02ToPolitics06"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics03ToPolitics01"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics03ToPolitics02"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics03ToPolitics03"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics03ToPolitics04"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics03ToPolitics05"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics03ToPolitics06"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics04ToPolitics01"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics04ToPolitics02"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics04ToPolitics03"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics04ToPolitics04"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics04ToPolitics05"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics04ToPolitics06"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics05ToPolitics01"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics05ToPolitics02"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics05ToPolitics03"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics05ToPolitics04"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics05ToPolitics05"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics05ToPolitics06"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics06ToPolitics01"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics06ToPolitics02"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics06ToPolitics03"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics06ToPolitics04"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics06ToPolitics05"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+        <Modifier TargetProperty="Politics06ToPolitics06"   Operation="Force"  Value="0"    TooltipHidden="true"    Path="./ClassEmpire/ClassPopulationEmpire,PopulationNonMajor"/>
+    </SimulationDescriptor>
+
+    <!-- EMPIRE -->
+
+    <SimulationDescriptor Name="GovernmentEmpire" Type="Government">
+        <Modifier TargetProperty="NumberOfSenatorSlots"                 Operation="Force"       Value="2"       Path="ClassSenate"  />
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="1"    Path="../GalaxySizeTiny,ClassEmpire"       TooltipHiddenIfPathInvalid="true"/>
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="1"    Path="../GalaxySizeSmall,ClassEmpire"      TooltipHiddenIfPathInvalid="true"/>
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="1"    Path="../GalaxySizeMedium,ClassEmpire"     TooltipHiddenIfPathInvalid="true"/>
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="1"    Path="../GalaxySizeLarge,ClassEmpire"      TooltipHiddenIfPathInvalid="true"/>
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="1"    Path="../GalaxySizeHuge,ClassEmpire"       TooltipHiddenIfPathInvalid="true"/>
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="2"    Path="../GalaxySizeColossal,ClassEmpire"   TooltipHiddenIfPathInvalid="true"/>
+        <Modifier TargetProperty="OverColonizationThreshold"            Operation="Addition"     Value="2"    Path="../GalaxySizeGigantic,ClassEmpire"   TooltipHiddenIfPathInvalid="true"/>
+    </SimulationDescriptor>
+
+
+    <!-- REPUBLIC -->
+
+    <SimulationDescriptor Name="GovernmentRepublic" Type="Government">
+        <Modifier TargetProperty="NumberOfSenatorSlots"                 Operation="Force"       Value="2"       Path="ClassSenate"  />
+        <Modifier TargetProperty="CandidateCountPerPopulation"          Operation="Force"       Value="1"     Path="../ClassEmpire/ClassColonizedStarSystem" TooltipOverride="%GovernmentRepublicTooltipEffect"/>
+    </SimulationDescriptor>
+
+	
+	
+	<SimulationDescriptor Name="GovernmentCheatUnlockLawSlots"    Type="GovernmentCheat">
+        <Modifier TargetProperty="NumberOfActiveLawSlots"         Operation="Force"     		Value="6"      Path="ClassSenate"/>
+    </SimulationDescriptor>
+
+</Datatable>

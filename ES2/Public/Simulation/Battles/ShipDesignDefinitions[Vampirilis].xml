@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/ShipDesignDefinition.xsd">
+
+    <!--*****************-->
+    <!--*** VAMPIRILIS **-->
+    <!--*****************-->
+
+	<ShipDesignDefinition Name="Vampirilis_Colonizer">
+		<HullReference Name="HullSmall03Vampirilis"/>
+		<ShipRoleReference Name="ShipRoleColonizer"/>
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponKinetic1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionN.Support01">
+			<ModuleReference Name="ModuleSupportColonization1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+	</ShipDesignDefinition>
+
+	<ShipDesignDefinition Name="ShipDesignDecolonizationVampirilis" Editable="false" Hidden="true">
+		<HullReference Name="HullSmall03Vampirilis"/>
+		<ShipRoleReference Name="ShipRoleColonizer"/>
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponKinetic1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionN.Support01">
+			<ModuleReference Name="ModuleSupportColonization1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+	</ShipDesignDefinition>
+
+	<ShipDesignDefinition Name="Vampirilis_Explorer">
+		<HullReference Name="HullSmall04Vampirilis"/>
+		<ShipRoleReference Name="ShipRoleExploration"/>
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="ModuleGrowthLogistics1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionNE.Support01">
+			<ModuleReference Name="ModuleSupportExploration1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionE.Weapon01">
+			<ModuleReference Name="ModuleWeaponKinetic1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionS.Weapon01">
+			<ModuleReference Name="ModuleWeaponKinetic1"/>
+		</SlotBinding>
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_Leecher">
+        <HullReference Name="HullSmall05Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleLeecher"/>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+          <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionN.Support01">
+          <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_SmallAttack">
+        <HullReference Name="HullSmall01Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--N Section-->
+
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!--SE Section-->
+
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull2Vampirilis</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_SmallSupport">
+        <HullReference Name="HullSmall02Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleSmallSupport"/>
+        <!--Core Section-->
+        
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--SE Section-->
+
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull3Vampirilis</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_MediumAttack">
+        <HullReference Name="HullMedium01Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull4Vampirilis</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_Invader">
+        <HullReference Name="HullMedium02Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionSE.Support01">
+            <ModuleReference Name="ModuleSupportCrew1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+		
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Vampirilis</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_MediumDefense">
+        <HullReference Name="HullMedium02Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Vampirilis</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Vampirilis_LargeCarrier">
+        <HullReference Name="HullLarge01Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull6Vampirilis</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+    
+    <ShipDesignDefinition Name="Vampirilis_Mothership" Editable="true" Hidden="false">
+        <Tags>NoBuyout</Tags>
+        <HullReference Name="HullLarge00Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleMothership"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.SupportDefense01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleMothershipScience1"/>
+        </SlotBinding>
+        <!--NE Section-->        
+        <!--E Section-->
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleMothershipLifeforce1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+    <!--CUSTOM FACTIONS SUPPORT-->
+    <ShipDesignDefinition Name="Vampirilis_RootCreator">
+        <HullReference Name="HullSmall06Vampirilis"/>
+        <ShipRoleReference Name="ShipRoleRootCreator"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportRootCreation1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <!--SE Section-->
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+</Datatable>

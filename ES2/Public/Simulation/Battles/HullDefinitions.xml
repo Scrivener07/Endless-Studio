@@ -1,0 +1,1773 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/HullDefinition.xsd">
+
+    <!-- ******************** -->
+    <!-- **   CasperTest   ** -->
+    <!-- ******************** -->
+
+    <!--  SLOT EXAMPLES - Undefined, Weapon, Defense
+    <Slot Name="Slot01" RestrictedModuleCategory="Undefined">
+        <Direction X="0" Z="1"/>
+    </Slot>
+    <WeaponSlot RestrictedWeaponType="Kinetic" RestrictedModuleCategory="Undefined">
+        <Direction X="0" Z="1"/>
+        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+    </WeaponSlot> 
+
+
+        <Link>
+            <SlotName>SectionW.Slot01</SlotName>
+            <SlotName>SectionE.Slot01</SlotName>
+        </Link>
+            
+            <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyShip1</TechnologyPrerequisite>
+            
+            Note that visual slot name only currently uses 'weapon modules', so a support module will simply not show up. Also adding weapons without 'visual slots' will still impact battle it is simply not visible.
+            
+            
+            Use technology pre-requisite to hide ships (See Mothership/Hero ships)
+            ** FLAGS **
+            Edition = Ship Designer
+            Discard = Constructible list or Hide slot in GUI
+            Disable = Grey out slot in GUI
+    -->
+
+    <!-- ******************** -->
+    <!-- **   Heroes       ** -->
+    <!-- ******************** -->
+    <HullDefinition Name="HullHeroDefault">
+      
+        <!--This prerequisite is here to hide the ship from the build queue and ship design.
+          Prerequisite,Discard    = Used to hide from build queue
+          Edition                 = Used to hide from the UI (Such as dropdown list in the 'Create Ship Design' menu).
+          Adding this means that Players can still edit the ship, but they can not build the ship in a build queue.-->
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Edition,Faction">false</TechnologyPrerequisite>
+      
+        <SimulationDescriptorReference Name="ClassHullHeroDefault"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionHeroes"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+      
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore07</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon08</UISlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore09</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIFrontRight02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon03</UISlotName>
+                    </WeaponSlot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIBackRightWeapon05</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+      
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <BattleActionReference Name="HeroShip_Revive"/>
+
+        <LevelUpRuleReference Name="HeroShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- Adventurer Hero Ship 01   -->
+    <HullDefinition Name="Hull01SmallAdventurer">
+        <!--This prerequisite is here to hide the ship from the build queue and ship design.
+            Prerequisite,Discard    = Used to hide from build queue
+            Edition                 = Used to hide from the UI (Such as dropdown list in the 'Create Ship Design' menu).
+            Adding this means that Players can still edit the ship, but they can not build the ship in a build queue.-->
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Edition,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAdventurer"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionHeroes"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+      
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore06</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_02</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon07</UISlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon02</UISlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon03</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIBackRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <BattleActionReference Name="HeroShip_Revive"/>
+
+        <LevelUpRuleReference Name="HeroShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- ******************** -->
+    <!-- **   Heroes       ** -->
+    <!-- ******************** -->
+
+
+    <HullDefinition Name="Hull02SmallAdventurer">
+        <!--This prerequisite is here to hide the ship from the build queue and ship design.
+            Prerequisite,Discard    = Used to hide from build queue
+            Edition                 = Used to hide from the UI (Such as dropdown list in the 'Create Ship Design' menu).
+            Adding this means that Players can still edit the ship, but they can not build the ship in a build queue.-->
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Edition,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAdventurer"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionHeroes"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <SimulationDescriptorReference Name="GreenManShip2"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore06</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+                        <LineOfSight>
+                            <Direction X="0" Z="1"/>
+                            <Angle>270</Angle>
+                            <VisualSlotName>MDL_Wp_Small_Up_02</VisualSlotName>
+                        </LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon07</UISlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+                        <LineOfSight>
+                            <Direction X="1" Z="0"/>
+                            <Angle>120</Angle>
+                            <VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+                        </LineOfSight>
+                        <LineOfSight>
+                            <Direction X="-1" Z="0"/>
+                            <Angle>120</Angle>
+                            <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                        </LineOfSight>
+                        <UISlotName>UIRightWeapon02</UISlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" ShowPositionMarker="true" PositionMarkerAngle="0">
+                        <LineOfSight>
+                            <Direction X="1" Z="0"/>
+                            <Angle>120</Angle>
+                            <VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+                        </LineOfSight>
+                        <LineOfSight>
+                            <Direction X="-1" Z="0"/>
+                            <Angle>120</Angle>
+                            <VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+                        </LineOfSight>
+                        <UISlotName>UIRightWeapon03</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIBackRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <LevelUpRuleReference Name="HeroShipLevelUpRule"/>
+    </HullDefinition>
+
+
+    <!-- Admiral Hero Ship 02   -->
+    <HullDefinition Name="Hull01SmallAdmiral">
+        <!--This prerequisite is here to hide the ship from the build queue and ship design.
+          Prerequisite,Discard    = Used to hide from build queue
+          Edition                 = Used to hide from the UI (Such as dropdown list in the 'Create Ship Design' menu).
+          Adding this means that Players can still edit the ship, but they can not build the ship in a build queue.-->
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Edition,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAdmiral"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionHeroes"/>
+        <SimulationDescriptorReference Name="ShipHull02"/>
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon06</UISlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon07</UISlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIFrontRight02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="315">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIBackRightWeapon03</UISlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" ShowPositionMarker="true" PositionMarkerAngle="45">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+						</LineOfSight>
+                        <UISlotName>UIBackRightWeapon04</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <BattleActionReference Name="HeroShip_Revive"/>
+
+        <LevelUpRuleReference Name="HeroShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- Corporate Hero Ship 03  -->
+
+    <HullDefinition Name="Hull01SmallCorporate">
+        <!--This prerequisite is here to hide the ship from the build queue and ship design.
+          Prerequisite,Discard    = Used to hide from build queue
+          Edition                 = Used to hide from the UI (Such as dropdown list in the 'Create Ship Design' menu).
+          Adding this means that Players can still edit the ship, but they can not build the ship in a build queue.-->
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Edition,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallCorporate"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionHeroes"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon07</UISlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIRight03</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+                        <UISlotName>UIRightWeapon04</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+      
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <BattleActionReference Name="HeroShip_Revive"/>
+
+        <LevelUpRuleReference Name="HeroShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- Administrator Hero Ship 04 -->
+
+    <HullDefinition Name="Hull01SmallAdministrator">
+        <!--This prerequisite is here to hide the ship from the build queue and ship design.
+            Prerequisite,Discard    = Used to hide from build queue
+            Edition                 = Used to hide from the UI (Such as dropdown list in the 'Create Ship Design' menu).
+            Adding this means that Players can still edit the ship, but they can not build the ship in a build queue.-->
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Edition,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAdministrator"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+        <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionHeroes"/>
+        <SimulationDescriptorReference Name="ShipHull04"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore07</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontWeapon02</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+                        <UISlotName>UIRightWeapon03</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIBackRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <BattleActionReference Name="HeroShip_Revive"/>
+
+        <LevelUpRuleReference Name="HeroShipLevelUpRule"/>
+    </HullDefinition>
+
+    
+    <!-- Fake hull for good behaviour in new game screen -->
+    
+    <HullDefinition Name="FakeHullRandom">
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleHero"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore07</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01">
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>120</Angle>
+                        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontWeapon02</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01">
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon03</UISlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIBackRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <VisualSlotName>UIBackLeft00</VisualSlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallHeroes"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallHeroes"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+    </HullDefinition>
+
+    <!-- Automated ships -->
+    <HullDefinition Name="HullAutomated">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <HullDefinition Name="HullAutomatedCravers">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <HullDefinition Name="HullAutomatedSophons">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <HullDefinition Name="HullAutomatedTerrans">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <HullDefinition Name="HullAutomatedHoratio">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <HullDefinition Name="HullAutomatedVenetians">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <HullDefinition Name="HullAutomatedUnfallen">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+	<HullDefinition Name="HullAutomatedVampirilis">
+
+		<PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+		<SimulationDescriptorReference Name="ShipSizeSmall"/>
+		<SimulationDescriptorReference Name="ShipFactionAutomated"/>
+		<SimulationDescriptorReference Name="ShipHull03"/>
+
+		<ShipDesignLayout>
+			<ShipRoleReference Name="ShipRoleAutomated"/>
+			<SectionPattern_Eight>
+				<!-- Core Section -->
+				<CoreSection Name="CoreSection">
+					<VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+					<Slot Name="Support01">
+						<RestrictedModuleCategory>Support</RestrictedModuleCategory>
+						<Direction X="0" Z="1"/>
+						<UISlotName>UICore03</UISlotName>
+					</Slot>
+				</CoreSection>
+
+				<!-- Forward Section -->
+				<Section Name="SectionN">
+					<VisualSectionName>Front</VisualSectionName>
+					<Slot Name="Support01">
+						<RestrictedModuleCategory>Support</RestrictedModuleCategory>
+						<Direction X="0" Z="1"/>
+						<UISlotName>UIFront01</UISlotName>
+					</Slot>
+				</Section>
+
+				<!-- Forward/Right Section -->
+				<Section Name="SectionNE">
+					<VisualSectionName>FrontRight</VisualSectionName>
+				</Section>
+
+				<!-- Right Section -->
+				<Section Name="SectionE">
+					<VisualSectionName>Right</VisualSectionName>
+				</Section>
+
+				<!-- Back/Right Section -->
+				<Section Name="SectionSE">
+					<VisualSectionName>BackRight</VisualSectionName>
+				</Section>
+
+				<!-- Back Section -->
+				<Section Name="SectionS">
+					<VisualSectionName>Back</VisualSectionName>
+					<Slot Name="Support01">
+						<RestrictedModuleCategory>Support</RestrictedModuleCategory>
+						<Direction X="0" Z="-1"/>
+						<UISlotName>UIBack02</UISlotName>
+					</Slot>
+				</Section>
+
+				<!-- Back/Left Section -->
+				<Section Name="SectionSW">
+					<VisualSectionName>BackLeft</VisualSectionName>
+				</Section>
+
+				<!-- Left Section -->
+				<Section Name="SectionW">
+					<VisualSectionName>Left</VisualSectionName>
+				</Section>
+
+				<!-- Forward/Left Section -->
+				<Section Name="SectionNW">
+					<VisualSectionName>FrontLeft</VisualSectionName>
+				</Section>
+			</SectionPattern_Eight>
+		</ShipDesignLayout>
+
+		<BattleActionReference Name="Ship_OnDestruction"/>
+		<LevelUpRuleReference Name="ShipLevelUpRule"/>
+	</HullDefinition>
+
+    
+    <HullDefinition Name="HullAutomatedTimeLords">
+
+        <PathPrerequisite Flags="Prerequisite,Discard,Edition">false</PathPrerequisite>
+
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionAutomated"/>
+        <SimulationDescriptorReference Name="ShipHull03"/>
+
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleAutomated"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+					<SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallCivilian"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_OnDestruction"/>
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+</Datatable>

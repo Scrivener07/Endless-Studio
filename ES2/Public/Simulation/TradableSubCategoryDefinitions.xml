@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TradableSubCategoryDefinition.xsd">
+
+    <!-- Do not rename these entries -->
+    
+    <!-- Resources: strat & lux -->
+    <TradableSubCategoryDefinition Name="TradableSubCategoryResourceLuxury" Section="TradableSectionResourceLuxury">
+        <SimulationDescriptorReference Name="TradableSubCategoryResource"/>
+        <SimulationDescriptorReference Name="TradableSubCategoryResourceLuxury"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryResourceStrategic" Section="TradableSectionResourceStrategic">
+        <SimulationDescriptorReference Name="TradableSubCategoryResource"/>
+        <SimulationDescriptorReference Name="TradableSubCategoryResourceStrategic"/>
+    </TradableSubCategoryDefinition>
+
+    
+    <!-- Heroes: sort by class -->
+    <TradableSubCategoryDefinition Name="TradableSubCategoryHeroAdmiral" Section="TradableSectionHero">
+        <SimulationDescriptorReference Name="TradableSubCategoryHero"/> 
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryHeroAdministrator" Section="TradableSectionHero">
+        <SimulationDescriptorReference Name="TradableSubCategoryHero"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryHeroAdventurer" Section="TradableSectionHero">
+        <SimulationDescriptorReference Name="TradableSubCategoryHero"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryHeroCorporate" Section="TradableSectionHero">
+        <SimulationDescriptorReference Name="TradableSubCategoryHero"/>
+    </TradableSubCategoryDefinition>
+
+    
+    <!-- Ships: sort by usage (not role) -->
+    <TradableSubCategoryDefinition Name="TradableSubCategoryShipColonizer" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipColonizer"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryShipExplorer" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipExplorer"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryShipOffense" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipOffense"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryShipSupport" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipSupport"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryShipCarrier" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipCarrier"/>
+    </TradableSubCategoryDefinition>
+
+    <TradableSubCategoryDefinition Name="TradableSubCategoryShipLeecher" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipLeecher"/>
+    </TradableSubCategoryDefinition>
+	
+	<TradableSubCategoryDefinition Name="TradableSubCategoryShipRootCreator" Section="TradableSectionShip">
+        <SimulationDescriptorReference Name="TradableSubCategoryShip"/>
+		<SimulationDescriptorReference Name="TradableSubCategoryShipLeecher"/>
+    </TradableSubCategoryDefinition>
+
+</Datatable>

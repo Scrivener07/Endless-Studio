@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationCollectionBonusTrait.xsd">
+
+    <!-- ######################################################## -->
+    <!-- ################   MAJOR FACTIONS   #################### -->
+    <!-- ######################################################## -->
+
+    <!-- Cravers -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCraver" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionWar" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCravers1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCravers2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCravers3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Horatio-->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitHoratio" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionFood" ShowInCustom="false">
+        <CollectionBonus Threshold="10" >
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHoratio1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHoratio2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHoratio3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+    
+    <!-- Sophons -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitSophon" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionScience" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSophons1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSophons2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSophons3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+    
+    <!-- Terrans / United Empire -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitTerrans" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionInfluence" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTerrans1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTerrans2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTerrans3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Mezari -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitMezari" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusMezari1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusMezari2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusMezari3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+    
+    <!-- SHEREDYN -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitSheredyn" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSheredyn1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSheredyn2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSheredyn3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+    
+    <!-- Timelords / Riftborn -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitTimeLords" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionIndustry" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTimeLords1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTimeLords2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTimeLords3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+
+    <!-- Unfallen -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitUnfallen" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionPeace" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusUnfallen1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusUnfallen2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusUnfallen3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Vampirilis / Vodyani -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitVampirilis" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionFIDSI" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVampirilis1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVampirilis2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVampirilis3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+   
+    <!-- Venetians / Lumeris -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitVenetian" Cost="0" CustomEquivalent="PopulationCollectionBonusTraitCustomFactionDust" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVenetians1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVenetians2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVenetians3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+    
+    <!--CUSTOM FACTION VERSIONS-->
+    
+    <!-- Peer-Reviewed Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionScience" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSophons1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCustomFactionScience2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusSophons3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Belligerent Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionWar" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCravers1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCustomFactionWar2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCravers3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Mercantile Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionDust" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVenetians1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusDust2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVenetians3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Prodigious Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionFIDSI" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVampirilis1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusFIDSI2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusVampirilis3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Boundless Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionInfluence" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTerrans1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusInfluence2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTerrans3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Pacified Collection-->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionFood" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10" >
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHoratio1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusFood2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHoratio3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Mass-Produced Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionIndustry" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTimeLords1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusIndustry2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTimeLords3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Harmonious Collection -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustomFactionPeace" Cost="10" ShowInCustom="true">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusUnfallen1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPeace2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusUnfallen3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+
+
+    <!-- ######################################################## -->
+    <!-- ################   MINOR FACTIONS   #################### -->
+    <!-- ######################################################## -->
+
+    <!-- Amoeba -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitAmoeba" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusAmoeba1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusAmoeba2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusAmoeba3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Benthys / Kalgeros-->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitBenthys" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBenthys1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBenthys2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBenthys3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Bhagabas -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitBhagabas" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBhagabas1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBhagabas2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBhagabas3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Bots / Epistis -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitBots" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBots1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBots2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusBots3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Deuyivans-->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitDeuyivans" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusDeuyivans1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusDeuyivans2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusDeuyivans3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Eyders -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitEyders" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusEyders1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusEyders2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusEyders3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Gnashasts -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitGnashasts" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGnashasts1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGnashasts2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGnashasts3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+    
+    <!-- Haroshems -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitHaroshems" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHaroshems1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHaroshems2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHaroshems3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Hisshos -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitHisshos" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHisshos1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHisshos2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusHisshos3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Mavros -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitMavros" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusMavros1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusMavros2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusMavros3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Niris -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitNiris" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusNiris1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusNiris2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusNiris3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Pilgrims -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitPilgrims" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPilgrims1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPilgrims2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPilgrims3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Tikanans -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitTikanans" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTikanans1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTikanans2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusTikanans3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Zvali-->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitZvali" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusZvali1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusZvali2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusZvali3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Remnant-->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitRemnant" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusRemnant1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusRemnant2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusRemnant3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Pulsos -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitPulsos" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPulsos1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPulsos2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusPulsos3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Greenman -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitGreenman" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGreenman1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGreenman2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGreenman3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+    <!-- Guardians -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitGuardians" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="5">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGuardians1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGuardians2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusGuardians3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+
+
+
+    <!-- ######################################################## -->
+    <!-- ################        DEBUG       #################### -->
+    <!-- ######################################################## -->
+
+    
+    <!-- Customs Test -->
+    <PopulationCollectionBonusTrait Name="PopulationCollectionBonusTraitCustom" Cost="0" ShowInCustom="false">
+        <CollectionBonus Threshold="10">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCustom1"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel1"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="20">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCustom2"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel2"/>
+        </CollectionBonus>
+
+        <CollectionBonus Threshold="50">
+            <SimulationDescriptorReference Name="PopulationCollectionBonusCustom3"/>
+            <SimulationDescriptorReference Name="PopulationCollectionBonusLevel3"/>
+        </CollectionBonus>
+    </PopulationCollectionBonusTrait>
+</Datatable>

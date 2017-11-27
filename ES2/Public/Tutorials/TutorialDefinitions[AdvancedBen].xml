@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TutorialDefinition.xsd">
+
+
+    <!-- ############################################# -->
+    <!-- ########### MINOR CIVILIZATIONS 01 ########## -->
+    <!-- ############################################# -->
+
+    <TutorialDefinition Name="Tutorial_MinorFaction01" Category="Tutorial" SubCategory="Advanced" Priority="200" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveNotifications">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+        
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_MinorFaction02"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <!--<QuestStatePrerequisite Inverted="true" QuestDefinitionName="Tutorial_LevellingSystem01" QuestState="InProgress"/>-->
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <!--============ OBJECTIVE ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_Tutorial_DisplayedTutorialChanged>
+                                <Input_TutorialName VarName="$TriggeredTutorial"/>
+                            </Decorator_Tutorial_DisplayedTutorialChanged>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>MinorEmpireMetNotificationWindow</StartKey>
+        <VisibilityKey>MinorEmpireMetNotificationWindow</VisibilityKey>
+        
+    </TutorialDefinition>
+
+
+    <!-- ############################################# -->
+    <!-- ########### MINOR CIVILIZATIONS 02 ########## -->
+    <!-- ############################################# -->
+    
+    <TutorialDefinition Name="Tutorial_MinorFaction02" Category="Tutorial" SubCategory="Advanced" Priority="300" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" 
+                          NumberOfOccurrencesPerEmpire="1" 
+                          NumberOfConcurrentInstances="0"/>
+        
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <!--<QuestStatePrerequisite Inverted="true" QuestDefinitionName="Tutorial_LevellingSystem01" QuestState="InProgress"/>-->
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <!--============ OBJECTIVE ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>MinorEmpireDiplomacyButton_StartWarEmpireAction</StartKey>
+        <VisibilityKey>MinorEmpireDiplomacyButton_StartWarEmpireAction</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+    <!-- ############################################# -->
+    <!-- ############# LUXURY RESOURCES 00 ########### -->
+    <!-- ############################################# -->
+
+    <TutorialDefinition Name="Tutorial_LuxuryResources00" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,EventLuxuryResourceAcquired</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_LuxuryResources01"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_LuxuryResources01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_LuxuryResources01" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+
+                <StartActions>
+                    <Action_SetForceGuiDisable Key="ControlBanner_EconomyScreenToggle" ForceDisable="false"/>
+                </StartActions>
+                
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <VisibilityKey>GalaxyView</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ############################################# -->
+    <!-- ############# LUXURY RESOURCES 01 ########### -->
+    <!-- ############################################# -->
+
+    <TutorialDefinition Name="Tutorial_LuxuryResources01" Category="Tutorial" SubCategory="Advanced" Priority="10" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_LuxuryResources00" QuestState="InProgress"/>
+        </Prerequisites>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+
+                <StartActions>
+                    <Action_SetForceGuiDisable Key="ControlBanner_EconomyScreenToggle" ForceDisable="false"/>
+                </StartActions>
+                
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>EconomyScreen</StartKey>
+        <VisibilityKey>EconomyScreen</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ############################################# -->
+    <!-- ########## STRATEGIC RESOURCES 01 ########### -->
+    <!-- ############################################# -->
+
+    <TutorialDefinition Name="Tutorial_StrategicResources01" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,EventStrategicResourceAcquired</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$OneTurn" IntValue="1"/>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <!-- Not using a Decorator_BeginTurn here because if the quest is started during end turn transition it stops at the beginning of the next turn -->
+                            <Decorator_Wait>
+                                <Input_WaitDuration VarName="$OneTurn"/>
+                            </Decorator_Wait>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <VisibilityKey>GalaxyView</VisibilityKey>
+
+    </TutorialDefinition>
+    
+    
+    <!-- ########################################## -->
+    <!-- ############## REBELLION 00 ############## -->
+    <!-- ########################################## -->
+
+    <TutorialDefinition Name="Tutorial_Rebellion00" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+        
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" 
+                          NumberOfOccurrencesPerEmpire="1" 
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$MyColonizedStarSystem">
+                <Any>
+                    <From Source="$CurrentEmpire.$ColonizedStarSystems">
+                        <Where>
+                            <InterpreterPrerequisite Flags="Prerequisite">Property(Context,@'ClassColonizedStarSystem',Happiness) le 15</InterpreterPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+            <Var VarName="$StarSystem">
+                <From Source="$MyColonizedStarSystem.$StarSystem"/>
+            </Var>
+            <Var VarName="$StarSystemMarker"/>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_Rebellion01"/>
+        
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context,@'EmpireTypeMajor/ClassColonizedStarSystem',Happiness) le 15</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Rebellion01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Rebellion01" QuestState="Completed"/>
+        </Prerequisites>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ SETUP ============-->
+                    <StartActions>
+                        <Action_AddQuestMarkers MarkerType="Yellow">
+                            <Input_Targets VarName="$StarSystem"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$StarSystemMarker"/>
+                        </Action_AddQuestMarkers>
+                    </StartActions>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>
+                            </Parallel>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$StarSystemMarker"/>
+                            </Action_RemoveQuestMarkers>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>GalaxyViewLevel_GalaxyOverview</StartKey>
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>     
+        
+    </TutorialDefinition>
+
+    
+    <!-- ########################################## -->
+    <!-- ############## REBELLION 01 ############## -->
+    <!-- ########################################## -->
+
+    <TutorialDefinition Name="Tutorial_Rebellion01" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <InterpretedVar VarName="$RebellionCountdown" Target="$(Empire)">
+                <Expression>Property(Context, @../EmpireTypeMajor,GameSpeedMultiplier,true) * 20</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$Countdown" Source="$RebellionCountdown"/>
+            
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>ColonyPopulationSidePanel_Rebellion</StartKey>
+        <VisibilityKey>ColonyPopulationSidePanel_Rebellion</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ############ HERO 01 ########### -->
+    <!-- ################################ -->
+
+    <!--Note: Half of this Tutorial is visible in Advanced tutorial mode-->
+    <TutorialDefinition Name="Tutorial_HeroAssignment01" Category="Tutorial" SubCategory="Expert" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_HeroOverview01"/>
+            
+            <InterpretedVar VarName="$HeroCooldown" Target="$(Empire)">
+                <Expression>Property(Context, @../EmpireTypeMajor,GameSpeedMultiplier,true) * 10</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$Cooldown" Source="$HeroCooldown"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)" AnyPrerequisite="true">
+            <PathPrerequisite Inverted="true">ClassEmpire,TutorialModeBeginner</PathPrerequisite>
+            <QuestStatePrerequisite QuestDefinitionName="UnitedEmpireQuest-Prequel-Scientist" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>AcademyScreen</StartKey>
+        <VisibilityKey>AcademyScreen</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ####### HERO OVERVIEW 01 ####### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_HeroOverview01" Category="Tutorial" SubCategory="Advanced" Priority="200" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TriggeredTutorial1" StringValue="Tutorial_HeroShipDesign01"/>
+            <Var VarName="$TriggeredTutorial2" StringValue="Tutorial_HeroSkillTree01"/>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial1"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial2"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>HeroInspectionModalWindow_Overview</StartKey>
+        <VisibilityKey>HeroInspectionModalWindow_Overview</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+    <!-- ################################ -->
+    <!-- ######## MORE HEROES 00 ######## -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_MoreHeroes00" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="2" MinimumTutorialLevel="Advanced" Layer="AboveNotifications">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_MoreHeroes01"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context,@'EmpireTypeMajor',HeroCount) ge 2</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_MoreHeroes01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_MoreHeroes01" QuestState="Completed"/>
+        </Prerequisites>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>NotificationHeroRecruited</StartKey>
+        <VisibilityKey>NotificationHeroRecruited</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ######## MORE HEROES 01 ######## -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_MoreHeroes01" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="2" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context,@'EmpireTypeMajor',HeroCount) ge 2</InterpreterPrerequisite>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>AcademyScreen</StartKey>
+        <VisibilityKey>AcademyScreen</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+    <!-- ################################ -->
+    <!-- ###### HERO SHIP DESIGN 00 ##### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_HeroShipDesign00" Category="Tutorial" SubCategory="Advanced" Priority="15" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="FleetsScreen">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_HeroShipDesign01"/>
+        </Vars>
+        
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_HeroShipDesign01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_HeroShipDesign01" QuestState="Completed"/>
+            <!--<QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_HeroOverview01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_HeroOverview01" QuestState="Completed"/>-->
+        </Prerequisites>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>FleetHeroPanel_AssignedHero</StartKey>
+        <VisibilityKey>FleetHeroPanel_AssignedHero</VisibilityKey>
+
+    </TutorialDefinition>
+    
+    
+    <!-- ################################ -->
+    <!-- ###### HERO SHIP DESIGN 01 ##### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_HeroShipDesign01" Category="Tutorial" SubCategory="Advanced" Priority="100" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>HeroInspectionModalWindow_ShipDesign</StartKey>
+        <VisibilityKey>HeroInspectionModalWindow_ShipDesign</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ###### HERO SKILL TREE 00 ###### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_HeroSkillTree00" Category="Tutorial" SubCategory="Advanced" Priority="100" MinimumTurn="2" MinimumTutorialLevel="Advanced" Layer="AboveNotifications">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_HeroSkillTree01"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_HeroSkillTree01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_HeroSkillTree01" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>NotificationHeroLevelup</StartKey>
+        <VisibilityKey>NotificationHeroLevelup</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+    <!-- ################################ -->
+    <!-- ###### HERO SKILL TREE 01 ###### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_HeroSkillTree01" Category="Tutorial" SubCategory="Advanced" Priority="200" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>HeroInspectionModalWindow_SkillTree</StartKey>
+        <VisibilityKey>HeroInspectionModalWindow_SkillTree</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ########## DIPLOMACY 00 ######## -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Diplomacy00" Category="Tutorial" SubCategory="Advanced" Priority="100" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveNotifications">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_Diplomacy02"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Diplomacy02" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Diplomacy02" QuestState="Completed"/>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>NotificationMajorEmpireMet</StartKey>
+        <VisibilityKey>NotificationMajorEmpireMet</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ########## DIPLOMACY 02 ######## -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Diplomacy02" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$TriggeredTutorial1" StringValue="Tutorial_Negotiations00"/>
+            <Var VarName="$TriggeredTutorial2" StringValue="Tutorial_Negotiations01"/>
+        </Vars>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial1"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial2"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>DiplomacyScreen</StartKey>
+        <VisibilityKey>DiplomacyScreen</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+    <!-- ################################ -->
+    <!-- ########## DIPLOMACY 03 ######## -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Diplomacy03" Category="Tutorial" SubCategory="Advanced" Priority="1" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!--============ TAGS ============-->
+        <!-- Hidden as a quest only. Triggered by a start key specified more below -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$TriggeredTutorial" StringValue="Tutorial_Negotiations01"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_Negotiations00" QuestState="Completed"/>
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassEmpire, WarCount) lt 1</InterpreterPrerequisite>
+        </Prerequisites>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>DiplomacyScreen</StartKey>
+        <VisibilityKey>DiplomacyScreen</VisibilityKey>
+
+    </TutorialDefinition>
+
+
+    <!-- ################################ -->
+    <!-- ######## NEGOTIATIONS 00 ####### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Negotiations00" Category="Tutorial" SubCategory="Advanced" Priority="5" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+
+                            <Sequence>
+                                <Decorator_HasTutorialKeys Composition="InputKeysIncludedInTutorialKeys">
+                                    <Key>DiplomaticInteractionNotificationWindow</Key>
+                                </Decorator_HasTutorialKeys>
+                            </Sequence>
+
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>DiplomaticTermItem_IntroduceYourself</StartKey>
+        <StartKey>NegotiationModalWindow</StartKey>
+        <VisibilityKey>DiplomaticTermItem_IntroduceYourself</VisibilityKey>
+
+    </TutorialDefinition>
+    
+    
+    <!-- ################################ -->
+    <!-- ######## NEGOTIATIONS 01 ####### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Negotiations01" Category="Tutorial" SubCategory="Advanced" Priority="3" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$TriggeredTutorial1" StringValue="Tutorial_Negotiations04"/>
+            <Var VarName="$TriggeredTutorial2" StringValue="Tutorial_Negotiations05"/>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial1"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TriggeredTutorial2"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>NegotiationModalWindow</StartKey>
+        <VisibilityKey>NegotiationModalWindow</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+
+    <!-- ################################ -->
+    <!-- ######## NEGOTIATIONS 04 ####### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Negotiations04" Category="Tutorial" SubCategory="Advanced" Priority="2" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <!--<Tags>Hidden,TutorialKeysChanged</Tags>-->
+        <Tags></Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Inverted="true" Flags="Prerequisite">EmpireTypeMajor/TechnologyDiplomacyAlliance</PathPrerequisite>
+        </Prerequisites>
+        
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>DiplomaticTermItem_PeaceRelation</StartKey>
+        <VisibilityKey>DiplomaticTermItem_PeaceRelation</VisibilityKey>
+
+    </TutorialDefinition>
+
+    
+    <!-- ################################ -->
+    <!-- ######## NEGOTIATIONS 05 ####### -->
+    <!-- ################################ -->
+
+    <TutorialDefinition Name="Tutorial_Negotiations05" Category="Tutorial" SubCategory="Advanced" Priority="2" MinimumTurn="1" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextSolo/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/TechnologyDiplomacyAlliance</PathPrerequisite>
+            <PathPrerequisite Inverted="true">../EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!--============ OBJECTIVE ============-->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <!--============ TRIGGERED BY ============-->
+        <StartKey>DiplomaticTermItem_AskAlliance</StartKey>
+        <VisibilityKey>DiplomaticTermItem_AskAlliance</VisibilityKey>
+
+    </TutorialDefinition>
+    
+</Datatable>

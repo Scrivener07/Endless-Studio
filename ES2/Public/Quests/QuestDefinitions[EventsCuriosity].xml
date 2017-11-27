@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    
+    <!--#############################-->
+    <!--###### EVENT CURIOSITY ######-->
+    <!--#############################-->
+
+    <!--#############################-->
+    <!--###### A Clever Fake ######-->
+    <!--#############################-->
+
+ <QuestDefinition Name="EventCuriosity01" Category="Event" SubCategory="Curiosity" MinimumTurn="10" TriggeringProbability="0.4">
+  
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+        
+        
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$SystemList">
+                <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+            </Var>
+            <Var VarName="$FakeSystem">
+                <Any>
+                   <From Source="$SystemList"/>
+                </Any>
+            </Var>
+            <Var VarName="$Marker01"/>
+          
+            <Var VarName="$EffectName1"  StringValue="EventEffect12"/>
+            <Var VarName="$PopulationEvent" StringValue="PopulationPoliticalEventNarrative01"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps> 
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity01PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$PopulationEvent"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventCuriosity02</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_AddQuestMarkers LogAction="true" LocalizationKey="%EventCuriosity01_Description">
+                            <Input_Targets VarName="$FakeSystem"/>
+                            <Input_Empires VarName="$EffectTarget1"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                        <Action_RemoveQuestMarkers>
+                            <Input_Markers VarName="$Marker01"/>
+                        </Action_RemoveQuestMarkers>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <Sequence>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>                
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--###### A Clever Fake 2 ######-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity02" Category="Event" SubCategory="TriggeredByaQuest" IsInstant="true" AlternateVersion="EventCuriosity02Bis">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosity02</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+        
+      <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <DroplistVar VarName="$Technology" Droplist="DroplistTechnologyEra1"/>
+            <Var VarName="$TechnologyID">                
+                <From Source="$Technology.$Name"/>
+            </Var>
+            <LocalizationVar LocalizationKey="$TechnologyName" Source="$Technology"/>
+          </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_UnlockTechnology LogAction="true" LocalizationKey="%EventCuriosity02RewardName">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_TechnologyName VarName="$TechnologyID"/>
+                        </Action_UnlockTechnology>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>                           
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>               
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--###### A Clever Fake 2 ######-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity02Bis" Category="Event" SubCategory="TriggeredByaQuest" IsInstant="true">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosity02</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EffectName1"  StringValue="EventEffect62"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                     </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    <!--#############################-->
+    <!--###### Friend or Food ######-->
+    <!--#############################-->
+
+  <QuestDefinition Name="EventCuriosity03" Category="Event" SubCategory="Curiosity" MinimumTurn="10" TriggeringProbability="0.5">
+    
+    
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>        
+       
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystem">
+                <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+            </Var>          
+
+            <Var VarName="$SystemUnColonized">
+                <From Source="$GameEvent.$StarSystem">
+                    <Where>
+                        <FilterSystemByStatus ColonizationState="NotColonized"/>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$PlanetType">
+                <From Source="$GameEvent.$Planet">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetGameplayTypeGas</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetGameplayTypeHot</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetGameplayTypeCold</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetTypeOcean</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$EffectName1"  StringValue="EventEffect01"/>
+            <Var VarName="$EffectName2"  StringValue="EventEffect02"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative02"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative03"/>
+            <Var VarName="$EffectGUID1"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity03PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity032PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+            
+        </Steps>    
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--#### Military Militants #####-->
+    <!--#############################-->
+
+
+    <QuestDefinition Name="EventCuriosity04" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" IsInstant="true" TriggeringProbability="0.2">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscovered,EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+             
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystem">
+                <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+            </Var>
+           
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative04"/>  
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical17BisPopulationTitle">                               
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_CuriosityDiscovered/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>            
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--## The Ghost of a Machine  ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity05" Category="Event" SubCategory="Curiosity" MinimumTurn="10" TriggeringProbability="0.2">
+
+    <!--============ TAGS ============-->
+    <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+        
+    
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+        <Var VarName="$EffectTarget1">
+            <From Source="$Empire"/>
+        </Var>
+        <Var VarName="$EmpireSystem">
+            <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+        </Var>
+       
+        <Var VarName="$EffectName1"  StringValue="EventEffect03"/>
+        <Var VarName="$EffectName2"  StringValue="EventEffect04"/> 
+        <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative05"/>
+        <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative06"/>
+        <Var VarName="$EffectGUID1"/>
+        <Var VarName="$EffectGUID2"/>
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+     
+    <!--============ STEPS ============-->
+    <Steps>
+        <!--============ STEP 1 ============-->
+        <Step Name="Step1">
+            <Choice DefaultChoiceIndex="0">
+                <ChoiceItem ObjectiveSetIndex="0"/>
+                <ChoiceItem ObjectiveSetIndex="1"/>
+            </Choice>
+            <ObjectiveSet>
+                <StartActions>
+                    <Action_ApplyQuestEffect LogAction="true">
+                        <Input_EffectName VarName="$EffectName1"/>
+                        <Input_Target VarName="$EffectTarget1"/>
+                        <Output_GUID VarName="$EffectGUID1"/>
+                    </Action_ApplyQuestEffect>
+                    <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity05PopulationTitle">
+                        <Input_Empire VarName="$EffectTarget1"/>
+                        <Input_Target VarName="$EffectTarget1"/>
+                        <Input_PopulationEventDefinition VarName="$EventName1"/>
+                    </Action_TriggerPopulationEvent>
+                </StartActions>
+                <Objective Name="Step2_1_Objective1">
+                    <Sequence>
+                        <Decorator_QuestEffectFinished>
+                            <Input_GUID VarName="$EffectGUID1"/>
+                        </Decorator_QuestEffectFinished>
+                        <Action_ChooseOutcome Name="Outcome1"/>
+                    </Sequence>
+                    <Outcome Name="Outcome1">
+                        <Triggers Weight="10">
+                            <QuestTrigger>
+                                <Tags>EventCuriosity06</Tags>
+                                <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                            </QuestTrigger>
+                        </Triggers>
+                        <Triggers Weight="2">
+                            <QuestTrigger>
+                                <Tags>EventCuriosity07</Tags>
+                                <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                            </QuestTrigger>
+                        </Triggers>
+                    </Outcome>
+                </Objective>
+            </ObjectiveSet>
+            <ObjectiveSet>
+                <StartActions>
+                    <Action_ApplyQuestEffect LogAction="true">
+                        <Input_EffectName VarName="$EffectName2"/>
+                        <Input_Target VarName="$EffectTarget1"/>
+                        <Output_GUID VarName="$EffectGUID2"/>
+                    </Action_ApplyQuestEffect>
+                    <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity052PopulationTitle">
+                        <Input_Empire VarName="$EffectTarget1"/>
+                        <Input_Target VarName="$EffectTarget1"/>
+                        <Input_PopulationEventDefinition VarName="$EventName2"/>
+                    </Action_TriggerPopulationEvent>
+                </StartActions>
+                <Objective Name="Step2_2_Objective1">
+                    <Sequence>
+                        <Decorator_QuestEffectFinished>
+                            <Input_GUID VarName="$EffectGUID2"/>
+                        </Decorator_QuestEffectFinished>
+                    </Sequence>
+                </Objective>
+            </ObjectiveSet>
+        </Step>
+    </Steps>
+</QuestDefinition>
+
+    <!--#############################-->
+    <!--## The Ghost of a Machine 2 ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity06" Category="Event" SubCategory="TriggeredByaQuest">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosity06</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+    
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$EffectName1"  StringValue="EventEffect05"/>
+            <Var VarName="$EffectGUID1"/>     
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->   
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>         
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--## The Ghost of a Machine 2 ##-->
+    <!--#############################-->
+    
+    <QuestDefinition Name="EventCuriosity07" Category="Event" SubCategory="TriggeredByaQuest" IsInstant="true">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosity07</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+       
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <Var VarName="$HomeSystem01">
+                <From Source="$EffectTarget1.$HomeStarSystem"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_AddQuestMarkers LogAction="true" LocalizationKey="%EventCuriosity07_Description">
+                            <Input_Targets VarName="$HomeSystem01"/>
+                            <Input_Empires VarName="$EffectTarget1"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                        <Action_RemoveQuestMarkers>
+                            <Input_Markers VarName="$Marker01"/>
+                        </Action_RemoveQuestMarkers>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>   
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--##   MAPMAKER ANONYMOUS    ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity08" Category="Event" SubCategory="Curiosity" IsInstant="true" MinimumTurn="10" TriggeringProbability="0.5">    
+     
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TargetStarSystem">
+                <From Source="$GameEvent.$StarSystem"/>
+            </Var>
+            <Var VarName="$TargetConstellation">
+                <From Source="$TargetStarSystem.$Constellation"/>
+            </Var>
+
+            <Var VarName="$IsolatedStarSystem">
+                <From Source="$TargetConstellation.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem,IsolatedNode</PathPrerequisite>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>           
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <!-- INVERTED! -->            
+            <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyStageEconomyAndTrade4</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyStageEmpireDevelopment4</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyStageMilitary4</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyStageScienceAndExploration4</PathPrerequisite>         
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <!--Reveal All Isolated Nodes in the Constellation-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_RevealEntities NewExplorationState="Revealed" LogAction="true" LocalizationKey="%EventCuriosity08EffectTitle">
+                            <Input_Empires VarName="$EffectTarget1"/>
+                            <Input_TargetSystems VarName="$IsolatedStarSystem"/>
+                        </Action_RevealEntities>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+        
+
+    <!--#############################-->
+    <!--##    The Deads: Part 1    ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity09" Category="Event" SubCategory="Curiosity" MinimumTurn="50" TriggeringProbability="0.5">
+
+      <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$SystemList">
+                <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+            </Var>
+
+            <Var VarName="$QuestSystem">
+                <From Source="$GameEvent.$StarSystem">
+                    <Where>
+                        <FilterSystemByStatus ColonizationState="NotColonized"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$CuriosityPlanet">
+                <From Source="$GameEvent.$Planet">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">PlanetGameplayTypeCold</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$TargetFleet01">
+                <From Source="$GameEvent.$Fleet"/>
+            </Var>
+
+         <!--+Dust-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect14"/>
+           <!--+Ships are stopped for 3 turns-->
+            <Var VarName="$EffectName2"  StringValue="EventEffect15"/>
+            <!--Increase Militarists-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative11"/>
+            <!--Increase Religious-->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative12"/>
+
+            <Var VarName="$EffectGUID1"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+       <!--============ PREREQUISITES ============-->      
+        
+       <!--============ STEPS ============-->
+        <Steps>
+           <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical17BisPopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <!--LocalizationKey="%EventCuriosity09EffectTitle">-->
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$TargetFleet01"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity09PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventCuriosity10</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--##   The Deads Part 2      ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity10" Category="Event" SubCategory="TriggeredByaQuest" IsInstant="true">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosity10</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EffectName1"  StringValue="EventEffect27"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>                         
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--##       Ring Lizards      ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity11" Category="Event" SubCategory="Curiosity" MinimumTurn="50" TriggeringProbability="0.7">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+           
+            <Var VarName="$QuestSystem">
+                <From Source="$GameEvent.$StarSystem">
+                    <Where>
+                        <FilterSystemByStatus ColonizationState="NotColonized"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$CuriosityPlanet">
+                <From Source="$GameEvent.$Planet">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">PlanetHumidityGas</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$TargetFleet01">
+                <From Source="$GameEvent.$Fleet"/>
+            </Var>
+            <Var VarName="$TargetShip01">
+                <From Source="$TargetFleet01.$Ships"/>
+            </Var>
+
+            <!---->
+            <Var VarName="$EffectName1"  StringValue="EventEffect17"/>
+            <!---->
+            <Var VarName="$PermanentEffect"  StringValue="EventEffect18SimEffect18"/>
+
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">           
+            <PathPrerequisite Flags="Interpreter">ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet,PlanetTypeBarren</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+           <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+               <ObjectiveSet>
+                   <StartActions>
+                       <Action_ApplyQuestEffect LogAction="true">
+                           <Input_EffectName VarName="$EffectName1"/>
+                           <Input_Target VarName="$EffectTarget1"/>
+                           <Output_GUID VarName="$EffectGUID1"/>
+                       </Action_ApplyQuestEffect>
+                   </StartActions>
+                   <Objective Name="Step2_1_Objective1">
+                       <Sequence>
+                           <Decorator_QuestEffectFinished>
+                               <Input_GUID VarName="$EffectGUID1"/>
+                           </Decorator_QuestEffectFinished>
+                       </Sequence>
+                   </Objective>
+               </ObjectiveSet>
+               <ObjectiveSet>
+                   <StartActions>
+                       <Action_ApplyDescriptor LogAction="true">
+                           <Input_DescriptorName VarName="$PermanentEffect"/>
+                           <Input_Targets VarName="$TargetShip01"/>
+                       </Action_ApplyDescriptor>
+                   </StartActions>
+                   <Objective Name="Step2_2_Objective1">
+                       <Sequence>
+                       </Sequence>
+                   </Objective>
+               </ObjectiveSet>
+           </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    <!--#############################-->
+    <!--##       Lunchtime         ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity12" Category="Event" SubCategory="Curiosity" MinimumTurn="50" TriggeringProbability="0.7">
+    
+
+            <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$CuriosityPlanet">
+                <From Source="$GameEvent.$Planet">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetTypeBarren</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetTypeLava</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$EffectName1"  StringValue="EventEffect19"/>
+            <Var VarName="$EffectName2"  StringValue="EventEffect22"/>          
+            
+            <Var VarName="$TargetFleet01">
+                <From Source="$GameEvent.$Fleet">
+                    <Where>
+                        <PathPrerequisite Inverted="true">ClassGarrisonFleet/ClassShip,ShipRoleColonizer</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$EffectGUID1"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+         
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$TargetFleet01"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$TargetFleet01"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Parallel CompletionPolicy="All">
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--##    ETERNEL SUNSHINE     ##-->
+    <!--#############################-->
+
+   <QuestDefinition Name="EventCuriosity13" Category="Event" SubCategory="Curiosity" MinimumTurn="10" TriggeringProbability="0.5">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscovered,EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$FoodyPlanet">
+                <From Source="$GameEvent.$Planet">
+                    <Where>                       
+                        <PathPrerequisite Flags="Prerequisite">PlanetGameplayTypeTemperate</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$EffectName1"  StringValue="EventEffect20"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>                            
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--##       BREATHE DEEP      ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity15" Category="Event" SubCategory="Curiosity" MinimumTurn="10" TriggeringProbability="0.7">
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$CuriosityPlanet">
+                <From Source="$GameEvent.$Planet">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetTypeBarren</PathPrerequisite>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">PlanetTypeLava</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$EffectName1"  StringValue="EventEffect21"/>
+
+            <Var VarName="$TargetFleet01">
+                <From Source="$GameEvent.$Fleet">
+                    <Where>
+                        <PathPrerequisite Inverted="true">ClassGarrisonFleet/ClassShip,ShipRoleColonizer</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$TargetFleet01"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--## THE STARS THEIR DESTINY ##-->
+    <!--#############################-->
+
+   <QuestDefinition Name="EventCuriosity16" Category="Event" SubCategory="Curiosity" MinimumTurn="50" TriggeringProbability="0.5">
+       
+
+           <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystemList">
+                <From Source="$Empire.$ColonizedStarSystems"></From>
+            </Var>
+                 
+            <Var VarName="$FoodyPlanet">
+                <From Source="$GameEvent.$Planet">
+                  <Where>
+                        <PathPrerequisite Flags="Prerequisite">PlanetGameplayTypeTemperate</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            
+            <Var VarName="$TargetFleet01">
+                <From Source="$GameEvent.$Fleet"/>
+            </Var>
+           
+            <Var VarName="$TargetFleetGUID">
+                <From Source="$TargetFleet01.$GUID"/>
+            </Var>
+            <Var VarName="$Wesh" IntValue="2"/>
+           
+            <!--Increase Pacifist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative13"/>
+            <!--Block the Fleet-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect28"/>
+
+            <Var VarName="$EffectGUID1"/>
+            <LocalizationVar Source="$TargetFleet01"  LocalizationKey="$Fleet04"/>   
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+      
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <!--Fleet Movement = 0-->
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$TargetFleet01"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>                        
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BattleEnded>
+                                    <Condition_BattleEnded_FleetDestroyed>
+                                        <Input_FleetGUIDs VarName="$TargetFleetGUID"/>
+                                    </Condition_BattleEnded_FleetDestroyed>
+                                    <Input_Empire VarName="$EffectTarget1"/>
+                                </Decorator_BattleEnded>
+                                <Action_Fail/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_QuestEffectFinished>
+                                    <Input_GUID VarName="$EffectGUID1"/>
+                                </Decorator_QuestEffectFinished>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventCuriosity17</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#############################-->
+    <!--## STAR THEIR DESTINATION 2 ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity17" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosity17</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystemList">
+                <From Source="$Empire.$ColonizedStarSystems"></From>
+            </Var>
+            <!--Increase Pacifist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative13"/>
+            <!--Increase Pacifist-->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative10"/>
+            
+            <Var VarName="$EffectName1"  StringValue="EventEffect23"/>
+            <Var VarName="$EffectName2"  StringValue="EventEffect24"/>
+
+            <Var VarName="$EffectGUID1"/>
+            <Var VarName="$EffectGUID2"/>
+            
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical17BisPopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+
+    <!--#############################-->
+    <!--##       Dig Deeper      ##-->
+    <!--#############################-->
+
+    <QuestDefinition Name="EventCuriosity18" Category="Event" SubCategory="Curiosity" IsInstant="true" TriggeringProbability="0.7" MinimumTurn="50">
+
+        <!--============ TAGS ============-->
+        <Tags>EventCuriosityDiscoveredWithFleet</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$QuestSystem">
+                <From Source="$GameEvent.$StarSystem">
+                    <Where>
+                        <FilterSystemByStatus ColonizationState="NotColonized"/>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$EffectName1"  StringValue="EventEffect16"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyStageScienceAndExploration4</PathPrerequisite>         
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet,PlanetTypeBarren</PathPrerequisite>
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <Sequence>    
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+</Datatable>

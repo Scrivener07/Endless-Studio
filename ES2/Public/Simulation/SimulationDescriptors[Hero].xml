@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassHero" Type="Class">
+        
+        <Property Name="Experience"                     BaseValue="0" IsSealed="true"/>
+        <Property Name="ExperiencePerTurn"              BaseValue="0"/>
+		<Property Name="ExperienceMultiplier"			BaseValue="1"/>
+        <Property Name="NextLevelRequestedExperience"   BaseValue="0"/>
+        <Property Name="Level"                          BaseValue="1" IsSealed="true"/>
+        <Property Name="CompleteSkill"            BaseValue="0"/>
+        <Property Name="Health" MinValue="0" MaxValue="100" BaseValue="100" IsSealed="true"/>
+        <Property Name="HealthPerTurn" BaseValue="5"/>
+
+        <Property Name="AssignmentCooldown" MinValue="0" BaseValue="0" IsSealed="true"/>
+        <Property Name="AssignmentCooldownBaseDuration" BaseValue="8"/>
+		<Property Name="AssignmentCooldownDecrementPerTurn" BaseValue="1" />
+        <Property Name="CanBeAssignedOutOfTerritory" BaseValue="0"/>
+        
+        <Property Name="AssignmentLockdownDuration" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="Upkeep" BaseValue="0"/>
+
+        <Property Name="SkillPoints" BaseValue="0"/>
+        <Property Name="SpecializationPoints" BaseValue="0"/>
+
+        <Property Name="HealthRegenerationRatioFromHero" BaseValue="0"/>
+        <Property Name="ShipManpowerRefillRateFromHero" BaseValue="0"/>
+
+        
+
+        <BinaryModifier TargetProperty="SkillPoints" Operation="Addition" Left="$(Level)" BinaryOperation="Subtraction" Right="1" Path="ClassHero"/>
+        <BinaryModifier TargetProperty="SpecializationPoints" Operation="Addition" Left="$(Level)" BinaryOperation="Division" Right="5" Path="ClassHero"/>
+
+        <Modifier TargetProperty="HealthRegenerationRatio"      Operation="Addition" Value="$(HealthRegenerationRatioFromHero)" Path="./ClassGarrisonFleet/ClassShip"/>
+        <Modifier TargetProperty="NetShipManpower"      Operation="Percent" Value="$(ShipManpowerRefillRateFromHero)" Path="./ClassGarrisonFleet/ClassShip"/>
+        <Modifier TargetProperty="HeroCount" Operation="Addition" Value="1" Path="../ClassEmpire/ClassEducation"/>
+        <Modifier TargetProperty="HeroLevelCount" Operation="Addition" Value="$(Level)" Path="../ClassEmpire/ClassEducation" />
+
+        <!-- Calculate upkeep : HeroUpkeep = 0 + (Level - 1) * (Level / 4) + (2 * Level) + (skillPointsUsed) -->
+        <BinaryModifier TargetProperty="Upkeep" Operation="Addition" Left="$(Level)" BinaryOperation="Subtraction" Right="1" Priority="-3" Path="ClassHero"/>
+        <BinaryModifier TargetProperty="Upkeep" Operation="Multiplication" Left="$(Level)" BinaryOperation="Division" Right="4" Priority="-2" Path="ClassHero"/>
+        <BinaryModifier TargetProperty="Upkeep" Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Level)" Priority="-1" Path="ClassHero"/>
+
+    </SimulationDescriptor>
+    
+    <!-- Status -->
+
+    <SimulationDescriptor Name="HeroAssigned"  Type="Hero" IsSerializable="false">
+        <Property Name="AssignedHero"                   BaseValue="1" />
+
+
+        <!-- TODO : +skill points used -->
+
+        <Modifier TargetProperty="GarrisonMoneyUpkeep"      Operation="Addition" Value="$(Upkeep)" Path="./ClassGarrisonFleet" />
+        <Modifier TargetProperty="SystemMoneyUpkeep"        Operation="Addition" Value="$(Upkeep)" Path="./ClassColonizedStarSystem" />
+
+        <Modifier TargetProperty="ExperiencePerTurn"        Operation="Addition"		Value="1"						Path="ClassHero"/>
+		    <Modifier TargetProperty="ExperiencePerTurn"		    Operation="Multiplication"	Value="$(ExperienceMultiplier)" Path="ClassHero"/>
+		
+		    <!-- To make hero ship upkeep null -->
+		    <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Multiplication" Value="0" Path="./ClassColonizedStarSystem/ClassGarrison/ClassShip,ShipRoleHero" Priority="3"/>
+		    <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Multiplication" Value="0" Path="./ClassGarrisonFleet/ClassShip,ShipRoleHero" Priority="3"/>
+
+        <Modifier TargetProperty="AssignedHeroLevel" Operation="Addition" Value="$(Level)" Path="./ClassColonizedStarSystem/ClassPlanet" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroAssignedToFleet"  Type="Hero" IsSerializable="false">
+    </SimulationDescriptor>
+  
+    <SimulationDescriptor Name="HeroAssignedToSystem"  Type="Hero" IsSerializable="false">
+        <Modifier TargetProperty="AssignedHeroLevel" Operation="Addition" Value="$(Level)" Path="./ClassColonizedStarSystem" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="HeroInjured" Type="HeroInjured"/>
+
+    <SimulationDescriptor Name="HeroAssignationCoolingDown" Type="HeroAssignationCoolingDown"/>
+
+    <SimulationDescriptor Name="HeroClassAdventurer"        Type="HeroClass"/>
+    <SimulationDescriptor Name="HeroClassAdmiral"           Type="HeroClass"/>
+    <SimulationDescriptor Name="HeroClassAdministrator"     Type="HeroClass"/>
+    <SimulationDescriptor Name="HeroClassCorporate"         Type="HeroClass"/>
+
+    <SimulationDescriptor Name="HeroAffinitySophons"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityTerrans"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityCravers"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityVenetians"      Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityVampirilis"     Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityHoratio"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityTimeLords"      Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityUnfallen"      Type="HeroAffinity"/>
+
+    <SimulationDescriptor Name="HeroAffinityAmoeba"         Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityBenthys"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityBots"           Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityDeuyivans"      Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityHaroshems"      Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityHisshos"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityMavros"         Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityPilgrims"       Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityZvali"          Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityGnashasts"      Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityTikanans"       Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityEyders"         Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityNiris"          Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityBhagabas"       Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityRemnant"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityPulsos"        Type="HeroAffinity"/>
+    <SimulationDescriptor Name="HeroAffinityGreenman"       Type="HeroAffinity"/>
+
+    <SimulationDescriptor Name="HeroAffinityPirates"      Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityInsectoids"      Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityAdvanced"      Type="HeroAffinity"/>
+	<SimulationDescriptor Name="HeroAffinityPrimitives"      Type="HeroAffinity"/>
+
+    <SimulationDescriptor Name="HeroAffinityEndless"           Type="HeroAffinity"/>
+    
+    <!-- Hero levels -->
+
+    <SimulationDescriptor Name="HeroLevel00" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel01" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel02" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel03" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel04" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel05" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel06" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel07" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel08" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel09" Type="HeroLevel" IsSerializable="false"/>
+    <SimulationDescriptor Name="HeroLevel10" Type="HeroLevel" IsSerializable="false"/>
+
+    <SimulationDescriptor Name="HeroLastLevel" Type="HeroLastLevel" IsSerializable="false"/>
+
+    <SimulationDescriptor Name="HeroLevelUpRule" Type="HeroLevelUpRule" IsSerializable="false">
+        <BinaryModifier TargetProperty="NextLevelRequestedExperience" Operation="Addition" Left="$(Level)" BinaryOperation="Multiplication" Right="25" Path="ClassHero"/>
+    </SimulationDescriptor>
+      
+</Datatable>

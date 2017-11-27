@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+	<!-- ANARCHY -->
+
+	<GovernmentGuiElement Name="GovernmentAnarchy">
+		<Title>%GovernmentAnarchyTitle</Title>
+		<Description>%GovernmentAnarchyDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentAnarchyLarge" />
+		</Icons>
+		<LeaderFormat>%GovernmentAnarchyFormat</LeaderFormat>
+		<ElectionProcessDescription>%GovernmentAnarchyElectionProcessDescription</ElectionProcessDescription>
+		<LawManagementDescription>%GovernmentAnarchyLawManagementDescription</LawManagementDescription>
+	</GovernmentGuiElement>
+
+	<GovernmentGuiElement Name="GovernmentAnarchyRebellion">
+		<Title>%GovernmentAnarchyTitle</Title>
+		<Description>%GovernmentAnarchyDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentAnarchyLarge" />
+		</Icons>
+		<LeaderFormat>%GovernmentAnarchyFormat</LeaderFormat>
+		<ElectionProcessDescription>%GovernmentAnarchyElectionProcessDescription</ElectionProcessDescription>
+		<LawManagementDescription>%GovernmentAnarchyLawManagementDescription</LawManagementDescription>
+	</GovernmentGuiElement>
+
+	<!-- DEMOCRACY -->
+
+	<GovernmentGuiElement Name="GovernmentDemocracy">
+		<Title>%GovernmentDemocracyTitle</Title>
+		<Description>%GovernmentDemocracyDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentDemocracyLarge" />
+		</Icons>
+		<LeaderFormat>%GovernmentDemocracyFormat</LeaderFormat>
+		<ElectionProcessDescription>%GovernmentDemocracyElectionProcessDescription</ElectionProcessDescription>
+		<LawManagementDescription>%GovernmentDemocracyLawManagementDescription</LawManagementDescription>
+	</GovernmentGuiElement>
+
+    <ExtendedGuiElement Name="GovernmentEconomyEffectDemocracy">
+		<Title>%GovernmentDemocracyTitle</Title>
+		<Description>%GovernmentDemocracyDescription</Description>
+        <!--<TooltipElement>
+            <EffectOverride>%GovernmentEconomyEffectDemocracyEffectOverride</EffectOverride>
+        </TooltipElement>-->
+	</ExtendedGuiElement>
+
+	<!-- DICTATORSHIP -->
+
+	<GovernmentGuiElement Name="GovernmentDictatorship">
+		<Title>%GovernmentDictatorshipTitle</Title>
+		<Description>%GovernmentDictatorshipDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentDictatorshipLarge" />
+		</Icons>
+		<LeaderFormat>%GovernmentDictatorshipFormat</LeaderFormat>
+		<ElectionProcessDescription>%GovernmentDictatorshipElectionProcessDescription</ElectionProcessDescription>
+		<LawManagementDescription>%GovernmentDictatorshipLawManagementDescription</LawManagementDescription>
+	</GovernmentGuiElement>
+
+
+    <GovernmentGuiElement Name="GovernmentDictatorshipCravers">
+        <Title>%GovernmentDictatorshipCraversTitle</Title>
+        <Description>%GovernmentDictatorshipCraversDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentDictatorshipCraversLarge" />
+        </Icons>
+        <LeaderFormat>%GovernmentDictatorshipCraversFormat</LeaderFormat>
+        <ElectionProcessDescription>%GovernmentDictatorshipCraversElectionProcessDescription</ElectionProcessDescription>
+        <LawManagementDescription>%GovernmentDictatorshipCraversLawManagementDescription</LawManagementDescription>
+    </GovernmentGuiElement>
+
+
+	<ExtendedGuiElement Name="GovernmentEconomyEffectDictatorship">
+		<Title>%GovernmentDictatorshipTitle</Title>
+		<Description>%GovernmentDictatorshipDescription</Description>
+        <TooltipElement>
+            <EffectOverride>%GovernmentEconomyEffectDictatorshipEffectOverride</EffectOverride>
+        </TooltipElement>
+	</ExtendedGuiElement>
+
+	<!-- EMPIRE -->
+
+	<GovernmentGuiElement Name="GovernmentEmpire">
+		<Title>%GovernmentEmpireTitle</Title>
+		<Description>%GovernmentEmpireDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentEmpireLarge" />
+		</Icons>
+		<LeaderFormat>%GovernmentEmpireFormat</LeaderFormat>
+		<ElectionProcessDescription>%GovernmentEmpireElectionProcessDescription</ElectionProcessDescription>
+		<LawManagementDescription>%GovernmentEmpireLawManagementDescription</LawManagementDescription>
+	</GovernmentGuiElement>
+
+
+    <ExtendedGuiElement Name="GovernmentEconomyEffectEmpire">
+		<Title>%GovernmentEmpireTitle</Title>
+		<Description>%GovernmentEmpireDescription</Description>
+        <!--<TooltipElement>
+            <EffectOverride>%GovernmentEconomyEffectEmpireEffectOverride</EffectOverride>
+        </TooltipElement>-->
+	</ExtendedGuiElement>
+
+	<!-- REPUBLIC -->
+
+	<GovernmentGuiElement Name="GovernmentRepublic">
+		<Title>%GovernmentRepublicTitle</Title>
+		<Description>%GovernmentRepublicDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Governments/GovernmentRepublicLarge" />
+		</Icons>
+		<LeaderFormat>%GovernmentRepublicFormat</LeaderFormat>
+		<ElectionProcessDescription>%GovernmentRepublicElectionProcessDescription</ElectionProcessDescription>
+		<LawManagementDescription>%GovernmentRepublicawManagementDescription</LawManagementDescription>
+	</GovernmentGuiElement>
+
+    <ExtendedGuiElement Name="GovernmentEconomyEffectRepublic">
+		<Title>%GovernmentRepublicTitle</Title>
+		<Description>%GovernmentRepublicDescription</Description>
+        <!--<TooltipElement>
+            <EffectOverride>%GovernmentEconomyEffectRepublicEffectOverride</EffectOverride>
+        </TooltipElement>-->
+	</ExtendedGuiElement>
+
+
+</Datatable>

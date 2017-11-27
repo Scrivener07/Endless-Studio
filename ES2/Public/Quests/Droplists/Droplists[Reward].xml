@@ -1,0 +1,2183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Droplist.xsd">
+
+    <!--###############################-->   
+    <!--## BASIC DROPLIST: PRESTIGE ##-->
+    <!--###############################-->
+
+    <Droplist Name="DroplistPrestige" Selector="TurnProgression">
+        <List Name="DroplistPrestigeEra1" MaxTurn="50"/>
+        <List Name="DroplistPrestigeEra2" MaxTurn="100"/>
+        <List Name="DroplistPrestigeEra3" MaxTurn="150"/>
+        <List Name="DroplistPrestigeEra4" MaxTurn="200"/>
+        <List Name="DroplistPrestigeEra5"/>
+    </Droplist>
+
+    <Droplist Name="DroplistPrestigeEra1" Selector="Weighted">
+        <Resource Name="EmpireEmpirePoint" Quantity="50" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="60" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="80" Weight="1" />
+    </Droplist>
+
+    <Droplist Name="DroplistPrestigeEra2" Selector="Weighted">
+        <Resource Name="EmpireEmpirePoint" Quantity="80" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="110" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="150" Weight="1" />
+    </Droplist>
+    
+    <Droplist Name="DroplistPrestigeEra3" Selector="Weighted">
+        <Resource Name="EmpireEmpirePoint" Quantity="120" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="180" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="200" Weight="1" />
+    </Droplist>
+
+    <Droplist Name="DroplistPrestigeEra4" Selector="Weighted">
+        <Resource Name="EmpireEmpirePoint" Quantity="250" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="300" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="400" Weight="1" />
+    </Droplist>
+
+    <Droplist Name="DroplistPrestigeEra5" Selector="Weighted">
+        <Resource Name="EmpireEmpirePoint" Quantity="500" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="600" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="800" Weight="1" />
+    </Droplist>
+    
+    <!--###############################-->
+    <!--## BASIC DROPLIST: MONEY ##-->
+    <!--###############################-->
+    
+    <Droplist Name="DroplistMoney" Selector="TurnProgression">
+        <List Name="DroplistMoneyEra1" MaxTurn="50"/>
+        <List Name="DroplistMoneyEra2" MaxTurn="100"/>
+        <List Name="DroplistMoneyEra3" MaxTurn="150"/>
+        <List Name="DroplistMoneyEra4" MaxTurn="200"/>
+        <List Name="DroplistMoneyEra5"/>
+    </Droplist>
+
+    <Droplist Name="DroplistMoneyEra1" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="100" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="150" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="200" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistMoneyEra2" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="200" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="300" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="400" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistMoneyEra3" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="400" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="800" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="1000" Weight="1"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistMoneyEra4" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="1000" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="1500" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="2000" Weight="1"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistMoneyEra5" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="2000" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="2500" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="3000" Weight="1"/>
+    </Droplist>
+
+
+    <!--########################################-->
+    <!--#### REGULAR DEEDS RESOURCE REWARDS ####-->
+    <!--########################################-->
+
+    <!--Military Quadrant-->
+    <Droplist Name="DroplistRegularDeedsStage2Quadrant1" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="500" Weight="1"/>
+        <Resource Name="Strategic1"  Quantity="75"  Weight="2"/>
+        <Resource Name="Strategic2"  Quantity="75"  Weight="2"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRegularDeedsStage3Quadrant1" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="1000" Weight="1"/>
+        <Resource Name="Strategic1"  Quantity="100"  Weight="2"/>
+        <Resource Name="Strategic2"  Quantity="100"  Weight="2"/>
+        <Resource Name="Strategic3"  Quantity="75"   Weight="2"/>
+        <Resource Name="Strategic4"  Quantity="75"   Weight="2"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage4Quadrant1" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="2000" Weight="1"/>
+        <Resource Name="Strategic3"  Quantity="100"  Weight="2"/>
+        <Resource Name="Strategic4"  Quantity="100"  Weight="2"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage5Quadrant1" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="4000" Weight="1"/>
+        <Resource Name="Strategic5"  Quantity="75"   Weight="2"/>
+        <Resource Name="Strategic6"  Quantity="75"   Weight="2"/>
+    </Droplist>
+
+    <!--Economy & Trade Quadrant-->
+    <Droplist Name="DroplistRegularDeedsStage2Quadrant2" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="500" Weight="4"/>
+        <Resource Name="Strategic1"  Quantity="75"  Weight="1"/>
+        <Resource Name="Strategic2"  Quantity="75"  Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage3Quadrant2" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="1000" Weight="8"/>
+        <Resource Name="Strategic1"  Quantity="100"  Weight="1"/>
+        <Resource Name="Strategic2"  Quantity="100"  Weight="1"/>
+        <Resource Name="Strategic3"  Quantity="75"   Weight="1"/>
+        <Resource Name="Strategic4"  Quantity="75"   Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage4Quadrant2" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="2000" Weight="4"/>
+        <Resource Name="Strategic3"  Quantity="100"  Weight="1"/>
+        <Resource Name="Strategic4"  Quantity="100"  Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage5Quadrant2" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="4000" Weight="4"/>     
+        <Resource Name="Strategic5"  Quantity="100"  Weight="1"/>
+        <Resource Name="Strategic6"  Quantity="100"  Weight="1"/>
+    </Droplist>
+
+    <!--Science & Explo Quadrant-->
+    <Droplist Name="DroplistRegularDeedsStage2Quadrant3" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireResearch" Quantity="200" Weight="16"/>
+        <Resource Name="Luxury1"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury2"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury3"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury4"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury5"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury6"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury7"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury8"  Quantity="60" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage3Quadrant3" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireResearch" Quantity="500" Weight="32"/>  
+        <Resource Name="Luxury1"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury2"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury3"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury4"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury5"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury6"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury7"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury8"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury9"  Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury10" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury11" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury12" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury13" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury14" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury15" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury16" Quantity="60"  Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage4Quadrant3" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireResearch" Quantity="1500" Weight="32"/>
+        <Resource Name="Luxury9"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury10" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury11" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury12" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury13" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury14" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury15" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury16" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury17" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury18" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury19" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury20" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury21" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury22" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury23" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury24" Quantity="60"  Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage5Quadrant3" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireResearch" Quantity="3000" Weight="32"/>
+        <Resource Name="Luxury9"  Quantity="200" Weight="1"/>
+        <Resource Name="Luxury10" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury11" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury12" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury13" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury14" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury15" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury16" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury17" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury18" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury19" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury20" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury21" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury22" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury23" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury24" Quantity="100" Weight="1"/>
+    </Droplist>
+
+    <!--Empire Development-->
+    <Droplist Name="DroplistRegularDeedsStage2Quadrant4" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="250" Weight="8"/>     
+        <Resource Name="Luxury1"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury2"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury3"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury4"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury5"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury6"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury7"  Quantity="60" Weight="1"/>
+        <Resource Name="Luxury8"  Quantity="60" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage3Quadrant4" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="500" Weight="16"/>
+        <Resource Name="Luxury1"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury2"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury3"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury4"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury5"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury6"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury7"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury8"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury9"  Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury10" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury11" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury12" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury13" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury14" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury15" Quantity="60"  Weight="1"/>
+        <Resource Name="Luxury16" Quantity="60"  Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage4Quadrant4" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="1000" Weight="16" />
+        <Resource Name="Luxury9"  Quantity="100" Weight="1"/>
+        <Resource Name="Luxury10" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury11" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury12" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury13" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury14" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury15" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury16" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury17" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury18" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury19" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury20" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury21" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury22" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury23" Quantity="60" Weight="1"/>
+        <Resource Name="Luxury24" Quantity="60" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRegularDeedsStage5Quadrant4" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="2000" Weight="16" />
+        <Resource Name="Luxury9"  Quantity="200" Weight="1"/>
+        <Resource Name="Luxury10" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury11" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury12" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury13" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury14" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury15" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury16" Quantity="200" Weight="1"/>
+        <Resource Name="Luxury17" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury18" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury19" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury20" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury21" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury22" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury23" Quantity="100" Weight="1"/>
+        <Resource Name="Luxury24" Quantity="100" Weight="1"/>
+    </Droplist>
+    
+    
+    <!--###############################-->
+    <!--## BASIC DROPLIST: STRATEGIC ##-->
+    <!--###############################-->
+
+    <Droplist Name="DroplistStrategics" Selector="TurnProgression">
+        <List Name="DroplistStrategicsEra1" MaxTurn="50"/>
+        <List Name="DroplistStrategicsEra2" MaxTurn="100"/>
+        <List Name="DroplistStrategicsEra3" MaxTurn="150"/>
+        <List Name="DroplistStrategicsEra4" MaxTurn="200"/>
+        <List Name="DroplistStrategicsEra5"/>
+    </Droplist>
+
+    <Droplist Name="DroplistStrategicsEra1" Selector="Weighted">
+        <Resource Name="Strategic1" Quantity="30" Weight="8"/>
+        <Resource Name="Strategic2" Quantity="30" Weight="8"/>
+    </Droplist>
+
+    <Droplist Name="DroplistStrategicsEra2" Selector="Weighted">
+        <Resource Name="Strategic1" Quantity="50" Weight="8"/>
+        <Resource Name="Strategic2" Quantity="50" Weight="8"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistStrategicsEra3" Selector="Weighted">
+        <Resource Name="Strategic1" Quantity="75" Weight="4"/>    
+        <Resource Name="Strategic2" Quantity="75" Weight="4"/>
+        <Resource Name="Strategic3" Quantity="50" Weight="8"/>
+        <Resource Name="Strategic4" Quantity="50" Weight="8"/>
+    </Droplist>
+
+    <Droplist Name="DroplistStrategicsEra4" Selector="Weighted">
+        <Resource Name="Strategic1" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic2" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic3" Quantity="75" Weight="8"/>
+        <Resource Name="Strategic4" Quantity="75" Weight="8"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistStrategicsEra5" Selector="Weighted">     
+        <Resource Name="Strategic3" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic4" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic5" Quantity="50" Weight="8"/>
+        <Resource Name="Strategic6" Quantity="50" Weight="8"/>
+    </Droplist>
+
+    <!--###############################-->
+    <!--## BASIC DROPLIST: LUXURY ##-->
+    <!--###############################-->
+    
+    <Droplist Name="DroplistLuxuries" Selector="TurnProgression">
+        <List Name="DroplistLuxuriesEra1" MaxTurn="50"/>
+        <List Name="DroplistLuxuriesEra2" MaxTurn="100"/>
+        <List Name="DroplistLuxuriesEra3" MaxTurn="150"/>
+        <List Name="DroplistLuxuriesEra4" MaxTurn="200"/>
+        <List Name="DroplistLuxuriesEra5"/>
+    </Droplist>
+    
+    <!--## BASIC DROPLIST: LUXURY ERA 1 ##-->
+    <Droplist Name="DroplistLuxuriesEra1" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="Luxury1" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury2" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury3" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury4" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury5" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury6" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury7" Quantity="30" Weight="8"/>
+        <Resource Name="Luxury8" Quantity="30" Weight="8"/>
+    </Droplist>
+
+    <!--## BASIC DROPLIST: LUXURY ERA 2 ##-->
+    <Droplist Name="DroplistLuxuriesEra2" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="Luxury1" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury2" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury3" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury4" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury5" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury6" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury7" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury8" Quantity="60" Weight="8"/>
+    </Droplist>
+
+    <!--## BASIC DROPLIST: LUXURY ERA 3 ##-->
+    <Droplist Name="DroplistLuxuriesEra3" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="Luxury1"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury2"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury3"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury4"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury5"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury6"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury7"  Quantity="100" Weight="8"/>
+        <Resource Name="Luxury8"  Quantity="100" Weight="8"/>
+
+        <Resource Name="Luxury9"  Quantity="30" Weight="12"/>
+        <Resource Name="Luxury10" Quantity="30" Weight="12"/>
+        <Resource Name="Luxury11" Quantity="30" Weight="12"/>
+        <Resource Name="Luxury12" Quantity="30" Weight="12"/>
+        <Resource Name="Luxury13" Quantity="30" Weight="12"/>
+        <Resource Name="Luxury14" Quantity="30" Weight="12"/>
+        <Resource Name="Luxury15" Quantity="30" Weight="12"/>
+        <Resource Name="Luxury16" Quantity="30" Weight="12"/>
+    </Droplist>
+
+    <!--## BASIC DROPLIST: LUXURY ERA 4 ##-->
+    <Droplist Name="DroplistLuxuriesEra4" Selector="Weighted" RetryOnFailure="true">
+        
+        <Resource Name="Luxury9"  Quantity="60" Weight="12"/>
+        <Resource Name="Luxury10" Quantity="60" Weight="12"/>
+        <Resource Name="Luxury11" Quantity="60" Weight="12"/>
+        <Resource Name="Luxury12" Quantity="60" Weight="12"/>
+        <Resource Name="Luxury13" Quantity="60" Weight="12"/>
+        <Resource Name="Luxury14" Quantity="60" Weight="12"/>
+        <Resource Name="Luxury15" Quantity="60" Weight="12"/>
+        <Resource Name="Luxury16" Quantity="60" Weight="12"/>
+
+        <Resource Name="Luxury17" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury18" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury19" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury20" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury21" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury22" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury23" Quantity="30" Weight="15"/>
+        <Resource Name="Luxury24" Quantity="30" Weight="15"/>
+    </Droplist>
+
+    <!--## BASIC DROPLIST: LUXURY ERA 5 ##-->
+    <Droplist Name="DroplistLuxuriesEra5" Selector="Weighted" RetryOnFailure="true">
+       
+        <Resource Name="Luxury9"  Quantity="100" Weight="12"/>
+        <Resource Name="Luxury10" Quantity="100" Weight="12"/>
+        <Resource Name="Luxury11" Quantity="100" Weight="12"/>
+        <Resource Name="Luxury12" Quantity="100" Weight="12"/>
+        <Resource Name="Luxury13" Quantity="100" Weight="12"/>
+        <Resource Name="Luxury14" Quantity="100" Weight="12"/>
+        <Resource Name="Luxury15" Quantity="100" Weight="12"/>
+        <Resource Name="Luxury16" Quantity="100" Weight="12"/>
+
+        <Resource Name="Luxury17" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury18" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury19" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury20" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury21" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury22" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury23" Quantity="60" Weight="15"/>
+        <Resource Name="Luxury24" Quantity="60" Weight="15"/>
+    </Droplist>
+
+    <!--####################################-->
+    <!--## BASIC DROPLIST: TECHNOLOGYERA1 ##-->
+    <!--####################################-->
+
+    <Droplist Name="DroplistTechnology" Selector="TurnProgression">
+        <List Name="DroplistTechnologyEra1" MaxTurn="50"/>
+        <List Name="DroplistTechnologyEra2"   MaxTurn="100"/>
+        <List Name="DroplistTechnologyEra3"   MaxTurn="150"/>
+        <List Name="DroplistTechnologyEra4"/>
+    </Droplist>
+
+    <Droplist Name="DroplistTechnologyEra1" Selector="Weighted" RetryOnFailure="true" Fallback="DroplistTechnologyEra2">
+        <!-- Stage 1 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade1"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade1Sophons"                      Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade2"                             Weight="1"/>
+        
+        <Technology Name="TechnologyDefinitionEmpireDevelopment2"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment1"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment1Horatio"                    Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary1"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary1Vampirilis"                          Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary2"                                    Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration1"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration1Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration1TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration2"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration2Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration2TimeLords"              Weight="6"/>
+        
+        <!-- Stage 2 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade3"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade4"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade4TimeLords"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade5"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade5Vampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25TimeLords"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25Unfallen"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25Horatio"                    Weight="1"/>
+
+
+        <Technology Name="TechnologyDefinitionUnique1Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3Horatio"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3Sophons"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment4"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment4Vampirilis"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5Unfallen"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5TimeLords"                  Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary3"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary3Vampirilis"                          Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary4"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary5"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary6"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary6Unfallen"                            Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration25"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration25Unfallen"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration25TimeLords"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration4"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration4Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration4TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5Vampirilis"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28Unfallen"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLords"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLords2"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28Sophons"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28Horatio"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLordsSophons"      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28UnfallenSophons"       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28UnfallenHoratio"       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLordsHoratio"      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28UnfallenTimeLords"     Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLordsTimeLords"    Weight="6"/>
+    </Droplist>
+
+    <Droplist Name="DroplistTechnologyEra2" Selector="Weighted" RetryOnFailure="true" Fallback="DroplistTechnologyEra3">
+        <!-- Stage 2 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade3"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade4"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade4TimeLords"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade5"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade5Vampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25TimeLords"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25Unfallen"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25Horatio"                    Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionUnique1Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique1Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3Horatio"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3Sophons"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment4"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment4Vampirilis"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5Unfallen"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5TimeLords"                  Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary3"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary3Vampirilis"                          Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary4"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary5"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary6"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary6Unfallen"                            Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration25"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration25Unfallen"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration25TimeLords"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration4"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration4Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration4TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration5Vampirilis"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28Unfallen"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLords"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLords2"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28Sophons"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28Horatio"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLordsSophons"      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28UnfallenSophons"       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28UnfallenHoratio"       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLordsHoratio"      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28UnfallenTimeLords"     Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration28TimeLordsTimeLords"    Weight="6"/>
+
+        <!-- Stage 3 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6Venetians"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6Vampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6VampirilisVenetians"          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7Horatio"                      Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7Vampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7VampirilisHoratio"            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8TimeLords"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8Unfallen"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade9"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade11"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade11Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade23"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade23Vampirilis"                  Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17Unfallen"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TimeLords"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17Terrans"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TerransUnfallen"           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TerransTimeLords"          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6Terrans"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6Cravers"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Vampirilis"                            Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary7"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary7Cravers"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary8"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary9"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary10"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary11"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary13"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary13Cravers"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary13Terrans"                            Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration6"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration6Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration6TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7Sophons"                Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7UnfallenSophons"        Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7TimeLordsSophons"       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration8"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration8Horatio"                Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9Vampirilis"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10Unique"                Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10VampirilisUnique"      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration26"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration26TimeLords"             Weight="6"/>
+    </Droplist>
+
+    <Droplist Name="DroplistTechnologyEra3" Selector="Weighted" RetryOnFailure="true" Fallback="DroplistTechnologyEra4">
+        <!-- Stage 3 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6Venetians"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6Vampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6VampirilisVenetians"          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7Horatio"                      Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7Vampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7VampirilisHoratio"            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8TimeLords"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8Unfallen"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade9"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade11"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade11Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade23"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade23Vampirilis"                  Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17Unfallen"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TimeLords"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17Terrans"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TerransUnfallen"           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TerransTimeLords"          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6Terrans"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6Cravers"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique2Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique3Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique4Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique5Vampirilis"                            Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary7"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary7Cravers"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary8"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary9"                                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary10"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary11"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary13"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary13Cravers"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary13Terrans"                            Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration6"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration6Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration6TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7Sophons"                Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7UnfallenSophons"        Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration7TimeLordsSophons"       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration8"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration8Horatio"                Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9"                       Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9Vampirilis"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9Unfallen"               Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration9TimeLords"              Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10Unique"                Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration10VampirilisUnique"      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration26"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration26TimeLords"             Weight="6"/>
+
+        <!-- Stage 4 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade12"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade12Venetians"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade14"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade14Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade15"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade16"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade17"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade26"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade27"                            Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionEmpireDevelopment9"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment11"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12Unfallen"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12Venetians"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Cravers"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Horatio"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Terrans"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10TimeLords"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Unfallen"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Venetians"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Vampirilis"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8CraversVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8HoratioVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8SophonsVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TerransVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TimeLordsVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8UnfallenVampirilis"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8VenetiansVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8VampirilisVampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment18"                          Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary14"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary14Terrans"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary14Unfallen"                           Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary15"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary15Vampirilis"                         Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary16"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary17"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary18"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary19"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary19Cravers"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary20"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary21"                                   Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration11"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration12"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration13"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration13Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration14"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration14Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration16Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration17"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration17Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique10Sophons"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionTimeBubble1"                                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration31"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration31Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration31TimeLords"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration32"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration32Vampirilis"            Weight="6"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistTechnologyEra4" Selector="Weighted" RetryOnFailure="true" Fallback="DroplistStrategics">
+        <!-- Stage 4 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade12"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade12Venetians"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade14Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade15"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade16"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade17"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade26"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade27"                            Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionEmpireDevelopment9"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment11"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12Unfallen"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12Venetians"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Cravers"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Horatio"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Terrans"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10TimeLords"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Unfallen"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Venetians"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Vampirilis"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8CraversVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8HoratioVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8SophonsVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TerransVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TimeLordsVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8UnfallenVampirilis"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8VenetiansVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8VampirilisVampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment18"                          Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary14"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary14Terrans"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary14Unfallen"                           Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary15"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary15Vampirilis"                         Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary16"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary17"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary18"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary19"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary19Cravers"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary20"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary21"                                   Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration11"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration12"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration13"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration13Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration14"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration14Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration16Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration17"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration17Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique10Sophons"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionTimeBubble1"                                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration31"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration31Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration31TimeLords"             Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration32"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration32Vampirilis"            Weight="6"/>
+
+        <!-- Stage 5 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade18"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade19"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade20"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade20Venetians"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade21"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade21Sophons"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade21VampirilisSophons"           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade21Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade22"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade24"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade24Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade24TimeLords"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade24VampirilisTimeLords"         Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionUnique9Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9CraversVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9HoratioVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9SophonsVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9TerransVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9TimeLordsVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9UnfallenVampirilis"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9VenetiansVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique9VampirilisVampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment13"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment13Vampirilis"                Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment14"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment14Vampirilis"                Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment15"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment15Unfallen"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment16"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment16Vampirilis"                Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment16Venetians"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment16VampirilisVenetians"       Weight="1"/>
+
+        <Technology Name="TechnologyDefinitionMilitary22"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary23"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary24"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary25"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary26"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary26Cravers"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary27"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary31"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary31TimeLords"                          Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary32"                                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionMilitary32Cravers"                            Weight="2"/>
+
+        <Technology Name="TechnologyDefinitionScienceAndExploration19Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration20Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration21"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration21Vampirilis"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration22"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration23"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionScienceAndExploration27"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionTimeBubble2"                                  Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistTechnologyEmpireDevelopment" Selector="Weighted" RetryOnFailure="true" Fallback="DroplistStrategics">
+        <!-- Stage 2-->
+        <Technology Name="TechnologyDefinitionUnique1Cravers"                               Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1Horatio"                               Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1Sophons"                               Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1Terrans"                               Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1TimeLords"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1Unfallen"                              Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1Venetians"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionUnique1Vampirilis"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3"                           Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3Horatio"                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment3Sophons"                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment4"                           Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment4Vampirilis"                 Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5"                           Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5Unfallen"                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment5TimeLords"                  Weight="2"/>
+        
+        <!-- Stage 3-->
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17"                          Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17Unfallen"                  Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TimeLords"                 Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17Terrans"                   Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TerransUnfallen"           Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment17TerransTimeLords"          Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6"                           Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6Terrans"                    Weight="6"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment6Cravers"                    Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Cravers"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Horatio"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Sophons"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Terrans"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2TimeLords"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Unfallen"                              Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Venetians"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique2Vampirilis"                            Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Cravers"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Horatio"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Sophons"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Terrans"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3TimeLords"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Unfallen"                              Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Venetians"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique3Vampirilis"                            Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Cravers"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Horatio"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Sophons"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Terrans"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4TimeLords"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Unfallen"                              Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Venetians"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique4Vampirilis"                            Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Cravers"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Horatio"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Sophons"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Terrans"                               Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5TimeLords"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Unfallen"                              Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Venetians"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionUnique5Vampirilis"                            Weight="6"/>
+
+        <!-- Stage 4-->
+        <Technology Name="TechnologyDefinitionEmpireDevelopment9"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment11"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12"                          Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12Unfallen"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment12Venetians"                 Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Cravers"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Horatio"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Terrans"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10TimeLords"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Unfallen"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Venetians"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique10Vampirilis"                           Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique6Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique7Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Cravers"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Horatio"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Sophons"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Terrans"                               Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TimeLords"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Unfallen"                              Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Venetians"                             Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8Vampirilis"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8CraversVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8HoratioVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8SophonsVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TerransVampirilis"                     Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8TimeLordsVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8UnfallenVampirilis"                    Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8VenetiansVampirilis"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionUnique8VampirilisVampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEmpireDevelopment18"                          Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistTechnologyEconomyAndTrade" Selector="Weighted" RetryOnFailure="true" Fallback="DroplistStrategics">
+        <!-- Stage 2 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade3"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade4"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade4TimeLords"                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade5"                             Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade5Vampirilis"                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25"                            Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25TimeLords"                   Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25Unfallen"                    Weight="2"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25Horatio"                    Weight="1"/>
+
+        <!-- Stage 3 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6Venetians"                    Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6Vampirilis"                   Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade6VampirilisVenetians"          Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7Horatio"                      Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7Vampirilis"                   Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade7VampirilisHoratio"            Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8TimeLords"                    Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade8Unfallen"                     Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade9"                             Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade11"                            Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade11Vampirilis"                  Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade23"                            Weight="6"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade23Vampirilis"                  Weight="6"/>
+
+        <!-- Stage 4 -->
+        <Technology Name="TechnologyDefinitionEconomyAndTrade12"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade12Venetians"                   Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade13Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade14"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade14Vampirilis"                  Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade15"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade16"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade17"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade26"                            Weight="1"/>
+        <Technology Name="TechnologyDefinitionEconomyAndTrade27"                            Weight="1"/>
+    </Droplist>
+
+    <!--###############################-->
+    <!--##   Exploration Droplist     ##-->
+    <!--###############################-->
+
+    <Droplist Name="DroplistExplorationReward"  Fallback="DroplistMoney">
+        <Technology Name="TechnologyDefinitionQuestPopulation02"/>
+        <!--<Blueprint Name="TechnologyDefinitionQuestPopulation02" ConstructibleName="StarSystemImprovementWonderSower"/> -->
+    </Droplist>
+
+    <!--##  EXPLORATION 03     ##-->
+
+    <!--##   Attacker     ##-->
+
+    <Droplist Name="DroplistPirateAttacker01" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>ShipDesignSmallAttackerPirate01</ShipDesign>
+            <ShipDesign>Sophons_SmallAttack</ShipDesign>
+        </Fleet>
+    </Droplist> 
+
+    <Droplist Name="DroplistPirateAttacker02" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Sophons_SmallAttack</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>Sophons_SmallSupport</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+ <!--##   EXPLORATION 06     ##-->
+    
+    <Droplist Name="DroplistExplorationQuest05" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>HoratioQuest_Explorer</ShipDesign>
+        </Fleet>        
+    </Droplist>
+      <!--##   EXPLORATION 06     ##-->
+    
+    <Droplist Name="DroplistExplorationQuest06" Selector="Weighted" Fallback="DroplistPrestige">
+        <Blueprint Name="TechnologyDefinitionQuestExploration01" ConstructibleName="StarSystemImprovementQuest01"/>
+    </Droplist>
+
+    <!--##  EXPLORATION 07     ##-->
+
+    <!--##   Attacker     ##-->
+
+    <Droplist Name="DroplistShipQuest" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignSmallAttackerPirate01</ShipDesign>
+            <ShipDesign>ShipDesignSmallAttackerPirate01</ShipDesign>
+        </Fleet>        
+    </Droplist>
+
+    <!--##   Attacker     ##-->
+    <Droplist Name="DroplistShip-AcademyQuest03-A-Coop" Picks="1">
+        <Fleet>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>Vampirilis_SmallAttack</ShipDesign>
+        </Fleet>
+    </Droplist>
+    
+
+    <!--##  EXPLORATION 17    ##-->
+
+    <!--##   Attacker     ##-->
+
+    <Droplist Name="DroplistQuest17" Picks="1">
+        <Fleet>
+            <ShipDesign>MFPrimitiveMediumAttackAvg</ShipDesign>            
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistQuest21" Picks="1">
+        <Fleet>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>
+            <ShipDesign>MFInsectoidMediumAttackAvg</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+
+    <!--###############################-->
+    <!--##   POPULATION Droplist     ##-->
+    <!--###############################-->
+    
+  
+    <Droplist Name="DroplistPopulation02" Fallback="DroplistMoney">
+        <Blueprint Name="TechnologyDefinitionQuestPopulation01" ConstructibleName="StarSystemImprovementWonderPopulation02"/>
+    </Droplist>
+
+    <Droplist Name="DroplistPopulation03" Fallback="DroplistMoney">
+        <Blueprint Name="TechnologyDefinitionQuestPopulation03" ConstructibleName="StarSystemImprovementSciencePopulation02"/>
+    </Droplist>
+
+    <!--###############################-->
+    <!--##   MINOR FACTION Droplist  ##-->
+    <!--###############################-->
+
+    <!--## REWARDS ##-->
+    <Droplist Name="DroplistMinorFleet" Picks="1">
+        <Fleet>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>
+        </Fleet>
+    </Droplist>
+    <Droplist Name="DroplistMinorFleet02" Picks="1">
+        <Fleet>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>           
+        </Fleet>
+    </Droplist>
+    
+    <!--## REWARDS ##-->
+    <Droplist Name="DroplistMinorRewards" Selector="TurnProgression">
+        <List Name="DroplistMinorRewardsEra1" MaxTurn="50"/>
+        <List Name="DroplistMinorRewardsEra2" MaxTurn="100"/>
+        <List Name="DroplistMinorRewardsEra3" MaxTurn="150"/>
+        <List Name="DroplistMinorRewardsEra4" MaxTurn="200"/>
+        <List Name="DroplistMinorRewardsEra5"/>
+    </Droplist>
+
+    <Droplist Name="DroplistMinorRewardsEra1" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="80" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="110" Weight="3" />
+
+        <Resource Name="EmpireMoney" Quantity="100" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="150" Weight="5"/>
+        
+        <Resource Name="Strategic1" Quantity="30" Weight="5"/>
+        <Resource Name="Strategic2" Quantity="30" Weight="5"/>
+    </Droplist>
+
+    <Droplist Name="DroplistMinorRewardsEra2" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="50" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="60" Weight="3" />
+
+        <Resource Name="EmpireMoney" Quantity="200" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="300" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="400" Weight="1"/>
+
+        <Resource Name="Strategic1" Quantity="50" Weight="8"/>
+        <Resource Name="Strategic2" Quantity="50" Weight="8"/>
+
+        <Resource Name="Luxury1" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury2" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury3" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury4" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury5" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury6" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury7" Quantity="60" Weight="8"/>
+        <Resource Name="Luxury8" Quantity="60" Weight="8"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistMinorRewardsEra3" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="200" Weight="6" />
+        <Resource Name="EmpireEmpirePoint" Quantity="350" Weight="3" />      
+
+        <Resource Name="EmpireMoney" Quantity="400" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="800" Weight="5"/>       
+
+        <Resource Name="Strategic1" Quantity="75" Weight="4"/>
+        <Resource Name="Strategic2" Quantity="75" Weight="4"/>
+        <Resource Name="Strategic3" Quantity="50" Weight="8"/>
+        <Resource Name="Strategic4" Quantity="50" Weight="8"/>
+
+        <Resource Name="Luxury1" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury2" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury3" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury4" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury5" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury6" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury7" Quantity="80" Weight="8"/>
+        <Resource Name="Luxury8" Quantity="80" Weight="8"/>
+
+        <Resource Name="Luxury9" Quantity="30" Weight="4"/>
+        <Resource Name="Luxury10" Quantity="30" Weight="4"/>
+        <Resource Name="Luxury11" Quantity="30" Weight="4"/>
+        <Resource Name="Luxury12" Quantity="30" Weight="4"/>
+        <Resource Name="Luxury13" Quantity="30" Weight="4"/>
+        <Resource Name="Luxury14" Quantity="30" Weight="4"/>
+    </Droplist>
+
+
+    <Droplist Name="DroplistMinorRewardsEra4" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="250" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="300" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="400" Weight="1" />
+
+        <Resource Name="EmpireMoney" Quantity="1000" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="1500" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="2000" Weight="1"/>
+
+        <Resource Name="Strategic1" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic2" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic3" Quantity="75" Weight="8"/>
+        <Resource Name="Strategic4" Quantity="75" Weight="8"/>
+
+        <Resource Name="Luxury17" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury18" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury19" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury20" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury21" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury22" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury23" Quantity="50" Weight="4"/>
+        <Resource Name="Luxury24" Quantity="50" Weight="4"/>
+    </Droplist>
+
+    <Droplist Name="DroplistMinorRewardsEra5" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireEmpirePoint" Quantity="500" Weight="8" />
+        <Resource Name="EmpireEmpirePoint" Quantity="600" Weight="3" />
+        <Resource Name="EmpireEmpirePoint" Quantity="800" Weight="1" />
+
+        <Resource Name="EmpireMoney" Quantity="2000" Weight="8"/>
+        <Resource Name="EmpireMoney" Quantity="2500" Weight="5"/>
+        <Resource Name="EmpireMoney" Quantity="3000" Weight="1"/>
+
+        <Resource Name="Strategic3" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic4" Quantity="100" Weight="4"/>
+        <Resource Name="Strategic5" Quantity="50" Weight="8"/>
+        <Resource Name="Strategic6" Quantity="50" Weight="8"/>
+
+        <Resource Name="Luxury17" Quantity="60" Weight="4"/>
+        <Resource Name="Luxury18" Quantity="60" Weight="4"/>
+        <Resource Name="Luxury19" Quantity="60" Weight="4"/>
+        <Resource Name="Luxury20" Quantity="60" Weight="4"/>
+        <Resource Name="Luxury21" Quantity="60" Weight="4"/>
+        <Resource Name="Luxury22" Quantity="60" Weight="4"/>
+        <Resource Name="Luxury23" Quantity="25" Weight="4"/>
+        <Resource Name="Luxury24" Quantity="25" Weight="4"/>
+    </Droplist>
+
+
+    <!--## REWARDS ##-->
+    <Droplist Name="DroplistRandomNumber" Picks="1"> 
+        <Integer Value="3" Weight="1"/>
+        <Integer Value="4" Weight="3"/>
+        <Integer Value="5" Weight="3"/>      
+    </Droplist>
+
+    <!--## REWARDS ##-->
+    <Droplist Name="DroplistRandomNumber02" Picks="1">
+        <Integer Value="1" Weight="1"/>
+        <Integer Value="2" Weight="3"/>
+        <Integer Value="3" Weight="3"/>        
+    </Droplist>
+
+    <Droplist Name="DroplistLuxuries02" RetryOnFailure="true">
+        <Resource Name="Luxury1" Quantity="60"/>
+        <Resource Name="Luxury2" Quantity="60"/>
+        <Resource Name="Luxury3" Quantity="60"/>
+        <Resource Name="Luxury4" Quantity="60"/>
+        <Resource Name="Luxury5" Quantity="60"/>
+        <Resource Name="Luxury6" Quantity="60"/>
+        <Resource Name="Luxury7" Quantity="60"/>
+    </Droplist>
+    
+    <!--## FLEET TO DROP ##-->
+    <Droplist Name="PirateFleet" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignSmallAttackerPirate02</ShipDesign>
+        </Fleet>
+    </Droplist>
+   
+    <Droplist Name="ShipToProtect" Picks="1">
+        <Fleet>
+            <ShipDesign>MFInsectoidSmallAttackStrongQuest01</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <!--#######################################-->
+    <!--##   SOPHONS Lore Quest Droplist     ##-->
+    <!--#######################################-->
+
+    <!--CHAPTER 1 - ENFER -->
+    <!--Militarist Ship -->
+    <Droplist Name="ENFERShip00" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignENFERMilitary</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <!-- Exploration Ship -->
+    <Droplist Name="ENFERShip01" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignENFERScience</ShipDesign>
+        </Fleet>
+    </Droplist>
+ 
+    <Droplist Name="DroplistSophonsQuest02">
+        <Unlock Name="EmpireImprovementQuestSophons01" SimulationTag="CompletedSophonsQuest02"/>
+    </Droplist>
+    
+    <!--Chapter1 - Scientist-->
+    <Droplist Name="DroplistSophonsQuest01" Selector="Weighted">
+        <Module Name="TechnologyDefinitionQuestSophons02" ModuleName="ModuleExplorationQuestSophons" Constrained="false"/>
+    </Droplist>       
+    <!--Chapter1 - Pacifist-->
+    
+    <Droplist Name="DroplistSophonsQuest03">
+        <Unlock Name="EmpireImprovementQuestSophons03" SimulationTag="CompletedSophonsQuest03"/>
+    </Droplist>
+
+    <!--CHAPTER 2.3 - Militarist -->
+    <Droplist Name="DroplistMilitarySophonsQuest01" Selector="Weighted">
+        <Blueprint Name="TechnologyDefinitionQuestSophons04" ConstructibleName="StarSystemImprovementDefenseSophons" Constrained="false"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistScienceSophonsQuest02">
+        <Unlock Name="EmpireImprovementQuestSophonsProbe01" SimulationTag="CompletedScienceSophonsQuest02"/>
+    </Droplist>
+    <!--CHAPTER 2.3 - Pacifist -->
+    <Droplist Name="DroplistDiplomacySophonsQuest01" Selector="Weighted">
+        <Blueprint Name="TechnologyDefinitionQuestSophons06" ConstructibleName="StarSystemImprovementPropagandaSophons" Constrained="false"/>
+    </Droplist>
+   
+    <Droplist Name="DroplistRewardQuestSophons08">
+        <Unlock Name="LawP00QuestSophons08" SimulationTag="CompletedQuestSophons08"/>
+    </Droplist>
+   
+    <Droplist Name="DroplistRewardQuestSophons09">
+        <Unlock Name="LawP00QuestSophons09" SimulationTag="CompletedQuestSophons09"/>
+
+    </Droplist>
+   
+    <Droplist Name="DroplistRewardQuestSophons10">
+        <Unlock Name="LawP00QuestSophons10" SimulationTag="CompletedQuestSophons10"/>
+    </Droplist>
+ 
+    <Droplist Name="DroplistRewardQuestSophons11">
+        <Unlock Name="EmpireImprovementQuestSophons11" SimulationTag="CompletedSophonsQuest-Chapter4-Part1-Militarist"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestSophons12">
+        <Unlock Name="EmpireImprovementQuestSophons12" SimulationTag="CompletedSophonsQuest-Chapter4-Part1-Scientist"/>
+    </Droplist>
+   
+    <Droplist Name="DroplistRewardQuestSophons13">
+        <Unlock Name="EmpireImprovementQuestSophons13" SimulationTag="CompletedSophonsQuest-Chapter4-Part1-Pacifist"/>
+    </Droplist>
+
+    <Droplist Name="ENFERFleet01" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Sophons_MediumDefense</ShipDesign>
+            <ShipDesign>Sophons_MediumAttack</ShipDesign>
+            <ShipDesign>Sophons_MediumAttack</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+
+    <!--#######################################-->
+    <!--##   CRAVERS Lore Quest Droplist     ##-->
+    <!--#######################################-->
+
+    <!--CHAPTER 1 - CRAVERS -->
+    <Droplist Name="CraversShip01" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignQuestMediumCravers01</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="CraversShip02" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignQuestMediumCravers02</ShipDesign>
+        </Fleet>
+    </Droplist>  
+
+    <Droplist Name="DroplistCraversReward01">
+        <Unlock Name="EmpireImprovementQuestCravers01"           SimulationTag="CraversQuest-Chapter1.1Reward"/>
+    </Droplist>
+  
+    <!--CHAPTER 1.1 - Religious - CRAVERS-->  
+    <Droplist Name="DroplistCraversReward02">
+        <Unlock Name="StarSystemImprovementQuestRuinsCravers" SimulationTag="CraversQuest-Chapter1.1ReligiousReward"/>        
+    </Droplist>
+
+    <!--CHAPTER 2 - CRAVERS - Industry C1 -->   
+    <Droplist Name="DroplistCraversReward03" Fallback="DroplistLuxuries"> 
+        <Module Name="TechnologyDefinitionQuestCravers05" ModuleName="QuestModuleDefenseShieldEra2Strategic2" Constrained="false"/> 
+    </Droplist>
+       
+    <Droplist Name="DroplistCraversQuestHero01" Selector="Weighted">
+        <Hero Name="QuestHeroEndless01"/>
+    </Droplist>
+    
+     <Droplist Name="DroplistCraversReward04">
+        <Unlock Name="EmpireImprovementQuestCravers03"           SimulationTag="CraversQuest-Chapter3-IndustryC2Reward"/>
+    </Droplist>
+  
+    <Droplist Name="DroplistCraversReward05">
+        <Unlock Name="EmpireImprovementQuestCravers04"           SimulationTag="CraversQuest-Chapter3-IndustryC1Reward"/>
+    </Droplist>
+
+    <!--CHAPTER 4 - CRAVERS - Invade Ending -->
+    <Droplist Name="DroplistCraversReward06" Fallback="DroplistLuxuries">
+        <Unlock Name="EmpireImprovementQuestCravers05"           SimulationTag="CraversQuest-Chapter4-C1Reward"/>        
+    </Droplist>
+    <!--CHAPTER 4 - CRAVERS - Alliance Ending -->
+    <Droplist Name="DroplistCraversReward07" Fallback="DroplistLuxuries">
+        <Unlock Name="EmpireImprovementQuestCravers06"           SimulationTag="CraversQuest-Chapter4-C2Reward"/>        
+    </Droplist>
+    <!--CHAPTER 4 - CRAVERS INDUSTRY -->
+    <Droplist Name="EndlessFleet" Picks="1">
+        <Fleet>
+            <ShipDesign>Cravers_LargeCarrierQuest01</ShipDesign>
+            <ShipDesign>Cravers_MediumAttackQuest01</ShipDesign>
+            <ShipDesign>Cravers_MediumDefenseQuest01</ShipDesign>
+            <ShipDesign>Cravers_SmallSupportQuest01</ShipDesign>
+        </Fleet>
+    </Droplist>
+    
+    <!--#######################################-->
+    <!--##  VAMPIRILIS Lore Quest Droplist   ##-->
+    <!--#######################################-->
+
+    <!--CHAPTER 1 - FLEET TO SPAWN -->
+    <Droplist Name="InsectoidFleet01" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignQuestSmallInsectoid01</ShipDesign>
+            <ShipDesign>ShipDesignQuestSmallInsectoid01</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="PrimitiveFleet01" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignQuestSmallPrimitive01</ShipDesign>
+            <ShipDesign>ShipDesignQuestSmallPrimitive01</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="PirateFleet01" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>ShipDesignSmallAttackerPirate01</ShipDesign>
+            <ShipDesign>ShipDesignSmallAttackerPirate01</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistPacifistChapter1" Selector="Weighted">        
+        <Unlock Name="StarSystemImprovementQuestVampirilis01" SimulationTag="VampirilisQuest-Chapter1-Step2Reward"/>
+    </Droplist>
+
+    <Droplist Name="DroplistScienceChapter1" Selector="Weighted">
+        <Unlock Name="ModuleExplorationQuestVampirilis" SimulationTag="VampirilisQuest-Chapter1-Step2Religious-Reward"/>        
+    </Droplist>   
+
+  <Droplist Name="MotherShip" Picks="1">
+    <Fleet>
+      <ShipDesign>Vampirilis_Mothership</ShipDesign>
+    </Fleet>
+  </Droplist>
+    
+     <!--CHAPTER 2: Manpower Enrollment -->
+
+    <Droplist Name="DroplistVampirilisReward01" Fallback="DroplistLuxuries">        
+        <Unlock Name="EmpireImprovementQuestVampirilis04"           SimulationTag="VampirilisQuest-Chapter2ReligiousReward"/>
+    </Droplist>
+   
+    <!--CHAPTER 2 Step1 : Manpower Refill is better -->
+    <Droplist Name="DroplistVampirilisReward02">
+        <Unlock Name="EmpireImprovementQuestVampirilis05"           SimulationTag="VampirilisQuest-Chapter2Reward"/>
+    </Droplist>
+      <!--CHAPTER 4 Step1 : Academy Subsidiary -->
+    <Droplist Name="DroplistVampirilisReward03">
+        <Unlock Name="StarSystemImprovementQuestVampirilis06"       SimulationTag="VampirilisQuest-Chapter4-Rebellious-Step1Reward"/>
+    </Droplist>
+    <!--CHAPTER 4 Step1 : Avignon Academy -->
+    <Droplist Name="DroplistVampirilisReward04">
+        <Unlock Name="StarSystemImprovementQuestVampirilis07"       SimulationTag="VampirilisQuest-Chapter4-Religious-Step1Reward"/>
+    </Droplist>
+
+    <!--CHAPTER 3 Step1 : Decrease Rebellion and Unhappiness -->
+    <Droplist Name="DroplistVampirilisReward05">
+        <Unlock Name="EmpireImprovementQuestVampirilis08"           SimulationTag="VampirilisQuest-Chapter3-Rebellious-Step2Reward"/>
+    </Droplist>
+
+    <!--CHAPTER 3 Step1 : Increase Happy and Ecstatic -->
+    <Droplist Name="DroplistVampirilisReward06">
+        <Unlock Name="EmpireImprovementQuestVampirilis09"           SimulationTag="VampirilisQuest-Chapter3-ReligiousReward"/>
+    </Droplist>
+
+    <!--CHAPTER 4 Step2 Religious Hero Assignment cooldown = 0 -->
+    <Droplist Name="DroplistVampirilisReward10">
+        <Unlock Name="EmpireImprovementQuestVampirilis10"           SimulationTag="CompletedQuestVenetians10"/>
+    </Droplist>
+
+    <!--CHAPTER 4 Step2 Rebellious : Hero Healing cost -75% -->
+    <Droplist Name="DroplistVampirilisReward11">
+        <Unlock Name="EmpireImprovementQuestVampirilis11"           SimulationTag="CompletedQuestVenetians11"/>
+    </Droplist>
+
+    <!--#######################################-->
+    <!--##  VENETIANS Lore Quest Droplist   ##-->
+    <!--#######################################-->
+
+    <!--Industry Technology: Managing System with Governor-->
+    <Droplist Name="DroplistVenetians01">
+        <Unlock Name="EmpireImprovementQuestVenetians01"           SimulationTag="VenetiansQuest-Chapter1.2-IndustryReward"/>          
+    </Droplist>
+    
+    <!--Dust Constructible: 20% Dust on Home Systems-->
+    <Droplist Name="DroplistVenetians02">
+        <Blueprint Name="TechnologyDefinitionQuestVenetians02" ConstructibleName="StarSystemImprovementQuestVenetians02" Constrained="false"/>       
+    </Droplist>
+
+    <!--Exploration Module-->
+    <Droplist Name="DroplistVenetians03">
+        <Unlock Name="ModuleExplorationQuestVenetians03" SimulationTag="VenetiansQuest-Chapter1.2-Military-Reward"/> 
+    </Droplist>
+
+    <!--Ecologist Law-->  
+    <Droplist Name="DroplistVenetians04">
+        <Unlock Name="LawP03QuestVenetians04" SimulationTag="CompletedQuestVenetians04"/>
+    </Droplist>
+
+    <!--Industrialist law-->  
+    <Droplist Name="DroplistVenetians05">
+        <Unlock Name="LawP01QuestVenetians05" SimulationTag="CompletedQuestVenetians05"/>
+    </Droplist>
+
+    <!--Era2: Anarchy Reduction-->
+    <Droplist Name="DroplistVenetians06">        
+        <Unlock Name="EmpireImprovementQuestVenetians06" SimulationTag="VenetiansQuest-Chapter2.2-EcologistReward"/>     
+    </Droplist>
+    
+    <!--Era2: Happines Requiere to change Gov-->
+    <Droplist Name="DroplistVenetians07">      
+        <Unlock Name="EmpireImprovementQuestVenetians07" SimulationTag="VenetiansQuest-Chapter2.2-IndustryReward"/>
+    </Droplist>
+
+    <!--Era3: Luxury Deposits give +3 Luxuries/turns-->
+    <Droplist Name="DroplistVenetians08">
+        <Unlock Name="EmpireImprovementQuestVenetians08" SimulationTag="VenetiansQuest-Chapter3-Step1Reward"/>      
+    </Droplist>
+    <!--Era3: Overpopulation Reduction-->
+    <Droplist Name="DroplistVenetians09">
+        <Unlock Name="EmpireImprovementQuestVenetians09" SimulationTag="VenetiansQuest-Chapter3-Step1.2Reward"/>       
+    </Droplist>
+
+    <Droplist Name="DroplistVenetians10">
+        <Unlock Name="StarSystemImprovementQuestVenetians10" SimulationTag="CompletedQuest_Venetians10"/>
+    </Droplist>
+
+    <Droplist Name="DroplistVenetians11">
+        <Unlock Name="StarSystemImprovementQuestVenetians11" SimulationTag="CompletedQuest_Venetians11"/>
+    </Droplist>
+
+    <Droplist Name="DroplistVenetians12">
+        <Unlock Name="StarSystemImprovementQuestVenetians12" SimulationTag="CompletedQuest_Venetians12"/>
+    </Droplist>
+
+    <Droplist Name="DroplistVenetians13">
+        <Unlock Name="StarSystemImprovementQuestVenetians13" SimulationTag="CompletedQuest_Venetians13"/>
+    </Droplist>    
+
+    <!--##   Attacker     ##-->
+
+    <Droplist Name="TutorialDroplist01" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Sophons_Explorer_Tutorial</ShipDesign>            
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="TutorialDroplist02" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Cravers_MediumAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_MediumAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_MediumDefense_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_LargeCarrier_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_LargeCarrier_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_SmallAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_SmallAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Cravers_SmallAttack_Gamescom2016</ShipDesign>         
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="TutorialDroplist03" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Sophons_SmallAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Sophons_SmallAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Sophons_MediumAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Sophons_MediumAttack_Gamescom2016</ShipDesign>
+            <ShipDesign>Sophons_LargeCarrier_Gamescom2016</ShipDesign>            
+        </Fleet>
+    </Droplist>
+
+    <!--<Droplist Name="TutorialDroplist03" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Cravers_Invader</ShipDesign>           
+            <ShipDesign>Cravers_Invader</ShipDesign>          
+            <ShipDesign>Cravers_LargeCarrier</ShipDesign>            
+            <ShipDesign>Cravers_SmallAttack</ShipDesign>
+        </Fleet>
+    </Droplist>-->
+
+    
+    <!--#############################################-->
+    <!--############### UNITED EMPIRE ###############-->
+    <!--#############################################-->
+
+    <!--Chapter 1.1 Militarist-->
+    
+    <Droplist Name="DroplistRewardQuestUnitedEmpire01">
+        <Unlock Name="EmpireImprovementQuestUnitedEmpire01" SimulationTag="CompletedQuestUnitedEmpire01"/>
+    </Droplist>
+    <!--Chapter 1.1 Scientist-->
+ 
+    <Droplist Name="DroplistRewardQuestUnitedEmpire02">
+        <Unlock Name="EmpireImprovementQuestUnitedEmpire02" SimulationTag="CompletedQuestUnitedEmpire02"/>
+    </Droplist>
+
+    <!--Chapter 1.2 Militarist-->
+    <Droplist Name="DroplistUnitedEmpireQuest-Chapter1-Part2-Militarist" Selector="Weighted">
+        <Hero Name="HeroTerransQuest01"/>
+    </Droplist>
+    <!--Chapter 1.2 Industrialist-->
+    <Droplist Name="DroplistUnitedEmpireQuest-Chapter1-Part2-Industrialist" Selector="Weighted">
+        <Hero Name="HeroTerransQuest02"/>
+    </Droplist>
+    <!--Chapter 1.2 Scientist-->
+    <Droplist Name="DroplistUnitedEmpireQuest-Chapter1-Part2-Scientist" Selector="Weighted">
+        <Hero Name="HeroTerransQuest03"/>
+    </Droplist>
+
+    <!--Chapter 2.1 Militarist-->
+    <Droplist Name="DroplistUnitedEmpire03">
+        <Module Name="TechnologyDefinitionQuestUE03" ModuleName="ModuleWeaponLaserQuestUE03" Constrained="false"/>
+    </Droplist>
+    <!--Chapter 2.1 Industrialist-->
+    <Droplist Name="DroplistUnitedEmpire04" Fallback="DroplistStrategics">
+        <Blueprint Name="TechnologyDefinitionQuestUE04" ConstructibleName="StarSystemImprovementQuestUE04" Constrained="false"/>
+    </Droplist>
+    <!--Chapter 2.1 Scientist-->
+    <Droplist Name="DroplistUnitedEmpire05" Fallback="DroplistStrategics">
+        <Blueprint Name="TechnologyDefinitionQuestUE05" ConstructibleName="StarSystemImprovementQuestUE05" Constrained="false"/>
+    </Droplist>
+
+    <!--Chapter 3 Militarist-->   
+    <Droplist Name="DroplistRewardQuestUnitedEmpire07">
+        <Unlock Name="EmpireImprovementQuestUnitedEmpire07" SimulationTag="CompletedQuestUnitedEmpire07"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestUnitedEmpire07Faction">
+        <Faction FactionName="FactionSheredyn" Title="%UE_Quest-Chapter3-C1_Reward"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistUnitedEmpire13">
+        <Module Name="TechnologyDefinitionQuestUE06" ModuleName="ModuleQuestUnitedEmpire01" Constrained="false"/>
+    </Droplist>
+    
+    <!--Chapter 3 Industrialist-->    
+    <Droplist Name="DroplistRewardQuestUnitedEmpire08">
+        <Unlock Name="EmpireImprovementQuestUnitedEmpire08" SimulationTag="CompletedQuestUnitedEmpire08"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestUnitedEmpire08Faction">
+        <Faction FactionName="FactionTerrans" Title="%UE_Quest-Chapter3-C2_Reward"/>
+    </Droplist>
+    
+    <!--Chapter 3 Scientist-->    
+    <Droplist Name="DroplistRewardQuestUnitedEmpire09">
+        <Unlock Name="EmpireImprovementQuestUnitedEmpire09" SimulationTag="CompletedQuestUnitedEmpire09"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnitedEmpire09Faction">
+        <Faction FactionName="FactionMezari" Title="%UE_Quest-Chapter3-C3_Reward"/>
+    </Droplist>
+    
+    <!--Chapter 4 Militarist-->
+    <Droplist Name="DroplistRewardQuestUnitedEmpire10" Selector="Weighted">
+        <Technology Name="TechnologyDefinitionQuestUnitedEmpire10" Weight="1"/>
+    </Droplist>
+    <!--Chapter 4 Industrialist-->
+    
+    <Droplist Name="DroplistUnitedEmpireQuest-Chapter4-Part1-Industrialist" Fallback="DroplistLuxuries">
+        <Unlock Name="StarSystemImprovementQuestUnitedEmpire11" SimulationTag="CompletedQuestUnitedEmpire11Bis"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestUnitedEmpire11"  Selector="Weighted">
+        <Unlock Name="EmpireImprovementQuestUnitedEmpire11" SimulationTag="CompletedQuestUnitedEmpire11"/>
+    </Droplist>
+  
+    <!--Chapter 4 Scientist-->
+    <Droplist Name="DroplistRewardQuestUnitedEmpire12" Fallback="DroplistLuxuries">
+        <Unlock Name="StarSystemImprovementQuestUnitedEmpire12" SimulationTag="CompletedQuestUnitedEmpire12"/>
+    </Droplist>  
+
+    <Droplist Name="DroplistUnitedEmpirePrequel-Tutorial-Fleet1" Picks="1">
+        <Fleet>
+            <ShipDesign>Terrans_Colonizer</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistUnitedEmpirePrequel-Tutorial-Fleet2" Picks="1">
+        <Fleet>
+            <ShipDesign>Terrans_Explorer</ShipDesign>
+        </Fleet>
+    </Droplist>
+    
+
+    <!--#######################################-->
+    <!--## HORATIO EMPIRE Lore Quest Droplist##-->
+    <!--#######################################-->
+
+    <Droplist Name="DroplistSpawnHoratioQuestFleet01" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>    
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistSpawnHoratioQuestFleet02" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>
+            <ShipDesign>HoratioQuest_SmallAttacker</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <!--CH1 - Ecologist: System Improvement-->
+    <Droplist Name="DroplistRewardQuestHoratio01">
+        <Unlock Name="StarSystemImprovementQuestHoratio01" SimulationTag="CompletedQuestHoratio01"/>
+    </Droplist>
+    <!--CH1 - Religious: System Improvement-->
+    <Droplist Name="DroplistRewardQuestHoratio02">
+        <Unlock Name="StarSystemImprovementQuestHoratio02" SimulationTag="CompletedQuestHoratio02"/>
+    </Droplist>
+    <!--CH1 - Industrialist: System Improvement-->
+    <Droplist Name="DroplistRewardQuestHoratio03">
+        <Unlock Name="StarSystemImprovementQuestHoratio03" SimulationTag="CompletedQuestHoratio03"/>
+    </Droplist>
+
+    <!--CH2 - Religious & Industrialist: -->
+    <Droplist Name="DroplistRewardQuestHoratio04" Selector="Weighted">
+        <Hero Name="HeroQuestHoratio04" Spawn="true" Level="5"/>
+    </Droplist>
+    <!--CH2 - Industrialist-->
+    <Droplist Name="DroplistRewardQuestHoratio05">
+        <Unlock Name="EmpireImprovementQuestHoratio05" SimulationTag="CompletedQuestHoratio05"/>
+    </Droplist>
+
+    <!--CH3 - P2 - ECOLOGIST-->
+    <Droplist Name="DroplistRewardQuestHoratio06">
+        <Unlock Name="StarSystemImprovementQuestHoratio06" SimulationTag="CompletedQuestHoratio06"/>
+    </Droplist>
+
+    <!--CH3 - P2 - RELIGIOUS-->
+    <Droplist Name="DroplistRewardQuestHoratio07">
+        <Unlock Name="StarSystemImprovementQuestHoratio07" SimulationTag="CompletedQuestHoratio07"/>
+    </Droplist>
+    
+    <!--CH3 - P2 - INDUSTRY-->
+    <Droplist Name="DroplistRewardQuestHoratio08">
+        <Unlock Name="StarSystemImprovementQuestHoratio08" SimulationTag="CompletedQuestHoratio08"/>
+    </Droplist>
+
+    <!--PREQUEL - TUTO - UNITED EMPIRE-->
+    <Droplist Name="DroplistRewardQuestHoratio09" Selector="Weighted">
+        <Hero Name="HeroHoratio02" Spawn="true" Level="10"/>
+    </Droplist>
+    <Droplist Name="DroplistRewardQuestHoratio10" Selector="Weighted">
+        <Hero Name="HeroHoratio03" Spawn="true" Level="10"/>
+    </Droplist>
+    <Droplist Name="DroplistRewardQuestHoratio11" Selector="Weighted">
+        <Hero Name="HeroHoratio04" Spawn="true" Level="10"/>
+    </Droplist>  
+    
+    <!--PREQUEL - TUTO - UNITED EMPIRE-->
+    <Droplist Name="DroplistRewardTutoQuestUnitedEmpireHero" Selector="Weighted">
+        <Hero Name="HeroTerrans04" Spawn="true" Level="1"/>
+    </Droplist>
+
+    
+    <!--#######################################-->
+    <!--#TIMELORDS EMPIRE Lore Quest Droplist #-->
+    <!--#######################################-->
+
+    <!--CH1 - PACIFIST: System Improvement: +15 Happiness if non-TL on a System-->
+    <Droplist Name="DroplistRewardQuestTimeLords01">
+        <Unlock Name="StarSystemImprovementQuestTimeLords01" SimulationTag="CompletedQuestTimeLords01"/>
+    </Droplist>
+
+    <!--CH1 - ECOLOGIST: System Improvement: +10 Happiness if TL on a System-->
+    <Droplist Name="DroplistRewardQuestTimeLords02">
+        <Unlock Name="StarSystemImprovementQuestTimeLords02" SimulationTag="CompletedQuestTimeLords02"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestTimeLords03">
+        <Unlock Name="LawP00QuestTimeLords01" SimulationTag="CompletedQuestTimeLords03"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords04">
+        <Unlock Name="LawP00QuestTimeLords02" SimulationTag="CompletedQuestTimeLords04"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords05">
+        <Unlock Name="EmpireImprovementQuestTimeLords05" SimulationTag="CompletedQuestTimeLords05"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords06">
+        <Unlock Name="EmpireImprovementQuestTimeLords06" SimulationTag="CompletedQuestTimeLords06"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestTimeLords07">
+        <Unlock Name="EmpireImprovementQuestTimeLords07" SimulationTag="CompletedQuestTimeLords07"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords08">
+        <Unlock Name="EmpireImprovementQuestTimeLords08" SimulationTag="CompletedQuestTimeLords08"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords09">
+        <Unlock Name="EmpireImprovementQuestTimeLords09" SimulationTag="CompletedQuestTimeLords09"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords10">
+        <Unlock Name="EmpireImprovementQuestTimeLords10" SimulationTag="CompletedQuestTimeLords10"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestTimeLords11">
+        <Unlock Name="EmpireImprovementQuestTimeLords11" SimulationTag="CompletedQuestTimeLords11"/>
+    </Droplist>
+
+    <Droplist Name="DroplistVirusQuestHero01" Selector="Weighted">
+        <Hero Name="HeroQuestVirus01"/>
+    </Droplist>
+
+    <Droplist Name="DroplistFleetQuestTimeLords01" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>TimeLords_MediumAttack</ShipDesign>
+            <ShipDesign>TimeLords_MediumDefense</ShipDesign>
+            <ShipDesign>TimeLords_SmallAttack</ShipDesign>
+            <ShipDesign>TimeLords_SmallAttack</ShipDesign>
+            <ShipDesign>TimeLords_SmallAttack</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistFleetQuestTimeLords02" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>TimeLords_LargeCarrier</ShipDesign>
+            <ShipDesign>TimeLords_SmallSupport</ShipDesign>
+            <ShipDesign>TimeLords_SmallSupport</ShipDesign>
+            <ShipDesign>TimeLords_SmallAttack</ShipDesign>
+            <ShipDesign>TimeLords_SmallAttack</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+     <!--#######################################-->
+    <!--#TIMELORDS EMPIRE Lore Quest Droplist #-->
+    <!--#######################################-->
+
+    <!--CH1 - PACIFIST: System Improvement: +15 Happiness if non-TL on a System-->
+    <Droplist Name="DroplistFleetQuestUnfallen01">
+        <Fleet>
+            <ShipDesign>MFPrimitiveSmallAttackStrong</ShipDesign>
+            <ShipDesign>MFInsectoidSmallAttackAvg</ShipDesign>            
+        </Fleet>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestUnfallen02">
+        <Unlock Name="ModuleSupportJournalistQuest1" SimulationTag="CompletedQuestUnfallen02"/>
+    </Droplist>
+    
+    <Droplist Name="DroplistRewardQuestUnfallen03">
+        <Unlock Name="ModuleWeaponKineticQuest1" SimulationTag="CompletedQuestUnfallen03"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnfallen04">
+        <Unlock Name="StarSystemImprovementQuestUnfallen04" SimulationTag="CompletedQuestUnfallen04"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnfallen05">
+        <Unlock Name="StarSystemImprovementQuestUnfallen05" SimulationTag="CompletedQuestUnfallen05"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnfallen06">
+        <Unlock Name="ModuleDefenseShieldQuest3" SimulationTag="CompletedQuestUnfallen06"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnfallen07">
+        <Unlock Name="ModuleWeaponBeamQuest4" SimulationTag="CompletedQuestUnfallen07"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnfallen08">
+        <Unlock Name="EmpireImprovementQuestUnfallen08" SimulationTag="CompletedQuestUnfallen08"/>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestUnfallen09">
+        <Unlock Name="EmpireImprovementQuestUnfallen09" SimulationTag="CompletedQuestUnfallen09"/>
+    </Droplist>
+
+    <!--EXPLORATION 21-->
+    <Droplist Name="DroplistExploration21" Selector="Weighted">
+        <Unlock Name="ModuleDefenseShieldExploration01" SimulationTag="ExplorationQuest21-Reward"/>
+    </Droplist>
+    
+    <!--EXPLORATION 22-->
+    <Droplist Name="DroplistExploration22" Selector="Weighted">
+        <Unlock Name="ModuleWeaponLaserQuestExploration01" SimulationTag="ExplorationQuest22-Reward"/>        
+    </Droplist>
+
+    <!--CH2 - Religious & Industrialist: -->
+    <Droplist Name="DroplistRewardQuestCompet05" Selector="Weighted">
+        <Hero Name="QuestHeroEndless02" Spawn="true" Level="12"/>
+    </Droplist>
+
+    <!--###############################-->
+    <!--##    FIGHTERS AND BOMBERS   ##-->
+    <!--###############################-->
+
+    <!--<Droplist Name="DroplistRewardQuestGlobalQuest04Coop" Selector="Weighted">
+        <Unlock Name="ModuleSquadronFighter3Strategic3" SimulationTag="ExplorationQuest22-Reward"/>
+    </Droplist>-->
+
+    <!--##   Attacker     ##-->
+    <Droplist Name="DroplistShip-FighterAndBomber" Picks="1">
+        <Fleet>
+            <ShipDesign>MFPiratesSmallAttackAvg</ShipDesign>
+            <ShipDesign>MFPiratesSmallAttackAvg</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>MFAdvancedSmallAttackWeak</ShipDesign>
+            <ShipDesign>MFAdvancedSmallAttackWeak</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>MFInsectoidSmallAttackWeak</ShipDesign>
+            <ShipDesign>MFInsectoidSmallAttackWeak</ShipDesign>
+            <ShipDesign>MFInsectoidSmallAttackWeak</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>MFPrimitiveSmallAttackStrong</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistRewardQuestCompet09" Selector="Weighted">
+        <Unlock Name="StarSystemImprovementQuestGlobalCompet09" SimulationTag="CompletedQuestGlobalCompet09"/>
+    </Droplist>
+
+    <!--##   GLOBAL QUEST 04 REWARD     ##-->
+    <Droplist Name="DroplistGlobalQuest04-Coop01">
+        <Unlock Name="ModuleSquadronFighter3Strategic3" SimulationTag="CompletedGlobalQuest04-Coop01"/>
+    </Droplist>
+
+    <Droplist Name="DroplistGlobalQuest04-Coop02">
+        <Unlock Name="ModuleSquadronBomber3Strategic4" SimulationTag="CompletedGlobalQuest04-Coop02"/>
+    </Droplist>
+
+    <Droplist Name="DroplistGlobalQuest04-Coop03"  Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="EmpireManpower"             Quantity="300"   Weight="5"/>
+        <Resource Name="EmpireManpower"             Quantity="400"   Weight="5"/>
+        <Resource Name="EmpireManpower"             Quantity="500"   Weight="5"/>
+
+        <Resource Name="EmpireMoney"                Quantity="600"   Weight="1"/>
+        <Resource Name="EmpireMoney"                Quantity="800"   Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="DroplistExplorationQuest23" Fallback="DroplistMoney">
+        <Technology Name="TechnologyDefinitionQuestFB01"/>
+    </Droplist>
+
+
+    <!-- #####################################-->
+    <!-- #########     HALLOWEEN   ###########-->
+    <!-- #####################################-->
+
+    <!-- #########     CHAPTER 1   ###########-->
+
+    <Droplist Name="DroplistGlobalQuest05-Coop01">
+        <Unlock Name="ModuleWeaponBeamQuest3" SimulationTag="CompletedGlobalQuest05-Coop01"/>
+    </Droplist>
+
+    <!-- #########     CHAPTER 2   ###########-->
+
+    <Droplist Name="DroplistGlobalQuest10-Compet" Picks="1">
+        <Fleet>
+            <ShipDesign>ShipDesignHeroGreenMan</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="DroplistGlobalQuest10-Compet01">
+        <Unlock Name="StarSystemImprovementQuestCoop10" SimulationTag="CompletedGlobalQuest10-Compet01"/>
+    </Droplist>
+
+
+    <!-- #########     CHAPTER 3   ###########-->
+
+    <Droplist Name="DroplistExplorationQuest26-Choice01" Selector="Weighted">
+        <Hero Name="HeroGreenman02"  Spawn="true" Level="10"/>
+    </Droplist>
+
+    <Droplist Name="DroplistExplorationQuest26-Choice02" Selector="Weighted">
+        <Hero Name="HeroGreenman01"  Spawn="true" Level="10"/>
+    </Droplist>
+
+</Datatable>

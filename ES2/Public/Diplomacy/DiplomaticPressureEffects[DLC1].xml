@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/DiplomaticPressureEffectDefinition.xsd">
+
+    <!-- Pressure -->
+    <DiplomaticPressureEffectDefinition_Turns Name="PressureIncreaseOnInitiator" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator   Name="PressureIncrease"/>
+        <SimulationDescriptorReferenceOnTarget      Name="PressureIncreaseSymmetricalEffect"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="PressureIncreaseOnTarget" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator   Name="PressureIncreaseSymmetricalEffect"/>
+        <SimulationDescriptorReferenceOnTarget      Name="PressureIncrease"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="PressureReductionOnInitiator" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator   Name="PressureReduction"/>
+        <SimulationDescriptorReferenceOnTarget      Name="PressureReductionSymmetricalEffect"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="PressureReductionOnTarget" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator   Name="PressureReductionSymmetricalEffect"/>
+        <SimulationDescriptorReferenceOnTarget      Name="PressureReduction"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    
+    <!-- Diplomatic cost reduction -->
+    <DiplomaticPressureEffectDefinition_Turns Name="CloseBordersCostReductionWithOtherEmpire" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="CloseBordersCostReductionWithOtherEmpire"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="PeacefulTreatyCostReductionWithOtherEmpire" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="PeacefulTreatyCostReductionWithOtherEmpire"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="WarDeclarationCostReductionWithOtherEmpire50" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="WarDeclarationCostReductionWithOtherEmpire50"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="WarDeclarationCostReductionWithOtherEmpire25" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="WarDeclarationCostReductionWithOtherEmpire25"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="PeaceAndAllianceCostReductionWithAllOtherEmpires" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="PeaceAndAllianceCostReductionWithAllOtherEmpires"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <DiplomaticPressureEffectDefinition_Turns Name="ZeroInfluenceConversion" Duration="10">
+        <SimulationDescriptorReferenceOnTarget Name="ZeroInfluenceConversion"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+	
+	<!-- Bonuses based on neighbours -->
+	<DiplomaticPressureEffectDefinition_Systems Name="BonusManpowerOnNeighbours" Duration="10">
+		<SystemDescriptor Name="BonusManpowerFromContextualDiplomacy"/>
+	</DiplomaticPressureEffectDefinition_Systems>
+
+    <DiplomaticPressureEffectDefinition_Systems Name="BonusEvasionOnNeighbours" Duration="10">
+        <FleetDescriptor Name="BonusFleetEvasionFromContextualDiplomacy"/>
+    </DiplomaticPressureEffectDefinition_Systems>
+
+    <DiplomaticPressureEffectDefinition_Systems Name="BonusDamageOnNeighbours" Duration="10">
+		<FleetDescriptor Name="BonusFleetDamageFromContextualDiplomacy"/>
+    </DiplomaticPressureEffectDefinition_Systems>
+
+    <DiplomaticPressureEffectDefinition_Systems Name="BonusFoodOnNeighbours" Duration="10">
+        <SystemDescriptor Name="BonusFoodFromContextualDiplomacy"/>
+    </DiplomaticPressureEffectDefinition_Systems>
+
+        <!-- Test: Compliment -->
+    <DiplomaticPressureEffectDefinition_Turns Name="PressureReductionFromDiplomacy" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="PressureReductionFromDiplomacy"/>
+        <SimulationDescriptorReferenceOnTarget Name="PressureReductionFromDiplomacy"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <!-- Generate pressure -->
+    <DiplomaticPressureEffectDefinition_Turns Name="PressureIncreaseFromDiplomacy" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="PressureIncreaseFromDiplomacyInitiator"/>
+        <SimulationDescriptorReferenceOnInitiator Name="GeneratePressureTermActivate"/>
+        <SimulationDescriptorReferenceOnTarget Name="PressureIncreaseFromDiplomacyTarget"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+
+    <!-- Prevent war declaration following demand -->
+    <DiplomaticPressureEffectDefinition_Turns Name="WarDeclarationForbidden" Duration="10">
+        <SimulationDescriptorReferenceOnInitiator Name="WarDeclarationForbidden"/>
+    </DiplomaticPressureEffectDefinition_Turns>
+	
+</Datatable>

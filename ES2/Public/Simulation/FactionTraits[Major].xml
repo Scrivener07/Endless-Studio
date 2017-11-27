@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/FactionTrait.xsd">
+
+    <!-- ########################################## -->
+    <!-- ######        MAJOR FACTIONS        ###### -->
+    <!-- ########################################## -->
+
+    <FactionTrait Name="IsMajorFaction" SubCategory="FactionTrait" Hidden="true" Custom="true" Cost="0" IgnoreForTraitsCount="true"/>
+    
+    <FactionTrait Name="TraitRandomizeFaction" SubCategory="FactionTrait" Hidden="true" Cost="0" IgnoreForTraitsCount="true"/>
+ 
+    <FactionTrait Name="TraitCustomFaction" SubCategory="FactionTrait" Hidden="true" Custom="true" Cost="0" IgnoreForTraitsCount="true"/>
+
+
+    <!-- ########################################## -->
+    <!-- ######         HOME SYSTEM          ###### -->
+    <!-- ########################################## -->
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeGasFrozen"      SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeBarren"         SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeIce"            SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeGasCold"        SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeArctic"         SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeSnow"           SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="5"  IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeSnow"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeBoreal"         SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeBoreal"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeTundra"         SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeTundra"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeGasTemperate"   SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true">
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeSteppes"        SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeSteppes"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeOcean"          SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="15" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeOcean"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeTerran"         SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="15" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeTerran"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeForest"         SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="15" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeForest"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeMonsoon"        SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeMonsoon"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeSwamp"          SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true">
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeAtoll"          SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="15" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeAtoll"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeTropical"       SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeTropical"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeVeldt"          SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeVeldt"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeJungle"         SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="10" IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeJungle"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeGasWarm"        SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeArid"           SubCategory="HomePlanet"    Hidden="true"   Custom="true"     Cost="5"  IgnoreForTraitsCount="true">
+        <SimulationDescriptorReference Name="FactionTraitHomePlanetPlanetTypeArid"/> <!--For Home Planet colonization-->
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeDesert"         SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeGasHot"         SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeAsh"            SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeLava"           SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+    <FactionTrait Name="FactionTraitHomePlanetPlanetTypeGasBurning"     SubCategory="HomePlanet"    Hidden="true"   Custom="false"    Cost="0"  IgnoreForTraitsCount="true"></FactionTrait>
+
+    <!-- ########################################## -->
+    <!-- ######         COLONIZATION         ###### -->
+    <!-- ########################################## -->
+
+    <!--Expansion disapproval-->
+    <FactionTrait Name="FactionTraitExpansionists1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExpansion" TraitSubCategory="TraitSubCategoryExpansionists" Family="FactionTraitFamilyExpansionColonization" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitExpansionists1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitExpansionists2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExpansion" TraitSubCategory="TraitSubCategoryExpansionists" Family="FactionTraitFamilyExpansionColonization" Level="2" Hidden="false" Custom="true" Cost="25">
+      <SimulationDescriptorReference Name="FactionTraitExpansionists2"/>
+    </FactionTrait>
+    
+    <!--Food sent to Outposts-->
+    <FactionTrait Name="FactionTraitFerventColonists1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryColonization" TraitSubCategory="TraitSubCategoryFerventColonists" Family="FactionTraitFamilyExpansionColonization" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitFerventColonists1"/>
+        <Prerequisites>!FactionTraitApatheticColonists,!AffinityGameplayVampirilis,!AffinityGameplayUnfallen,!AffinityMappingTimeLords</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitFerventColonists2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryColonization" TraitSubCategory="TraitSubCategoryFerventColonists" Family="FactionTraitFamilyExpansionColonization" Level="2" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitFerventColonists2"/>
+        <Prerequisites>!FactionTraitApatheticColonists,!AffinityGameplayVampirilis,!AffinityGameplayUnfallen,!AffinityMappingTimeLords</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitApatheticColonists"   SubCategory="FactionTrait" TraitCategory="TraitCategoryColonization" TraitSubCategory="TraitSubCategoryApatheticColonists" Family="FactionTraitFamilyExpansionColonization" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitApatheticColonists"/>
+        <Prerequisites>!FactionTraitFerventColonists1,!FactionTraitFerventColonists2,!AffinityGameplayVampirilis,!AffinityGameplayUnfallen,!AffinityMappingTimeLords</Prerequisites>
+    </FactionTrait>
+
+    <!-- ################################################ -->
+    <!-- ######                DIPLOMACY           ###### -->
+    <!-- ################################################ -->
+    
+    <!-- Eternal War: no diplomacy while Militarist in Senate -->
+    <FactionTrait Name="FactionTraitEternalWar"   SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="TraitSubCategoryEternalWar" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="-10" >
+        <SimulationDescriptorReference Name="FactionTraitEternalWar"/>
+    </FactionTrait>
+
+    <!-- Naive: happiness per peaceful relationship -->
+    <FactionTrait Name="FactionTraitNaive1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="FactionTraitNaive" Family="FactionTraitFamilyPoliticsDiplomacy"   Level="1" Hidden="false" Custom="true" Cost="5" >
+        <SimulationDescriptorReference Name="FactionTraitNaive1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitNaive2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="FactionTraitNaive" Family="FactionTraitFamilyPoliticsDiplomacy"   Level="2" Hidden="false" Custom="true" Cost="10" >
+        <SimulationDescriptorReference Name="FactionTraitNaive2"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMutualUnderstanding1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="FactionTraitMutualUnderstanding" Family="FactionTraitFamilyPoliticsDiplomacy"   Level="1" Hidden="false" Custom="true" Cost="10" >
+        <SimulationDescriptorReference Name="FactionTraitMutualUnderstanding1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMutualUnderstanding2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="FactionTraitMutualUnderstanding" Family="FactionTraitFamilyPoliticsDiplomacy"   Level="2" Hidden="false" Custom="true" Cost="15" >
+        <SimulationDescriptorReference Name="FactionTraitMutualUnderstanding2"/>
+    </FactionTrait>
+    
+    <!--Better mF Diplomacy-->
+    <FactionTrait Name="FactionTraitBigBrothers"   SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="TraitSubCategoryBigBrothers" Family="FactionTraitFamilyPoliticsDiplomacy"  Hidden="false" Custom="true" Cost="5" >
+        <SimulationDescriptorReference Name="FactionTraitBigBrothers"/>
+    </FactionTrait>
+
+
+    <!-- ########################################## -->
+    <!-- ######         EXPLORATION          ###### -->
+    <!-- ########################################## -->
+    <!-- Reveal neighbor nodes // Pathfinder -->
+    <FactionTrait Name="FactionTraitScanning"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionTraitScanning" Family="FactionTraitFamilyExploration" Hidden="false" Custom="true" Cost="25">
+        <SimulationDescriptorReference Name="FactionTraitScanning"/>
+    </FactionTrait>
+
+    <!-- Increase movement on warp -->
+    <FactionTrait Name="FactionTraitFastTraveler1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionFastTraveler" Family="FactionTraitFamilyExploration" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitFastTraveler1"/>
+        <Prerequisites>!FactionTraitSlowTraveler1,!FactionTraitSlowTraveler2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitFastTraveler2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionFastTraveler" Family="FactionTraitFamilyExploration" Level="2" Hidden="false" Custom="true" Cost="25">
+		<SimulationDescriptorReference Name="FactionTraitFastTraveler2"/>
+        <Prerequisites>!FactionTraitSlowTraveler1,!FactionTraitSlowTraveler2</Prerequisites>
+    </FactionTrait>
+	
+	<!-- Decrease movement speed -->
+	<FactionTrait Name="FactionTraitSlowTraveler1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionSlowTraveler" Family="FactionTraitFamilyExploration" Level="1" Hidden="false" Custom="true" Cost="-10">
+		<SimulationDescriptorReference Name="FactionTraitSlowTraveler1"/>
+        <Prerequisites>!FactionTraitFastTraveler1,!FactionTraitFastTraveler2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitSlowTraveler2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionSlowTraveler" Family="FactionTraitFamilyExploration" Level="2" Hidden="false" Custom="true" Cost="-25">
+		<SimulationDescriptorReference Name="FactionTraitSlowTraveler2"/>
+        <Prerequisites>!FactionTraitFastTraveler1,!FactionTraitFastTraveler2</Prerequisites>
+    </FactionTrait>
+
+<!-- increase expedition power-->
+    <FactionTrait Name="FactionTraitEfficientExplorer1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionEfficientExplorer" Family="FactionTraitFamilyExploration" Level="1" Hidden="false" Custom="true" Cost="5">
+        <SimulationDescriptorReference Name="FactionTraitEfficientExplorer1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitEfficientExplorer2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionEfficientExplorer" Family="FactionTraitFamilyExploration" Level="2" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitEfficientExplorer2"/>
+    </FactionTrait>
+    
+    <!-- Allow to discover Guardians -->
+    <FactionTrait Name="FactionTraitGuardians"   SubCategory="FactionTrait" TraitCategory="TraitCategoryExploration" TraitSubCategory="TraitSubCategoryFactionGuardians" Family="FactionTraitFamilyExploration" Hidden="false" Custom="true" Cost="40">
+        <SimulationDescriptorReference Name="FactionTraitGuardians"/>
+        <Prerequisites>!AffinityGameplayVampirilis</Prerequisites>
+    </FactionTrait>
+
+    <!-- ########################################## -->
+    <!-- ######       FLEET MANAGEMENT       ###### -->
+    <!-- ########################################## -->
+    <!--More CPs-->
+    <FactionTrait Name="FactionTraitBigFleets1" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryBigFleet" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitBigFleets1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBigFleets2" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryBigFleet" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="25">
+        <SimulationDescriptorReference Name="FactionTraitBigFleets2"/>
+    </FactionTrait>
+
+    <!--Increased Ship Damage-->
+    <FactionTrait Name="FactionTraitDeadlyWeapons1" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryDeadlyWeapons" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitDeadlyWeapons1"/>
+        <Prerequisites>!FactionTraitHumaneWeapons</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitDeadlyWeapons2" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryDeadlyWeapons" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="20">
+        <SimulationDescriptorReference Name="FactionTraitDeadlyWeapons2"/>
+        <Prerequisites>!FactionTraitHumaneWeapons</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitHumaneWeapons" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryHumaneWeapons" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitHumaneWeapons"/>
+        <Prerequisites>!FactionTraitDeadlyWeapons1,!FactionTraitDeadlyWeapons2</Prerequisites>
+    </FactionTrait>
+
+    <!--Increased Ship Health-->
+    <FactionTrait Name="FactionTraitOptimalDefense1" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryOptimalDefense" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitOptimalDefense1"/>
+        <Prerequisites>!FactionTraitSubOptimalDefense</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitOptimalDefense2" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryOptimalDefense" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="20">
+        <SimulationDescriptorReference Name="FactionTraitOptimalDefense2"/>
+        <Prerequisites>!FactionTraitSubOptimalDefense</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitSubOptimalDefense" SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategorySubOptimalDefense" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitSubOptimalDefense"/>
+        <Prerequisites>!FactionTraitOptimalDefense1,!FactionTraitOptimalDefense2</Prerequisites>
+    </FactionTrait>
+    
+    
+    <!-- ########################################## -->
+    <!-- ######   GROUND BATTLE & MANPOWER   ###### -->
+    <!-- ########################################## -->
+    
+    <!--Manpower-->
+    <FactionTrait Name="FactionTraitPatriots1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryManpower" TraitSubCategory="TraitSubCategoryPatriots" Family="FactionTraitFamilyMilitary" Level="1"  Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitPatriots1"/>
+        <Prerequisites>!FactionTraitCowards1,!FactionTraitCowards2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitPatriots2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryManpower" TraitSubCategory="TraitSubCategoryPatriots" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitPatriots2"/>
+        <Prerequisites>!FactionTraitCowards1,!FactionTraitCowards2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitCowards1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryManpower" TraitSubCategory="FactionTraitCowards" Family="FactionTraitFamilyMilitary" Level="1"  Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitCowards1"/>
+        <Prerequisites>!FactionTraitPatriots1,!FactionTraitPatriots2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitCowards2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryManpower" TraitSubCategory="FactionTraitCowards" Family="FactionTraitFamilyMilitary" Level="2"  Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitCowards2"/>
+        <Prerequisites>!FactionTraitPatriots1,!FactionTraitPatriots2</Prerequisites>
+    </FactionTrait>
+    
+    <!--Upgrades Cost Reduction-->
+    <FactionTrait Name="FactionTraitCombatSpecialists"   SubCategory="FactionTrait" TraitCategory="TraitCategoryManpower" TraitSubCategory="TraitSubCategoryCombatSpecialists" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitCombatSpecialists"/>
+        <Prerequisites>!FactionTraitCombatRookies</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitCombatRookies"   SubCategory="FactionTrait" TraitCategory="TraitCategoryManpower" TraitSubCategory="TraitSubCategoryCombatRookies" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitCombatRookies"/>
+        <Prerequisites>!FactionTraitCombatSpecialists</Prerequisites>
+    </FactionTrait>
+
+    <!--Play Deck Management Cooldown-->
+    <FactionTrait Name="FactionTraitConfidentTacticians"   SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryConfidentTacticians" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="5">
+        <SimulationDescriptorReference Name="FactionTraitConfidentTacticians"/>
+        <Prerequisites>!FactionTraitDoubtfulTacticians</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitDoubtfulTacticians"   SubCategory="FactionTrait" TraitCategory="TraitCategoryFleetManagement" TraitSubCategory="TraitSubCategoryDoubtfulTacticians" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitDoubtfulTacticians"/>
+        <Prerequisites>!FactionTraitConfidentTacticians</Prerequisites>
+    </FactionTrait>
+    
+    <!--Troops Health-->
+    <FactionTrait Name="FactionTraitFeebleWarriors1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryFeebleWarriors" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitFeebleWarriors1"/>
+        <Prerequisites>!FactionTraitFearlessWarriors1,!FactionTraitFearlessWarriors2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitFeebleWarriors2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryFeebleWarriors" Family="FactionTraitFamilyMilitary" Level="2"  Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitFeebleWarriors2"/>
+        <Prerequisites>!FactionTraitFearlessWarriors1,!FactionTraitFearlessWarriors2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitFearlessWarriors1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryFearlessWarriors" Family="FactionTraitFamilyMilitary" Level="1"  Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitFearlessWarriors1"/>
+        <Prerequisites>!FactionTraitFeebleWarriors1,!FactionTraitFeebleWarriors2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitFearlessWarriors2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryFearlessWarriors" Family="FactionTraitFamilyMilitary" Level="2"  Hidden="false" Custom="true" Cost="20">
+        <SimulationDescriptorReference Name="FactionTraitFearlessWarriors2"/>
+        <Prerequisites>!FactionTraitFeebleWarriors1,!FactionTraitFeebleWarriors2</Prerequisites>
+    </FactionTrait>
+    
+    <!--Troops Damage-->
+    <FactionTrait Name="FactionTraitBrilliantStrategists1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryBrilliantStrategists" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitBrilliantStrategists1"/>
+        <Prerequisites>!FactionTraitPoorStrategists1,!FactionTraitPoorStrategists2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBrilliantStrategists2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryBrilliantStrategists" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="20">
+        <SimulationDescriptorReference Name="FactionTraitBrilliantStrategists2"/>
+        <Prerequisites>!FactionTraitPoorStrategists1,!FactionTraitPoorStrategists2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitPoorStrategists1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryPoorStrategists" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitPoorStrategists1"/>
+        <Prerequisites>!FactionTraitBrilliantStrategists1,!FactionTraitBrilliantStrategists2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitPoorStrategists2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryGroundBattle" TraitSubCategory="TraitSubCategoryPoorStrategists" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitPoorStrategists2"/>
+        <Prerequisites>!FactionTraitBrilliantStrategists1,!FactionTraitBrilliantStrategists2</Prerequisites>
+    </FactionTrait>
+
+    <!-- ############################################# -->
+    <!-- ######         HEROES MANAGEMENT       ###### -->
+    <!-- ############################################# -->
+
+    <!--More Hero XP and less Hero Upkeep-->
+    <FactionTrait Name="FactionTraitLegendaryHeroes1" SubCategory="FactionTrait" TraitCategory="TraitCategoryHeroes" TraitSubCategory="TraitSubCategoryLegendaryHeroes" Family="FactionTraitFamilyHeroes" Level="1" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitLegendaryHeroes1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitLegendaryHeroes2" SubCategory="FactionTrait" TraitCategory="TraitCategoryHeroes" TraitSubCategory="TraitSubCategoryLegendaryHeroes" Family="FactionTraitFamilyHeroes" Level="2" Hidden="false" Custom="true" Cost="30">
+        <SimulationDescriptorReference Name="FactionTraitLegendaryHeroes2"/>
+    </FactionTrait>
+	
+	<!-- HERO RECOVERY -->
+	<FactionTrait Name="FactionTraitPerfectGenes1" SubCategory="FactionTrait" TraitCategory="TraitCategoryHeroes" TraitSubCategory="TraitSubCategoryPerfectGenes" Family="FactionTraitFamilyHeroes" Level="1" Hidden="false" Custom="true" Cost="10">
+		<SimulationDescriptorReference Name="FactionTraitPerfectGenes1"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitPerfectGenes2" SubCategory="FactionTrait" TraitCategory="TraitCategoryHeroes" TraitSubCategory="TraitSubCategoryPerfectGenes" Family="FactionTraitFamilyHeroes" Level="2" Hidden="false" Custom="true" Cost="20">
+		<SimulationDescriptorReference Name="FactionTraitPerfectGenes2"/>
+	</FactionTrait>
+    
+    <!-- ########################################## -->
+    <!-- ######          POPULATION          ###### -->
+    <!-- ########################################## -->
+    
+	<!-- Overpopulation -->
+	<FactionTrait Name="FactionTraitContentCitizens1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryContentCitizens" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+		<SimulationDescriptorReference Name="FactionTraitContentCitizens1"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitContentCitizens2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryContentCitizens" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="15">
+		<SimulationDescriptorReference Name="FactionTraitContentCitizens2"/>
+	</FactionTrait>
+
+    <!-- MinorPopulations -->
+    <FactionTrait Name="FactionTraitMinorNone" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartNone" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="false" Cost="0">
+    </FactionTrait>
+    
+    <FactionTrait Name="FactionTraitMinorAmoeba" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartAmoeba" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityAmoeba,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorAmoeba"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorBenthys" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartBenthys" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityBenthys,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorBenthys"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorBots" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartBots" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityBots,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorBots"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorDeuyivans" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartDeuyivans" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityDeuyivans,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorDeuyivans"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorHaroshems" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartHaroshems" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityHaroshems,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorHaroshems"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorHisshos" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartHisshos" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityHisshos,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorHisshos"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorMavros" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartMavros" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityMavros,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorMavros"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorPilgrims" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartPilgrims" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityPilgrims,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorPilgrims"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorZvali" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartZvali" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityZvali,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorZvali"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorTikanans" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartTikanan" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityTikanans,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorTikanans"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorGnashasts" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartGnashasts" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityGnashasts,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorGnashasts"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorEyders" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartEyders" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityEyders,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorEyders"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorNiris" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartNiris" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityNiris,1" Priority="-100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorNiris"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorBhagabas" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartBhagabas" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityBhagabas,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorBhagabas"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorRemnant" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartRemnant" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityRemnant,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorRemnant"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorPulsos,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorPulsos" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartPulsos" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="5">
+        <Command Name="AddMinorPopulation" Arguments="AffinityPulsos,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorPulsos"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorGreenman</Prerequisites>
+    </FactionTrait>
+
+    <!-- Greenman Minors for Custom Faction -->
+    <FactionTrait Name="FactionTraitMinorGreenman" SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryStartGreenman" Family="FactionTraitFamilyStartingMinorPopulation" Hidden="false" Custom="true" Cost="10">
+        <Command Name="AddMinorPopulation" Arguments="AffinityGreenman,1" Priority="100"/>
+        <SimulationDescriptorReference Name="FactionTraitMinorGreenman"/>
+        <Prerequisites>!AffinityGameplayVampirilis,!FactionTraitMinorAmoeba,!FactionTraitMinorBenthys,!FactionTraitMinorBots,!FactionTraitMinorDeuyivans,!FactionTraitMinorHaroshems,!FactionTraitMinorHisshos,!FactionTraitMinorMavros,!FactionTraitMinorPilgrims,!FactionTraitMinorZvali,!FactionTraitMinorTikanans,!FactionTraitMinorGnashasts,!FactionTraitMinorEyders,!FactionTraitMinorNiris,!FactionTraitMinorBhagabas,!FactionTraitMinorRemnant,!FactionTraitMinorPulsos</Prerequisites>
+        <!--TO DO WHEN MERGING WITH BASE FILES: ADD GREENMAN TO OTHER STARTING MINOR FACTIONS TRAITS PREREQUISITES-->
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorGuardians" Family="MinorPopulation" Hidden="true" Custom="false" Cost="0">
+        <Command Name="AddMinorPopulation" Arguments="AffinityGuardians,1" Priority="100"/>
+    </FactionTrait>
+
+    <!-- ########################################## -->
+    <!-- ######         TRADE  ROUTES        ###### -->
+    <!-- ########################################## -->
+    
+    <FactionTrait Name="FactionTraitBlockadeBreakers" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBlockadeBreakers" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitBlockadeBreakers"/>
+    </FactionTrait>
+    
+    <FactionTrait Name="FactionTraitKingpinExecutives" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryKingpinExecutives" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitKingpinExecutives"/>
+        <Prerequisites>!FactionTraitAmateurExecutives</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitAmateurExecutives" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryAmateurExecutives" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitAmateurExecutives"/>
+        <Prerequisites>!FactionTraitKingpinExecutives</Prerequisites>
+    </FactionTrait>
+    
+     <FactionTrait Name="FactionTraitExtendedConsortium" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryExtendedConsortium" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitExtendedConsortium"/>
+    </FactionTrait>
+    
+    
+    <!-- ################################################ -->
+    <!-- ######         SYSTEM MANAGEMENT          ###### -->
+    <!-- ################################################ -->
+
+    <!-- Pop cap-->
+    <FactionTrait Name="FactionTraitCrowdedPlanets1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryCrowdedPlanets" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitCrowdedPlanets1"/>
+        <Prerequisites>!AffinityGameplayVampirilis</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitCrowdedPlanets2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryPopulation" TraitSubCategory="TraitSubCategoryCrowdedPlanets" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="40">
+        <SimulationDescriptorReference Name="FactionTraitCrowdedPlanets2"/>
+        <Prerequisites>!AffinityGameplayVampirilis</Prerequisites>
+    </FactionTrait>
+
+    <!-- Approval -->
+    <FactionTrait Name="FactionTraitOptimistic1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryOptimistic" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitOptimistic1"/>
+        <Prerequisites>!FactionTraitPessimistic1,!FactionTraitPessimistic2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitOptimistic2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryOptimistic" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="25">
+        <SimulationDescriptorReference Name="FactionTraitOptimistic2"/>
+        <Prerequisites>!FactionTraitPessimistic1,!FactionTraitPessimistic2</Prerequisites>
+    </FactionTrait>
+	
+	<!-- Approval -->
+	<FactionTrait Name="FactionTraitPessimistic1"   SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryPessimistic" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="-10">
+		<SimulationDescriptorReference Name="FactionTraitPessimistic1"/>
+        <Prerequisites>!FactionTraitOptimistic1,!FactionTraitOptimistic2</Prerequisites>
+    </FactionTrait>
+	<FactionTrait Name="FactionTraitPessimistic2"   SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryPessimistic" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="-25">
+		<SimulationDescriptorReference Name="FactionTraitPessimistic2"/>
+        <Prerequisites>!FactionTraitOptimistic1,!FactionTraitOptimistic2</Prerequisites>
+    </FactionTrait>
+    
+    <!--Biophobic-->
+	<FactionTrait Name="FactionTraitInimical"   SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryInimical" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="10">
+		<SimulationDescriptorReference Name="FactionTraitInimical"/>
+        <Prerequisites>!PopulationModifiersTraitSecondaryHappinessFertile</Prerequisites>
+	</FactionTrait>
+
+	<!--Industry-->
+	<FactionTrait Name="FactionTraitBuilders1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBuilders" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+		<SimulationDescriptorReference Name="FactionTraitBuilders1"/>
+        <Prerequisites>!FactionTraitUnskilledBuilders1,!FactionTraitUnskilledBuilders2</Prerequisites>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitBuilders2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBuilders" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="25">
+		<SimulationDescriptorReference Name="FactionTraitBuilders2"/>
+        <Prerequisites>!FactionTraitUnskilledBuilders1,!FactionTraitUnskilledBuilders2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBuilders3" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBuilders" Family="FactionTraitFamilyEconomyDevelopment" Level="3" Hidden="false" Custom="true" Cost="40">
+        <SimulationDescriptorReference Name="FactionTraitBuilders3"/>
+        <Prerequisites>!FactionTraitUnskilledBuilders1,!FactionTraitUnskilledBuilders2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitUnskilledBuilders1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryUnskilledBuilders" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitUnskilledBuilders1"/>
+        <Prerequisites>!FactionTraitBuilders1,!FactionTraitBuilders2,!FactionTraitBuilders3</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitUnskilledBuilders2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryUnskilledBuilders" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitUnskilledBuilders2"/>
+        <Prerequisites>!FactionTraitBuilders1,!FactionTraitBuilders2,!FactionTraitBuilders3</Prerequisites>
+    </FactionTrait>
+	
+	<!--Science-->
+	<FactionTrait Name="FactionTraitScientists1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryScientists" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+		<SimulationDescriptorReference Name="FactionTraitScientists1"/>
+        <Prerequisites>!FactionTraitSpaceCadets1,!FactionTraitSpaceCadets2</Prerequisites>
+    </FactionTrait>
+	<FactionTrait Name="FactionTraitScientists2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryScientists" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="25">
+		<SimulationDescriptorReference Name="FactionTraitScientists2"/>
+        <Prerequisites>!FactionTraitSpaceCadets1,!FactionTraitSpaceCadets2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitScientists3" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryScientists" Family="FactionTraitFamilyEconomyDevelopment" Level="3" Hidden="false" Custom="true" Cost="40">
+        <SimulationDescriptorReference Name="FactionTraitScientists3"/>
+        <Prerequisites>!FactionTraitSpaceCadets1,!FactionTraitSpaceCadets2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitSpaceCadets1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategorySpaceCadets" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitSpaceCadets1"/>
+        <Prerequisites>!FactionTraitScientists1,!FactionTraitScientists2,!FactionTraitScientists3</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitSpaceCadets2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategorySpaceCadets" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitSpaceCadets2"/>
+        <Prerequisites>!FactionTraitScientists1,!FactionTraitScientists2,!FactionTraitScientists3</Prerequisites>
+    </FactionTrait>
+
+    <!--Dust-->
+    <FactionTrait Name="FactionTraitBusinessmen1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBusinessmen" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitBusinessmen1"/>
+        <Prerequisites>!FactionTraitBigSpenders1,!FactionTraitBigSpenders2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBusinessmen2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBusinessmen" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="25">
+        <SimulationDescriptorReference Name="FactionTraitBusinessmen2"/>
+        <Prerequisites>!FactionTraitBigSpenders1,!FactionTraitBigSpenders2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBusinessmen3" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBusinessmen" Family="FactionTraitFamilyEconomyDevelopment" Level="3" Hidden="false" Custom="true" Cost="40">
+        <SimulationDescriptorReference Name="FactionTraitBusinessmen3"/>
+        <Prerequisites>!FactionTraitBigSpenders1,!FactionTraitBigSpenders2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBigSpenders1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBigSpenders" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitBigSpenders1"/>
+        <Prerequisites>!FactionTraitBusinessmen1,!FactionTraitBusinessmen2,!FactionTraitBusinessmen3</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBigSpenders2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBigSpenders" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitBigSpenders2"/>
+        <Prerequisites>!FactionTraitBusinessmen1,!FactionTraitBusinessmen2,!FactionTraitBusinessmen3</Prerequisites>
+    </FactionTrait>
+
+    <!--Food-->
+    <FactionTrait Name="FactionTraitGrowthPlan1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryGrowthPlan" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitGrowthPlan1"/>
+        <Prerequisites>!FactionTraitBlackThumb1,!FactionTraitBlackThumb2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitGrowthPlan2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryGrowthPlan" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="25">
+        <SimulationDescriptorReference Name="FactionTraitGrowthPlan2"/>
+        <Prerequisites>!FactionTraitBlackThumb1,!FactionTraitBlackThumb2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitGrowthPlan3" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryGrowthPlan" Family="FactionTraitFamilyEconomyDevelopment" Level="3" Hidden="false" Custom="true" Cost="40">
+        <SimulationDescriptorReference Name="FactionTraitGrowthPlan3"/>
+        <Prerequisites>!FactionTraitBlackThumb1,!FactionTraitBlackThumb2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBlackThumb1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBlackThumb" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitBlackThumb1"/>
+        <Prerequisites>!FactionTraitGrowthPlan1,!FactionTraitGrowthPlan2,!FactionTraitGrowthPlan3,!AffinityMappingTimeLords</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitBlackThumb2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryBlackThumb" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitBlackThumb2"/>
+        <Prerequisites>!FactionTraitGrowthPlan1,!FactionTraitGrowthPlan2,!FactionTraitGrowthPlan3,!AffinityMappingTimeLords</Prerequisites>
+    </FactionTrait>
+
+    <!--Influence-->
+    <FactionTrait Name="FactionTraitCulturalists1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryCulturalists" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitCulturalists1"/>
+        <Prerequisites>!FactionTraitPushovers1,!FactionTraitPushovers2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitCulturalists2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryCulturalists" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="20">
+        <SimulationDescriptorReference Name="FactionTraitCulturalists2"/>
+        <Prerequisites>!FactionTraitPushovers1,!FactionTraitPushovers2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitPushovers1" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryPushovers" Family="FactionTraitFamilyEconomyDevelopment" Level="1" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitPushovers1"/>
+        <Prerequisites>!FactionTraitCulturalists1,!FactionTraitCulturalists2</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitPushovers2" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryPushovers" Family="FactionTraitFamilyEconomyDevelopment" Level="2" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitPushovers2"/>
+        <Prerequisites>!FactionTraitCulturalists1,!FactionTraitCulturalists2</Prerequisites>
+    </FactionTrait>
+    
+    <!--Luxury Resources used in Star System Upgrades-->
+    <FactionTrait Name="FactionTraitLuxuryConnoisseurs" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryLuxuryConnoisseurs" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitLuxuryConnoisseurs"/>
+        <Prerequisites>!FactionTraitLuxuryIgnoramuses</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitLuxuryIgnoramuses" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryLuxuryIgnoramuses" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitLuxuryIgnoramuses"/>
+        <Prerequisites>!FactionTraitLuxuryConnoisseurs</Prerequisites>
+    </FactionTrait>
+	
+    <!-- ########################################## -->
+    <!-- ######         EMPIRE MANAGEMENT    ###### -->
+    <!-- ########################################## -->
+
+    <!--Ship Cost Price of Perfection-->
+	<FactionTrait Name="FactionTraitPriceOfPerfection1" SubCategory="FactionTrait" TraitCategory="TraitCategoryShips" TraitSubCategory="TraitSubCategoryPriceOfPerfection" Family="FactionTraitFamilyMilitary" Level="1" Hidden="false" Custom="true" Cost="-10">
+		<SimulationDescriptorReference Name="FactionTraitPriceOfPerfection1"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitPriceOfPerfection2" SubCategory="FactionTrait" TraitCategory="TraitCategoryShips" TraitSubCategory="TraitSubCategoryPriceOfPerfection" Family="FactionTraitFamilyMilitary" Level="2" Hidden="false" Custom="true" Cost="-20">
+		<SimulationDescriptorReference Name="FactionTraitPriceOfPerfection2"/>
+	</FactionTrait>
+
+    <FactionTrait Name="FactionTraitAceSenators" SubCategory="FactionTrait" TraitCategory="TraitCategorySenate" TraitSubCategory="TraitSubCategoryAceSenators" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitAceSenators"/>
+        <Prerequisites>!FactionTraitLousySenators,!FactionUniqueDictatorship</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitLousySenators" SubCategory="FactionTrait" TraitCategory="TraitCategorySenate" TraitSubCategory="TraitSubCategoryLousySenators" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitLousySenators"/>
+        <Prerequisites>!FactionTraitAceSenators,!FactionUniqueDictatorship</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitDisciplined" SubCategory="FactionTrait" TraitCategory="TraitCategorySenate" TraitSubCategory="TraitSubCategoryDisciplined" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="5">
+        
+        <SimulationDescriptorReference Name="FactionTraitDisciplined"/>
+        
+        <Prerequisites>!FactionTraitProneToAgitation,!FactionTraitUniqueDictatorship</Prerequisites>
+    </FactionTrait>
+    
+    <FactionTrait Name="FactionTraitProneToAgitation" SubCategory="FactionTrait" TraitCategory="TraitCategorySenate" TraitSubCategory="TraitSubCategoryProneToAgitation" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="-5">
+        <SimulationDescriptorReference Name="FactionTraitProneToAgitation"/>
+        <Prerequisites>!FactionTraitDisciplined,!FactionTraitUniqueDictatorship</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitUniqueDictatorship" SubCategory="FactionTrait" TraitCategory="TraitCategorySenate" TraitSubCategory="TraitSubCategoryUniqueDictatorship" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="false" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitUniqueDictatorship"/>
+        <Prerequisites>!FactionTraitAceSenators,!FactionTraitLousySenators,!FactionTraitDisciplined,!FactionTraitProneToAgitation,!FactionTraitSmoothTalkers</Prerequisites>
+    </FactionTrait>
+    
+    
+
+       <!--Dust on Alliances and Industry on Wars-->
+    <FactionTrait Name="FactionTraitSocialChameleons" SubCategory="FactionTrait" TraitCategory="TraitCategoryDiplomacy" TraitSubCategory="TraitSubCategorySocialChameleons" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="15">
+        <SimulationDescriptorReference Name="FactionTraitSocialChameleons"/>
+    </FactionTrait>
+    
+    <!--Reduced Disapproval from Representatives not in Senate-->
+    <FactionTrait Name="FactionTraitSmoothTalkers" SubCategory="FactionTrait" TraitCategory="TraitCategorySenate" TraitSubCategory="TraitSubCategorySmoothTalkers" Family="FactionTraitFamilyPoliticsDiplomacy" Hidden="false" Custom="true" Cost="10">
+        <SimulationDescriptorReference Name="FactionTraitSmoothTalkers"/>
+    </FactionTrait>
+
+
+    <!--Increased Trade Route Value-->
+    <FactionTrait Name="FactionTraitSkillfulTraders" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategorySkillfulTraders" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="20">
+        <SimulationDescriptorReference Name="FactionTraitSkillfulTraders"/>
+        <Prerequisites>!FactionTraitIneptTraders</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitIneptTraders" SubCategory="FactionTrait" TraitCategory="TraitCategoryEconomy" TraitSubCategory="TraitSubCategoryIneptTraders" Family="FactionTraitFamilyEconomyDevelopment" Hidden="false" Custom="true" Cost="-10">
+        <SimulationDescriptorReference Name="FactionTraitIneptTraders"/>
+        <Prerequisites>!FactionTraitSkillfulTraders</Prerequisites>
+    </FactionTrait>
+    
+
+
+    <!-- ################################################ -->
+    <!-- ######               RESEARCH             ###### -->
+    <!-- ################################################ -->
+
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionEconomyAndTrade1" Family="FactionTraitFamilyStartingTechnologies" Custom="true" Hidden="false" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionEconomyAndTrade1"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionEconomyAndTrade1"/>
+        <Prerequisites>!AffinityMappingSophons</Prerequisites>
+    </FactionTrait>
+    
+    <FactionTrait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1Sophons" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionEconomyAndTrade1Sophons" Family="FactionTraitFamilyStartingTechnologies" Custom="true" Hidden="true" Cost="0" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionEconomyAndTrade1Sophons"/>        
+        <Prerequisites>AffinityMappingSophons</Prerequisites>
+    </FactionTrait>
+
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionEconomyAndTrade2" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionEconomyAndTrade2" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionEconomyAndTrade2"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionEconomyAndTrade2"/>
+    </FactionTrait>
+    
+    <FactionTrait Name="FactionTraitTechnologyDefinitionMilitary1" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionMilitary1" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionMilitary1"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionMilitary1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionMilitary2" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionMilitary2" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionMilitary2"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionMilitary2"/>
+    </FactionTrait>
+
+  
+    <FactionTrait Name="FactionTraitTechnologyDefinitionScienceAndExploration1" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionScienceAndExploration1" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionScienceAndExploration1"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionScienceAndExploration1"/>
+        <Prerequisites>!AffinityGameplayTimeLords,!AffinityGameplayUnfallen</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionScienceAndExploration1Unfallen" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionScienceAndExploration1Unfallen" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionScienceAndExploration1Unfallen"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionScienceAndExploration1"/>
+        <Prerequisites>AffinityGameplayUnfallen</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionScienceAndExploration1TimeLords" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionScienceAndExploration1TimeLords" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionScienceAndExploration1TimeLords"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionScienceAndExploration1"/>
+        <Prerequisites>AffinityGameplayTimeLords</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionScienceAndExploration2" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionScienceAndExploration2" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionScienceAndExploration2"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionScienceAndExploration2"/>
+        <Prerequisites>!AffinityGameplayTimeLords,!AffinityGameplayUnfallen</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionScienceAndExploration2Unfallen" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionScienceAndExploration2Unfallen" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionScienceAndExploration2Unfallen"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionScienceAndExploration2"/>
+        <Prerequisites>AffinityGameplayUnfallen</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionScienceAndExploration2TimeLords" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionScienceAndExploration2TimeLords" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionScienceAndExploration2TimeLords"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionScienceAndExploration2"/>
+        <Prerequisites>AffinityGameplayTimeLords</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionEmpireDevelopment1" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionEmpireDevelopment1"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+
+        <Prerequisites>!AffinityMappingHoratio</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1Horatio" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionEmpireDevelopment1Horatio" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10" HiddenOnFailPrerequisites="true">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionEmpireDevelopment1Horatio"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+   
+        <Prerequisites>AffinityMappingHoratio</Prerequisites>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitTechnologyDefinitionEmpireDevelopment2" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartingTechnology" TraitSubCategory="FactionTraitTechnologyDefinitionEmpireDevelopment2" Family="FactionTraitFamilyStartingTechnologies" Hidden="false" Custom="true" Cost="10">
+        <Command Name="UnlockTechnology"                Arguments="TechnologyDefinitionEmpireDevelopment2"/>
+        <SimulationDescriptorReference Name="FactionTraitTechnologyDefinitionEmpireDevelopment2"/>
+    </FactionTrait>
+
+
+    <!-- ################################################ -->
+    <!-- ######           START MODIFIERS          ###### -->
+    <!-- ################################################ -->
+   <!--Starting Strategic Resources Deposits-->
+    <FactionTrait Name="FactionTraitStartWithTitanium" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartModifiers" TraitSubCategory="TraitSubCategoryStartWithTitanium" Family="FactionTraitFamilyStartModifiers" Hidden="false" Custom="true" Cost="10">
+        <!--INSERT YOUR TITANIUM-RELATED BIT HERE-->
+        <SimulationDescriptorReference Name="FactionTraitStartWithTitanium" />
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitStartWithHyperium" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartModifiers" TraitSubCategory="TraitSubCategoryStartWithHyperium" Family="FactionTraitFamilyStartModifiers" Hidden="false" Custom="true" Cost="10">
+        <!--INSERT YOUR HYPERIUM-RELATED BIT HERE-->
+        <SimulationDescriptorReference Name="FactionTraitStartWithHyperium" />
+    </FactionTrait>
+
+    <!--Starting Anomalies-->
+    <FactionTrait Name="FactionTraitStartWithPositiveAnomaly" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartModifiers" TraitSubCategory="TraitSubCategoryStartWithPositiveAnomaly" Family="FactionTraitFamilyStartModifiers" Hidden="false" Custom="true" Cost="10">
+        <!--INSERT YOUR RANDOM POSITIVE ANOMALY HERE-->
+        <SimulationDescriptorReference Name="FactionTraitStartWithPositiveAnomaly" />
+        <Prerequisites>!FactionTraitStartWithNegativeAnomaly</Prerequisites>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitStartWithNegativeAnomaly" SubCategory="FactionTrait" TraitCategory="TraitCategoryStartModifiers" TraitSubCategory="TraitSubCategoryStartWithNegativeAnomaly" Family="FactionTraitFamilyStartModifiers" Hidden="false" Custom="true" Cost="-10">
+        <!--INSERT YOUR RANDOM NEGATIVE ANOMALY HERE-->
+        <SimulationDescriptorReference Name="FactionTraitStartWithNegativeAnomaly" />
+        <Prerequisites>!FactionTraitStartWithPositiveAnomaly</Prerequisites>
+    </FactionTrait>
+  
+
+</Datatable>

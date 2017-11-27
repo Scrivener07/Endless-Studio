@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+
+	<!-- ******************** -->
+	<!-- **SUPPORT MODULES** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassModuleSupport"             Type="ClassModule">
+		<Property Name="SectionHealthBonus"                BaseValue="0"    MinValue="Negative"/>
+
+		<Property Name="FlotillaDmgReductionAgainstPhysical" BaseValue="0" MinValue="Negative" />
+		<Property Name="FlotillaDmgReductionAgainstEnergy"  BaseValue="0"  MinValue="Negative" />
+
+
+		<Modifier TargetProperty="GarrisonMoneyUpkeep"     Operation="Addition"             Value="$(UpkeepFromModules)"     Path="../ClassShip"     Priority="1"/>
+		<!-- We use intermediaries so that the additions and multiplications don't get accumulated and computed at the ship level -->
+		<Modifier TargetProperty="SectionHealthBonus"      Operation="Multiplication"       Value="$(Multiplier)"            Path="ClassModuleSupport"/>
+		<Modifier TargetProperty="MaximumHealth"           Operation="Addition"             Value="$(SectionHealthBonus)"    Path="./ClassSection"/>
+		<Modifier TargetProperty="MaximumHealthFromModule"                  Operation="Addition"            Value="$(SectionHealthBonus)"   Path="./ClassSectionCore"/>
+
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassModuleFlakExplication"         Type="ClassModuleFlakExplication"/>
+	<SimulationDescriptor Name="ClassModuleSupportShipOnly"         Type="ClassModuleSupportShipOnly"/>
+	<SimulationDescriptor Name="ClassModuleColonizerShipOnly"       Type="ClassModuleColonizerShipOnly"/>
+	<SimulationDescriptor Name="ClassModuleRootCreatorShipOnly"     Type="ClassModuleRootCreatorShipOnly"/>
+	<SimulationDescriptor Name="ClassModuleExplorerShipOnly"        Type="ClassModuleExplorerShipOnly"/>
+	<SimulationDescriptor Name="ClassModuleExplorerAndHeroShipOnly" Type="ClassModuleExplorerAndHeroShipOnly"/>
+	<SimulationDescriptor Name="ClassModuleSupportAndHeroShipOnly"	Type="ClassModuleSupportAndHeroShipOnly"/>
+
+	<!-- ********************* -->
+	<!-- ** ANALYZER MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportAnalyzer"                 Type="ModuleSupportAnalyzer">
+		<Property Name="OpponentRecyclingSciencePerCP"                BaseValue="0"/>
+
+		<Modifier TargetProperty="OpponentRecyclingSciencePerCP"      Operation="Multiplication" Value="$(Multiplier)" />
+		<Modifier TargetProperty="OpponentRecyclingSciencePerCP"      Operation="Addition" Value="$(OpponentRecyclingSciencePerCP)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportAnalyzer1"                Type="ModuleSupportAnalyzer">
+		<Modifier TargetProperty="OpponentRecyclingSciencePerCP" Operation="Addition" Value="15" Path="ModuleSupportAnalyzer"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportAnalyzer2Strategic2"      Type="ModuleSupportAnalyzer">
+		<Modifier TargetProperty="OpponentRecyclingSciencePerCP" Operation="Addition" Value="30" Path="ModuleSupportAnalyzer"/>
+	</SimulationDescriptor>
+
+
+	<!-- ************************** -->
+	<!-- ** ANTI CARRIER MODULES ** -->
+	<!-- ************************** -->
+	<SimulationDescriptor Name="ModuleSupportAntiCarrier"                 Type="ModuleSupportAntiCarrier">
+		<Property Name="DamageBonusPerTargetCommandPointsFlotilla"  BaseValue="0"  MinValue="Negative"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportAntiCarrier1Strategic4"      Type="ModuleSupportAntiCarrier">
+		<Modifier TargetProperty="DamageBonusPerTargetCommandPointsFlotilla"    Operation="Addition" Value="0.04" Path="ModuleSupportAntiCarrier"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"                       Operation="Percent" Value="0.1" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportAntiCarrier2Strategic6"      Type="ModuleSupportAntiCarrier">
+		<Modifier TargetProperty="DamageBonusPerTargetCommandPointsFlotilla" Operation="Addition" Value="0.06" Path="ModuleSupportAntiCarrier"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"                       Operation="Percent" Value="0.15" Path="../ClassShip"/>
+
+	</SimulationDescriptor>
+
+	<!-- ************************** -->
+	<!-- ** ANTI CREW MODULES ** -->
+	<!-- ************************** -->
+	<SimulationDescriptor Name="ModuleSupportAntiCrew"                 Type="ModuleSupportAntiCrew">
+		<Property Name="FlotillaShipManpowerKillPerHitPercent"                BaseValue="0"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ModuleSupportAntiCrew1Strategic1"      Type="ModuleSupportAntiCrew">
+		<Modifier TargetProperty="FlotillaShipManpowerKillPerHitPercent" Operation="Addition" Value="0.25" Path="ModuleSupportAntiCrew"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"                       Operation="Percent" Value="0.04" Path="../ClassShip"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ModuleSupportAntiCrew2Strategic5"      Type="ModuleSupportAntiCrew">
+		<Modifier TargetProperty="FlotillaShipManpowerKillPerHitPercent" Operation="Addition" Value="0.6" Path="ModuleSupportAntiCrew"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"                       Operation="Percent" Value="0.1" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ********************* -->
+	<!-- ** BAIT MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportBait"                 Type="ModuleSupportBait">
+		<Property Name="TargetingWeightBonus"                BaseValue="0"/>
+		<Modifier TargetProperty="TargetingWeightBonus"      Operation="Addition" Value="$(TargetingWeightBonus)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportBait1Strategic4"      Type="ModuleSupportBait">
+		<Modifier TargetProperty="TargetingWeightBonus" Operation="Addition" Value="10" Path="ModuleSupportBait"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportBait2Strategic6"      Type="ModuleSupportBait">
+		<Modifier TargetProperty="TargetingWeightBonus" Operation="Addition" Value="20" Path="ModuleSupportBait"/>
+	</SimulationDescriptor>
+
+	<!-- ********************* -->
+	<!-- ** COLONIZATION MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportColonization"      Type="ModuleSupportColonization">
+		<Property Name="MaximumMovement"/>
+		<Property Name="MaximumShipProbeStock"/>
+		<Property Name="NetShipProbe"/>
+		<Property Name="TargetingWeightPenalty"                BaseValue="0"/>
+
+		<Modifier TargetProperty="MaximumMovement"          Operation="Addition"        Value="$(MaximumMovement)"            Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition"        Value="$(MaximumShipProbeStock)"      Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition"        Value="$(NetShipProbe)"               Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="TargetingWeightBonus"     Operation="Subtraction" Value="$(TargetingWeightPenalty)"         Path="../ClassShip"         Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportColonization1"      Type="ModuleSupportColonization">
+	</SimulationDescriptor>
+
+	<!-- Temporay effect for update 3, waiting for pop bonus -->
+
+	<SimulationDescriptor Name="ModuleSupportColonization2Strategic1" Type="ModuleSupportColonization">
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition" Value="1"      Path="ModuleSupportColonization"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition" Value="0.25"   Path="ModuleSupportColonization"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportColonization3Strategic3" Type="ModuleSupportColonization">
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition" Value="1"      Path="ModuleSupportColonization"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition" Value="0.5"    Path="ModuleSupportColonization"/>
+		<Modifier TargetProperty="TargetingWeightPenalty"   Operation="Addition" Value="10"     Path="ModuleSupportColonization"/>
+	</SimulationDescriptor>
+
+	<!-- ********************* -->
+	<!-- ** CREW  MODULES ** -->
+	<!-- ********************* -->
+
+	<SimulationDescriptor Name="ModuleSupportCrew" Type="ModuleSupportCrew">
+		<Property Name="LocalManpower"/>
+		<Property Name="ShipManpowerKillAbsorption"/>
+		<Modifier TargetProperty="LocalManpower"           Operation="Multiplication" Value="$(Multiplier)"         TooltipHidden="true"/>
+		<Modifier TargetProperty="MaximumShipManpower"      Operation="Addition"       Value="$(LocalManpower)"         Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="ShipManpowerKillAbsorption"      Operation="Addition"       Value="$(ShipManpowerKillAbsorption)"         Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew1"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"       Operation="Addition" Value="50"    Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"           Operation="Addition" Value="100"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew2"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="200"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew2Strategic3"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="300"    Path="ModuleSupportCrew"/>
+		<Modifier TargetProperty="ShipManpowerKillAbsorption"        Operation="Addition"  Value="0.15"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew3"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="300"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew3Cravers"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="400"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew3Terrans"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="450"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew4"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="400"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportCrew4Cravers"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="600"    Path="ModuleSupportCrew"/>
+	</SimulationDescriptor>
+
+
+	<SimulationDescriptor Name="ModuleSupportCrew4Strategic6"    Type="ModuleSupportCrew">
+		<Modifier TargetProperty="SectionHealthBonus"    Operation="Addition" Value="100"   Path="ClassModule"/>
+		<Modifier TargetProperty="LocalManpower"        Operation="Addition"  Value="500"    Path="ModuleSupportCrew"/>
+		<Modifier TargetProperty="ShipManpowerKillAbsorption"        Operation="Addition"  Value="0.3"    Path="ModuleSupportCrew"/>
+
+	</SimulationDescriptor>
+
+	<!-- ********************************* -->
+	<!-- ** ENERGY ENHANCER MODULES ** -->
+	<!-- ********************************* -->
+
+	<SimulationDescriptor Name="ModuleSupportEnergyEnhancer"                   Type="ModuleSupportEnergyEnhancer">
+		<Property Name="DamageEnergy"                BaseValue="0"/>
+		<Property Name="CriticalHitChance"                BaseValue="0"/>
+		<Modifier TargetProperty="DamageEnergy"      Operation="Addition" Value="$(DamageEnergy)"       Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="CriticalHitChance"      Operation="Addition" Value="$(CriticalHitChance)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEnergyEnhancer1"                   Type="ModuleSupportEnergyEnhancer">
+		<Modifier TargetProperty="DamageEnergy"         Operation="Addition" Value="0.2" Path="ModuleSupportEnergyEnhancer"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEnergyEnhancer2Strategic2"                   Type="ModuleSupportEnergyEnhancer">
+		<Modifier TargetProperty="DamageEnergy" Operation="Addition" Value="0.25" Path="ModuleSupportEnergyEnhancer"/>
+		<Modifier TargetProperty="CriticalHitChance" Operation="Addition" Value="0.05" Path="ModuleSupportEnergyEnhancer"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower" Operation="Percent" Value="0.05" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEnergyEnhancer3Strategic4"                   Type="ModuleSupportEnergyEnhancer">
+		<Modifier TargetProperty="DamageEnergy" Operation="Addition" Value="0.3" Path="ModuleSupportEnergyEnhancer"/>
+		<Modifier TargetProperty="CriticalHitChance" Operation="Addition" Value="0.1" Path="ModuleSupportEnergyEnhancer"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower" Operation="Percent" Value="0.06" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEnergyEnhancer4Strategic6"                   Type="ModuleSupportEnergyEnhancer">
+		<Modifier TargetProperty="DamageEnergy" Operation="Addition" Value="0.35" Path="ModuleSupportEnergyEnhancer"/>
+		<Modifier TargetProperty="CriticalHitChance" Operation="Addition" Value="0.15" Path="ModuleSupportEnergyEnhancer"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"  Operation="Percent" Value="0.07" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************* -->
+	<!-- ** ENGINE MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportEngine"            Type="ModuleSupportEngine">
+		<Property Name="MaximumMovement"/>
+		<Property Name="Evasion"/>
+		<Modifier TargetProperty="MaximumMovement"           Operation="Addition" Value="$(MaximumMovement)"       Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="Evasion"           Operation="Addition" Value="$(Evasion)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEngine1" Type="ModuleSupportEngine">
+		<Modifier TargetProperty="MaximumMovement"         Operation="Addition"     Value="2"      Path="ModuleSupportEngine"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEngine2" Type="ModuleSupportEngine">
+		<Modifier TargetProperty="MaximumMovement"         Operation="Addition"     Value="3"      Path="ModuleSupportEngine"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleSupportEngine4" Type="ModuleSupportEngine">
+        <Modifier TargetProperty="MaximumMovement"         Operation="Addition"     Value="5"      Path="ModuleSupportEngine"/>
+    </SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEngine2Strategic2" Type="ModuleSupportEngine">
+		<Modifier TargetProperty="MaximumMovement"         Operation="Addition"     Value="4"      Path="ModuleSupportEngine"/>
+		<Modifier TargetProperty="Evasion"                 Operation="Addition"     Value="0.05"    Path="ModuleSupportEngine"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportEngine3Strategic4" Type="ModuleSupportEngine">
+		<Modifier TargetProperty="MaximumMovement"         Operation="Addition"     Value="6"      Path="ModuleSupportEngine"/>
+		<Modifier TargetProperty="Evasion"                 Operation="Addition"     Value="0.1"   Path="ModuleSupportEngine"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************* -->
+	<!-- ** EXPLORATION MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportExploration" Type="ModuleSupportExploration">
+		<Property Name="VisionRange"/>
+		<Property Name="MaximumMovement"/>
+		<Property Name="MaximumShipProbeStock"/>
+		<Property Name="NetShipProbe"/>
+
+		<Modifier TargetProperty="VisionRange"              Operation="Addition"        Value="$(VisionRange)"                Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="MaximumMovement"          Operation="Addition"        Value="$(MaximumMovement)"            Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition"        Value="$(MaximumShipProbeStock)"      Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition"        Value="$(NetShipProbe)"               Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportExploration1" Type="ModuleSupportExploration">
+		<Modifier TargetProperty="VisionRange"           Operation="Addition" Value="1"         Path="ModuleSupportExploration"/>
+
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition" Value="2"      Path="ModuleSupportExploration"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition" Value="0.25"   Path="ModuleSupportExploration"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportExploration2Strategic1" Type="ModuleSupportExploration">
+		<Modifier TargetProperty="VisionRange"              Operation="Addition" Value="2"          Path="ModuleSupportExploration"/>
+
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition" Value="2"          Path="ModuleSupportExploration"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition" Value="1"          Path="ModuleSupportExploration"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportExploration2Strategic2" Type="ModuleSupportExploration">
+		<Modifier TargetProperty="VisionRange"              Operation="Addition" Value="3"          Path="ModuleSupportExploration"/>
+
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition" Value="3"          Path="ModuleSupportExploration"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition" Value="0.5"        Path="ModuleSupportExploration"/>
+	</SimulationDescriptor>
+
+	<!-- ********************* -->
+	<!-- ** FLEET ENGINE MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportFleetEngine"            Type="ModuleSupportFleetEngine">
+		<Property Name="MaximumMovementFleet"/>
+		<Modifier TargetProperty="MaximumMovement"           Operation="Addition" Value="$(MaximumMovementFleet)"       Path="../ClassGarrison/ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFleetEngine1Strategic2" Type="ModuleSupportFleetEngine">
+		<Modifier TargetProperty="MaximumMovementFleet"         Operation="Addition"     Value="1"      Path="ModuleSupportFleetEngine"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFleetEngine2Strategic4" Type="ModuleSupportFleetEngine">
+		<Modifier TargetProperty="MaximumMovementFleet"         Operation="Addition"     Value="2"      Path="ModuleSupportFleetEngine"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFleetEngine3Strategic6" Type="ModuleSupportFleetEngine">
+		<Modifier TargetProperty="MaximumMovementFleet"         Operation="Addition"     Value="3"      Path="ModuleSupportFleetEngine"/>
+	</SimulationDescriptor>
+
+	<!-- ***************************** -->
+	<!-- ** FLOTILLA REPAIR MODULES ** -->
+	<!-- ***************************** -->
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaRepair"            Type="ModuleSupportFlotillaRepair">
+		<Property Name="FlotillaRepairAfterBattle"      BaseValue="0"/>
+		<Property Name="FlotillaRepairAfterPhase"      BaseValue="0"/>
+		<Modifier TargetProperty="RepairAfterBattle"           Operation="Addition" Value="$(FlotillaRepairAfterBattle)"       Path="../ClassGarrison/ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="RepairAfterPhase"            Operation="Addition" Value="$(FlotillaRepairAfterPhase)"        Path="../ClassGarrison/ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaRepair1Strategic3"            Type="ModuleSupportFlotillaRepair">
+		<Modifier TargetProperty="FlotillaRepairAfterBattle" Operation="Addition" Value="0.05" Path="ClassModule"/>
+		<Modifier TargetProperty="FlotillaRepairAfterPhase" Operation="Addition" Value="0.05" Path="ClassModule"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"  Operation="Percent" Value="0.8" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaRepair1Strategic3TimeLords"            Type="ModuleSupportFlotillaRepair">
+		<Modifier TargetProperty="FlotillaRepairAfterBattle" Operation="Addition" Value="0.1" Path="ClassModule"/>
+		<Modifier TargetProperty="FlotillaRepairAfterPhase" Operation="Addition" Value="0.1" Path="ClassModule"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"  Operation="Percent" Value="1" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaRepair2Strategic5"            Type="ModuleSupportFlotillaRepair">
+		<Modifier TargetProperty="FlotillaRepairAfterBattle" Operation="Addition" Value="0.15" Path="ClassModule"/>
+		<Modifier TargetProperty="FlotillaRepairAfterPhase" Operation="Addition" Value="0.15" Path="ClassModule"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"  Operation="Percent" Value="1.2" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ********************************** -->
+	<!-- ****   FLOTILLA SHIELD MDOULE **** -->
+	<!-- ********************************** -->
+	<SimulationDescriptor Name="ModuleSupportFlotillaShield"    Type="ModuleSupportFlotillaShield">
+		<Property Name="FlotillaMaximumShield"      BaseValue="0"/>
+		<Property Name="FlotillaShieldAbsorption"   BaseValue="0"/>
+	</SimulationDescriptor>
+
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaShield1Strategic2"  Type="ModuleSupportFlotillaShield">
+		<Modifier TargetProperty="FlotillaMaximumShield"    Operation="Addition"                Value="200"     Path="ModuleSupportFlotillaShield" />
+		<Modifier TargetProperty="FlotillaShieldAbsorption" Operation="Addition"                Value="15"      Path="ModuleSupportFlotillaShield" />
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.1" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaShield2Strategic4"  Type="ModuleSupportFlotillaShield">
+		<Modifier TargetProperty="FlotillaMaximumShield"    Operation="Addition"                Value="300"     Path="ModuleSupportFlotillaShield" />
+		<Modifier TargetProperty="FlotillaShieldAbsorption" Operation="Addition"                Value="25"      Path="ModuleSupportFlotillaShield" />
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.15" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportFlotillaShield3Strategic6"  Type="ModuleSupportFlotillaShield">
+		<Modifier TargetProperty="FlotillaMaximumShield"    Operation="Addition"                Value="400"     Path="ModuleSupportFlotillaShield" />
+		<Modifier TargetProperty="FlotillaShieldAbsorption" Operation="Addition"                Value="40"      Path="ModuleSupportFlotillaShield" />
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.2" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************* -->
+	<!-- ** JAMMER MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportJammer"                 Type="ModuleSupportJammer">
+		<Property Name="TargetingWeightPenalty"                BaseValue="0"/>
+		<Modifier TargetProperty="TargetingWeightBonus"      Operation="Subtraction" Value="$(TargetingWeightPenalty)"       Path="../ClassShip"         Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportJammer1Strategic3"      Type="ModuleSupportJammer">
+		<Modifier TargetProperty="TargetingWeightPenalty" Operation="Addition" Value="10" Path="ModuleSupportJammer"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportJammer2Strategic5"      Type="ModuleSupportJammer">
+		<Modifier TargetProperty="TargetingWeightPenalty" Operation="Addition" Value="20" Path="ModuleSupportJammer"/>
+	</SimulationDescriptor>
+
+	<!-- ********************* -->
+	<!-- ** JOURNALIST MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportJournalist"                   Type="ModuleSupportJournalist">
+		<Property Name="OpponentRecyclingEmpirePointPerCP"                BaseValue="0"/>
+
+		<Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP"      Operation="Multiplication" Value="$(Multiplier)" />
+		<Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP"      Operation="Addition" Value="$(OpponentRecyclingEmpirePointPerCP)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportJournalist1"                  Type="ModuleSupportJournalist">
+		<Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP" Operation="Addition" Value="5" Path="ModuleSupportJournalist"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportJournalist2Strategic5"        Type="ModuleSupportJournalist">
+		<Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP" Operation="Addition" Value="10" Path="ModuleSupportJournalist"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************************* -->
+	<!-- ** PROJECTILE ENHANCER MODULES ** -->
+	<!-- ********************************* -->
+
+	<SimulationDescriptor Name="ModuleSupportProjectileEnhancer"                   Type="ModuleSupportProjectileEnhancer">
+		<Property Name="DamageProjectile"                BaseValue="0"/>
+		<Property Name="CriticalHitChance"                BaseValue="0"/>
+		<Modifier TargetProperty="DamageProjectile"      Operation="Addition" Value="$(DamageProjectile)"       Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="CriticalHitChance"      Operation="Addition" Value="$(CriticalHitChance)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportProjectileEnhancer1"                   Type="ModuleSupportProjectileEnhancer">
+		<Modifier TargetProperty="DamageProjectile" Operation="Addition" Value="0.2" Path="ModuleSupportProjectileEnhancer"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportProjectileEnhancer2Strategic1"                   Type="ModuleSupportProjectileEnhancer">
+		<Modifier TargetProperty="DamageProjectile" Operation="Addition" Value="0.25" Path="ModuleSupportProjectileEnhancer"/>
+		<Modifier TargetProperty="CriticalHitChance" Operation="Addition" Value="0.05" Path="ModuleSupportProjectileEnhancer"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"  Operation="Percent" Value="0.05" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportProjectileEnhancer3Strategic3"                   Type="ModuleSupportProjectileEnhancer">
+		<Modifier TargetProperty="DamageProjectile" Operation="Addition" Value="0.3" Path="ModuleSupportProjectileEnhancer"/>
+		<Modifier TargetProperty="CriticalHitChance" Operation="Addition" Value="0.1" Path="ModuleSupportProjectileEnhancer"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"  Operation="Percent" Value="0.06" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportProjectileEnhancer4Strategic5"                   Type="ModuleSupportProjectileEnhancer">
+		<Modifier TargetProperty="DamageProjectile" Operation="Addition" Value="0.35" Path="ModuleSupportProjectileEnhancer"/>
+		<Modifier TargetProperty="CriticalHitChance" Operation="Addition" Value="0.15" Path="ModuleSupportProjectileEnhancer"/>
+		<Modifier TargetProperty="OffensiveMilitaryPower"  Operation="Percent" Value="0.07" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************* -->
+	<!-- ** RECYCLING MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportRecycling"                 Type="ModuleSupportRecycling">
+		<Property Name="OpponentRecyclingDustPerCP"                BaseValue="0"/>
+
+		<Modifier TargetProperty="OpponentRecyclingDustPerCP"      Operation="Multiplication" Value="$(Multiplier)" />
+		<Modifier TargetProperty="OpponentRecyclingDustPerCP"      Operation="Addition" Value="$(OpponentRecyclingDustPerCP)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRecycling1"                Type="ModuleSupportRecycling">
+		<Modifier TargetProperty="OpponentRecyclingDustPerCP" Operation="Addition" Value="5" Path="ModuleSupportRecycling"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRecycling2Strategic3"      Type="ModuleSupportRecycling">
+		<Modifier TargetProperty="OpponentRecyclingDustPerCP" Operation="Addition" Value="10" Path="ModuleSupportRecycling"/>
+	</SimulationDescriptor>
+
+	<!-- ********************************** -->
+	<!-- *****      REPAIR MODULES     **** -->
+	<!-- ********************************** -->
+
+	<!--Repair-->
+	<SimulationDescriptor Name="ModuleSupportRepair"            Type="ModuleSupportRepair">
+		<Property Name="RepairAfterBattle"                BaseValue="0"/>
+		<Property Name="RepairAfterPhase"                BaseValue="0"/>
+		<Property Name="HealthRegenerationRatio"                BaseValue="0"/>
+		<Modifier TargetProperty="RepairAfterBattle"      Operation="Addition" Value="$(RepairAfterBattle)"       Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="RepairAfterPhase"      Operation="Addition" Value="$(RepairAfterPhase)"       Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="HealthRegenerationRatio"      Operation="Addition" Value="$(HealthRegenerationRatio)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRepair1" Type="ModuleSupportRepair">
+		<Modifier TargetProperty="SectionHealthBonus"       Operation="Addition" Value="50"    Path="ClassModule"/>
+		<Modifier TargetProperty="RepairAfterBattle" Operation="Addition" Value="0.15" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.03" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRepair2Strategic1" Type="ModuleSupportRepair">
+		<Modifier TargetProperty="SectionHealthBonus"       Operation="Addition" Value="50"    Path="ClassModule"/>
+		<Modifier TargetProperty="RepairAfterBattle" Operation="Addition" Value="0.2" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="RepairAfterPhase" Operation="Addition" Value="0.1" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.08" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRepair2Strategic2" Type="ModuleSupportRepair">
+		<Modifier TargetProperty="SectionHealthBonus"       Operation="Addition" Value="50"    Path="ClassModule"/>
+		<Modifier TargetProperty="RepairAfterBattle" Operation="Addition" Value="0.25" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="HealthRegenerationRatio" Operation="Addition" Value="0.05" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.8" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRepair3Strategic5" Type="ModuleSupportRepair">
+		<Modifier TargetProperty="SectionHealthBonus"       Operation="Addition" Value="50"    Path="ClassModule"/>
+		<Modifier TargetProperty="RepairAfterBattle" Operation="Addition" Value="0.3" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="RepairAfterPhase" Operation="Addition" Value="0.2" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="HealthRegenerationRatio" Operation="Addition" Value="0.1" Path="ModuleSupportRepair"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.16" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************* -->
+	<!-- ** ROOT CREATOR MODULES ** -->
+	<!-- ********************* -->
+	<SimulationDescriptor Name="ModuleSupportRootCreation"      Type="ModuleSupportRootCreation">
+		<Property Name="MaximumMovement"/>
+		<Property Name="MaximumShipProbeStock"/>
+		<Property Name="NetShipProbe"/>
+		<Property Name="TargetingWeightPenalty"                BaseValue="0"/>
+
+		<Modifier TargetProperty="MaximumMovement"          Operation="Addition"        Value="$(MaximumMovement)"            Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="MaximumShipProbeStock"    Operation="Addition"        Value="$(MaximumShipProbeStock)"      Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="NetShipProbe"             Operation="Addition"        Value="$(NetShipProbe)"               Path="../ClassShip"     Priority="1"/>
+		<Modifier TargetProperty="TargetingWeightBonus"     Operation="Subtraction"		Value="$(TargetingWeightPenalty)"     Path="../ClassShip"         Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportRootCreation1"      Type="ModuleSupportRootCreation">
+		<Modifier TargetProperty="RootingIncreasePerTurn"          Operation="Addition"        Value="0.05"            Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+
+	<!-- ********************************** -->
+	<!-- ***** SHIELD RELOAD MODULES   **** -->
+	<!-- ********************************** -->
+
+
+	<SimulationDescriptor Name="ModuleSupportShieldReload"                         Type="ModuleSupportShieldReload">
+		<Property Name="ShieldReloadPerPhase"                BaseValue="0"/>
+
+		<Modifier TargetProperty="ShieldReloadPerPhase"      Operation="Multiplication" Value="$(Multiplier)" />
+		<Modifier TargetProperty="ShieldReloadPerPhase"      Operation="Addition" Value="$(ShieldReloadPerPhase)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportShieldReload1Strategic4"              Type="ModuleSupportShieldReload">
+		<Modifier TargetProperty="ShieldReloadPerPhase"       Operation="Addition" Value="200"    Path="ModuleSupportShieldReload"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.02" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportShieldReload2Strategic6"              Type="ModuleSupportShieldReload">
+		<Modifier TargetProperty="ShieldReloadPerPhase"       Operation="Addition" Value="400"    Path="ModuleSupportShieldReload"/>
+		<Modifier TargetProperty="DefensiveMilitaryPower"   Operation="Percent" Value="0.04" Path="../ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ********************************** -->
+	<!-- *****       SIEGE MODULES     **** -->
+	<!-- ********************************** -->
+
+
+	<SimulationDescriptor Name="ModuleSupportSiege"                         Type="ModuleSupportSiege">
+		<Property Name="SiegePower"                BaseValue="0"/>
+
+		<Modifier TargetProperty="SiegePower"      Operation="Multiplication" Value="$(Multiplier)" />
+		<Modifier TargetProperty="SiegePower"      Operation="Addition" Value="$(SiegePower)"       Path="../ClassShip"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportSiege1Strategic1"              Type="ModuleSupportSiege">
+		<Modifier TargetProperty="SiegePower"       Operation="Addition" Value="15"    Path="ModuleSupportSiege"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportSiege2Strategic5"              Type="ModuleSupportSiege">
+		<Modifier TargetProperty="SiegePower"       Operation="Addition" Value="40"    Path="ModuleSupportSiege"/>
+	</SimulationDescriptor>
+
+	<!-- ********************************** -->
+	<!-- *****      F/B MODULES        **** -->
+	<!-- ********************************** -->
+	<!--Squadron offense enhancer-->
+	<SimulationDescriptor Name="ModuleSupportSquadronOffenseEnhancer"              Type="ModuleSupportSquadronOffenseEnhancer">
+		<Property Name="SquadronCriticalAttackChance" BaseValue="0"/>
+		<Property Name="SquadronDamage" BaseValue="0"/>
+
+		<Modifier TargetProperty="CriticalAttackChance"     Operation="Addition"	Value="$(SquadronCriticalAttackChance)"			Path="../ClassShip/ClassSection/ClassModuleSquadron"     Priority="1"/>
+		<Modifier TargetProperty="Damage"					Operation="Percent"		Value="$(SquadronDamage)"						Path="../ClassShip/ClassSection/ClassModuleSquadron"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportSquadronOffenseEnhancer1Strategic4"              Type="ModuleSupportSquadronOffenseEnhancer">
+		<Modifier TargetProperty="SquadronDamage"					Operation="Addition" Value="0.25"    Path="ModuleSupportSquadronOffenseEnhancer"/>
+		<Modifier TargetProperty="SquadronCriticalAttackChance"     Operation="Addition" Value="0.05"  Path="ModuleSupportSquadronOffenseEnhancer"/>
+	</SimulationDescriptor>
+
+	<!-- Squadron defense enhancer-->
+	<SimulationDescriptor Name="ModuleSupportSquadronDefenseEnhancer"              Type="ModuleSupportSquadronDefenseEnhancer">
+		<Property Name="SquadronMaximumHealth" BaseValue="0"/>
+		<Property Name="SquadronDodgeChance" BaseValue="0"/>
+
+		<Modifier TargetProperty="SquadronMaximumHealth"		Operation="Multiplication" Value="$(Multiplier)" />
+
+		<Modifier TargetProperty="MaximumHealth"    Operation="Addition"	Value="$(SquadronMaximumHealth)"			Path="../ClassShip/ClassSection/ClassModuleSquadron"     Priority="1"/>
+		<Modifier TargetProperty="DodgeChance"		Operation="Addition"	Value="$(SquadronDodgeChance)"				Path="../ClassShip/ClassSection/ClassModuleSquadron"     Priority="1"/>
+	</SimulationDescriptor>
+
+	<SimulationDescriptor Name="ModuleSupportSquadronDefenseEnhancer1Strategic3"              Type="ModuleSupportSquadronDefenseEnhancer">
+		<Modifier TargetProperty="SquadronMaximumHealth"    Operation="Addition"	Value="100"		Path="ModuleSupportSquadronDefenseEnhancer"/>
+		<Modifier TargetProperty="SquadronDodgeChance"		Operation="Addition"	Value="0.1"		Path="ModuleSupportSquadronDefenseEnhancer"/>
+	</SimulationDescriptor>
+
+	<!-- Flak enhancer-->
+	<SimulationDescriptor Name="ModuleSupportFlakEnhancer"              Type="ModuleSupportFlakEnhancer">
+		<Property Name="FlakEfficiency" BaseValue="0"/>
+
+        <Modifier TargetProperty="FlakEfficiency" Operation="Multiplication" Value="$(Multiplier)" Path="ClassModule" TooltipHidden="true"/>
+		<Modifier TargetProperty="FlakEfficiency"			Operation="Addition"		Value="$(FlakEfficiency)"			Path="../ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponKinetic"     Priority="1"/>
+		<BinaryModifier TargetProperty="Damage"				Operation="Addition"		Left="4"	BinaryOperation="Multiplication"	Right="$(FlakEfficiency)"	Path="../ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponFlack"	Priority="1"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ModuleSupportFlakEnhancer1"              Type="ModuleSupportFlakEnhancer">
+		<Modifier TargetProperty="FlakEfficiency"            Operation="Addition"	Value="5"      Path="ClassModule" TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<!-- Flak scrambler-->
+	<SimulationDescriptor Name="ModuleSupportFlakScrambler"              Type="ModuleSupportFlakScrambler">
+		<Property Name="FlakEvasionSquadron" BaseValue="0"/>
+
+		<Modifier TargetProperty="FlakEvasionSquadron"				Operation="Addition"	Value="$(FlakEvasionSquadron)"	Path="../ClassShip/ClassSection/ClassModuleSquadron" Priority="1"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ModuleSupportFlakScrambler1"              Type="ModuleSupportFlakScrambler">
+		<Modifier TargetProperty="FlakEvasionSquadron"				Operation="Addition"	Value="0.15"			Path="ClassModule" TooltipHidden="true"/>
+	</SimulationDescriptor>
+</Datatable>

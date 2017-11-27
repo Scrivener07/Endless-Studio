@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/EmpireImprovementDefinition.xsd">
+    
+
+    <!--############################-->
+    <!--####    FREE CONTENT    ####-->
+    <!--############################-->
+
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestMetaplot1" Category="CategoryManpower" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedMetaplotQuestChapter2_TeamA</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestMetaplot1" />
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestMetaplot2" Category="CategoryManpower" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedMetaplotQuestChapter2_TeamB</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestMetaplot2" />
+    </EmpireImprovementDefinition>
+
+
+
+    <!--###### DEEDS #######-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestEmpire_Stage5A</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds01"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds02" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestEmpire_Stage4A</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds02"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds03" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestEmpire_Stage5B</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds03"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds04" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestEmpire_Stage4B</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds04"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds05" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDust">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestScience_Stage5A</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds05"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds06" Category="CategoryEmpireImprovement" SubCategory="SubCategoryEmpire">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestScience_Stage5B</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds06"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds07" Category="CategoryEmpireImprovement" SubCategory="SubCategoryEmpire">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestScience_Stage5C</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds07"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementDeeds08" Category="CategoryEmpireImprovement" SubCategory="SubCategoryFleet">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestMilitary_Stage4C</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementDeeds08"/>
+    </EmpireImprovementDefinition>
+  
+</Datatable>

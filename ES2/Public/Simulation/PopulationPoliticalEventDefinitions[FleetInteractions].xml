@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationEventDefinition.xsd">
+
+    <!--
+            Category    Up to the designers.
+            Scale       System|Empire
+            Tags        Used for trait's event filters.
+    -->
+
+    <!-- /!\ Those are code-driven. Don't change their name whitout a programmer's consent. -->
+    
+    <!-- Attack -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventFleetHasAttackedAnEnemy" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventFleetGotAttackedByAnEnemy" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+    
+    <!-- Battle result -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventBattleWon" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventBattleLost" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+    
+    <!-- Guard -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventFleetHasInterceptedAnEnemy" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventFleetGotInterceptedByAnEnemy" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- Planet destruction -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventPlanetDestroyedByOwnedFleet" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventPlanetDestroyedByEnemyFleet" Category="PoliticalEventFleets" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+    
+</Datatable>

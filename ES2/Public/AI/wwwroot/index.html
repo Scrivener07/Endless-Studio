@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ai.debug.front">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ Page.Title() }}</title>
+        <!-- fileblock:css styles -->
+        <link href="styles.css" rel="stylesheet" />
+        <!-- endfileblock -->
+    </head>
+<body role="document">
+
+<div ui-view="header">
+</div>
+
+<div ui-view class="enfer-container theme-showcase" role="main">
+</div>
+
+<!-- fileblock:js scripts -->
+<script src="scripts.js"></script>
+<!-- endfileblock -->
+</body>
+</html>

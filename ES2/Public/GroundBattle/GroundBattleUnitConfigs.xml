@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GroundBattleUnitConfig.xsd">
+
+	<!-- Benthys -->
+	<GroundBattleUnitConfig Name="BenthysInfantry" Affinity="AffinityBenthys" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Benthys/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+	<GroundBattleUnitConfig Name="BenthysPlane" Affinity="AffinityBenthys" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="BenthysTank" Affinity="AffinityBenthys" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>	
+		
+	<!-- Cravers -->
+	<GroundBattleUnitConfig Name="CraversInfantry" Affinity="AffinityCravers" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Cravers/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="4"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="CraversPlane" Affinity="AffinityCravers" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Cravers/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+
+	<GroundBattleUnitConfig Name="CraversTank" Affinity="AffinityCravers" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Cravers/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_small"
+		/>
+
+	<!-- Deuyivans -->
+	<GroundBattleUnitConfig Name="DeuyivansInfantry" Affinity="AffinityDeuyivans" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Deuyivans/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath=""
+		/>
+
+	<GroundBattleUnitConfig Name="DeuyivansPlane" Affinity="AffinityDeuyivans" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="DeuyivansTank" Affinity="AffinityDeuyivans" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>	
+
+	<!-- Haroshems -->
+	<GroundBattleUnitConfig Name="HaroshemsInfantry" Affinity="AffinityHaroshems" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Haroshems/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath=""
+		/>
+
+	<GroundBattleUnitConfig Name="HaroshemsPlane" Affinity="AffinityHaroshems" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="HaroshemsTank" Affinity="AffinityHaroshems" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>	
+
+	<!-- Hisshos -->
+	<GroundBattleUnitConfig Name="HisshosInfantry" Affinity="AffinityHisshos" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Hisshos/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Sword"
+		/>
+
+	<GroundBattleUnitConfig Name="HisshosPlane" Affinity="AffinityHisshos" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="HisshosTank" Affinity="AffinityHisshos" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>	
+
+	<!-- Horatio -->
+	<GroundBattleUnitConfig Name="HoratioInfantry" Affinity="AffinityHoratio" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Horatio/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+
+	<GroundBattleUnitConfig Name="HoratioPlane" Affinity="AffinityHoratio" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Horatio/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+
+	<GroundBattleUnitConfig Name="HoratioTank" Affinity="AffinityHoratio" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Horatio/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+		
+	<!-- Mavros -->
+	<GroundBattleUnitConfig Name="MavrosInfantry" Affinity="AffinityMavros" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Mavros/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="MavrosPlane" Affinity="AffinityMavros" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="MavrosTank" Affinity="AffinityMavros" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>
+	<!-- Pirates -->
+	<GroundBattleUnitConfig Name="PiratesPlane" Affinity="AffinityPirates" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="PiratesTank" Affinity="AffinityPirates" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>
+
+	<!-- Sophons -->
+	<GroundBattleUnitConfig Name="SophonsInfantry" Affinity="AffinitySophons" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Sophons/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="4"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+	<GroundBattleUnitConfig Name="SophonsPlane" Affinity="AffinitySophons" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Sophons/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="SophonsTank" Affinity="AffinitySophons" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Sophons/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>
+
+	<!-- Bots -->
+	<GroundBattleUnitConfig Name="BotsInfantry" Affinity="AffinityBots" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Bots/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath=""
+		/>
+
+	<GroundBattleUnitConfig Name="BotsPlane" Affinity="AffinityBots" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Plane/AnimOverride"
+		HasAttackRecoveryAnim="true"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="BotsTank" Affinity="AffinityBots" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pirates/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="15"
+		VisualYPositionOffset="0"
+		CollisionXRadius="7" CollisionZRadius="5" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_medium"
+		/>
+
+	<!-- TimeLords -->
+	<GroundBattleUnitConfig Name="TimeLordsInfantry" Affinity="AffinityTimeLords" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/TimeLords/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="TimeLordsPlane" Affinity="AffinityTimeLords" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/TimeLords/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="TimeLordsTank" Affinity="AffinityTimeLords" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/TimeLords/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<!-- Terrans -->
+	<GroundBattleUnitConfig Name="TerransInfantry" Affinity="AffinityTerrans" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Terrans/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="TerransPlane" Affinity="AffinityTerrans" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Terrans/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="TerransTank" Affinity="AffinityTerrans" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Terrans/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+
+	<!-- Vampirilis -->
+	<GroundBattleUnitConfig Name="VampirilisInfantry" Affinity="AffinityVampirilis" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Vampirilis/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="4"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+
+	<GroundBattleUnitConfig Name="VampirilisPlane" Affinity="AffinityVampirilis" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Vampirilis/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+
+	<GroundBattleUnitConfig Name="VampirilisTank" Affinity="AffinityVampirilis" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Vampirilis/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion"
+		/>
+
+	<!-- Venetians -->
+	<GroundBattleUnitConfig Name="VenetiansInfantry" Affinity="AffinityVenetians" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Venetians/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+	<GroundBattleUnitConfig Name="VenetiansPlane" Affinity="AffinityVenetians" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Venetians/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+
+	<GroundBattleUnitConfig Name="VenetiansTank" Affinity="AffinityVenetians" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Venetians/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+	
+		<!-- Unfallen -->
+		
+	<GroundBattleUnitConfig Name="UnfallenInfantry" Affinity="AffinityUnfallen" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Unfallen/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="4"
+		VisualYPositionOffset="0"
+		CollisionXRadius="3" CollisionZRadius="1" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+
+	<GroundBattleUnitConfig Name="UnfallenPlane" Affinity="AffinityUnfallen" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Unfallen/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+
+	<GroundBattleUnitConfig Name="UnfallenTank" Affinity="AffinityUnfallen" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Unfallen/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion_small"
+		/>
+		
+<!-- Heroes -->
+	<GroundBattleUnitConfig Name="AdventurerPlane" Affinity="AffinityAdventurer" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Adventurer/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+		
+<GroundBattleUnitConfig Name="AdmiralPlane" Affinity="AffinityAdmiral" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Admiral/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+
+		<GroundBattleUnitConfig Name="AdministratorPlane" Affinity="AffinityAdministrator" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Administrator/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+		
+		<GroundBattleUnitConfig Name="CorporateCorporate" Affinity="AffinityCorporate" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Corporate/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="5"
+		VisualYPositionOffset="10"
+		CollisionXRadius="3" CollisionZRadius="2" OnlyAvoidSameTypeCollision="true"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+		
+		<!-- MinorFaction Advanced -->
+		<GroundBattleUnitConfig Name="AdvancedTank" Affinity="AffinityAdvanced" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Advanced/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Explosion"
+		/>
+		
+		<GroundBattleUnitConfig Name="AdvancedPlane" Affinity="AffinityAdvanced" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Advanced/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="10"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+		
+		<!-- MinorFaction Insect -->
+		<GroundBattleUnitConfig Name="InsectoidTank" Affinity="AffinityInsectoid" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Insectoid/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+		
+		<GroundBattleUnitConfig Name="InsectoidPlane" Affinity="AffinityInsectoid" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Insectoid/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="10"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/Bombardment/Explosion"
+		/>
+
+		<!-- MinorFaction Primitive -->		
+		<GroundBattleUnitConfig Name="PrimitiveTank" Affinity="AffinityPrimitive" TroopType="Tank"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Primitive/Tank/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Small"
+		/>
+		
+		<GroundBattleUnitConfig Name="PrimitivePlane" Affinity="AffinityPrimitive" TroopType="Plane"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Primitive/Plane/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="10"
+		VisualYPositionOffset="10"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+		
+		<GroundBattleUnitConfig Name="InsectInfantry" Affinity="AffinityInsect" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Insect/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="0"
+		VisualYPositionOffset="0"
+		CollisionXRadius="10" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/Big"
+		/>
+		
+		<GroundBattleUnitConfig Name="EyderInfantry" Affinity="AffinityEyders" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Eyder/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="0"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+		
+		<GroundBattleUnitConfig Name="PilgrimsInfantry" Affinity="AffinityPilgrims" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pilgrims/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="0"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+		
+		<GroundBattleUnitConfig Name="GnashastsInfantry" Affinity="AffinityGnashasts" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Gnashasts/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="0"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+		
+		<GroundBattleUnitConfig Name="TikanansInfantry" Affinity="AffinityTikanans" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Tikanans/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="0"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+		
+	<GroundBattleUnitConfig Name="AmoebaInfantry" Affinity="AffinityAmoeba" TroopType="Infantry"
+		AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Amoeba/Infantry/AnimOverride"
+		HasAttackRecoveryAnim="false"
+		SocleSize="0"
+		VisualYPositionOffset="0"
+		CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+		ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+
+    <GroundBattleUnitConfig Name="ZvaliInfantry" Affinity="AffinityZvali" TroopType="Infantry"
+        AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Zvali/Infantry/AnimOverride"
+        HasAttackRecoveryAnim="false"
+        SocleSize="0"
+        VisualYPositionOffset="0"
+        CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+        ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+
+    <GroundBattleUnitConfig Name="NirisInfantry" Affinity="AffinityNiris" TroopType="Infantry"
+        AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Niris/Infantry/AnimOverride"
+        HasAttackRecoveryAnim="false"
+        SocleSize="0"
+        VisualYPositionOffset="0"
+        CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+        ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+
+    <GroundBattleUnitConfig Name="BhagabasInfantry" Affinity="AffinityBhagabas" TroopType="Infantry"
+        AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Bhagabas/Infantry/AnimOverride"
+        HasAttackRecoveryAnim="false"
+        SocleSize="0"
+        VisualYPositionOffset="0"
+        CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+        ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+    <GroundBattleUnitConfig Name="RemnantInfantry" Affinity="AffinityRemnant" TroopType="Infantry"
+        AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Remnant/Infantry/AnimOverride"
+        HasAttackRecoveryAnim="false"
+        SocleSize="0"
+        VisualYPositionOffset="0"
+        CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+        ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+    <GroundBattleUnitConfig Name="PulsosInfantry" Affinity="AffinityPulsos" TroopType="Infantry"
+        AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pulsos/Infantry/AnimOverride"
+        HasAttackRecoveryAnim="false"
+        SocleSize="0"
+        VisualYPositionOffset="0"
+        CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+        ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+    <GroundBattleUnitConfig Name="GuardiansInfantry" Affinity="AffinityGuardians" TroopType="Infantry"
+        AnimatorOverrideControllerPath="Prefabs/Game/GroundBattle/AnimationOverrideControllers/Pulsos/Infantry/AnimOverride"
+        HasAttackRecoveryAnim="false"
+        SocleSize="0"
+        VisualYPositionOffset="0"
+        CollisionXRadius="5" CollisionZRadius="3" OnlyAvoidSameTypeCollision="false"
+        ImpactPrefabPath="Prefabs/Game/GroundBattle/Viewer/VFX/GroundImpact/MachineGun"
+		/>
+
+
+    
+</Datatable>

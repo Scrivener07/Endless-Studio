@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TradableDefinition.xsd">
+
+    <!-- BasePrice must return a float. -->
+    <!-- Vars: Marketplace (sim), SubCategory (sim), Level (int) -->
+
+    <!-- Name is built as: 'TradableHero' + (Hero class name - 'HeroClass') -->
+    <TradableHeroDefinition Name="TradableHeroAdmiral" Category="TradableCategoryHero" SubCategory="TradableSubCategoryHeroAdmiral">
+        <BasePrice>$(Level) * (1000 + Property(Marketplace, Turn))</BasePrice>
+		<SimulationDescriptorReference Name="TradableHeroAdmiral"/>
+    </TradableHeroDefinition>
+
+    <TradableHeroDefinition Name="TradableHeroAdministrator" Category="TradableCategoryHero" SubCategory="TradableSubCategoryHeroAdministrator">
+        <BasePrice>$(Level) * (1000 + Property(Marketplace, Turn))</BasePrice>
+        <SimulationDescriptorReference Name="TradableHeroAdministrator"/>
+    </TradableHeroDefinition>
+
+    <TradableHeroDefinition Name="TradableHeroAdventurer" Category="TradableCategoryHero" SubCategory="TradableSubCategoryHeroAdventurer">
+        <BasePrice>$(Level) * (1000 + Property(Marketplace, Turn))</BasePrice>
+        <SimulationDescriptorReference Name="TradableHeroAdventurer"/>
+    </TradableHeroDefinition>
+
+    <TradableHeroDefinition Name="TradableHeroCorporate" Category="TradableCategoryHero" SubCategory="TradableSubCategoryHeroCorporate">
+        <BasePrice>$(Level) * (1000 + Property(Marketplace, Turn))</BasePrice>
+        <SimulationDescriptorReference Name="TradableHeroCorporate"/>
+    </TradableHeroDefinition>
+    
+</Datatable>

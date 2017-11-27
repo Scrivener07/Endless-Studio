@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ResourceConverterDefinition.xsd">
+
+    <!-- InterpreterModifier has access to the following variables: -->
+    <!--  Input: resource amount -->
+    <!--  StockLocation: simulation object of the empire/system where the check is done -->
+
+    <!-- Additional variable for PressureGain converters: OtherEmpire (sim obj of the empire with whom the diplomatic resource exchange is done) -->
+    
+    <ResourceConverterDefinition ResourceName="SystemProduction">
+        <ToConverter To="Buyout">
+            <!-- (x -> money) ^ 1.2 -->
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="Retrofit">
+			<InterpreterModifier>($(Input)) * Property(StockLocation,@../ClassEmpire, GameSpeedMultiplier) * Property(StockLocation, @../ClassEmpire, DustInflation)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="ScrapShip">
+            <!-- ((x -> money) ^ 1.2) * modifier * health ratio --> <!--Sale is another formula-->
+            <InterpreterModifier>($(Input)) * 0.01</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="ScrapImprovement">
+            <!-- ((x -> money) ^ 1.2) * modifier -->
+            <InterpreterModifier>Property(ScrappedElement, @../ClassEmpire, CanSellImprovements) * (0.15 * $(Input) * Property(ScrappedElement, @../ClassEmpire, GameSpeedMultiplier)) * Property(ScrappedElement, @../ClassEmpire,ImprovementScrapValueModifier)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="MoneyGainOnConstructionComplete">
+            <InterpreterModifier>$(Input) * Property(StockLocation, @../ClassEmpire, RatioOfProductionSpentGainedAsMoney)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="EmpirePointGainOnConstructionComplete">
+            <InterpreterModifier>$(Input) * Property(StockLocation, @../ClassEmpire, RatioOfProductionSpentGainedAsEmpirePoint)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="Refund">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="SystemGrowth">
+        <ToConverter To="EmpireLifeforce">
+            <InterpreterModifier>$(Input) * 2.5</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="EmpireEmpirePoint">
+        <ToConverter To="CancelLaw">    
+            <InterpreterModifier>5 * Property(StockLocation, @ClassEmpire, Population) * Property(StockLocation, @ClassEmpire, GameSpeedMultiplier)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="CancelCompletedLaw">
+            <InterpreterModifier>5 * Property(StockLocation, @ClassEmpire, Population) * Property(StockLocation, @ClassEmpire, GameSpeedMultiplier)</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="EmpireMoney">
+        <ToConverter To="CancelLaw">
+            <InterpreterModifier>$(Input) * 0.1 * Property(StockLocation, @../ClassEmpire, GameSpeedMultiplier) * Property(StockLocation, @../ClassEmpire/ClassSenate, LawCancelCostMultiplier) </InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="CancelCompletedLaw">
+            <InterpreterModifier>$(Input) * 0</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="1"/>
+        </ToConverter>
+        <ToConverter To="EmpireLifeforce">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetEmpireMoney) + Property(StockLocation, @ClassEmpire, BankAccount))) * ((5 * Property(StockLocation, @ClassEmpire, NetEmpireMoney) + Property(StockLocation, @ClassEmpire, BankAccount)) + (5 * Property(OtherEmpire, NetEmpireMoney) + Property(OtherEmpire, BankAccount))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetEmpireMoney) + Property(StockLocation, @ClassEmpire, BankAccount)), (5 * Property(OtherEmpire, NetEmpireMoney) + Property(OtherEmpire, BankAccount)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="EmpireResearch">
+        <ToConverter To="Buyout">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="1"/>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Buyout">
+        <ToConverter To="EmpireMoney">
+            <InterpreterModifier>
+                (($(Input)) ^ 1.2125 + 50) * Property(StockLocation, @../ClassEmpire,BuyoutActivated) * Property(StockLocation, @../ClassEmpire, DustInflation)
+            </InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="EmpireEmpirePoint">
+            <InterpreterModifier>
+              <!-- PRODUCTION --> ((($(Input)) ^ 1.1 + 100) * Count(StockLocation, @'ClassColonizedStarSystem')) +
+              <!-- ONE OF THE TWO FORMULAS WILL AUTO CANCEL -->
+              <!-- RESEARCH   --> ((($(Input)) ^ 1.01 + 150) * Count(StockLocation, @'ClassEmpire'))
+			</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="MinorEmpireShipMoney">
+            <InterpreterModifier>$(Input) * 1.4</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="MinorEmpireImprovementMoney">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="MarketplaceEmpireMoney">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="MarketplaceEmpireEmpirePoint">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Sellout">
+        <ToConverter To="MarketplaceEmpireMoney">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+        <ToConverter To="MarketplaceEmpireEmpirePoint">
+            <InterpreterModifier>$(Input)</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury1">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury1) + Property(StockLocation, @ClassEmpire, Luxury1Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury1) + Property(StockLocation, @ClassEmpire, Luxury1Stock)) + (5 * Property(OtherEmpire, NetLuxury1) + Property(OtherEmpire, Luxury1Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury1) + Property(StockLocation, @ClassEmpire, Luxury1Stock)), (5 * Property(OtherEmpire, NetLuxury1) + Property(OtherEmpire, Luxury1Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+  
+    <ResourceConverterDefinition ResourceName="Luxury2">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury2) + Property(StockLocation, @ClassEmpire, Luxury2Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury2) + Property(StockLocation, @ClassEmpire, Luxury2Stock)) + (5 * Property(OtherEmpire, NetLuxury2) + Property(OtherEmpire, Luxury2Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury2) + Property(StockLocation, @ClassEmpire, Luxury2Stock)), (5 * Property(OtherEmpire, NetLuxury2) + Property(OtherEmpire, Luxury2Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury3">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury3) + Property(StockLocation, @ClassEmpire, Luxury3Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury3) + Property(StockLocation, @ClassEmpire, Luxury3Stock)) + (5 * Property(OtherEmpire, NetLuxury3) + Property(OtherEmpire, Luxury3Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury3) + Property(StockLocation, @ClassEmpire, Luxury3Stock)), (5 * Property(OtherEmpire, NetLuxury3) + Property(OtherEmpire, Luxury3Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury4">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury4) + Property(StockLocation, @ClassEmpire, Luxury4Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury4) + Property(StockLocation, @ClassEmpire, Luxury4Stock)) + (5 * Property(OtherEmpire, NetLuxury4) + Property(OtherEmpire, Luxury4Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury4) + Property(StockLocation, @ClassEmpire, Luxury4Stock)), (5 * Property(OtherEmpire, NetLuxury4) + Property(OtherEmpire, Luxury4Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury5">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury5) + Property(StockLocation, @ClassEmpire, Luxury5Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury5) + Property(StockLocation, @ClassEmpire, Luxury5Stock)) + (5 * Property(OtherEmpire, NetLuxury5) + Property(OtherEmpire, Luxury5Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury5) + Property(StockLocation, @ClassEmpire, Luxury5Stock)), (5 * Property(OtherEmpire, NetLuxury5) + Property(OtherEmpire, Luxury5Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury6">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury6) + Property(StockLocation, @ClassEmpire, Luxury6Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury6) + Property(StockLocation, @ClassEmpire, Luxury6Stock)) + (5 * Property(OtherEmpire, NetLuxury6) + Property(OtherEmpire, Luxury6Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury6) + Property(StockLocation, @ClassEmpire, Luxury6Stock)), (5 * Property(OtherEmpire, NetLuxury6) + Property(OtherEmpire, Luxury6Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury7">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury7) + Property(StockLocation, @ClassEmpire, Luxury7Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury7) + Property(StockLocation, @ClassEmpire, Luxury7Stock)) + (5 * Property(OtherEmpire, NetLuxury7) + Property(OtherEmpire, Luxury7Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury7) + Property(StockLocation, @ClassEmpire, Luxury7Stock)), (5 * Property(OtherEmpire, NetLuxury7) + Property(OtherEmpire, Luxury7Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury8">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury8) + Property(StockLocation, @ClassEmpire, Luxury8Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury8) + Property(StockLocation, @ClassEmpire, Luxury8Stock)) + (5 * Property(OtherEmpire, NetLuxury8) + Property(OtherEmpire, Luxury8Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury8) + Property(StockLocation, @ClassEmpire, Luxury8Stock)), (5 * Property(OtherEmpire, NetLuxury8) + Property(OtherEmpire, Luxury8Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury9">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury9) + Property(StockLocation, @ClassEmpire, Luxury9Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury9) + Property(StockLocation, @ClassEmpire, Luxury9Stock)) + (5 * Property(OtherEmpire, NetLuxury9) + Property(OtherEmpire, Luxury9Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury9) + Property(StockLocation, @ClassEmpire, Luxury9Stock)), (5 * Property(OtherEmpire, NetLuxury9) + Property(OtherEmpire, Luxury9Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury10">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury10) + Property(StockLocation, @ClassEmpire, Luxury10Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury10) + Property(StockLocation, @ClassEmpire, Luxury10Stock)) + (5 * Property(OtherEmpire, NetLuxury10) + Property(OtherEmpire, Luxury10Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury10) + Property(StockLocation, @ClassEmpire, Luxury10Stock)), (5 * Property(OtherEmpire, NetLuxury10) + Property(OtherEmpire, Luxury10Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury11">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury11) + Property(StockLocation, @ClassEmpire, Luxury11Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury11) + Property(StockLocation, @ClassEmpire, Luxury11Stock)) + (5 * Property(OtherEmpire, NetLuxury11) + Property(OtherEmpire, Luxury11Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury11) + Property(StockLocation, @ClassEmpire, Luxury11Stock)), (5 * Property(OtherEmpire, NetLuxury11) + Property(OtherEmpire, Luxury11Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury12">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury12) + Property(StockLocation, @ClassEmpire, Luxury12Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury12) + Property(StockLocation, @ClassEmpire, Luxury12Stock)) + (5 * Property(OtherEmpire, NetLuxury12) + Property(OtherEmpire, Luxury12Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury12) + Property(StockLocation, @ClassEmpire, Luxury12Stock)), (5 * Property(OtherEmpire, NetLuxury12) + Property(OtherEmpire, Luxury12Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury13">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury13) + Property(StockLocation, @ClassEmpire, Luxury13Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury13) + Property(StockLocation, @ClassEmpire, Luxury13Stock)) + (5 * Property(OtherEmpire, NetLuxury13) + Property(OtherEmpire, Luxury13Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury13) + Property(StockLocation, @ClassEmpire, Luxury13Stock)), (5 * Property(OtherEmpire, NetLuxury13) + Property(OtherEmpire, Luxury13Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury14">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury14) + Property(StockLocation, @ClassEmpire, Luxury14Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury14) + Property(StockLocation, @ClassEmpire, Luxury14Stock)) + (5 * Property(OtherEmpire, NetLuxury14) + Property(OtherEmpire, Luxury14Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury14) + Property(StockLocation, @ClassEmpire, Luxury14Stock)), (5 * Property(OtherEmpire, NetLuxury14) + Property(OtherEmpire, Luxury14Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury15">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury15) + Property(StockLocation, @ClassEmpire, Luxury15Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury15) + Property(StockLocation, @ClassEmpire, Luxury15Stock)) + (5 * Property(OtherEmpire, NetLuxury15) + Property(OtherEmpire, Luxury15Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury15) + Property(StockLocation, @ClassEmpire, Luxury15Stock)), (5 * Property(OtherEmpire, NetLuxury15) + Property(OtherEmpire, Luxury15Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury16">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury16) + Property(StockLocation, @ClassEmpire, Luxury16Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury16) + Property(StockLocation, @ClassEmpire, Luxury16Stock)) + (5 * Property(OtherEmpire, NetLuxury16) + Property(OtherEmpire, Luxury16Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury16) + Property(StockLocation, @ClassEmpire, Luxury16Stock)), (5 * Property(OtherEmpire, NetLuxury16) + Property(OtherEmpire, Luxury16Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury17">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury17) + Property(StockLocation, @ClassEmpire, Luxury17Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury17) + Property(StockLocation, @ClassEmpire, Luxury17Stock)) + (5 * Property(OtherEmpire, NetLuxury17) + Property(OtherEmpire, Luxury17Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury17) + Property(StockLocation, @ClassEmpire, Luxury17Stock)), (5 * Property(OtherEmpire, NetLuxury17) + Property(OtherEmpire, Luxury17Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury18">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury18) + Property(StockLocation, @ClassEmpire, Luxury18Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury18) + Property(StockLocation, @ClassEmpire, Luxury18Stock)) + (5 * Property(OtherEmpire, NetLuxury18) + Property(OtherEmpire, Luxury18Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury18) + Property(StockLocation, @ClassEmpire, Luxury18Stock)), (5 * Property(OtherEmpire, NetLuxury18) + Property(OtherEmpire, Luxury18Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury19">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury19) + Property(StockLocation, @ClassEmpire, Luxury19Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury19) + Property(StockLocation, @ClassEmpire, Luxury19Stock)) + (5 * Property(OtherEmpire, NetLuxury19) + Property(OtherEmpire, Luxury19Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury19) + Property(StockLocation, @ClassEmpire, Luxury19Stock)), (5 * Property(OtherEmpire, NetLuxury19) + Property(OtherEmpire, Luxury19Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury20">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury20) + Property(StockLocation, @ClassEmpire, Luxury20Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury20) + Property(StockLocation, @ClassEmpire, Luxury20Stock)) + (5 * Property(OtherEmpire, NetLuxury20) + Property(OtherEmpire, Luxury20Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury20) + Property(StockLocation, @ClassEmpire, Luxury20Stock)), (5 * Property(OtherEmpire, NetLuxury20) + Property(OtherEmpire, Luxury20Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury21">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury21) + Property(StockLocation, @ClassEmpire, Luxury21Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury21) + Property(StockLocation, @ClassEmpire, Luxury21Stock)) + (5 * Property(OtherEmpire, NetLuxury21) + Property(OtherEmpire, Luxury21Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury21) + Property(StockLocation, @ClassEmpire, Luxury21Stock)), (5 * Property(OtherEmpire, NetLuxury21) + Property(OtherEmpire, Luxury21Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury22">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury22) + Property(StockLocation, @ClassEmpire, Luxury22Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury22) + Property(StockLocation, @ClassEmpire, Luxury22Stock)) + (5 * Property(OtherEmpire, NetLuxury22) + Property(OtherEmpire, Luxury22Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury22) + Property(StockLocation, @ClassEmpire, Luxury22Stock)), (5 * Property(OtherEmpire, NetLuxury22) + Property(OtherEmpire, Luxury22Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury23">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury23) + Property(StockLocation, @ClassEmpire, Luxury23Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury23) + Property(StockLocation, @ClassEmpire, Luxury23Stock)) + (5 * Property(OtherEmpire, NetLuxury23) + Property(OtherEmpire, Luxury23Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury23) + Property(StockLocation, @ClassEmpire, Luxury23Stock)), (5 * Property(OtherEmpire, NetLuxury23) + Property(OtherEmpire, Luxury23Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Luxury24">     
+        <ToConverter To="TradingRouteExperienceGain">
+            <Modifier Value="10"/>
+        </ToConverter>
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetLuxury24) + Property(StockLocation, @ClassEmpire, Luxury24Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetLuxury24) + Property(StockLocation, @ClassEmpire, Luxury24Stock)) + (5 * Property(OtherEmpire, NetLuxury24) + Property(OtherEmpire, Luxury24Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetLuxury24) + Property(StockLocation, @ClassEmpire, Luxury24Stock)), (5 * Property(OtherEmpire, NetLuxury24) + Property(OtherEmpire, Luxury24Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Strategic1">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetStrategic1) + Property(StockLocation, @ClassEmpire, Strategic1Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetStrategic1) + Property(StockLocation, @ClassEmpire, Strategic1Stock)) + (5 * Property(OtherEmpire, NetStrategic1) + Property(OtherEmpire, Strategic1Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetStrategic1) + Property(StockLocation, @ClassEmpire, Strategic1Stock)), (5 * Property(OtherEmpire, NetStrategic1) + Property(OtherEmpire, Strategic1Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Strategic2">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetStrategic2) + Property(StockLocation, @ClassEmpire, Strategic2Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetStrategic2) + Property(StockLocation, @ClassEmpire, Strategic2Stock)) + (5 * Property(OtherEmpire, NetStrategic2) + Property(OtherEmpire, Strategic2Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetStrategic2) + Property(StockLocation, @ClassEmpire, Strategic2Stock)), (5 * Property(OtherEmpire, NetStrategic2) + Property(OtherEmpire, Strategic2Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Strategic3">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetStrategic3) + Property(StockLocation, @ClassEmpire, Strategic3Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetStrategic3) + Property(StockLocation, @ClassEmpire, Strategic3Stock)) + (5 * Property(OtherEmpire, NetStrategic3) + Property(OtherEmpire, Strategic3Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetStrategic3) + Property(StockLocation, @ClassEmpire, Strategic3Stock)), (5 * Property(OtherEmpire, NetStrategic3) + Property(OtherEmpire, Strategic3Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Strategic4">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetStrategic4) + Property(StockLocation, @ClassEmpire, Strategic4Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetStrategic4) + Property(StockLocation, @ClassEmpire, Strategic4Stock)) + (5 * Property(OtherEmpire, NetStrategic4) + Property(OtherEmpire, Strategic4Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetStrategic4) + Property(StockLocation, @ClassEmpire, Strategic4Stock)), (5 * Property(OtherEmpire, NetStrategic4) + Property(OtherEmpire, Strategic4Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Strategic5">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetStrategic5) + Property(StockLocation, @ClassEmpire, Strategic5Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetStrategic5) + Property(StockLocation, @ClassEmpire, Strategic5Stock)) + (5 * Property(OtherEmpire, NetStrategic5) + Property(OtherEmpire, Strategic5Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetStrategic5) + Property(StockLocation, @ClassEmpire, Strategic5Stock)), (5 * Property(OtherEmpire, NetStrategic5) + Property(OtherEmpire, Strategic5Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="Strategic6">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetStrategic6) + Property(StockLocation, @ClassEmpire, Strategic6Stock))) * ((5 * Property(StockLocation, @ClassEmpire, NetStrategic6) + Property(StockLocation, @ClassEmpire, Strategic6Stock)) + (5 * Property(OtherEmpire, NetStrategic6) + Property(OtherEmpire, Strategic6Stock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetStrategic6) + Property(StockLocation, @ClassEmpire, Strategic6Stock)), (5 * Property(OtherEmpire, NetStrategic6) + Property(OtherEmpire, Strategic6Stock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+
+    <ResourceConverterDefinition ResourceName="EmpireManpower">
+        <ToConverter To="PressureGain">
+            <InterpreterModifier>Min(100, 100 * $(Input) / Max(1, (5 * Property(StockLocation, @ClassEmpire, NetEmpireManpower) + Property(StockLocation, @ClassEmpire, EmpireManpowerStock))) * ((5 * Property(StockLocation, @ClassEmpire, NetEmpireManpower) + Property(StockLocation, @ClassEmpire, EmpireManpowerStock)) + (5 * Property(OtherEmpire, NetEmpireManpower) + Property(OtherEmpire, EmpireManpowerStock))) / Max(1, Max((5 * Property(StockLocation, @ClassEmpire, NetEmpireManpower) + Property(StockLocation, @ClassEmpire, EmpireManpowerStock)), (5 * Property(OtherEmpire, NetEmpireManpower) + Property(OtherEmpire, EmpireManpowerStock)))))</InterpreterModifier>
+        </ToConverter>
+    </ResourceConverterDefinition>
+    
+</Datatable>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- Class applied on the object VictoryManager passed as parameter for Victory conditions expression & alerts -->
+    <SimulationDescriptor Name="ClassVictoryManager" Type="Class">
+        <Property Name="LastTurn"                               BaseValue="300" RoundingFunction="Ceil"/>
+
+        <Property Name="VictoryConquestThreshold"               BaseValue="18"/>
+        <Property Name="VictoryConquestThresholdAlert50"        BaseValue="9"/>
+        <Property Name="VictoryConquestThresholdAlert75"        BaseValue="14"/>
+
+        <Property Name="VictoryScienceNumberOfTechnologies"     BaseValue="4"/>
+        <Property Name="VictoryScienceThresholdAlert50"         BaseValue="2"/>
+        <Property Name="VictoryScienceThresholdAlert75"         BaseValue="3"/>
+        <Property Name="VictoryScienceAllianceMultiplier"       BaseValue="0.5"/>
+
+        <Property Name="VictoryEconomyDustThreshold"            BaseValue="450000"/>
+        <Property Name="VictoryEconomyThresholdAlert50"         BaseValue="200000"/>
+        <Property Name="VictoryEconomyThresholdAlert75"         BaseValue="125000"/>
+        <Property Name="VictoryEconomyAllianceMultiplier"       BaseValue="0.8"/>
+
+        <Property Name="VictoryWonderThreshold"                 BaseValue="0"/>
+        <Property Name="VictoryWonderAlert1"                    BaseValue="1"/>
+        <Property Name="VictoryWonderAlert2"                    BaseValue="2"/>
+        <Property Name="VictoryWonderAllianceMultiplier"        BaseValue="0.5"/>
+
+        
+        <!--<Modifier TargetProperty="LastTurn"             Operation="Subtraction"     Value="1"   Path="ClassVictoryManager" Priority="1"/>-->
+    </SimulationDescriptor>
+    
+    
+    <!-- Descriptors applied depending on game parameters -->
+    
+    <!-- Speed modifies the last turn, the dust threshold -->
+    <SimulationDescriptor Name="VictoryModifierGameSpeedFast" Type="VictoryModifier">
+        <Modifier TargetProperty="LastTurn"                         Operation="Multiplication"     Value="0.5"  Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"      Operation="Multiplication"     Value="0.75"  Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"   Operation="Multiplication"     Value="0.75"  Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"   Operation="Multiplication"     Value="0.75"  Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGameSpeedSlow"   Type="VictoryModifier">
+        <Modifier TargetProperty="LastTurn"                         Operation="Multiplication"     Value="1.5"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"      Operation="Multiplication"     Value="1.5"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"   Operation="Multiplication"     Value="1.5"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"   Operation="Multiplication"     Value="1.5"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGameSpeedEndless"    Type="VictoryModifier">
+        <Modifier TargetProperty="LastTurn"                         Operation="Multiplication"      Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"      Operation="Multiplication"      Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"      Operation="Multiplication"      Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"   Operation="Multiplication"      Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"   Operation="Multiplication"      Value="2"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    
+    <!-- Galaxy size modifies the Economy, Conquest and Wonder threshold  -->
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeGigantic"  Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"      Operation="Multiplication"  Value="2.5"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"   Operation="Multiplication"  Value="2.5"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"   Operation="Multiplication"  Value="2.5"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryWonderThreshold"   Operation="Force"     Value="5"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert1"      Operation="Force"     Value="3"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert2"      Operation="Force"     Value="4"   Path="ClassVictoryManager"/>
+        
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="34"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="17"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="26"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeColossal" Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"      Operation="Multiplication"  Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"   Operation="Multiplication"  Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"   Operation="Multiplication"  Value="2"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryWonderThreshold"           Operation="Force"  Value="4"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert1"              Operation="Force"  Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert2"              Operation="Force"  Value="3"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="31"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="15"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="23"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeHuge"  Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"     Operation="Multiplication"  Value="1.8"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"  Operation="Multiplication"  Value="1.8"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"  Operation="Multiplication"  Value="1.8"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryWonderThreshold"           Operation="Force"  Value="4"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert1"              Operation="Force"  Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert2"              Operation="Force"  Value="3"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="28"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="14"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="21"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeLarge" Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"     Operation="Multiplication"  Value="1.4"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"  Operation="Multiplication"  Value="1.4"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"  Operation="Multiplication"  Value="1.4"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderThreshold"   Operation="Force"     Value="3"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="25"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="13"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="19"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeNormal" Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryWonderThreshold"           Operation="Force"  Value="3"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="22"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="11"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="17"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeSmall" Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"     Operation="Multiplication"  Value="0.85"  Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"  Operation="Multiplication"  Value="0.85"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"  Operation="Multiplication"  Value="0.85"   Path="ClassVictoryManager"/>
+
+        <!--First Warning has been setup upon reaching the ero 5 of empire management.-->
+        <Modifier TargetProperty="VictoryWonderThreshold"           Operation="Force"  Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert1"              Operation="Force"  Value="1"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert2"              Operation="Force"  Value="1"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="19"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="9"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="14"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="VictoryModifierGalaxySizeTiny"  Type="VictoryModifier">
+        <Modifier TargetProperty="VictoryEconomyDustThreshold"     Operation="Multiplication"  Value="0.75"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert50"  Operation="Multiplication"  Value="0.75"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryEconomyThresholdAlert75"  Operation="Multiplication"  Value="0.75"   Path="ClassVictoryManager"/>
+
+        <!--First Warning has been setup upon reaching the ero 5 of empire management.-->
+        <Modifier TargetProperty="VictoryWonderThreshold"           Operation="Force"  Value="2"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert1"              Operation="Force"  Value="1"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryWonderAlert2"              Operation="Force"  Value="1"   Path="ClassVictoryManager"/>
+
+        <Modifier TargetProperty="VictoryConquestThreshold"             Operation="Force"     Value="16"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert50"      Operation="Force"     Value="8"   Path="ClassVictoryManager"/>
+        <Modifier TargetProperty="VictoryConquestThresholdAlert75"      Operation="Force"     Value="12"   Path="ClassVictoryManager"/>
+    </SimulationDescriptor>
+</Datatable>

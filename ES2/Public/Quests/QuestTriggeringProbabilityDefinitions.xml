@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestTriggeringProbabilityDefinition.xsd">
+
+    <!--
+    <QuestTriggeringProbabilityDefinition Name="Sophons">
+        <RefillPerTurn>0.1 * Property(Empire, @../ClassEmpire/ClassResearch, TechnologyQuadrantGlobalProgress)</RefillPerTurn>
+        <BaseProbability>1</BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+    -->
+    <!--###################################
+        ############## EVENTS #############
+        ###################################-->
+
+    <QuestTriggeringProbabilityDefinition Name="Curiosity">
+        <!--RefillPerTurn is added, each turn, to the ChanceOfTriggering defined in parameters of the quest definition-->
+        <RefillPerTurn>0.07 * Property(Context,@../ClassEmpire,RandomEventsProbability)</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>0.22 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="9">
+                <Formula>0.25 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="18">
+                <Formula>0.18 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="36">
+                <Formula>0.1 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="45">
+                <Formula>0.05 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+    <QuestTriggeringProbabilityDefinition Name="PoliticalEvent">
+        <RefillPerTurn>0.07* Property(Context,@../ClassEmpire,RandomEventsProbability)</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>0.1 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="9">
+                <Formula>0.175 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="18">
+                <Formula>0.175 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="36">
+                <Formula>0.3 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="45">
+                <Formula>0.18 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+  
+    <QuestTriggeringProbabilityDefinition Name="Random">
+        <RefillPerTurn>0.1* Property(Context,@../ClassEmpire,RandomEventsProbability)</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>0.18 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="9">
+                <Formula>0.175 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="18">
+                <Formula>0.18 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="36">
+                <Formula>0.18 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="45">
+                <Formula>0.25 * Property(Context,@../ClassEmpire,RandomEventsProbability)</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+    
+    <!--###################################
+        ########### SOLO QUESTS ###########
+        ###################################-->
+
+    <QuestTriggeringProbabilityDefinition Name="Exploration">
+        <RefillPerTurn>0.1 * Property(Context,@../ClassEmpire,RandomEventsProbability)</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>0.18</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="9">
+                <Formula>0.16</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="18">
+                <Formula>0.15</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="36">
+                <Formula>0.1</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="45">
+                <Formula>0.1</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+    <QuestTriggeringProbabilityDefinition Name="Population">
+        <RefillPerTurn>0.1 * Property(Context,@../ClassEmpire,RandomEventsProbability)</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>0.1</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="9">
+                <Formula>0.16</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="18">
+                <Formula>0.25</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="36">
+                <Formula>0.2</Formula>
+            </TechnologyThreshold>
+            <TechnologyThreshold MinimumTechnologyCount="45">
+                <Formula>0.1</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+    
+    <!--###################################
+        ########## MULTI QUESTS ###########
+        ###################################-->
+
+    <QuestTriggeringProbabilityDefinition Name="Metaplot">
+        <!--The Probability is automatically set to 0 when one quest of this sub-category is triggered. RefillPerTurn is then added, each turn-->
+        <RefillPerTurn>1</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>Property(Context,@../ClassEmpire,MetaplotProbability)</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+    <QuestTriggeringProbabilityDefinition Name="Academy">
+        <RefillPerTurn>1</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>Property(Context,@../ClassEmpire,MetaplotProbability)</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+    <QuestTriggeringProbabilityDefinition Name="Global">
+        <RefillPerTurn>0.1</RefillPerTurn>
+        <BaseProbability>
+            <TechnologyThreshold MinimumTechnologyCount="0">
+                <Formula>Property(Context,@../ClassEmpire,MultiplayerQuestsEventsProbability) * 0.25</Formula>
+            </TechnologyThreshold>
+        </BaseProbability>
+    </QuestTriggeringProbabilityDefinition>
+
+</Datatable>

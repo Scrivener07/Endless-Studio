@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- Planet discovery formatting -->
+    <FidsiParametersGuiElement Name="FidsiParameters">
+        <FidsThresholds>
+            <FidsThreshold Name ="Null" Caption="%PlanetFidsNullTitle" MinValue="-10000" MaxValue ="0"/>
+            <FidsThreshold Name ="Weak" Caption="%PlanetFidsWeakTitle" MinValue="0" MaxValue ="3"/>
+            <FidsThreshold Name ="Low" Caption="%PlanetFidsLowTitle" MinValue="3" MaxValue ="6"/>
+            <FidsThreshold Name ="Medium" Caption="%PlanetFidsMediumTitle" MinValue="6" MaxValue ="10"/>
+            <FidsThreshold Name ="High" Caption="%PlanetFidsHighTitle" MinValue="10" MaxValue ="14"/>
+            <FidsThreshold Name ="Extreme" Caption="%PlanetFidsExtremeTitle" MinValue="14" MaxValue ="1000000"/>
+        </FidsThresholds>
+    </FidsiParametersGuiElement>
+
+</Datatable>

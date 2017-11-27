@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+    
+        <ScanViewWindowGuiElement Name="DiplomacyScanViewWindow">
+        <Title>%DiplomacyScanViewWindowTitle</Title>
+        <Description>%DiplomacyScanViewWindowDescription</Description>
+
+        <ScanViewCaptionGroupGuiElement Name="DiplomaticStatus">
+            <Title>%DiplomacyScanViewDiplomaticStatusCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomaticRelationStatePeaceTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/DiplomaticRelationStates/DiplomaticRelationStatePeaceSmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomaticRelationStateColdWarTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/DiplomaticRelationStates/DiplomaticRelationStateColdWarSmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomaticRelationStateWarTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/DiplomaticRelationStates/DiplomaticRelationStateWarSmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomaticRelationStateTruceTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/DiplomaticRelationStates/DiplomaticRelationStateTruceSmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+    
+        </ScanViewCaptionGroupGuiElement>
+
+        <ScanViewCaptionGroupGuiElement Name="EmpireInfos">
+            <Title>%DiplomacyScanViewEmpireInfosCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomacyScanViewCaptionExternalLinksTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/LinkEmpire" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomacyScanViewCaptionInternalLinksTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/LinkSystem" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+        
+        </ScanViewCaptionGroupGuiElement>
+
+        <ScanViewCaptionGroupGuiElement Name="BattleInfos">
+            <Title>%DiplomacyScanViewBattleInfosCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomacyScanViewCaptionCurrentBattlesTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/OnGoingBattle" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%DiplomacyScanViewCaptionCompletedBattlesTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/FinishedBattle" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+        </ScanViewCaptionGroupGuiElement>
+        
+    </ScanViewWindowGuiElement>
+
+    <!-- TRADE -->
+    <ScanViewWindowGuiElement Name="TradeScanViewWindow">
+        <Title>%TradeScanViewWindowTitle</Title>
+        <Description>%TradeScanViewWindowDescription</Description>
+
+        <ScanViewCaptionGroupGuiElement Name="DiplomaticRelationTrade">
+            <Title>%TradeScanViewDiplomaticRelationCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationYouTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="198" Green="200" Blue="202" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationAllyTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="48" Green="111" Blue="128" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationNeutralTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="171" Green="108" Blue="69" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationEnemyTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="194" Green="57" Blue="4" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+            
+        </ScanViewCaptionGroupGuiElement>
+
+        <ScanViewCaptionGroupGuiElement Name="TradeRoutes">
+            <Title>%TradeScanViewTradeRoutesCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeRouteTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeRouteScan" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeScanViewTradeRoutesBlockadeCaptionTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeRouteBlockadeScan" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeHeadquarterTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeHeadquarterSmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeBranchTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeSubsidiarySmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+        </ScanViewCaptionGroupGuiElement>
+        
+    </ScanViewWindowGuiElement>
+
+    <!-- ECONOMY -->
+    <ScanViewWindowGuiElement Name="EconomyScanViewWindow">
+        <Title>%EconomyScanViewWindowTitle</Title>
+        <Description>%EconomyScanViewWindowDescription</Description>
+
+        <ScanViewCaptionGroupGuiElement Name="DiplomaticRelationTrade">
+            <Title>%TradeScanViewDiplomaticRelationCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationYouTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="198" Green="200" Blue="202" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationAllyTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="48" Green="111" Blue="128" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationNeutralTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="171" Green="108" Blue="69" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeDiplomaticRelationEnemyTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="194" Green="57" Blue="4" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+        </ScanViewCaptionGroupGuiElement>
+
+        <ScanViewCaptionGroupGuiElement Name="TradeRoutes">
+            <Title>%TradeScanViewTradeRoutesCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeRouteTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeRouteScan" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeScanViewTradeRoutesBlockadeCaptionTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeRouteBlockadeScan" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeHeadquarterTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeHeadquarterSmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%TradeBranchTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/TradeCompanies/TradeSubsidiarySmall" />
+                </Icons>
+                <Color Red="191" Green="191" Blue="191" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+        </ScanViewCaptionGroupGuiElement>
+
+        <ScanViewCaptionGroupGuiElement Name="FIDSIBlock">
+            <Title>%EconomyScanViewFIDSICaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryFoodTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="176" Green="198" Blue="93" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryIndustryTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="223" Green="130" Blue="105" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryScienceTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="82" Green="201" Blue="231" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryDustTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="230" Green="195" Blue="97" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryInfluenceTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="165" Green="85" Blue="231" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+            
+        </ScanViewCaptionGroupGuiElement>
+        
+    </ScanViewWindowGuiElement>
+
+    <!-- STAR SYSTEM OVERVIEW -->
+    <StarSystemOverviewScanViewGuiElement Name="StarSystemOverviewScanViewWindow">
+        <Title>%StarSystemOverviewScanViewWindowTitle</Title>
+        <Description>%StarSystemOverviewScanViewWindowDescription</Description>
+
+        <!-- SYSTEM RANK -->
+        <ScanViewCaptionGroupGuiElement Name="SystemRank">
+            <Title>%StarSystemOverviewScanViewSystemRankCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement Name="SystemCount">
+                <Title>%StarSystemOverviewScanViewSystemCountTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Pictos/PlanetType" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement Name="FIDSI">
+                <Title>%SubCategoryFIDSITitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/GameVariables/FIDSI" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement Name="Defense">
+                <Title>%SubCategoryDefenseTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Categories/CategoryModuleDefenseSmall" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement Name="Population">
+                <Title>%StarSystemOverviewScanViewPopulationTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Labels/StarSystemPopulation" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement Name="SenateRepresentative">
+                <Title>%StarSystemOverviewScanViewSenateRepresentativeTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Button/ControlBanner/ButtonSenateScreen" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+        </ScanViewCaptionGroupGuiElement>
+
+        <!-- FIDSI -->
+        <ScanViewCaptionGroupGuiElement Name="FIDSIBlock">
+            <Title>%SubCategoryFIDSITitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryFoodTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="176" Green="198" Blue="93" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryIndustryTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="223" Green="130" Blue="105" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryScienceTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="82" Green="201" Blue="231" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryDustTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="230" Green="195" Blue="97" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SubCategoryInfluenceTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Common/CheckBoxSquare" />
+                </Icons>
+                <Color Red="165" Green="85" Blue="231" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+        </ScanViewCaptionGroupGuiElement>
+
+        <!-- POPULATION -->
+        <ScanViewCaptionGroupGuiElement Name="Population">
+            <Title>%StarSystemOverviewScanViewPopulationCaptionTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%StarSystemOverviewScanViewSubCategoryMaximumPopulationTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="30" Green="30" Blue="30" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+            
+            <ScanViewCaptionItemGuiElement>
+                <Title>%StarSystemOverviewScanViewSubCategorySystemPopulationTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="130" Green="130" Blue="130" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%StarSystemOverviewScanViewSubCategoryActualPopulationTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ScanSystemLabel" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+        </ScanViewCaptionGroupGuiElement>
+
+        <EmpireRankingProperties>
+            <Property Name="FIDSI" PropertyName="FIDSIScore"/>
+            <Property Name="Defense" PropertyName="DefenseScore"/>
+            <Property Name="Population" PropertyName="PopulationScore"/>
+            <Property Name="SenateRepresentative" PropertyName="SenateScore"/>
+        </EmpireRankingProperties>
+        
+    </StarSystemOverviewScanViewGuiElement>
+
+    <!-- STAR SYSTEM MANAGEMENT -->
+    <ScanViewWindowGuiElement Name="StarSystemManagementScanViewWindow">
+        <Title>%StarSystemManagementScanViewWindowTitle</Title>
+        <Description>%StarSystemManagementScanViewWindowDescription</Description>
+        
+        <ScanViewCaptionGroupGuiElement Name="Trading">
+            <Title>%SystemManagementScanViewTradingTitle</Title>
+
+            <ScanViewCaptionItemGuiElement>
+                <Title>%SystemManagementScanViewNeighboursCountTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Button/ButtonMediumStarSystem" />
+                </Icons>
+                <Color Red="167" Green="174" Blue="185" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement Name="TradeQuality">
+                <Title>%SystemManagementScanViewTradeQualityTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/SystemTradeEfficiency" />
+                </Icons>
+                <Color Red="167" Green="174" Blue="185" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+        </ScanViewCaptionGroupGuiElement>
+        
+        <ScanViewCaptionGroupGuiElement Name="Planets">
+            <Title>%SystemManagementScanViewPlanetsTitle</Title>
+
+            <ScanViewCaptionItemGuiElement Name="Specialization">
+                <Title>%SystemManagementScanViewSpecializationTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/GameVariables/FIDSI" />
+                </Icons>
+                <Color Red="255" Green="255" Blue="255" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+
+            <ScanViewCaptionItemGuiElement Name="Colonized">
+                <Title>%SystemManagementScanViewColonizedTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ColonizedPlanetMedium" />
+                </Icons>
+                <Color Red="167" Green="174" Blue="185" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+            
+            <ScanViewCaptionItemGuiElement Name="Colonizable">
+                <Title>%SystemManagementScanViewColonizableTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/ButtonColonizeMedium" />
+                </Icons>
+                <Color Red="167" Green="174" Blue="185" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+            
+            <ScanViewCaptionItemGuiElement Name="Uncolonizable">
+                <Title>%SystemManagementScanViewUncolonizableTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/Button/ButtonColonizeMedium" />
+                </Icons>
+                <Color Red="167" Green="174" Blue="185" Alpha="128"/>
+            </ScanViewCaptionItemGuiElement>
+
+        </ScanViewCaptionGroupGuiElement>
+
+        <ScanViewCaptionGroupGuiElement Name="Hero">
+            <Title>%SystemManagementScanViewHeroTitle</Title>
+
+            <ScanViewCaptionItemGuiElement Name="SkillSynergy">
+                <Title>%SystemManagementScanViewSkillSynergyTitle</Title>
+                <Icons>
+                    <Icon Size="Small" Path="Bitmaps/Atlased/ScanViews/SystemHeroEfficiency"/>
+                </Icons>
+                <Color Red="167" Green="174" Blue="185" Alpha="255"/>
+            </ScanViewCaptionItemGuiElement>
+        </ScanViewCaptionGroupGuiElement>
+    </ScanViewWindowGuiElement>
+
+    <!-- PLANET -->
+    <PlanetScanViewWindowGuiElement Name="PlanetScanViewWindow">
+        <Title>%PlanetScanViewWindowTitle</Title>
+        <Description>%PlanetScanViewWindowDescription</Description>
+        
+        <Category Name="Atmosphere" Side="Left">
+            <Entry Name="AtmospherePressure" Unit="Pressure" />
+            <Entry Name="AtmosphereTemperature" Unit="Temperature" />
+            <Entry Name="AtmosphereComposition" />
+        </Category>
+
+        <Category Name="Structure" Side="Left">
+            <Entry Name="CoreType" />
+            <Entry Name="PlanetMainElements" />
+        </Category>
+        
+        <Category Name="Global" Side="Right">
+            <Entry Name="MeanRadius" Unit="Length" />
+            <Entry Name="Mass" Unit="Mass"/>
+            <Entry Name="SurfaceGravity" Unit="Gravity" />
+            <Entry Name="OrbitalPeriod" Unit="Time"/>
+            <Entry Name="RotationPeriod" Unit="Time" />
+        </Category>
+    </PlanetScanViewWindowGuiElement>
+
+    <!-- BATTLE -->
+    <ScanViewWindowGuiElement Name="BattleScanViewWindow">
+        <Title>%BattleScanViewWindowTitle</Title>
+        <Description>%BattleScanViewWindowDescription</Description>
+    </ScanViewWindowGuiElement>
+
+    
+</Datatable>

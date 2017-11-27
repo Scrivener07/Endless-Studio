@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassGarrison" Type="Class">
+        <Property Name="ShipCount" Composition="Sum" />
+
+        <Property Name="CommandPoints" BaseValue="0" Composition="Sum"/>
+        <Property Name="GarrisonMoneyUpkeep"   Composition="Sum"/>
+
+        <Property Name="ActionPointStock" Composition="Minimum"/>
+
+        <!-- Military Power -->
+        <Property Name="MilitaryPower" BaseValue="0" Composition="Sum"/>
+        <Property Name="OffensiveMilitaryPower" Composition="Sum"/>
+        <Property Name="DefensiveMilitaryPower" Composition="Sum"/>
+
+        <!-- Experience -->
+        <Property Name="ExperiencePerTurn" BaseValue="0" MinValue="Negative"/>
+        <Property Name="ExperienceAtShipCreation"  BaseValue="0"/>
+
+		<Property Name="IsFrozen" MinValue="0" MaxValue="1"/>
+        
+        <Modifier TargetProperty="ExperiencePerTurn" Operation="Addition" Value="$(ExperiencePerTurn)" Path="ClassGarrison/ClassShip"/>
+
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="ClassGarrisonFleet" Type="ClassGarrison">
+
+        <!-- for siege -->
+        <Property Name ="SiegePower"  MinValue="0" Composition="Sum" />
+
+
+        <!--Used for Advanced Battle Screen -->
+        <Property Name ="BestAttackerModule"  />
+        <Property Name ="BestDefensiveModule" />
+
+        <Property Name="MaximumCommandPoints" BaseValue="0"/>
+        <!-- speed bonuses-->
+        
+        <Property Name="WarpSpeed"            BaseValue="0" Composition="Minimum"/> <!-- in parsec per movement point. -->
+        <Property Name="WormholeSpeed"        BaseValue="0" Composition="Minimum"/> <!-- in wormhole per move. -->
+        <Property Name="FreeMovementSpeed"    BaseValue="0" Composition="Minimum"/> <!-- in parsec per movement point. -->
+        <Property Name="PortalSpeed"          BaseValue="0" Composition="Minimum"/> <!-- in wormhole per move. -->
+        
+        <Property Name="MaximumMovement"      Composition="Minimum" />
+		<Property Name="ShipMaximumMovement"	BaseValue="0"/>
+        <Property Name="Movement"             BaseValue="0" Composition="Minimum"/>
+        <Property Name="VisionRange"          BaseValue="0" Composition="Maximum"/>
+        <Property Name="FogOfWarRange"        BaseValue="0" Composition="Maximum"/>   <!-- Final fog of war range will be Max(VisionRange, FogOfWarRange) -->
+       
+        
+        <Property Name="ExpeditionPower" BaseValue="0" />
+        <Property Name="DetectionLevel" BaseValue="0"  />
+
+        <Property Name="NetActionPoint"         BaseValue="0" Composition="Minimum"/>
+
+        
+        <!-- Invasion -->
+        <Property Name="MaximumShipManpower" 		        BaseValue="0" Composition="Sum"/>
+        <Property Name="ShipManpowerStock"                  BaseValue="0" Composition="Sum"/>
+        <Property Name="FleetManpowerRefillRateModifier"    BaseValue="0"/>
+
+        
+        <!-- Probes -->
+        <Property Name="MaximumShipProbeStock"  Composition="Sum"/>
+        
+
+        <!--!-Combat modifiers -->
+		<Property Name="FleetHullPlatingAbsorption"			BaseValue="0"/> <!--FLAT BONUS-->
+		<Property Name="FleetShieldAbsorption"				BaseValue="0"/> <!--FLAT BONUS-->
+		<Property Name="ShipHullPlatingAbsorptionPercent"   BaseValue="0" MinValue="-0.95"/>
+		<Property Name="ShipShieldAbsorptionPercent"		BaseValue="0" MinValue="-0.95"/>
+		
+        <Property Name="HullDmgReductionShort"         BaseValue="0" MinValue="-0.95"/>
+        <Property Name="HullDmgReductionMedium"        BaseValue="0" MinValue="-0.95"/>
+        <Property Name="HullDmgReductionLong"          BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShieldDmgReductionShort"       BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShieldDmgReductionMedium"      BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShieldDmgReductionLong"        BaseValue="0" MinValue="-0.95"/>
+        <Property Name="KineticDmgReduction"           BaseValue="0" MinValue="-0.95"/>
+        <Property Name="MissileDmgReduction"           BaseValue="0" MinValue="-0.95"/>
+        <Property Name="BeamDmgReduction"              BaseValue="0" MinValue="-0.95"/>
+        <Property Name="LaserDmgReduction"             BaseValue="0" MinValue="-0.95"/>
+        
+        <Property Name="FleetMaximumHealth"            BaseValue="0" MinValue="-0.95"/>
+        <Property Name="FleetMaximumShield"            BaseValue="0" MinValue="-0.95"/>
+		<Property Name="HealthRegenerationRatio"			BaseValue="0"/>
+        <Property Name="Evasion"                       BaseValue="0" MaxValue="0.95"/>
+        
+        <Property Name="ShipDamage"                        BaseValue="0" MinValue="-0.95"/>
+		<Property Name="ShipDamageProjectile"              BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageKinetic"                 BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageMissile"                 BaseValue="0" MinValue="-0.95"/>
+		<Property Name="ShipDamageEnergy"				   BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageLaser"                   BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageBeam"                    BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipCriticalHitChance"             BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipShieldPenetrationFactor"        BaseValue="0" MinValue="-0.95"/>
+		<Property Name="ShipHullPlatingPenetrationFactor"		   BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageShort"                   BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageMedium"                  BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageLong"                    BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageShield"                  BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageSection"                 BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageModule"                  BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipDamageCore"                    BaseValue="0" MinValue="-0.95"/>
+        <Property Name="ShipAccuracy"                      BaseValue="0" MinValue="-0.95"/>
+
+        <Property Name="TradingRouteBlockadePower"     BaseValue="0" MaxValue="1"/>
+
+        <Property Name="ScaleMultiplier"                BaseValue="1"/>
+		
+		<Property Name="RootingIncreasePerTurn" 		Composition="Sum" />
+
+        <BinaryModifier TargetProperty="SiegePower"    Operation="Addition" Left="$(CommandPoints)" BinaryOperation="Multiplication" Right="2"/>
+
+
+        <Modifier TargetProperty="HullPlatingAbsorption"			Operation="Addition"	Value="$(FleetHullPlatingAbsorption)"		Path="ClassGarrisonFleet/ClassShip"  />
+		<Modifier TargetProperty="HullPlatingAbsorptionPercent"     Operation="Addition"	Value="$(ShipHullPlatingAbsorptionPercent)"	Path="ClassGarrisonFleet/ClassShip"  />
+		<Modifier TargetProperty="ShieldAbsorption"					Operation="Addition"	Value="$(FleetShieldAbsorption)"			Path="ClassGarrisonFleet/ClassShip"  />
+		<Modifier TargetProperty="ShieldAbsorptionPercent"			Operation="Addition"	Value="$(ShipShieldAbsorptionPercent)"		Path="ClassGarrisonFleet/ClassShip"  />
+
+        <Modifier TargetProperty="HullDmgReductionShort"        Operation="Addition" Value="$(HullDmgReductionShort)"      Path="ClassGarrisonFleet/ClassShip"  />
+        <Modifier TargetProperty="HullDmgReductionMedium"       Operation="Addition" Value="$(HullDmgReductionMedium)"     Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="HullDmgReductionLong"         Operation="Addition" Value="$(HullDmgReductionLong)"       Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="ShieldDmgReductionShort"      Operation="Addition" Value="$(ShieldDmgReductionShort)"    Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="ShieldDmgReductionMedium"     Operation="Addition" Value="$(ShieldDmgReductionMedium)"   Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="ShieldDmgReductionLong"       Operation="Addition" Value="$(ShieldDmgReductionLong)"     Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="MissileDmgReduction"          Operation="Addition" Value="$(MissileDmgReduction)"        Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="BeamDmgReduction"             Operation="Addition" Value="$(BeamDmgReduction)"           Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="LaserDmgReduction"            Operation="Addition" Value="$(LaserDmgReduction)"          Path="ClassGarrisonFleet/ClassShip" />
+                                                                                                                                     
+        <Modifier TargetProperty="MaximumHealth"            Operation="Percent" Value="$(FleetMaximumHealth)"              Path="ClassGarrisonFleet/ClassShip/ClassSection,ClassSectionCore" />
+        <Modifier TargetProperty="MaximumShield"                Operation="Percent"  Value="$(FleetMaximumShield)"              Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="Evasion"                      Operation="Addition" Value="$(Evasion)"                    Path="ClassGarrisonFleet/ClassShip" />
+                                                                                                                                      
+        <Modifier TargetProperty="Damage"                   Operation="Addition" Value="$(ShipDamage)"                     Path="ClassGarrisonFleet/ClassShip" />
+		<Modifier TargetProperty="DamageProjectile"         Operation="Addition" Value="$(ShipDamageProjectile)"           Path="ClassGarrisonFleet/ClassShip" />
+		<Modifier TargetProperty="DamageEnergy"             Operation="Addition" Value="$(ShipDamageEnergy)"			   Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageKinetic"            Operation="Addition" Value="$(ShipDamageKinetic)"              Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageMissile"            Operation="Addition" Value="$(ShipDamageMissile)"              Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageLaser"              Operation="Addition" Value="$(ShipDamageLaser)"                Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageBeam"               Operation="Addition" Value="$(ShipDamageBeam)"                 Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="CriticalHitChance"        Operation="Addition" Value="$(ShipCriticalHitChance)"          Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="ShieldPenetrationFactor"			Operation="Addition"		Value="$(ShipShieldPenetrationFactor)"			Path="ClassGarrisonFleet/ClassShip" />
+		<Modifier TargetProperty="HullPlatingPenetrationFactor"		Operation="Addition"		Value="$(ShipHullPlatingPenetrationFactor)"		Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageShort"              Operation="Addition" Value="$(ShipDamageShort)"                Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageMedium"             Operation="Addition" Value="$(ShipDamageMedium)"               Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageLong"               Operation="Addition" Value="$(ShipDamageLong)"                 Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageShield"             Operation="Addition" Value="$(ShipDamageShield)"               Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageSection"            Operation="Addition" Value="$(ShipDamageSection)"              Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageModule"             Operation="Addition" Value="$(ShipDamageModule)"               Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="DamageCore"               Operation="Addition" Value="$(ShipDamageCore)"                 Path="ClassGarrisonFleet/ClassShip" />
+        <Modifier TargetProperty="Accuracy"                 Operation="Addition" Value="$(ShipAccuracy)"                   Path="ClassGarrisonFleet/ClassShip" />
+
+		<Modifier TargetProperty="MaximumMovement"			Operation="Addition"	Value="$(ShipMaximumMovement)"					Path="ClassGarrisonFleet/ClassShip"/>
+		<Modifier TargetProperty="HealthRegenerationRatio"	Operation="Addition"	Value="$(HealthRegenerationRatio)"				Path="ClassGarrisonFleet/ClassShip"/>
+    </SimulationDescriptor>
+    
+    <!-- Fleet influence state -->
+
+    <SimulationDescriptor Name="FleetInfluenceStateNeutral" Type="FleetInfluenceState">
+        <Modifier TargetProperty="HealthRegenerationRatio"          Operation="Addition" Value="0.05" Path="ClassGarrisonFleet/ClassShip" SearchValueFromPath="true"/>
+        <BinaryModifier TargetProperty="MaximumShipManpowerRefillRate"    Operation="Addition" Left="$(MaximumShipManpower)" BinaryOperation="Multiplication" Right="0.25" Path="ClassGarrisonFleet/ClassShip" SearchValueFromPath="true"/>
+        <BinaryModifier TargetProperty="MaximumShipManpowerRefillRate"    Operation="Addition" Left="$(MaximumShipManpower)" BinaryOperation="Multiplication" Right="$(FleetManpowerRefillRateModifier)" Path="ClassGarrisonFleet/ClassShip"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="FleetInfluenceStateOwner" Type="FleetInfluenceState">
+        <Modifier TargetProperty="HealthRegenerationRatio"          Operation="Addition" Value="0.1" Path="ClassGarrisonFleet/ClassShip"/>
+        <BinaryModifier TargetProperty="MaximumShipManpowerRefillRate" Operation="Addition" Left="$(MaximumShipManpower)" BinaryOperation="Multiplication" Right="1" Path="ClassGarrisonFleet/ClassShip" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetInfluenceStateFriendly" Type="FleetInfluenceState">
+        <BinaryModifier TargetProperty="MaximumShipManpowerRefillRate" Operation="Addition" Left="$(MaximumShipManpower)" BinaryOperation="Multiplication" Right="0.5" Path="ClassGarrisonFleet/ClassShip" SearchValueFromPath="true"/>
+        <Modifier TargetProperty="MaximumShipManpowerRefillRate"	Operation="Percent"		Value="$(FleetManpowerRefillRateModifier)"		Path="ClassGarrisonFleet/ClassShip"/>
+
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetInfluenceStateHostile" Type="FleetInfluenceState">
+        <BinaryModifier TargetProperty="MaximumShipManpowerRefillRate" Operation="Addition" Left="$(MaximumShipManpower)" BinaryOperation="Multiplication" Right="0" Path="ClassGarrisonFleet/ClassShip" SearchValueFromPath="true"/>
+        <Modifier TargetProperty="MaximumShipManpowerRefillRate"	Operation="Percent"		Value="$(FleetManpowerRefillRateModifier)"		Path="ClassGarrisonFleet/ClassShip"/>
+    </SimulationDescriptor>
+
+	<SimulationDescriptor Name="FleetInfluenceStateOutsideBorders" Type="FleetInfluenceState"/> <!--Feedback only - not a real state-->
+
+    <!-- Fleet action states -->
+
+    <SimulationDescriptor Name="FleetActionBusy" Type="FleetActionBusy" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionHeroLocked" Type="FleetActionHeroLocked" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionGoTo" Type="FleetActionGoTo" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionMoveTo" Type="FleetActionMoveTo" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionAttack" Type="FleetActionAttack" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionColonize" Type="FleetActionColonize" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionMothershipAttached" Type="FleetActionMothershipAttached" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionLogistics" Type="FleetActionLogistics" IsSerializable="false">
+        <Property Name="NetLifeforce" BaseValue="0" IsSealed="true"/>
+        <Property Name="LeechingFleetsCount" BaseValue="1" />
+        
+
+        <Modifier TargetProperty="EmpireLifeforce" Operation="Addition" Value="$(NetLifeforce)" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionSleep" Type="FleetActionSleep" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionAutoExplore" Type="FleetActionAutoExplore" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionExpedition" Type="FleetActionExpedition" IsSerializable="false">
+        <Property Name="RemainingTurns" BaseValue="0"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionReclaimMothership" Type="FleetActionReclaimMothership" IsSerializable="false">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionGroundBattle" Type="FleetActionGroundBattle" IsSerializable="false">
+    </SimulationDescriptor>
+	
+	<SimulationDescriptor Name="FleetActionRooting" Type="FleetActionRooting" IsSerializable="false"/>
+
+    <SimulationDescriptor Name="FleetActionGuarding" Type="FleetActionGuarding" IsSerializable="false">
+
+
+        <!-- These values are updated by the code when the fleet is guarding a node which is on a route's path -->
+        <Property Name="TradingRouteLeech_EmpireMoney" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_EmpireResearch" IsSealed="true"/>
+
+        <Property Name="TradingRouteLeech_Luxury1" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury2" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury3" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury4" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury5" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury6" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury7" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury8" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury9" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury10" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury11" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury12" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury13" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury14" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury15" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury16" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury17" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury18" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury19" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury20" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury21" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury22" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury23" IsSealed="true"/>
+        <Property Name="TradingRouteLeech_Luxury24" IsSealed="true"/>
+
+        <Modifier TargetProperty="TradingRouteLeech_EmpireMoney" Operation="Addition" Value="$(TradingRouteLeech_EmpireMoney)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_EmpireResearch" Operation="Addition" Value="$(TradingRouteLeech_EmpireResearch)" Path="../ClassEmpire"/>
+
+        <Modifier TargetProperty="TradingRouteLeech_Luxury1" Operation="Addition" Value="$(TradingRouteLeech_Luxury1)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury2" Operation="Addition" Value="$(TradingRouteLeech_Luxury2)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury3" Operation="Addition" Value="$(TradingRouteLeech_Luxury3)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury4" Operation="Addition" Value="$(TradingRouteLeech_Luxury4)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury5" Operation="Addition" Value="$(TradingRouteLeech_Luxury5)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury6" Operation="Addition" Value="$(TradingRouteLeech_Luxury6)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury7" Operation="Addition" Value="$(TradingRouteLeech_Luxury7)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury8" Operation="Addition" Value="$(TradingRouteLeech_Luxury8)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury9" Operation="Addition" Value="$(TradingRouteLeech_Luxury9)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury10" Operation="Addition" Value="$(TradingRouteLeech_Luxury10)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury11" Operation="Addition" Value="$(TradingRouteLeech_Luxury11)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury12" Operation="Addition" Value="$(TradingRouteLeech_Luxury12)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury13" Operation="Addition" Value="$(TradingRouteLeech_Luxury13)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury14" Operation="Addition" Value="$(TradingRouteLeech_Luxury14)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury15" Operation="Addition" Value="$(TradingRouteLeech_Luxury15)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury16" Operation="Addition" Value="$(TradingRouteLeech_Luxury16)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury17" Operation="Addition" Value="$(TradingRouteLeech_Luxury17)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury18" Operation="Addition" Value="$(TradingRouteLeech_Luxury18)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury19" Operation="Addition" Value="$(TradingRouteLeech_Luxury19)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury20" Operation="Addition" Value="$(TradingRouteLeech_Luxury20)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury21" Operation="Addition" Value="$(TradingRouteLeech_Luxury21)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury22" Operation="Addition" Value="$(TradingRouteLeech_Luxury22)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury23" Operation="Addition" Value="$(TradingRouteLeech_Luxury23)" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="TradingRouteLeech_Luxury24" Operation="Addition" Value="$(TradingRouteLeech_Luxury24)" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetActionRootColonize" Type="FleetAction"/>
+
+    <SimulationDescriptor Name="FleetActionPrivateer" Type="FleetActionPrivateer" IsSerializable="false"/>
+    
+    <SimulationDescriptor Name="ReadOnlyGarrison" Type="ReadOnlyGarrison"/>
+    <SimulationDescriptor Name="DisbandOnlyGarrison" Type="DisbandOnlyGarrison"/>
+
+    <SimulationDescriptor Name="NoUpkeepGarrison" Type="NoUpkeepGarrison">
+        <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Force" Value="0"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="NoMovement" Type="NoMovement">
+        <Modifier TargetProperty="MaximumMovement" Operation="Force" Value="0"/>
+        <Modifier TargetProperty="Movement" Operation="Force" Value="0"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="AutomatedFleet" Type="AutomatedFleet">
+        
+        <Property Name="AutomatedFleetMoneyGainOnDestruction" BaseValue="0"/>
+
+        <Property Name="AutomatedShipGrowthStock"           Composition="Sum"/>
+        <Property Name="AutomatedShipPopulationCount"       Composition="Sum"/>
+
+        <Modifier TargetProperty="MaximumMovement" Operation="Addition" Value="2"  Path="ClassGarrisonFleet/ClassShip"/>
+        
+        <Modifier TargetProperty="AutomatedFleetMoneyGainOnDestruction" Operation="Addition" Value="$(AutomatedShipGrowthStock)" />
+        <BinaryModifier TargetProperty="AutomatedFleetMoneyGainOnDestruction" Operation="Addition" Left="$(AutomatedShipPopulationCount)" BinaryOperation="Multiplication" Right="300" />
+
+        <Modifier TargetProperty="ScaleMultiplier" Operation="Subtraction" Value="0.55"/>
+        <BinaryModifier TargetProperty="ScaleMultiplier" Operation="Addition" Left="$(AutomatedShipPopulationCount)" BinaryOperation="Multiplication" Right="0.3"/>
+        <BinaryModifier TargetProperty="ScaleMultiplier" Operation="Addition" Left="$(AutomatedShipGrowthStock)" BinaryOperation="Division" Right="550"/>
+
+        <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Force" Value="0"/>
+        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FleetPositionInOrbit" Type="FleetPosition"/>
+    
+    <SimulationDescriptor Name="FleetPositionInMovement" Type="FleetPosition">
+        <Modifier TargetProperty="MaximumShipManpowerRefillRate" Operation="Force" Value="0" Path="ClassGarrisonFleet/ClassShip" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TargetingPlanetForDestruction"  Type="TargetingPlanetForDestruction"/>
+
+
+    <!-- Metaplot systems node effects-->
+    <SimulationDescriptor Name="NodeFleetEffectMetaplotSystemRestored" Type="NodeFleetEffect">
+        <BinaryModifier TargetProperty="EmpireMoney" Operation="Addition" Left="$(ShipCount)" BinaryOperation="Multiplication" Right="1" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="NodeFleetEffectMetaplotSystemDestroyed" Type="NodeFleetEffect">
+        <BinaryModifier TargetProperty="EmpireManpower" Operation="Addition" Left="$(ShipCount)" BinaryOperation="Multiplication" Right="2" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+     <!-- Halloween -->
+    <SimulationDescriptor Name="SuperFast" Type="SuperFast">
+        <Modifier TargetProperty="MaximumMovement" Operation="Addition" Value="10" Path="ClassGarrison/ClassShip"/>
+    </SimulationDescriptor>
+    
+</Datatable>

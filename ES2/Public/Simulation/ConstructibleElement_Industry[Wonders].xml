@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/IndustryConstructibleElement.xsd">
+
+    <!-- 
+        - SubCategory: SubCategoryWonder
+        - OncePerWorld: Can only be built once by one empire. All other instance will be cancelled. (bool)
+        - IsRefundable: Cancellation brings a Refund in Dust.
+        - Tag Eternal: The improvement is bound to the StarSystem, not the ColonizedStarSystem (Razing/Mothership detachment has no effect).
+        All these parameters can be set on IndustryConstructibleElement.
+    -->
+
+    <!--
+    <StarSystemImprovementDefinition Name="StarSystemImprovementDummyWonder1" SubCategory="SubCategoryWonder" OncePerWorld="true" IsRefundable="true">
+        <Tags>Indestructible, Eternal</Tags>
+        <QueuedSimulationDescriptorReference Name="BuildingStarSystemImprovementDummyWonder1"/>
+        <Cost ResourceName="SystemProduction">80</Cost>
+        <InterpreterPrerequisite Inverted="true" Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire/ClassStarSystem,BuildingStarSystemImprovementDummyWonder1') and not(Path(Context,@'ClassStarSystem,BuildingStarSystemImprovementDummyWonder1'))</InterpreterPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/Uniques,StarSystemImprovementDummyWonder1</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassStarSystem/StarSystemImprovementWonder1</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementWonder1" />
+        <SimulationDescriptorReference Name="StarSystemImprovementOncePerEmpire" />
+        <UniqueTags>StarSystemImprovementDummyWonder1</UniqueTags>
+    </StarSystemImprovementDefinition>
+    -->
+
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementWonder1" Category="CategoryStarSystemImprovementWonder" SubCategory="SubCategoryApproval" OncePerWorld="true" IsRefundable="true" ScoreProvider="StarSystemImprovementWonderBuilt">
+        <SupervisorGain Name="Science" Weight="1"/>
+        <SupervisorGain Name="Dust" Weight="1.5"/>
+        <Tags>Indestructible, Eternal</Tags>
+        <QueuedSimulationDescriptorReference Name="BuildingStarSystemImprovementWonder1"/>
+		<CostReductionReference Name="CategoryWonderImprovement"/>
+        
+        <Cost ResourceName="SystemProduction">2340</Cost>
+        <Cost ResourceName="Strategic1" Instant="true">10</Cost>
+        <Cost ResourceName="Strategic2" Instant="true">10</Cost>
+        <InterpreterPrerequisite Inverted="true" Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire/ClassStarSystem,BuildingStarSystemImprovementWonder1') and not(Path(Context,@'ClassStarSystem,BuildingStarSystemImprovementWonder1'))</InterpreterPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/Uniques,StarSystemImprovementWonder1</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassStarSystem/StarSystemImprovementWonder1</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,StarSystemImprovementUnlockedWonder1</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementWonder1" />
+        <SimulationDescriptorReference Name="StarSystemImprovementOncePerGalaxy" />
+        <PopulationEvent Name="PopulationPoliticalEventBuildingConstructionWonderScientist"/>
+        <UniqueTags>StarSystemImprovementWonder1</UniqueTags>      
+        <TemporaryEffect>StarSystemImprovementWonder1TemporaryEffect</TemporaryEffect>
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementWonder2" Category="CategoryStarSystemImprovementWonder" SubCategory="SubCategoryScience" OncePerWorld="true" IsRefundable="true" ScoreProvider="StarSystemImprovementWonderBuilt">
+        <SupervisorGain Name="Science" Weight="2"/>
+        <Tags>Indestructible, Eternal</Tags>
+        <QueuedSimulationDescriptorReference Name="BuildingStarSystemImprovementWonder2"/>
+		<CostReductionReference Name="CategoryWonderImprovement"/>
+        <Cost ResourceName="SystemProduction">4680</Cost>
+        <Cost ResourceName="Strategic1" Instant="true">25</Cost>
+        <Cost ResourceName="Strategic2" Instant="true">25</Cost>
+        <InterpreterPrerequisite Inverted="true" Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire/ClassStarSystem,BuildingStarSystemImprovementWonder2') and not(Path(Context,@'ClassStarSystem,BuildingStarSystemImprovementWonder2'))</InterpreterPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/Uniques,StarSystemImprovementWonder2</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassStarSystem/StarSystemImprovementWonder2</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,StarSystemImprovementUnlockedWonder2</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementWonder2" />
+        <SimulationDescriptorReference Name="StarSystemImprovementOncePerGalaxy" />
+        <PopulationEvent Name="PopulationPoliticalEventBuildingConstructionWonderScientist"/>
+        <UniqueTags>StarSystemImprovementWonder2</UniqueTags>
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementWonder3" Category="CategoryStarSystemImprovementWonder" SubCategory="SubCategoryDust" OncePerWorld="true" IsRefundable="true" ScoreProvider="StarSystemImprovementWonderBuilt">
+        <SupervisorGain Name="Dust" Weight="2"/>
+        <Tags>Indestructible, Eternal</Tags>
+        <QueuedSimulationDescriptorReference Name="BuildingStarSystemImprovementWonder3"/>
+		<CostReductionReference Name="CategoryWonderImprovement"/>
+        <Cost ResourceName="SystemProduction">9360</Cost>
+        <Cost ResourceName="Strategic3" Instant="true">125</Cost>
+        <Cost ResourceName="Strategic4" Instant="true">125</Cost>
+        <InterpreterPrerequisite Inverted="true" Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire/ClassStarSystem,BuildingStarSystemImprovementWonder3') and not(Path(Context,@'ClassStarSystem,BuildingStarSystemImprovementWonder3'))</InterpreterPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/Uniques,StarSystemImprovementWonder3</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassStarSystem/StarSystemImprovementWonder3</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,StarSystemImprovementUnlockedWonder3</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementWonder3" />
+        <SimulationDescriptorReference Name="StarSystemImprovementOncePerGalaxy" />
+        <PopulationEvent Name="PopulationPoliticalEventBuildingConstructionWonderPacifist"/>
+        <UniqueTags>StarSystemImprovementWonder3</UniqueTags>
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementWonder4" Category="CategoryStarSystemImprovementWonder" SubCategory="SubCategoryDefense" OncePerWorld="true" IsRefundable="true" ScoreProvider="StarSystemImprovementWonderBuilt">
+        <SupervisorGain Name="Industry" Weight="2"/>
+        <Tags>Indestructible, Eternal</Tags>
+        <QueuedSimulationDescriptorReference Name="BuildingStarSystemImprovementWonder4"/>
+		<CostReductionReference Name="CategoryWonderImprovement"/>
+        <Cost ResourceName="SystemProduction">18720</Cost>
+        <Cost ResourceName="Strategic5" Instant="true">150</Cost>
+        <Cost ResourceName="Strategic6" Instant="true">150</Cost>
+        <InterpreterPrerequisite Inverted="true" Flags="Prerequisite,Discard">Path(Context,@'../ClassEmpire/ClassStarSystem,BuildingStarSystemImprovementWonder4') and not(Path(Context,@'ClassStarSystem,BuildingStarSystemImprovementWonder4'))</InterpreterPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/Uniques,StarSystemImprovementWonder4</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassStarSystem/StarSystemImprovementWonder4</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,StarSystemImprovementUnlockedWonder4</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementWonder4" />
+        <SimulationDescriptorReference Name="StarSystemImprovementOncePerGalaxy" />
+        <PopulationEvent Name="PopulationPoliticalEventBuildingConstructionWonderMilitarist"/>
+        <UniqueTags>StarSystemImprovementWonder4</UniqueTags>
+    </StarSystemImprovementDefinition>
+
+    <!--Victory Wonders-->
+    <StarSystemImprovementDefinition Name="StarSystemImprovementVictoryWonder1" Category="CategoryStarSystemImprovementVictoryWonder" SubCategory="SubCategoryVictoryWonder" OncePerWorld="false" IsRefundable="true" ScoreProvider="StarSystemImprovementWonderBuilt">
+        <Tags>Indestructible, Eternal</Tags>
+        <QueuedSimulationDescriptorReference Name="BuildingStarSystemImprovementVictoryWonder1"/>
+        <QueuedSimulationDescriptorReference Name="BuildingVictoryWonder"/>
+        <Cost ResourceName="SystemProduction">20000</Cost>
+        <Cost ResourceName="Strategic1" Instant="true" >125</Cost>
+        <Cost ResourceName="Strategic2" Instant="true" >125</Cost>
+        <Cost ResourceName="Strategic3" Instant="true" >80</Cost>
+        <Cost ResourceName="Strategic4" Instant="true" >80</Cost>
+        <Cost ResourceName="Strategic5" Instant="true" >40</Cost>
+        <Cost ResourceName="Strategic6" Instant="true" >40</Cost>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassStarSystem/StarSystemImprovementVictoryWonder1</PathPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire,WonderVictoryActivated</PathPrerequisite>
+        <TechnologyPrerequisite Flags="Discard">TechnologyStageEmpireDevelopment5</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementVictoryWonder1" />
+        <SimulationDescriptorReference Name="HasVictoryWonder" />
+    </StarSystemImprovementDefinition>
+
+</Datatable>

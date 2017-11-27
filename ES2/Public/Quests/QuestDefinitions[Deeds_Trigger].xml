@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!-- ============================== -->
+    <!-- ==========  ERA  1  ========== -->
+    <!-- ============================== -->
+
+    <QuestDefinition Name="Deeds_TriggerEra1" Category="CategoryDeedsTrigger" SubCategory="SubCategoryTrigger">
+
+        <!--============ TAGS ============-->
+        <Tags>Disabled</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"/>
+
+        <Vars>
+            <!--Set the Era where the deeds will be displayed-->
+            <Var VarName="$GlobalEraTriggerNb" IsGlobal="true" OverWriteGlobal="true" StringValue="1"/>
+
+            <Var VarName="$Parts">
+                <From Source="$MajorEmpires"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <!--<Prerequisites Target="$(Empires)" AnyTarget="true">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyEra1</PathPrerequisite>
+        </Prerequisites>-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <!-- Trigger 3 deeds: 2 Regulars + 1 Wonder -->
+                                <QuestTrigger>
+                                    <Tags>ExploAndScience1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>EmpireGrowth1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>DeedWonderEra1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ============================== -->
+    <!-- ==========  ERA  2  ========== -->
+    <!-- ============================== -->
+
+    <QuestDefinition Name="Deeds_TriggerEra2" Category="CategoryDeeds" SubCategory="SubCategoryTrigger">
+
+        <!--============ TAGS ============-->
+        <Tags>Disabled</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <!--Set the Era where the deeds will be displayed-->
+            <Var VarName="$GlobalEraTriggerNb" OverWriteGlobal="true" IsGlobal="true" StringValue="2"/>
+
+            <Var VarName="$Parts">
+                <From Source="$MajorEmpires"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <!--<Prerequisites Target="$(Empires)" AnyTarget="true">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyEra1</PathPrerequisite>
+        </Prerequisites>-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <!-- Trigger 3 deeds: 2 Regulars + 1 Wonder -->
+                                <QuestTrigger>
+                                    <Tags>PopAndDiplo1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>EmpireGrowth2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>DeedWonderEra2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ============================== -->
+    <!-- ==========  ERA  3  ========== -->
+    <!-- ============================== -->
+
+    <QuestDefinition Name="Deeds_TriggerEra3" Category="CategoryDeeds" SubCategory="SubCategoryTrigger">
+
+        <!--============ TAGS ============-->
+        <Tags>Disabled</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <!--Set the Era where the deeds will be displayed-->
+            <Var VarName="$GlobalEraTriggerNb" OverWriteGlobal="true" IsGlobal="true" StringValue="3"/>
+
+            <Var VarName="$Parts">
+                <From Source="$MajorEmpires"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <!--<Prerequisites Target="$(Empires)" AnyTarget="true">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyEra3</PathPrerequisite>
+        </Prerequisites>-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <!-- Trigger 3 deeds: 2 Regulars + 1 Wonder -->
+                                <QuestTrigger>
+                                    <Tags>PopAndDiplo2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>ExploAndScience2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>DeedWonderEra3</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ============================== -->
+    <!-- ==========  ERA  4  ========== -->
+    <!-- ============================== -->
+
+    <QuestDefinition Name="Deeds_TriggerEra4" Category="CategoryDeeds" SubCategory="SubCategoryTrigger">
+
+        <!--============ TAGS ============-->
+        <Tags>Disabled</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti>
+        </QuestContextMulti>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$GlobalEraTriggerNb" OverWriteGlobal="true" IsGlobal="true" StringValue="4"/>
+
+            <Var VarName="$Parts">
+                <From Source="$MajorEmpires"/>
+            </Var>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <!--<Prerequisites Target="$(Empires)" AnyTarget="true">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyEra4</PathPrerequisite>
+        </Prerequisites>-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <!-- Trigger 3 deeds: 2 Regulars + 1 Wonder -->
+                                <QuestTrigger>
+                                    <Tags>Military1</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>Military2</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>DeedWonderEra4</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ============================== -->
+    <!-- ==========  ERA  5  ========== -->
+    <!-- ============================== -->
+
+    <!--<QuestDefinition Name="Deeds_TriggerEra5" Category="CategoryDeeds" SubCategory="SubCategoryTrigger">
+
+        -->
+    <!--============ TAGS ============-->
+    <!--
+        <Tags>Disabled</Tags>
+
+        <QuestContextMulti>
+        </QuestContextMulti>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"/>
+
+        <Vars>
+            <Var VarName="$GlobalEraTriggerNb" IsGlobal="true" StringValue="5"/>
+
+            <Var VarName="$Parts">
+                <From Source="$Empires"/>
+            </Var>
+        </Vars>
+
+        -->
+    <!--============ PREREQUISITES ============-->
+    <!--
+        <Prerequisites Target="$(Empires)" AnyTarget="true">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyEra5</PathPrerequisite>
+        </Prerequisites>
+
+
+        -->
+    <!--============ STEPS ============-->
+    <!--
+        <Steps>
+            -->
+    <!--============ STEP 1 ============-->
+    <!--
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                -->
+    <!-- Trigger 3 deeds: 2 Regulars + 1 Wonder -->
+    <!--
+                                <QuestTrigger>
+                                    <Tags>DeedRegular</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>DeedRegular</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                                <QuestTrigger>
+                                    <Tags>DeedWonder</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$Parts"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>-->
+
+</Datatable>

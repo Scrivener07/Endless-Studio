@@ -1,0 +1,1309 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TutorialDefinition.xsd">
+
+      
+
+    <!--######################################
+        ########  CRAVERS  GAMEPLAY     ######
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_Cravers01" Category="Tutorial" SubCategory="EXPERT" Priority="300" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+       <Tags>Hidden,BeginTurn</Tags>
+   
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName" StringValue="Tutorial_Cravers02"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+        
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityCravers,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+        
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>              
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Cravers02" Category="Tutorial" SubCategory="EXPERT" Priority="316" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialCravers03" StringValue="Tutorial_Cravers03"/>
+            <Var VarName="$TutorialName" StringValue="Tutorial_Cravers03"/>
+            
+                <Var VarName="$MyHomeSystem">
+                <From Source="$CurrentEmpire.$StartingNode"/>                    
+            </Var>
+            <Var VarName="$Marker01"/> 
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityCravers,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_Cravers01" QuestState="InProgress"/>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                   <StartActions>
+                        <Action_TriggerTutorial>
+                            <Input_TutorialName VarName="$TutorialCravers03"/>
+                        </Action_TriggerTutorial>
+                       <Action_AddQuestMarkers MarkerType="Yellow">
+                           <Input_Targets VarName="$MyHomeSystem"/>
+                           <Input_Empires VarName="$CurrentEmpire"/>
+                           <Output_Markers VarName="$Marker01"/>
+                       </Action_AddQuestMarkers>
+                    </StartActions>                   
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                                  <Parallel CompletionPolicy="First"> 
+                                    <Sequence>
+                                        <Decorator_BeginTurn/>
+                                    </Sequence>
+                                    <Sequence>
+                                        <Decorator_Tutorial_DisplayedTutorialChanged>
+                                            <Input_TutorialName VarName="$TutorialName"/>
+                                        </Decorator_Tutorial_DisplayedTutorialChanged>
+                                    </Sequence>
+                                </Parallel>
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                            </Sequence>                 
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>EmpireScreen</StartKey>
+        <VisibilityKey>EmpireScreen</VisibilityKey>        
+    </TutorialDefinition>
+  
+
+    <TutorialDefinition Name="Tutorial_Cravers03" Category="Tutorial" SubCategory="EXPERT" Priority="306" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+                   
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityCravers,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>                   
+                    <Objective Name="Step1_Objective1">                        
+                            <Sequence>
+                                <Decorator_BeginTurn/>                             
+                            </Sequence>  
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>     
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+
+    <!--######################################
+        ########  SOPHONS  GAMEPLAY     ######
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_Sophons01" Category="Tutorial" SubCategory="EXPERT" Priority="304" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName" StringValue="Tutorial_Sophons02"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinitySophons,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinitySophons,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Sophons02" Category="Tutorial" SubCategory="EXPERT" Priority="2" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName" StringValue="Tutorial_Sophons02"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinitySophons,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinitySophons,PopulationMajor</PathPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_Sophons01" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>TechnologyScreen</StartKey>
+        <VisibilityKey>TechnologyScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <!--######################################
+        ########  VENETIANS  GAMEPLAY   ######
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_Venetians01" Category="Tutorial" SubCategory="EXPERT" Priority="304" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+      <Tags>Hidden,BeginTurn</Tags>
+       
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityVenetians,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityVenetians,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+
+    <!--######################################
+        ########  VAMPIRILIS  GAMEPLAY   ######
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_Vampirilis01" Category="Tutorial" SubCategory="EXPERT" Priority="304" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+        
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TheMothershipFleet">
+                <From Source="$CurrentEmpire.$Fleets">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassGarrisonFleet/ClassMothership</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <LocalizationVar LocalizationKey="$TheArkFleet"  Source="$TheMothershipFleet"/>
+
+            <Var VarName="$OtherFleets">
+                <From Source="$CurrentEmpire.$Fleets">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite" Inverted="true">ClassGarrisonFleet/ClassMothership</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <LocalizationVar LocalizationKey="$OtherFleetLocalized"  Source="$OtherFleets"/>
+            <Var VarName="$TutorialName" StringValue="Tutorial_Vampirilis03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityVampirilis,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityVampirilis,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>            
+            <Step Name="Step1">
+                <StartActions>
+                    <Action_AddQuestMarkers MarkerType="Yellow">
+                        <Input_Targets VarName="$TheMothershipFleet"/>
+                        <Input_Empires VarName="$CurrentEmpire"/>
+                        <Output_Markers VarName="$Marker01"/>
+                    </Action_AddQuestMarkers>
+                </StartActions>
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            
+                            <Sequence>
+                                <Decorator_Tutorial_FleetsSelected>
+                                    <Input_Fleet VarName="$TheMothershipFleet"/>
+                                </Decorator_Tutorial_FleetsSelected>
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                                <Parallel CompletionPolicy="Any">
+                                    <Sequence>
+                                        <Decorator_BeginTurn/>
+                                    </Sequence>
+                                    <Sequence>
+                                        <Decorator_Tutorial_DisplayedTutorialChanged>
+                                            <Input_TutorialName VarName="$TutorialName"/>
+                                        </Decorator_Tutorial_DisplayedTutorialChanged>
+                                    </Sequence>
+                                </Parallel>
+                            </Sequence>
+                            
+                            <Sequence>
+                                <Parallel CompletionPolicy="Any">
+                                    <Sequence>
+                                        <Decorator_BeginTurn/>
+                                    </Sequence>
+                                    <Sequence>
+                                        <Decorator_Tutorial_DisplayedTutorialChanged>
+                                            <Input_TutorialName VarName="$TutorialName"/>
+                                        </Decorator_Tutorial_DisplayedTutorialChanged>
+                                    </Sequence>
+                                </Parallel>
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                            </Sequence>
+                            
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Vampirilis03" Category="Tutorial" SubCategory="EXPERT" Priority="304" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            
+            <Var VarName="$ShipDesigns">
+                <From Source="$Empire.$ShipDesigns"/>
+            </Var>            
+            <Var VarName="$MotherShip">
+                <Any>
+                    <From Source="$ShipDesigns">
+                        <Where>                            
+                            <FilterShipDesignByModule ModuleName="ModuleMothershipScience1"/>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+
+            <Var VarName="$Vampirilis_MothershipName" SendToClient="true">
+                <From Source="$MotherShip.$Name"/>
+            </Var>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityVampirilis,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityVampirilis,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>ColonyInfoSidePanel_Colony</StartKey>
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+
+   
+    <!--######################################
+        ###########  UNITED EMPIRE   #########
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_UE01" Category="Tutorial" SubCategory="EXPERT" Priority="304" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+       
+        <!-- Not hidden -->      
+        <Tags>Hidden,BeginTurn</Tags>
+        
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$HomeSystem">
+                <From Source="$CurrentEmpire.$StartingNode"/>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_UE02"/>
+            <Var VarName="$TutorialName02" StringValue="Tutorial_UE03"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)" AnyPrerequisite="true">
+            <PathPrerequisite Inverted="true">ClassEmpire,TutorialModeBeginner</PathPrerequisite>
+            <QuestStatePrerequisite QuestDefinitionName="UnitedEmpireQuest-Wait" QuestState="Completed"/>
+        </Prerequisites>
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityTerrans,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTerrans,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions> 
+                        <Action_AddQuestMarkers MarkerType="Yellow">                            
+                            <Input_Targets VarName="$HomeSystem"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                       <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>                               
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                            </Sequence>
+                            <Sequence>
+                                <Parallel CompletionPolicy="All">
+                                    <Sequence>
+                                        <Decorator_Tutorial_DisplayedTutorialChanged>
+                                            <Input_TutorialName VarName="$TutorialName01"/>
+                                        </Decorator_Tutorial_DisplayedTutorialChanged>
+                                    </Sequence>
+                                    <Sequence>
+                                        <Decorator_Tutorial_DisplayedTutorialChanged>
+                                            <Input_TutorialName VarName="$TutorialName02"/>
+                                        </Decorator_Tutorial_DisplayedTutorialChanged>
+                                    </Sequence>
+                                </Parallel>
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                                </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+       
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+    
+    <TutorialDefinition Name="Tutorial_UE02" Category="Tutorial" SubCategory="EXPERT" Priority="310" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>            
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityTerrans,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTerrans,PopulationMajor</PathPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_UE01" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_TechnologySelected>                                   
+                                </Decorator_Tutorial_TechnologySelected>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_UE05</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>TechnologyScreen</StartKey>
+        <VisibilityKey>TechnologyScreen</VisibilityKey>
+    </TutorialDefinition>
+    
+    <TutorialDefinition Name="Tutorial_UE03" Category="Tutorial" SubCategory="EXPERT" Priority="305" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>           
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityTerrans,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTerrans,PopulationMajor</PathPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_UE01" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                        <Sequence>
+                            <Decorator_BeginTurn/>                            
+                        </Sequence>
+                        <Sequence>
+                            <Decorator_ConstructionQueued Initiator="Empire"/>
+                            <Action_ChooseOutcome Name="Outcome1" />
+                        </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_UE04</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>ColonyInfoSidePanel_Colony</StartKey>
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+    
+    <TutorialDefinition Name="Tutorial_UE04" Category="Tutorial" SubCategory="EXPERT" Priority="305" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_UE04</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityTerrans,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTerrans,PopulationMajor</PathPrerequisite>            
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">                        
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>                           
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>ColonyInfoSidePanel_Colony</StartKey>
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_UE05" Category="Tutorial" SubCategory="EXPERT" Priority="310" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_UE05</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityTerrans,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTerrans,PopulationMajor</PathPrerequisite>           
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">                       
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>                            
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_UE05</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>TechnologyScreen</StartKey>
+        <VisibilityKey>TechnologyScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <!--######################################
+        ########  HORATIO  GAMEPLAY     ######
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_Horatio01" Category="Tutorial" SubCategory="EXPERT" Priority="304" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+          
+            <Var VarName="$TutorialName01" StringValue="Tutorial_Horatio02"/>
+            <Var VarName="$TutorialName02" StringValue="Tutorial_Horatio03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityHoratio,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityHoratio,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>                    
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>                                
+                            </Sequence>
+                            <Sequence>                            
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName01"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TutorialName02"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>                               
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Horatio02" Category="Tutorial" SubCategory="EXPERT" Priority="310" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_Horatio03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityHoratio,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityHoratio,PopulationMajor</PathPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_Horatio01" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>                                
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName01"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>                      
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>SenateScreen</StartKey>
+        <VisibilityKey>SenateScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Horatio03" Category="Tutorial" SubCategory="EXPERT" Priority="312" MinimumTutorialLevel="Expert" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>          
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityHoratio,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire,EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityHoratio,PopulationMajor</PathPrerequisite>           
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">                       
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>                            
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>PopulationModalWindow</StartKey>
+        <VisibilityKey>PopulationModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+     <!--######################################
+        ########  TIME LORDS  GAMEPLAY   #####
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_TimeLords01" Category="Tutorial" SubCategory="EXPERT" Priority="301" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$MyColonizedStarSystem">
+                <Any>
+                    <From Source="$CurrentEmpire.$ColonizedStarSystems"/>
+                </Any>
+            </Var>
+            <Var VarName="$System01">
+                <From Source="$MyColonizedStarSystem.$StarSystem"/>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_TimeLords02"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Count(Context, @'ClassEmpire/ColonizedStarSystemStateColony') ge 1</InterpreterPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_AddQuestMarkers MarkerType="Yellow">
+                            <Input_Targets VarName="$System01"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TutorialName01"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>                               
+                            </Parallel>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+    </TutorialDefinition>
+    
+    <TutorialDefinition Name="Tutorial_TimeLords02" Category="Tutorial" SubCategory="EXPERT" Priority="302" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <Var VarName="$ConstructionName01" StringValue="StarSystemImprovementCreateMajorPopulation"/>
+            <Var VarName="$Tutorial01" StringValue="Tutorial_TimeLords03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Count(Context, @'ClassEmpire/ColonizedStarSystemStateColony') ge 1</InterpreterPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>                   
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_ConstructionQueued>
+                                        <Input_ConstructionName VarName="$ConstructionName01"/>
+                                        <Input_MinimumAmountInQueue VarName="$Amount01"/>
+                                    </Decorator_ConstructionQueued>
+                                    <Action_TriggerTutorial>
+                                        <Input_TutorialName VarName="$Tutorial01"/>
+                                    </Action_TriggerTutorial>
+                                </Sequence>
+                            </Parallel>                           
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>ColonyInfoSidePanel_Colony</StartKey>
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_TimeLords03" Category="Tutorial" SubCategory="EXPERT" Priority="305" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <Var VarName="$ConstructionName01" StringValue="StarSystemImprovementIndustryToManpower"/>
+            <Var VarName="$ConstructionName02" StringValue="Tutorial_TimeLords03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Count(Context, @'ClassEmpire/ColonizedStarSystemStateColony') ge 1</InterpreterPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">                    
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ConstructionQueued>
+                                    <Input_ConstructionName VarName="$ConstructionName01"/>
+                                    <Input_MinimumAmountInQueue VarName="$Amount01"/>
+                                </Decorator_ConstructionQueued>
+                            </Sequence>
+                        </Parallel> 
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>ColonyInfoSidePanel_Colony</StartKey>
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+
+
+    <TutorialDefinition Name="Tutorial_TimeLords04" Category="Tutorial" SubCategory="EXPERT" Priority="301" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_TimeLords04</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$MyColonizedStarSystem">
+                <Any>
+                    <From Source="$CurrentEmpire.$ColonizedStarSystems"/>
+                </Any>
+            </Var>
+            <Var VarName="$System01">
+                <From Source="$MyColonizedStarSystem.$StarSystem"/>
+            </Var>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_TimeLords05"/>
+            <Var VarName="$Marker01"/>           
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Count(Context, @'ClassEmpire/ColonizedStarSystemStateColony') ge 1</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_TimeLords03" QuestState="InProgress"></QuestStatePrerequisite>            
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_TimeLords05" QuestState="InProgress"></QuestStatePrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_TimeLords05" QuestState="Completed"></QuestStatePrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_TimeLords03" QuestState="Completed"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_AddQuestMarkers MarkerType="Yellow">
+                            <Input_Targets VarName="$System01"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                        <Action_TriggerTutorial>
+                            <Input_TutorialName VarName="$TutorialName01"/>
+                        </Action_TriggerTutorial>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TutorialName01"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>                               
+                            </Parallel>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+    </TutorialDefinition>
+    
+    <TutorialDefinition Name="Tutorial_TimeLords05" Category="Tutorial" SubCategory="EXPERT" Priority="302" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+        
+        <!-- Not hidden -->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+           
+            <Var VarName="$MyColonizedStarSystem">
+                <Any>
+                    <From Source="$CurrentEmpire.$ColonizedStarSystems"/>
+                </Any>
+            </Var>
+            <Var VarName="$System01">
+                <From Source="$MyColonizedStarSystem.$StarSystem"/>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <Var VarName="$ConstructionName01" StringValue="StarSystemTimeBubbleImprovementAcceleratingTime"/>
+            <Var VarName="$ConstructionName02" StringValue="StarSystemTimeBubbleImprovementSlowingTime"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+       <Prerequisites Target="$(Empire)">
+           <InterpreterPrerequisite Flags="Prerequisite">Count(Context, @'ClassEmpire/ColonizedStarSystemStateColony') ge 1</InterpreterPrerequisite>
+           <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_TimeLords04" QuestState="InProgress"></QuestStatePrerequisite>           
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>                   
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>                             
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ConstructionQueued>
+                                    <Input_ConstructionName VarName="$ConstructionName01"/>
+                                    <Input_MinimumAmountInQueue VarName="$Amount01"/>
+                                </Decorator_ConstructionQueued>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ConstructionQueued>
+                                    <Input_ConstructionName VarName="$ConstructionName02"/>
+                                    <Input_MinimumAmountInQueue VarName="$Amount01"/>
+                                </Decorator_ConstructionQueued>
+                            </Sequence>
+                        </Parallel>                          
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+      
+        <VisibilityKey>ColonyInfoSidePanel_Colony</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_TimeLords06" Category="Tutorial" SubCategory="EXPERT" Priority="302" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+           
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context,@'ClassEmpire', TimeBubblesCount, true) ge 1</InterpreterPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">                        
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>                                                             
+                            </Parallel>                        
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Unfallen01" Category="Tutorial" SubCategory="EXPERT" Priority="302" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$ShipFleets">
+                <From Source="$Empire.$Fleets"/>
+            </Var>
+            <Var VarName="$RootShip">
+                <Any>
+                    <From Source="$ShipFleets">
+                        <Where>
+                            <PathPrerequisite Flags="Prerequisite">ClassGarrisonFleet/ClassShip, ShipRoleRootCreator</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <LocalizationVar  Source="$ShipFleets" LocalizationKey="$fleetName" SendToClient="true"/>
+          
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityUnfallen,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityUnfallen,PopulationMajor</PathPrerequisite>           
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <StartActions>
+                    <Action_AddQuestMarkers MarkerType="Yellow">
+                        <Input_Targets VarName="$ShipFleets"/>
+                        <Input_Empires VarName="$CurrentEmpire"/>
+                        <Output_Markers VarName="$Marker01"/>
+                    </Action_AddQuestMarkers>
+                </StartActions>
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_FleetsSelected>
+                                    <Input_Fleet VarName="$RootShip"/>
+                                </Decorator_Tutorial_FleetsSelected>
+                                <Action_RemoveQuestMarkers>
+                                    <Input_Markers VarName="$Marker01"/>
+                                </Action_RemoveQuestMarkers>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_Unfallen03</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Unfallen03" Category="Tutorial" SubCategory="EXPERT" Priority="303" MinimumTutorialLevel="Expert" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_Unfallen03</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$ShipFleets">
+                <From Source="$Empire.$Fleets"/>
+            </Var>
+            <Var VarName="$RootShip">
+                <Any>
+                    <From Source="$ShipFleets">
+                        <Where>
+                            <PathPrerequisite Flags="Prerequisite">ClassGarrisonFleet/ClassShip, ShipRoleRootCreator</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>            
+            <LocalizationVar  Source="$ShipFleets" LocalizationKey="$fleetName" SendToClient="true"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">AffinityUnfallen,ClassEmpire,EmpireTypeMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityUnfallen,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">               
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">                        
+                            <Sequence>
+                                <Decorator_BeginTurn/>                               
+                            </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>GalaxyView</VisibilityKey>
+    </TutorialDefinition>
+</Datatable>

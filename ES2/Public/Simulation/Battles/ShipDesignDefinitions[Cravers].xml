@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/ShipDesignDefinition.xsd">
+
+    <!--*****************-->
+    <!--**** CRAVERS ****-->
+    <!--*****************-->
+    <ShipDesignDefinition Name="Cravers_Colonizer">
+        <HullReference Name="HullSmall03Cravers"/>
+        <ShipRoleReference Name="ShipRoleColonizer"/>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportColonization1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="ShipDesignDecolonizationCravers" Editable="false" Hidden="true">
+        <HullReference Name="HullSmall03Cravers"/>
+        <ShipRoleReference Name="ShipRoleColonizer"/>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportColonization1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <!--Replaced by the small Hull Attacker-->
+    <!--<ShipDesignDefinition Name="Cravers_Explorer">
+        <HullReference Name="HullSmall03Cravers"/>
+        <ShipRoleReference Name="ShipRoleExploration"/>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportExploration1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>-->
+
+    <ShipDesignDefinition Name="Cravers_Explorer">
+        <HullReference Name="HullSmall04Cravers"/>
+        <ShipRoleReference Name="ShipRoleExploration"/>
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleSupportExploration1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+    
+    <ShipDesignDefinition Name="Cravers_SmallAttack">
+        <HullReference Name="HullSmall01Cravers"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- SE Section -->
+
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull2Cravers</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_SmallSupport">
+        <HullReference Name="HullSmall02Cravers"/>
+        <ShipRoleReference Name="ShipRoleSmallSupport"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- E Section -->
+        
+        <!-- SE Section -->
+        <SlotBinding SlotName="SectionSE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull3Cravers</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_MediumAttack">
+        <HullReference Name="HullMedium01Cravers"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- N Section -->
+        <SlotBinding SlotName="SectionN.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- E Section -->
+
+        <!-- SE Section -->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull4Cravers</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_Invader">
+        <HullReference Name="HullMedium02Cravers"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportCrew1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- SE Section -->
+
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Cravers</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_MediumDefense">
+        <HullReference Name="HullMedium02Cravers"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- SE Section -->
+        
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Cravers</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_LargeCarrier">
+        <HullReference Name="HullLarge01Cravers"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Support02">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon02">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- SE Section -->
+
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull6Cravers</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <!--CUSTOM FACTIONS SUPPORT-->
+    <ShipDesignDefinition Name="Cravers_Leecher">
+        <HullReference Name="HullSmall05Cravers"/>
+        <ShipRoleReference Name="ShipRoleLeecher"/>
+
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_RootCreator">
+        <HullReference Name="HullSmall06Cravers"/>
+        <ShipRoleReference Name="ShipRoleRootCreator"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportRootCreation1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <!--SE Section-->
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Cravers_Mothership" Editable="true" Hidden="false">
+        <Tags>NoBuyout</Tags>
+        <HullReference Name="HullLarge00Cravers"/>
+        <ShipRoleReference Name="ShipRoleMothership"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.SupportDefense01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleMothershipScience1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <!--E Section-->
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleMothershipLifeforce1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+</Datatable>

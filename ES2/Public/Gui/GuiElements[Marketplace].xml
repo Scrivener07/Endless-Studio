@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- For marketplace screen -->
+    <TradableSectionGuiElement 
+        Name="TradableSectionResourceLuxury" 
+        Order="1" 
+        ResourceType="Luxury" 
+        CanBuyInMarketplaceScreen="true" 
+        CanSellInMarketplaceScreen="true">
+        
+        <Title>%TradableCategoryResourceLuxuryTitle</Title>
+        <Description>%TradableCategoryResourceLuxuryDescription</Description>
+        <SymbolString>[Lux00Luxury]</SymbolString>
+        <TableGuiElement Name ="BuyableResourcesItemsTable" Height="42">
+            <Column Name="Name"        Width="484" Prefab="Prefabs/Gui/Table/TableCellBuyableName" />
+            <Column Name="Quantity"    Width="100" Prefab="Prefabs/Gui/Table/TableCellBuyable" />
+            <Column Name="UnitPrice"   Width="182" Prefab="Prefabs/Gui/Table/TableCellBuyablePrice" />
+        </TableGuiElement>
+    </TradableSectionGuiElement>
+    
+    <TradableSectionGuiElement 
+        Name="TradableSectionResourceStrategic" 
+        Order="0" 
+        ResourceType="Strategic" 
+        CanBuyInMarketplaceScreen="true" 
+        CanSellInMarketplaceScreen="true">
+        
+        <Title>%TradableCategoryResourceStrategicTitle</Title>
+        <Description>%TradableCategoryResourceStrategicDescription</Description>
+        <SymbolString>[Strat01titanium]</SymbolString>
+        <TableGuiElement Name ="BuyableResourcesItemsTable" Height="42">
+            <Column Name="Name"        Width="484" Prefab="Prefabs/Gui/Table/TableCellBuyableName" />
+            <Column Name="Quantity"    Width="100" Prefab="Prefabs/Gui/Table/TableCellBuyable" />
+            <Column Name="UnitPrice"   Width="182" Prefab="Prefabs/Gui/Table/TableCellBuyablePrice" />
+        </TableGuiElement>
+    </TradableSectionGuiElement>   
+
+    <TradableSectionGuiElement 
+        Name="TradableSectionShip" 
+        Order="2"
+        CanBuyInMarketplaceScreen="true" 
+        CanSellInMarketplaceScreen="false">
+        
+        <Title>%TradableCategoryShipTitle</Title>
+        <Description>%TradableCategoryShipDescription</Description>
+        <SymbolString>[ship]</SymbolString>
+        <TableGuiElement Name ="BuyableShipsItemsTable" Height="42">
+            <Column Name="Name"                      Width="330" Prefab="Prefabs/Gui/Table/TableCellBuyableName" />
+            <Column Name="Role"                      Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="Size"                      Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="OffensiveMilitaryPower"    Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="DefensiveMilitaryPower"    Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="Health"                    Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="Movement"                  Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="CommandPoints"             Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="Manpower"                  Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="UnitPrice"                 Width="100" Prefab="Prefabs/Gui/Table/TableCellBuyablePrice" />
+        </TableGuiElement>
+    </TradableSectionGuiElement>
+
+    <TradableSectionGuiElement 
+        Name="TradableSectionHero" 
+        Order="3" 
+        CanBuyInMarketplaceScreen="true" 
+        CanSellInMarketplaceScreen="false">
+        
+        <Title>%TradableCategoryHeroTitle</Title>
+        <Description>%TradableCategoryHeroDescription</Description>
+        <SymbolString>[hero]</SymbolString>
+        <TableGuiElement Name ="BuyableHeroesItemsTable" Height="42">
+            <Column Name="Name"             Width="330" Prefab="Prefabs/Gui/Table/TableCellBuyableName" />
+            <Column Name="Level"            Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="Affinity"         Width="42" Prefab="Prefabs/Gui/Table/TableCellHeroPropertySmall" />
+            <Column Name="Class"            Width="42" Prefab="Prefabs/Gui/Table/TableCellHeroPropertySmall" />
+            <Column Name="Politics"         Width="42" Prefab="Prefabs/Gui/Table/TableCellHeroPoliticsSmall" />
+            <Column Name="MasteryWit"       Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="MasteryLabour"    Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="MasteryCommand"   Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="MasteryCuriosity" Width="42" Prefab="Prefabs/Gui/Table/TableCellBuyableStat" />
+            <Column Name="UnitPrice"        Width="100" Prefab="Prefabs/Gui/Table/TableCellBuyablePrice" />
+        </TableGuiElement>
+    </TradableSectionGuiElement>
+
+    <!-- For event feedback banner -->
+    
+    <!-- Categories -->
+    <ExtendedGuiElement Name="TradableCategoryResource">
+        <Title>%TradableCategoryResourceTitle</Title>
+        <SymbolString>[Lux00Luxury]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableCategoryHero">
+        <Title>%TradableCategoryHeroTitle</Title>
+        <SymbolString>[hero]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableCategoryShip">
+        <Title>%TradableCategoryShipTitle</Title>
+        <SymbolString>[ship]</SymbolString>
+    </ExtendedGuiElement>
+
+
+    <!-- Subcategories -->
+    <ExtendedGuiElement Name="TradableSubCategoryResourceLuxury">
+        <Title>%CategoryResourceLuxuryTitle</Title>
+        <SymbolString>[Lux00Luxury]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryResourceStrategic">
+        <Title>%CategoryResourceStrategicTitle</Title>
+        <SymbolString>[Strat00Strategic]</SymbolString>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="TradableSubCategoryHeroAdmiral">
+        <Title>%HeroClassAdmiralTitle</Title>
+        <SymbolString>[Admiral]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryHeroAdministrator">
+        <Title>%HeroClassAdministratorTitle</Title>
+        <SymbolString>[Administrator]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryHeroAdventurer">
+        <Title>%HeroClassAdventurerTitle</Title>
+        <SymbolString>[Adventurer]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryHeroCorporate">
+        <Title>%HeroClassCorporateTitle</Title>
+        <SymbolString>[Corporate]</SymbolString>
+    </ExtendedGuiElement>
+
+
+    <ExtendedGuiElement Name="TradableSubCategoryShipColonizer">
+        <Title>%ShipRoleColonizerTitle</Title>
+        <SymbolString>[colonizer]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryShipExplorer">
+        <Title>%ShipRoleExplorationTitle</Title>
+        <SymbolString>[explorer]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryShipOffense">
+        <Title>%ShipRoleSmallAttackerTitle</Title>
+        <SymbolString>[attacker]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryShipSupport">
+        <Title>%ShipRoleSupportTitle</Title>
+        <SymbolString>[support]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryShipCarrier">
+        <Title>%ShipRoleCarrierTitle</Title>
+        <SymbolString>[carrier]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableSubCategoryShipLeecher">
+        <Title>%ShipRoleLeecherTitle</Title>
+        <SymbolString>[lifeforce]</SymbolString>
+    </ExtendedGuiElement>
+
+
+    <!-- Tradables -->
+    <ExtendedGuiElement Name="TradableResourceLuxury1">
+        <Title>%Luxury1Title</Title>
+        <SymbolString>[Lux01Redsang]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury2">
+        <Title>%Luxury2Title</Title>
+        <SymbolString>[Lux02Jadonyx]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury3">
+        <Title>%Luxury3Title</Title>
+        <SymbolString>[Lux03Dustciduous]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury4">
+        <Title>%Luxury4Title</Title>
+        <SymbolString>[Lux04Bluecap]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury5">
+        <Title>%Luxury5Title</Title>
+        <SymbolString>[Lux05EdenIncense]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury6">
+        <Title>%Luxury6Title</Title>
+        <SymbolString>[Lux06Transvine]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury7">
+        <Title>%Luxury7Title</Title>
+        <SymbolString>[Lux07DarkGlitter]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury8">
+        <Title>%Luxury8Title</Title>
+        <SymbolString>[Lux08Uberspuds]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury9">
+        <Title>%Luxury9Title</Title>
+        <SymbolString>[Lux09Hydromiel]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury10">
+        <Title>%Luxury10Title</Title>
+        <SymbolString>[Lux10VoidStone]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury11">
+        <Title>%Luxury11Title</Title>
+        <SymbolString>[Lux11ProtoOrchid]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury12">
+        <Title>%Luxury12Title</Title>
+        <SymbolString>[Lux12IonicCristal]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury13">
+        <Title>%Luxury13Title</Title>
+        <SymbolString>[Lux13GigaLattice]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury14">
+        <Title>%Luxury14Title</Title>
+        <SymbolString>[Lux14LostCities]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury15">
+        <Title>%Luxury15Title</Title>
+        <SymbolString>[Lux15Amianthoid]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury16">
+        <Title>%Luxury16Title</Title>
+        <SymbolString>[Lux16Gossamer]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury17">
+        <Title>%Luxury17Title</Title>
+        <SymbolString>[Lux17Mercurite]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury18">
+        <Title>%Luxury18Title</Title>
+        <SymbolString>[Lux18EndlessFoundries]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury19">
+        <Title>%Luxury19Title</Title>
+        <SymbolString>[Lux19DustWater]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury20">
+        <Title>%Luxury20Title</Title>
+        <SymbolString>[Lux20ProtoSpores]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury21">
+        <Title>%Luxury21Title</Title>
+        <SymbolString>[Lux21MetaEntactogen]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury22">
+        <Title>%Luxury22Title</Title>
+        <SymbolString>[Lux22BenthicGems]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury23">
+        <Title>%Luxury23Title</Title>
+        <SymbolString>[Lux23VirtualArtifacts]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceLuxury24">
+        <Title>%Luxury24Title</Title>
+        <SymbolString>[Lux24Driftbuds]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceStrategic1">
+        <Title>%Strategic1Title</Title>
+        <SymbolString>[Strat01titaniumColored]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceStrategic2">
+        <Title>%Strategic2Title</Title>
+        <SymbolString>[Strat02hyperiumColored]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceStrategic3">
+        <Title>%Strategic3Title</Title>
+        <SymbolString>[Strat03adamantianColored]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceStrategic4">
+        <Title>%Strategic4Title</Title>
+        <SymbolString>[Strat04anti-matterColored]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceStrategic5">
+        <Title>%Strategic5Title</Title>
+        <SymbolString>[Strat05orichalcixColored]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TradableResourceStrategic6">
+        <Title>%Strategic6Title</Title>
+        <SymbolString>[Strat06quadrinixColored]</SymbolString>
+    </ExtendedGuiElement>
+    
+</Datatable>

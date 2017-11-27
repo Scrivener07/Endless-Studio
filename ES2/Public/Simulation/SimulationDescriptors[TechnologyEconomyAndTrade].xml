@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+
+    <SimulationDescriptor Name="TechnologyStageEconomyAndTrade1" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEconomyAndTrade2" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEconomyAndTrade3" Type="TechnologyStage">
+        <Modifier TargetProperty="CanLevelupSystems" Operation="Force"     Value="1" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyStageEconomyAndTrade4" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageEconomyAndTrade5" Type="TechnologyStage"/>
+
+
+    <SimulationDescriptor Name="TechnologyCountEconomyAndTradeIncreaseStage1" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEconomyAndTradeStage1UnlockedTechnologyCount"    Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"                Value="4" Operation="Addition"   TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEconomyAndTradeIncreaseStage2" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEconomyAndTradeStage2UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="6" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEconomyAndTradeIncreaseStage3" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEconomyAndTradeStage3UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="8" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEconomyAndTradeIncreaseStage4" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEconomyAndTradeStage4UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="10" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountEconomyAndTradeIncreaseStage5" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantEconomyAndTradeStage5UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="12" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+
+    <!-- Stage 1 -->
+    <SimulationDescriptor Name="TechnologyIndustry1"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndustry1Sophons"        Type="Technology"/>
+    
+    <SimulationDescriptor Name="TechnologyStrategicDeposit1"        Type="Technology"/>
+
+
+
+    <SimulationDescriptor Name="TechnologyIndustry2"        Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyStrategicDeposit2"        Type="Technology"/>
+
+
+
+    <!-- Stage 2 -->
+    <SimulationDescriptor Name="TechnologyMarketplace1"            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyUniqueDust1"                  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUniqueDust1TimeLords"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDust1"                        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDust1Alt"                     Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyBuyout"                       Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyColonization11"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeAsh" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization11Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeAsh" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization11TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeForest" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeMonsoon" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyColonization11Horatio"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeAsh" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Link -->
+    <SimulationDescriptor Name="TechnologyLinkToMarketplace2Common"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkToMarketplace2Venetians"                  Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkToMarketplace2VampirilisVenetians"        Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkToMarketplace2Vampirilis"                 Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEconomyAndTrade3To10"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEconomyAndTrade25To8"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkEconomyAndTrade25To8Horatio"                     Type="TechnologyLink"/>
+
+
+    <!-- Stage 3 -->
+    <SimulationDescriptor Name="TechnologyApproval5"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyApproval5Horatio"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndustry3"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndustry3Alt"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToDust"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToScience"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToScienceAlt"        Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPillage"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPillageVenetians"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPillageAlt"         Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyMarketplace2"            Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyColonization13"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeLava" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization13Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeLava" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization13TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTerran" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="TechnologyColonization13Horatio"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeLava" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyTrade1"                  Type="Technology">
+        <Modifier TargetProperty="CanHaveTradingCompanies" Operation="Addition" Value="1" Path="./ClassEmpire" />
+        <Modifier TargetProperty="MaximumNumberOfTradingCompanyHeadquarters" Operation="Addition" Value="3" Path="./ClassEmpire,!FactionTraitExtendedConsortium" />
+        <Modifier TargetProperty="MaximumNumberOfTradingCompanyHeadquarters" Operation="Addition" Value="4" Path="./ClassEmpire,FactionTraitExtendedConsortium" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonizationGasPlanet"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyColonizationGasPlanetNonVampirilis"   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyColonizationGasPlanetVampirilis"      Type="Technology"/>
+
+    <!-- Link -->
+    <SimulationDescriptor Name="TechnologyLinkEconomyAndTrade9To12"         Type="TechnologyLink"/>
+
+    <!-- Stage 4 -->
+    <SimulationDescriptor Name="TechnologyTrade2"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyTrade2Common"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyTrade2Venetians"          Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyStrategicDeposit3Alt"     Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyStrategicDeposit3"        Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyStrategicDeposit4"        Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyFIDSI1"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDust2"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDust2Alt"                 Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDust3"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyTrade3"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDust6"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndustry6"                Type="Technology"/>
+
+    
+
+
+
+    <!-- Link -->
+    <SimulationDescriptor Name="TechnologyLinkExclusionEconomyAndTrade16EconomyAndTrade17"         Type="TechnologyLink"/>
+
+    <!-- Stage 5 -->
+    <SimulationDescriptor Name="TechnologyStrategicDeposit5"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyStrategicDeposit6"            Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyImproveGasPlanet"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyResourceFactory1"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyResourceFactory1TimeLords"    Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyIndToDust2"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToDust2Alt"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToDust2Venetians"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToScience2"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToScience2Alt"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndToScience2Sophons"         Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyFIDSI2"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyIndustry7"                    Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyUniqueIndustry1"              Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyVictoryTrade"                 Type="Technology">
+        <Modifier TargetProperty="VictoryTechnologyResearchedCount"     Operation="Addition" Value="1" Path="./ClassEmpire" TooltipHidden="true" />
+    </SimulationDescriptor>
+	
+	<!--CURIOSITY-->
+	<SimulationDescriptor Name="TechnologyLinkEconomyAndTrade4To6"      Type="TechnologyLink"/>
+
+</Datatable>

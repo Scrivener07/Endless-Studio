@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/FactionTrait.xsd">
+  
+    <FactionPopulationTrait Name="FactionTraitParasite" SubCategory="FactionTrait" Hidden="false" Cost="0" Custom="true" IgnoreForTraitsCount="true">
+
+      <MajorPopulationDescriptors>
+        <SimulationDescriptorReference Name="PopulationParasite"/>
+      </MajorPopulationDescriptors>
+      
+      <MajorPopulationAspirations>
+        <AspirationReference Name="ParasiteOtherSystemPopulations"/>
+        <AspirationReference Name="ParasiteOtherPlanetPopulations"/>
+      </MajorPopulationAspirations>
+      
+      <NonMajorPopulationsAspirations>
+        <AspirationReference Name="GetParasitedBySystemMajorPopulation"/>
+        <AspirationReference Name="GetParasitedByPlanetMajorPopulation"/>
+      </NonMajorPopulationsAspirations>
+      
+    </FactionPopulationTrait>
+
+</Datatable>

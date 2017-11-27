@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassResourceDeposit" Type="Class">
+        <Property Name="DepositValue"             BaseValue="0"/>
+        <Property Name="ResourceBonus"/>
+
+        <Modifier TargetProperty="DepositValue" Operation="Addition" Value="$(ResourceBonus)" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassColonizedResourceDeposit" Type="ClassColonizedResourceDeposit">
+    </SimulationDescriptor>
+
+
+    <!-- Resource Type -->
+
+    <SimulationDescriptor Name="ResourceTypeStrategic" Type="ResourceType">
+        <Property Name="OwnedStrategicDeposits"                           BaseValue="1" />
+
+        <Modifier TargetProperty="StrategicDepositCount" Operation="Addition" Value="$(DepositValue)" Path="../ClassEmpire" TooltipHidden="true"/>
+
+        <Modifier TargetProperty="PlanetHasStrategic" Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceTypeLuxury" Type="ResourceType">
+        <Property Name="OwnedLuxuryDeposits"                           BaseValue="1" />
+
+        <Modifier TargetProperty="LuxuryDepositCount" Operation="Addition" Value="$(DepositValue)" Path="../ClassEmpire" TooltipHidden="true"/>
+
+
+        <Modifier TargetProperty="PlanetHasLuxury" Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="LuxuryDepositQuantity" Operation="Addition" Value="$(DepositValue)" Path="../ClassStarSystem" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <!-- Resource Rarity -->
+
+    <SimulationDescriptor Name="ResourceRarityCommon"       Type="ResourceRarity"/>
+    <SimulationDescriptor Name="ResourceRarityUncommon"     Type="ResourceRarity"/>
+    <SimulationDescriptor Name="ResourceRarityRare"         Type="ResourceRarity"/>
+    <SimulationDescriptor Name="ResourceRarityLegendary"    Type="ResourceRarity"/>
+
+
+    <!-- Deposit Size -->
+
+    <SimulationDescriptor Name="DepositSizePoor"        Type="DepositSize">
+        <Modifier TargetProperty="DepositValue" Value="1" Operation="Addition" Path="ClassResourceDeposit" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="DepositSizeAverage"     Type="DepositSize">
+        <Modifier TargetProperty="DepositValue" Value="3" Operation="Addition" Path="ClassResourceDeposit,ResourceTypeStrategic" TooltipHidden="true"/>
+        <Modifier TargetProperty="DepositValue" Value="2" Operation="Addition" Path="ClassResourceDeposit,ResourceTypeLuxury"    TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="DepositSizeAbundant"    Type="DepositSize">
+        <Modifier TargetProperty="DepositValue" Value="5" Operation="Addition" Path="ClassResourceDeposit,ResourceTypeStrategic"                    TooltipHidden="true"/>
+        <Modifier TargetProperty="DepositValue" Value="3" Operation="Addition" Path="ClassResourceDeposit,ResourceTypeLuxury" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <!-- Strategic Resource -->
+
+    <SimulationDescriptor Name="ResourceStrategic1" Type="ResourceStrategic">
+        <Modifier TargetProperty="NetStrategic1"        Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="1" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceStrategic2" Type="ResourceStrategic">
+        <Modifier TargetProperty="NetStrategic2"        Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="1" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceStrategic3" Type="ResourceStrategic">
+        <Modifier TargetProperty="NetStrategic3"        Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceStrategic4" Type="ResourceStrategic">
+        <Modifier TargetProperty="NetStrategic4"        Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceStrategic5" Type="ResourceStrategic">
+        <Modifier TargetProperty="NetStrategic5"        Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="1" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceStrategic6" Type="ResourceStrategic">
+        <Modifier TargetProperty="NetStrategic6"        Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="1" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <!-- Luxury Resource -->
+
+
+    <SimulationDescriptor Name="ResourceLuxury1" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury1" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawFood"        Value="1" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawDust"        Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury2" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury2" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawIndustry"    Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury3" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury3" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawDust"        Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury4" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury4"             Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"              Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawFood"          Value="1" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier           TargetProperty="PlanetRawDust"          Value="1" Operation="Addition" Path="./ClassPlanet"/>
+
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury5" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury5" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury6" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury6" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="3" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="3" Path="./ClassPlanet" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury7" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury7" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="1" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury8" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury8" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="1" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="1" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawFood"        Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury9" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury9" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawFood"     Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury10" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury10" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury11" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury11" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawFood"        Value="1" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="1" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawDust"        Value="1" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="1" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury12" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury12" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"    Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury13" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury13" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawPrestige"    Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury14" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury14" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet"  TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier           TargetProperty="PlanetRawDust"        Value="1" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury15" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury15" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawIndustry"    Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawDust"        Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury16" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury16"          Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawDust"        Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury17" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury17" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawDust"        Value="3" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury18" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury18" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawIndustry"    Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury19" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury19" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawFood"        Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury20" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury20" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawFood"        Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier           TargetProperty="PlanetRawIndustry"    Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier           TargetProperty="PlanetRawDust"        Value="2" Operation="Addition" Path="./ClassPlanet"/>
+        <Modifier           TargetProperty="PlanetRawScience"     Value="2" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury21" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury21"      Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawPrestige"    Value="3" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury22" Type="ResourceLuxury">
+        <Modifier           TargetProperty="NetLuxury22" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier           TargetProperty="PlanetRawDust"        Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury23" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury23" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <BinaryModifier     TargetProperty="Happiness"   Operation="Addition" Left="2" BinaryOperation="Multiplication" Right="$(Population)" Path="./ClassPlanet" SearchValueFromPath="true"/>
+        <Modifier           TargetProperty="HappinessRaw"       Operation="Addition" Value="2" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawScience"     Value="4" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ResourceLuxury24" Type="ResourceLuxury">
+        <Modifier TargetProperty="NetLuxury24" Value="$(DepositValue)" Operation="Addition" Path="./ClassPlanet" TooltipHidden="true"/>
+        <Modifier TargetProperty="PlanetRawFood"        Value="8" Operation="Addition" Path="./ClassPlanet"/>
+    </SimulationDescriptor>
+
+</Datatable>

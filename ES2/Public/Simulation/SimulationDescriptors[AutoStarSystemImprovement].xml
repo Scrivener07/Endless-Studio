@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!--
+    <SimulationDescriptor Name="HomeSystemImprovementSophon01" Type="HomeSystemImprovement">
+        <Modifier TargetProperty="SystemGrowth" Operation="Addition" Value="10"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="OutpostImprovementSophon01" Type="OutpostImprovement">
+        <Modifier TargetProperty="SystemGrowth" Operation="Addition" Value="20"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ColonyImprovementSophon02" Type="ColonyImprovement">
+        <Modifier TargetProperty="SystemGrowth" Operation="Addition" Value="40"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>-->
+
+
+    <!-- STARTING IMPROVEMENT -->
+    <SimulationDescriptor Name="StarSystemImprovementHomeSystem" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemEmpirePoint"    Operation="Addition" Value="5"    Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"       Operation="Addition" Value="10"   Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"          Operation="Addition" Value="40"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="StarSystemImprovementColonyBase" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemEmpirePoint"        Operation="Addition" Value="2"  Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemGrowth"             Operation="Addition" Value="40"   Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="Happiness"                Operation="Addition" Value="50"   Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction"         Operation="Addition" Value="25"   Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="PassiveEnrollmentRate"    Operation="Addition" Value="0.1"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="StarSystemImprovementHomeSystemTimeLords" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemEmpirePoint"            Operation="Addition" Value="5"      Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"               Operation="Addition" Value="10"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"                  Operation="Addition" Value="40"     Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="StarSystemImprovementColonyBaseTimeLords" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemEmpirePoint"            Operation="Addition" Value="2"      Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction"             Operation="Addition" Value="25"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="Happiness"					Operation="Addition" Value="50"		Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="PassiveEnrollmentRate"        Operation="Addition" Value="0.1"    Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="StarSystemImprovementHomeSystemUnfallen" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemEmpirePoint"            Operation="Addition" Value="5"      Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"               Operation="Addition" Value="10"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"                  Operation="Addition" Value="40"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="MaximumSystemManpower"        Operation="Addition" Value="1000"   Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="StarSystemImprovementColonyBaseUpkeep" Type="StarSystemImprovement">
+        <Property Name="SystemMoneyUpkeep" BaseValue="20"/>
+        <Property Name="SystemLevel" BaseValue="0"/>
+
+        <BinaryModifier TargetProperty="SystemMoneyUpkeep"            Operation="Addition" Left="20" BinaryOperation="Multiplication" Right="$(SystemLevel)"  TooltipHidden="false" />
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="StarSystemImprovementMothershipBase" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemGrowth"             Operation="Addition" Value="40"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction"         Operation="Addition" Value="25"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemEmpirePoint"        Operation="Addition" Value="5"      Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"              Operation="Addition" Value="25"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="Happiness"                Operation="Addition" Value="50"     Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="PassiveEnrollmentRate"    Operation="Addition" Value="0.1"    Path="./ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+</Datatable>

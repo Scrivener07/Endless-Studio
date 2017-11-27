@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- ARENA -->
+    <SimulationDescriptor Name="ClassArena" Type="Class">
+    </SimulationDescriptor>
+
+    <!-- EFFECT AREAS -->
+    <SimulationDescriptor Name="ClassEffectArea" Type="Class">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EffectAreaTypeNebula" Type="EffectAreaType">
+    </SimulationDescriptor>
+
+    <!-- GROUP -->
+    <SimulationDescriptor Name="ClassGroup" Type="Class">
+        <Property Name="InitialFlotillasCount" BaseValue="0" IsSealed="true"/>
+        <Property Name="InitialEffectiveFlotillasCount" BaseValue="0" IsSealed="true"/>
+        <Property Name="EffectiveFlotillasCount" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="InitialReinforcementFlotillasCount" BaseValue="0" IsSealed="true"/>
+        <Property Name="InitialEffectiveReinforcementFlotillasCount" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="InitialOpponentFlotillasCount" BaseValue="0" IsSealed="true"/>
+        <Property Name="InitialOpponentEffectiveFlotillasCount" BaseValue="0" IsSealed="true"/>
+        <Property Name="OpponentEffectiveFlotillasCount" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="InitialOpponentReinforcementFlotillasCount" BaseValue="0" IsSealed="true"/>
+        <Property Name="InitialOpponentEffectiveReinforcementFlotillasCount" BaseValue="0" IsSealed="true"/>
+        
+        <Property Name="InitialSmallShipsCount" BaseValue="0"/>
+        
+        <Property Name="InitialShipsCount" BaseValue="0"/>
+        <Property Name="InitialSmallShipsCount" BaseValue="0"/>
+        <Property Name="InitialMediumShipsCount" BaseValue="0"/>
+        <Property Name="InitialLargeShipsCount" BaseValue="0"/>
+        <Property Name="InitialMothershipsCount" BaseValue="0"/>
+
+        <Property Name="CommandPoints" BaseValue="0"/>
+        
+        <Property Name="EmpirePointGainPerCP" BaseValue="0" MinValue="Negative"/>
+        
+        <Property Name="EarnedExperience" BaseValue="0" IsSealed="true"/>
+        <Property Name="ExperienceBonusPercent" BaseValue="0"/>
+        <Property Name="ExperiencePerLostCP" BaseValue="0"/>
+        <Property Name="DestroyedCP" BaseValue="0" IsSealed="true"/>
+        <Property Name="DestroyedShip" BaseValue="0" IsSealed="true"/>
+        
+        <Property Name="LostCP" BaseValue="0" IsSealed="true"/>
+        <Property Name="LostShip" BaseValue="0" IsSealed="true"/>
+        
+        <Property Name="PlayerRecyclingDustPerCP" BaseValue="0" />
+
+        <Property Name="OpponentRecyclingDustPerCP"         BaseValue="0" Composition="Sum" />
+        <Property Name="AdditionalOpponentRecyclingDustPerCP"         BaseValue="0" Composition="Maximum" />
+        <Property Name="OpponentRecyclingSciencePerCP" 	    BaseValue="0" Composition="Sum" />
+        <Property Name="AdditionalOpponentRecyclingSciencePerCP" 	    BaseValue="0" Composition="Maximum" />
+        <Property Name="OpponentRecyclingEmpirePointPerCP"  BaseValue="0" Composition="Sum" />
+        <Property Name="AdditionalOpponentRecyclingEmpirePointPerCP"  BaseValue="0" Composition="Maximum" />
+
+        <Property Name="PlayerDustPerAliveCP" BaseValue="0" />
+
+        <Property Name="GroupRepairAfterBattle" BaseValue="0" IsSealed="true"/>
+        <Property Name="RepairAfterBattlePerLostShip" BaseValue="0" />
+
+		<Property Name="InitialMainMilitaryPower" BaseValue="0"  IsSealed="true" />
+		<Property Name="MainRelativeMilitaryPower" BaseValue="0"   />
+		<Property Name="InitialReinforcementMilitaryPower" BaseValue="0" IsSealed="true" />
+		<Property Name="ReinforcementRelativeMilitaryPower" BaseValue="0"/>
+
+		<Property Name="MainMilitaryPower" BaseValue="0" IsSealed="true"/>
+		<Property Name="ReinforcementMilitaryPower" BaseValue="0" IsSealed="true"/>
+
+		<Property Name="MainMilitaryPowerRelativeDelta" BaseValue="0" MinValue="-1" MaxValue="1" IsSealed="true"/>
+		<Property Name="ReinforcementMilitaryPowerRelativeDelta" BaseValue="0" MinValue="-1" MaxValue="1" IsSealed="true"/>
+
+		<Property Name="VictoryLevel" BaseValue="0" MinValue="Negative"/>
+		<Property Name="MyHeroesCount" BaseValue="0" IsSealed="true"/>
+		<Property Name="EnemyHeroesKilledCount" BaseValue="0" IsSealed="true"/>
+
+		<Property Name="ArmorBonusOnShips" BaseValue="0"/>
+
+		<Property Name="MoraleBonus" BaseValue="0" MinValue="0"/>
+		<Property Name="MoraleBonusDamage"   BaseValue="0" MinValue="Negative"/>
+		<Property Name="MoraleBonusAccuracy" BaseValue="0" MinValue="Negative"/>
+
+		<Property Name="ManpowerLostTransferPercent" BaseValue="0"/>
+		<Property Name="ShipManpowerStock" BaseValue="18"/>
+		<Property Name="ShipManpowerStockInitial" IsSealed="true"/>
+
+		<Property Name="FightersWithOffensiveStanceRatio" BaseValue="0" MaxValue="1"/>
+		<Property Name="FightersWithDefensiveStanceRatio" BaseValue="0" MaxValue="1"/>
+
+		<Property Name="SquadronAmount" BaseValue="0"/>
+		<Property Name="HasEffectSquadronDamageIncreasePerSquadron" BaseValue="0" MaxValue="1"/>
+
+        <Modifier TargetProperty="OpponentRecyclingDustPerCP" Operation="Addition"          Value="$(AdditionalOpponentRecyclingDustPerCP)"         Path="ClassGroup"/>
+        <Modifier TargetProperty="OpponentRecyclingSciencePerCP" Operation="Addition"       Value="$(AdditionalOpponentRecyclingSciencePerCP)"      Path="ClassGroup"/>
+        <Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP" Operation="Addition"   Value="$(AdditionalOpponentRecyclingEmpirePointPerCP)"  Path="ClassGroup"/>
+        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GroupActive" Type="GroupActive">
+        <Modifier TargetProperty="RepairAfterBattle"           Operation="Addition" Value="$(GroupRepairAfterBattle)"       Path="ClassGroup/ClassFlotilla/ClassShipEncounter" />
+		<Modifier TargetProperty="RepairAfterBattle"           Operation="Addition" Value="$(ShipRepairAfterBattle)"       Path="ClassGroup/ClassFlotilla/ClassShipEncounter" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <!-- THE NAME OF THIS DESCRIPTOR IS HARDCODED, DON'T RENAME IT -->
+    <SimulationDescriptor Name="MoraleBonusDescriptor" Type="MoraleBonus">
+        <!-- Compute Morale Bonus Effect -->
+        <BinaryModifier TargetProperty="MoraleBonus" Operation="Addition" Left="$(EffectiveFlotillasCount)" BinaryOperation="Subtraction" Right="$(OpponentEffectiveFlotillasCount)" TooltipHidden="true"/>
+        <Modifier       TargetProperty="MoraleBonusDamage" Operation="Addition" Value="0.1" Path="ClassGroup"/>
+        <Modifier       TargetProperty="MoraleBonusAccuracy" Operation="Addition" Value="0.05" Path="ClassGroup"/>
+        <BinaryModifier TargetProperty="Damage"     Operation="Percent" Left="$(MoraleBonus)" BinaryOperation="Multiplication" Right="$(MoraleBonusDamage)" Path="ClassGroup/ClassFlotilla/ClassShip/ClassSection/ClassModuleWeapon" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="Accuracy"   Operation="Percent" Left="$(MoraleBonus)" BinaryOperation="Multiplication" Right="$(MoraleBonusAccuracy)" Path="ClassGroup/ClassFlotilla/ClassShip/ClassSection/ClassModuleWeapon" TooltipHidden="true" />
+		<BinaryModifier TargetProperty="Damage"     Operation="Percent" Left="$(MoraleBonus)" BinaryOperation="Multiplication" Right="$(MoraleBonusDamage)" Path="ClassGroup/ClassFlotilla/ClassShip/ClassSection/ClassModuleSquadron" TooltipHidden="true" />
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="GroupRoleAttacker" Type="GroupRole"/>
+    <SimulationDescriptor Name="GroupRoleDefender" Type="GroupRole"/>
+
+    <SimulationDescriptor Name="GroupModeAuto" Type="GroupMode"/>
+    <SimulationDescriptor Name="GroupModeManual" Type="GroupMode"/>
+    <SimulationDescriptor Name="GroupModeRetreat" Type="GroupMode"/>
+
+    <SimulationDescriptor Name="GroupPhase1" Type="GroupPhase"/>
+    <SimulationDescriptor Name="GroupPhase2" Type="GroupPhase"/>
+    <SimulationDescriptor Name="GroupPhase3" Type="GroupPhase"/>
+
+    <SimulationDescriptor Name="EndBattleStatusLastSurvivor" Type="EndBattleStatusLastSurvivor">
+    </SimulationDescriptor>
+
+    <!-- Retreat -->
+    <SimulationDescriptor Name="EndBattleStatusRetreat" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="0" Path="ClassGroup"/>
+    </SimulationDescriptor>
+    
+    <!-- Carnage = everybody died -->
+    <SimulationDescriptor Name="EndBattleStatusCarnage" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="0" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EndBattleStatusDraw" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="0" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <!-- Include Defeat & Victory in the name of status that must count as defeat or victory for Hero & Population events -->
+    <SimulationDescriptor Name="EndBattleStatusDecisiveDefeat" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="-3" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EndBattleStatusMajorDefeat" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="-2" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EndBattleStatusMinorDefeat" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="-1" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EndBattleStatusDecisiveVictory" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="3" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EndBattleStatusMajorVictory" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="2" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EndBattleStatusMinorVictory" Type="EndBattleStatus">
+        <Modifier TargetProperty="VictoryLevel" Operation="Force" Value="1" Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <!-- FLOTILLA -->
+    <SimulationDescriptor Name="ClassFlotilla" Type="Class">
+        <Property Name="InitialShipsCount" BaseValue="0"/>
+		<Property Name="InitialSmallShipsCount" BaseValue="0"/>
+		<Property Name="InitialMediumShipsCount" BaseValue="0"/>
+        <Property Name="InitialLargeShipsCount" BaseValue="0"/>
+        <Property Name="InitialMothershipsCount" BaseValue="0"/>
+
+        <Property Name="CommandPoints" BaseValue="0"/>
+        
+        <Property Name="Shield"                         BaseValue="0" IsSealed="true" IsSerializable="true"/>
+        <Property Name="MaximumShield"                  BaseValue="0" MinValue="Negative"/>
+        <Property Name="ShieldAbsorption"               BaseValue="0"/>
+        <Property Name="ShieldAbsorptionPercent"        BaseValue="1"/>
+        <Property Name="HullWeakness"                   BaseValue="100" MinValue="Negative"/>
+        
+        <Property Name="ShieldDamageModifier"           BaseValue="1"/>
+        <Property Name="ShieldRadiusFactor"             BaseValue="2.5"/>
+
+        <Property Name="MilitaryPower"              Composition="Sum"/>
+        <Property Name="RelativeMilitaryPower"      Composition="Sum"            BaseValue="0"/>
+
+        <!-- feedback ui -->
+        <Property Name="Health" Composition="Sum" BaseValue="0"/>
+        <Property Name="MaximumHealth" Composition="Sum" BaseValue="0"/>
+
+        <Property Name="OpponentRecyclingDustPerCP"        Composition="Sum" />
+        <Property Name="OpponentRecyclingSciencePerCP" 	   Composition="Sum" />
+        <Property Name="OpponentRecyclingEmpirePointPerCP" Composition="Sum" />
+        <Property Name="AdditionalOpponentRecyclingDustPerCP"           Composition="Maximum" />
+        <Property Name="AdditionalOpponentRecyclingSciencePerCP" 	    Composition="Maximum" />
+        <Property Name="AdditionalOpponentRecyclingEmpirePointPerCP"    Composition="Maximum" />
+
+        <Property Name="DamageApplied" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="DamageAppliedCurrentPhase" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="DamageAppliedPhase1" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedPhase2" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedPhase3" BaseValue="0" IsSealed="true"/>
+        
+        <Property Name="DamageAppliedByKinetic" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedByMissile" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedByLaser" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedByBeam" BaseValue="0" IsSealed="true"/>
+		<Property Name="DamageAppliedByFighter" BaseValue="0" IsSealed="true"/>
+		<Property Name="DamageAppliedByBomber" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="DamageAppliedByKineticCritical" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedByMissileCritical" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedByLaserCritical" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedByBeamCritical" BaseValue="0" IsSealed="true"/>
+		<Property Name="DamageAppliedByFighterCritical" BaseValue="0" IsSealed="true"/>
+		<Property Name="DamageAppliedByBomberCritical" BaseValue="0" IsSealed="true"/>
+        
+        <Property Name="DamageAppliedAbsorbedByShield" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="DamageReceived" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageReceivedAbsorbedByShield" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageReceivedAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="TotalShotSent" BaseValue="0" IsSealed="true"/>
+        <Property Name="TotalHitSent" BaseValue="0" IsSealed="true"/>
+        <Property Name="TotalShotReceived" BaseValue="0" IsSealed="true"/>
+        <Property Name="TotalHitReceived" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="GuiBattleCardScaleFactor" BaseValue="1"/>
+        <Property Name="GuiBattleCardDistanceMin" BaseValue="600"/>
+        <Property Name="GuiBattleCardDistanceMax" BaseValue="100000"/>
+        <Property Name="GuiBattleCardDistanceSimplified" BaseValue="900"/>
+
+        <Property Name="ShipManpowerStock"  Composition="Sum"/>
+
+        <!--<Modifier TargetProperty="InitialMainMilitaryPower"             Operation="Addition" Value="$(RelativeMilitaryPower)" Path="FlotillaTypeMain/./ClassGroup"/>
+        <Modifier TargetProperty="InitialReinforcementMilitaryPower"    Operation="Addition" Value="$(RelativeMilitaryPower)" Path="FlotillaTypeReinforcement/./ClassGroup"/>-->
+
+        <Modifier TargetProperty="MainRelativeMilitaryPower" Operation="Addition" Value="$(RelativeMilitaryPower)" Path="FlotillaTypeMain/./ClassGroup"/>
+        <Modifier TargetProperty="ReinforcementRelativeMilitaryPower" Operation="Addition" Value="$(RelativeMilitaryPower)" Path="FlotillaTypeReinforcement/./ClassGroup"/>
+
+        <CountModifier TargetProperty="InitialShipsCount"       Operation="Addition" CountPath="ClassFlotilla/ClassShip"/>
+		<CountModifier TargetProperty="InitialSmallShipsCount"  Operation="Addition" CountPath="ClassFlotilla/ShipSizeSmall"/>
+		<CountModifier TargetProperty="InitialMediumShipsCount" Operation="Addition" CountPath="ClassFlotilla/ShipSizeMedium"/>
+        <CountModifier TargetProperty="InitialLargeShipsCount"  Operation="Addition" CountPath="ClassFlotilla/ShipSizeLarge"/>
+        <CountModifier TargetProperty="InitialMothershipsCount" Operation="Addition" CountPath="ClassFlotilla/ShipSizeMothership"/>
+
+        <Modifier TargetProperty="InitialShipsCount" Operation="Addition" Value="$(InitialShipsCount)" Path="./ClassGroup"/>
+        <Modifier TargetProperty="InitialSmallShipsCount" Operation="Addition" Value="$(InitialSmallShipsCount)" Path="./ClassGroup"/>
+        <Modifier TargetProperty="InitialMediumShipsCount" Operation="Addition" Value="$(InitialMediumShipsCount)" Path="./ClassGroup"/>
+        <Modifier TargetProperty="InitialLargeShipsCount" Operation="Addition" Value="$(InitialLargeShipsCount)" Path="./ClassGroup"/>
+        <Modifier TargetProperty="InitialMothershipsCount" Operation="Addition" Value="$(InitialMothershipsCount)" Path="./ClassGroup"/>
+        
+        <Modifier TargetProperty="CommandPoints" Operation="Addition" Value="$(CommandPoints)" Path="./ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FlotillaTypeMain" Type="FlotillaType">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FlotillaTypeReinforcement" Type="FlotillaType">
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="FlotillaReinforcementPhase1" Type="FlotillaReinforcement">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FlotillaReinforcementPhase2" Type="FlotillaReinforcement">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FlotillaReinforcementPhase3" Type="FlotillaReinforcement">
+    </SimulationDescriptor>
+
+	<!-- Flotilla Ranges -->
+    <SimulationDescriptor Name="FlotillaRangeShort" Type="FlotillaRange">
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FlotillaRangeMedium" Type="FlotillaRange">
+    </SimulationDescriptor>
+
+	<SimulationDescriptor Name="FlotillaRangeLong" Type="FlotillaRange">
+    </SimulationDescriptor>
+
+    <!-- SHIP -->
+    <SimulationDescriptor Name="ClassShipEncounter" Type="ClassShip">
+        <Property Name="MedalScore" BaseValue="0" IsSealed="true"/>
+        <Property Name="InitialMilitaryPower" BaseValue="0" IsSealed="true"/>
+		<Property Name="InitialFightersCount" BaseValue="0" IsSealed="true"/>
+		<Property Name="DestroyedFightersCount" BaseValue="0" IsSealed="true"/>
+		<Property Name="InitialBombersCount" BaseValue="0" IsSealed="true"/>
+		<Property Name="DestroyedBombersCount" BaseValue="0" IsSealed="true"/>
+
+        
+        <Property Name="DestructionSequenceDuration" BaseValue="0"/>
+
+        <Property Name="DestructionSequenceRollSpeedMin" BaseValue="0"/>
+        <Property Name="DestructionSequenceRollSpeedMax" BaseValue="0"/>
+
+        <Property Name="DestructionSequenceHorizontalDriftMin" BaseValue="0"/>
+        <Property Name="DestructionSequenceHorizontalDriftMax" BaseValue="0"/>
+
+        <Property Name="DestructionSequenceVerticalDriftMin" BaseValue="0"/>
+        <Property Name="DestructionSequenceVerticalDriftMax" BaseValue="0"/>
+
+        <Property Name="DestructionSequenceFinalSpeed" BaseValue="0"/>
+        <Property Name="DestructionSequenceSpeedDampingDuration" BaseValue="0"/>
+        <Property Name="DestructionSequenceDriftDampingDuration" BaseValue="0"/>
+        <Property Name="DestructionSequenceFacingDampingDuration" BaseValue="0"/>
+
+        <Property Name="VisualWeight" BaseValue="1"/>
+
+        <Property Name="GuiBattleCardScaleFactor" BaseValue="1"/>
+        <Property Name="GuiBattleCardDistanceMin" BaseValue="5"/>
+        <Property Name="GuiBattleCardDistanceMax" BaseValue="100000"/>
+        <Property Name="GuiBattleCardDistanceSimplified" BaseValue="200"/>
+
+        <Property Name="DamageIncreasePercent" BaseValue="0"/>
+        <Property Name="TemporaryDamageIncreaseIfLostShip" BaseValue="0"/>
+
+        <Property Name="EncounterDamage"			        BaseValue="0" MinValue="-0.95"/>
+        <Property Name="EncounterDamageProjectile"			BaseValue="0" MinValue="-0.95"/>
+        <Property Name="EncounterDamageKinetic"             BaseValue="0" MinValue="-0.95"/>
+        <Property Name="EncounterDamageEnergy"				BaseValue="0" MinValue="-0.95"/>
+        <Property Name="EncounterDamageMissile"             BaseValue="0" MinValue="-0.95"/>
+        <Property Name="EncounterDamageLaser"               BaseValue="0" MinValue="-0.95"/>
+        <Property Name="EncounterDamageBeam"                BaseValue="0" MinValue="-0.95"/>
+
+        <Property Name="AdditionalShipManpowerKillPerHitProjectile"	    BaseValue="0" MinValue="-0.95"/>
+        <Property Name="AdditionalShipManpowerKillPerHitEnergy"         BaseValue="0" MinValue="-0.95"/>
+
+        <Property Name="ShipManpowerKillPerHitPercentEncounter" BaseValue="0"/>
+        <Property Name="ManpowerPercentKillPerPhase"            BaseValue="0"/>
+
+        <Property Name="DamageApplied" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedAbsorbedByShield" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="DamageReceived" BaseValue="0" IsSealed="true"/>
+        <Property Name="SplashDamageReceivedTemp" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageReceivedAbsorbedByShield" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageReceivedAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="ProjectileManpowerAbsorption" BaseValue="0" />
+        <Property Name="EnergyManpowerAbsorption" BaseValue="0" />
+
+        <Property Name="TotalShotSent" BaseValue="0" IsSealed="true"/>
+        <Property Name="TotalHitSent" BaseValue="0" IsSealed="true"/>
+        <Property Name="TotalShotReceived" BaseValue="0" IsSealed="true"/>
+        <Property Name="TotalHitReceived" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="CoreHealthRepair" BaseValue="0" /> <!-- HP repaired on core at the end of the battle-->
+
+        <Property Name="Armor"                          BaseValue="0"  IsSealed="true"/>
+        <Property Name="AccuracyPenalty"                BaseValue="0"  IsSealed="true"/>
+        <Property Name="ArmorApplied"                   BaseValue="0"  IsSealed="true"/>
+        <Property Name="AccuracyPenaltyApplied"         BaseValue="0"  IsSealed="true"/>
+
+        <Property Name="DefenseGainPerCP"          BaseValue="0" MinValue="Negative"/>
+        <Property Name="DefenseAbsorptionBonusOnCivilians" BaseValue="0"/>
+        
+        <Property Name="ProjectileHullPlatingPenetrationFactor"          BaseValue="0"/>
+
+        <Property Name="EffectiveHullPlatingAbsorption" BaseValue="0"  IsSealed="true"/>
+        <Property Name="EffectiveShieldAbsorption"      BaseValue="0"  IsSealed="true"/>
+
+        <!-- For PlayEffectWeakestTargetingOther -->
+        <Property Name="IsWeakestTargeting"                         BaseValue="0" MaxValue="1" />
+        <Property Name="OffensiveMilitaryPowerIfWeakestTargeting"   BaseValue="0" />
+
+        <Property Name="BattleMovementGain"             BaseValue="0" />
+        <Property Name="BattleActionGain"               BaseValue="0" />
+
+        <Property Name="EnergyWeaponAccuracyPercentFromOpponent" IsSealed="true" MinValue="Negative"/>
+        <Property Name="CooldownReductionPercentFromOpponent" IsSealed="true"/>
+
+        <Property Name="LastSquadronAttackCriticalDodge" BaseValue="0" IsSealed="true"/>
+
+		<Property Name="SquadronAmount" BaseValue="0"/>
+		<Property Name="ShipRepairAfterBattle" BaseValue="0" IsSealed="true"/>
+		<Property Name="RepairAfterBattleIfSurvivingSquadron" BaseValue="0"/>
+		<Property Name="RemainingSquadronAmount" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="ShieldDeactivationDuration" BaseValue="0" IsSealed="true"/>
+        
+        <Modifier TargetProperty="CommandPoints" Operation="Addition" Value="$(CommandPoints)" Path="./ClassFlotilla"/>
+
+        <Modifier       TargetProperty="RelativeMilitaryPower"          Operation="Addition"    Value="$(MilitaryPower)" Priority="-1"/>
+        <Modifier       TargetProperty="Accuracy"                       Operation="Subtraction"  Value="$(AccuracyPenalty)"  Path="ClassShip/ClassSection/ClassModuleWeapon"/>
+        <BinaryModifier TargetProperty="RelativeMilitaryPower"          Operation="Multiplication" Left="$(Health)" BinaryOperation="Division" Right="$(MaximumHealth)" />
+        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipActive" Type="EncounterShipActive">
+        <Modifier       TargetProperty="Damage"                         Operation="Percent"  Value="$(DamageIncreasePercent)"  Path="ClassShip/ClassSection/ClassModuleWeapon"/>
+
+        <Modifier TargetProperty="EncounterDamageKinetic"			Operation="Addition" Value="$(EncounterDamageProjectile)"			Path="ClassShip"/>
+        <Modifier TargetProperty="EncounterDamageMissile"			Operation="Addition" Value="$(EncounterDamageProjectile)"			Path="ClassShip"/>
+        <Modifier TargetProperty="EncounterDamageLaser"				Operation="Addition" Value="$(EncounterDamageEnergy)"				Path="ClassShip"/>
+        <Modifier TargetProperty="EncounterDamageBeam"				Operation="Addition" Value="$(EncounterDamageEnergy)"				Path="ClassShip"/>
+
+        <Modifier TargetProperty="Damage"                   Operation="Percent" Value="$(EncounterDamage)"                  Path="ClassShip/ClassSection/ClassModuleWeapon" />
+        <Modifier TargetProperty="Damage"					Operation="Percent" Value="$(EncounterDamageKinetic)"           Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponKinetic" />
+        <Modifier TargetProperty="Damage"					Operation="Percent" Value="$(EncounterDamageMissile)"           Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponMissile" />
+        <Modifier TargetProperty="Damage"					Operation="Percent" Value="$(EncounterDamageLaser)"             Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponLaser" />
+        <Modifier TargetProperty="Damage"					Operation="Percent" Value="$(EncounterDamageBeam)"              Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponBeam" />
+		<Modifier TargetProperty="Damage"                   Operation="Percent" Value="$(EncounterDamage)"                  Path="ClassShip/ClassSection/ClassModuleSquadron" />
+
+        <Modifier TargetProperty="ShipManpowerKillPerHit"	Operation="Addition" Value="$(AdditionalShipManpowerKillPerHitProjectile)"      Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponKinetic" />
+        <Modifier TargetProperty="ShipManpowerKillPerHit"	Operation="Addition" Value="$(AdditionalShipManpowerKillPerHitProjectile)"      Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponMissile" />
+        <Modifier TargetProperty="ShipManpowerKillPerHit"	Operation="Addition" Value="$(AdditionalShipManpowerKillPerHitEnergy)"          Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponLaser" />
+        <Modifier TargetProperty="ShipManpowerKillPerHit"	Operation="Addition" Value="$(AdditionalShipManpowerKillPerHitEnergy)"          Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponBeam" />
+
+        <Modifier TargetProperty="ShipManpowerKillPerHit"   Operation="Percent" Value="$(ShipManpowerKillPerHitPercentEncounter)"  Path="ClassShip/ClassSection/ClassModuleWeapon" />
+        <BinaryModifier TargetProperty="OffensiveMilitaryPowerIfWeakestTargeting"   Operation="Addition" Left="$(OffensiveMilitaryPower)" BinaryOperation="Multiplication" Right="$(IsWeakestTargeting)" />
+
+        <BinaryModifier TargetProperty="DamageBonusFromManpower"        Operation="Addition"                Left="$(ShipManpowerStock)"                      BinaryOperation="Division" Right="$(MaximumShipManpower)"                  Path="ClassShip" />
+        <Modifier TargetProperty="DamageBonusFromManpower"              Operation="Multiplication"          Value="$(MaximumDamageBonusFromManpower)"        Path="ClassShip" />
+        <Modifier TargetProperty="EncounterDamage"                      Operation="Addition"                Value="$(DamageBonusFromManpower)"               Path="ClassShip" />
+
+        <BinaryModifier TargetProperty="ShipManpowerKillAbsorption"   Operation="Addition" Left="$(EffectiveHullPlatingAbsorption)" BinaryOperation="Multiplication" Right="$(ProjectileManpowerAbsorption)" />
+        <BinaryModifier TargetProperty="ShipManpowerKillAbsorption"   Operation="Addition" Left="$(EffectiveShieldAbsorption)"      BinaryOperation="Multiplication" Right="$(EnergyManpowerAbsorption)" />
+
+        <BinaryModifier TargetProperty="HullPlatingAbsorptionPercent"   Operation="Percent" Left="$(DefenseGainPerCP)"      BinaryOperation="Multiplication" Right="$(CommandPoints)" />
+        <BinaryModifier TargetProperty="ShieldAbsorptionPercent"        Operation="Percent" Left="$(DefenseGainPerCP)"      BinaryOperation="Multiplication" Right="$(CommandPoints)" />
+
+        <Modifier TargetProperty="HullPlatingPenetrationFactor"     Operation="Addition"    Value="$(ProjectileHullPlatingPenetrationFactor)"   Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponKinetic"/>
+        <Modifier TargetProperty="HullPlatingPenetrationFactor"     Operation="Addition"    Value="$(ProjectileHullPlatingPenetrationFactor)"   Path="ClassShip/ClassSection/ClassModuleWeapon,ClassModuleWeaponMissile"/>
+        
+        <Modifier TargetProperty="ShipManpowerStock"                Operation="Addition"    Value="$(ShipManpowerStock)"                        Path="ClassShip,!EncounterShipStatusDestroyed/../ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipDefenseAbsorptionBonusOnCivilians" Type="EncounterShipDefenseAbsorptionBonusOnCivilians">
+        <Modifier TargetProperty="HullPlatingAbsorptionPercent" Operation="Addition" Value="$(DefenseAbsorptionBonusOnCivilians)" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="ShieldAbsorptionPercent" Operation="Addition" Value="$(DefenseAbsorptionBonusOnCivilians)" Path="ClassShipEncounter"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipSizeSmall" Type="EncounterShipSize">
+        <Modifier TargetProperty="DestructionSequenceDuration" Operation="Addition" Value="4" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceRollSpeedMin" Operation="Force" Value="1" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceRollSpeedMax" Operation="Force" Value="130" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMin" Operation="Addition" Value="0.1" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMax" Operation="Addition" Value="0.3" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMin" Operation="Addition" Value="0.1" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMax" Operation="Addition" Value="0.3" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceFinalSpeed" Operation="Addition" Value="0.3" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceSpeedDampingDuration" Operation="Addition" Value="10" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceDriftDampingDuration" Operation="Addition" Value="5" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceFacingDampingDuration" Operation="Addition" Value="2.5" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="VisualWeight" Operation="Force" Value="1" Path="ClassShipEncounter"/>
+        
+        <Modifier TargetProperty="GuiBattleCardScaleFactor" Operation="Force" Value="0.35" Path="ClassShipEncounter"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipSizeMedium" Type="EncounterShipSize">
+        <Modifier TargetProperty="DestructionSequenceDuration" Operation="Addition" Value="5" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceRollSpeedMin" Operation="Force" Value="0.5" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceRollSpeedMax" Operation="Force" Value="2" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMin" Operation="Addition" Value="0.08" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMax" Operation="Addition" Value="0.2" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMin" Operation="Addition" Value="0.06" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMax" Operation="Addition" Value="0.2" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceFinalSpeed" Operation="Addition" Value="0.5" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceSpeedDampingDuration" Operation="Addition" Value="20" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceDriftDampingDuration" Operation="Addition" Value="4" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceFacingDampingDuration" Operation="Addition" Value="2.5" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="VisualWeight" Operation="Force" Value="2" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="GuiBattleCardScaleFactor" Operation="Force" Value="0.75" Path="ClassShipEncounter"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipSizeLarge" Type="EncounterShipSize">
+        <Modifier TargetProperty="DestructionSequenceDuration" Operation="Addition" Value="6" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceRollSpeedMin" Operation="Force" Value="0.2" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceRollSpeedMax" Operation="Force" Value="1" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMin" Operation="Addition" Value="0.05" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMax" Operation="Addition" Value="0.12" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMin" Operation="Addition" Value="0.03" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMax" Operation="Addition" Value="0.1" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceFinalSpeed" Operation="Addition" Value="0.5" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceSpeedDampingDuration" Operation="Addition" Value="25" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceDriftDampingDuration" Operation="Addition" Value="4" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceFacingDampingDuration" Operation="Addition" Value="2.5" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="VisualWeight" Operation="Force" Value="5" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="GuiBattleCardScaleFactor" Operation="Force" Value="1.2" Path="ClassShipEncounter"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipSizeMothership" Type="EncounterShipSize">
+        <Modifier TargetProperty="DestructionSequenceDuration" Operation="Addition" Value="6" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMin" Operation="Addition" Value="0.02" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceHorizontalDriftMax" Operation="Addition" Value="0.08" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMin" Operation="Addition" Value="0.02" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceVerticalDriftMax" Operation="Addition" Value="0.04" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="DestructionSequenceFinalSpeed" Operation="Addition" Value="0.5" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceSpeedDampingDuration" Operation="Addition" Value="25" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceDriftDampingDuration" Operation="Addition" Value="4" Path="ClassShipEncounter"/>
+        <Modifier TargetProperty="DestructionSequenceFacingDampingDuration" Operation="Addition" Value="2.5" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="VisualWeight" Operation="Addition" Value="7" Path="ClassShipEncounter"/>
+
+        <Modifier TargetProperty="GuiBattleCardScaleFactor" Operation="Force" Value="1.5" Path="ClassShipEncounter"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipTemporaryDamageIncreaseIfLostShip" Type="EncounterShipTemporaryDamageIncreaseIfLostShip">
+        <Modifier TargetProperty="Damage"       Operation="Addition"     Value="$(TemporaryDamageIncreaseIfLostShip)"      Path="ClassShip" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipTemporaryEnergyWeaponAccuracyPercent" Type="EncounterShipTemporaryEnergyWeaponAccuracyPercent">
+        <Modifier TargetProperty="Accuracy"      Operation="Percent"   Value="$(EnergyWeaponAccuracyPercentFromOpponent)" Path="ClassShip//ClassModuleWeapon,ClassModuleWeaponLaser" TooltipHidden="true"/>
+        <Modifier TargetProperty="Accuracy"      Operation="Percent"   Value="$(EnergyWeaponAccuracyPercentFromOpponent)" Path="ClassShip//ClassModuleWeapon,ClassModuleWeaponBeam" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterShipTemporaryCooldownReductionPercent" Type="EncounterShipTemporaryCooldownReductionPercent">
+        <Modifier TargetProperty="Cooldown"      Operation="Percent"   Value="$(CooldownReductionPercentFromOpponent)" Path="ClassShip//ClassModuleWeapon" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="ShieldStatusDisabled" Type="ShieldStatus"/>
+
+    <!-- SHIP SECTIONS -->
+    <SimulationDescriptor Name="ClassSectionEncounter" Type="ClassSection">
+        <Property Name="DamageReceived" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageReceivedCritical" BaseValue="0" IsSealed="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassSectionCoreEncounter" Type="ClassSectionCore">
+        <Modifier TargetProperty="Health" Operation="Force" Value="$(Health)" Path="./ClassShip"/>
+        <Modifier TargetProperty="MaximumHealth" Operation="Force" Value="$(MaximumHealth)" Path="./ClassShip"/>
+    </SimulationDescriptor>
+    
+    <!-- TARGET -->
+    <SimulationDescriptor Name="EncounterTarget" Type="EncounterTarget">
+        <Property Name="TargetersCount" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="EscortsCount" BaseValue="0" IsSealed="true"/>
+    </SimulationDescriptor>
+
+    <!-- PLAY EFFECTS -->
+
+    <SimulationDescriptor Name="PlayEffectShortRangeDefense"   Type="PlayEffect">
+        <Modifier TargetProperty="DefenseBonusAtShortRange"    Operation="Addition"   Value="0.25"  Path="ClassGroup//ClassShip"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectLongRangeDefense"   Type="PlayEffect">
+        <Modifier TargetProperty="DefenseBonusAtLongRange"    Operation="Addition"   Value="0.25"  Path="ClassGroup//ClassShip"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectShieldIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="ShieldAbsorptionPercent"  Operation="Percent"   Value="0.75"  Path="ClassGroup//ClassShip"/>
+        <Modifier TargetProperty="Damage"                   Operation="Percent"   Value="-0.1" Path="ClassGroup//ClassModuleWeapon"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectHullPlatingIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="HullPlatingAbsorptionPercent"  Operation="Percent"   Value="0.55"  Path="ClassGroup//ClassShip"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectDamageReductionAll"   Type="PlayEffect">
+        <Modifier TargetProperty="Damage"                   Operation="Percent"   Value="-0.25" Path="ClassGroup//ClassModuleWeapon"/>
+        <!-- Temp: The "both side" indication is add with an ExtendedGuiElement (until we have a real feedback)-->
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectAccuracyReductionOther"   Type="PlayEffect">
+        <Modifier TargetProperty="Accuracy"      Operation="Percent"   Value="-0.3" Path="ClassGroup//ClassSalvo,LongRange" TooltipHidden="true"/>
+        <Modifier TargetProperty="Accuracy"      Operation="Percent"   Value="-0.15" Path="ClassGroup//ClassSalvo,MediumRange" TooltipHidden="true"/>
+        <!-- Temp: The effect is override in an ExtendedGuiElement with set values (until we have a real feedback)-->
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectShieldPenetrationIncreaseAll"   Type="PlayEffect">
+        <Modifier TargetProperty="ShieldPenetrationFactor"                Operation="Addition"   Value="0.5" Path="ClassGroup//ClassModuleWeapon"/>
+        <!-- Temp: The "both side" indication is add with an ExtendedGuiElement (until we have a real feedback)-->
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectHullPlatingPenetrationIncreaseAll"   Type="PlayEffect">
+        <Modifier TargetProperty="HullPlatingPenetrationFactor"                Operation="Addition"   Value="0.5" Path="ClassGroup//ClassModuleWeapon"/>
+        <!-- Temp: The "both side" indication is add with an ExtendedGuiElement (until we have a real feedback)-->
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectHullPlatingPenetrationIncreaseAll2"   Type="PlayEffect">
+        <Modifier TargetProperty="HullPlatingPenetrationFactor"                Operation="Addition"   Value="0.7" Path="ClassGroup//ClassModuleWeapon"/>
+        <!-- Temp: The "both side" indication is add with an ExtendedGuiElement (until we have a real feedback)-->
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectDamageIncreasePerTargetCommandPoints"   Type="PlayEffect">
+        <Modifier TargetProperty="DamageBonusPerTargetCommandPoints"            Operation="Addition"   Value="0.08"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectDamageIncreasePerShipAtLongRange"   Type="PlayEffect">
+        <Modifier TargetProperty="DamageBonusPerOpponentShipAtLongRange"      Operation="Addition"   Value="0.02"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectMoraleBonusIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="MoraleBonus"      Operation="Percent"   Value="0.5"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectWeakestTargetingOther"   Type="PlayEffect">
+        <Modifier TargetProperty="IsWeakestTargeting"      Operation="Addition"   Value="1"  Path="ClassGroup//ClassShip" TooltipOverride="%PlayEffectWeakestTargetingOtherTooltip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectPlayerRecycling"   Type="PlayEffect">
+        <Modifier TargetProperty="PlayerRecyclingDustPerCP"      Operation="Addition"   Value="15"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectOpponentRecycling"   Type="PlayEffect">
+        <Modifier TargetProperty="OpponentRecyclingDustPerCP"      Operation="Addition"   Value="15"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectCoreRepairGroup"   Type="PlayEffect">
+        <Modifier TargetProperty="CoreHealthRepair" Operation="Addition" Value="0.25" Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectXPEnhancedGroup"   Type="PlayEffect">
+        <Modifier TargetProperty="ExperienceBonusPercent"   Operation="Addition"   Value="0.25"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- New effect -->
+
+    <SimulationDescriptor Name="PlayEffectMoralePenalty"   Type="PlayEffect">
+        <Modifier TargetProperty="MoraleBonusDamage"            Operation="Multiplication"   Value="-0.5"  Path="ClassGroup" TooltipHidden="true"/>
+        <Modifier TargetProperty="MoraleBonusAccuracy"          Operation="Multiplication"   Value="-0.5"  Path="ClassGroup" TooltipHidden="true"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectCriticReduction"   Type="PlayEffect">
+        <Modifier TargetProperty="CriticalHitChance"            Operation="Force"   Value="0"  Path="ClassGroup//ClassModuleWeapon"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectCriticIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="CriticalHitDamageBonus"       Operation="Addition"   Value="0.7" Path="ClassGroup//ClassSalvo"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectInfluenceGain"   Type="PlayEffect">
+        <Modifier TargetProperty="OpponentRecyclingEmpirePointPerCP"      Operation="Addition"   Value="3"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectScienceGain"   Type="PlayEffect">
+        <Modifier TargetProperty="OpponentRecyclingSciencePerCP"      Operation="Addition"   Value="5"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectEnergyManpowerKillIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="AdditionalShipManpowerKillPerHitEnergy"      Operation="Addition"   Value="2"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectProjectileManpowerKillIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="AdditionalShipManpowerKillPerHitProjectile" Operation="Addition" Value="2" Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectEmpireManpowerSaving"   Type="PlayEffect">
+        <Modifier TargetProperty="ManpowerLostTransferPercent" Operation="Addition" Value="0.5" Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectManpowerAgainstDamage"   Type="PlayEffect">
+        <Modifier TargetProperty="ManpowerPercentKillPerPhase"  Operation="Addition"   Value="0.1"  Path="ClassGroup//ClassShip"/>
+        <Modifier TargetProperty="MaximumDamageBonusFromManpower" Operation="Addition"   Value="0.3"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectEnergyManpowerAbsorptionIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="EnergyManpowerAbsorption"            Operation="Addition"   Value="0.5"  Path="ClassGroup//ClassShip"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectProjectileManpowerAbsorptionIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="ProjectileManpowerAbsorption"         Operation="Addition"   Value="0.5"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectLostShipRepair"   Type="PlayEffect">
+        <Modifier TargetProperty="RepairAfterBattlePerLostShip"      Operation="Addition"   Value="0.05"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectShieldReload"   Type="PlayEffect">
+        <Modifier TargetProperty="ShieldReloadPerPhase"      Operation="Addition"   Value="500"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectLostShipDamageIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="TemporaryDamageIncreaseIfLostShip"      Operation="Addition"   Value="0.3"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectMovementGain"   Type="PlayEffect">
+        <Modifier TargetProperty="BattleMovementGain"      Operation="Addition"   Value="3"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectActionGain"   Type="PlayEffect">
+        <Modifier TargetProperty="BattleActionGain"      Operation="Addition"   Value="1"  Path="ClassGroup//ClassShip"/>
+        <Modifier TargetProperty="Damage"                   Operation="Percent"   Value="-0.25" Path="ClassGroup//ClassModuleWeapon"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectInfluenceAgainstDamage"   Type="PlayEffect">
+        <Modifier TargetProperty="EmpirePointGainPerCP" Operation="Addition" Value="-5" Path="ClassGroup"/>
+        <Modifier TargetProperty="Damage"                   Operation="Percent"   Value="0.3" Path="ClassGroup//ClassModuleWeapon"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectCooldownIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="Cooldown"                   Operation="Percent"   Value="0.3" Path="ClassGroup//ClassModuleWeapon"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectUnarmedDefenseIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="DefenseAbsorptionBonusOnCivilians"            Operation="Addition"   Value="1"  Path="ClassGroup//ClassShip"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectLostShipXPIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="ExperiencePerLostCP"      Operation="Addition"   Value="5"  Path="ClassGroup"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectProjectileHullPlatingPenetrationIncrease"   Type="PlayEffect">
+        <Modifier TargetProperty="ProjectileHullPlatingPenetrationFactor"      Operation="Addition"   Value="0.5"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectDefenseReductionPerCP"   Type="PlayEffect">
+        <Modifier TargetProperty="DefenseGainPerCP"      Operation="Addition"   Value="-0.1"  Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PlayEffectSplashDamage"   Type="PlayEffect">
+        <Modifier TargetProperty="SplashFlotillaDamagePercent"      Operation="Addition"   Value="0.15"  Path="ClassGroup//ClassSalvo"/>
+        <Modifier TargetProperty="Damage"                   Operation="Percent"   Value="-0.3" Path="ClassGroup//ClassModuleWeapon"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+	<!--FB Update-->
+	<!--Squadron Shield: -50% Max health on Squadrons, +1% Damage red. on Fleet per Squadron-->
+	<SimulationDescriptor Name="PlayEffectDamageReductionPerSquadron"   Type="PlayEffect">
+		<Modifier TargetProperty="SquadronDefense" Operation="Addition" Value="-0.5" Path="ClassGroup//ClassModuleSquadron"/>
+		<BinaryModifier TargetProperty="DefenseBonusOverall" Operation="Addition" Left="0.01" BinaryOperation="Multiplication" Right="$(SquadronAmount)" Path="ClassGroup//ClassShip"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<!--Wing Coordination: +1% Damage on Squadrons per Squadron in Fleet-->
+	<SimulationDescriptor Name="PlayEffectSquadronDamageIncreasePerSquadron"   Type="PlayEffect">
+		<BinaryModifier TargetProperty="Damage" Operation="Percent" Left="0.01" BinaryOperation="Multiplication" Right="$(SquadronAmount)" Path="ClassGroup//ClassModuleSquadron"/>
+		<Modifier TargetProperty="HasEffectSquadronDamageIncreasePerSquadron" Operation="Addition" Value="1" Path="ClassGroup" TooltipHidden="true"/>
+
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.7" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.3" Path="ClassGroup" TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<!--Squadron Repairs: +5% Health repaired on Ship with surviving Squadron Modules-->
+	<SimulationDescriptor Name="PlayEffectShipRepairWithSquadron"   Type="PlayEffect">
+		<Modifier TargetProperty="RepairAfterBattleIfSurvivingSquadron" Operation="Addition" Value="0.5" Path="ClassGroup//ClassShip"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0.5" Path="ClassGroup" TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<!--Strafing Run: All Fighters escort bombers, +10% Critical Attack Chance on Squadrons-->
+	<SimulationDescriptor Name="PlayEffectSquadronOffenseBoost"   Type="PlayEffect">
+		<Modifier TargetProperty="CriticalAttackChance" Operation="Addition" Value="0.1" Path="ClassGroup//ClassModuleSquadron"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="1" Path="ClassGroup" TooltipOverride="%PlayEffectSquadronOffenseBoostTooltipEffect"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="0" Path="ClassGroup" TooltipHidden="true"/>
+	</SimulationDescriptor>
+
+	<!--Close Air Defense	All Fighters escort Ships, +10% Dodge on Squadrons-->
+	<SimulationDescriptor Name="PlayEffectSquadronDefenseBoost"   Type="PlayEffect">
+		<Modifier TargetProperty="DodgeChance" Operation="Addition" Value="0.1" Path="ClassGroup//ClassModuleSquadron"/>
+		
+		<!--CARRIER AIR SUPPORT - CAS %-->
+		<Modifier TargetProperty="FightersWithOffensiveStanceRatio" Operation="Addition" Value="0" Path="ClassGroup" TooltipHidden="true"/>
+		<Modifier TargetProperty="FightersWithDefensiveStanceRatio" Operation="Addition" Value="1" Path="ClassGroup" TooltipOverride="%PlayEffectSquadronDefenseBoostTooltipEffect"/>
+	</SimulationDescriptor>
+	
+    <!-- BATTLE EFFECTS -->
+    
+    <SimulationDescriptor Name="EncounterShipStatusDestroyed" Type="EncounterShipStatus">
+        <Modifier TargetProperty="RelativeMilitaryPower"          Operation="Force" Value="0"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassModuleWeaponEncounter" Type="ClassModuleWeapon">
+        <Property Name="AdditionalAccuracy" IsSealed="true" MinValue="Negative"/>
+        
+        <Property Name="TotalLongShot" IsSealed="true" MinValue="Negative"/>
+        <Property Name="TotalLongHit" IsSealed="true" MinValue="Negative"/>
+
+        <Property Name="TotalMediumShot" IsSealed="true" MinValue="Negative"/>
+        <Property Name="TotalMediumHit" IsSealed="true" MinValue="Negative"/>
+
+        <Property Name="TotalShortShot" IsSealed="true" MinValue="Negative"/>
+        <Property Name="TotalShortHit" IsSealed="true" MinValue="Negative"/>
+
+        <Property Name="TotalShot"/>
+        <Property Name="TotalHit"/>
+
+        <Property Name="DamageApplied" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedAbsorbedByShield" BaseValue="0" IsSealed="true"/>
+        <Property Name="DamageAppliedAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="WeaponDeactivationDuration"          BaseValue="0" IsSealed="true"/>
+
+        <Modifier TargetProperty="Accuracy" Operation="Addition" Value="$(AdditionalAccuracy)" Path="ClassModuleWeapon"/>
+
+        <Modifier TargetProperty="TotalShot" Operation="Addition" Value="$(TotalLongShot)"/>
+        <Modifier TargetProperty="TotalShot" Operation="Addition" Value="$(TotalMediumShot)"/>
+        <Modifier TargetProperty="TotalShot" Operation="Addition" Value="$(TotalShortShot)"/>
+        
+        <Modifier TargetProperty="TotalHit" Operation="Addition" Value="$(TotalLongHit)"/>
+        <Modifier TargetProperty="TotalHit" Operation="Addition" Value="$(TotalMediumHit)"/>
+        <Modifier TargetProperty="TotalHit" Operation="Addition" Value="$(TotalShortHit)"/>
+
+        <Modifier   TargetProperty="Accuracy"  Operation="Addition" Value="$(Accuracy)"      Path="ClassModuleWeaponEncounter/ClassSalvo" TooltipHidden="true"/>
+
+        <Modifier   TargetProperty="OpponentEnergyWeaponAccuracyPercent"  Operation="Addition" Value="$(OpponentEnergyWeaponAccuracyPercent)"   Path="ClassModuleWeaponEncounter/ClassSalvo"/>
+        <Modifier   TargetProperty="OpponentCooldownReductionPercent"  Operation="Addition" Value="$(OpponentCooldownReductionPercent)"   Path="ClassModuleWeaponEncounter/ClassSalvo"/>
+        <Modifier   TargetProperty="SplashFlotillaDamagePercent"  Operation="Addition" Value="$(SplashFlotillaDamagePercent)"   Path="ClassModuleWeaponEncounter/ClassSalvo"/>
+
+        <Modifier   TargetProperty="MaximumHealth"  Operation="Percent" Value="$(SalvoHealthPercent)"      Path="ClassModuleWeaponEncounter/ClassSalvo"/>
+        <Modifier   TargetProperty="DamageAbsorbedByShieldMultiplier"  Operation="Percent" Value="$(DamageAbsorbedByShieldMultiplier)"      Path="ClassModuleWeaponEncounter/ClassSalvo"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EncounterWeaponActive" Type="EncounterWeaponActive">
+
+        <!-- HullPlatingAbsorptionValue = Damage * (1 - HullPlatingPenetrationFactor) -->
+        <Modifier       TargetProperty="HullPlatingAbsorptionValue"         Operation="Addition"    Value="$(Damage)"                       Path="ClassModuleWeapon" TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="HullPlatingAbsorptionValue"         Operation="Multiplication" Left="1" BinaryOperation="Subtraction" Right="$(HullPlatingPenetrationFactor)" Path="ClassModuleWeapon" TooltipHidden="true"/>
+
+        <!-- ShieldAbsorptionValue = Damage * (1 - ShieldPenetrationFactor) -->
+        <Modifier       TargetProperty="ShieldAbsorptionValue"              Operation="Addition"    Value="$(Damage)"                       Path="ClassModuleWeapon" TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="ShieldAbsorptionValue"              Operation="Multiplication" Left="1" BinaryOperation="Subtraction" Right="$(ShieldPenetrationFactor)" Path="ClassModuleWeapon" TooltipHidden="true"/>
+        
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassModuleSupportEncounter" Type="ClassModuleSupport">
+
+        <Modifier TargetProperty="DamageIncreasePercent"   Operation="Addition"    Value="$(DamageIncreasePercent)"   Path="../ClassFlotilla/ClassShipEncounter"       Priority="1"/>
+
+        <Modifier TargetProperty="MaximumShield"            Operation="Addition" Value="$(FlotillaMaximumShield)"       Path="../ClassFlotilla"     Priority="1"/>
+        <Modifier TargetProperty="ShieldAbsorption"         Operation="Addition" Value="$(FlotillaShieldAbsorption)"       Path="../ClassFlotilla"     Priority="1"/>
+        
+        <Modifier TargetProperty="HullPlatingAbsorption"   Operation="Addition" Value="$(FlotillaDmgReductionAgainstPhysical)" Path="../ClassFlotilla/ClassShipEncounter"  Priority="1"/>
+        <Modifier TargetProperty="ShieldAbsorption"     Operation="Addition" Value="$(FlotillaDmgReductionAgainstEnergy)"   Path="../ClassFlotilla/ClassShipEncounter"  Priority="1"/>
+        
+        <Modifier TargetProperty="DamageBonusPerTargetCommandPoints"     Operation="Addition" Value="$(DamageBonusPerTargetCommandPointsFlotilla)"   Path="../ClassFlotilla/ClassShipEncounter" />
+
+        <Modifier TargetProperty="RepairAfterBattle"           Operation="Addition" Value="$(FlotillaRepairAfterBattle)"       Path="../ClassFlotilla/ClassShipEncounter"     Priority="1"/>
+        <Modifier TargetProperty="RepairAfterPhase"            Operation="Addition" Value="$(FlotillaRepairAfterPhase)"        Path="../ClassFlotilla/ClassShipEncounter"     Priority="1"/>
+        
+        <Modifier TargetProperty="ShipManpowerKillPerHitPercentEncounter"       Operation="Addition" Value="$(FlotillaShipManpowerKillPerHitPercent)"        Path="../ClassFlotilla/ClassShipEncounter"     Priority="1"/>         
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassModuleSquadronEncounter"  Type="ClassModuleSquadron">
+        <Property Name="LastAttackOverallDamage" BaseValue="0" IsSealed="true"/>
+        <Property Name="LastAttackCriticalAttack" BaseValue="0" IsSealed="true"/>
+
+        <Property Name="HealthRatio"            BaseValue="0"/>
+        <Property Name="RemainingUnitsCount"    BaseValue="0" RoundingFunction="Ceil"/>
+
+        <Property Name="LastSquadronAttackCriticalDodge" BaseValue="0" IsSealed="true"/>
+
+		<Property Name="GuiBattleCardScaleFactor" BaseValue="0.2"/>
+		<Property Name="GuiBattleCardDistanceMin" BaseValue="5"/>
+		<Property Name="GuiBattleCardDistanceMax" BaseValue="2500"/>
+		<Property Name="GuiBattleCardDistanceSimplified" BaseValue="400"/>
+
+		<Property Name="DamageReceived" BaseValue="0" IsSealed="true"/>
+		<!--Hull plating-->
+		<Property Name="DamageAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+		<Property Name="DamageAppliedAbsorbedByHullPlating" BaseValue="0" IsSealed="true"/>
+		<!--Shield-->
+		<Property Name="DamageAbsorbedByLastShield" BaseValue="0" IsSealed="true"/>
+		<Property Name="DamageAbsorbedByShield" BaseValue="0"    IsSealed="true"/>
+		<Property Name="DamageAppliedAbsorbedByShield" BaseValue="0" IsSealed="true"/>
+		
+		<!-- HullPlatingAbsorptionValue = Damage * (1 - HullPlatingPenetrationFactor) -->
+		<Modifier       TargetProperty="HullPlatingAbsorptionValue"         Operation="Addition"    Value="$(Damage)"                       Path="ClassModuleSquadron" TooltipHidden="true"/>
+		<BinaryModifier TargetProperty="HullPlatingAbsorptionValue"         Operation="Multiplication" Left="1" BinaryOperation="Subtraction" Right="$(HullPlatingPenetrationFactor)" Path="ClassModuleSquadron" TooltipHidden="true"/>
+		<!-- ShieldAbsorptionValue = Damage * (1 - ShieldPenetrationFactor) -->
+		<Modifier       TargetProperty="ShieldAbsorptionValue"              Operation="Addition"    Value="$(Damage)"                       Path="ClassModuleSquadron" TooltipHidden="true"/>
+		<BinaryModifier TargetProperty="ShieldAbsorptionValue"              Operation="Multiplication" Left="1" BinaryOperation="Subtraction" Right="$(ShieldPenetrationFactor)" Path="ClassModuleSquadron" TooltipHidden="true"/>
+
+		<Modifier TargetProperty="SquadronAmount" Operation="Addition" Value="1" Path="../ClassShipEncounter" TooltipHidden="true"/>
+		<Modifier TargetProperty="SquadronAmount" Operation="Addition" Value="1" Path="../ClassGroup" TooltipHidden="true"/>
+		<BinaryModifier TargetProperty="HealthRatio" Operation="Addition" Left="$(Health)" BinaryOperation="Division" Right="$(MaximumHealth)" TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="RemainingUnitsCount" Operation="Addition" Left="$(HealthRatio)" BinaryOperation="Multiplication" Right="$(BaseUnitsCount)" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <!-- BATTLE ARENA EFFECTS -->
+
+    <SimulationDescriptor Name="ArenaEffectSpecialNodeBlackHole"    Type="ArenaEffect">
+        <Modifier TargetProperty="EncounterDamageProjectile"    Operation="Addition"  Value="-0.5"  Path="ClassGroup//ClassShip"/>
+        <Modifier TargetProperty="ExperienceBonusPercent"       Operation="Addition"  Value="0.25"  Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ArenaEffectSpecialNodeAsteroidField" Type="ArenaEffect">
+        <Modifier TargetProperty="Accuracy"                     Operation="Percent"   Value="-0.5"  Path="ClassGroup//ClassSalvo,LongRange"/>
+        <Modifier TargetProperty="ExperienceBonusPercent"       Operation="Addition"  Value="0.25"  Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ArenaEffectSpecialNodeSolarNebula"   Type="ArenaEffect">
+        <Modifier TargetProperty="PlayerDustPerAliveCP"         Operation="Addition"  Value="5"    Path="ClassGroup"/>
+        <Modifier TargetProperty="ExperienceBonusPercent"       Operation="Addition"  Value="0.25"  Path="ClassGroup"/>
+    </SimulationDescriptor>
+	
+	<SimulationDescriptor Name="ArenaEffectSpecialNeutronStar"   Type="ArenaEffect">
+		<Modifier TargetProperty="MaximumShield"				Operation="Percent"		Value="-1"	Priority="1" Path="ClassGroup//ClassShip"/>
+		<Modifier TargetProperty="ExperienceBonusPercent"       Operation="Addition"	Value="0.25"  Path="ClassGroup"/>
+	</SimulationDescriptor>
+
+    <SimulationDescriptor Name="ArenaEffectSpecialNodeSpaceClouds"   Type="ArenaEffect">
+        <Modifier TargetProperty="EncounterDamageEnergy"        Operation="Addition"  Value="-0.5"  Path="ClassGroup//ClassShip"/>
+        <Modifier TargetProperty="ExperienceBonusPercent"       Operation="Addition"  Value="0.25"  Path="ClassGroup"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ArenaEffectSpecialNodeEffectCollapsingStar"   Type="ArenaEffect">
+        <Modifier TargetProperty="ManpowerPercentKillPerPhase"  Operation="Addition"  Value="0.1"  Path="ClassGroup//ClassShip"/>
+        <Modifier TargetProperty="ExperienceBonusPercent"       Operation="Addition"  Value="0.25"  Path="ClassGroup"/>
+    </SimulationDescriptor>
+   
+    <SimulationDescriptor Name="EncounterEntityStatusDisabled" Type="EncounterEntityStatus"/>
+    
+    
+</Datatable>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../../Schemas/SquadronStanceDefinition.xsd">
+
+	<SquadronStanceDefinition Name="BomberDefault" InitialMainMissionIndex="1" InitialMainMissionTaskIndex="1">
+		<MainMission Priority="0">
+			<MissionReference Name="AssaultShip"/>
+		</MainMission>
+		<MainMission Priority="1">
+			<MissionReference Name="EscortMyShip"/>
+		</MainMission>
+		<MainMission Priority="2">
+			<MissionReference Name="Roaming"/>
+		</MainMission>
+	</SquadronStanceDefinition>
+
+	<SquadronStanceDefinition Name="FighterDefensive" InitialMainMissionIndex="0" InitialMainMissionTaskIndex="1" StanceType="Defensive">
+		<SimulationDescriptorReference Name="SquadronStanceDefensive"/>
+		<MainMission Priority="0">
+			<MissionReference Name="EscortMyShip"/>
+			<SideMission Priority="0">
+				<MissionReference Name="DefendMyShipAgainstBomber"/>
+			</SideMission>
+            <SideMission Priority="1">
+                <MissionReference Name="DefendMyShipAgainstFighter"/>
+            </SideMission>
+            <SideMission Priority="2">
+                <MissionReference Name="DefendShipAgainstBomber"/>
+            </SideMission>
+            <SideMission Priority="3">
+                <MissionReference Name="DefendShipAgainstFighter"/>
+            </SideMission>
+		</MainMission>
+		<MainMission Priority="1">
+			<MissionReference Name="EscortShip"/>
+            <SideMission Priority="0">
+                <MissionReference Name="DefendMyShipAgainstBomber"/>
+            </SideMission>
+            <SideMission Priority="1">
+                <MissionReference Name="DefendMyShipAgainstFighter"/>
+            </SideMission>
+            <SideMission Priority="2">
+                <MissionReference Name="DefendShipAgainstBomber"/>
+            </SideMission>
+            <SideMission Priority="3">
+                <MissionReference Name="DefendShipAgainstFighter"/>
+            </SideMission>
+		</MainMission>
+		<MainMission Priority="2">
+			<MissionReference Name="Roaming"/>
+		</MainMission>
+		
+		<GlobalSideMission Priority="-1">
+			<MissionReference Name="RespondToFighterDuel"/>
+		</GlobalSideMission>
+	</SquadronStanceDefinition>
+
+	<SquadronStanceDefinition Name="FighterOffensive" InitialMainMissionIndex="3" InitialMainMissionTaskIndex="1" StanceType="Offensive">
+		<SimulationDescriptorReference Name="SquadronStanceOffensive"/>
+		<MainMission Priority="0">
+			<MissionReference Name="EscortMyBomber"/>
+			<SideMission Priority="0">
+				<MissionReference Name="DefendMyChasedBomber"/>
+			</SideMission>
+            <SideMission Priority="1">
+                <MissionReference Name="DefendChasedBomber"/>
+            </SideMission>
+			<SideMission Priority="2">
+				<MissionReference Name="AssaultShipTargetedByMyTarget"/>
+			</SideMission>
+		</MainMission>
+        <MainMission Priority="1">
+            <MissionReference Name="EscortBomber"/>
+            <SideMission Priority="0">
+                <MissionReference Name="DefendMyChasedBomber"/>
+            </SideMission>
+            <SideMission Priority="1">
+                <MissionReference Name="DefendChasedBomber"/>
+            </SideMission>
+            <SideMission Priority="2">
+                <MissionReference Name="AssaultShipTargetedByMyTarget"/>
+            </SideMission>
+        </MainMission>
+		<MainMission Priority="2">
+			<MissionReference Name="AssaultShip"/>
+		</MainMission>
+		<MainMission Priority="3">
+			<MissionReference Name="EscortMyShip"/>
+		</MainMission>
+		<MainMission Priority="4">
+			<MissionReference Name="Roaming"/>
+		</MainMission>
+		
+		<GlobalSideMission Priority="-1">
+			<MissionReference Name="RespondToFighterDuel"/>
+		</GlobalSideMission>
+	</SquadronStanceDefinition>
+
+</Datatable>

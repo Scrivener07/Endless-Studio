@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/EncounterArrivalSequenceDefinition.xsd">
+
+    <EncounterArrivalSequenceDefinition Name="SmallDefenderGroup" AttackerArrivalDelay="1" InterpreterFormula="Property(DefenderGroup, @ClassGroup, CommandPoints) le 6"/>
+
+    <EncounterArrivalSequenceDefinition Name="MediumDefenderGroup" AttackerArrivalDelay="3" InterpreterFormula="Property(DefenderGroup, @ClassGroup, CommandPoints) gt 6 and Property(DefenderGroup, @ClassGroup, CommandPoints) le 15"/>
+
+    <EncounterArrivalSequenceDefinition Name="LargeDefenderGroup" AttackerArrivalDelay="5" InterpreterFormula="Property(DefenderGroup, @ClassGroup, CommandPoints) gt 15"/>
+    
+</Datatable>

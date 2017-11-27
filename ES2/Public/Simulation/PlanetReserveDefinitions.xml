@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PlanetReserveDefinition.xsd">
+
+    <PlanetReserveDefinition Name="PlanetDepletion" StockProperty="PlanetDepletionPoints" PerTurnProperty="PlanetDepletionPerTurn" MaximumProperty="PlanetDepletionMax">
+        
+        <ResourceLevel Name="DepletionStatus">
+            <Condition>(Property(Planet, @ClassPlanet, PlanetDepletionPoints)) gt 0 or (Property(Planet, @ClassPlanet, PlanetDepletionPerTurn)) gt 0</Condition>
+            <SimulationDescriptorReference Name="PlanetDepletionPartiallyOrFullyDepletedPlanet"/>
+        </ResourceLevel>
+
+        <ResourceLevel Name="DepletionBonus">
+            <Condition>(Property(Planet, @ClassPlanet, PlanetDepletionPoints)) lt (Property(Planet, @ClassPlanet, PlanetDepletionThreshold)) and (Property(Planet, @ClassPlanet, PlanetDepletionPoints)) ge 0</Condition>
+            <SimulationDescriptorReference Name="PlanetDepletionBonus"/>
+        </ResourceLevel>
+
+        <ResourceLevel Name="DepletionNeutral">
+            <Condition>(Property(Planet, @ClassPlanet, PlanetDepletionPoints)) ge (Property(Planet, @ClassPlanet, PlanetDepletionThreshold)) and ((Property(Planet, @ClassPlanet, PlanetDepletionPoints)) lt(Property(Planet, @ClassPlanet, PlanetDepletionMax)))</Condition>
+            <SimulationDescriptorReference Name="PlanetDepletionNeutral"/>
+        </ResourceLevel>
+
+        <ResourceLevel Name="DepletionMalus">
+            <Condition>(Property(Planet, @ClassPlanet, PlanetDepletionPoints)) ge (Property(Planet, @ClassPlanet, PlanetDepletionMax))</Condition>
+            <SimulationDescriptorReference Name="PlanetDepletionMalus"/>
+        </ResourceLevel>
+    
+    </PlanetReserveDefinition>
+</Datatable>

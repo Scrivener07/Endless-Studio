@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/FactionTrait.xsd">
+
+  <!-- ########################################## -->
+  <!-- ######        MINOR FACTIONS        ###### -->
+  <!-- ########################################## -->
+
+    <FactionTrait Name="IsMinorFaction" SubCategory="FactionTrait" Hidden="true" Cost="1">
+        
+    </FactionTrait>
+
+    <FactionTrait Name="IsPirateFaction" SubCategory="FactionTrait" Hidden="true" Cost="1">
+        
+        
+        <Command Name="UnlockShipDesign"                Arguments="MFPiratesSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFPiratesSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFPiratesSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFPiratesMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFPiratesMediumAttackStrong"/>
+
+        <Command Name="UnlockShipDesign"                Arguments="MFInsectoidSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFInsectoidSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFInsectoidSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFInsectoidMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFInsectoidMediumAttackStrong"/>
+
+        <Command Name="UnlockShipDesign"                Arguments="MFAdvancedSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFAdvancedSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFAdvancedSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFAdvancedMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MFAdvancedMediumAttackStrong"/>
+
+		<Command Name="UnlockShipDesign"                Arguments="MFPrimitiveSmallAttackWeak"/>
+		<Command Name="UnlockShipDesign"                Arguments="MFPrimitiveSmallAttackAvg"/>
+		<Command Name="UnlockShipDesign"                Arguments="MFPrimitiveSmallAttackStrong"/>
+		<Command Name="UnlockShipDesign"                Arguments="MFPrimitiveMediumAttackAvg"/>
+		<Command Name="UnlockShipDesign"                Arguments="MFPrimitiveMediumAttackStrong"/>
+
+        <SimulationDescriptorReference Name="IsPirateFaction"/>
+    </FactionTrait>
+
+
+    <!-- Minor family traits, one for each -->
+    <!-- Pirates -->
+    <FactionTrait Name="FamilyPirates" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <Command Name="TransferResources"               Arguments="SystemInfluence,25"/>
+        <Command Name="CreateHomeSystemImprovement"     Arguments="StarSystemImprovementColonyBase"/>
+
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeShipExperience"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_OnEnemyShipDestruction"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_SetInitialMilitaryPower"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeEndBattleStatus"/>
+
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionScavengerSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionScavengerSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionScavengerSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionScavengerMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionScavengerMediumAttackStrong"/>
+
+        <SimulationDescriptorReference Name="FamilyPirates" />
+    </FactionTrait>
+	
+    <!-- Primitives -->
+    <FactionTrait Name="FamilyPrimitives" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <Command Name="TransferResources"               Arguments="SystemInfluence,25"/>
+        <Command Name="CreateHomeSystemImprovement"     Arguments="StarSystemImprovementColonyBase"/>
+
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeShipExperience"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_OnEnemyShipDestruction"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_SetInitialMilitaryPower"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeEndBattleStatus"/>
+
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionPrimitiveSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionPrimitiveSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionPrimitiveSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionPrimitiveMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionPrimitiveMediumAttackStrong"/>
+
+        <SimulationDescriptorReference Name="FamilyPrimitives" />
+    </FactionTrait>
+	
+    <!-- Insectoids -->
+    <FactionTrait Name="FamilyInsectoids" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <Command Name="TransferResources"               Arguments="SystemInfluence,25"/>
+        <Command Name="CreateHomeSystemImprovement"     Arguments="StarSystemImprovementColonyBase"/>
+
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeShipExperience"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_OnEnemyShipDestruction"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_SetInitialMilitaryPower"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeEndBattleStatus"/>
+
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionInsectoidSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionInsectoidSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionInsectoidSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionInsectoidMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionInsectoidMediumAttackStrong"/>
+
+        <SimulationDescriptorReference Name="FamilyInsectoids" />
+    </FactionTrait>
+    <!-- Advanced -->
+    <FactionTrait Name="FamilyAdvanced" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <Command Name="TransferResources"               Arguments="SystemInfluence,25"/>
+        <Command Name="CreateHomeSystemImprovement"     Arguments="StarSystemImprovementColonyBase"/>
+
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeShipExperience"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_OnEnemyShipDestruction"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_SetInitialMilitaryPower"/>
+        <Command Name="UnlockBattleAction"              Arguments="Group_ComputeEndBattleStatus"/>
+		
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionAdvancedSmallAttackWeak"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionAdvancedSmallAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionAdvancedSmallAttackStrong"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionAdvancedMediumAttackAvg"/>
+        <Command Name="UnlockShipDesign"                Arguments="MinorFactionAdvancedMediumAttackStrong"/>
+
+        <SimulationDescriptorReference Name="FamilyAdvanced" />
+    </FactionTrait>
+
+    <!-- Personnality -->
+    <FactionTrait Name="PersonalityTraitWarmonger" SubCategory="FactionTrait" Hidden="true" Cost="1">
+        <SimulationDescriptorReference Name="PersonalityTraitWarmonger"/>
+    </FactionTrait>
+
+    <FactionTrait Name="PersonalityTraitPacifist" SubCategory="FactionTrait" Hidden="true" Cost="1">
+        <SimulationDescriptorReference Name="PersonalityTraitPacifist"/>
+    </FactionTrait>
+
+    <FactionTrait Name="PersonalityTraitPragmatist" SubCategory="FactionTrait" Hidden="true" Cost="1">
+        <SimulationDescriptorReference Name="PersonalityTraitPragmatist"/>
+    </FactionTrait>
+
+    <!-- Traits -->
+    <FactionTrait Name="FactionTraitMinorDust1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorDust1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorDust2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorDust1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorFood1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorFood1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorFood2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorFood2"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorGroundBattle1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorGroundBattle1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorGroundBattle2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorGroundBattle1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorHappiness1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorHappiness1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorHappiness2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorHappiness1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorIndustry1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorIndustry1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorIndustry2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorIndustry2"/>
+    </FactionTrait>
+
+
+    <FactionTrait Name="FactionTraitMinorScience1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorScience1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorScience2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorScience1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorSpaceBattle1" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorSpaceBattle1"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorSpaceBattle2" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorSpaceBattle1"/>
+    </FactionTrait>
+
+    <FactionTrait Name="FactionTraitMinorFrozenColonization" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorFrozenColonization"/>
+    </FactionTrait>
+    
+    <FactionTrait Name="FactionTraitMinorIndustry" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorIndustry"/>
+    </FactionTrait>
+
+    <!-- New Traits -->
+
+    <!-- BENTHYS -->
+    <FactionTrait Name="FactionTraitMinorGovernor01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorGovernor01"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorLuxuryExpert" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorLuxuryExpert"/>
+    </FactionTrait>
+
+    <!-- MAVROS -->
+    <FactionTrait Name="FactionTraitMinorBuilders01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorBuilders01"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorBuilders02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorBuilders02"/>
+    </FactionTrait>
+    
+    <!-- HAROSHEMS -->
+    <FactionTrait Name="FactionTraitMinorGrowth" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorGrowth"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorFoodMin" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorFoodMin"/>
+    </FactionTrait>
+
+    <!-- DEUYIVANS -->
+    <FactionTrait Name="FactionTraitMinorEmpireResearch" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorEmpireResearch"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorScienceMin" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorScienceMin"/>
+    </FactionTrait>
+	
+	<!-- BOTS -->
+    <FactionTrait Name="FactionTraitMinorDiplomacy" SubCategory="FactionTrait" Hidden="true" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorDiplomacy"/>
+    </FactionTrait>
+	<FactionTrait Name="FactionTraitMinorTrading" SubCategory="FactionTrait" Hidden="true" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorTrading"/>
+	</FactionTrait>
+
+    <!-- HISSHOS -->
+    <FactionTrait Name="FactionTraitMinorDamage" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorDamage"/>
+    </FactionTrait>
+
+	<!-- AMOEBA -->
+	<FactionTrait Name="FactionTraitMinorPacifists01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorPacifists01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorPacifists02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorPacifists02"/>
+	</FactionTrait>
+
+	<!-- PILGRIMS -->
+	<FactionTrait Name="FactionTraitMinorExplorers01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorExplorers01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorExplorers02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorExplorers02"/>
+	</FactionTrait>
+
+	<!-- ZVALI -->
+	<FactionTrait Name="FactionTraitMinorGamers01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorGamers01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorGamers02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorGamers02"/>
+	</FactionTrait>
+	
+	<!-- TIKANANS -->
+	<FactionTrait Name="FactionTraitMinorSwarm01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorSwarm01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorSwarm02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorSwarm02"/>
+	</FactionTrait>
+	
+	<!-- GNASHASTS -->
+	<FactionTrait Name="FactionTraitMinorMonsters01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorMonsters01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorMonsters02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorMonsters02"/>
+	</FactionTrait>
+	
+	<!-- EYDERS -->
+	<FactionTrait Name="FactionTraitMinorHoarders01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorHoarders01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorHoarders02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorHoarders02"/>
+	</FactionTrait>
+	
+	<!-- NIRIS -->
+	<FactionTrait Name="FactionTraitMinorCaretakers01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorCaretakers01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorCaretakers02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorCaretakers02"/>
+	</FactionTrait>
+	
+	<!-- BHAGABAS -->
+	<FactionTrait Name="FactionTraitMinorDiplomats01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorDiplomats01"/>
+	</FactionTrait>
+	<FactionTrait Name="FactionTraitMinorDiplomats02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+		<SimulationDescriptorReference Name="FactionTraitMinorDiplomats02"/>
+	</FactionTrait>
+
+    <!-- REMNANT -->
+    <FactionTrait Name="FactionTraitMinorWorldBuilders01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorWorldBuilders01"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorWorldBuilders02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorWorldBuilders02"/>
+    </FactionTrait>
+
+    <!-- PULSOS -->
+    <FactionTrait Name="FactionTraitMinorCuriousThinkers01" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorCuriousThinkers01"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorCuriousThinkers02" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorCuriousThinkers02"/>
+    </FactionTrait>
+    
+    <!-- Greenman -->
+    <FactionTrait Name="FactionTraitMinorProfitableExploitations" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorProfitableExploitations"/>
+    </FactionTrait>
+    <FactionTrait Name="FactionTraitMinorIndustryContacts" SubCategory="FactionTrait" Hidden="false" Cost="0">
+        <SimulationDescriptorReference Name="FactionTraitMinorIndustryContacts"/>
+    </FactionTrait>
+
+
+</Datatable>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/EncounterSequenceDefinition.xsd">
+
+    <EncounterSequenceDefinition Name="DefaultSequence">
+        <Phase Name="Arrival" Duration="-1">
+        </Phase>
+
+        <Phase Name="Battle01" Duration="40" IsBattlePhase="true">
+            <SimulationDescriptorReference Name="GroupPhase1"/>
+        </Phase>
+
+        <Phase Name="Battle02" Duration="40" IsBattlePhase="true">
+            <SimulationDescriptorReference Name="GroupPhase2"/>
+        </Phase>
+
+        <Phase Name="Battle03" Duration="40" IsBattlePhase="true">
+            <SimulationDescriptorReference Name="GroupPhase3"/>
+        </Phase>
+
+        <Phase Name="Report" Duration="10">
+        </Phase>
+    </EncounterSequenceDefinition>
+
+
+</Datatable>

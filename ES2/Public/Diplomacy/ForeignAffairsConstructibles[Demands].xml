@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ForeignAffairsConstructibleElement.xsd">
+
+    <!-- PressureReduction: required for other terms, added automatically when creating a demand -->
+    <DiplomaticTermPressureReductionDefinition Name="PressureReductionDemand" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="Symmetrical" Category="CategoryTreaty" Alignment="Good">
+    </DiplomaticTermPressureReductionDefinition>
+
+    <!-- Obsolete but needed for saves... -->
+    <DiplomaticTermDeclareWarDefinition Name="DeclareWarDemand" Hidden="true" PropositionMethod="Negotiation" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad" ScoreProviderOnProvider="WarDeclarationSent" ScoreProviderOnReceiver="WarDeclarationReceived">
+        <DiplomaticRelationStateReference>DiplomaticRelationStateWar</DiplomaticRelationStateReference>
+    </DiplomaticTermDeclareWarDefinition>
+    
+    <!--===============================================================================================-->
+    <!--                                       FIRST LEVEL                                             -->
+    <!--===============================================================================================-->
+
+    <!-- ResourceDealDemand -->
+    <DiplomaticTermResourceExchangeDemandDefinition Name="ResourceDealDemand" PropositionMethod="Negotiation" ApplicationMethod="ReceiverOnly" Category="CategoryResource" Alignment="Neutral">
+        <DiplomaticContractContainsTermPrerequisite Inverted="false" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <TradableResourceList>
+            <TradableResourceReference Name="EmpireMoney"/>
+            <TradableResourceReference Name="EmpireManpower"/>
+            <TradableResourceReference Name="Strategic1"/>
+            <TradableResourceReference Name="Strategic2"/>
+            <TradableResourceReference Name="Strategic3"/>
+            <TradableResourceReference Name="Strategic4"/>
+            <TradableResourceReference Name="Strategic5"/>
+            <TradableResourceReference Name="Strategic6"/>
+            <TradableResourceReference Name="Luxury1"/>
+            <TradableResourceReference Name="Luxury2"/>
+            <TradableResourceReference Name="Luxury3"/>
+            <TradableResourceReference Name="Luxury4"/>
+            <TradableResourceReference Name="Luxury5"/>
+            <TradableResourceReference Name="Luxury6"/>
+            <TradableResourceReference Name="Luxury7"/>
+            <TradableResourceReference Name="Luxury8"/>
+            <TradableResourceReference Name="Luxury9"/>
+            <TradableResourceReference Name="Luxury10"/>
+            <TradableResourceReference Name="Luxury11"/>
+            <TradableResourceReference Name="Luxury12"/>
+            <TradableResourceReference Name="Luxury13"/>
+            <TradableResourceReference Name="Luxury14"/>
+            <TradableResourceReference Name="Luxury15"/>
+            <TradableResourceReference Name="Luxury16"/>
+            <TradableResourceReference Name="Luxury17"/>
+            <TradableResourceReference Name="Luxury18"/>
+            <TradableResourceReference Name="Luxury19"/>
+            <TradableResourceReference Name="Luxury20"/>
+            <TradableResourceReference Name="Luxury21"/>
+            <TradableResourceReference Name="Luxury22"/>
+            <TradableResourceReference Name="Luxury23"/>
+            <TradableResourceReference Name="Luxury24"/>
+        </TradableResourceList>
+    </DiplomaticTermResourceExchangeDemandDefinition>
+    
+    <!-- TechnologyDealDemand -->
+    <DiplomaticTermTechnologyExchangeDemandDefinition Name="TechnologyDealDemand" PropositionMethod="Negotiation" ApplicationMethod="ReceiverOnly" Category="CategoryTechnology" Alignment="Neutral">
+        <DiplomaticContractContainsTermPrerequisite Inverted="false" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+    </DiplomaticTermTechnologyExchangeDemandDefinition>
+
+    
+    <!--===============================================================================================-->
+    <!--                                       SECOND LEVEL                                            -->
+    <!--===============================================================================================-->
+
+    <!-- Commented for AI on 06/11/17 // Uncomment after AI supports the terms -->
+    
+    <!-- BreakAllianceDemand: Ask the other player to leave their alliance. --><!--
+    <DiplomaticTermBreakAllianceDefinition Name="BreakAllianceDemand" PropositionMethod="Negotiation" ApplicationMethod="ReceiverOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Bad">
+        <DiplomaticContractContainsTermPrerequisite Inverted="false" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticPressurePrerequisite Flags="Prerequisite,Discard" Relation="ReceiverToProvider" MinValue="100"/>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateColdWar</DiplomaticRelationStateReference>
+    </DiplomaticTermBreakAllianceDefinition>
+  
+    
+    --><!-- Proposals will apply the first valid AllowedTreaty on a third empire. --><!--
+    --><!-- ProposeColdWarRelationDemand --><!--
+    <DiplomaticTermProposalDefinition Name="ProposeColdWarRelationDemand" PropositionMethod="Negotiation" ApplicationMethod="ProviderOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <DiplomaticContractContainsTermPrerequisite Inverted="false" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticPressurePrerequisite Flags="Prerequisite,Discard" Relation="ReceiverToProvider" MinValue="100"/>
+        <AllowedTreaties>
+            <AllowedTreaty Name="ColdWarRelationDemand"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+    
+    --><!-- ColdWarRelationDemand (applied between empire B and C when A sends a ProposeColdWarRelationDemand to B) --><!--
+    <DiplomaticTermDiplomaticRelationStateDefinition Name="ColdWarRelationDemand" Hidden="true" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Good">
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite,Discard">DiplomaticRelationStatePeace</DiplomaticRelationStatePrerequisite>
+        <DiplomaticRelationStateReference>DiplomaticRelationStateColdWar</DiplomaticRelationStateReference>
+    </DiplomaticTermDiplomaticRelationStateDefinition>
+    
+    
+    --><!-- ProposeCancelTradeAgreementDemand --><!--
+    <DiplomaticTermProposalDefinition Name="ProposeCancelTradeAgreementDemand" PropositionMethod="Negotiation" ApplicationMethod="ReceiverOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <DiplomaticContractContainsTermPrerequisite Inverted="false" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticPressurePrerequisite Flags="Prerequisite,Discard" Relation="ReceiverToProvider" MinValue="100"/>
+        <AllowedTreaties>
+            <AllowedTreaty Name="CancelTradeAgreementDemand"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+    
+    --><!-- CancelTradeAgreementDemand --><!--
+    <DiplomaticTermDefinition Name="CancelTradeAgreementDemand" Hidden="true" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" Alignment="Bad">
+        <DiplomaticAbilityPrerequisite TargetRelation="ProviderToReceiver" Inverted="false" Flags="Prerequisite,Discard">ShareTradingRouteBranches</DiplomaticAbilityPrerequisite>
+        <DiplomaticRelationStatePrerequisite Inverted="true" Flags="Prerequisite,Discard">DiplomaticRelationStateTeam</DiplomaticRelationStatePrerequisite>
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ShareTradingRouteBranches" />
+    </DiplomaticTermDefinition>
+    
+    
+    --><!-- ProposeCancelScienceAgreementDemand --><!--
+    <DiplomaticTermProposalDefinition Name="ProposeCancelScienceAgreementDemand" PropositionMethod="Negotiation" ApplicationMethod="ReceiverOnly" Category="CategoryTreaty" SubCategory="SubCategoryDiplomaticTerm" Alignment="Neutral">
+        <DiplomaticContractContainsTermPrerequisite Inverted="false" Flags="Prerequisite,Discard">PressureReductionDemand</DiplomaticContractContainsTermPrerequisite>
+        <DiplomaticPressurePrerequisite Flags="Prerequisite,Discard" Relation="ReceiverToProvider" MinValue="100"/>
+        <AllowedTreaties>
+            <AllowedTreaty Name="CancelScienceAgreementDemand"/>
+        </AllowedTreaties>
+    </DiplomaticTermProposalDefinition>
+    
+    --><!-- CancelScienceAgreementDemand --><!--
+    <DiplomaticTermDefinition Name="CancelScienceAgreementDemand" Hidden="true" PropositionMethod="Declaration" ApplicationMethod="Symmetrical" Category="CategoryTreaty" Alignment="Bad">
+        <DiplomaticAbilityPrerequisite TargetRelation="ProviderToReceiver" Inverted="false" Flags="Prerequisite,Discard">ScienceAgreement</DiplomaticAbilityPrerequisite>
+        <DiplomaticRelationStatePrerequisite Inverted="true" Flags="Prerequisite,Discard">DiplomaticRelationStateTeam</DiplomaticRelationStatePrerequisite>
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="ScienceAgreement" />
+    </DiplomaticTermDefinition>-->
+
+</Datatable>

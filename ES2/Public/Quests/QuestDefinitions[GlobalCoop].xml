@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!-- #####################################-->
+    <!-- ###### GLOBAL QUEST COOP 01 #########-->
+    <!-- #####################################-->
+
+    <QuestDefinition Name="GlobalQuest01-Coop" Category="CooperativeQuest" SubCategory="Global" MinimumTurn="60" >
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <SubCategoryRepetitionRules NumberOfConcurrentInstances="1"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$LivingEmpires">
+                <From Source="$Participants"/>
+            </Var>
+
+            <Var VarName="$Expression" StringValue="Property(Context, NetEmpireMoney)"/>
+
+            <InterpretedVar VarName="$StartAmount" Target="$(Participants)">
+                <Expression>Property(Context, NetEmpireMoney)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$GoalToReach">
+                <Expression>Max($(StartAmount) * 2,100)</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$DustAmount" Source="$GoalToReach"/>
+
+            <Var VarName="$PoliticalEffect" StringValue="PopulationEventGlobalQuest01-Coop_Pacifist"/>
+
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$LivingEmpires"/>
+                            <Input_Target VarName="$LivingEmpires"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffect"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+
+                    <!--===== QUEST OBJECTIVE: Ensure that the Dust production in the galaxy reaches a sertain amount =====-->
+                    <Objective Name="Objective" StartValue="$StartAmount" EndValue="$GoalToReach">
+                        <Sequence>
+
+                            <!--Set the progression start value of all participants-->
+                            <Action_SetComparativeProgress SetProgressStart="true" ProgressCalculation="Sum">
+                                <Input_Empires VarName="$LivingEmpires"/>
+                                <Input_Expression VarName="$Expression"/>
+                            </Action_SetComparativeProgress>
+
+                            <Parallel CompletionPolicy="Any">
+
+                                <Loop Count="10000000">
+                                    <!--Set the progression of all participants-->
+                                    <Action_SetComparativeProgress ProgressCalculation="Sum">
+                                        <Input_Empires VarName="$LivingEmpires"/>
+                                        <Input_Expression VarName="$Expression"/>
+                                    </Action_SetComparativeProgress>
+                                    <Decorator_BeginTurn/>
+                                </Loop>
+
+                                <Sequence>
+                                    <Decorator_BeginTurn>
+                                        <Condition_IsProgressionComplete/>
+                                    </Decorator_BeginTurn>
+                                </Sequence>
+
+                            </Parallel>
+
+                        </Sequence>
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMultiScience" Picks="1"/>
+                        <Reward Droplist="DroplistMultiLuxuries" Picks="1"/>
+                        <Reward Droplist="DroplistMultiInfluence" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+
+
+    <!-- #####################################-->
+    <!-- ###### GLOBAL QUEST COOP 02 #########-->
+    <!-- #####################################-->
+
+    <QuestDefinition Name="GlobalQuest02-Coop" Category="CooperativeQuest" SubCategory="Global" MinimumTurn="60">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <SubCategoryRepetitionRules NumberOfConcurrentInstances="1"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$LivingEmpires">
+                <From Source="$Participants"/>
+            </Var>
+
+            <Var VarName="$Expression" StringValue="Property(Context, NetEmpireResearch)"/>
+
+            <InterpretedVar VarName="$StartAmount" Target="$(Participants)">
+                <Expression>Property(Context, NetEmpireResearch)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$GoalToReach">
+                <Expression>$(StartAmount) * 2</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$ScienceAmount" Source="$GoalToReach"/>
+
+            <Var VarName="$PoliticalEffect" StringValue="PopulationEventGlobalQuest02-Coop_Scientist"/>
+
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$LivingEmpires"/>
+                            <Input_Target VarName="$LivingEmpires"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffect"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+
+                    <!--===== QUEST OBJECTIVE: Ensure that the Science production in the galaxy reaches a sertain amount =====-->
+                    <Objective Name="Objective" StartValue="$StartAmount" EndValue="$GoalToReach">
+                        <Sequence>
+
+                            <!--Set the progression start value of all participants-->
+                            <Action_SetComparativeProgress SetProgressStart="true" ProgressCalculation="Sum">
+                                <Input_Empires VarName="$LivingEmpires"/>
+                                <Input_Expression VarName="$Expression"/>
+                            </Action_SetComparativeProgress>
+
+                            <Parallel CompletionPolicy="Any">
+
+                                <Loop Count="10000000">
+                                    <!--Set the progression of all participants-->
+                                    <Action_SetComparativeProgress ProgressCalculation="Sum">
+                                        <Input_Empires VarName="$LivingEmpires"/>
+                                        <Input_Expression VarName="$Expression"/>
+                                    </Action_SetComparativeProgress>
+                                    <Decorator_BeginTurn/>
+                                </Loop>
+
+                                <Sequence>
+                                    <Decorator_BeginTurn>
+                                        <Condition_IsProgressionComplete/>
+                                    </Decorator_BeginTurn>
+                                </Sequence>
+
+                            </Parallel>
+
+                        </Sequence>
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.01">
+                        <Reward Droplist="DroplistMultiDust" Picks="1"/>
+                        <Reward Droplist="DroplistMultiStrategics" Picks="1"/>
+                        <Reward Droplist="DroplistMultiInfluence" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+
+
+
+    <!-- #################################################-->
+    <!-- ####### GLOBAL QUEST 04 FIGHTER AND BOMBER ######-->
+    <!-- #################################################-->
+
+    <QuestDefinition Name="GlobalQuest04-Coop" Category="CooperativeQuest" SubCategory="Global" MinimumTurn="60">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$LivingEmpires"/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                       NumberOfOccurrencesPerEmpire="1"
+                       NumberOfConcurrentInstances="0"/>
+
+        <SubCategoryRepetitionRules NumberOfConcurrentInstances="1"/>
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$LivingEmpires">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor,!EmpireEliminated</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <InterpretedVar VarName="$NumberOfLivingEmpires" Target="$(Participants)">
+                <Expression>Count(Context, @'EmpireTypeMajor,!EmpireEliminated')</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$QuestEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+
+            <Var VarName="$AllStarSystems">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem,!IsolatedNode,!QuestNode,!WorldAcademy,!HomeSystem</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$Amount01" IntValue="1"/>
+            <InterpretedVar VarName="$Amount02">
+                <Expression>Clamp($(NumberOfLivingEmpires), 3, 7)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$Amount03">
+                <Expression>$(Amount01) + $(Amount02)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$Amount04">
+                <Expression>Ceil($(Amount03)*0.25)</Expression>
+            </InterpretedVar>
+
+            <Var VarName="$FleetsGUID"/>
+
+            <Var VarName="$FleetMission" StringValue="RoamAndAttackCoop04"/>
+
+            <Var VarName="$Markers01"/>
+
+            <Var VarName="$DroplistName" StringValue="DroplistShip-FighterAndBomber"/>
+
+            <LocalizationVar LocalizationKey="$Amount03Name" Source="$Amount03"/>
+            <LocalizationVar LocalizationKey="$Amount04Name" Source="$Amount04"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empires)" AnyTarget="true">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="AcademyQuest03-A-Coop" QuestState="NotStarted"/>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyStageMilitary4</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+
+                        <!--Various enemy fleets spawn on various Systems to attack major empires-->
+                        <Action_SpawnFleets LockShipsInTheFleet="true">
+                            <Input_Empire VarName="$QuestEmpire"/>
+                            <Input_Locations VarName="$AllStarSystems"/>
+                            <Input_DroplistName VarName="$DroplistName"/>
+                            <Input_Count VarName="$Amount03"/>
+                            <Output_FleetGUIDs VarName="$FleetsGUID"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMission"/>
+                            <Input_FleetGUIDs VarName="$FleetsGUID"/>
+                            <Input_TargetEmpires VarName="$LivingEmpires"/>
+                        </Action_CreateFleetMissions>
+                        <Action_AddQuestMarkers>
+                            <Input_TargetGUIDs VarName="$FleetsGUID"/>
+                            <Input_Empires VarName="$LivingEmpires"/>
+                            <Output_Markers VarName="$Markers01"/>
+                        </Action_AddQuestMarkers>
+
+                    </StartActions>
+
+                    <!--===== QUEST OBJECTIVE: Destroy all the rebels fleets in the Academy system constellation =====-->
+                    <Objective Name="Objective" StartValue="0" EndValue="$Amount03">
+                        <AIHint Category="DestroyFleet" Motivation="0.5">
+                            <Input_Var VarName="$FleetsGUID"/>
+                        </AIHint>
+                        <Sequence>
+                            <Loop>
+                                <Decorator_BattleEnded Status="Won" ProgressionIncrement="1" Initiator="Participants">
+                                    <Condition_BattleEnded_FleetDestroyed>
+                                        <Input_FleetGUIDs VarName="$FleetsGUID"/>
+                                    </Condition_BattleEnded_FleetDestroyed>
+                                </Decorator_BattleEnded>
+                                <Input_Count VarName="$Amount03"/>
+                            </Loop>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Markers01"/>
+                            </Action_RemoveQuestMarkers>
+
+                            <Action_ChooseOutcome Name="Outcome1"/>
+
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>GlobalQuest09-Compet</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+
+                    </Objective>
+
+                    <!--============ REWARDS ============-->
+                    <PodiumReward MinimumParticipation="0.25">
+                        <Reward Droplist="DroplistGlobalQuest04-Coop01" Picks="1"/>
+                        <Reward Droplist="DroplistGlobalQuest04-Coop02" Picks="1"/>
+                        <Reward Droplist="DroplistGlobalQuest04-Coop03" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- #####################################-->
+    <!-- #########     HALLOWEEN   ###########-->
+    <!-- #####################################-->
+
+
+    <!-- #########     CHAPTER 1   ###########-->
+
+
+    <QuestDefinition Name="GlobalQuest05-Coop" Category="CooperativeQuest" SubCategory="Global" MinimumTurn="100" TriggeringProbability="1">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <!--============ CONTEXT ============-->
+        <QuestContextMulti ParticipantsVarName="$LivingEmpires"/>
+
+        <!--============ OCCURRENCE RULES ============-->
+        <RepetitionRules  NumberOfOccurrencesPerGame="1"
+                       NumberOfOccurrencesPerEmpire="1"
+                       NumberOfConcurrentInstances="0"/>
+
+        <SubCategoryRepetitionRules NumberOfConcurrentInstances="2"/>
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <!-- List of Empires still alive-->
+            <Var VarName="$LivingEmpires">
+                <From Source="$Empires">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor,!EmpireEliminated</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <!-- List of available Systems-->
+            <!-- Not Major Home Systems-->
+            <!-- Not sure it'll work in any cases-->
+            <Var VarName="$SpawnStarSystem">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">!MajorHomeSystem, !QuestNode</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <!-- Among those Systems, take at least 1 Planet-->
+            <Var VarName="$SpawnPlanets">
+                <From Source="$SpawnStarSystem.$AnyPlanet"/>
+            </Var>
+
+            <!-- Count the nb of living Empire-->
+            <InterpretedVar VarName="$NumberOfLivingEmpires" Target="$(Participants)">
+                <Expression>Count(Context, @'EmpireTypeMajor,!EmpireEliminated')</Expression>
+            </InterpretedVar>
+
+            <!-- Establish Value of those variables-->
+            <!-- +1 to avoid equalities as much as possible-->
+            <Var VarName="$Amount01" IntValue="1"/>
+            <InterpretedVar VarName="$Amount02">
+                <Expression>Clamp($(NumberOfLivingEmpires), 3, 7)</Expression>
+            </InterpretedVar>
+
+            <!-- Living Empire + 1 and not too many curiosities-->
+            <!-- (Which could be annoying to search-->
+            <InterpretedVar VarName="$Amount03">
+                <Expression>$(Amount01) + $(Amount02)</Expression>
+            </InterpretedVar>
+
+            <InterpretedVar VarName="$Amount04">
+                <Expression>Ceil($(Amount03)*0.25)</Expression>
+            </InterpretedVar>
+
+            <!-- Definition of the Curiosity which will be spawned $Amount03 times-->
+            <Var VarName="$OneCuriosity" StringValue="Curiosity_Quest_GlobalQuest05-Coop01"/>
+            <!-- GUIDs of ALL curiosities-->
+            <Var VarName="$OneCuriosityGUID"/>
+
+            <!-- Definition of the applied political effect-->
+            <Var VarName="$PoliticalEffectMilitarist" StringValue="PopulationPoliticalEventNarrative70"/>
+
+            <!--Add some Markers-->
+            <Var VarName="$Markers01"/>
+            <LocalizationVar LocalizationKey="$Amount04Name" Source="$Amount04"/>
+        </Vars>
+
+        <!--============ OBJECTIVES ============-->
+        <Steps>
+            <Step Name="Step1">
+
+                <ObjectiveSet>
+
+                    <!-- Let's spawn curiosities-->
+                    <StartActions>
+                        <!-- Let's trigger the political Event of all systems-->
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$LivingEmpires"/>
+                            <Input_Target VarName="$LivingEmpires"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectMilitarist"/>
+                        </Action_TriggerPopulationEvent>
+                        <!-- Let's spawn curiosities-->
+                        <Action_SpawnCuriosity>
+                            <Input_Empires VarName="$LivingEmpires"/>
+                            <Input_Planets VarName="$SpawnPlanets"/>
+                            <Input_Count VarName="$Amount03"/>
+                            <Input_CuriosityDefinition VarName="$OneCuriosity"/>
+                            <Output_CuriosityGUIDs VarName="$OneCuriosityGUID"/>
+                        </Action_SpawnCuriosity>
+                        <Action_AddQuestMarkers>
+                            <Input_TargetGUIDs VarName="$OneCuriosityGUID"/>
+                            <Input_Empires VarName="$LivingEmpires"/>
+                            <Output_Markers VarName="$Markers01"/>
+                        </Action_AddQuestMarkers>
+                    </StartActions>
+
+                    <!--===== QUEST OBJECTIVE: Be the 1st to colonize the targeted star system =====-->
+                    <Objective Name="Objective" StartValue="0" EndValue="$Amount03">
+                        <AIHint Category="Curiosity" Motivation="0.5">
+                            <Input_Var VarName="$OneCuriosityGUID"/>
+                        </AIHint>
+                        <Sequence>
+                            <!-- Loop for all curiosities except the last one-->
+                            <Loop>
+                                <Decorator_CuriosityDiscovered ProgressionIncrement="1">
+                                    <Input_CuriosityGUIDs VarName="$OneCuriosityGUID"/>
+                                </Decorator_CuriosityDiscovered>
+                                <Input_Count VarName="$Amount03"/>
+                            </Loop>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+
+
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>GlobalQuest10-Compet</Tags>
+                                    <QuestContextMulti ParticipantsVarName="$LivingEmpires">
+                                    </QuestContextMulti>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+
+
+                    </Objective>
+
+                    <PodiumReward MinimumParticipation="0.25">
+                        <Reward Droplist="DroplistGlobalQuest05-Coop01" Picks="1"/>
+                        <Reward Droplist="DroplistStrategics" Picks="1"/>
+                        <Reward Droplist="DroplistLuxuries" Picks="1"/>
+                    </PodiumReward>
+
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+</Datatable>

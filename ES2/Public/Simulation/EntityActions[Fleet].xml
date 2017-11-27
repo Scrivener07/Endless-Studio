@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/EntityActionDefinition.xsd">
+
+	<!-- COLONIZATION -->
+
+	<!-- Colonize a planet -->
+	<ColonizeFleetAction Name="ColonizeFleetAction" FeedbackDuration="1.5" DelayAfterFeedback="1">
+
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">./ClassEmpire,AffinityGameplayUnfallen</PathPrerequisite>
+			<PathPrerequisite Inverted="false" Flags="Prerequisite,NeedColonizationModule,Discard">ClassGarrisonFleet/ClassShip/ClassSection/ClassModule,ModuleSupportColonization</PathPrerequisite>
+			<InterpreterPrerequisite Flags="Prerequisite,Disable,CannotColonizeUnderEnemyInfluence">not(Path(Context, @'FleetInfluenceStateHostile')) or Path(Context, @'./ClassEmpire/ClassSenate/LawP05L05Effect')</InterpreterPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityPrerequisites Location="OrbitEntities">
+			<PathPrerequisite Inverted="true" Flags="Prerequisite,Disable">StarSystemStateExploited</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionColonize" />
+			<SimulationAlteration DescriptorReference="FleetActionBusy" />
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+		<CancelActions Flags="CancelOnAnything" SameContext="false" SameInitiator="true"/>
+	</ColonizeFleetAction>
+
+	<!--Attach a mothership -->
+	<AttachMothershipFleetAction Name="AttachMothershipFleetAction" Flags="CancelOnMovement,CancelOnRetreat"  >
+         
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Flags="IsNotMothership,Discard">ClassGarrisonFleet/ClassShip,ClassMothership</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityPrerequisites Location="OrbitEntities">
+			<PathPrerequisite Inverted="true" Flags="Prerequisite,Disable">StarSystemStateExploited</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionMothershipAttached" />
+			<SimulationAlteration DescriptorReference="FleetActionBusy" />
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>  
+
+		<EntityModifiers Location="OrbitEntities">
+			<SimulationAlteration DescriptorReference="StarSystemStateExploited"/>
+		</EntityModifiers>
+
+        <CancelActions Flags="CancelOnAnything" SameContext="false" SameInitiator="true"/>
+        <ExtraCost ResourceName="ActionPoint" Location="OneShip">1</ExtraCost>
+	</AttachMothershipFleetAction>
+
+
+	<!-- EXPLORATION -->
+
+	<!-- Curiosity search -->
+	<ExpeditionFleetAction Name="ExpeditionFleetAction" FeedbackDuration="1.5" DelayAfterFeedback="1">
+		<EntityPrerequisites Location="Self">
+			<InterpreterPrerequisite Flags="Prerequisite,Discard,NeedExplorationModule" Inverted="false">Property(Context, @'ClassGarrison,ClassGarrisonFleet', MaximumShipProbeStock) gt 0</InterpreterPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">            
+			<SimulationAlteration DescriptorReference="FleetActionExpedition"/>
+			<SimulationAlteration DescriptorReference="FleetActionBusy"/>
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+		<CancelActions Flags="CancelOnAnything,CancelOnExpedition" SameContext="false" SameInitiator="true"/>
+
+		<MovementCostFormula Flags="NeedExplorationModule">
+            <Formula>Clamp01(Property(Context, MaximumShipProbeStock)) * (1 / Max(1, Property(Context, MaximumShipProbeStock))) * Property(Context, MaximumMovement)</Formula>
+            <CostOnShipWithLowestMovementImpact ResourceName="ShipProbe" Instant="true">1</CostOnShipWithLowestMovementImpact>
+        </MovementCostFormula>
+	</ExpeditionFleetAction>
+
+	<!-- Mothership reparation -->
+	<ReclaimMothershipFleetAction Name="ReclaimMothershipFleetAction" Flags="CancelOnAnything" Duration="1">
+
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Flags="Discard,MustBeVampirilis" Inverted="false">../ClassEmpire,AffinityVampirilis</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionReclaimMothership"/>
+			<SimulationAlteration DescriptorReference="FleetActionBusy"/>
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+
+		<CustomCost ResourceName="EmpireMoney">150 * Property(Context, @../ClassEmpire ,GameSpeedMultiplier)</CustomCost>
+
+		<CancelActions Flags="CancelOnAnything,CancelOnMothershipReclaim" SameContext="false" SameInitiator="true"/>
+
+	</ReclaimMothershipFleetAction>
+
+	<!-- Launch a probe -->
+	<LaunchProbeFleetAction Name="LaunchProbeFleetAction">
+
+		<EntityPrerequisites Location="Self">
+			<InterpreterPrerequisite Flags="Prerequisite,Discard" Inverted="false">Property(Context, @'ClassGarrison,ClassGarrisonFleet', MaximumShipProbeStock) gt 0</InterpreterPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+		</EntityPrerequisites>
+
+        <MovementCostFormula Flags="NeedExplorationModule">
+            <Formula>Clamp01(Property(Context, MaximumShipProbeStock)) * (1 / Max(1, Property(Context, MaximumShipProbeStock))) * Property(Context, MaximumMovement)</Formula>
+            <CostOnShipWithLowestMovementImpact ResourceName="ShipProbe" Instant="true">1</CostOnShipWithLowestMovementImpact>
+        </MovementCostFormula>
+
+	</LaunchProbeFleetAction>
+
+
+	<!-- MOVEMENT -->
+
+	<!-- Started everytime the player clicks on a destination -->
+    <GoToFleetAction Name="GoToFleetAction" Flags="CancelOnAnything">
+
+        <EntityPrerequisites Location="Self">
+            <PathPrerequisite Inverted="true" Flags="MotherShipAttached">FleetActionMothershipAttached</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="CannotMoveBecauseOfEncounter">FleetActionAttack</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="IsRooting">FleetActionRooting</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+        </EntityPrerequisites>
+
+        <EntityModifiers Location="Self">
+            <SimulationAlteration DescriptorReference="FleetActionGoTo" />
+            <SimulationAlteration DescriptorReference="FleetActionBusy" />
+        </EntityModifiers>
+
+        <CancelActions Flags="CancelOnAnything,CancelOnMovement" SameContext="false" SameInitiator="true"/>
+
+    </GoToFleetAction>
+    
+    <GoToFleetAction Name="RetreatFleetAction" Flags="CancelOnAnything" ClearInterceptionStatus="true">
+
+        <EntityModifiers Location="Self">
+            <SimulationAlteration DescriptorReference="FleetActionGoTo" />
+            <SimulationAlteration DescriptorReference="FleetActionBusy" />
+        </EntityModifiers>
+
+        <CancelActions Flags="CancelOnAnything,CancelOnMovement,CancelOnRetreat" SameContext="false" SameInitiator="true"/>
+
+    </GoToFleetAction>
+
+    <!-- One MoveToFleetAction for each "step" in a GoToFleetAction -->
+    <MoveToFleetAction Name="MoveToFleetAction" Flags="CancelOnMoveTo">
+
+        <EntityPrerequisites Location="Self">
+            <PathPrerequisite Inverted="true" Flags="IsMoving">FleetActionMoveTo</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+        </EntityPrerequisites>
+
+        <EntityModifiers Location="Self">
+            <SimulationAlteration DescriptorReference="FleetActionMoveTo" />
+            <SimulationAlteration DescriptorReference="FleetActionBusy" />
+            <SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+        </EntityModifiers>
+
+        <CancelActions Flags="CancelOnMoveTo" SameContext="false" SameInitiator="true"/>
+
+    </MoveToFleetAction>
+
+    <!-- Simpler version for portals -->
+    <UsePortalFleetAction Name="UsePortalFleetAction" Flags="CancelOnMoveTo">
+
+        <EntityPrerequisites Location="Self">
+            <PathPrerequisite Inverted="true" Flags="IsMoving">FleetActionMoveTo</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+        </EntityPrerequisites>
+
+        <EntityModifiers Location="Self">
+            <SimulationAlteration DescriptorReference="FleetActionMoveTo" />
+            <SimulationAlteration DescriptorReference="FleetActionBusy" />
+            <SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+        </EntityModifiers>
+
+        <CancelActions Flags="CancelOnMoveTo" SameContext="false" SameInitiator="true"/>
+
+    </UsePortalFleetAction>
+
+	<!-- Works like GoToFleetAction, but finds a node by itself and goes to a new one when it reaches the first -->
+	<AutoExploreFleetAction Name="AutoExploreFleetAction" Flags="CancelOnAnything">
+
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Inverted="true" Flags="MotherShipAttached">FleetActionMothershipAttached</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionAutoExplore" />
+			<SimulationAlteration DescriptorReference="FleetActionGoTo" />
+			<SimulationAlteration DescriptorReference="FleetActionBusy" />
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+		<CancelActions Flags="CancelOnAnything,CancelOnMovement" SameContext="false" SameInitiator="true"/>
+
+	</AutoExploreFleetAction>
+
+	<!-- Works like GoToFleetAction, but will deliver stuff once arrived, and destroy the ship on arrival/when intercepted -->
+	<AutomatedDeliveryFleetAction Name="AutomatedDeliveryFleetAction">
+	</AutomatedDeliveryFleetAction>
+
+
+	<!-- MILITARY -->
+
+	<!-- Attack a fleet -->
+	<AttackFleetAction Name="AttackFleetAction">
+
+		<EntityPrerequisites Location="Self">
+			<InterpreterPrerequisite Inverted="false" Flags="RequireMilitaryPower,Discard">SumProperty(Context, @'ClassGarrisonFleet/ClassShip',OffensiveMilitaryPower) gt 0</InterpreterPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="MotherShipAttached">FleetActionMothershipAttached</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+            <PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+        </EntityPrerequisites>
+
+        <EntityPrerequisites Location="DockedEntities">
+            <PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+        </EntityPrerequisites>
+        
+		<EntityModifiers Location="DockedEntities">
+			<SimulationAlteration DescriptorReference="FleetActionAttack" />
+			<SimulationAlteration DescriptorReference="FleetActionBusy" />
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+		<CancelActions Flags="CancelOnAnything,CancelOnAttack" SameContext="false" SameInitiator="true" SameNodeAndOnAllEmpires="false"/>
+
+		<AttackingShipCost>
+			<Cost ResourceName="ActionPoint" Instant="true">1</Cost>
+		</AttackingShipCost>
+	</AttackFleetAction>
+
+	<!-- Become a privateer -->
+	<PrivateerFleetAction Name="PrivateerFleetAction">
+
+		<EntityPrerequisites Location="Self">
+			<!-- Hide when the fleet contains no mercenary -->
+			<PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">ClassGarrisonFleet/ClassShip,MercenaryShip</PathPrerequisite>
+			<!-- Disable when the fleet has a hero -->
+			<PathPrerequisite Inverted="true" Flags="Prerequisite,Disable,NoHeroesForPrivateers">ClassGarrisonFleet/ClassHero</PathPrerequisite>
+			<!-- Disable when the fleet doesn't contain 100% mercenaries -->
+			<PathPrerequisite Inverted="true" Flags="Prerequisite,Disable,NotAllShipsAreMercenaries">ClassGarrisonFleet/ClassShip,!MercenaryShip</PathPrerequisite>
+			<!-- Disable when not in owner influence -->
+			<PathPrerequisite Inverted="false" Flags="Prerequisite,FleetNotInFriendlyOrbit">FleetInfluenceStateOwner</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionPrivateer" />
+		</EntityModifiers>
+
+		<TechnologyPrerequisite Flags="Prerequisite,Technology,Discard" UnlockHidden="true">TechnologyPrivateers</TechnologyPrerequisite>
+	</PrivateerFleetAction>
+
+	<!-- SLEEP -->
+
+	<!-- Sleep until the fleet sees an enemy -->
+	<SleepFleetAction Name="SleepFleetAction" Flags="CancelOnAnything">
+
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Inverted="true" Flags="MotherShipAttached">FleetActionMothershipAttached</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionSleep"/>
+			<SimulationAlteration DescriptorReference="FleetActionBusy"/>
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+        
+
+        <CancelActions Flags="CancelOnAnything" SameContext="false" SameInitiator="true"/>
+
+	</SleepFleetAction>
+
+	<!-- Sleep until the end of turn -->
+    <SleepForThisTurnFleetAction Name="SleepForThisTurnFleetAction" Flags="CancelOnAnything">
+
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Inverted="true" Flags="MotherShipAttached">FleetActionMothershipAttached</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionSleep"/>
+			<SimulationAlteration DescriptorReference="FleetActionBusy"/>
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+		<CancelActions Flags="CancelOnAnything" SameContext="false" SameInitiator="true"/>
+
+	</SleepForThisTurnFleetAction>
+
+
+	<!-- RESOURCES -->
+
+	<!-- Steal resources -->
+	<TransferResourcesFleetAction Name="TransferResourcesInFleetAction" Flags="CancelOnMovement,CancelOnTransfer">
+
+		<EntityPrerequisites Location="Self">
+            <PathPrerequisite Flags="Discard">../ClassEmpire,AffinityGameplayVampirilis</PathPrerequisite>
+			<PathPrerequisite Flags="Discard" Inverted="false">ClassGarrison/ClassShip/ClassSection/ClassModule,ModuleLogistics</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+		</EntityPrerequisites>
+
+        <EntityPrerequisites Filter="OtherEmpire" Location="OrbitEntities">
+            <InterpreterPrerequisite Flags="Prerequisite,SystemResourcesEmpty">Path(Context, @'ClassColonizedStarSystem,ColonizedStarSystemStateLost') or Property(Context, @'ClassColonizedStarSystem', Population, true) ge 1</InterpreterPrerequisite>
+        </EntityPrerequisites>
+
+		<EntityModifiers Location="Self">
+			<SimulationAlteration DescriptorReference="FleetActionLogistics" />
+			<SimulationAlteration DescriptorReference="FleetActionBusy" />
+			<SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+		</EntityModifiers>
+
+		<CancelActions Flags="CancelOnAnything" SameContext="false" SameInitiator="true"/>
+        <CancelActions Flags="CancelOnTransfer" SameContext="false" SameInitiator="true"/>
+        
+		<StartEventName>NotificationAbductionStarted</StartEventName>
+		<StockEmptyEventName>NotificationAbductionStockEmpty</StockEmptyEventName>
+
+        <FleetPopulationEventName>PopulationPoliticalEventFleetAbducting</FleetPopulationEventName>
+        <SystemPopulationEventName>PopulationPoliticalEventPopulationAbducted</SystemPopulationEventName>
+
+    </TransferResourcesFleetAction>
+
+
+	<!-- INITIATE ACTIONS -->
+
+	<InitiateEmpireActionFleetAction Name="InitiateGuardFleetAction">
+
+		<EntityPrerequisites Location="Self">
+			<!-- Military power > 0 -->
+			<InterpreterPrerequisite Inverted="false" Flags="RequireMilitaryPower,Discard">SumProperty(Context, @'ClassGarrisonFleet/ClassShip',OffensiveMilitaryPower) gt 0</InterpreterPrerequisite>
+
+			<PathPrerequisite Inverted="true" Flags="FleetIsSleeping">FleetActionSleep</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="MotherShipAttached">FleetActionMothershipAttached</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionExpedition</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionColonize</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionReclaimMothership</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="FleetIsBusy">FleetActionGroundBattle</PathPrerequisite>
+		</EntityPrerequisites>
+
+		<CancelActions Flags="CancelOnAnything" SameContext="false" SameInitiator="true"/>
+
+		<EmpireLocalActionName>GuardEmpireLocalAction</EmpireLocalActionName>
+
+    </InitiateEmpireActionFleetAction>
+
+    <DestroyPlanetFleetAction Name="DestroyPlanetFleetAction" Flags="CancelOnAnything" >
+        <EntityPrerequisites Location="Self">
+            <PathPrerequisite Flags="Prerequisite,Discard">ClassGarrisonFleet/ClassShip/ClassSection/ClassModuleDestruction</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite,AlreadyTargetingPlanetForDestruction" Inverted="true">ClassGarrisonFleet,TargetingPlanetForDestruction</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="EncounterInProgress">FleetActionAttack</PathPrerequisite>
+        </EntityPrerequisites>
+        
+        <!-- First set has a prerequisite -->
+        <DescriptorSet IgnorePlanetDestruction="true">
+            <PathPrerequisite>PlanetGameplayTypeGas</PathPrerequisite>
+            <SimulationDescriptorReference Name="PlanetTypeDestroyedGas"/>
+        </DescriptorSet>
+        
+        <!-- Second set has none, and is the default one -->
+        <DescriptorSet>
+            <SimulationDescriptorReference Name="PlanetTypeDestroyed"/>
+        </DescriptorSet>
+        
+    </DestroyPlanetFleetAction>
+  
+	<TeleportToPreviousNodeFleetAction Name="TeleportToPreviousNodeFleetAction">
+
+		<EntityPrerequisites Location="Self">
+			<PathPrerequisite Flags="Prerequisite,Discard">TimeBubbleBackInTime</PathPrerequisite>
+			<PathPrerequisite Flags="EncounterInProgress" Inverted="true">FleetActionAttack</PathPrerequisite>
+		</EntityPrerequisites>
+
+	</TeleportToPreviousNodeFleetAction>
+
+    <RootNodeFleetAction Name="RootNodeFleetAction" Flags="CancelOnMovement,CancelOnRetreat">
+
+        <EntityPrerequisites Location="Self">
+            <PathPrerequisite Inverted="false" Flags="Prerequisite,NeedRootCreator,Discard">ClassGarrisonFleet/ClassShip/ClassSection/ModuleSupportRootCreation</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite,Discard">./ClassEmpire,AffinityGameplayUnfallen</PathPrerequisite>
+			<PathPrerequisite Inverted="true" Flags="IsRooting">FleetActionRooting</PathPrerequisite>
+        </EntityPrerequisites>
+
+        <EntityModifiers Location="Self">
+            <SimulationAlteration DescriptorReference="FleetActionBusy" />
+            <SimulationAlteration DescriptorReference="FleetActionHeroLocked" />
+			<SimulationAlteration DescriptorReference="FleetActionRooting" />
+        </EntityModifiers>
+
+    </RootNodeFleetAction>
+
+</Datatable>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/IndustryConstructibleElement.xsd">
+
+    <!--
+    <StarSystemImprovementDefinition Name="HomeSystemImprovementSophon01" SubCategory="SubCategoryHomesystem">
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="HomeSystemImprovementSophon01" />
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="OutpostImprovementSophon02" SubCategory="SubCategoryOutpost">
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="OutpostImprovementSophon02" />
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="ColonyImprovementSophon01" SubCategory="SubCategoryColony">
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="ColonyImprovementSophon01" />
+    </StarSystemImprovementDefinition>-->
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementHomeSystem" SubCategory="SubCategoryHomesystem">
+        <Tags>Indestructible</Tags>
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementHomeSystem" />
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementColonyBase" SubCategory="SubCategoryColony">
+        <Tags>Indestructible</Tags>
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementColonyBase" />
+        <SimulationDescriptorReference Name="StarSystemImprovementColonyBaseUpkeep" />
+    </StarSystemImprovementDefinition>
+
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementHomeSystemTimeLords" SubCategory="SubCategoryHomesystem">
+        <Tags>Indestructible</Tags>
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementHomeSystemTimeLords" />
+    </StarSystemImprovementDefinition>
+    <StarSystemImprovementDefinition Name="StarSystemImprovementColonyBaseTimeLords" SubCategory="SubCategoryColony">
+        <Tags>Indestructible</Tags>
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementColonyBaseTimeLords" />
+        <SimulationDescriptorReference Name="StarSystemImprovementColonyBaseUpkeep" />
+    </StarSystemImprovementDefinition>
+    <StarSystemImprovementDefinition Name="StarSystemImprovementHomeSystemUnfallen" SubCategory="SubCategoryHomesystem">
+        <Tags>Indestructible</Tags>
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementHomeSystemUnfallen" />
+    </StarSystemImprovementDefinition>
+
+    <StarSystemImprovementDefinition Name="StarSystemImprovementMothershipBase" SubCategory="SubCategoryColony">
+        <Tags>Indestructible</Tags>
+        <PathPrerequisite Flags="Prerequisite,Discard">false</PathPrerequisite>
+        <SimulationDescriptorReference Name="StarSystemImprovementMothershipBase" />
+    </StarSystemImprovementDefinition>
+
+</Datatable>

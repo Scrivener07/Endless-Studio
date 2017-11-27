@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Game.Orders.OrderPolicySetup.xsd">
+
+    <!--#####################################################-->
+    <!--##                   GAME SERVER                   ##-->
+    <!--#####################################################-->
+
+    <!-- GameServerState_InitializeServer -->
+
+    <Setup Name="GameServerState_InitializeServer">
+        <Chain Type="Input">
+            <Rule Policy="Drop"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Drop"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_LaunchGame -->
+
+    <Setup Name="GameServerState_LaunchGame">
+        <Chain Type="Input">
+            <Rule Policy="Drop"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_GameLaunchedAndReady -->
+
+    <Setup Name="GameServerState_GameLaunchedAndReady">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+    
+    <!-- GameServerState_Turn_AI_Begin -->
+    
+    <Setup Name="GameServerState_Turn_AI_Begin">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Queue"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_Begin -->
+
+    <Setup Name="GameServerState_Turn_Begin">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_Main -->
+
+    <Setup Name="GameServerState_Turn_Main">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_AI_PrepareSync -->
+
+    <Setup Name="GameServerState_Turn_AI_PrepareSync">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+    
+    <!-- GameServerState_Turn_AI_Sync -->
+    
+    <Setup Name="GameServerState_Turn_AI_Sync">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/> <!-- It probably need to be 'Queued'-->
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Queue"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_Finished -->
+
+    <Setup Name="GameServerState_Turn_Finished">
+        <Chain Type="Input">
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+  
+      <!-- GameServerState_Turn_FinishedAndLocked -->
+
+    <Setup Name="GameServerState_Turn_FinishedAndLocked">
+        <Chain Type="Input">
+            <PathRule Policy="Reject">DeparmentOfLabour/OrderEntityAction</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+  
+    <!-- GameServerState_Turn_Elections -->
+
+    <Setup Name="GameServerState_Turn_Elections">
+        <Chain Type="Input">
+            <PathRule Policy="Reject">DeparmentOfLabour/OrderEntityAction</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_End -->
+
+    <Setup Name="GameServerState_Turn_End">
+        <Chain Type="Input">
+            <PathRule Policy="Reject">DeparmentOfLabour/OrderEntityAction</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_Bailiff-->
+
+    <Setup Name="GameServerState_Turn_Bailiff">
+        <Chain Type="Input">
+            <PathRule Policy="Reject">DeparmentOfLabour/OrderEntityAction</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_Turn_Ended -->
+
+    <Setup Name="GameServerState_Turn_Ended">
+        <Chain Type="Input">
+            <PathRule Policy="Reject">DeparmentOfLabour/OrderEntityAction</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+    <!-- GameServerState_CheckForGameEndingConditions -->
+
+    <Setup Name="GameServerState_CheckForGameEndingConditions">
+        <Chain Type="Input">
+            <PathRule Policy="Reject">DeparmentOfLabour/OrderEntityAction</PathRule>
+            <Rule Policy="Accept"/>
+        </Chain>
+        <Chain Type="Output">
+            <Rule Policy="Accept"/>
+        </Chain>
+    </Setup>
+
+</Datatable>

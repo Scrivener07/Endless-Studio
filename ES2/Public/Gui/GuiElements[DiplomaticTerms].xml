@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- ===== THRESHOLDS ===== -->
+    <GuiElement Name="PressureThreshold0">
+        <Description>%PressureThreshold0Description</Description>
+        <Icons>
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Diplomacy/PressureThresholdRightMedium" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="PressureThreshold1">
+        <Description>%PressureThreshold1Description</Description>
+        <Icons>
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Diplomacy/PressureThresholdRightMedium" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="ExhaustThreshold0">
+        <Description>%ExhaustThreshold0Description</Description>
+        <Icons>
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Diplomacy/PressureThresholdLeftMedium" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="ExhaustThreshold1">
+        <Description>%ExhaustThreshold1Description</Description>
+        <Icons>
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Diplomacy/PressureThresholdRightMedium" />
+        </Icons>
+    </GuiElement>
+
+    <!-- ===== FILTERS ===== -->
+    <GuiElement Name="TermTypeFilterCategoryAll">
+        <Title>%NegotiationModalWindowTermTypeFilterAllTitle</Title>
+        <Description>%NegotiationModalWindowTermTypeFilterAllDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="TermTypeFilterCategoryTreaty">
+        <Title>%NegotiationModalWindowTermTypeFilterTreatyTitle</Title>
+        <Description>%NegotiationModalWindowTermTypeFilterTreatyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TermTypeFilterCategoryResource">
+        <Title>%NegotiationModalWindowTermTypeFilterResourceTitle</Title>
+        <Description>%NegotiationModalWindowTermTypeFilterResourceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="FIDSIDust" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TermTypeFilterCategoryTechnology">
+        <Title>%NegotiationModalWindowTermTypeFilterTechnologyTitle</Title>
+        <Description>%NegotiationModalWindowTermTypeFilterTechnologyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Categories/CategoryTechnologySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TermTypeFilterCategoryStarSystem">
+        <Title>%NegotiationModalWindowTermTypeFilterColonizedStarSystemTitle</Title>
+        <Description>%NegotiationModalWindowTermTypeFilterColonizedStarSystemDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderSystem" />
+        </Icons>
+    </GuiElement>
+
+    <!-- ===== ALIGNMENTS ===== -->
+    <ExtendedGuiElement Name="AlignmentNeutral">
+        <Title>%PanelFeatureAlignmentNeutralTitle</Title>
+        <Color Red="216" Green="216" Blue="216" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="AlignmentGood">
+        <Title>%PanelFeatureAlignmentGoodTitle</Title>
+        <Color Red="54" Green="185" Blue="220" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="AlignmentBad">
+        <Title>%PanelFeatureAlignmentBadTitle</Title>
+        <Color Red="213" Green="72" Blue="17" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <!-- ===== DEMANDS ===== -->
+    <!-- Declare War Demand: obsolete but needed for saves... -->
+    <DiplomaticTermGuiElement Name="DeclareWarDemand" Priority="0">
+        <Title>%DiplomaticTermDeclareWarDemandTitle</Title>
+        <Description>%DiplomaticTermDeclareWarDemandDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+    
+    <!-- Pressure Reduction Demand -->
+    <DiplomaticTermGuiElement Name="PressureReductionDemand" GenericFormatName="Demand" Priority="0">
+        <Title>%DiplomaticTermPressureReductionDemandTitle</Title>
+        <Description>%DiplomaticTermPressureReductionDemandDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Resource Deal Demand -->
+    <DiplomaticTermGuiElement Name="ResourceDealDemand" GenericFormatName="Demand" Priority="10">
+        <Title>%DiplomaticTermResourceDealTitle</Title>
+        <Description>%DiplomaticTermResourceDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Technology Deal Demand -->
+    <DiplomaticTermGuiElement Name="TechnologyDealDemand" GenericFormatName="Demand" Priority="10">
+        <Title>%DiplomaticTermTechnologyDealTitle</Title>
+        <Description>%DiplomaticTermTechnologyDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Break Alliance Demand -->
+    <DiplomaticTermGuiElement Name="BreakAllianceDemand" GenericFormatName="Demand" Priority="10" ConcatenateEmpire="true">
+        <Title>%DiplomaticTermBreakAllianceTitle</Title>
+        <Description>%DiplomaticTermBreakAllianceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Propose Cold War Relation Demand -->
+    <DiplomaticTermGuiElement Name="ProposeColdWarRelationDemand" GenericFormatName="Demand" Priority="10" ConcatenateEmpire="true">
+        <Title>%DiplomaticTermProposeColdWarRelationDemandTitle</Title>
+        <Description>%DiplomaticTermProposeColdWarRelationDemandDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Propose Cancel Science Agreement Demand -->
+    <DiplomaticTermGuiElement Name="ProposeCancelScienceAgreementDemand" GenericFormatName="Demand" Priority="10" ConcatenateEmpire="true">
+        <Title>%DiplomaticTermProposeCancelScienceAgreementDemandTitle</Title>
+        <Description>%DiplomaticTermProposeCancelScienceAgreementDemandDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Propose Cancel Trade Agreement Demand -->
+    <DiplomaticTermGuiElement Name="ProposeCancelTradeAgreementDemand" GenericFormatName="Demand" Priority="10" ConcatenateEmpire="true">
+        <Title>%DiplomaticTermProposeCancelTradeAgreementDemandTitle</Title>
+        <Description>%DiplomaticTermProposeCancelTradeAgreementDemandDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    
+    <!-- ===== EXCHANGES ===== -->
+    <!-- Technology Deal -->
+    
+    <DiplomaticTermGuiElement Name="TechnologyDeal" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermTechnologyDealTitle</Title>
+        <Description>%DiplomaticTermTechnologyDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Resource Deal -->
+    <DiplomaticTermGuiElement Name="ResourceDeal" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermResourceDealTitle</Title>
+        <Description>%DiplomaticTermResourceDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Resource Deal Advanced-->
+    <DiplomaticTermGuiElement Name="ResourceDealAdvanced" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermResourceDealTitle</Title>
+        <Description>%DiplomaticTermResourceDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Colonized Star System Deal -->
+    <DiplomaticTermGuiElement Name="ColonizedStarSystemDeal" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermColonizedStarSystemDealTitle</Title>
+        <Description>%DiplomaticTermColonizedStarSystemDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <DiplomaticTermGuiElement Name="ColonizedStarSystemDealForTruce" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermColonizedStarSystemDealTitle</Title>
+        <Description>%DiplomaticTermColonizedStarSystemDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <DiplomaticTermGuiElement Name="ColonizedStarSystemDealForAlliance" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermColonizedStarSystemDealTitle</Title>
+        <Description>%DiplomaticTermColonizedStarSystemDealDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Colonized Star System Outpost Deal -->
+    <DiplomaticTermGuiElement Name="ColonizedStarSystemOutpostDeal" GenericFormatName="Deal" Priority="10">
+        <Title>%DiplomaticTermColonizedStarSystemDealOutpostTitle</Title>
+        <Description>%DiplomaticTermColonizedStarSystemDealOutpostDescription</Description>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    
+    <!-- ===== TERMS ===== -->
+  <!-- Introduce yourself -->
+    <DiplomaticTermGuiElement Name="IntroduceYourself" Priority="0">
+      <Title>%DiplomaticTermIntroduceYourselfTitle</Title>
+      <Description>%DiplomaticTermIntroduceYourselfDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+      </Icons>
+      <QuoteFormat>From$(PreviousRelationState)$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+      <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+  <!-- Peace Relation -->
+    <DiplomaticTermGuiElement Name="PeaceRelation" Priority="0">
+        <Title>%DiplomaticTermPeaceRelationTitle</Title>
+        <Description>%DiplomaticTermPeaceRelationDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>From$(PreviousRelationState)$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <DiplomaticTermGuiElement Name="ForcedPeaceRelation" Priority="0">
+        <Title>%DiplomaticTermForcedPeaceRelationTitle</Title>
+        <Description>%DiplomaticTermForcedPeaceRelationDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>From$(PreviousRelationState)$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+
+    <DiplomaticTermGuiElement Name="TruceRelation" Priority="0">
+        <Title>%DiplomaticTermTruceRelationTitle</Title>
+        <Description>%DiplomaticTermTruceRelationDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Cold War Relation -->
+    <DiplomaticTermGuiElement Name="ColdWarRelation" Priority="0">
+        <Title>%DiplomaticTermColdWarRelationTitle</Title>
+        <Description>%DiplomaticTermColdWarRelationDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>From$(PreviousRelationState)$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Ask Alliance -->
+    <DiplomaticTermGuiElement Name="AskAlliance" Priority="0">
+        <Title>%DiplomaticTermAskAllianceTitle</Title>
+        <Description>%DiplomaticTermAskAllianceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>From$(PreviousRelationState)$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Leave Alliance -->
+    <DiplomaticTermGuiElement Name="LeaveAlliance" Priority="0" GenericFormatName="Declaration">
+        <Title>%DiplomacyScreenLeaveAllianceButtonTitle</Title>
+        <Description>%DiplomaticTermBreakAllianceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Declare War -->
+    <DiplomaticTermGuiElement Name="DeclareWar" Priority="0">
+        <Title>%DiplomaticTermDeclareWarTitle</Title>
+        <Description>%DiplomaticTermDeclareWarDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>From$(PreviousRelationState)$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+    
+    <!-- PressureReduction -->
+    <DiplomaticTermGuiElement Name="PressureReduction" Priority="12">
+        <Title>%DiplomaticTermPressureReductionTitle</Title>
+        <Description>%DiplomaticTermPressureReductionDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+
+    <!-- == TREATIES == -->
+    <!-- OpenBorders -->
+    <DiplomaticTermGuiElement Name="OpenBorders" Priority="0">
+        <Title>%DiplomaticTermOpenBordersTitle</Title>
+        <Description>%DiplomaticTermOpenBordersDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+    
+    <!-- CloseBorder -->
+    <DiplomaticTermGuiElement Name="CloseBorders" Priority="0">
+        <Title>%DiplomaticTermCloseBordersTitle</Title>
+        <Description>%DiplomaticTermCloseBordersDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- VisionSharing -->
+    <DiplomaticTermGuiElement Name="VisionSharing" Priority="8">
+        <Title>%DiplomaticTermVisionSharingTitle</Title>
+        <Description>%DiplomaticTermVisionSharingDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Cancel VisionSharing -->
+    <DiplomaticTermGuiElement Name="CancelVisionSharing" Priority="8">
+        <Title>%DiplomaticTermCancelVisionSharingTitle</Title>
+        <Description>%DiplomaticTermCancelVisionSharingDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- MapSharing -->
+    <DiplomaticTermGuiElement Name="MapSharing" Priority="8">
+        <Title>%DiplomaticTermMapSharingTitle</Title>
+        <Description>%DiplomaticTermMapSharingDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- TradeAgreement -->
+    <DiplomaticTermGuiElement Name="TradeAgreement" Priority="6">
+        <Title>%DiplomaticTermTradeAgreementTitle</Title>
+        <Description>%DiplomaticTermTradeAgreementDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Cancel TradeAgreement -->
+    <DiplomaticTermGuiElement Name="CancelTradeAgreement" Priority="6">
+        <Title>%DiplomaticTermCancelTradeAgreementTitle</Title>
+        <Description>%DiplomaticTermCancelTradeAgreementDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- ScienceAgreement -->
+    <DiplomaticTermGuiElement Name="ScienceAgreement" Priority="6">
+        <Title>%DiplomaticTermScienceAgreementTitle</Title>
+        <Description>%DiplomaticTermScienceAgreementDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Cancel ScienceAgreement -->
+    <DiplomaticTermGuiElement Name="CancelScienceAgreement" Priority="6">
+        <Title>%DiplomaticTermCancelScienceAgreementTitle</Title>
+        <Description>%DiplomaticTermCancelScienceAgreementDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Faction Pact -->
+    <DiplomaticTermGuiElement Name="FactionPact" Priority="6">
+        <Title>%DiplomaticTermFactionPactTitle</Title>
+        <Description>%DiplomaticTermFactionPactDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Cancel Faction Pact -->
+    <DiplomaticTermGuiElement Name="CancelFactionPact" Priority="6">
+        <Title>%DiplomaticTermCancelFactionPactTitle</Title>
+        <Description>%DiplomaticTermCancelFactionPactDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Renounce Alliance -->
+    <DiplomaticTermGuiElement Name="RenounceAlliance" Priority="6">
+        <Title>%DiplomaticTermRenounceAllianceTitle</Title>
+        <Description>%DiplomaticTermRenounceAllianceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+    <!-- Generate Pressure declaration -->
+    <DiplomaticTermGuiElement Name="GeneratePressure" Priority="6" GenericFormatName="Declaration">
+        <Title>%DiplomaticTermGeneratePressureTitle</Title>
+        <Description>%DiplomaticTermGeneratePressureDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Diplomacy/DiplomaticTermGeneric" />
+        </Icons>
+        <QuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)$(AIContext)</QuoteFormat>
+        <FallbackQuoteFormat>$(SenderOrReceiver)$(ContractState)$(Affinity)</FallbackQuoteFormat>
+    </DiplomaticTermGuiElement>
+
+
+    <!-- ########################################### -->
+    <!-- ########### TO REMOVE WARNINGS ############ -->
+    <!-- ########################################### -->
+
+    <GuiElement Name="AllianceRelation"/>
+    <GuiElement Name="WarRelation"/>
+    <GuiElement Name="BreakAlliance"/>
+    <GuiElement Name="ProposeAllianceRelation"/>
+    <GuiElement Name="ProposePeaceRelation"/>
+    <GuiElement Name="ProposeTruceRelation"/>
+    <GuiElement Name="ProposeColdWarRelation"/>
+    <GuiElement Name="ColdWarRelationDemand"/>
+    <GuiElement Name="CancelTradeAgreementDemand"/>
+    <GuiElement Name="CancelScienceAgreementDemand"/>
+    
+</Datatable>

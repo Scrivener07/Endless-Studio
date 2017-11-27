@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/BailiffDefinition.xsd">
+
+    <!-- In the ScoringFunction, the highest score means first to be deleted -->
+    
+    <BailiffDefinition Name="DefaultMoneyBailiff" Resource="EmpireMoney">
+        <Pass Loop="false">
+            <Auction_Hero>
+                <!-- Unassign hero with highest cooldown and lowest upkeep first -->
+                <ScoringFunction>Property(Context, @ClassHero, AssignmentCooldown) * 10 + Property(Context, @ClassHero, Upkeep) * -1</ScoringFunction>
+            </Auction_Hero>
+        </Pass>
+
+        <!-- If there are more items to scrap, repeat this -->
+        <Pass Loop="true">
+            <Auction_Ship MaximumNumberOfSales="10">
+                <!-- Sell ships with lowest level and highest ScrapPriority (based on size) first -->
+                <ScoringFunction>Property(Context, @ClassShip, Level) * -10 + Property(Context, @ClassShip, ScrapPriority)</ScoringFunction>
+            </Auction_Ship>
+            <Auction_Improvement MaximumNumberOfSales="5">
+                <!-- Sell improvements with highest ScrapPriority (based on category) on systems with highest production first -->
+                <ScoringFunction>Property(Context, @ClassImprovement, ScrapPriority) + Property(Context, @./ClassColonizedStarSystem, NetSystemProduction) * 0.1</ScoringFunction>
+            </Auction_Improvement>
+        </Pass>
+    </BailiffDefinition>
+
+    <BailiffDefinition Name="DefaultEmpirePointBailiff" Resource="EmpireEmpirePoint">
+        <Pass Loop="true">
+            <Auction_Law>
+                <!-- Abrogate law with highest upkeep and longest time since activation first -->
+                <ScoringFunction>Property(Context, @ClassLaw, CancelPriority) * (Property(Context, @ClassLaw, EmpireEmpirePointUpkeep) * 10 + Property(Context, @ClassLaw, ElapsedTurns))</ScoringFunction>
+            </Auction_Law>
+            <Auction_FactionPact>
+                <!-- TODO -->
+                <ScoringFunction>1</ScoringFunction>
+            </Auction_FactionPact>
+        </Pass>
+    </BailiffDefinition>
+
+</Datatable>

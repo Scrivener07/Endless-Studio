@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/MarketplaceAdvertisementDefinition.xsd">
+
+    <MarketplaceAdvertisementDefinition Name="AdvertisementCategoryResourceStrategic">
+        
+        <BaseCost ResourceName="EmpireMoney">50 * Property(StockLocation, GameSpeedMultiplier)</BaseCost>
+        <CostPerTurn ResourceName="EmpireMoney">20 * Property(StockLocation, GameSpeedMultiplier)</CostPerTurn>
+        <NotificationCost ResourceName="EmpireMoney">100 * Property(StockLocation, GameSpeedMultiplier)</NotificationCost>
+
+        <Item>AdvertisementResourceStrategic1</Item>
+        <Item>AdvertisementResourceStrategic2</Item>
+        <Item>AdvertisementResourceStrategic3</Item>
+        <Item>AdvertisementResourceStrategic4</Item>
+        <Item>AdvertisementResourceStrategic5</Item>
+        <Item>AdvertisementResourceStrategic6</Item>
+        
+    </MarketplaceAdvertisementDefinition>
+
+    <MarketplaceAdvertisementDefinition Name="AdvertisementCategoryResourceLuxury">
+
+        <BaseCost ResourceName="EmpireMoney">50 * Property(StockLocation, GameSpeedMultiplier)</BaseCost>
+        <CostPerTurn ResourceName="EmpireMoney">10 * Property(StockLocation, GameSpeedMultiplier)</CostPerTurn>
+        <NotificationCost ResourceName="EmpireMoney">100 * Property(StockLocation, GameSpeedMultiplier)</NotificationCost>
+
+        <Item>AdvertisementResourceLuxury1</Item>
+        <Item>AdvertisementResourceLuxury2</Item>
+        <Item>AdvertisementResourceLuxury3</Item>
+        <Item>AdvertisementResourceLuxury4</Item>
+        <Item>AdvertisementResourceLuxury5</Item>
+        <Item>AdvertisementResourceLuxury6</Item>
+        <Item>AdvertisementResourceLuxury7</Item>
+        <Item>AdvertisementResourceLuxury8</Item>
+        <Item>AdvertisementResourceLuxury9</Item>
+        <Item>AdvertisementResourceLuxury10</Item>
+        <Item>AdvertisementResourceLuxury11</Item>
+        <Item>AdvertisementResourceLuxury12</Item>
+        <Item>AdvertisementResourceLuxury13</Item>
+        <Item>AdvertisementResourceLuxury14</Item>
+        <Item>AdvertisementResourceLuxury15</Item>
+        <Item>AdvertisementResourceLuxury16</Item>
+        <Item>AdvertisementResourceLuxury17</Item>
+        <Item>AdvertisementResourceLuxury18</Item>
+        <Item>AdvertisementResourceLuxury19</Item>
+        <Item>AdvertisementResourceLuxury20</Item>
+        <Item>AdvertisementResourceLuxury21</Item>
+        <Item>AdvertisementResourceLuxury22</Item>
+        <Item>AdvertisementResourceLuxury23</Item>
+        <Item>AdvertisementResourceLuxury24</Item>
+
+    </MarketplaceAdvertisementDefinition>
+
+    <MarketplaceAdvertisementDefinition Name="AdvertisementCategoryShip">
+
+        <BaseCost ResourceName="EmpireMoney">50 * Property(StockLocation, GameSpeedMultiplier)</BaseCost>
+        <CostPerTurn ResourceName="EmpireMoney">30 * Property(StockLocation, GameSpeedMultiplier)</CostPerTurn>
+        <NotificationCost ResourceName="EmpireMoney">100 * Property(StockLocation, GameSpeedMultiplier)</NotificationCost>
+
+        <Item>AdvertisementShipRoleExploration</Item>
+        <Item>AdvertisementShipRoleAttacker</Item>
+        <Item>AdvertisementShipRoleSupport</Item>
+        <Item>AdvertisementShipRoleCarrier</Item>
+
+    </MarketplaceAdvertisementDefinition>
+
+    <MarketplaceAdvertisementDefinition Name="AdvertisementCategoryHero">
+
+        <BaseCost ResourceName="EmpireMoney">100 * Property(StockLocation, GameSpeedMultiplier)</BaseCost>
+        <CostPerTurn ResourceName="EmpireMoney">40 * Property(StockLocation, GameSpeedMultiplier)</CostPerTurn>
+        <NotificationCost ResourceName="EmpireMoney">200 * Property(StockLocation, GameSpeedMultiplier)</NotificationCost>
+
+        <Item>AdvertisementHeroClassAdventurer</Item>
+        <Item>AdvertisementHeroClassAdmiral</Item>
+        <Item>AdvertisementHeroClassCorporate</Item>
+        <Item>AdvertisementHeroClassAdministrator</Item>
+
+    </MarketplaceAdvertisementDefinition>
+    
+</Datatable>

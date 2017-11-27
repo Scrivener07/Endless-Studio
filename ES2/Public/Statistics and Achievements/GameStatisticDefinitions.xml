@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GameStatisticDefinition.xsd">
+
+      <!-- Context availability
+      Tag "Empire" => Empire, ClassEmpire
+      -->
+
+    <!-- EMPIRE -->
+    <InterpreterBasedGameStatisticDefinition Name="GlobalScore"             Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireGlobalScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="AccumulatorFood"         Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireGrowthAccumulator)"/>
+    <InterpreterBasedGameStatisticDefinition Name="AccumulatorIndustry"     Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireProductionAccumulator)"/>
+    <InterpreterBasedGameStatisticDefinition Name="AccumulatorMoney"        Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireMoneyAccumulator)"/>
+    <InterpreterBasedGameStatisticDefinition Name="AccumulatorResearch"     Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireResearchAccumulator)"/>
+    <InterpreterBasedGameStatisticDefinition Name="AccumulatorInfluence"    Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireEmpirePointAccumulator)"/>
+    <InterpreterBasedGameStatisticDefinition Name="PopulationScore"         Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpirePopulationScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="ResearchScore"           Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireResearchScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="TradeScore"              Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireTradeScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="HappinessScore"          Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireHappinessScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="ExpansionScore"          Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireExpansionScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="HeroesScore"             Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireHeroesScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="MilitaryScore"           Tags="Empire" Expression="Property(Empire, @ClassEmpire, EmpireMilitaryScore)"/>
+    <InterpreterBasedGameStatisticDefinition Name="KnownSystemCount"        Tags="Empire" Expression="Property(Empire, @ClassEmpire, KnownSystemCount)"/>
+
+</Datatable>

@@ -1,0 +1,2228 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!--#############################
+        ####### TRIAL BY FIRE  ######
+        #############################-->
+
+    <QuestDefinition Name="EventPolitical01" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.8">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$CurrentEmpire.$ColonizedStarSystems"/>
+            </Var>
+            <!--Militarist Choice-->
+       
+            
+            <Var VarName="$EffectName1"  StringValue="EventEffect30"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative16"/>
+            <Var VarName="$EffectGUID1"/>
+            <!--Pacifist Choice-->
+            <Var VarName="$EffectName2"  StringValue="EventEffect31"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative17"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassPopulationEmpire,PopulationNonMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite" Inverted="true">ClassEmpire,AffinityCravers</PathPrerequisite>                      
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassEmpire/ClassSenate/ClassSenator,Politics06', Support, true) ge 0.4 </InterpreterPrerequisite>      
+        </Prerequisites>
+        
+        <!--============ STEPS ============-->
+        <Steps>
+            
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <ObjectiveSet>
+                    <StartActions>
+                              <Action_ApplyQuestEffect LogAction="true">
+                                <Input_EffectName VarName="$EffectName1"/>
+                                <Input_Target VarName="$CurrentEmpire"/>
+                                <Output_GUID VarName="$EffectGUID1"/>
+                            </Action_ApplyQuestEffect>
+                            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity052PopulationTitle">
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_Target VarName="$CurrentEmpire"/>
+                                <Input_PopulationEventDefinition VarName="$EventName1"/>
+                            </Action_TriggerPopulationEvent>
+                        </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical02</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>                
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>                           
+                        </Sequence>                        
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>    
+    </QuestDefinition>
+
+    <!--###################################
+        ####### TRIAL BY FIRE PART2  ######
+        ###################################-->
+
+    <QuestDefinition Name="EventPolitical02" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical02</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$CurrentEmpire.$ColonizedStarSystems"/>
+            </Var>
+            <Var VarName="$EmpireSystemsWithMinor">
+                <From Source="$CurrentEmpire.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">//ClassPopulation,PopulationNonMajor</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Militarist Choice-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect32"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative18"/>
+            <Var VarName="$EffectGUID1"/>
+            <!--Pacifist Choice-->
+            <Var VarName="$EffectName2"  StringValue="EventEffect33"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative19"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->        
+
+        <!--============ STEPS ============-->
+        <Steps>
+
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity052PopulationTitle">
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical03</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true" LocalizationKey="%EventPolitic02EffectTitle">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EmpireSystemsWithMinor"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    <!--###################################
+        ####### TRIAL BY FIRE PART3  ######
+        ###################################-->
+
+    <QuestDefinition Name="EventPolitical03" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical03</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystem">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$EffectName1"  StringValue="EventEffect34"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative20"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+        <!--############################
+            ###### The Boiler Room #####
+            ############################-->
+    
+    <QuestDefinition Name="EventPolitical04" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.4">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect35"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative21"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: decrise dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect36"/>         
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassLaw,LawPolitics03</PathPrerequisite> 
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+            <!--============ STEP 1 ============-->          
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical04PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical05</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>                        
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+        <!--###################################
+            ###### The Boiler Room PART 2 #####
+            ###################################-->
+    
+     <QuestDefinition Name="EventPolitical05" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical05</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect37"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative22"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: decrise dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect38"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative23"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassLaw,LawPolitics03</PathPrerequisite>           
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassResearch,TechnologyEra2</PathPrerequisite>           
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+            <!--============ STEP 1 ============-->          
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>                        
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+        <!--###################################
+            ######     Smoking Gun    #####
+            ###################################-->
+
+    <QuestDefinition Name="EventPolitical06" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.4">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect52"/>            
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: decrise dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect53"/>           
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->   
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true" LocalizationKey="%EventPolitical06EffectTitle">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>                       
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                       <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical07</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                  <Objective Name="Step2_Objective1">
+                    <Sequence>
+                      <Decorator_QuestEffectFinished>
+                        <Input_GUID VarName="$EffectGUID2"/>
+                      </Decorator_QuestEffectFinished>
+                      <Action_ChooseOutcome Name="Outcome1"/>
+                    </Sequence>
+                    <Outcome Name="Outcome1">
+                      <Triggers Weight="1">
+                        <QuestTrigger>
+                          <Tags>EventPolitical08</Tags>
+                          <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                        </QuestTrigger>
+                      </Triggers>
+                    </Outcome>
+                  </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+        <!--###################################
+            ######     Smoking Gun  2  ########
+            ###################################-->
+
+    <QuestDefinition Name="EventPolitical07" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical07</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect54"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: decrise dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect55"/>
+            <Var VarName="$EffectGUID2"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true" LocalizationKey="%EventPolitical07EffectTitle">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+        <!--###################################
+            ######     Smoking Gun  2  ########
+            ###################################-->
+
+  <QuestDefinition Name="EventPolitical08" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+    <!--============ TAGS ============-->
+    <Tags>EventPolitical08</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystems">
+        <From Source="$EffectTarget1.$ColonizedStarSystems">
+            <Where>
+                <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+            </Where>
+        </From>
+      </Var>
+      <!--Choice1: increase dust and pacifism-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect81"/>
+      <Var VarName="$EffectGUID1"/>
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1"> 
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>        
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+
+        <!--##############################################
+            ###### A MILLION THINGS I HAVEN'T DONE #######
+            ##############################################-->
+
+  <QuestDefinition Name="EventPolitical09" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" CheckRandom="false" TriggeringProbability="0.4">
+      
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect56"/>
+            <Var VarName="$EffectGUID1"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative35"/>
+
+            <!--Choice2: decrise dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect57"/>
+            <Var VarName="$EffectGUID2"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative36"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">          
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics01</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true" LocalizationKey="%EventPolitical09EffectTitle">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical09PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical10</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventReveal02PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+      
+    
+        <!--######################################################
+            ###### A MILLION THINGS I HAVEN'T DONE PART 2 ########
+            ######################################################-->
+
+    <QuestDefinition Name="EventPolitical10" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical10</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <!--Choice1: wait 10 turns-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative36"/>
+            <Var VarName="$Duration" IntValue="10"/>
+            <!--Choice2: decrise dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect58"/>
+            <Var VarName="$EffectGUID2"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative37"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">           
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics01</PathPrerequisite>          
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>                       
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical10PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_Wait>
+                                <Input_WaitDuration VarName="$Duration"/>
+                            </Decorator_Wait>
+                          <Action_ChooseOutcome Name="Outcome01"/>
+                        </Sequence>
+                      <Outcome Name="Outcome01">
+                            <Triggers Weight="2">
+                                <QuestTrigger>
+                                    <Tags>EventPoliticalResult12</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                            <Triggers Weight="8">
+                              <QuestTrigger>
+                                <Tags>EventPoliticalResult12a</Tags>
+                                <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                              </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+      
+    <!--#############################
+        ######## THE DIVISION #######
+        #############################-->
+    
+    <QuestDefinition Name="EventPolitical13" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.8">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var IsGlobal="true" VarName="$EmpireSystem">
+                <Any>
+                    <From Source="$EffectTarget1.$ColonizedStarSystems">
+                        <Where>
+                            <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+            <Var VarName="$EmpireSystemLocation">
+                <From Source="$EmpireSystem.$StarSystem"/>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect39"/>
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative24"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: decrease dust -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect40"/>
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative25"/>
+            <Var VarName="$EffectGUID2"/>
+
+            <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics03</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics06</PathPrerequisite>            
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical13PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                            <Sequence>
+                                <Decorator_InvadeSystem>
+                                    <Input_System VarName="$EmpireSystemLocation"/>
+                                    <Input_VictimEmpire VarName="$EffectTarget1"/>
+                                </Decorator_InvadeSystem>
+                                <Action_Fail/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical14</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <QuestDefinition Name="EventPolitical14" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical14</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var IsGlobal="true" VarName="$EmpireSystem"/>
+            
+            <!--Choice1: Decrease all FIDSI-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect41"/>
+            <!--Choice1: Politic= Militarist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative24"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: Decrease only Industry -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect42"/>
+            <!--Choice2: Politic= Industry-->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative25"/>
+            <Var VarName="$EffectGUID2"/>
+
+            <LocalizationVar LocalizationKey="$SystemName" Source="$EmpireSystem"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+      
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true" LocalizationKey="%EventPolitical14EffectTitle">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventReveal03PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>                            
+                        </Sequence>                       
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity053PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    <!--####################################
+        ######## TWO WAYS STREET ###########
+        ####################################-->
+
+    <QuestDefinition Name="EventPolitical15" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.6">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$AllSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$EmpireSystem">
+                <Any>
+                  <From Source="$AllSystems"/>
+                </Any>
+            </Var>          
+
+            <!--Choice1: Decrease all FIDSI-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect43"/>
+            <!--Choice1: Politic= Militarist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative26"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: Decrease only Industry -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect44"/>
+            <!--Choice2: Politic= Industry-->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative27"/>
+            <Var VarName="$EffectGUID2"/>
+
+            <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">    
+            <InterpreterPrerequisite Flags="Prerequisite">Count(Context, @'ClassEmpire/ClassSenate/ClassLaw,LawPolitics01') ge 2</InterpreterPrerequisite>           
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventReveal02PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true"  LocalizationKey="%EventPolitical15Effect">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom04PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--####################################
+        ########  DOWN TO EARTH ###########
+        ####################################-->
+
+    <QuestDefinition Name="EventPolitical16" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.8">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems">
+                    <Where>
+                        <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+
+            <Var VarName="$OneSystem">
+                <Any>
+                    <From Source="$EmpireSystems">
+                        <Where>
+                            <FilterSystemByStatus StarSystemState="Colony"/>
+                        </Where>  
+                </From>
+                </Any>
+             </Var>
+            
+            
+            <!--Choice1: Decrease all FIDSI-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect45"/>
+            <!--Choice1: Politic= Militarist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative28"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: Decrease only Industry -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect46"/>
+            <!--Choice2: Politic= Industry-->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative29"/>
+            <Var VarName="$EffectGUID2"/>
+
+            <LocalizationVar VarName="$System" Source="$OneSystem"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassEmpire/ClassSenate/ClassSenator,Politics05', Support, true) ge 0.4 </InterpreterPrerequisite>           
+            <PathPrerequisite Flags="Prerequisite" Inverted="true">ClassEmpire/ClassSenate,GovernmentDictatorshipCommon</PathPrerequisite>          
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom04PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical16PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--####################################
+        ########  GENERATION GAMMA  ########
+        ####################################-->
+
+    <QuestDefinition Name="EventPolitical17" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.6">
+        
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn,Hidden</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="3"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$ElectionAction01" StringValue="ElectionActionRepublic01Enhanced"/>
+            <Var VarName="$ElectionAction02" StringValue="ElectionActionRepublic02Enhanced"/>
+            <Var VarName="$ElectionAction03" StringValue="ElectionActionRepublic01"/>
+            <Var VarName="$ElectionAction04" StringValue="ElectionActionRepublic02"/>
+                     
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">            
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate,GovernmentRepublic</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">              
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>                   
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_ElectionActionApplied>
+                                    <Input_ActionName VarName="$ElectionAction01"/>
+                                </Decorator_ElectionActionApplied>
+                                <Decorator_BeginTurn/>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ElectionActionApplied>
+                                    <Input_ActionName VarName="$ElectionAction02"/>
+                                </Decorator_ElectionActionApplied>
+                                <Decorator_BeginTurn/>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_ElectionActionApplied>
+                                    <Input_ActionName VarName="$ElectionAction03"/>
+                                </Decorator_ElectionActionApplied>
+                                <Decorator_BeginTurn/>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                             </Sequence>
+                             <Sequence>
+                                <Decorator_ElectionActionApplied>
+                                    <Input_ActionName VarName="$ElectionAction04"/>
+                                </Decorator_ElectionActionApplied>
+                                <Decorator_BeginTurn/>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>  
+                        </Parallel>   
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>EventPolitical17Bis</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$EffectTarget1"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>                   
+                </ObjectiveSet>                
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--####################################
+        ########  GENERATION GAMMA  ########
+        ####################################-->
+
+   <QuestDefinition Name="EventPolitical17Bis" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="50" TriggeringProbability="0.6">
+       
+
+        <!--============ TAGS ============-->
+        <Tags>EventPolitical17Bis</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>          
+            <!--Choice1: Decrease all FIDSI-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect59"/>
+            <!--Choice1: Politic= Militarist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative38"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: Decrease only Industry -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect60"/>
+            <!--Choice2: Politic= -->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative39"/>
+            <Var VarName="$EffectGUID2"/>
+
+            <!--Choice3: Decrease only Industry -->
+            <Var VarName="$EffectName3"  StringValue="EventEffect61"/>
+            <!--Choice3: Politic= Science-->
+            <Var VarName="$EventName3"   StringValue="PopulationPoliticalEventNarrative40"/>
+            <Var VarName="$EffectGUID3"/>           
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+            <Prerequisites Target="$(Empire)">
+                <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate,GovernmentRepublic</PathPrerequisite>
+            </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                    <ChoiceItem ObjectiveSetIndex="2"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical17BisPopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity032PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective2">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName3"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID3"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom022PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName3"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective3">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID3"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!--####################################
+        ########     PROGRESS    ###########
+        ####################################-->
+
+    <QuestDefinition Name="EventPolitical18" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.6">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystem">
+                <Any>
+                    <From Source="$EffectTarget1.$ColonizedStarSystems">
+                        <Where>
+                            <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+
+            <!--Choice1: Decrease all FIDSI-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect50"/>
+            <!--Choice1: Politic= Militarist-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative33"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <!--Choice2: Decrease only Industry -->
+            <Var VarName="$EffectName2"  StringValue="EventEffect51"/>
+            <!--Choice2: Politic= Industry-->
+            <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative34"/>
+            <Var VarName="$EffectGUID2"/>
+            <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        
+        <Prerequisites Target="$(Empire)">            
+            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics01</PathPrerequisite>           
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical16PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName2"/>
+                            <Input_Target VarName="$EmpireSystem"/>
+                            <Output_GUID VarName="$EffectGUID2"/>
+                        </Action_ApplyQuestEffect>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventReveal02PopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName2"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--####################################
+        ########     SCIENCE    ###########
+        ####################################-->
+
+    
+  <QuestDefinition Name="EventPolitical20" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.6">   
+
+    <!--============ TAGS ============-->
+    <Tags>BeginTurn</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+            <From Source="$EffectTarget1.$ColonizedStarSystems">
+                <Where>
+                    <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                </Where>
+            </From>
+        </Any>
+      </Var>
+      
+      <!--Choice1: +30 Science -15 Influence-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect66"/>
+      <!--Choice1: Politic= Science-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative43"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: -+20 Influence -10 Science -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect67"/>
+      <!--Choice2: Politic= Religious-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative44"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+      <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics02</PathPrerequisite>
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical16PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom02PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+  <!--####################################
+      ########     ECOLOGIST   ###########
+      ####################################-->
+
+  <QuestDefinition Name="EventPolitical21" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.8">
+
+    <!--============ TAGS ============-->
+    <Tags>BeginTurn</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+            <From Source="$EffectTarget1.$ColonizedStarSystems">
+                <Where>
+                    <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+                </Where>
+            </From>
+        </Any>
+      </Var>
+
+      <!--Choice1: +20 Happiness -30 Industry-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect68"/>
+      <!--Choice1: Politic= Ecologist-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative45"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: +20 Industry -10 Happiness -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect69"/>
+      <!--Choice2: Politic= Industrialist-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative46"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+      <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics04</PathPrerequisite>
+      <PathPrerequisite Inverted="true" Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+      <PathPrerequisite Inverted="true" Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityVampirilis,PopulationMajor</PathPrerequisite>
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity032PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventReveal02PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+  <QuestDefinition Name="EventPolitical22" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.8">
+
+    <!--============ TAGS ============-->
+    <Tags>BeginTurn</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+          <From Source="$EffectTarget1.$ColonizedStarSystems">
+            <Where>
+              <InterpreterPrerequisite>Property(Context, SystemProduction) ge 200</InterpreterPrerequisite>
+            </Where>
+          </From>
+        </Any>
+      </Var>
+
+      <!--Choice1: +30 Happiness -20 Industry-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect70"/>
+      <!--Choice1: Politic= Ecologist-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative47"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: -10 Happiness +10 Industry -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect71"/>
+      <!--Choice2: Politic= Industrialist-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative48"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+      <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics04</PathPrerequisite>
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity032PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity03PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+
+  <!--####################################
+      ########     RELIGIOUS   ###########
+      ####################################-->
+  
+
+  <QuestDefinition Name="EventPolitical23" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.6">
+
+    <!--============ TAGS ============-->
+    <Tags>BeginTurn</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+          <From Source="$EffectTarget1.$ColonizedStarSystems">
+              <Where>
+                  <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+              </Where>
+          </From>
+        </Any>
+      </Var>
+
+      <!--Choice1: +20 Science -20 Influence-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect72"/>
+      <!--Choice1: Politic= Science-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative49"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: +30 Influence -20 Dust -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect73"/>
+      <!--Choice2: Politic= Religious-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative50"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+      <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics05</PathPrerequisite>
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom022PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom04PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EffectTarget1"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+  <QuestDefinition Name="EventPolitical24" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.6">
+
+    <!--============ TAGS ============-->
+    <Tags>BeginTurn</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+          <From Source="$EffectTarget1.$ColonizedStarSystems">
+              <Where>
+                  <PathPrerequisite>ColonizedStarSystemStateColony</PathPrerequisite>
+              </Where>
+          </From>
+        </Any>
+      </Var>
+
+      <!--Choice1: +30% Influence on System -->
+      <Var VarName="$EffectName1"  StringValue="EventEffect74"/>
+      <!--Choice1: Politic= Religious-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative51"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: +40% Science on System -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect75"/>
+      <!--Choice2: Politic= Science-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative52"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+      <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics05</PathPrerequisite>
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom04PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventRandom022PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+
+
+</Datatable>

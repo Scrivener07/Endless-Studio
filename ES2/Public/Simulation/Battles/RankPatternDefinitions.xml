@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/RankPatternDefinition.xsd">
+
+    <RankPattern Name="HeroRankPattern">
+        <PathPrerequisite>ClassHero</PathPrerequisite>
+
+        <RankReference Name="HeroLevel01"/>
+        <RankReference Name="HeroLevel02"/>
+        <RankReference Name="HeroLevel03"/>
+        <RankReference Name="HeroLevel04"/>
+        <RankReference Name="HeroLevel05"/>
+        <RankReference Name="HeroLevel06"/>
+        <RankReference Name="HeroLevel07"/>
+        <RankReference Name="HeroLevel08"/>
+        <RankReference Name="HeroLevel09"/>
+        <RankReference Name="HeroLevel10"/>
+    </RankPattern>
+
+    <RankPattern Name="ShipRankPattern">
+        <PathPrerequisite>ClassShip</PathPrerequisite>
+
+        <RankReference Name="ShipLevel01"/>
+        <RankReference Name="ShipLevel02"/>
+        <RankReference Name="ShipLevel03"/>
+        <RankReference Name="ShipLevel04"/>
+        <RankReference Name="ShipLevel05"/>
+        <RankReference Name="ShipLevel06"/>
+        <RankReference Name="ShipLevel07"/>
+        <RankReference Name="ShipLevel08"/>
+        <RankReference Name="ShipLevel09"/>
+        <RankReference Name="ShipLevel10"/>
+    </RankPattern>
+
+    <RankPattern Name="ColonizedStarSystemRankPattern">
+        <PathPrerequisite>ClassColonizedStarSystem</PathPrerequisite>
+
+        <RankReference Name="ColonizedStarSystemLevel00"/>
+        <RankReference Name="ColonizedStarSystemLevel01"/>
+        <RankReference Name="ColonizedStarSystemLevel02"/>
+        <RankReference Name="ColonizedStarSystemLevel03"/>
+        <RankReference Name="ColonizedStarSystemLevel04"/>
+        <RankReference Name="ColonizedStarSystemLevel05"/>
+    </RankPattern>
+    
+</Datatable>

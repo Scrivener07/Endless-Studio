@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/MajorFaction.xsd">
+
+    <!-- ########################################## -->
+    <!-- ######        MAJOR FACTIONS        ###### -->
+    <!-- ########################################## -->
+
+    <!-- Sophons -->
+    <MajorFaction Name="FactionSophons" Standard="true" Author="AMPLITUDE Studios" Priority="10">
+        <Affinity Name="AffinityGameplaySophons"/>
+
+        <Trait Name="IsMajorFaction"/>      
+
+        <Trait Name="FactionTraitMinorPilgrims"/>
+        
+        <Trait Name="FactionTraitScanning"/>
+        <Trait Name="FactionTraitFastTraveler2"/>
+        <Trait Name="FactionTraitFeebleWarriors2"/>
+
+        <Trait Name="FactionTraitTechnologyDefinitionScienceAndExploration1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionScienceAndExploration2"/>
+
+        <TraitStartingSenate Priority="100">
+            <Government Name="GovernmentDemocracy"/>
+            <PoliticsWeight Politics="Politics01" Weight="0"/>
+            <PoliticsWeight Politics="Politics02" Weight="6"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="3"/>
+            <PoliticsWeight Politics="Politics06" Weight="0"/>
+        </TraitStartingSenate>
+
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/> 
+
+        <MajorPopulation Affinity="AffinitySophons"     Count="2"/>
+    </MajorFaction>
+    
+    <!-- Cravers -->
+    <MajorFaction Name="FactionCravers" Standard="true" Author="AMPLITUDE Studios" Priority="20">
+        <Affinity Name="AffinityGameplayCravers"/>
+
+        <Trait Name="IsMajorFaction"/>
+
+        <Trait Name="FactionTraitMinorHaroshems"/>
+
+        <Trait Name="FactionTraitBigFleets2"/>
+        <Trait Name="FactionTraitCrowdedPlanets2"/>
+        <Trait Name="FactionTraitFearlessWarriors1"/>
+        <Trait Name="FactionTraitEternalWar"/>
+
+        <Trait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionMilitary1"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentDictatorshipCravers"/>
+            <PoliticsWeight Politics="Politics01" Weight="0"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="1"/>
+        </TraitStartingSenate>
+        
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+        
+        <MajorPopulation Affinity="AffinityCravers" Count="2"/>
+    </MajorFaction>
+
+    <!-- Terrans -->
+    <MajorFaction Name="FactionTerrans" Standard="true" Author="AMPLITUDE Studios" Priority="50">
+        <Affinity Name="AffinityGameplayTerrans"/>
+
+        <Trait Name="IsMajorFaction"/>
+
+        <Trait Name="FactionTraitMinorHisshos"/>
+        
+        <Trait Name="FactionTraitExpansionists1"/>
+        <Trait Name="FactionTraitPatriots2"/>
+        
+        <Trait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentEmpire"/>
+            <PoliticsWeight Politics="Politics01" Weight="5"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="2"/>
+        </TraitStartingSenate>
+        
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityTerrans"     Count="2"/>
+    </MajorFaction>
+	
+	<!-- Mezari -->
+    <MajorFaction Name="FactionMezari" Standard="false" Author="AMPLITUDE Studios" Priority="50" Hidden="true">
+        <Affinity Name="AffinityGameplayTerrans"/>
+
+        <Trait Name="IsMajorFaction"/>
+        
+        <Trait Name="FactionTraitExpansionists1"/>
+        <Trait Name="FactionTraitPatriots2"/>
+        
+        <Trait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+
+        <Trait Name="FactionTraitMinorHisshos"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentEmpire"/>
+            <PoliticsWeight Politics="Politics01" Weight="5"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="2"/>
+        </TraitStartingSenate>
+        
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityMezari"     Count="2"/>
+    </MajorFaction>
+	
+	<!-- Sheredyn -->
+    <MajorFaction Name="FactionSheredyn" Standard="false" Author="AMPLITUDE Studios" Priority="50" Hidden="true">
+        <Affinity Name="AffinityGameplayTerrans"/>
+
+        <Trait Name="IsMajorFaction"/>
+        
+        <Trait Name="FactionTraitExpansionists1"/>
+        <Trait Name="FactionTraitPatriots2"/>
+        
+        <Trait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+
+        <Trait Name="FactionTraitMinorHisshos"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentEmpire"/>
+            <PoliticsWeight Politics="Politics01" Weight="5"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="2"/>
+        </TraitStartingSenate>
+        
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinitySheredyn"     Count="2"/>
+    </MajorFaction>
+
+	<!-- Horatio -->
+	<MajorFaction Name="FactionHoratio" Standard="true" Author="AMPLITUDE Studios" Priority="60">
+		<Affinity Name="AffinityGameplayHoratio"/>
+		
+		<Trait Name="IsMajorFaction"/>
+
+        <Trait Name="FactionTraitMinorZvali"/>
+
+        <Trait Name="FactionTraitCrowdedPlanets1"/>
+        <Trait Name="FactionTraitContentCitizens1"/>
+        <Trait Name="FactionTraitPerfectGenes2"/>
+        <Trait Name="FactionTraitPriceOfPerfection2"/>
+
+        <Trait Name="FactionTraitTechnologyDefinitionScienceAndExploration2"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1Horatio"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentDictatorship"/>
+            <PoliticsWeight Politics="Politics01" Weight="0"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="4"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="0"/>
+        </TraitStartingSenate>
+
+        <Bailiff Name="DefaultMoneyBailiff"/>
+		<Bailiff Name="DefaultEmpirePointBailiff"/>
+
+		<MajorPopulation Affinity="AffinityHoratio" Count="2"/>
+	</MajorFaction>
+
+    <!-- Time Lords -->
+    <MajorFaction Name="FactionTimeLords" Standard="true" Author="AMPLITUDE Studios" Priority="70">
+        <Affinity Name="AffinityGameplayTimeLords"/>
+
+        <Trait Name="IsMajorFaction"/>
+
+        <Trait Name="FactionTraitMinorBots"/>
+       
+        <Trait Name="FactionTraitSlowTraveler1"/>
+        <Trait Name="FactionTraitInimical"/>
+
+        <Trait Name="FactionTraitTechnologyDefinitionEconomyAndTrade2"/>
+        <Trait Name="FactionTraitTechnologyDefinitionScienceAndExploration1TimeLords"/>
+
+        <Trait Name="FactionTraitStartWithTitanium"/>
+        <Trait Name="FactionTraitStartWithHyperium"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentRepublic"/>
+            <PoliticsWeight Politics="Politics01" Weight="2"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="1"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="0"/>
+        </TraitStartingSenate>
+        
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityTimeLords"     Count="2"/>
+    </MajorFaction>
+
+    <!-- Unfallen -->
+    <MajorFaction Name="FactionUnfallen" Standard="true" Author="AMPLITUDE Studios" Priority="70">
+        <Affinity Name="AffinityGameplayUnfallen"/>
+
+        <Trait Name="IsMajorFaction"/>
+
+        <Trait Name="FactionTraitMinorGuardians"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment2"/>
+        <Trait Name="FactionTraitGuardians"/>
+        <Trait Name="FactionTraitNaive2"/>
+        <Trait Name="FactionTraitMutualUnderstanding1"/>
+
+        
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentDemocracy"/>
+            <PoliticsWeight Politics="Politics01" Weight="0"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="2"/>
+            <PoliticsWeight Politics="Politics04" Weight="1"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="0"/>
+        </TraitStartingSenate>
+
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityUnfallen"     Count="2"/>
+    </MajorFaction>
+  
+	<!-- Vampirilis -->
+    <MajorFaction Name="FactionVampirilis" Standard="true" Author="AMPLITUDE Studios" Priority="40">
+        <Affinity Name="AffinityGameplayVampirilis"/>
+
+        <Trait Name="IsMajorFaction"/>
+        <!--<Trait Name="VampirilisShipDesigns"/>-->
+
+        <Trait Name="FactionTraitFastTraveler1"/>
+        <Trait Name="FactionTraitFearlessWarriors2"/>
+        <Trait Name="FactionTraitLegendaryHeroes2"/>
+
+        <Trait Name="FactionTraitTechnologyDefinitionScienceAndExploration1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentEmpire"/>
+            <PoliticsWeight Politics="Politics01" Weight="0"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="2"/>
+            <PoliticsWeight Politics="Politics06" Weight="1"/>
+        </TraitStartingSenate>
+        
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityVampirilis" Count="1"/>
+    </MajorFaction>
+
+    <!-- Venetians -->
+    <MajorFaction Name="FactionVenetians" Standard="true" Author="AMPLITUDE Studios" Priority="30">
+        <Affinity Name="AffinityGameplayVenetians"/>
+
+        <Trait Name="IsMajorFaction"/>
+        <!--<Trait Name="VenetiansShipDesigns"/>-->
+
+        <Trait Name="FactionTraitMinorGnashasts"/>
+
+        <Trait Name="FactionTraitBlockadeBreakers"/>
+        <Trait Name="FactionTraitOptimistic2"/>
+        <Trait Name="FactionTraitEfficientExplorer1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionScienceAndExploration2"/>
+        <Trait Name="FactionTraitExtendedConsortium"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentRepublic"/>
+            <PoliticsWeight Politics="Politics01" Weight="0"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="2"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="1"/>
+        </TraitStartingSenate>
+
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityVenetians"       Count="2"/>
+    </MajorFaction>
+
+      <!-- Random -->
+    <MajorFaction Name="FactionRandom" Standard="true" Author="AMPLITUDE Studios" Priority="90">
+        <Affinity Name="AffinityGameplayRandom"/>
+
+        <Trait Name="IsMajorFaction"/>
+        <Trait Name="TraitRandomizeFaction"/>
+
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityRandom" Count="1"/>
+    </MajorFaction>
+
+
+    <!-- Terrans Tutorial-->
+    <MajorFaction Name="FactionTerransTutorial" Standard="false" Author="AMPLITUDE Studios" Priority="50" Hidden="true">
+        <Affinity Name="AffinityGameplayTerransTutorial"/>
+
+        <Trait Name="IsMajorFaction"/>
+
+        <Trait Name="FactionTraitMinorHisshos"/>
+
+        <Trait Name="FactionTraitExpansionists1"/>
+        <Trait Name="FactionTraitPatriots2"/>
+
+        <Trait Name="FactionTraitTechnologyDefinitionEconomyAndTrade1"/>
+        <Trait Name="FactionTraitTechnologyDefinitionEmpireDevelopment1"/>
+
+        <TraitStartingSenate Priority="1">
+            <Government Name="GovernmentEmpire"/>
+            <PoliticsWeight Politics="Politics01" Weight="5"/>
+            <PoliticsWeight Politics="Politics02" Weight="0"/>
+            <PoliticsWeight Politics="Politics03" Weight="0"/>
+            <PoliticsWeight Politics="Politics04" Weight="0"/>
+            <PoliticsWeight Politics="Politics05" Weight="0"/>
+            <PoliticsWeight Politics="Politics06" Weight="2"/>
+        </TraitStartingSenate>
+
+        <Bailiff Name="DefaultMoneyBailiff"/>
+        <Bailiff Name="DefaultEmpirePointBailiff"/>
+
+        <MajorPopulation Affinity="AffinityTerrans"     Count="2"/>
+    </MajorFaction>
+
+</Datatable>

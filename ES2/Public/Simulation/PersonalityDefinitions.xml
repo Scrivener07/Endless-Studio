@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PersonalityDefinition.xsd">
+
+    <!-- READ ME -->
+    <!-- Weight will be used to assign randomized traits eventually -->
+    <!-- RestrictionPersonalityPrerequisites allows to have opposite traits and avoid udplicates -->
+    <!-- ConditionPathPrerequisite allows to assign a trait to a faction, or avoid a trait for a specific path, etc. -->    
+    
+    <PersonalityDefinition Name="Militarist" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Militarist" Inverted="true" />
+        <RestrictionPersonalityPrerequisites PersonalityName="Pacifist" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayCravers</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayTerrans</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Pacifist"  Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Militarist" Inverted="true" />
+        <RestrictionPersonalityPrerequisites PersonalityName="Pacifist" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplaySophons</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayTimeLords</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayUnfallen</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Paragon" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Paragon" Inverted="true" />
+        <RestrictionPersonalityPrerequisites PersonalityName="Renegade" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayUnfallen</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Renegade" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Paragon" Inverted="true" />
+        <RestrictionPersonalityPrerequisites PersonalityName="Renegade" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayVenetians</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayHoratio</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Mercantile" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Mercantile" Inverted="true" />
+        <RestrictionPersonalityPrerequisites PersonalityName="Isolationist" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayVenetians</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayTerrans</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Isolationist" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Mercantile" Inverted="true" />
+        <RestrictionPersonalityPrerequisites PersonalityName="Isolationist" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayTimeLords</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayCravers</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Cruel" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Cruel" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayCravers</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Restless" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Restless" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayHoratio</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayVenetians</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayVampirilis</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Innovative" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Innovative" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayTimeLords</ConditionPathPrerequisites>
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplaySophons</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Benevolent" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Benevolent" Inverted="true" />
+        
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayUnfallen</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+
+    <PersonalityDefinition Name="Greedy" Weight="1">
+        <RestrictionPersonalityPrerequisites PersonalityName="Greedy" Inverted="true" />
+
+        <ConditionPathPrerequisites Flags="Discard" Inverted="false">../ClassEmpire,AffinityGameplayHoratio</ConditionPathPrerequisites>
+    </PersonalityDefinition>
+   
+</Datatable>

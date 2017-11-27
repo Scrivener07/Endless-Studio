@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!--================-->
+    <!-- ClassDiplomacy -->
+    <!--================-->
+    
+    <SimulationDescriptor Name="ClassDiplomacy" Type="ClassDiplomacy">
+    
+        <!-- BasePressure receives only the score of the empire, for each empire -->
+        <Property Name="BasePressure"               MinValue="0"/>
+        <Property Name="BasePressureMultiplier"     MinValue="Negative" BaseValue="1"/>
+      
+        <Modifier TargetProperty="MyBasePressure"               Operation="Addition"        Value="$(BasePressure)"                 Path="ClassDiplomacy/ClassDiplomaticEmpire" />
+        <Modifier TargetProperty="MyBasePressureMultiplier"     Operation="Multiplication"  Value="$(BasePressureMultiplier)"       Path="ClassDiplomacy/ClassDiplomaticEmpire" />         
+    </SimulationDescriptor>
+
+    <!--=======================-->
+    <!-- ClassDiplomaticEmpire -->
+    <!--=======================-->
+    
+    <SimulationDescriptor Name="ClassDiplomaticEmpire" Type="ClassDiplomaticEmpire">
+
+        <Property Name="FreeWarDeclaration"             MinValue="0"           BaseValue="1"/>
+        
+        <!-- BasePressure = score difference. Multiplier = bonuses (like laws and stuff) -->
+        <Property Name="MyBasePressure"                 MinValue="0"/>
+        <Property Name="MyBasePressureMultiplier"       MinValue="Negative"    BaseValue="1"/>
+        <Property Name="TheirBasePressure"              MinValue="0"                    IsSealed="true"/>
+        <Property Name="TheirBasePressureMultiplier"    MinValue="Negative"             IsSealed="true"/>
+
+        <Property Name="CombinedBasePressureMultipliers" MinValue="0" BaseValue="0"/>
+
+        <Property Name="PressureFromScore" BaseValue="0" MinValue="Negative"/>
+        <Property Name="PressureFromFriction" BaseValue="0" MinValue="Negative"/>
+        <Property Name="PressureFromCoveredSystems" BaseValue="0" MinValue="Negative"/>
+
+        <Property Name="GeneratePressureTermActive" BaseValue="0" MinValue="0"/>
+
+      <!-- Stock & net -->
+        <Property Name="PressureValue"                  MinValue="-100" MaxValue="100"  IsSealed="true"/>
+        <Property Name="PressureTrend"                  MinValue="-10" MaxValue="10" />
+
+        <!-- Set by code:
+                SystemsUnderInfluence = count (negative for influencer, positive for influenced);
+                SystemsBorderFrictionValue = net influence difference between systems whose influence zone overlap. -->
+        <Property Name="SystemsUnderInfluence"              MinValue="Negative"     IsSealed="true"/>
+        <Property Name="SystemsBorderFrictionValue"         MinValue="Negative"     IsSealed="true"/>
+        
+        <!-- Modifiers set by diplomacy -->
+        <Property Name="ContextualDiplomacyPressureBonus"   MinValue="Negative"/>
+        <Property Name="ContextualDiplomacyPressureHiddenBonus"   MinValue="Negative"/>
+        <Property Name="CurrentRelationMultiplier"          MinValue="Negative"     BaseValue="1"/>
+        <Property Name="CurrentEffectsBonus"                MinValue="Negative"/>
+
+        <!-- Diplomacy cost reduction -->
+        <Property Name="PeacefulTreatyCostReduction"            BaseValue="1" MinValue="0"/>
+        <Property Name="AggressiveTreatyCostReduction"          BaseValue="1" MinValue="0"/>
+        <Property Name="CloseBordersCostReduction"              BaseValue="1" MinValue="0"/>
+        <Property Name="WarDeclarationCostReduction"            BaseValue="1" MinValue="0"/>
+        <Property Name="PeaceCostReduction"                     BaseValue="1" MinValue="0"/>
+        <Property Name="AllianceCostReduction"                  BaseValue="1" MinValue="0"/>
+        
+        <!-- Restrictions -->
+        <Property Name="TurnsBeforeNeighbourColonizationIsAllowed"  BaseValue="0" MinValue="0" IsSealed="true"/>
+        <Property Name="TurnsBeforeAttackIsAllowed"                 BaseValue="0" MinValue="0" IsSealed="true"/>
+        <Property Name="TurnsBeforeLeechingIsAllowed"               BaseValue="0" MinValue="0" IsSealed="true"/>
+        <Property Name="TurnsBeforeTimeBubblesAreAllowed"           BaseValue="0" MinValue="0" IsSealed="true"/>
+        <Property Name="TurnsBeforeRootingIsAllowed"                BaseValue="0" MinValue="0" IsSealed="true"/>
+
+        <!-- Influence conversion -->
+        <Property Name="InfluenceConversionGainMultiplier"      BaseValue="1"/>
+
+        
+        <!-- Pressure: Initial trend computation -->
+        <BinaryModifier TargetProperty="CombinedBasePressureMultipliers" Operation="Addition" Left="$(MyBasePressureMultiplier)" BinaryOperation="Addition" Right="$(TheirBasePressureMultiplier)"/>
+
+        <BinaryModifier TargetProperty="PressureFromScore" Operation="Addition"         Left="$(MyBasePressure)"    BinaryOperation="Multiplication"    Right="$(MyBasePressureMultiplier)"     Priority="1" />
+        <BinaryModifier TargetProperty="PressureFromScore" Operation="Subtraction"      Left="$(TheirBasePressure)" BinaryOperation="Multiplication"    Right="$(TheirBasePressureMultiplier)"  Priority="2"/>
+        <BinaryModifier TargetProperty="PressureFromScore" Operation="Division"         Left="$(MyBasePressure)"    BinaryOperation="Addition"          Right="$(TheirBasePressure)"            Priority="3"/>
+        <Modifier       TargetProperty="PressureFromScore" Operation="Multiplication"   Value="3" Priority="4" />
+
+        <BinaryModifier TargetProperty="PressureFromFriction" Operation="Addition"    Left="$(SystemsBorderFrictionValue)" BinaryOperation="Division" Right="25" Priority="1" />
+        <Modifier       TargetProperty="PressureFromFriction" Operation="Multiplication"          Value="$(CombinedBasePressureMultipliers)" Priority="2"/>
+
+        <BinaryModifier TargetProperty="PressureFromCoveredSystems" Operation="Addition"  Left="4" BinaryOperation="Multiplication" Right="$(SystemsUnderInfluence)" Priority="1"/>
+        <Modifier       TargetProperty="PressureFromCoveredSystems" Operation="Multiplication"        Value="$(CombinedBasePressureMultipliers)" Priority="2"/>
+
+        <Modifier TargetProperty="PressureTrend" Operation="Addition" Value="$(PressureFromScore)"/>
+        <Modifier TargetProperty="PressureTrend" Operation="Addition" Value="$(PressureFromFriction)"/>
+        <Modifier TargetProperty="PressureTrend" Operation="Addition" Value="$(PressureFromCoveredSystems)"/>
+
+        <!-- Pressure: Add diplomacy effects -->
+        <Modifier TargetProperty="PressureTrend" Operation="Addition"       Value="$(ContextualDiplomacyPressureBonus)"/>
+        <Modifier TargetProperty="PressureTrend" Operation="Addition"       Value="$(ContextualDiplomacyPressureHiddenBonus)" TooltipHidden="true" />
+        <Modifier TargetProperty="PressureTrend" Operation="Addition"       Value="$(CurrentEffectsBonus)"/>
+        <Modifier TargetProperty="PressureTrend" Operation="Multiplication" Value="$(CurrentRelationMultiplier)"/>
+                
+    </SimulationDescriptor>
+    
+
+    <SimulationDescriptor Name="DiplomaticAbilityEffectScienceAgreement" Type="DiplomaticAbilityEffect">
+        
+        <Property Name="ScienceAgreementDuration" BaseValue="0" IsSealed="true"/>
+        <Property Name="CurrentTurn"/>
+
+        <Property Name="ResearchBonusBasedOnDuration" BaseValue="0" MaxValue="100"/>
+        
+        <!-- 10 -->
+        <Property Name="ResearchBonus" BaseValue="10"/>
+        
+        <!-- + 5 / turn, capped at +100 after 20 turns -->
+        <BinaryModifier TargetProperty="ResearchBonusBasedOnDuration" Operation="Addition" Left="$(ScienceAgreementDuration)" BinaryOperation="Multiplication" Right="5"/>
+        <Modifier TargetProperty="ResearchBonus" Operation="Addition" Value="$(ResearchBonusBasedOnDuration)" />
+        
+        <!-- x (gameTurn / 5) -->
+        <BinaryModifier TargetProperty="ResearchBonus" Operation="Addition" Left="$(CurrentTurn)" BinaryOperation="Division" Right="5"/>
+
+        <Modifier TargetProperty="ResearchScienceAgreementBonus" Operation="Addition" Value="$(ResearchBonus)" Path="../ClassEmpire"/>
+        
+    </SimulationDescriptor>
+    
+    
+    <SimulationDescriptor Name="MilitaristLawOverride" Type="MilitaristLawOverride">
+        <Modifier TargetProperty="FreeWarDeclaration" Operation="Force" Value="1" Priority="2" TooltipHidden="true"/>
+    </SimulationDescriptor>
+   
+</Datatable>

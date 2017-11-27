@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- ******************** -->
+    <!-- **   Craver Small Civilian  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullSmallCivilianCravers" Type="ClassHull">
+        <Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Craver Small Attack  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullSmallAttackCravers" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Craver Small Support  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullSmallSupportCravers" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+    </SimulationDescriptor>
+    
+    <!-- ******************** -->
+    <!-- **   Craver Medium Attack  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullMediumAttackCravers" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Craver Medium Defense  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullMediumDefenseCravers" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+    </SimulationDescriptor>
+    
+    <!-- ******************** -->
+    <!-- **   Craver Large Carrier  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullLargeCarrierCravers" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    
+    
+
+    <!-- ******************** -->
+    <!-- ** Craver Small Sections ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassSectionCoreSmallCravers" Type="ClassSectionCore">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionWeakSmallCravers" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="105" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <!--<SimulationDescriptor Name="ClassSectionStrongSmallCravers" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+    <!-- ******************** -->
+    <!-- ** Craver Medium Sections ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassSectionCoreMediumCravers" Type="ClassSectionCore">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="475" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionWeakMediumCravers" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="200" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <!--<SimulationDescriptor Name="ClassSectionStrongMediumCravers" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="450" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+    <!-- ******************** -->
+    <!-- ** Craver Large Sections ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassSectionCoreLargeCravers" Type="ClassSectionCore">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1415" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionWeakLargeCravers" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="605" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <!--<SimulationDescriptor Name="ClassSectionStrongLargeCravers" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1150" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+
+	<!-- ******************** -->
+	<!-- **   Default hero  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullHeroDefault" Type="ClassHull">
+		<Modifier TargetProperty="VisualImportanceScore" Operation="Addition" Value="200"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   hero Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAdmiral" Type="ClassHull">
+
+		<Modifier TargetProperty="ShipValue"        Operation="Addition"  Value="20"     Path="ClassShip"/>
+		<Modifier TargetProperty="VisualImportanceScore" Operation="Addition" Value="200"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   hero Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAdventurer" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="VisualImportanceScore" Operation="Addition" Value="200"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+	<!-- ******************** -->
+	<!-- **   hero Small Corporate  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCorporate" Type="ClassHull">
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   hero Small Administrator  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAdministrator" Type="ClassHull">
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- ** Heroes Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallHeroes" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallHeroes" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="105" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionStrongSmallHeroes" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- ** Heroes Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumHeroes" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="810" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumHeroes" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="480" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionStrongMediumHeroes" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="660" Path="ClassSection"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- ** Heroes Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeHeroes" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="2250" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeHeroes" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1800" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionStrongLargeHeroes" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1275" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!-- ******************** -->
+	<!-- **   Horatio Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianHoratio" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Horatio Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackHoratio" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Horatio Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportHoratio" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Horatio Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackHoratio" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Horatio Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseHoratio" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Horatio Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierHoratio" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+
+
+	<!-- ******************** -->
+	<!-- ** Horatio Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallHoratio" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallHoratio" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="60" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallHoratio" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Horatio Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumHoratio" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="450" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumHoratio" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumHoratio" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="440" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Horatio Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeHoratio" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1350" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeHoratio" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="540" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeHoratio" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1200" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ////// HULLS ////// -->
+	<!-- ******************** -->
+	<!-- **   INSECTOID    ** -->
+	<!-- ******************** -->
+	<!-- ** Small Attacker ** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackMinorFactionInsectoid" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      Operation="Addition"  Value="2.5"   Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" 		Operation="Addition"  Value="100"    Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ** Medium Attacker ** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackMinorFactionInsectoid" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      Operation="Addition"  Value="2.5"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition"  Value="500"    Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ******************** -->
+	<!-- **    Pirates     ** -->
+	<!-- ******************** -->
+	<!-- ** Small Attacker ** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackMinorFactionPirates" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      		Operation="Addition"  Value="2.5"   Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" 		Operation="Addition"  Value="100"    Path="ClassShip"/>
+		<!-- <Modifier TargetProperty="OffensiveMilitaryPower" 	Operation="Addition"  Value="1000"   Path="ClassShip"/> -->
+	</SimulationDescriptor>
+
+	<!-- ** Medium Attacker ** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackMinorFactionPirates" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition"  Value="500"    Path="ClassShip"/>
+		<!-- <Modifier TargetProperty="OffensiveMilitaryPower" 	Operation="Addition"  Value="1000"   Path="ClassShip"/> -->
+	</SimulationDescriptor>
+
+
+	<!-- ******************** -->
+	<!-- **   PRIMITIVE    ** -->
+	<!-- ******************** -->
+	<!-- ** Small Attacker ** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackMinorFactionPrimitive" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      Operation="Addition"  Value="2.5"   Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" 		Operation="Addition"  Value="100"    Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ** Medium Attacker ** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackMinorFactionPrimitive" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      Operation="Addition"  Value="2.5"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition"  Value="500"    Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ******************** -->
+	<!-- **   ADVANCED    ** -->
+	<!-- ******************** -->
+	<!-- ** Small Attacker ** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackMinorFactionAdvanced" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      Operation="Addition"  Value="2.5"   Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" 		Operation="Addition"  Value="100"    Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ** Medium Attacker ** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackMinorFactionAdvanced" Type="ClassHull">
+		<Modifier TargetProperty="VisionRange"      Operation="Addition"  Value="2.5"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition"  Value="500"    Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+	<!-- ////// SECTIONS ////// -->
+	<!-- ******************** -->
+	<!-- **   INSECTOID    ** -->
+	<!-- ******************** -->
+	<!-- ** Small **-->
+	<SimulationDescriptor Name="ClassSectionCoreSmallInsectoid" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="165" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallInsectoid" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="50" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallInsectoid" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="85" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+	<!-- ** Medium ** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumInsectoid" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="420" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumInsectoid" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="165" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumInsectoid" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="410" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+
+	<!-- ******************** -->
+	<!-- **   SCAVENGER    ** -->
+	<!-- ******************** -->
+	<!-- ** Small **-->
+	<SimulationDescriptor Name="ClassSectionCoreSmallMinorFactionPirates" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="155" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallMinorFactionPirates" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="60" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallMinorFactionPirates" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+	<!-- ** Medium ** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumMinorFactionPirates" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="435" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumMinorFactionPirates" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumMinorFactionPirates" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="440" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+
+	<!-- ******************** -->
+	<!-- **   PRIMITIVE    ** -->
+	<!-- ******************** -->
+	<!-- ** Small **-->
+	<SimulationDescriptor Name="ClassSectionCoreSmallPrimitive" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="135" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallPrimitive" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="50" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallPrimitive" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="75" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+	<!-- ** Medium ** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumPrimitive" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="465" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumPrimitive" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumPrimitive" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="400" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+
+	<!-- ******************** -->
+	<!-- **   ADVANCED    ** -->
+	<!-- ******************** -->
+	<!-- ** Small **-->
+	<SimulationDescriptor Name="ClassSectionCoreSmallAdvanced" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallAdvanced" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="80" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallAdvanced" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="110" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+	<!-- ** Medium ** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumAdvanced" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="825" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumAdvanced" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="195" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumAdvanced" Type="ClassSection">
+    <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="450" Path="ClassSection"/>
+  </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- **   Sophon Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianSophons" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackSophons" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportSophons" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackSophons" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseSophons" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierSophons" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+
+
+	<!-- ******************** -->
+	<!-- ** Sophon Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallSophons" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallSophons" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="60" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallSophons" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Sophon Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumSophons" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="450" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumSophons" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumSophons" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="440" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Sophon Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeSophons" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1350" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeSophons" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="540" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeSophons" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1200" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- **   Craver Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianTerrans" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Craver Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackTerrans" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Craver Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportTerrans" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Craver Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackTerrans" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Craver Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseTerrans" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Craver Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierTerrans" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+
+	<!-- ******************** -->
+	<!-- ** Craver Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallTerrans" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="155" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallTerrans" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="65" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallTerrans" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Craver Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumTerrans" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="475" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumTerrans" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="200" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumTerrans" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="450" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Craver Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeTerrans" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1415" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeTerrans" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="605" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeTerrans" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1150" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- **   Sophon Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianTimeLords" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackTimeLords" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportTimeLords" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackTimeLords" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseTimeLords" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Sophon Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierTimeLords" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+	<!-- ******************** -->
+	<!-- ** Sophon Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallTimeLords" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallTimeLords" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="60" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallTimeLords" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Sophon Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumTimeLords" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="450" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumTimeLords" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumTimeLords" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="440" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Sophon Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeTimeLords" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1350" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeTimeLords" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="540" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeTimeLords" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1200" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- **   Unfallen Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianUnfallen" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"    Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition"    Value="40" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackUnfallen" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportUnfallen" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackUnfallen" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseUnfallen" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierUnfallen" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+
+
+
+
+
+
+	<!-- ******************** -->
+	<!-- ** Unfallen Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallUnfallen" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="165" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallUnfallen" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="75" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallUnfallen" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="90" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Unfallen Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumUnfallen" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="495" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumUnfallen" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="225" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumUnfallen" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="480" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Unfallen Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeUnfallen" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1485" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeUnfallen" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1050" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeUnfallen" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1300" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis mothership  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullVampirilisMothership" Type="ClassHull">
+		<Modifier TargetProperty="MothershipCount" Operation="Addition" Value="1" Path="../ClassEmpire,AffinityGameplayVampirilis" />
+		<Modifier TargetProperty="MaximumEmpireLifeforceStock" Operation="Addition" Value="500" Path="../ClassEmpire,AffinityGameplayVampirilis" />
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="220"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianVampirilis" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackVampirilis" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportVampirilis" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackVampirilis" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseVampirilis" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Vampirilis Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierVampirilis" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+
+
+
+
+
+
+	<!-- ******************** -->
+	<!-- ** Vampirilis Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallVampirilis" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="175" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallVampirilis" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="80" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallVampirilis" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Vampirilis Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumVampirilis" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="515" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumVampirilis" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="245" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumVampirilis" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="410" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Vampirilis Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeVampirilis" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1550" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeVampirilis" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="245" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeVampirilis" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1100" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Vampirilis MotherShip ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMotherShipVampirilis" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1600" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMotherShipVampirilis" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="750" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!-- ******************** -->
+	<!-- **   Venetians Small Civilian  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallCivilianVenetians" Type="ClassHull">
+		<Modifier TargetProperty="MaximumMovement"  Operation="Addition"    Value="1"     Path="ClassShip"/>
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition"    Value="40" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Small Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallAttackVenetians" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Small Support  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullSmallSupportVenetians" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Medium Attack  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumAttackVenetians" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Medium Defense  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullMediumDefenseVenetians" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+	<!-- ******************** -->
+	<!-- **   Venitian Large Carrier  ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassHullLargeCarrierVenetians" Type="ClassHull">
+		<Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+	</SimulationDescriptor>
+
+
+
+
+
+
+
+
+
+	<!-- ******************** -->
+	<!-- ** Venetians Small Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreSmallVenetians" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="165" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakSmallVenetians" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="75" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongSmallVenetians" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="90" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Venetians Medium Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreMediumVenetians" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="495" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakMediumVenetians" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="225" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongMediumVenetians" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="480" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+	<!-- ******************** -->
+	<!-- ** Venetians Large Sections ** -->
+	<!-- ******************** -->
+	<SimulationDescriptor Name="ClassSectionCoreLargeVenetians" Type="ClassSectionCore">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1485" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<SimulationDescriptor Name="ClassSectionWeakLargeVenetians" Type="ClassSection">
+		<Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1050" Path="ClassSection"/>
+	</SimulationDescriptor>
+	<!--<SimulationDescriptor Name="ClassSectionStrongLargeVenetians" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1300" Path="ClassSection"/>
+    </SimulationDescriptor>-->
+
+    <!-- ******************** -->
+    <!-- **   Balancing Small Civilian  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullSmallCivilianBalancing" Type="ClassHull">
+        <Modifier TargetProperty="MaximumMovement"  Operation="Addition"  Value="1"     Path="ClassShip"/>
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="40"     Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Balancing Small Attack  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullSmallAttackBalancing" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Balancing Small Support  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullSmallSupportBalancing" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="100" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Balancing Medium Attack  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullMediumAttackBalancing" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Balancing Medium Defense  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullMediumDefenseBalancing" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="300" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- **   Balancing Large Carrier  ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassHullLargeCarrierBalancing" Type="ClassHull">
+        <Modifier TargetProperty="MaximumShipManpower" Operation="Addition" Value="900" Path="ClassShip"/>
+    </SimulationDescriptor>
+
+
+
+
+
+    <!-- ******************** -->
+    <!-- ** Balancing Small Sections ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassSectionCoreSmallBalancing" Type="ClassSectionCore">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="180" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionWeakSmallBalancing" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="105" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionStrongSmallBalancing" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="150" Path="ClassSection"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- ** Balancing Medium Sections ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassSectionCoreMediumBalancing" Type="ClassSectionCore">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="810" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionWeakMediumBalancing" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="480" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionStrongMediumBalancing" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="660" Path="ClassSection"/>
+    </SimulationDescriptor>
+
+    <!-- ******************** -->
+    <!-- ** Balancing Large Sections ** -->
+    <!-- ******************** -->
+    <SimulationDescriptor Name="ClassSectionCoreLargeBalancing" Type="ClassSectionCore">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="2250" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionWeakLargeBalancing" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1275" Path="ClassSection"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="ClassSectionStrongLargeBalancing" Type="ClassSection">
+        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="1800" Path="ClassSection"/>
+    </SimulationDescriptor>
+
+
+</Datatable>

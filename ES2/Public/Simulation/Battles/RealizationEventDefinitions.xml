@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/RealizationEventDefinition.xsd">
+
+    <RealizationEventDefinition Name="Arrival" DefaultWeight="5">
+        <AvailableInitiatorType>Flotilla</AvailableInitiatorType>
+        <AvailableInitiatorType>Ship</AvailableInitiatorType>
+        <RealizationEventWeightChange Name="Arrival" WeightChange="5"/>
+        <RealizationEventWeightChange Name="Deployment" WeightChange="6"/>
+        <RealizationEventWeightChange Name="ModulesDeployment" WeightChange="3"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="Deployment" DefaultWeight="4">
+        <AvailableInitiatorType>Ship</AvailableInitiatorType>
+        <RealizationEventWeightChange Name="Deployment" WeightChange="-5"/>
+        <RealizationEventWeightChange Name="ModulesDeployment" WeightChange="7"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="ModulesDeployment" DefaultWeight="3">
+        <AvailableInitiatorType>Ship</AvailableInitiatorType>
+        <RealizationEventWeightChange Name="Deployment" WeightChange="-5"/>
+		<RealizationEventWeightChange Name="ModulesDeployment" WeightChange="-5"/>
+		<RealizationEventWeightChange Name="Arena" WeightChange="2"/>
+		<RealizationEventWeightChange Name="AttackStart" WeightChange="6"/>
+    </RealizationEventDefinition>
+    
+    <RealizationEventDefinition Name="AttackStart" DefaultWeight="1">
+        <AvailableInitiatorType>Module</AvailableInitiatorType>
+        <AvailableTargetType>Ship</AvailableTargetType>
+        <RealizationEventWeightChange Name="AttackStart" WeightChange="-4"/>
+        <RealizationEventWeightChange Name="Hit" WeightChange="5"/>
+        <RealizationEventWeightChange Name="DestructionComplete" WeightChange="4"/>
+        <RealizationEventWeightChange Name="Arena" WeightChange="4"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="HitShield" DefaultWeight="0" IgnoredByDirector="true">
+        <AvailableInitiatorType>Salvo</AvailableInitiatorType>
+        <AvailableTargetType>Flotilla</AvailableTargetType>
+        <AvailableTargetType>Ship</AvailableTargetType>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="Hit" DefaultWeight="3">
+        <AvailableInitiatorType>Module</AvailableInitiatorType>
+        <AvailableTargetType>ShipSection</AvailableTargetType>
+        <AvailableTargetType>Salvo</AvailableTargetType>
+        <RealizationEventWeightChange Name="Hit" WeightChange="-5"/>
+        <RealizationEventWeightChange Name="DestructionComplete" WeightChange="4"/>
+        <RealizationEventWeightChange Name="AttackStart" WeightChange="5"/>
+		<RealizationEventWeightChange Name="Arena" WeightChange="5"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="Deactivation" DefaultWeight="0" IgnoredByDirector="true">
+        <AvailableInitiatorType>Group</AvailableInitiatorType>
+        <AvailableInitiatorType>Flotilla</AvailableInitiatorType>
+        <AvailableInitiatorType>Ship</AvailableInitiatorType>
+        <AvailableInitiatorType>ShipSection</AvailableInitiatorType>
+        <AvailableInitiatorType>Module</AvailableInitiatorType>
+        <AvailableInitiatorType>Salvo</AvailableInitiatorType>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="Destruction" DefaultWeight="0">
+        <AvailableInitiatorType>Group</AvailableInitiatorType>
+        <AvailableInitiatorType>Flotilla</AvailableInitiatorType>
+        <AvailableInitiatorType>Ship</AvailableInitiatorType>
+        <AvailableInitiatorType>ShipSection</AvailableInitiatorType>
+        <AvailableInitiatorType>Module</AvailableInitiatorType>
+        <AvailableInitiatorType>Salvo</AvailableInitiatorType>
+		<RealizationEventWeightChange Name="Destruction" WeightChange="-5"/>
+        <RealizationEventWeightChange Name="DestructionComplete" WeightChange="3"/>
+        <RealizationEventWeightChange Name="AttackStart" WeightChange="1"/>
+		<RealizationEventWeightChange Name="Arena" WeightChange="2"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="DestructionComplete" DefaultWeight="0">
+        <AvailableInitiatorType>Group</AvailableInitiatorType>
+        <AvailableInitiatorType>Flotilla</AvailableInitiatorType>
+        <AvailableInitiatorType>Ship</AvailableInitiatorType>
+        <AvailableInitiatorType>ShipSection</AvailableInitiatorType>
+        <AvailableInitiatorType>Module</AvailableInitiatorType>
+        <AvailableInitiatorType>Salvo</AvailableInitiatorType>
+        <RealizationEventWeightChange Name="DestructionComplete" WeightChange="-6"/>
+        <RealizationEventWeightChange Name="Arena" WeightChange="3"/>
+        <RealizationEventWeightChange Name="AttackStart" WeightChange="1"/>
+		<RealizationEventWeightChange Name="SquadronAttackStart" WeightChange="4"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="Arena" DefaultWeight="0">
+        <RealizationEventWeightChange Name="Arena" WeightChange="-5"/>
+        <RealizationEventWeightChange Name="AttackStart" WeightChange="3"/>
+        <RealizationEventWeightChange Name="Hit" WeightChange="1"/>
+		<RealizationEventWeightChange Name="Destruction" WeightChange="2"/>
+		<RealizationEventWeightChange Name="SquadronAttackStart" WeightChange="4"/>
+    </RealizationEventDefinition>
+
+    <RealizationEventDefinition Name="SquadronAttackStart" DefaultWeight="1">
+        <AvailableInitiatorType>Module</AvailableInitiatorType>
+        <AvailableTargetType>Ship</AvailableTargetType>
+        <AvailableTargetType>Module</AvailableTargetType>
+        <!--TO BE DEFINED-->
+        <RealizationEventWeightChange Name="AttackStart" WeightChange="-4"/>
+        <RealizationEventWeightChange Name="Hit" WeightChange="5"/>
+        <RealizationEventWeightChange Name="Destruction" WeightChange="4"/>
+        <RealizationEventWeightChange Name="DestructionComplete" WeightChange="2"/>
+        <RealizationEventWeightChange Name="Arena" WeightChange="4"/>
+    </RealizationEventDefinition>
+    
+</Datatable>

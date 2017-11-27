@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ScoreProviderListDefinition.xsd">
+
+    <!--
+    #   Target refers to ClassGauge Name in HeroUnlockGaugeDefinitions.xml
+    #   Formula can use Empire's simulation object to calculate points.
+    #   Setting a wrong Target will not log an error and won't give any points, so be careful.
+    -->
+    
+    <!-- SHIP & PROBE CONSTRUCTION -->
+
+    <ScoreProviderListDefinition Name="WarShipConstructed">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="CivilianShipConstructed">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="ProbeConstructed">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- PLANET & SYSTEM IMPROVEMENTS -->
+
+    <ScoreProviderListDefinition Name="StarSystemImprovementBuilt">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="RecipeImprovementBuilt">
+        <ScoreProvider Target="UNDEFINED">
+            <Formula>0</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="StarSystemImprovementDefenseBuilt">        
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="StarSystemImprovementShipBuilt">
+        <ScoreProvider Target="UNDEFINED">
+            <Formula>0</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <ScoreProviderListDefinition Name="StarSystemImprovementUniqueBuilt">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="StarSystemImprovementWonderBuilt">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="ImprovementScrapped">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>        
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="ShipScrapped">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>2</Formula>
+        </ScoreProvider>        
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="PlanetImprovementBuilt">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="PlanetTerraformed">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="AnomalyImproved">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- TRADING COMPANIES -->
+
+    <!-- Trading v2 -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="TradingCompanyHQPlaced">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="TradingCompanyBranchPlaced">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- LAWS -->
+
+    <ScoreProviderListDefinition Name="MilitaristLawEnacted">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="PacifistLawEnacted">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="EcologistLawEnacted">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="IndustrialistLawEnacted">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="ScientistLawEnacted">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="ReligiousLawEnacted">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- RESEARCH -->
+
+    <ScoreProviderListDefinition Name="TechnologyUnlocked">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- DIPLOMACY -->
+    
+    <ScoreProviderListDefinition Name="WarDeclarationSent">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>10</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <ScoreProviderListDefinition Name="WarDeclarationReceived">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>10</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- COLONIZATION -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="OutpostCreated">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemColonized">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemDecolonized">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="ConstellationOwned">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- CAPTURE -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemLostToInfluence">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemGainedFromInfluence">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemLostToGroundBattle">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemGainedFromGroundBattle">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="OutpostLost">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>1</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="PlanetGained">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>1</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="PlanetLost">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- EXPLORATION -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="CuriosityDiscovered">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="StarSystemNodeDiscovered">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="ConstellationFullyDiscovered">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="MarketplaceDiscovered">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="AcademyDiscovered">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>8</Formula>
+        </ScoreProvider>
+   </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SpecialNodeDiscovered">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <ScoreProviderListDefinition Name="UniquePlanetDiscovered">
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="MinorEmpireMet">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="MajorEmpireMet">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- Create one event for each GalaxyDiscoveryMilestones (defined in Registry) -->
+    <ScoreProviderListDefinition Name="GalaxyDiscoveredAt20Percents">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <ScoreProviderListDefinition Name="GalaxyDiscoveredAt50Percents">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <ScoreProviderListDefinition Name="GalaxyDiscoveredAt80Percents">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <ScoreProviderListDefinition Name="GalaxyDiscoveredAt100Percents">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- MOVEMENT -->
+   <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="OwnedFleetDockedToNode">
+        <ScoreProvider Target="UNDEFINED">
+            <Formula>3</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+   <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="OwnedNodeGotDockedTo">
+        <ScoreProvider Target="UNDEFINED">
+            <Formula>1</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- HEROES -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="HeroAssignedToFleet">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+<!-- Do not rename-->
+    <ScoreProviderListDefinition Name="HeroAssignedToSystem">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="HeroRecruited">
+        <ScoreProvider Target="UNDEFINED">
+            <Formula>0</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="HeroInjured">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- COMBAT -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="FleetHasAttackedAnEnemy">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="FleetGotAttackedByAnEnemy">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="FleetHasInterceptedAnEnemy">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>4</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>4</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="FleetGotInterceptedByAnEnemy">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>4</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="BattleWon">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="BattleLost">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="FleetDestroyed">
+    </ScoreProviderListDefinition>
+    
+    <!-- LEVEL-UP -->
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="TechnologyStageUnlocked">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>2</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="SystemLeveledUp">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdministrator">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <!-- MINOR INTERACTION -->
+
+    <ScoreProviderListDefinition Name="MinorEmpireBribed">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+        <ScoreProvider Target="HeroUnlockGaugeClassAdventurer">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <ScoreProviderListDefinition Name="MinorEmpireWarDeclared">
+        <ScoreProvider Target="HeroUnlockGaugeClassAdmiral">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <ScoreProviderListDefinition Name="MinorEmpirePeaceDeclared">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>5</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    <!-- Do not rename-->
+    <ScoreProviderListDefinition Name="MinorEmpireAssimilated">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+    
+    <!-- OTHER -->
+
+    <ScoreProviderListDefinition Name="NewPopulationInEmpire">
+        <ScoreProvider Target="HeroUnlockGaugeClassCorporate">
+            <Formula>8</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+    <ScoreProviderListDefinition Name="UNDEFINED">
+        <ScoreProvider Target="HERO UNLOCK GAUGE SOMETHING">
+            <Formula>0</Formula>
+        </ScoreProvider>
+    </ScoreProviderListDefinition>
+
+</Datatable>

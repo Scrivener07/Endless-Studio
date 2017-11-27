@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TimeBubbleDefinition.xsd">
+
+	<TimeBubbleDefinition Name="TimeBubbleAcceleratingTime" Duration="10" >
+		<SimulationDescriptorReference Name="TimeBubbleAcceleratingTime" />
+	</TimeBubbleDefinition>
+
+	<TimeBubbleDefinition Name="TimeBubbleSlowingTime" Duration="10" >
+		<SimulationDescriptorReference Name="TimeBubbleSlowingTime" />
+	</TimeBubbleDefinition>
+
+	<TimeBubbleDefinition Name="TimeBubbleFreezeTime" Duration="10" >
+		<SimulationDescriptorReference Name="TimeBubbleFreezeTime" />
+	</TimeBubbleDefinition>
+
+	<FastForwardTimeBubbleDefinition Name="TimeBubbleFastForwardTime" Duration="10" >
+		<SimulationDescriptorReference Name="TimeBubbleFastForwardTime" />
+	</FastForwardTimeBubbleDefinition>
+
+	<TimeBubbleDefinition Name="TimeBubbleBackInTime" Duration="10" >
+		<SimulationDescriptorReference Name="TimeBubbleBackInTime" />
+	</TimeBubbleDefinition>
+
+</Datatable>

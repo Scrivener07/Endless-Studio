@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+
+    <SimulationDescriptor Name="TechnologyStageScienceAndExploration1" Type="TechnologyStage">
+        <Modifier TargetProperty="LuxuryUnlockLevel"            Value="1"   Operation="Addition"                        Path="./ClassEmpire"  TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyStageScienceAndExploration2" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageScienceAndExploration3" Type="TechnologyStage">
+        <Modifier TargetProperty="LuxuryUnlockLevel"            Value="1"   Operation="Addition"                        Path="./ClassEmpire"  TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyStageScienceAndExploration4" Type="TechnologyStage">
+        <Modifier TargetProperty="LuxuryUnlockLevel"            Value="1"   Operation="Addition"                        Path="./ClassEmpire"  TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyStageScienceAndExploration5" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageScienceAndExploration6" Type="TechnologyStage"/>
+
+    <SimulationDescriptor Name="TechnologyCountScienceAndExplorationIncreaseStage1" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantScienceAndExplorationStage1UnlockedTechnologyCount"    Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"                Value="4" Operation="Addition"   TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountScienceAndExplorationIncreaseStage2" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantScienceAndExplorationStage2UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="6" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountScienceAndExplorationIncreaseStage3" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantScienceAndExplorationStage3UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="8" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountScienceAndExplorationIncreaseStage4" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantScienceAndExplorationStage4UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="10" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountScienceAndExplorationIncreaseStage5" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantScienceAndExplorationStage5UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="12" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+    
+    <!-- STAGE 1 -->
+    <SimulationDescriptor Name="TechnologyColonization1"    Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTundra" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization1Unfallen"    Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTundra" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization1TimeLords"    Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSnow" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="TechnologyScience1"    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyModuleSupportAnalyzer1"    Type="Technology"/>
+    
+
+    <SimulationDescriptor Name="TechnologyColonization2"    Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTropical" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization2Unfallen"    Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTropical" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization2TimeLords"    Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeArid" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <!-- Link -->
+
+    <SimulationDescriptor Name="TechnologyLinkColonization7Vampirilis"                  Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkColonization7Common"                  Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28Common"                               Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28Horatio"                              Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28Sophons"                              Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28TimeLords"                            Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo25TimeLords"                            Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo25SophonsTimeLords"                            Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkTo28CommonUnfallen"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28HoratioUnfallen"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28SophonsUnfallen"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28TimeLordsUnfallen"                    Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkTo28CommonTimeLords"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28HoratioTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28SophonsTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo28TimeLordsTimeLords"                   Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration1To25"               Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration1To28"               Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration2To4"                Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration2To5"                Type="TechnologyLink"/>
+
+
+    <!-- CURIOSITY EXAMPLE -->
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration2To3"    Type="TechnologyLink"/>
+        
+
+     <!-- STAGE 2 -->
+        <SimulationDescriptor Name="TechnologyColonization3"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSteppes" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization3Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSteppes" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization3TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSteppes" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization4"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeVeldt" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization4Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeVeldt" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization4TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeVeldt" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization5"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSnow" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization5Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeSnow" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization5TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTundra" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyScience2"             Type="Technology"/>
+    
+    
+    <SimulationDescriptor Name="TechnologyFreeMovement"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyExploration1"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyExploration1Alt"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyExploration1Vampirilis"   Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyExplorationModule1"               Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyModuleSupportFleetEngine1Strategic2"             Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyGlobalHappinessCommon"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyGlobalHappinessSophons"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyGlobalHappinessHoratio"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyGlobalHappinessTimeLords"         Type="Technology"/>
+    
+
+    <!-- Link -->
+    <SimulationDescriptor Name="TechnologyLinkColonization8Vampirilis"                  Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkColonization8Common"                      Type="TechnologyLink"/>
+ 
+    <SimulationDescriptor Name="TechnologyLinkTo7Common"                               Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo7Sophons"                              Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkTo7CommonUnfallen"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo7SophonsUnfallen"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo7HoratioUnfallen"                      Type="TechnologyLink"/>
+
+    <SimulationDescriptor Name="TechnologyLinkTo5CommonTimeLords"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo7CommonTimeLords"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo7HoratioTimeLords"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo5SophonsTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo7SophonsTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo6CommonTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo6TimeLordsTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo6SophonsTimeLords"                     Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkTo6HoratioTimeLords"                     Type="TechnologyLink"/>
+    
+
+    
+
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration5To9"                Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration28To6"               Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration28To7"               Type="TechnologyLink"/>
+
+
+    <!-- STAGE 3 -->
+
+    
+    <SimulationDescriptor Name="TechnologyColonization6"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeArctic" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization6Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeArctic" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization6TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeJungle" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="TechnologyColonization7"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeArid" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization7Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeArid" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization7TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeTropical" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="TechnologyColonization8"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeDesert" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization8Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeDesert" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization9"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeIce" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+        <SimulationDescriptor Name="TechnologyColonization9Unfallen"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeIce" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyColonization9TimeLords"                Type="Technology">
+        <Modifier TargetProperty="PlanetInitialFIDSPenalty"        Operation="Force"     Value="0"    Path="../ClassEmpire/ClassColonizedStarSystem/PlanetTypeBoreal" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+	<SimulationDescriptor Name="TechnologyMoonExploration"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience3"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience4"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience4Sophons"             Type="Technology"/>
+    
+    <SimulationDescriptor Name="TechnologyCuriosityLevel2"             Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyPopulation1"              Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPopulation1Horatio"       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPopulation1Alt"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFood6"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience6"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience6Vampirilis"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience7"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience7Vampirilis"           Type="Technology"/>
+    
+
+    <SimulationDescriptor Name="TechnologyAnomalyReduction1"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule1"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule1Common"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule1TimeLords"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyModuleArkScience"                       Type="Technology"/>
+
+    
+    <!-- Link -->
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration10To13"                      Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration6To11"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration6UnfallenTo11Unfallen"       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration7To12"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration8To14"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration8UnfallenTo14Unfallen"       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration9To15"                       Type="TechnologyLink"/>
+   
+    <!-- STAGE 4 -->
+    <SimulationDescriptor Name="TechnologyUnique1Sophons"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPopulation2"                          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyMovementVampirilis1"                  Type="Technology"/>
+
+
+
+    <SimulationDescriptor Name="TechnologyTerraformation1"             Type="Technology">
+        <Modifier TargetProperty="TerraformationGameplayUnlocked" Operation="Force" Value="1" Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyTerraformation1TimeLords"             Type="Technology">
+        <Modifier TargetProperty="TerraformationGameplayUnlocked" Operation="Force" Value="1" Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="TechnologyWormhole"                     Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyStellarDiscovery"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyFreeMovement2"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyEngine4"                      Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUniqueScience1"                Type="Technology"/>
+    
+    <!-- Faction Technology -->
+    <SimulationDescriptor Name="TechnologyArkModule1"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArkModule2"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArkModule3"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArkModule4"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyTimeBubble1"              Type="Technology"/>
+
+    <!-- Link -->
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration13To19"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration14To22"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration11To23"                       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration14UnfallenTo22Unfallen"       Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkScienceAndExploration11UnfallenTo23Unfallen"       Type="TechnologyLink"/>
+
+    <!-- STAGE 5 -->
+
+
+
+    <SimulationDescriptor Name="TechnologyTerraformation2"             Type="Technology">
+        <Modifier TargetProperty="TerraformationGameplayUnlocked" Operation="Force" Value="1" Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyTerraformation2TimeLords"             Type="Technology">
+        <Modifier TargetProperty="TerraformationGameplayUnlocked" Operation="Force" Value="1" Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="TechnologyAnomalyReduction2"               Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologySupportModule2"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyScience5"                       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyCuriosityLevel3"                       Type="Technology"/>
+    
+
+    <SimulationDescriptor Name="TechnologyVictoryScience"            Type="Technology">
+        <Modifier TargetProperty="VictoryTechnologyResearchedCount" Operation="Addition" Value="1" Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!-- Faction Technology -->
+    <SimulationDescriptor Name="TechnologyArkModule5"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArkModule6"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArkModule7"         Type="Technology"/>
+    
+    <SimulationDescriptor Name="TechnologyTimeBubble2"        Type="Technology"/>
+
+	<!-- CURIOSITY-->
+	<SimulationDescriptor Name="TechnologyLinkScienceAndExploration18To24"           Type="TechnologyLink"/>
+
+
+
+   
+</Datatable>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/IndustryConstructibleElement.xsd">
+
+  
+
+  
+  <!--
+
+        PLANETARY IMPROVEMENTS
+
+  <PlanetImprovementDefinition Name="Planetmprovement1" SubCategory="SubCategory">
+    <SimulationDescriptorReference Name="Planetmprovement1" />
+    <InProgressSimulationDescriptorReference Name="Planetmprovement1Queue" />
+    <Cost ResourceName="SystemProduction">20</Cost>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassPlanet/Planetmprovement1</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassPlanet/Planetmprovement1B</PathPrerequisite>
+    <NextUpgradeName>Planetmprovement1B</NextUpgradeName>
+  </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="Planetmprovement1B" SubCategory="SubCategory">
+    <SimulationDescriptorReference Name="Planetmprovement1B" />
+    <Cost ResourceName="SystemProduction">20</Cost>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassPlanet/Planetmprovement1B</PathPrerequisite>
+    <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire,TechnologyFoodB</PathPrerequisite>
+  </PlanetImprovementDefinition>
+  
+  -->
+    <!-- FOOD -->
+  <PlanetImprovementDefinition Name="PlanetImprovementFood1" SubCategory="PlanetImprovementFood" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Food" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology" >TechnologyPopulation1Alt</TechnologyPrerequisite>
+      <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyPopulation2</PathPrerequisite>
+      <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyPlanetFood3</PathPrerequisite>
+    <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementFood1,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementFood1" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementFood1"/>
+    <NextUpgradeName>PlanetImprovementFood2</NextUpgradeName>
+   </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementFood2" SubCategory="PlanetImprovementFood" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Food" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology" >TechnologyPopulation2</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyPlanetFood3</PathPrerequisite>
+    <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementFood2,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementFood2" />
+      <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementFood1"/>
+    <NextUpgradeName>PlanetImprovementFood3</NextUpgradeName>
+    </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementFood3" SubCategory="PlanetImprovementFood" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Food" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+      <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyPlanetFood3</TechnologyPrerequisite>
+      <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementFood3,!FastForwardedImprovement</PathPrerequisite>
+      <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementFood3" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementFood1"/>
+  </PlanetImprovementDefinition>
+
+    <!-- Industry -->
+  <PlanetImprovementDefinition Name="PlanetImprovementIndustry1" SubCategory="PlanetImprovementIndustry" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Industry" Weight="0.5"/>  
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyIndustry3Alt</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyStrategicDeposit3Alt</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+    <PathPrerequisite       Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementIndustry1,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementIndustry1" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementIndustry1"/>
+    <NextUpgradeName>PlanetImprovementIndustry2</NextUpgradeName>    
+  </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementIndustry2" SubCategory="PlanetImprovementIndustry" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Industry" Weight="0.5"/>  
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyStrategicDeposit3Alt</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementIndustry2,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementIndustry2" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementIndustry1"/>
+    <NextUpgradeName>PlanetImprovementIndustry3</NextUpgradeName>    
+  </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementIndustry3" SubCategory="PlanetImprovementIndustry" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Industry" Weight="0.5"/>  
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyUnknown</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementIndustry3,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementIndustry3" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementIndustry1"/>
+  </PlanetImprovementDefinition>
+    
+    
+    <!-- Science -->
+  <PlanetImprovementDefinition Name="PlanetImprovementScience1" SubCategory="PlanetImprovementScience" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Science" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyExploration1Alt</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyAnomalyReduction2</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+    <PathPrerequisite   Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementScience1,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementScience1" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementScience1"/>
+    <NextUpgradeName>PlanetImprovementScience2</NextUpgradeName>    
+  </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementScience2" SubCategory="PlanetImprovementScience" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Science" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyAnomalyReduction2</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementScience2,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementScience2" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementScience1"/>
+    <NextUpgradeName>PlanetImprovementScience3</NextUpgradeName>     
+   </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementScience3" SubCategory="PlanetImprovementScience" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Science" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyUnknown</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementScience3,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementScience3" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementScience1"/>
+  </PlanetImprovementDefinition>
+
+	<!-- Dust -->
+  <PlanetImprovementDefinition Name="PlanetImprovementDust1" SubCategory="PlanetImprovementDust" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Dust" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyDust1Alt</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyDust2Alt</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+    <PathPrerequisite       Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementDust1,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementDust1" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementDust1"/>
+    <NextUpgradeName>PlanetImprovementDust2</NextUpgradeName>   
+  </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementDust2" SubCategory="PlanetImprovementDust" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Dust" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyDust2Alt</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementDust2,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementDust2" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementDust1"/>
+    <NextUpgradeName>PlanetImprovementDust3</NextUpgradeName>    
+  </PlanetImprovementDefinition>
+
+  <PlanetImprovementDefinition Name="PlanetImprovementDust3" SubCategory="PlanetImprovementDust" ScoreProvider="PlanetImprovementBuilt">
+    <SupervisorGain Name="Dust" Weight="0.5"/>
+    <Cost ResourceName="SystemProduction">160</Cost>
+    <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyUnknown</TechnologyPrerequisite>
+    <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementDust3,!FastForwardedImprovement</PathPrerequisite>
+    <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+    <SimulationDescriptorReference Name="PlanetImprovementDust3" />
+    <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementDust1"/>
+  </PlanetImprovementDefinition>
+    
+    <!-- Influence -->
+    <PlanetImprovementDefinition Name="PlanetImprovementInfluence1" SubCategory="PlanetImprovementInfluence" ScoreProvider="PlanetImprovementBuilt">
+        <SupervisorGain Name="Prestige" Weight="0.5"/>
+        <Cost ResourceName="SystemProduction">160</Cost>
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyPlanetaryInfluence1</TechnologyPrerequisite>
+        <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyInfluenceConversion</PathPrerequisite>
+        <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyPlanetInfluence3</PathPrerequisite>
+        <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementInfluence1,!FastForwardedImprovement</PathPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+        <SimulationDescriptorReference Name="PlanetImprovementInfluence1" />
+        <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementInfluence1"/>
+        <NextUpgradeName>PlanetImprovementInfluence2</NextUpgradeName>
+    </PlanetImprovementDefinition>
+
+    <PlanetImprovementDefinition Name="PlanetImprovementInfluence2" SubCategory="PlanetImprovementInfluence" ScoreProvider="PlanetImprovementBuilt">
+        <SupervisorGain Name="Prestige" Weight="0.5"/>
+        <Cost ResourceName="SystemProduction">160</Cost>
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyInfluenceConversion</TechnologyPrerequisite>
+        <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyPlanetInfluence3</PathPrerequisite>
+        <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementInfluence2,!FastForwardedImprovement</PathPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+        <SimulationDescriptorReference Name="PlanetImprovementInfluence2" />
+        <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementInfluence1"/>
+        <NextUpgradeName>PlanetImprovementInfluence3</NextUpgradeName>       
+    </PlanetImprovementDefinition>
+
+    <PlanetImprovementDefinition Name="PlanetImprovementInfluence3" SubCategory="PlanetImprovementInfluence" ScoreProvider="PlanetImprovementBuilt">
+        <SupervisorGain Name="Prestige" Weight="0.5"/>
+        <Cost ResourceName="SystemProduction">160</Cost>
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyPlanetInfluence3</TechnologyPrerequisite>
+        <PathPrerequisite Inverted="true"  Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementInfluence3,!FastForwardedImprovement</PathPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+        <SimulationDescriptorReference Name="PlanetImprovementInfluence3" />
+        <PopulationEvent Name="PopulationPoliticalEventPlanetaryImprovementInfluence1"/>
+    </PlanetImprovementDefinition>
+
+    <!-- Resources -->
+    <PlanetImprovementDefinition Name="PlanetImprovementResource1" SubCategory="PlanetImprovementResourceExtractor" ScoreProvider="PlanetImprovementBuilt">
+        <Cost ResourceName="SystemProduction">160</Cost>
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyIndToScienceAlt</TechnologyPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyIndToScience2Alt</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">ClassColonizedPlanet/ClassResourceDeposit</PathPrerequisite>
+        <PathPrerequisite       Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementResource1,!FastForwardedImprovement</PathPrerequisite>
+        <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+        <SimulationDescriptorReference Name="PlanetImprovementResource1" />
+        <PopulationEvent Name="PopulationPoliticalEventPlanetImprovementResource1"/>
+        <NextUpgradeName>PlanetImprovementResource2</NextUpgradeName>
+    </PlanetImprovementDefinition>
+
+    <PlanetImprovementDefinition Name="PlanetImprovementResource2" SubCategory="PlanetImprovementResourceExtractor" ScoreProvider="PlanetImprovementBuilt">
+        <Cost ResourceName="SystemProduction">160</Cost>
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyIndToScience2Alt</TechnologyPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyUnknown</PathPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">ClassColonizedPlanet/ClassResourceDeposit</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementResource2,!FastForwardedImprovement</PathPrerequisite>
+        <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+        <SimulationDescriptorReference Name="PlanetImprovementResource2" />
+        <NextUpgradeName>PlanetImprovementResource3</NextUpgradeName>
+    </PlanetImprovementDefinition>
+
+    <PlanetImprovementDefinition Name="PlanetImprovementResource3" SubCategory="PlanetImprovementResourceExtractor" ScoreProvider="PlanetImprovementBuilt">
+        <Cost ResourceName="SystemProduction">160</Cost>
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyUnknown</TechnologyPrerequisite>
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">ClassColonizedPlanet/ClassResourceDeposit</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite,Discard">ClassColonizedPlanet/PlanetImprovementResource3,!FastForwardedImprovement</PathPrerequisite>
+        <PathPrerequisite   Inverted="false" Flags="Prerequisite,Discard">./ColonizedStarSystemStateColony</PathPrerequisite>
+        <SimulationDescriptorReference Name="PlanetImprovementResource3" />
+    </PlanetImprovementDefinition>
+    
+
+
+</Datatable>

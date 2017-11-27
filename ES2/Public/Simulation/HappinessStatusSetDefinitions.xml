@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/HappinessStatusSetDefinition.xsd">
+
+    <!--
+            MinValue|MaxValue = -1 // Ignore Value.
+            Example: MinValue=80, MaxValue=-1 -> Range=[85;+inf[
+    -->
+
+    <!--#################################-->
+    <!--#            EMPIRE             #-->
+    <!--#################################-->
+
+    <HappinessStatusSetDefinition Name="HappinessStatusSetEmpireDefault" Class="ClassEmpire">
+
+        <!-- In Rebellion -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire0" MinValue="-1" MaxValue="15">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire0"/>
+        </HappinessStatusDefinition>
+
+        <!-- Unhappy -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire1" MinValue="15" MaxValue="30">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire1"/>
+        </HappinessStatusDefinition>
+
+        <!-- Content -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire2" MinValue="30" MaxValue="70">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire2"/>
+        </HappinessStatusDefinition>
+
+        <!-- Happy -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire3" MinValue="70" MaxValue="85">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire3"/>
+        </HappinessStatusDefinition>
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire4" MinValue="85" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire4"/>
+        </HappinessStatusDefinition>
+
+    </HappinessStatusSetDefinition>
+
+    <!-- DUMMY TO REPLACE -->
+    <HappinessStatusSetDefinition Name="HappinessStatusSetEmpireQuestVampirilis01" Class="ClassEmpire">
+
+        <!-- In Rebellion -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire0" MinValue="-1" MaxValue="5">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire0"/>
+        </HappinessStatusDefinition>
+
+        <!-- Unhappy -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire1" MinValue="5" MaxValue="20">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire1"/>
+        </HappinessStatusDefinition>
+
+        <!-- Content -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire2" MinValue="20" MaxValue="70">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire2"/>
+        </HappinessStatusDefinition>
+
+        <!-- Happy -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire3" MinValue="70" MaxValue="85">
+             <SimulationDescriptorReference Name="HappinessStatusEmpire3"/>
+        </HappinessStatusDefinition>
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire4" MinValue="85" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire4"/>
+        </HappinessStatusDefinition>
+
+    </HappinessStatusSetDefinition>
+
+    <HappinessStatusSetDefinition Name="HappinessStatusSetEmpireQuestVampirilis02" Class="ClassEmpire">
+
+        <!-- In Rebellion -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire0" MinValue="-1" MaxValue="15">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire0"/>
+        </HappinessStatusDefinition>
+
+        <!-- Unhappy -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire1" MinValue="15" MaxValue="30">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire1"/>
+        </HappinessStatusDefinition>
+
+        <!-- Content -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire2" MinValue="30" MaxValue="60">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire2"/>
+        </HappinessStatusDefinition>
+
+        <!-- Happy -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire3" MinValue="60" MaxValue="75">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire3"/>
+        </HappinessStatusDefinition>
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusEmpire4" MinValue="75" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusEmpire4"/>
+        </HappinessStatusDefinition>
+
+    </HappinessStatusSetDefinition>
+
+    <!--#################################-->
+    <!--#          STAR SYSTEM          #-->
+    <!--#################################-->
+
+    <HappinessStatusSetDefinition Name="HappinessStatusSetStarSystemDefault" Class="ClassColonizedStarSystem">
+
+        <!-- In Rebellion -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem0" MinValue="-1" MaxValue="15">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem0"/>
+        </HappinessStatusDefinition>
+
+        <!-- Unhappy -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem1" MinValue="15" MaxValue="30">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem1"/>
+        </HappinessStatusDefinition>
+
+        <!-- Content -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem2" MinValue="30" MaxValue="70">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem2"/>
+        </HappinessStatusDefinition>
+
+        <!-- Happy -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem3" MinValue="70" MaxValue="85">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem3"/>
+        </HappinessStatusDefinition>
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem4" MinValue="85" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem4"/>
+        </HappinessStatusDefinition>
+
+    </HappinessStatusSetDefinition>
+
+    <!-- DUMMY TO REPLACE -->
+    <HappinessStatusSetDefinition Name="HappinessStatusSetStarSystemQuestVampirilis01" Class="ClassColonizedStarSystem">
+
+        <!-- In Rebellion -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem0" MinValue="-1" MaxValue="15">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem0"/>
+        </HappinessStatusDefinition>
+
+        <!-- Unhappy -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem1" MinValue="15" MaxValue="30">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem1"/>
+        </HappinessStatusDefinition>
+
+        <!-- Content -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem2" MinValue="30" MaxValue="70">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem2"/>
+        </HappinessStatusDefinition>
+
+        <!-- Happy -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem3" MinValue="70" MaxValue="85">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem3"/>
+        </HappinessStatusDefinition>
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem4" MinValue="85" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem4"/>
+        </HappinessStatusDefinition>
+
+    </HappinessStatusSetDefinition>
+
+    <!-- DUMMY TO REPLACE -->
+    <HappinessStatusSetDefinition Name="HappinessStatusSetStarSystemQuestVampirilis02" Class="ClassColonizedStarSystem">
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem4" MinValue="-1" MaxValue="5">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem4"/>
+        </HappinessStatusDefinition>
+        <!-- Unhappy -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem1" MinValue="5" MaxValue="20">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem1"/>
+        </HappinessStatusDefinition>
+
+        <!-- Content -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem2" MinValue="20" MaxValue="60">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem2"/>
+        </HappinessStatusDefinition>
+
+        <!-- Happy -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem3" MinValue="60" MaxValue="75">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem3"/>
+        </HappinessStatusDefinition>
+
+        <!-- Ecstatic -->
+        <HappinessStatusDefinition Name="HappinessStatusStarSystem4" MinValue="75" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusStarSystem4"/>
+        </HappinessStatusDefinition>
+
+    </HappinessStatusSetDefinition>
+
+    <!--#################################-->
+    <!--#          POPULATION           #-->
+    <!--#################################-->
+    <!-- #PopulationHappiness -->
+    <!--<HappinessStatusSetDefinition Name="HappinessStatusSetPopulationDefault" Class="ClassPopulationEmpire">
+        
+        -->
+    <!-- In Rebellion -->
+    <!--
+        <HappinessStatusDefinition MinValue="-1" MaxValue="15">
+            <SimulationDescriptorReference Name="HappinessStatusPopulationEmpire0"/>
+        </HappinessStatusDefinition>
+
+        -->
+    <!-- Unhappy -->
+    <!--
+        <HappinessStatusDefinition MinValue="15" MaxValue="30">
+            <SimulationDescriptorReference Name="HappinessStatusPopulationEmpire1"/>
+        </HappinessStatusDefinition>
+
+        -->
+    <!-- Content -->
+    <!--
+        <HappinessStatusDefinition MinValue="30" MaxValue="70">
+            <SimulationDescriptorReference Name="HappinessStatusPopulationEmpire2"/>
+        </HappinessStatusDefinition>
+
+        -->
+    <!-- Happy -->
+    <!--
+        <HappinessStatusDefinition MinValue="70" MaxValue="85">
+            <SimulationDescriptorReference Name="HappinessStatusPopulationEmpire3"/>
+        </HappinessStatusDefinition>
+
+        -->
+    <!-- Ecstatic -->
+    <!--
+        <HappinessStatusDefinition MinValue="85" MaxValue="-1">
+            <SimulationDescriptorReference Name="HappinessStatusPopulationEmpire4"/>
+        </HappinessStatusDefinition>
+        
+    </HappinessStatusSetDefinition>-->
+
+</Datatable>

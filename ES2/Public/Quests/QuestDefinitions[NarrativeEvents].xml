@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!--<QuestDefinition Name="TestEvent" Category="Event" SubCategory="">
+
+        --><!--============ TAGS ============--><!--
+        <Tags></Tags>
+
+        <GlobalityRules Type="Cooperative" ParticipantsVar="$Participants">
+            <ParticipantSelectionVars>
+                <Var VarName="$Participants">
+                    <From Source="$Empires">
+                        <Where>
+                            <PathPrerequisite Flags="Prerequisite">../EmpireTypeMajor,AffinitySophons</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Var>
+            </ParticipantSelectionVars>
+        
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        --><!--============ VARIABLES ============--><!--
+        <SharedVars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Participants.$HomeStarSystem"/>
+            </Var>
+            <Var VarName="$EffectTarget2">
+                <From Source="$Galaxy"/>
+            </Var>
+            <Var VarName="$RandomConstellation">
+                <Any>
+                    <From Source="$Constellations"/>
+                </Any>
+            </Var>
+            <Var VarName="$EffectTarget3">
+                <Limit Clamp="true" StartBy="First" LimitMin="0" LimitMax="2">
+                    <From Source="$RandomConstellation.$StarSystems"/>
+                </Limit>
+            </Var>
+            <Var VarName="$EffectTarget4">
+                <From Source="$Participants"/>
+            </Var>
+
+            <Var VarName="$EffectName1" StringValue="TestQuestEffect01"/>
+            <Var VarName="$EffectName2" StringValue="TestQuestEffect02"/>
+            <Var VarName="$EffectName3" StringValue="TestQuestEffect03"/>
+            <Var VarName="$EffectName4" StringValue="TestQuestEffect04"/>
+        </SharedVars>
+
+        --><!--============ PREREQUISITES ============--><!--
+
+        --><!--============ STEPS ============--><!--
+        <Steps>
+            --><!--============ STEP 1 ============-->
+                                    <!--
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <StartActions>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true">
+                                <Input_EffectName VarName="$EffectName1"/>
+                                <Input_Target VarName="$EffectTarget1"/>
+                            </Action_ApplyQuestEffect>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true" ContextLocalizationKey="%QuestActionDescriptionGalaxyContextTitle">
+                                <Input_EffectName VarName="$EffectName2"/>
+                                <Input_Target VarName="$EffectTarget2"/>
+                            </Action_ApplyQuestEffect>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true">
+                                <Input_EffectName VarName="$EffectName3"/>
+                                <Input_Target VarName="$EffectTarget3"/>
+                            </Action_ApplyQuestEffect>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true" LocalizationKey="%GameMenuQuitGameDescription">
+                                <Input_EffectName VarName="$EffectName4"/>
+                                <Input_Target VarName="$EffectTarget4"/>
+                            </Action_ApplyQuestEffect>
+                        </StartActions>
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_EffectName VarName="$EffectName1"/>
+                                <Input_Target VarName="$EffectTarget1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+
+    <QuestDefinition Name="TestChoiceEvent" Category="Event" SubCategory="">
+
+        -->
+                                    <!--============ TAGS ============--><!--
+        <Tags></Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        --><!--============ VARIABLES ============--><!--
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire.$HomeStarSystem"/>
+            </Var>
+            <Var VarName="$EffectTarget2">
+                <From Source="$Galaxy"/>
+            </Var>
+            <Var VarName="$RandomConstellation">
+                <Any>
+                    <From Source="$Constellations"/>
+                </Any>
+            </Var>
+            <Var VarName="$EffectTarget3">
+                <Limit Clamp="true" StartBy="First" LimitMin="0" LimitMax="2">
+                    <From Source="$RandomConstellation.$StarSystems"/>
+                </Limit>
+            </Var>
+
+            <Var VarName="$EffectName1" StringValue="TestQuestEffect01"/>
+            <Var VarName="$EffectName2" StringValue="TestQuestEffect02"/>
+            <Var VarName="$EffectName3" StringValue="TestQuestEffect03"/>
+        </Vars>
+
+        --><!--============ PREREQUISITES ============--><!--
+
+        --><!--============ STEPS ============--><!--
+        <Steps>
+            --><!--============ STEP 1 ============--><!--
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_1" />
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_2" />
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_3" />
+                </Choice>
+            </Step>
+
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Objective Name="Step2_1_Objective1">
+                        <StartActions>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true">
+                                <Input_EffectName VarName="$EffectName1"/>
+                                <Input_Target VarName="$EffectTarget1"/>
+                            </Action_ApplyQuestEffect>
+                        </StartActions>
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_EffectName VarName="$EffectName1"/>
+                                <Input_Target VarName="$EffectTarget1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+
+            <Step Name="Step2_2">
+                <ObjectiveSet>
+                    <Objective Name="Step2_2_Objective1">
+                        <StartActions>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true">
+                                <Input_EffectName VarName="$EffectName2"/>
+                                <Input_Target VarName="$EffectTarget2"/>
+                            </Action_ApplyQuestEffect>
+                        </StartActions>
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_EffectName VarName="$EffectName2"/>
+                                <Input_Target VarName="$EffectTarget2"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+
+            <Step Name="Step2_3">
+                <ObjectiveSet>
+                    <Objective Name="Step2_3_Objective1">
+                        <StartActions>
+                            <Action_ApplyQuestEffect LogAction="true" IsShared="true">
+                                <Input_EffectName VarName="$EffectName3"/>
+                                <Input_Target VarName="$EffectTarget3"/>
+                            </Action_ApplyQuestEffect>
+                        </StartActions>
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_EffectName VarName="$EffectName3"/>
+                                <Input_Target VarName="$EffectTarget3"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+
+        </Steps>
+
+    </QuestDefinition>
+    
+
+        <QuestDefinition Name="EventWeaponSpecialization" Category="Event" SubCategory="">
+
+        --><!--============ TAGS ============--><!--
+        <Tags>BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+      --><!--============ VARIABLES ============--><!--
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$HomeSystem">
+                <From Source="$CurrentEmpire.$HomeStarSystem"></From>
+            </Var>
+            <LocalizationVar LocalizationKey="$SystemName" Source="$HomeSystem"/>
+            <Var VarName="$KineticWeapon"   StringValue="TechnologyDefinitionWeaponSpecializationKinetic"/>
+            <Var VarName="$BeamWeapon"      StringValue="TechnologyDefinitionWeaponSpecializationBeam"/>
+            <Var VarName="$MissilesWeapon"  StringValue="TechnologyDefinitionWeaponSpecializationMissiles"/>
+            <Var VarName="$LaserWeapon"     StringValue="TechnologyDefinitionWeaponSpecializationLaser"/>
+           
+        </Vars>
+
+       --><!--============ PREREQUISITES ============--><!--
+        
+        <Prerequisites Target="$(Empire)">
+            <TechnologyPrerequisite Flags="Prerequisite">TechnologyHull2</TechnologyPrerequisite>
+        </Prerequisites>
+        
+      --><!--============ STEPS ============--><!--
+        <Steps>
+            --><!--============ STEP 1 ============--><!--
+            <Step Name="Step1">
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_1" />
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_2" />
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_3" />
+                    <ChoiceItem ObjectiveSetIndex="0"="Step2_4" />
+                </Choice>
+            </Step>
+
+            <Step Name="Step2_1">
+                <ObjectiveSet>
+                    <Objective Name="Step2_1_Objective1">
+                        <StartActions>
+                            <Action_UnlockTechnology>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_TechnologyName VarName="$KineticWeapon"/>                                
+                            </Action_UnlockTechnology>
+                        </StartActions>
+                        <Sequence>                            
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+            <Step Name="Step2_2">
+                <ObjectiveSet>
+                    <Objective Name="Step2_2_Objective1">
+                        <StartActions>
+                            <Action_UnlockTechnology>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_TechnologyName VarName="$MissilesWeapon"/>
+                            </Action_UnlockTechnology>
+                        </StartActions>
+                        <Sequence>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>              
+            </Step>
+            <Step Name="Step2_3">
+                <ObjectiveSet>
+                    <Objective Name="Step2_3_Objective1">
+                        <StartActions>
+                            <Action_UnlockTechnology>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_TechnologyName VarName="$BeamWeapon"/>
+                            </Action_UnlockTechnology>
+                        </StartActions>
+                        <Sequence>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+                
+            </Step>
+            <Step Name="Step2_4">
+                <ObjectiveSet>
+                    <Objective Name="Step2_4_Objective1">
+                        <StartActions>
+                            <Action_UnlockTechnology>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_TechnologyName VarName="$LaserWeapon"/>
+                            </Action_UnlockTechnology>
+                        </StartActions>
+                        <Sequence>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>                
+            </Step>
+        </Steps>
+
+    </QuestDefinition>-->
+
+</Datatable>

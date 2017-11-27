@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- COLD PLANETS -->
+
+    <ExtendedGuiElement Name="PlanetTypeBarren">
+        <Title>%PlanetTypeBarrenTitle</Title>
+        <Description>%PlanetTypeBarrenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeBarrenLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeBarrenPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Barren.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="PlanetTypeBarrenMultiple">
+        <Title>%PlanetTypeBarrenMultipleTitle</Title>
+        <Description>%PlanetTypeBarrenMultipleDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeBarrenLarge"/>
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeArctic">
+        <Title>%PlanetTypeArcticTitle</Title>
+        <Description>%PlanetTypeArcticDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeArcticLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeArcticPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Arctic.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeArcticMultiple">
+        <Title>%PlanetTypeArcticTitle</Title>
+        <Description>%PlanetTypeArcticDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeArcticLarge"/>
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeSnow">
+        <Title>%PlanetTypeSnowTitle</Title>
+        <Description>%PlanetTypeSnowDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeSnowLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeSnowPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Snow.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeTundra">
+        <Title>%PlanetTypeTundraTitle</Title>
+        <Description>%PlanetTypeTundraDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeTundraLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeTundraPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Tundra.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeBoreal">
+        <Title>%PlanetTypeBorealTitle</Title>
+        <Description>%PlanetTypeBorealDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeBorealLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeBorealPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Boreal.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeIce">
+        <Title>%PlanetTypeIceTitle</Title>
+        <Description>%PlanetTypeIceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeIceLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeIcePlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Ice.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <!-- TEMPERATE PLANETS -->
+
+    <ExtendedGuiElement Name="PlanetTypeSteppes">
+        <Title>%PlanetTypeSteppesTitle</Title>
+        <Description>%PlanetTypeSteppesDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeSteppesLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeSteppesPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Steppe.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeArid">
+        <Title>%PlanetTypeAridTitle</Title>
+        <Description>%PlanetTypeAridDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeAridLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeAridPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Arid.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeTerran">
+        <Title>%PlanetTypeTerranTitle</Title>
+        <Description>%PlanetTypeTerranDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeTerranLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeTerranPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Terran.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeVeldt">
+        <Title>%PlanetTypeVeldtTitle</Title>
+        <Description>%PlanetTypeVeldtDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeVeldtLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeVeldtPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Vedt.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeForest">
+        <Title>%PlanetTypeForestTitle</Title>
+        <Description>%PlanetTypeForestDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeForestLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeForestPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Forest.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeMonsoon">
+        <Title>%PlanetTypeMonsoonTitle</Title>
+        <Description>%PlanetTypeMonsoonDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeMonsoonLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeMonsoonPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Monsoon.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeOcean">
+        <Title>%PlanetTypeOceanTitle</Title>
+        <Description>%PlanetTypeOceanDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeOceanLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeOceanPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Ocean.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeSwamp">
+        <Title>%PlanetTypeSwampTitle</Title>
+        <Description>%PlanetTypeSwampDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeSwampLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeSwampPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Swamp.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <!-- HOT PLANETS -->
+
+    <ExtendedGuiElement Name="PlanetTypeDesert">
+        <Title>%PlanetTypeDesertTitle</Title>
+        <Description>%PlanetTypeDesertDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeDesertLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeDesertPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Desert.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeLava">
+        <Title>%PlanetTypeLavaTitle</Title>
+        <Description>%PlanetTypeLavaDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeLavaLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeLavaPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Lava.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeLavaMultiple">
+        <Title>%PlanetTypeLavaMultipleTitle</Title>
+        <Description>%PlanetTypeLavaMultipleDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeLavaLarge"/>
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeAsh">
+        <Title>%PlanetTypeAshTitle</Title>
+        <Description>%PlanetTypeAshDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeAshLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeAshPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Ash.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeTropical">
+        <Title>%PlanetTypeTropicalTitle</Title>
+        <Description>%PlanetTypeTropicalDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeTropicalLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeTropicalPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Tropical.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeJungle">
+        <Title>%PlanetTypeJungleTitle</Title>
+        <Description>%PlanetTypeJungleDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeJungleLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeJunglePlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Jungle.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeAtoll">
+        <Title>%PlanetTypeAtollTitle</Title>
+        <Description>%PlanetTypeAtollDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeAtollLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeAtollPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/Atoll.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <!-- GAS PLANETS -->
+    <!-- Their "Planetoid" version comes from the ImageGenerator, which names the images after the material -->
+
+    <ExtendedGuiElement Name="PlanetTypeGasFrozen">
+        <Title>%PlanetTypeGasFrozenTitle</Title>
+        <Description>%PlanetTypeGasFrozenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasFrozenLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasIcePlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/GasFrozen.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeGasCold">
+        <Title>%PlanetTypeGasColdTitle</Title>
+        <Description>%PlanetTypeGasColdDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasColdLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasAmmoniaPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/GasCold.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeGasTemperate">
+        <Title>%PlanetTypeGasTemperateTitle</Title>
+        <Description>%PlanetTypeGasTemperateDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasTemperateLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasWaterCloudsPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/GasTemperate.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeGasWarm">
+        <Title>%PlanetTypeGasWarmTitle</Title>
+        <Description>%PlanetTypeGasWarmDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasWarmLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasCloudlessPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/GasWarm.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeGasHot">
+        <Title>%PlanetTypeGasHotTitle</Title>
+        <Description>%PlanetTypeGasHotDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasHotLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasSilicatePlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/GasHot.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeGasBurning">
+        <Title>%PlanetTypeGasBurningTitle</Title>
+        <Description>%PlanetTypeGasBurningDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasBurningLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeGasAlkaliPlanetoid"/>
+        </Icons>
+        <Movies>
+            <Movie Path="Movies/Colonization/GasBurning.mp4" Type="Default" />
+        </Movies>
+    </ExtendedGuiElement>
+    
+    <!-- Destroyed planet -->
+
+    <ExtendedGuiElement Name="PlanetTypeDestroyed">
+        <Title>%PlanetTypeDestroyedTitle</Title>
+        <Description>%PlanetTypeDestroyedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeDestroyedLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeDestroyedPlanetoid"/>
+        </Icons>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PlanetTypeDestroyedGas">
+        <Title>%PlanetTypeDestroyedTitle</Title>
+        <Description>%PlanetTypeDestroyedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PlanetType"/>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Planets/PlanetTypeDestroyedGasLarge"/>
+            <Icon Size="Planetoid" Path="Bitmaps/Dynamic/Planets/PlanetTypeDestroyedGasPlanetoid"/>
+        </Icons>
+    </ExtendedGuiElement>
+
+</Datatable>

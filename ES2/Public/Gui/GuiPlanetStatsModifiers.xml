@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GuiPlanetStatsModifier.xsd">
+
+    <!--
+    // Any planet tag can have a modifier: PlanetSizeHuge, PlanetSizeGasHuge, PlanetSizeTelluricHuge, PlanetAnomaly20
+    <GuiPlanetStatsModifier Name="PlanetAnomaly20">
+        // First we apply all the Multiply, then the Add
+        <StatModifier Name="AtmosphereTemperature" Add="-10" />
+        
+        // If we find an Override modifier, we apply it and skip any modifier remaining.
+        <StatModifier Name="CoreType" Override="Stony" />
+    </GuiPlanetStatsModifier>
+    -->
+    
+    <GuiPlanetStatsModifier Name="PlanetSizeHuge">
+        <StatModifier Name="MeanRadius" Multiply="1.4" />
+        <StatModifier Name="Mass" Multiply="2" />
+        <StatModifier Name="SurfaceGravity" Multiply="1.2" />
+    </GuiPlanetStatsModifier>
+
+    <GuiPlanetStatsModifier Name="PlanetSizeLarge">
+        <StatModifier Name="MeanRadius" Multiply="1.2" />
+        <StatModifier Name="Mass" Multiply="1.5" />
+        <StatModifier Name="SurfaceGravity" Multiply="1.1" />
+    </GuiPlanetStatsModifier>
+
+    <GuiPlanetStatsModifier Name="PlanetSizeSmall">
+        <StatModifier Name="MeanRadius" Multiply="0.8" />
+        <StatModifier Name="Mass" Multiply="0.75" />
+        <StatModifier Name="SurfaceGravity" Multiply="0.9" />
+    </GuiPlanetStatsModifier>
+    
+    <GuiPlanetStatsModifier Name="PlanetSizeTiny">
+        <StatModifier Name="MeanRadius" Multiply="0.6" />
+        <StatModifier Name="Mass" Multiply="0.5" />
+        <StatModifier Name="SurfaceGravity" Multiply="0.8" />
+    </GuiPlanetStatsModifier>
+
+    <!-- Ice-10 -->
+    <GuiPlanetStatsModifier Name="PlanetAnomaly1">
+        <StatModifier Name="AtmosphereTemperature" Add="-10" />
+    </GuiPlanetStatsModifier>
+
+    <!-- Dense Atmosphere -->
+    <GuiPlanetStatsModifier Name="PlanetAnomaly14">
+        <StatModifier Name="AtmospherePressure" Multiply="1.5" />
+    </GuiPlanetStatsModifier>
+
+    <!-- Long Season -->
+    <GuiPlanetStatsModifier Name="PlanetAnomaly18">
+        <StatModifier Name="OrbitalPeriod" Multiply="2" />
+    </GuiPlanetStatsModifier>
+
+    <!-- Polar Tempests -->
+    <GuiPlanetStatsModifier Name="PlanetAnomaly20">
+        <StatModifier Name="AtmosphereTemperature" Add="-5" />
+    </GuiPlanetStatsModifier>
+
+    <!-- Low Gravity -->
+    <GuiPlanetStatsModifier Name="PlanetAnomaly36">
+        <StatModifier Name="SurfaceGravity" Add="-5" />
+    </GuiPlanetStatsModifier>
+
+    <!-- High Gravity -->
+    <GuiPlanetStatsModifier Name="PlanetAnomaly44">
+        <StatModifier Name="SurfaceGravity" Add="5" />
+    </GuiPlanetStatsModifier>
+
+</Datatable>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestTriggeringMutualExclusionDefinitions.xsd">
+
+    <!-- When a list like this one is defined, it will prevent two quests from subcategories present in the list to be triggered in the same pass -->
+    <!-- /!\ all subcategories listed here should have a corresponding QuestTriggeringProbabilityDefinition /!\ -->
+    <QuestTriggeringMutualExclusionDefinition Name="List1">
+        <SubCategory>Exploration</SubCategory>
+        <SubCategory>Random</SubCategory>
+        <SubCategory>Curiosity</SubCategory>
+        <SubCategory>PoliticalEvent</SubCategory>
+    </QuestTriggeringMutualExclusionDefinition>
+
+</Datatable>

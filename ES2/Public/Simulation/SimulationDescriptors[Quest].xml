@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="ClassQuests" Type="Class"/>
+
+    <!-- For Empires -->
+    <SimulationDescriptor Name="MetaplotLostBack" Type="Metaplot">
+        <Modifier TargetProperty="AcademyRestored"    Operation="Addition"    Value="1"/>
+        <Modifier TargetProperty="HeroPurchaseInvisible"    Operation="Addition"    Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MetaplotLostNotBack" Type="Metaplot">
+        <Modifier TargetProperty="AcademyDestroyed"    Operation="Addition"    Value="1"/>
+        <Modifier TargetProperty="HeroRecruitmentLocked"    Operation="Addition"    Value="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MetaplotWon" Type="Metaplot"/>
+    
+    <SimulationDescriptor Name="MetaplotLost" Type="Metaplot">
+        <Modifier TargetProperty="HeroPurchaseInvisible"    Operation="Addition"    Value="$(AcademyDestroyed)"/>
+        <Modifier TargetProperty="HeroRecruitmentLocked"    Operation="Addition"    Value="$(AcademyRestored)"/>
+    </SimulationDescriptor>
+    
+    <!-- For Metaplot systems-->
+    <SimulationDescriptor Name="MetaplotSystemRestored" Type="Metaplot"/>
+    <SimulationDescriptor Name="MetaplotSystemDestroyed" Type="Metaplot"/>
+
+</Datatable>

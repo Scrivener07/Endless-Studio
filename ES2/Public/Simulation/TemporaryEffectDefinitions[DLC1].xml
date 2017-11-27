@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TemporaryEffectDefinition.xsd">
+
+
+    <TemporaryEffectDefinition Name="HappinessMalusFromDiplomacyWeak" Category="HappinessMalus" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="EmpireHappinessMalusWeak"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="HappinessMalusFromDiplomacyMedium" Category="HappinessMalus" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="EmpireHappinessMalusMedium"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="ScienceIncreaseFromDiplomacyWeak" Category="ScienceIncreaseFromDiplomacy" Duration="10">
+        <Path>ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="ScienceIncreaseFromDiplomacy"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="ScienceIncreaseFromDiplomacyMedium" Category="ScienceIncreaseFromDiplomacyMedium" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="ScienceIncreaseFromDiplomacyMedium"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FIDSIncreaseFromDiplomacy" Category="FIDSIncreaseFromDiplomacy" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="FIDSIncreaseFromDiplomacy"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FoodIncreaseFromDiplomacyWeak" Category="FoodIncreaseFromDiplomacy" Duration="10">
+        <Path>ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="FoodIncreaseFromDiplomacyWeak"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FoodIncreaseOnEmpireFromDiplomacy" Category="FoodIncreaseFromDiplomacy" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="FoodIncreaseOnEmpireFromDiplomacy"/>
+    </TemporaryEffectDefinition>
+    
+    <TemporaryEffectDefinition Name="PacificConversionInvestment" Category="PacificConversionInvestment" Duration="10">
+        <Path>ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="PacificConversionInvestment"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FoodDecreaseOnHomeSystemFromDiplomacy" Category="FoodDecreaseOnHomeSystemFromDiplomacy" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="FoodDecreaseOnHomeSystemFromDiplomacy"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="EmpirePointMalusFromDemand" Category="EmpirePointMalusFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="EmpirePointMalusFromDemand"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="EmpirePointMalusFromDemand2" Category="EmpirePointMalusFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="EmpirePointMalusFromDemand2"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FIDSMalusFromDemand" Category="FIDSMalusFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="FIDSMalusFromDemand"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FIDSMalusFromDemand2" Category="FIDSMalusFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="FIDSMalusFromDemand2"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="FleetUpkeepIncreaseFromDemand" Category="FleetUpkeepIncreaseFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="FleetUpkeepIncreaseFromDemand"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="MilitaryShipCostIncreaseFromDemand" Category="MilitaryShipCostIncreaseFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="MilitaryShipCostIncreaseFromDemand"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="MilitaryShipCostIncreaseFromDemand2" Category="MilitaryShipCostIncreaseFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="MilitaryShipCostIncreaseFromDemand2"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="MilitaryShipMovementReductionFromDemand" Category="MilitaryShipMovementReductionFromDemand" Duration="10">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="MilitaryShipMovementReductionFromDemand"/>
+    </TemporaryEffectDefinition>
+
+</Datatable>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/ContractStubDefinition.xsd">
+
+    <!--
+        Allowed Prerequisites (Ask if you need more):
+            - DiplomaticRelationStatePrerequisite
+            - DiplomaticPressurePrerequisite
+    -->
+
+    <ContractStubDefinition Name="Negotiation">
+        <Option Index="0"/>
+    </ContractStubDefinition>
+    
+    <!--<ContractStubDefinition Name="AllianceUltimatum">
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite">DiplomaticRelationStateAlliance</DiplomaticRelationStatePrerequisite>
+        <Option Index="0"/>
+        <Option Index="1"> 
+            <Term Name="BreakAlliance" Provider="Receiver"/>
+        </Option>
+    </ContractStubDefinition>
+
+    <ContractStubDefinition Name="TeamDeclaration">
+        <DiplomaticRelationStatePrerequisite Flags="Prerequisite">DiplomaticRelationStateTeam</DiplomaticRelationStatePrerequisite>
+        <Option Index="0"/>
+        <Option Index="1"/>
+    </ContractStubDefinition>-->
+    
+</Datatable>

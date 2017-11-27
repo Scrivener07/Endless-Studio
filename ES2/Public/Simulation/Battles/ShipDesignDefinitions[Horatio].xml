@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/ShipDesignDefinition.xsd">
+
+    <!--*****************-->
+    <!--**** Horatio ****-->
+    <!--*****************-->
+
+    <!-- Unarmed Horatio colonizer-->
+    <ShipDesignDefinition Name="Horatio_Colonizer">
+        <HullReference Name="HullSmall03Horatio"/>
+        <ShipRoleReference Name="ShipRoleColonizer"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.DefenseSupport01">
+			<ModuleReference Name="ModuleSupportColonization1"/>
+		</SlotBinding>
+		
+		<!--N Section-->
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.DefenseSupport01">
+		</SlotBinding>
+		
+		<!--E Section-->
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.DefenseSupport01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="ShipDesignDecolonizationHoratio" Editable="false" Hidden="true">
+        <HullReference Name="HullSmall03Horatio"/>
+        <ShipRoleReference Name="ShipRoleColonizer"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.DefenseSupport01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+		
+		<!--N Section-->
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.DefenseSupport01">
+
+		</SlotBinding>
+		
+		<!--E Section-->
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.DefenseSupport01">
+            <ModuleReference Name="ModuleSupportColonization1"/>
+		</SlotBinding>
+
+    </ShipDesignDefinition>
+    
+    <ShipDesignDefinition Name="Horatio_Explorer">
+        <HullReference Name="HullSmall04Horatio"/>
+        <ShipRoleReference Name="ShipRoleExploration"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.WeaponDefenseSupport01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+		
+		<!--N Section-->
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.DefenseSupport01">
+      <ModuleReference Name="ModuleSupportExploration1"/>
+    </SlotBinding>
+		
+		<!--E Section-->
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.DefenseSupport01">
+      <ModuleReference Name="ModuleSupportExploration1"/>
+    </SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_SmallAttack"> 
+        <HullReference Name="HullSmall01Horatio"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.WeaponDefense01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.DefenseSupport01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull2Horatio</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_SmallSupport">
+        <HullReference Name="HullSmall02Horatio"/>
+        <ShipRoleReference Name="ShipRoleSmallSupport"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleWeaponMissile1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionNE.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull3Horatio</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_MediumAttack">
+        <HullReference Name="HullMedium01Horatio"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.Weapon01">
+			<ModuleReference Name="ModuleWeaponMissile1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.DefenseSupport01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull4Horatio</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_MediumDefense">
+        <HullReference Name="HullMedium02Horatio"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.WeaponDefense01">
+			<ModuleReference Name="ModuleWeaponMissile1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Horatio</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+	<ShipDesignDefinition Name="Horatio_Invader">
+		<HullReference Name="HullMedium02Horatio"/>
+		<ShipRoleReference Name="ShipRoleMediumSupport"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.WeaponDefense01">
+			<ModuleReference Name="ModuleWeaponMissile1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.Support01">
+			<ModuleReference Name="ModuleSupportCrew1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.DefenseSupport01">
+			<ModuleReference Name="ModuleSupportCrew1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+
+		<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+		<TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Horatio</TechnologyPrerequisite>
+	</ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_LargeCarrier">
+        <HullReference Name="HullLarge01Horatio"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+
+		<!--Core Section-->
+		<SlotBinding SlotName="CoreSection.LargeWeapon01">
+			<ModuleReference Name="ModuleWeaponMissile1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="CoreSection.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+		<!--N Section-->
+		<SlotBinding SlotName="SectionN.Defense01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--NE Section-->
+		<SlotBinding SlotName="SectionNE.Weapon01">
+			<ModuleReference Name="ModuleWeaponBeam1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionNE.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseHullPlating1"/>
+		</SlotBinding>
+
+		<!--E Section-->
+		<SlotBinding SlotName="SectionE.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--SE Section-->
+		<SlotBinding SlotName="SectionSE.WeaponDefenseSupport01">
+			<ModuleReference Name="ModuleWeaponLaser1"/>
+		</SlotBinding>
+
+		<!--S Section-->
+		<SlotBinding SlotName="SectionS.Support01">
+			<ModuleReference Name="ModuleSupportEngine1"/>
+		</SlotBinding>
+		<SlotBinding SlotName="SectionS.DefenseSupport01">
+			<ModuleReference Name="ModuleDefenseShield1"/>
+		</SlotBinding>
+
+	<!-- If the ShipDesign is given by the FactionTraits, it will automatically appear in the MilitaryScreen when these prerequisites are validated -->
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull6Horatio</TechnologyPrerequisite>
+    </ShipDesignDefinition>
+
+    <!--CUSTOM FACTIONS SUPPORT-->
+
+    <ShipDesignDefinition Name="Horatio_Leecher">
+        <HullReference Name="HullSmall05Horatio"/>
+        <ShipRoleReference Name="ShipRoleLeecher"/>
+
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleGrowthLogistics1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_RootCreator">
+        <HullReference Name="HullSmall06Horatio"/>
+        <ShipRoleReference Name="ShipRoleRootCreator"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportRootCreation1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <!--SE Section-->
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Horatio_Mothership" Editable="true" Hidden="false">
+        <Tags>NoBuyout</Tags>
+        <HullReference Name="HullLarge00Horatio"/>
+        <ShipRoleReference Name="ShipRoleMothership"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.SupportDefense01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleMothershipScience1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <!--E Section-->
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleMothershipLifeforce1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+</Datatable>

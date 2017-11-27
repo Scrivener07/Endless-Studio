@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationAspirationDefinition.xsd">
+
+    <!-- 
+  =======================
+  ==== DOCUMENTATION ====
+  =======================
+  
+  ==== LEXICAL REMINDER : ====
+    [TagName] : the tags (or attributes) given between [] are optional.
+    { ..., ... (*), ... } : list of constant values that can be set to an attribute. The (*) indicates the default value if the attribute is omitted.
+    [..., ...] : range of available values for numeric attributes.
+    (+) : this tag is not unique. We can add it multiple times.
+  
+  ==== DESCRIPTION : ====
+    <PopulationAspirationDefinition> : build a generic aspiration
+      Name : the name of the aspiration. It will be used to reference this aspiration in other xml files.
+      Type : the type of the aspiration { Undefined (*), Will, Desire }.
+      Class : the simulation descriptor name that define the application scope of the aspiration { ClassPopulationPlanet, ClassPopulationStarSystem, ClassPopulationEmpire }.
+      [CancelledByInvalidActivationConditions] : is this aspiration auto cancelled when its activation conditions become invalid ? { true, false (*) }.
+      
+      [<ActivationConditions>] : list of all conditions checked to activate an aspiration. No ActivationCondition means active by default.
+        <Condition> (+) : default type of condition. Prerequisite tests only.
+          <InterpreterPrerequisite> (+) : prerequisite based on a formula.
+          <PathPrerequisite> (+) : prerequisite based on a simulation path.
+          
+      <FulfillmentConditions> : list of conditions checked to fulfill an aspiration.
+        <Condition> (+) : default type of condition. Prerequisite tests only.
+          <InterpreterPrerequisite> (+) : prerequisite based on a formula.
+          <PathPrerequisite> (+) : prerequisite based on a simulation path.
+          
+      <FulfilledEffects> : list of effects to apply when the aspiration is fulfilled.
+        <Effect> (+) : default type of effect. Provides descriptors only.
+          <SimulationDescriptorReference> (+) : reference to a descriptor to apply.
+            Name : the name of the descriptor to apply as written in the corresponding xml document.
+  
+    <PopulationDesireDefinition> : build specifically a Desire. A Desire is an aspiration that needs to apply constraints on many of its attributes. Use this tag to build Desires.
+      This tag shares the same parameters as <PopulationAspirationDefinition>.
+      The attributes "Type" and "Class" will be ignored during parsing. They will be auto filled with "Desire" and "ClassPopulationEmpire".
+      <PoliticsReference> : reference to the politics linked to the desire.
+        Name : the name of the politics as written in the corresponding xml document.
+  
+  ==== EXAMPLES : ====
+  <PopulationAspirationDefinition Name="LiveOnPlanetTerran" Type="Will" Class="ClassPopulationPlanet">
+    <FulfillmentConditions>
+      <Condition>
+        <PathPrerequisite>../ClassPlanet,PlanetTypeTerran</PathPrerequisite>
+      </Condition>
+    </FulfillmentConditions>
+    <FulfilledEffects>
+      <Effect>
+        <SimulationDescriptorReference Name="ClassPopulationPlanetOnPlanetTerran"/>
+      </Effect>
+    </FulfilledEffects>
+    <UnfulfilledEffects>
+      <Effect>
+        <SimulationDescriptorReference Name="ClassPopulationPlanetNotOnPlanetTerran"/>
+      </Effect>
+    </UnfulfilledEffects>
+  </PopulationAspirationDefinition>
+  
+
+  -->
+
+
+
+
+    <!-- PARASITE AFFINITY -->
+    <!-- Since the aspiration must affect the System population growth AND the planet production, there must be 2 aspirations... -->
+  
+    <PopulationAspirationDefinition Name="GetParasitedBySystemMajorPopulation" Type="Trait" Class="ClassPopulationStarSystem">
+        <FulfillmentConditions>
+            <Condition>
+                <InterpreterPrerequisite>SumProperty(Population, @'../ClassColonizedStarSystem/ClassPopulationStarSystem,PopulationMajor', PopulationCount) gt 0</InterpreterPrerequisite>
+            </Condition>
+        </FulfillmentConditions>
+      
+        <FulfilledEffects>
+            <Effect>
+                <SimulationDescriptorReference Name="PopulationParasited"/>
+                <SimulationDescriptorReference Name="PopulationParasitedSystem"/>
+            </Effect>
+        </FulfilledEffects>
+      
+        <UnfulfilledEffects>
+            <Effect>
+          
+            </Effect>
+        </UnfulfilledEffects>
+    </PopulationAspirationDefinition>
+
+    <PopulationAspirationDefinition Name="GetParasitedByPlanetMajorPopulation" Type="Trait" Class="ClassPopulationPlanet">
+        <FulfillmentConditions>
+            <Condition>
+                <InterpreterPrerequisite>SumProperty(Population, @'../ClassColonizedPlanet/ClassPopulationPlanet,PopulationMajor', PopulationCount) gt 0</InterpreterPrerequisite>
+            </Condition>
+        </FulfillmentConditions>
+
+        <FulfilledEffects>
+            <Effect>
+                <SimulationDescriptorReference Name="PopulationParasited"/>
+                <SimulationDescriptorReference Name="PopulationParasitedPlanet"/>
+            </Effect>
+        </FulfilledEffects>
+
+        <UnfulfilledEffects>
+            <Effect>
+
+            </Effect>
+        </UnfulfilledEffects>
+    </PopulationAspirationDefinition>
+  
+    
+    <PopulationAspirationDefinition Name="ParasiteOtherSystemPopulations" Type="Trait" Class="ClassPopulationStarSystem">
+        <FulfillmentConditions>
+            <Condition>
+                <InterpreterPrerequisite>SumProperty(Population, @'../ClassColonizedStarSystem/ClassColonizedPlanet/ClassPopulationPlanet,PopulationParasited', PopulationCount) gt 0</InterpreterPrerequisite>
+            </Condition>
+        </FulfillmentConditions>
+      
+        <FulfilledEffects>
+            <Effect>
+                <SimulationDescriptorReference Name="PopulationParasiteActive"/>
+            </Effect>
+        </FulfilledEffects>
+
+        <UnfulfilledEffects>
+            <Effect>
+                <SimulationDescriptorReference Name="PopulationParasiteInactive"/>
+            </Effect>
+        </UnfulfilledEffects>
+    </PopulationAspirationDefinition>
+  
+    <PopulationAspirationDefinition Name="ParasiteOtherPlanetPopulations" Type="Trait" Class="ClassPopulationPlanet">
+        <FulfillmentConditions>
+            <Condition>
+                <InterpreterPrerequisite>SumProperty(Population, @'../ClassColonizedPlanet/ClassPopulationPlanet,PopulationParasited', PopulationCount) gt 0</InterpreterPrerequisite>
+            </Condition>
+        </FulfillmentConditions>
+
+        <FulfilledEffects>
+            <Effect>
+                <SimulationDescriptorReference Name="PopulationParasiteActive"/>
+            </Effect>
+        </FulfilledEffects>
+
+        <UnfulfilledEffects>
+            <Effect>
+                <SimulationDescriptorReference Name="PopulationParasiteInactive"/>
+            </Effect>
+        </UnfulfilledEffects>
+    </PopulationAspirationDefinition>
+</Datatable>

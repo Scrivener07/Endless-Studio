@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!--Hidden Tech, used for tutorial purposes-->
+    <SimulationDescriptor Name="TechnologyTerransStartingShipDesigns" Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyStageMilitary1" Type="TechnologyStage"/>
+    <SimulationDescriptor Name="TechnologyStageMilitary2" Type="TechnologyStage"/>
+    
+    <SimulationDescriptor Name="TechnologyStageMilitary3" Type="TechnologyStage">
+        <Modifier TargetProperty="ExperienceAtShipCreation"     Value="20"   Operation="Addition"                        Priority="3"          Path="../ClassEmpire/ClassColonizedStarSystem/ClassGarrison"   />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyStageMilitary4" Type="TechnologyStage">
+        <Modifier TargetProperty="ExperienceAtShipCreation"     Value="40"   Operation="Addition"                        Priority="3"          Path="../ClassEmpire/ClassColonizedStarSystem/ClassGarrison"   />
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="TechnologyStageMilitary5" Type="TechnologyStage">
+        <Modifier TargetProperty="ExperienceAtShipCreation"     Value="60"   Operation="Addition"                        Priority="3"          Path="../ClassEmpire/ClassColonizedStarSystem/ClassGarrison"   />
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="TechnologyCountMilitaryIncreaseStage1" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantMilitaryStage1UnlockedTechnologyCount"    Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"                Value="4" Operation="Addition"   TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountMilitaryIncreaseStage2" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantMilitaryStage2UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="6" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountMilitaryIncreaseStage3" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantMilitaryStage3UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="8" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"     />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountMilitaryIncreaseStage4" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantMilitaryStage4UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="10" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="TechnologyCountMilitaryIncreaseStage5" Type="TechnologyCount">
+        <Modifier TargetProperty="QuadrantMilitaryStage5UnlockedTechnologyCount"  Value="1"  Operation="Addition"  TooltipHidden="true"     />
+        <Modifier TargetProperty="EmpireTechScore"              Value="12" Operation="Addition"  TooltipHidden="true" Path="./ClassEmpire"      />
+    </SimulationDescriptor>
+    
+    <!-- TEST -->
+    <SimulationDescriptor Name="TechnologyPlayDeckUnlockedSlotsIncrease" Type="Technology">
+    </SimulationDescriptor>
+
+    <!-- LINKS -->
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary1Military2" Type="TechnologyLink"/>
+
+
+    <!-- STAGE 1 -->
+    <SimulationDescriptor Name="TechnologyDefense1"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefense1NonVampirilis" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefense1Vampirilis" Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyShip1" Type="Technology"/>
+    
+    
+    <!-- STAGE 2 -->
+
+    <SimulationDescriptor Name="TechnologyWeaponModule1"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule1Common"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule1Vampirilis"      Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule1"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule1Kinetic2"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule1ProjectileEnhancer1"               Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefense2"                     Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefense2Common"                     Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefense2Unfallen"                     Type="Technology"/>
+    
+
+    <SimulationDescriptor Name="TechnologyGroundBattle"                 Type="Technology"/>
+
+    <!-- LINK -->
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary3Military4"         Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary5Military6"         Type="TechnologyLink"/>
+   
+
+    <!-- STAGE 3 -->
+	<SimulationDescriptor Name="TechnologySquadronModuleFighter1" Type="Technology"/>
+	<SimulationDescriptor Name="TechnologySquadronModuleBomber1" Type="Technology"/>
+
+	<SimulationDescriptor Name="TechnologySquadronModuleFighter2" Type="Technology"/>
+	<SimulationDescriptor Name="TechnologySquadronModuleBomber2" Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyPlayDeck1"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPlayDeck2"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule2"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule3"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyWeaponModuleStrategic1"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModuleStrategic2"         Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyDefenseModuleStrategic1"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModuleStrategic2"         Type="Technology"/>
+    
+
+    <SimulationDescriptor Name="TechnologyTankUnlock" Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyArmyCap1" Type="Technology"/>
+
+
+    <SimulationDescriptor Name="TechnologyArmyCap2" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArmyCap2Cravers" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyCrew3" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyCrew3Common" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyCrew3Cravers" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyCrew3Terrans" Type="Technology"/>
+
+
+    <!-- LINK-->
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary8Military9"         Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary10Military11"         Type="TechnologyLink"/>
+   
+
+    <!-- STAGE 4 -->
+    <SimulationDescriptor Name="TechnologyPlayDeck3"                Type="Technology"/>
+	<SimulationDescriptor Name="TechnologyPlayDeck4"                Type="Technology"/>
+	<SimulationDescriptor Name="TechnologyPlayDeck7"                Type="Technology"/>
+    
+    <SimulationDescriptor Name="TechnologyWeaponModule4"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule4Common"              Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule4Terrans"             Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule2"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule2CommonHullPlating"  Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule2CommonShield"       Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule2Vampirilis"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule2Terrans"            Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModule2Unfallen"           Type="Technology"/>
+    
+
+    <SimulationDescriptor Name="TechnologyWeaponModuleStrategic3"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModuleStrategic4"         Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyDefenseModuleStrategic3"         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModuleStrategic4"         Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyPlaneUnlock" Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyPrivateers" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyShip2" Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyShip2Cravers" Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyArmyCap3" Type="Technology"/>
+
+
+    <!-- LINK-->
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary14Military15"         Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary16Military17"         Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary20Military21"         Type="TechnologyLink"/>
+    
+    <!-- STAGE 5 -->
+	<SimulationDescriptor Name="TechnologyImprovementGlobalBonusTroops"   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPlayDeck5"                Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyPlayDeck6"                Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyWeaponModuleStrategic5"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModuleStrategic6"           Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModuleStrategic5"          Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyDefenseModuleStrategic6"          Type="Technology"/>
+
+    <SimulationDescriptor Name="TechnologyArmyCap4"                         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyArmyCap4Cravers"                         Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUniqueShip1"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyUniqueDefense1"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule5"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule5Common"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologyWeaponModule5TimeLords"                    Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule6"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule6Common"                   Type="Technology"/>
+    <SimulationDescriptor Name="TechnologySupportModule6Cravers"                   Type="Technology"/>
+
+
+
+    <SimulationDescriptor Name="TechnologyVictoryMilitary" Type="Technology">
+        <Modifier TargetProperty="VictoryTechnologyResearchedCount" Operation="Addition"       Value="1"    Path="./ClassEmpire" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+
+    <!-- LINK-->
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary22Military23"         Type="TechnologyLink"/>
+    <SimulationDescriptor Name="TechnologyLinkExclusionMilitary24Military25"         Type="TechnologyLink"/>
+	
+	<!--CURIOSITY-->
+	<SimulationDescriptor Name="TechnologyLinkMilitary28To18"           Type="TechnologyLink"/>
+	<SimulationDescriptor Name="TechnologyLinkMilitary29To32"           Type="TechnologyLink"/>
+    
+</Datatable>

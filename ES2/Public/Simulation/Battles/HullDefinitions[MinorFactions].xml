@@ -1,0 +1,1422 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/HullDefinition.xsd">
+
+    <!-- ******************** -->
+    <!-- **   CasperTest   ** -->
+    <!-- ******************** -->
+
+    <!--  SLOT EXAMPLES - Undefined, Weapon, Defense
+    <Slot Name="Slot01" RestrictedModuleCategory="Undefined">
+        <Direction X="0" Z="1"/>
+    </Slot>
+    <WeaponSlot RestrictedWeaponType="Kinetic" RestrictedModuleCategory="Undefined">
+        <Direction X="0" Z="1"/>
+        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+    </WeaponSlot> 
+
+
+        <Link>
+            <SlotName>SectionW.Slot01</SlotName>
+            <SlotName>SectionE.Slot01</SlotName>
+        </Link>
+            
+            <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyShip1</TechnologyPrerequisite>
+            
+            Note that visual slot name only currently uses 'weapon modules', so a support module will simply not show up. Also adding weapons without 'visual slots' will still impact battle it is simply not visible.
+            
+            
+            Use technology pre-requisite to hide ships (See Mothership/Hero ships)
+            Edition = Ship Designer
+            Discard = Constructible list
+    -->
+
+
+    <!-- ******************** -->
+    <!-- **   INSECTOID    ** -->
+    <!-- ******************** -->
+    <!-- o Small Attack hull-->
+    <HullDefinition Name="HullSmall01MinorFactionInsectoid" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 37.5))+ 75 </CustomCost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAttack"/> 
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionInsectoid"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleSmallAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallOffense"/>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_SmallUp_00</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore08</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+						<UISlotName>UIFrontRight06</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+						<UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+                        <UISlotName>UIFrontRight05</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIBackRight07</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_SmallUp_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+
+    <!-- o Medium Attack hull -->
+    <HullDefinition Name="HullMedium01MinorFactionInsectoid" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 150))+ 300 </CustomCost>
+        <Cost Instant="true" ResourceName="Strategic1">1</Cost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullMediumAttack"/>       
+        <SimulationDescriptorReference Name="ShipSizeMedium"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionInsectoid"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+      
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleMediumAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreMediumOffense"/>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2" ShowPositionMarker="true" PositionMarkerAngle="180">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Medium_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+							<SimulationDescriptorReference Name="LargeWeapon"/>
+							<SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon01</UISlotName>
+                    </Slot>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_SmallUp_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallUp_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon02</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront03</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight05</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight06</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense02">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight07</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIRight08</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRight09</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_04</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_05</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_04</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_05</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon10</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack11</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack12</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+
+    <!-- ***************************** -->
+    <!-- **   SCAVENGERS/PIRATES    ** -->
+    <!-- ***************************** -->
+    <!-- o Small Attack hull-->
+    <HullDefinition Name="HullSmall01MinorFactionPirates" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 42.5))+ 85 </CustomCost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+        
+        <SimulationDescriptorReference Name="ClassHullSmallAttack"/>                
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionPirates"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleSmallAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallOffense"/>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon07</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIBack05</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <UISlotName>UIFrontRight01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon03</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBackRight04</UISlotName>
+                    </Slot>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+
+    <!-- o Medium Attack hull -->
+    <HullDefinition Name="HullMedium01MinorFactionPirates" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 180))+ 360 </CustomCost>
+        <Cost Instant="true" ResourceName="Strategic1">1</Cost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullMediumAttack"/>        
+        <SimulationDescriptorReference Name="ShipSizeMedium"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionPirates"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleMediumAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreMediumOffense"/>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2" ShowPositionMarker="true" PositionMarkerAngle="180">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Medium_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+							<SimulationDescriptorReference Name="LargeWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon11</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore12</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_Small_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_Small_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIFrontWeapon01</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+						<UISlotName>UIFrontRightWeapon03</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_04</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_04</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIRightWeapon05</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRight06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="1" Z="0" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight07</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight08</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2" ShowPositionMarker="true" PositionMarkerAngle="0">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Medium_Up_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+							<SimulationDescriptorReference Name="LargeWeapon"/>
+							<SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIBackWeapon09</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack10</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+
+
+    <!-- ******************** -->
+    <!-- **   PRIMITIVE    ** -->
+    <!-- ******************** -->
+    <!-- o Small Attack hull-->
+    <HullDefinition Name="HullSmall01MinorFactionPrimitive" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 27.5))+ 55 </CustomCost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAttack"/>      
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionPrimitive"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleSmallAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallOffense"/>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon05</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore06</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIFrontRightWeapon02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon03</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <!-- No slot -->
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UIBackWeapon04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+
+    <!-- o Medium Attack hull -->
+    <HullDefinition Name="HullMedium01MinorFactionPrimitive" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">(((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 0.5) * 137.5) + 275 </CustomCost>
+        <Cost Instant="true" ResourceName="Strategic1">1</Cost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullMediumAttack"/>       
+        <SimulationDescriptorReference Name="ShipSizeMedium"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionPrimitive"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleMediumAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreMediumOffense"/>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2" ShowPositionMarker="true" PositionMarkerAngle="90">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Medium_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+							<SimulationDescriptorReference Name="LargeWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon09</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore10</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore11</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UIFrontWeapon01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+						<UISlotName>UIRightWeapon03</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+						<UISlotName>UIBackRightWeapon04</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight05</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="1" Z="0" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack07</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack08</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+
+
+    <!-- ******************** -->
+    <!-- **    ADVANCED    ** -->
+    <!-- ******************** -->
+    <!-- o Small Attack hull-->
+    <HullDefinition Name="HullSmall01MinorFactionAdvanced" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 42.5))+ 85 </CustomCost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAttack"/>        
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionAdvanced"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleSmallAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreSmallOffense"/>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon04</UISlotName>
+                    </Slot>
+                    <Slot Name="Weapon02" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+						</ModuleModifier>
+						<UISlotName>UICoreWeapon03</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore05</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore06</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIRightWeapon07</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="75">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+						<UISlotName>UIBackRightWeapon08</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+
+    <!-- o Medium Attack hull -->
+    <HullDefinition Name="HullMedium01MinorFactionAdvanced" ScoreProvider="WarShipConstructed">
+
+        <CustomCost ResourceName="SystemProduction">Max(0,((Property(StockLocation, @../ClassEmpire/ClassResearch, TechnologyQuadrantMilitaryActualStageNumber, true) - 1 ) * 175))+ 350 </CustomCost>
+        <Cost Instant="true" ResourceName="Strategic1">1</Cost>
+
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard,Faction">false</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullMediumAttack"/>        
+        <SimulationDescriptorReference Name="ShipSizeMedium"/>
+        <SimulationDescriptorReference Name="ShipFactionMinorFactionAdvanced"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+        <!-- 01 is used for attackers -->
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleMediumAttacker" />
+            <SectionPattern_Eight>
+
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+					<SimulationDescriptorReference Name="ClassSectionCoreMediumOffense"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore01</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="225">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontWeapon02</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront03</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+						</LineOfSight>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+						<UISlotName>UIFrontRightWeapon04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="180">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIRightWeapon05</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRight06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+						<RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_04</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Right_05</VisualSlotName>
+						</LineOfSight>
+						<LineOfSight>
+							<Direction X="-1" Z="0"/>
+							<Angle>120</Angle>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_04</VisualSlotName>
+							<VisualSlotName>MDL_Wp_SmallSide_Left_05</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIBackRightWeapon07</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight08</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="1" Z="0" />
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight09</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2" ShowPositionMarker="true" PositionMarkerAngle="180">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+						<LineOfSight>
+							<Direction X="0" Z="1"/>
+							<Angle>270</Angle>
+							<VisualSlotName>MDL_Wp_Medium_00</VisualSlotName>
+						</LineOfSight>
+						<ModuleModifier>
+							<SimulationDescriptorReference Name="TopWeapon"/>
+							<SimulationDescriptorReference Name="LargeWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+						</ModuleModifier>
+						<UISlotName>UIBackWeapon10</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack11</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack12</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack13</UISlotName>
+                    </Slot>
+                </Section>
+
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                </Section>
+
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                </Section>
+
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    </HullDefinition>
+</Datatable>

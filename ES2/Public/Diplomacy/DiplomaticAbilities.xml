@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/DiplomaticAbilityDefinition.xsd">
+
+    <DiplomaticAbility Name="Unknown">
+        <SimulationDescriptorReference Name="DiplomacyCountUnknown" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="Truce">
+        <SimulationDescriptorReference Name="TruceCount" />
+        <DiplomaticEmpireSimulationDescriptorReference Name="MilitaristLawOverride"/>
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="War">
+        <SimulationDescriptorReference Name="DiplomacyCountWar" />
+    </DiplomaticAbility>
+    
+    <DiplomaticAbility Name="HotWar">
+        <SimulationDescriptorReference Name="DiplomacyCountWar" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="ColdWar">
+        <SimulationDescriptorReference Name="DiplomacyCountColdWar" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="Peace">
+        <SimulationDescriptorReference Name="DiplomacyCountPeace" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="ForcedPeace">
+        <DiplomaticEmpireSimulationDescriptorReference Name="MilitaristLawOverride" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="Alliance">
+        <SimulationDescriptorReference Name="DiplomacyCountAlliance" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="Team">
+        <SimulationDescriptorReference Name="DiplomacyCountTeam" />
+    </DiplomaticAbility>
+    
+    <DiplomaticAbility Name="IsKnown"/>
+    
+    <DiplomaticAbility Name="FriendlyInfluence"/>
+    
+    <DiplomaticAbility Name="HostileInfluence"/>
+    
+    <DiplomaticAbility Name="NeutralInfluence"/>
+    
+    <DiplomaticAbility Name="UnitRecovery"/>
+    
+    <DiplomaticAbility Name="Protector"/>
+    
+    <DiplomaticAbility Name="Protected"/>
+    
+    <DiplomaticAbility Name="SharedEmpireTraits"/>
+    
+    <DiplomaticAbility Name="Migration"/>
+    
+    <DiplomaticAbility Name="OpenBorders">
+        <DiplomaticPressureEffectReference Name="PressureOpenBorders" />
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="FakeCloseBorders"/>
+    
+    <DiplomaticAbility Name="AttackOwnedFleets"/>
+    
+    <DiplomaticAbility Name="AttackInfluencedFleets"/>
+    
+    <DiplomaticAbility Name="AttackOwnedSystems"/>
+
+    <DiplomaticAbility Name="AttackInfluencedSystems"/>
+
+    <DiplomaticAbility Name="SiegeOwnedSystems"/>
+
+    <DiplomaticAbility Name="SiegeInfluencedSystems"/>
+    
+    <DiplomaticAbility Name="GuardProtect"/>
+    
+    <DiplomaticAbility Name="GuardBlockade"/>
+
+    <DiplomaticAbility Name="CanIntercept"/>
+
+    <DiplomaticAbility Name="RaidSystem"/>
+
+    <DiplomaticAbility Name="DropLootOnSystem"/>
+
+    <DiplomaticAbility Name="CaptureSystemsWithInfluence"/>
+	
+	<DiplomaticAbility Name="BreakDiplomaticTributes"/>
+
+    <DiplomaticAbility Name="WarExhaustCompensation"/>
+    
+    <DiplomaticAbility Name="RelayTradingRoutes"/>
+    <DiplomaticAbility Name="BlockTradingRoutes"/>
+    
+    <DiplomaticAbility Name="ShareTradingRouteBranches">
+        <SimulationDescriptorReference Name="DiplomacyCountTradeAgreementIncrement"/>
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="VisionSharing"/>
+    <DiplomaticAbility Name="ScienceAgreement">
+        <DiplomaticEmpireSimulationDescriptorReference Name="DiplomaticAbilityEffectScienceAgreement"/>
+    </DiplomaticAbility>
+
+    <DiplomaticAbility Name="WelcomeFleetsAfterRetreat"/>
+
+    <DiplomaticAbility Name="BlockOutpostBuyout"/>
+
+    <DiplomaticAbility Name="CanDestroyOwnedPlanets"/>
+    <DiplomaticAbility Name="CanDestroyInfluencedPlanets"/>
+	
+	<DiplomaticAbility Name="CanRootStarSystems"/> <!-- PostEarly -->
+
+    <!-- For pre-made teams only (for now) -->
+    <DiplomaticAbility Name="ShareScience"/>
+
+    <DiplomaticAbility Name="AllowFactionPacts"/>
+    <DiplomaticAbility Name="FactionPact"/>
+
+    <DiplomaticAbility Name="CanRenounceAlliance"/>
+
+    <!-- Minor Factions -->
+    <DiplomaticAbility Name="NullifyRelationPointTrend"/>
+
+    <!-- Used to prevent attacks on fleets that have trespassed -->
+    <DiplomaticAbility Name="ProtectFleetsUnderInfluence"/>
+    
+    <!-- Used to prevent war when a demand is in progress -->
+    <DiplomaticAbility Name="DemandInProgress"/>
+
+</Datatable>

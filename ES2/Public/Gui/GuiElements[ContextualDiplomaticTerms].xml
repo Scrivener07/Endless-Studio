@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- ###### FILTER ###### -->
+
+    <GuiElement Name="TermTypeFilterCategoryContextualTerm">
+        <Title>%NegotiationModalWindowTermTypeFilterContextualExchangeTitle</Title>
+        <Description>%NegotiationModalWindowTermTypeFilterContextualExchangeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+        </Icons>
+    </GuiElement>
+
+    
+    
+    <!-- ###### TRESPASS ###### -->
+    <!-- This one is a ContextualDiplomaticTermGuiElement because it's a starting term: the TermTitle and TermDescription are displayed in the list in the negociation screen. -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualFleetRemoval">
+        <Title>%ContextualFleetRemovalTitle</Title>
+        <Description>%ContextualFleetRemovalDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualFleetRemovalTermTitle</TermTitle>
+        <TermDescription>%ContextualFleetRemovalTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualFleetRemovalAccept">
+        <Title>%ContextualFleetRemovalAcceptTitle</Title>
+        <Description>%ContextualFleetRemovalAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetRemovalRefuse">
+        <Title>%ContextualFleetRemovalRefuseTitle</Title>
+        <Description>%ContextualFleetRemovalRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualFleetRemovalAccepted">
+        <Title>%ContextualFleetRemovalAcceptedTitle</Title>
+        <Description>%ContextualFleetRemovalAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetRemovalAcceptedAcknowledge">
+        <Title>%ContextualFleetRemovalAcceptedAcknowledgeTitle</Title>
+        <Description>%ContextualFleetRemovalAcceptedAcknowledgeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetRemovalAcceptedRidicule">
+        <Title>%ContextualFleetRemovalAcceptedRidiculeTitle</Title>
+        <Description>%ContextualFleetRemovalAcceptedRidiculeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualFleetRemovalRefused">
+        <Title>%ContextualFleetRemovalRefusedTitle</Title>
+        <Description>%ContextualFleetRemovalRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetRemovalRefusedDenounce">
+        <Title>%ContextualFleetRemovalRefusedDenounceTitle</Title>
+        <Description>%ContextualFleetRemovalRefusedDenounceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="PoliticsReligiousMedium" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetRemovalRefusedCoverup">
+        <Title>%ContextualFleetRemovalRefusedCoverupTitle</Title>
+        <Description>%ContextualFleetRemovalRefusedCoverupDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+    
+    
+    
+    <!-- ###### COLONIZATION CONCURRENCE ###### -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualColonizationConcurrence">
+        <Title>%ContextualColonizationConcurrenceTitle</Title>
+        <Description>%ContextualColonizationConcurrenceDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualColonizationConcurrenceTermTitle</TermTitle>
+        <TermDescription>%ContextualColonizationConcurrenceTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+
+    <ContextualDiplomaticTermGuiElement Name="ContextualColonizationConcurrenceVampirilis">
+        <Title>%ContextualColonizationConcurrenceVampirilisTitle</Title>
+        <Description>%ContextualColonizationConcurrenceVampirilisDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualColonizationConcurrenceVampirilisTermTitle</TermTitle>
+        <TermDescription>%ContextualColonizationConcurrenceVampirilisTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+    
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualColonizationConcurrenceAccept">
+        <Title>%ContextualColonizationConcurrenceAcceptTitle</Title>
+        <Description>%ContextualColonizationConcurrenceAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualColonizationConcurrenceRefuse">
+        <Title>%ContextualColonizationConcurrenceRefuseTitle</Title>
+        <Description>%ContextualColonizationConcurrenceRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="PoliticsEcologistMedium" />
+        </Icons>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualColonizationConcurrenceAccepted">
+        <Title>%ContextualColonizationConcurrenceAcceptedTitle</Title>
+        <Description>%ContextualColonizationConcurrenceAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualColonizationConcurrenceAcceptedCommend">
+        <Title>%ContextualColonizationConcurrenceAcceptedCommendTitle</Title>
+        <Description>%ContextualColonizationConcurrenceAcceptedCommendDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualColonizationConcurrenceAcceptedExodus">
+        <Title>%ContextualColonizationConcurrenceAcceptedExodusTitle</Title>
+        <Description>%ContextualColonizationConcurrenceAcceptedExodusDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="PoliticsEcologistMedium" />
+        </Icons>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualColonizationConcurrenceRefused">
+        <Title>%ContextualColonizationConcurrenceRefusedTitle</Title>
+        <Description>%ContextualColonizationConcurrenceRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualColonizationConcurrenceRefusedCondemn">
+        <Title>%ContextualColonizationConcurrenceRefusedCondemnTitle</Title>
+        <Description>%ContextualColonizationConcurrenceRefusedCondemnDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualColonizationConcurrenceRefusedLeverage">
+        <Title>%ContextualColonizationConcurrenceRefusedLeverageTitle</Title>
+        <Description>%ContextualColonizationConcurrenceRefusedLeverageDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="PoliticsReligiousSmall" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+
+    
+    
+    <!-- ###### FLEET DEFENSE ###### -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualFleetDefense">
+        <Title>%ContextualFleetDefenseTitle</Title>
+        <Description>%ContextualFleetDefenseDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualFleetDefenseTermTitle</TermTitle>
+        <TermDescription>%ContextualFleetDefenseTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+        
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualFleetDefenseAccept">
+        <Title>%ContextualFleetDefenseAcceptTitle</Title>
+        <Description>%ContextualFleetDefenseAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetDefenseRefuse">
+        <Title>%ContextualFleetDefenseRefuseTitle</Title>
+        <Description>%ContextualFleetDefenseRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualFleetDefenseAccepted">
+        <Title>%ContextualFleetDefenseAcceptedTitle</Title>
+        <Description>%ContextualFleetDefenseAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetDefenseAcceptedAcknowledge">
+        <Title>%ContextualFleetDefenseAcceptedAcknowledgeTitle</Title>
+        <Description>%ContextualFleetDefenseAcceptedAcknowledgeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetDefenseAcceptedIgnore">
+        <Title>%ContextualFleetDefenseAcceptedIgnoreTitle</Title>
+        <Description>%ContextualFleetDefenseAcceptedIgnoreDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualFleetDefenseRefused">
+        <Title>%ContextualFleetDefenseRefusedTitle</Title>
+        <Description>%ContextualFleetDefenseRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetDefenseRefusedReact">
+        <Title>%ContextualFleetDefenseRefusedReactTitle</Title>
+        <Description>%ContextualFleetDefenseRefusedReactDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsIndustrialistSmall" />
+            <Icon Size="Medium" Path="PoliticsIndustrialistMedium" />
+        </Icons>
+        <Color Red="223" Green="130" Blue="105" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualFleetDefenseRefusedMobilize">
+        <Title>%ContextualFleetDefenseRefusedMobilizeTitle</Title>
+        <Description>%ContextualFleetDefenseRefusedMobilizeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+    
+    
+    
+    <!-- ###### PACIFIC CONVERSION ###### -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualPacificConversion">
+        <Title>%ContextualPacificConversionTitle</Title>
+        <Description>%ContextualPacificConversionDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualPacificConversionTermTitle</TermTitle>
+        <TermDescription>%ContextualPacificConversionTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+     
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualPacificConversionAccept">
+        <Title>%ContextualPacificConversionAcceptTitle</Title>
+        <Description>%ContextualPacificConversionAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualPacificConversionRefuse">
+        <Title>%ContextualPacificConversionRefuseTitle</Title>
+        <Description>%ContextualPacificConversionRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="PoliticsReligiousSmall" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualPacificConversionAccepted">
+        <Title>%ContextualPacificConversionAcceptedTitle</Title>
+        <Description>%ContextualPacificConversionAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualPacificConversionAcceptedCommend">
+        <Title>%ContextualPacificConversionAcceptedCommendTitle</Title>
+        <Description>%ContextualPacificConversionAcceptedCommendDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualPacificConversionAcceptedLeverage">
+        <Title>%ContextualPacificConversionAcceptedLeverageTitle</Title>
+        <Description>%ContextualPacificConversionAcceptedLeverageDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualPacificConversionRefused">
+        <Title>%ContextualPacificConversionRefusedTitle</Title>
+        <Description>%ContextualPacificConversionRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualPacificConversionRefusedExpose">
+        <Title>%ContextualPacificConversionRefusedExposeTitle</Title>
+        <Description>%ContextualPacificConversionRefusedExposeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualPacificConversionRefusedInvest">
+        <Title>%ContextualPacificConversionRefusedInvestTitle</Title>
+        <Description>%ContextualPacificConversionRefusedInvestDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="PoliticsReligiousSmall" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+    
+    
+    
+    <!-- ###### LEECHING ###### -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualLeeching">
+        <Title>%ContextualLeechingTitle</Title>
+        <Description>%ContextualLeechingDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualLeechingTermTitle</TermTitle>
+        <TermDescription>%ContextualLeechingTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+    
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualLeechingAccept">
+        <Title>%ContextualLeechingAcceptTitle</Title>
+        <Description>%ContextualLeechingAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="PoliticsEcologistMedium" />
+        </Icons>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualLeechingRefuse">
+        <Title>%ContextualLeechingRefuseTitle</Title>
+        <Description>%ContextualLeechingRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualLeechingAccepted">
+        <Title>%ContextualLeechingAcceptedTitle</Title>
+        <Description>%ContextualLeechingAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualLeechingAcceptedRecover">
+        <Title>%ContextualLeechingAcceptedRecoverTitle</Title>
+        <Description>%ContextualLeechingAcceptedRecoverDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualLeechingAcceptedRidicule">
+        <Title>%ContextualLeechingAcceptedRidiculeTitle</Title>
+        <Description>%ContextualLeechingAcceptedRidiculeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualLeechingRefused">
+        <Title>%ContextualLeechingRefusedTitle</Title>
+        <Description>%ContextualLeechingRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualLeechingRefusedDenounce">
+        <Title>%ContextualLeechingRefusedDenounceTitle</Title>
+        <Description>%ContextualLeechingRefusedDenounceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualLeechingRefusedConductExperiments">
+        <Title>%ContextualLeechingRefusedConductExperimentsTitle</Title>
+        <Description>%ContextualLeechingRefusedConductExperimentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsScientistSmall" />
+            <Icon Size="Medium" Path="PoliticsScientistMedium" />
+        </Icons>
+        <Color Red="82" Green="201" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+    
+
+    
+    <!-- ###### TIME BUBBLES ###### -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualTimeBubbles">
+        <Title>%ContextualTimeBubblesTitle</Title>
+        <Description>%ContextualTimeBubblesDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualTimeBubblesTermTitle</TermTitle>
+        <TermDescription>%ContextualTimeBubblesTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+    
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualTimeBubblesAccept">
+        <Title>%ContextualTimeBubblesAcceptTitle</Title>
+        <Description>%ContextualTimeBubblesAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualTimeBubblesRefuse">
+        <Title>%ContextualTimeBubblesRefuseTitle</Title>
+        <Description>%ContextualTimeBubblesRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsScientistSmall" />
+            <Icon Size="Medium" Path="PoliticsScientistMedium" />
+        </Icons>
+        <Color Red="82" Green="201" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualTimeBubblesAccepted">
+        <Title>%ContextualTimeBubblesAcceptedTitle</Title>
+        <Description>%ContextualTimeBubblesAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualTimeBubblesAcceptedRecover">
+        <Title>%ContextualTimeBubblesAcceptedRecoverTitle</Title>
+        <Description>%ContextualTimeBubblesAcceptedRecoverDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="PoliticsEcologistMedium" />
+        </Icons>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualTimeBubblesAcceptedRidicule">
+        <Title>%ContextualTimeBubblesAcceptedRidiculeTitle</Title>
+        <Description>%ContextualTimeBubblesAcceptedRidiculeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualTimeBubblesRefused">
+        <Title>%ContextualTimeBubblesRefusedTitle</Title>
+        <Description>%ContextualTimeBubblesRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualTimeBubblesRefusedDenounce">
+        <Title>%ContextualTimeBubblesRefusedDenounceTitle</Title>
+        <Description>%ContextualTimeBubblesRefusedDenounceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="PoliticsReligiousSmall" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualTimeBubblesRefusedConductExperiments">
+        <Title>%ContextualTimeBubblesRefusedConductExperimentsTitle</Title>
+        <Description>%ContextualTimeBubblesRefusedConductExperimentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsScientistSmall" />
+            <Icon Size="Medium" Path="PoliticsScientistMedium" />
+        </Icons>
+        <Color Red="82" Green="201" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+    
+    
+    
+    <!-- ###### ROOTING ###### -->
+    <ContextualDiplomaticTermGuiElement Name="ContextualRooting">
+        <Title>%ContextualRootingTitle</Title>
+        <Description>%ContextualRootingDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%ContextualRootingTermTitle</TermTitle>
+        <TermDescription>%ContextualRootingTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+    
+    <!-- Choices -->
+    <ExtendedGuiElement Name="ContextualRootingAccept">
+        <Title>%ContextualRootingAcceptTitle</Title>
+        <Description>%ContextualRootingAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsPacifistSmall" />
+            <Icon Size="Medium" Path="PoliticsPacifistMedium" />
+        </Icons>
+        <Color Red="165" Green="85" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualRootingRefuse">
+        <Title>%ContextualRootingRefuseTitle</Title>
+        <Description>%ContextualRootingRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="PoliticsEcologistMedium" />
+        </Icons>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualRootingAccepted">
+        <Title>%ContextualRootingAcceptedTitle</Title>
+        <Description>%ContextualRootingAcceptedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualRootingAcceptedSalvage">
+        <Title>%ContextualRootingAcceptedSalvageTitle</Title>
+        <Description>%ContextualRootingAcceptedSalvageDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsEcologistSmall" />
+            <Icon Size="Medium" Path="PoliticsEcologistMedium" />
+        </Icons>
+        <Color Red="176" Green="198" Blue="93" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualRootingAcceptedRidicule">
+        <Title>%ContextualRootingAcceptedRidiculeTitle</Title>
+        <Description>%ContextualRootingAcceptedRidiculeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="184" Green="39" Blue="56" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="ContextualRootingRefused">
+        <Title>%ContextualRootingRefusedTitle</Title>
+        <Description>%ContextualRootingRefusedDialogue</Description>
+    </GuiElement>
+
+    <ExtendedGuiElement Name="ContextualRootingRefusedDenounce">
+        <Title>%ContextualRootingRefusedDenounceTitle</Title>
+        <Description>%ContextualRootingRefusedDenounceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsReligiousSmall" />
+            <Icon Size="Medium" Path="PoliticsReligiousSmall" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ContextualRootingRefusedConductExperiments">
+        <Title>%ContextualRootingRefusedConductExperimentsTitle</Title>
+        <Description>%ContextualRootingRefusedConductExperimentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsScientistSmall" />
+            <Icon Size="Medium" Path="PoliticsScientistMedium" />
+        </Icons>
+        <Color Red="82" Green="201" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ContextualDiplomaticTermGuiElement Name="LevelOneDemand">
+        <Title>%LevelOneDemandTitle</Title>
+        <Description>%LevelOneDemandDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%LevelOneDemandTermTitle</TermTitle>
+        <TermDescription>%LevelOneDemandTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+
+    <ExtendedGuiElement Name="LevelOneDemandAccept">
+        <Title>%LevelOneDemandAcceptTitle</Title>
+        <Description>%LevelOneDemandAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsNeutralSmall" />
+            <Icon Size="Medium" Path="PoliticsNeutralMedium" />
+        </Icons>
+        <Color Red="217" Green="194" Blue="130" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="LevelOneDemandRefuse">
+        <Title>%LevelOneDemandRefuseTitle</Title>
+        <Description>%LevelOneDemandRefuseDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="PoliticsMilitaristSmall" />
+            <Icon Size="Medium" Path="PoliticsMilitaristMedium" />
+        </Icons>
+        <Color Red="82" Green="201" Blue="231" Alpha="255" />
+    </ExtendedGuiElement>
+
+    <GuiElement Name="LevelOneDemandRefused">
+        <Title>%LevelOneDemandRefusedTitle</Title>
+        <Description>%LevelOneDemandRefusedDialogue</Description>
+    </GuiElement>
+
+    <!-- Level 2 uses GuiElements from level 1 + a few on its own. -->
+    <ContextualDiplomaticTermGuiElement Name="LevelTwoDemand">
+        <Title>%LevelOneDemandTitle</Title>
+        <Description>%LevelOneDemandDialogue</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+            <Icon Size="SmallExtended" Path="CategoryContextualTermNew" />
+        </Icons>
+        <TermTitle>%LevelTwoDemandTermTitle</TermTitle>
+        <TermDescription>%LevelTwoDemandTermDescription</TermDescription>
+    </ContextualDiplomaticTermGuiElement>
+    
+    
+    <!-- DYNAMIC EFFECTS -->
+    
+    <GuiElement Name="ContextualDiplomaticTermDynamicEffect_DiplomaticTribute">
+        <Title>%DynamicEffectDiplomaticTributeTitle</Title>
+        <Description>%DynamicEffectDiplomaticTributeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="ButtonEconomyScreen" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="ContextualDiplomaticTermDynamicEffect_HeroLock">
+        <Title>%DynamicEffectHeroLockTitle</Title>
+        <Description>%DynamicEffectHeroLockDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="ShipRoleHeroSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="ContextualDiplomaticTermDynamicEffect_MinorFactionTransfer">
+        <Title>%DynamicEffectMinorFactionTransferTitle</Title>
+        <Description>%DynamicEffectMinorFactionTransferDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="headerMinorFaction" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="ContextualDiplomaticTermDynamicEffect_PopulationMigration">
+        <Title>%DynamicEffectPopulationMigrationTitle</Title>
+        <Description>%DynamicEffectPopulationMigrationDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="EmigrationSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="ContextualDiplomaticTermEffect_ApplyTemporaryEffect">
+        <Title>%DynamicEffectTemporaryEffectTitle</Title>
+        <Description>%DynamicEffectTemporaryEffectDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+        </Icons>
+    </GuiElement>
+    
+
+    <!-- CONTRIBUTION PLACEHOLDERS (DEMAND) -->
+    
+    <GuiElement Name="DynamicEffectLevelOneDemandAccept">
+        <Title>%DynamicEffectLevelOneDemandAcceptTitle</Title>
+        <Description>%DynamicEffectLevelOneDemandAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="DiplomaticTermGeneric" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="DynamicEffectLevelOneDemandPenalty">
+        <Title>%DynamicEffectLevelOneDemandPenaltyTitle</Title>
+        <Description>%DynamicEffectLevelOneDemandPenaltyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="CategoryContextualTerm" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="DynamicEffectLevelTwoDemandAccept">
+        <Title>%DynamicEffectLevelTwoDemandAcceptTitle</Title>
+        <Description>%DynamicEffectLevelTwoDemandAcceptDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="DiplomaticTermGeneric" />
+        </Icons>
+    </GuiElement>
+
+
+    <!-- EFFECTS FROM CONTEXTUAL DIPLOMACY -->
+    <GuiElement Name="HappinessMalusFromDiplomacyWeak">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="HappinessMalusFromDiplomacyMedium">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="ScienceIncreaseFromDiplomacyWeak">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="ScienceIncreaseFromDiplomacyMedium">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="FIDSIncreaseFromDiplomacy">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="FoodIncreaseFromDiplomacyWeak">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="FoodIncreaseOnEmpireFromDiplomacy">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="FoodDecreaseOnHomeSystemFromDiplomacy">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="BonusFoodFromContextualDiplomacy">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="BonusFleetDamageFromContextualDiplomacy">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="BonusFleetEvasionFromContextualDiplomacy">
+        <Title>%FromDiplomaticChoicesTitle</Title>
+    </GuiElement>
+
+</Datatable>

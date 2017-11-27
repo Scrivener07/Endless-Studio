@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PoliticsSupportStatusDefinition.xsd">
+
+    <!--
+            MinValue|MaxValue = -1 // Ignore Value.
+            Example: MinValue=0.8, MaxValue=-1 -> Range=[0.8;+inf[
+    -->
+
+    <PoliticsSupportStatusDefinition Name="PoliticsSupport0" MinValue="-1" MaxValue=".2">
+        <SimulationDescriptorReference Name="PoliticsSupport0"/>
+    </PoliticsSupportStatusDefinition>
+
+    <PoliticsSupportStatusDefinition Name="PoliticsSupport1" MinValue=".2" MaxValue=".4">
+        <SimulationDescriptorReference Name="PoliticsSupport1"/>
+    </PoliticsSupportStatusDefinition>
+
+    <PoliticsSupportStatusDefinition Name="PoliticsSupport2" MinValue=".4" MaxValue=".6">
+        <SimulationDescriptorReference Name="PoliticsSupport2"/>
+    </PoliticsSupportStatusDefinition>
+
+    <PoliticsSupportStatusDefinition Name="PoliticsSupport3" MinValue=".6" MaxValue="-1">
+        <SimulationDescriptorReference Name="PoliticsSupport3"/>
+    </PoliticsSupportStatusDefinition>
+
+</Datatable>

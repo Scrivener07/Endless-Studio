@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TemporaryEffectDefinition.xsd">
+
+    <!-- Gameplay -->
+    <TemporaryEffectDefinition Name="ColonyHappinessBoost" Category="LawEffects" Duration="5">
+        <Path>../ClassEmpire/ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="TemporaryEffectColonyHappinessBoost"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="EmpireRebellion" Category="tbd" Duration="5">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="TemporaryEffectEmpireRebellion"/>
+    </TemporaryEffectDefinition>
+	
+	<TemporaryEffectDefinition Name="SacrificeGuardianHappiness" Category="SacrificeGuardianHappiness" Duration="10">
+        <Path>../ClassEmpire</Path>
+        <SimulationDescriptorReference Name="TemporaryEffectSacrificeGuardianHappiness"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="SacrificeSlaveEffect" Category="SacrificeSlaveEffect" Duration="10">
+        <Path>ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="TemporaryEffectSacrificeSlaveEffect"/>
+    </TemporaryEffectDefinition>
+    
+    <TemporaryEffectDefinition Name="StarSystemImprovementWonder1TemporaryEffect" Category="StarSystemImprovementWonder1" Duration="20">
+        <Path>../ClassEmpire</Path>
+        <SimulationDescriptorReference Name="TemporaryEffectStarSystemImprovementWonder1"/>
+    </TemporaryEffectDefinition>
+
+	<!-- Minor Relation -->
+	<TemporaryEffectMinorRelationDefinition Name="MinorRelationWithMajorCuriosityRevealed" Category="MinorRelationWithMajor" Duration="10">
+        <Path>ClassMinorRelationWithMajor</Path>
+        <SimulationDescriptorReference Name="MinorRelationWithMajorCuriosityRevealed"/>
+    </TemporaryEffectMinorRelationDefinition>
+	
+	<TemporaryEffectMinorRelationDefinition Name="MinorRelationWithMajorPraise" Category="MinorRelationWithMajor" Duration="10" StopOnWar="true">
+        <Path>ClassMinorRelationWithMajor</Path>
+        <SimulationDescriptorReference Name="MinorRelationWithMajorPraise"/>
+    </TemporaryEffectMinorRelationDefinition>
+	
+	<TemporaryEffectMinorRelationDefinition Name="MinorRelationWithMajorDevelopmentGrants" Category="MinorRelationWithMajor" Duration="10">
+        <Path>ClassMinorRelationWithMajor</Path>
+        <SimulationDescriptorReference Name="MinorRelationWithMajorDevelopmentGrants"/>
+    </TemporaryEffectMinorRelationDefinition>
+    
+    <!-- Debug -->
+    <TemporaryEffectDefinition Name="GoldenAgeSophons" Category="GoldenAge" Duration="5">
+        <Path>.../ClassEmpire,EmpireTypeMajor,AffinitySophons</Path>
+        <SimulationDescriptorReference Name="GoldenAgeSophons1"/>
+        <SimulationDescriptorReference Name="GoldenAgeSophons2"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="ForceNegativeGrowth" Category="Cheat" Duration="100">
+        <Path>ClassEmpire,EmpireTypeMajor/ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="ForceNegativeGrowth"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="HappySophons" Category="Cheat" Duration="100">
+        <Path>ClassEmpire,EmpireTypeMajor/ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="CheatHappySophons"/>
+    </TemporaryEffectDefinition>
+
+    <TemporaryEffectDefinition Name="SadSophons" Category="Cheat" Duration="100">
+        <Path>ClassEmpire,EmpireTypeMajor/ClassColonizedStarSystem</Path>
+        <SimulationDescriptorReference Name="CheatSadSophons"/>
+    </TemporaryEffectDefinition>
+    
+    <TemporaryEffectDefinition Name="EmpirePointBonus10" Category="Cheat" Duration="100">
+        <Path>ClassEmpire,EmpireTypeMajor</Path>
+        <SimulationDescriptorReference Name="CheatEmpirePointBonus10"/>
+    </TemporaryEffectDefinition>
+    
+</Datatable>

@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TutorialDefinition.xsd">
+
+    <!--######################################
+        ########  SHIPDESIGN  GAMEPLAY   #####
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_PopulationGrowth01" Category="Tutorial" SubCategory="ADVANCED" Priority="20" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,EventPopulationBoostAvailable</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$AffinityName" IsGlobal="true">
+                <From Source="$GameEvent.$PopulationAffinity"/>
+            </Var>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_PopulationGrowth02"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+        <Prerequisites Target="$(Empire)">            
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Senate01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Laws01" QuestState="InProgress"/>
+        </Prerequisites>
+        
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerTutorial>
+                            <Input_TutorialName VarName="$TutorialName01"/>
+                        </Action_TriggerTutorial>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TutorialName01"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>
+                            </Parallel>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>GalaxyViewLevel_GalaxyOverview</StartKey>
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_PopulationGrowth02" Category="Tutorial" SubCategory="ADVANCED" Priority="40" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_PopulationGrowth03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Senate01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Laws01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Laws02" QuestState="InProgress"/>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerTutorial>
+                            <Input_TutorialName VarName="$TutorialName01"/>
+                        </Action_TriggerTutorial>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TutorialName01"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>
+                            </Parallel>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>SenateScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_PopulationGrowth03" Category="Tutorial" SubCategory="ADVANCED" Priority="260" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$AffinityName" IsGlobal="true" SendToClient="true"/>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_PopulationGrowth03"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_PopulationBoostApplied Initiator="Empire"/>
+                                </Sequence>
+                            </Parallel>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>PopulationModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_Senate01" Category="Tutorial" SubCategory="EXPERT" Priority="5" MinimumTutorialLevel="Expert" Layer="AboveScreens">
+     
+            <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <InterpretedVar VarName="$ElectionTurnsCount" Target="$(Empire)">
+                <Expression>Property(Context, @'ClassEmpire/ClassSenate', TurnsBetweenElections)</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$DurationTurn" Source="$ElectionTurnsCount"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @'ClassEmpire', EmpireEmpirePointStock) - Property(Context, @'ClassEmpire', NetEmpireEmpirePoint)) lt 5</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_PoliticalEvent06" QuestState="InProgress"></QuestStatePrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Laws01" QuestState="InProgress"></QuestStatePrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Laws02" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+        
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>SenateScreen</StartKey>
+        <VisibilityKey>SenateScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <!--<TutorialDefinition Name="Tutorial_Senate04" Category="Tutorial" SubCategory="ADVANCED" Priority="6" MinimumTutorialLevel="Advanced">
+
+        --><!-- Not hidden --><!--
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        --><!--#### PREREQUISITES ####--><!--
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">(Property(Context, @'ClassEmpire', EmpireEmpirePointStock) - Property(Context, @'ClassEmpire', NetEmpireEmpirePoint)) lt 5</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Laws03" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>LawsManagementModalWindow</StartKey>
+        <VisibilityKey>LawsManagementModalWindow</VisibilityKey>
+    </TutorialDefinition>-->
+  
+    
+    <!--######################################
+        ########  SHIPDESIGN  GAMEPLAY   #####
+        ######################################-->
+
+    <TutorialDefinition Name="Tutorial_ShipDesign01" Category="Tutorial" SubCategory="EXPERT" Priority="1" MinimumTutorialLevel="Expert" Layer="AboveScreens">    
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$TutorialName01" StringValue="Tutorial_TimeLords02"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Inverted="true" Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+            <QuestStatePrerequisite Inverted="true" QuestDefinitionName="Tutorial_Laws01" QuestState="InProgress"/>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>MilitaryScreen</StartKey>
+        <VisibilityKey>MilitaryScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign02" Category="Tutorial" SubCategory="ADVANCED" Priority="4" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$TutorialName01" StringValue="Tutorial_TimeLords02"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Inverted="true" Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+        </Prerequisites>
+        
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>ShipDesignModalWindow</StartKey>
+        <VisibilityKey>ShipDesignModalWindow</VisibilityKey>
+        <VisibilityKey>MilitaryScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign03" Category="Tutorial" SubCategory="ADVANCED" Priority="1" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$TutorialName01" StringValue="Tutorial_ShipDesign04"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">
+                Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull3')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_ShipDesign04" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_ShipDesign04" QuestState="InProgress"/>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                
+                <StartActions>
+                    <Action_SetForceGuiDisable Key="ControlBanner_MilitaryScreenToggle" ForceDisable="false"/>
+                </StartActions>
+                
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName01"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign04" Category="Tutorial" SubCategory="ADVANCED" Priority="2" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$TutorialName01" StringValue="Tutorial_ShipDesign05Bis"/>
+            <Var VarName="$TutorialName02" StringValue="Tutorial_ShipDesign05"/>
+            <Var VarName="$Button01"       StringValue="MilitaryScreenClickEdit"/>
+            <Var VarName="$Button02"       StringValue="MilitaryScreenClickCreate"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">
+                Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull3')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5')
+                or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')
+            </InterpreterPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_SimpleActionExecuted>
+                                    <Input_ActionName VarName="$Button01"/>
+                                </Decorator_Tutorial_SimpleActionExecuted>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_SimpleActionExecuted>
+                                    <Input_ActionName VarName="$Button02"/>
+                                </Decorator_Tutorial_SimpleActionExecuted>
+                                <Action_ChooseOutcome Name="Outcome2"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_ShipDesign05Bis</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                        <Outcome Name="Outcome2">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_ShipDesign05</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <StartKey>MilitaryScreen</StartKey>
+        <VisibilityKey>MilitaryScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign05Bis" Category="Tutorial" SubCategory="ADVANCED" Priority="2" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_ShipDesign05Bis</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>                     
+            <Var VarName="$Button01"       StringValue="MilitaryScreenClickCreate"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_SimpleActionExecuted>
+                                    <Input_ActionName VarName="$Button01"/>
+                                </Decorator_Tutorial_SimpleActionExecuted>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>                           
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_ShipDesign05</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>MilitaryScreen</VisibilityKey>
+        <VisibilityKey>ShipDesignModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign05" Category="Tutorial" SubCategory="ADVANCED" Priority="2" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_ShipDesign05</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Button01"       StringValue="ShipDesignEditionSelectHull"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_SimpleActionExecuted>
+                                    <Input_ActionName VarName="$Button01"/>
+                                </Decorator_Tutorial_SimpleActionExecuted>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_ShipDesign06</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+       
+        <VisibilityKey>ShipDesignModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign06" Category="Tutorial" SubCategory="ADVANCED" Priority="2" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_ShipDesign06</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Button01"       StringValue="ShipDesignEditionPlaceModule"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_SimpleActionExecuted>
+                                    <Input_ActionName VarName="$Button01"/>
+                                </Decorator_Tutorial_SimpleActionExecuted>
+                                <Action_ChooseOutcome Name="Outcome1"/>
+                            </Sequence>
+                        </Parallel>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>Tutorial_ShipDesign08</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>ShipDesignModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign08" Category="Tutorial" SubCategory="ADVANCED" Priority="2" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,Tutorial_ShipDesign08</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_ShipDesign13"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="First">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName01"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>                       
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <VisibilityKey>ShipDesignModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_ShipDesign13" Category="Tutorial" SubCategory="ADVANCED" Priority="2" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$Button01"       StringValue="MilitaryScreenClickEdit"/>
+        </Vars>
+
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_ShipDesign08" QuestState="InProgress"></QuestStatePrerequisite>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                      <Parallel CompletionPolicy="Any">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                        <Sequence>
+                          <Decorator_Tutorial_SimpleActionExecuted>
+                            <Input_ActionName VarName="$Button01"/>
+                          </Decorator_Tutorial_SimpleActionExecuted>
+                        </Sequence>
+                      </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+
+        <StartKey>MilitaryScreen</StartKey>
+        <VisibilityKey>MilitaryScreen</VisibilityKey>
+    </TutorialDefinition>
+
+   <TutorialDefinition Name="Tutorial_WarStatus01" Category="Tutorial" SubCategory="ADVANCED" Priority="400" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+           
+            <Var VarName="$AtWarEmpire">
+                <Any>
+                    <From Source="$Empires">
+                        <Where>
+                            <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassDiplomacy/PressureWarTarget,ClassDiplomaticEmpire</PathPrerequisite>
+                        </Where>
+                    </From>
+                </Any>
+            </Var>
+           
+            <LocalizationVar LocalizationKey="$AtWarEmpireName" Source="$AtWarEmpire"/>
+
+            <Var VarName="$TutorialName" StringValue="Tutorial_WarExhaust01"/>
+        </Vars>
+
+       <!--#### PREREQUISITES ####-->
+       <Prerequisites Target="$(Empire)">
+           <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassEmpire, WarCount) ge 1</InterpreterPrerequisite>
+           <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_GroundBattle05" QuestState="InProgress"/>
+           <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Trading01" QuestState="InProgress"/>
+           <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Probe01" QuestState="InProgress"/>
+           <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_FreeMove01" QuestState="InProgress"/>
+           <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_ShipDesign01" QuestState="InProgress"/>
+       </Prerequisites>
+       
+         <Steps>             
+            <Step Name="Step1">               
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Parallel CompletionPolicy="Any">
+                            <Sequence>
+                                <Decorator_BeginTurn/>
+                            </Sequence>
+                            <Sequence>
+                                <Decorator_Tutorial_DisplayedTutorialChanged>
+                                    <Input_TutorialName VarName="$TutorialName"/>
+                                </Decorator_Tutorial_DisplayedTutorialChanged>
+                            </Sequence>
+                        </Parallel>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+      
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+        <VisibilityKey>DiplomacyScreen</VisibilityKey>
+    </TutorialDefinition>
+
+    <TutorialDefinition Name="Tutorial_WarExhaust01" Category="Tutorial" SubCategory="ADVANCED" Priority="320" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @ClassEmpire, WarCount) ge 1</InterpreterPrerequisite>            
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>NegotiationModalWindow</StartKey>
+        <VisibilityKey>NegotiationModalWindow</VisibilityKey>
+    </TutorialDefinition>
+    
+     <TutorialDefinition Name="Tutorial_ModuleHelp01" Category="Tutorial" SubCategory="ADVANCED" Priority="4" MinimumTutorialLevel="Advanced" Layer="UnderScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$TutorialName01" StringValue="Tutorial_TimeLords02"/>
+
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <InterpreterPrerequisite Inverted="true" Flags="Prerequisite">Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull2') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull3') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull4') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull5') or Path(Context,@'ClassEmpire/ClassResearch,TechnologyHull6')</InterpreterPrerequisite>
+        </Prerequisites>
+         
+         <!--For Beginner Level only-->
+         <Prerequisites Target="$(Empire)">
+             <InterpreterPrerequisite Flags="Prerequisite">Property(Context, @'ClassEmpire', TotalTechnology) ge 6</InterpreterPrerequisite>
+         </Prerequisites>
+         
+         <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <VisibilityKey>GalaxyViewLevel_GalaxyOverview</VisibilityKey>
+    </TutorialDefinition>
+
+
+    <TutorialDefinition Name="Tutorial_Tactics01" Category="Tutorial" SubCategory="Advanced" Priority="202" MinimumTutorialLevel="Advanced" Layer="AboveScreens">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_Tactics02"/>
+        </Vars>
+
+        <!--#### PREREQUISITES ####-->
+
+        <Prerequisites Target="$(Empire)">
+            <QuestStatePrerequisite Flags="Prerequisite" QuestDefinitionName="Tutorial_Battle04" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Tactics02" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_Tactics02" QuestState="Completed"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_ManPower01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_ManPower02" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_GroundBattle01" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_GroundBattle02" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_GroundBattle03" QuestState="InProgress"/>
+            <QuestStatePrerequisite Flags="Prerequisite" Inverted="true" QuestDefinitionName="Tutorial_GroundBattle04" QuestState="InProgress"/>
+        </Prerequisites>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Parallel CompletionPolicy="First">
+                                <Sequence>
+                                    <Decorator_BeginTurn/>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_Tutorial_DisplayedTutorialChanged>
+                                        <Input_TutorialName VarName="$TutorialName01"/>
+                                    </Decorator_Tutorial_DisplayedTutorialChanged>
+                                </Sequence>
+                            </Parallel>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>MilitaryScreen</StartKey>
+        <VisibilityKey>MilitaryScreen</VisibilityKey>
+    </TutorialDefinition>
+
+
+    <TutorialDefinition Name="Tutorial_Tactics02" Category="Tutorial" SubCategory="Advanced" Priority="202" MinimumTutorialLevel="Advanced" Layer="AboveModalWindows">
+
+        <!-- Not hidden -->
+        <Tags>Hidden,TutorialKeysChanged</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0" NumberOfOccurrencesPerEmpire="1" NumberOfConcurrentInstances="0"/>
+
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$TutorialName01" StringValue="Tutorial_Tactics02"/>
+            
+            <InterpretedVar VarName="$TacticsCountdown" Target="$(Empire)">
+                <Expression>Property(Context, @../EmpireTypeMajor,GameSpeedMultiplier,true) * 20</Expression>
+            </InterpretedVar>
+
+            <LocalizationVar LocalizationKey="$Cooldown" Source="$TacticsCountdown"/>
+        </Vars>
+
+        <Steps>
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+        <StartKey>PlayCardDeckModalWindow</StartKey>
+        <VisibilityKey>PlayCardDeckModalWindow</VisibilityKey>
+    </TutorialDefinition>
+
+</Datatable>

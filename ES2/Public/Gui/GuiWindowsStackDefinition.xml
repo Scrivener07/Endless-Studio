@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiWindowsStackDefinition.xsd">
+
+    <GuiWindowsStackDefinition Name="LabelRenderer">
+        <Window PrefabPath="Prefabs/Gui/Labels/ProbeLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/StarSystemLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/ConstellationLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/PlanetLabelsWindow_SystemManagement" />
+        <Window PrefabPath="Prefabs/Gui/Labels/PlanetLabelsWindow_SystemOrbital" />
+        <Window PrefabPath="Prefabs/Gui/Labels/PlanetLabelsWindow_SystemDiscovery" />
+        <Window PrefabPath="Prefabs/Gui/Labels/DockLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/FleetLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/ScanNodeLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/HangarLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Labels/CoordinationRequestLabelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Screens/GameScreenBackgroundWindow" />
+    </GuiWindowsStackDefinition>
+
+    <GuiWindowsStackDefinition Name="BackgroundRenderer">
+        <Window PrefabPath="Prefabs/Gui/OutGameScreens/MainMenuScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutGameScreens/NewGameScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutGameScreens/JoinGameScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutGameScreens/ModdingScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutGameScreens/CreditScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutGameScreens/ResourcesExportScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Screens/VictoryScreen" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Screens/EmpireScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/SenateScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/EconomyScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/NarrativeScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/AcademyScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/DiplomacyScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/MilitaryScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/TechnologyScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/BattleScreen" />
+    </GuiWindowsStackDefinition>
+
+    <GuiWindowsStackDefinition Name="ForegroundRenderer">
+        <Window PrefabPath="Prefabs/Gui/Screens/FleetsScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/StarSystemScreen" />
+        <Window PrefabPath="Prefabs/Gui/Screens/PlanetScreen" />
+        <Window PrefabPath="Prefabs/Gui/Windows/SidePanelsWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/EndTurnWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/GameOverlayWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/PinnedQuestWindow" />
+    </GuiWindowsStackDefinition>
+
+    <GuiWindowsStackDefinition Name="NotificationsRenderer">
+        <Window PrefabPath="Prefabs/Gui/Notifications/AcademyDiscoveredNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/AllianceUpdateNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/BailiffReportNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/BattleReportNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/BattleSetupNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ConstructionCompletedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ConstructionQueueEmptyNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ContextualDiplomaticExchangeUpdateNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/CuriosityDiscoveredNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/DiplomaticInteractionNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/DiplomaticRelationChangeNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ElectionSurveyNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/EventOnFleetNotificationWindow"  />
+        <Window PrefabPath="Prefabs/Gui/Notifications/EmpireIntroductionNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/FactionSwitchedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ForceTruceProposedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ForceTruceAnsweredNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/GroundBattleSetupNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/GroundBattleReportNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/HeroRecruitmentNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/HeroUpdateNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/InformationNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/LawCancelledNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/LawBaseNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/LuxuryDiscoveredNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/LostRootsConnectivityNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/MinorEmpireMetNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/NarrativeEventBegunNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/NarrativeEventCompletedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/OutpostToColonyNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/PopulationChangeNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/PropagandaStartedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/QuestBegunNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/QuestCompletedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/DeedCompletedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/SpecialNodeEventNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/TechnologyUnlockedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/TechnologyStageUnlockedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/TechnologyNeededNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/TradingNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/TradingBlockadeNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/PopulationCollectionThresholdReachedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/PlayDeckFreeCostNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/PlayDeckNewSlotNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/PlanetDestroyedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/NewDownloadableContentNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Notifications/ConstellationEventNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/NotificationItemsWindow" />
+    </GuiWindowsStackDefinition>
+    
+    <GuiWindowsStackDefinition Name="ScanViewRenderer">
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/DiplomacyScanViewWindow"/>
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/TradeScanViewWindow"/>
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/EconomyScanViewWindow"/>
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/StarSystemOverviewScanViewWindow"/>
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/StarSystemManagementScanViewWindow"/>
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/PlanetScanViewWindow"/>
+        <Window PrefabPath="Prefabs/Gui/ScanViewWindows/BattleScanViewWindow" />
+    </GuiWindowsStackDefinition>
+
+    <GuiWindowsStackDefinition Name="ModalRenderer">
+        <Window PrefabPath="Prefabs/Gui/OutgameModalWindows/AdvancedSettingsModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutgameModalWindows/FactionChoiceModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutgameModalWindows/OutGameLoadModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/OutGameModalWindows/DLCModalWindow" OutGame="true"/>
+        <Window PrefabPath="Prefabs/Gui/OutGameModalWindows/JournalModalWindow" OutGame="true"/>
+        <!-- This notification can be either a regular notification or a modal which has to display above all else -->
+        <Window PrefabPath="Prefabs/Gui/Notifications/EmpireEliminatedNotificationWindow" />
+        <Window PrefabPath="Prefabs/Gui/Screens/GroundBattleScreen" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/AdvancedEncounterPlayModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/AdvancedEncounterReportModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/ImprovementsManagementModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/GovernmentModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/HeroSelectionModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/HeroCompleteListModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/LawsManagementModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/PopulationModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/MinorFactionDiplomacyModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/NegotiationModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/RecipeCreationModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/ShipDesignModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/SystemSelectionModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/FleetSelectionModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/TargetSelectionModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/HeroInspectionModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/RenameModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/VictoryAchievedModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/ElectionModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/CutsceneModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/ColonizationCutsceneModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/GroundTroopManagementModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/PlayCardDeckModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/StarSystemPopulationModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/TutorialSelectionModalWindow" OutGame="true"/>
+        
+        <!-- Debug/Cheat Windows -->
+        <Window PrefabPath="Prefabs/Gui/Debug/TestLocKeyDebugWindow" OutGame="true" DebugWindow="true" />
+    </GuiWindowsStackDefinition>
+
+    <GuiWindowsStackDefinition Name="OverlayRenderer">
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/GameMenuModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/OptionsModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/LoadSaveModalWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/InGameChatWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/DragDropWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/TutorialWindow" />
+        <Window PrefabPath="Prefabs/Gui/Windows/BattleLoadingWindow" />
+        <Window PrefabPath="Prefabs/Gui/Tooltips/TooltipWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/LoadingWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/DebugUIGlobalButtonWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/ImageInformationWindow" OutGame="true" />
+        <!-- Although they are ModalWindow, the following ones are instanciated here to make sure they appears on top of other windows-->
+        <Window PrefabPath="Prefabs/Gui/OutgameModalWindows/DisclaimerModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/MessageBoxWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/BlackCurtainWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/MessageBoxNonBlockingWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/ModalWindows/ErrorModalWindow" OutGame="true" />
+        <Window PrefabPath="Prefabs/Gui/Windows/AnimatedLoadingIconWindow" OutGame="true" />
+    </GuiWindowsStackDefinition>
+
+</Datatable>

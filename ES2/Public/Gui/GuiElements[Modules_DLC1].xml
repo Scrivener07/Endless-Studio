@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+
+
+    <GuiElement Name="ModuleWeaponFlackQuest01"/>
+    
+
+    
+    
+    <!--################################-->
+    <!--###         EFFECTS          ###-->
+    <!--################################-->
+    
+    <GuiElement Name="ClassModuleCanOnlyBeFittedOnSmallSlots">
+        <Title>%ClassModuleCanOnlyBeFittedOnSmallSlotsTitle</Title>
+    </GuiElement>
+
+    <GuiElement Name="ClassModuleCanOnlyBeFittedOnLargeSlots">
+        <Title>%ClassModuleCanOnlyBeFittedOnLargeSlotsTitle</Title>
+    </GuiElement>
+    
+   
+    <GuiElement Name="ClassModuleShootsOncePerPhase">
+        <Title>%ClassModuleShootsOncePerPhaseTitle</Title>
+    </GuiElement>
+    
+    <GuiElement Name="ClassModuleIgnoresDefenses">
+        <Title>%ClassModuleIgnoresDefensesTitle</Title>
+    </GuiElement>
+    
+
+    <!--################################-->
+    <!--###         DEEDS            ###-->
+    <!--################################-->
+
+    <ExtendedGuiElement Name="ModuleSupportDeeds01">
+        <Title>%ModuleSupportDeeds01Title</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleSupportDeeds01Small" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ModuleWeaponBeamDeeds01">
+        <Title>%ModuleWeaponBeamDeeds01Title</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleWeaponBeamDeeds01Small" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ModuleDefenseShieldDeeds01">
+        <Title>%ModuleDefenseShieldDeeds01Title</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleDefenseShieldDeeds01Small" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddWeaponModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="ModuleDefenseHullPlatingMetaplot1">
+        <Title>%ModuleDefenseHullPlatingMetaplot1Title</Title>        
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/Modules/ModuleDefenseHullPlatingMetaplot1" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_AddDefenseModule" Type="OnEquipModule" />
+            <Sound EventName="Play_ES2_GUI_ShipDesignScreen_RemoveModule" Type="OnUnequipModule" />
+        </Sounds>
+    </ExtendedGuiElement>
+</Datatable>

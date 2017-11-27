@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationEventDefinition.xsd">
+
+    <!--
+            Category    Up to the designers.
+            Scale       System|Empire
+            Tags        Used for trait's event filters.
+    -->
+
+    <!-- Discovery -->
+    <!-- Create one event for each GalaxyDiscoveryMilestones (defined in Registry) -->
+    
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventGuardianAwakened"  Category="PoliticalEventExploration" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics04"/>
+    </PopulationPoliticalEventDefinition>
+    
+    
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventGalaxyDiscoveredAt20Percents"  Category="PoliticalEventExploration" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventGalaxyDiscoveredAt50Percents"  Category="PoliticalEventExploration" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventGalaxyDiscoveredAt80Percents"  Category="PoliticalEventExploration" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventGalaxyDiscoveredAt100Percents"  Category="PoliticalEventExploration" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventMinorEmpireMet"  Category="PoliticalEventEmpireMet" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventMajorEmpireMet"  Category="PoliticalEventEmpireMet" Scale="Empire" Duration="20" Power="1">
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+    
+</Datatable>

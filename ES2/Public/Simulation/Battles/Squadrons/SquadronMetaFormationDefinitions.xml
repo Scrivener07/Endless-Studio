@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../../Schemas/SquadronMetaFormationDefinition.xsd">
+	
+	<!--#################################-->
+	<!--####		BOMBERS			 ####-->
+	<!--#################################-->
+	<!-- Escort & Chase around Bombers-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundBomber">
+        <PathPrerequisite>SquadronTypeBomber</PathPrerequisite>
+        <SubFormationPattern>
+			<!-- Escort -->
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0" Z="0.2"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.2" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.2" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="-0.1" Z="0.2"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.2" Y="-0.1" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.2" Y="-0.1" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.1" Z="0.2"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.2" Y="0.1" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.2" Y="0.1" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="-0.2" Z="0.2"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.2" Y="-0.2" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.2" Y="-0.2" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.2"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.2" Y="0.2" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.2" Y="0.2" Z="0"/>
+			</SubFormation>
+			<!--Chaser-->
+			<SubFormation Role="Chaser">
+				<Offset X="0" Y="0" Z="-0.2"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="-0.2" Y="0" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0.2" Y="0" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0" Y="0.1" Z="-0.2"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="-0.2" Y="0.1" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0.2" Y="0.1" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0" Y="-0.1" Z="-0.2"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="-0.2" Y="-0.1" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0.2" Y="-0.1" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0" Y="0.2" Z="-0.2"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="-0.2" Y="0.2" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0.2" Y="0.2" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0" Y="-0.2" Z="-0.2"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="-0.2" Y="-0.2" Z="-0.1"/>
+			</SubFormation>
+			<SubFormation Role="Chaser">
+				<Offset X="0.2" Y="-0.2" Z="-0.1"/>
+			</SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+	
+	<!--#################################-->
+	<!--####		SMALLS			 ####-->
+	<!--#################################-->
+	<!-- Escort around Small Ships-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundSmallShip">
+		<PathPrerequisite>ShipSizeSmall</PathPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.25" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.25" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.15"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+    
+	<!--#################################-->
+	<!--####		MEDIUM			 ####-->
+	<!--#################################-->
+	<!-- Escort around Medium Ships (except those listed)-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMediumShip">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionSophons')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionSophons')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionTerrans')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionTerrans')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionCravers')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionCravers')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionVampirilis')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionVampirilis')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionVenetians')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionVenetians')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionTimeLords')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionTimeLords')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionUnfallen')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionUnfallen')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionHoratio')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionHoratio')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionInsectoid')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionPrimitive')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionAdvanced')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionPirates')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.25" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.25" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.25" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.25" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.25" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.25" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M1 Venetians-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Venetians">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionVenetians')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.4" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.4" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.4" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.4" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.4" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.4" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M1 TimeLords-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01TimeLords">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionTimeLords')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.4" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.4" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M2 TimeLords-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02TimeLords">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionTimeLords')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+
+    <!-- Escort around M1 Terrans-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Terrans">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionTerrans')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.45" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.45" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.45" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.45" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.45" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.45" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M2 Terrans-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Terrans">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionTerrans')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.35" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.35" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.35" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.35" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.35" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.35" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+	
+	<!-- Escort around M2 Sophons-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Sophon">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionSophons')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.8" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.8" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.8" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.8" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M1 Sophons-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Sophon">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionSophons')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.7" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.7" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.8" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.8" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.8" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.8" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+
+    <!-- Escort around M1 Cravers-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Cravers">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionCravers')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.45" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.45" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.45" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.45" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.45" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.45" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+	
+	<!-- Escort around M2 Cravers-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Cravers">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionCravers')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!-- Escort around M1 Vampirilis-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Vampirilis">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionVampirilis')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.375" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.375" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.425" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.425" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.425" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.425" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+
+	<!-- Escort around M2 Vampirilis-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Vampirilis">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionVampirilis')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.4" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.4" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.4" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.4" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!-- Escort around M2 Venetians-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Venetians">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionVenetians')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.35" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.35" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.35" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.35" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.35" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.35" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+
+	<!--Escort around M1 Unfallen-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Unfallen">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionUnfallen')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!--Escort around M2 Unfallen-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Unfallen">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionUnfallen')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.7" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.7" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!--Escort around M1 Horatio-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Horatio">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionHoratio')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.6" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.6" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.6" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.6" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.6" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.6" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!--Escort around M2 Horatio-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium02Horatio">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull02') and Path(Context, @'ShipFactionHoratio')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.6" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.6" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.6" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.6" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.6" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.6" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+
+	<!-- Escort around M1 Insectoid-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Insectoid">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionInsectoid')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M1 Pirates-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Pirates">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionPirates')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+    
+    <!-- Escort around M1 Advanced-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Advanced">
+        <PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionAdvanced')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0.25"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.5" Y="0" Z="0"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.2" Z="0.25"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+
+	<!-- Escort around M1 Primitive-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMedium01Primitive">
+		<PathPrerequisite>ShipSizeMedium</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionMinorFactionPrimitive')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0.25"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.2" Z="0.25"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	
+	<!--#################################-->
+	<!--####		LARGE			 ####-->
+	<!--#################################-->
+	<!-- Escort around Large Ships (except those listed)-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundLargeShip">
+		<PathPrerequisite>ShipSizeLarge</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionUnfallen')</InterpreterPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionHoratio')</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="true">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionTimeLords')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="1" Y="0" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-1" Y="0" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="1" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-1" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="1" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-1" Y="0" Z="0"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!-- Escort around Large Unfallen-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundLargeUnfallen">
+		<PathPrerequisite>ShipSizeLarge</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionUnfallen')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0.75" Y="0" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.75" Y="0" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.75" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.75" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.75" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.75" Y="0" Z="0"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!-- Escort around Large Horatio-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundLargeHoratio">
+		<PathPrerequisite>ShipSizeLarge</PathPrerequisite>
+		<InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionHoratio')</InterpreterPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="1" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-1" Y="0" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="1" Y="0" Z="-0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-1" Y="0" Z="-0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="1" Y="0" Z="-1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-1" Y="0" Z="-1"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+    
+    <!--Large TimeLords-->
+    <SquadronMetaFormationDefinition Name="MetaFormationAroundLargeTimeLords">
+        <PathPrerequisite>ShipSizeLarge</PathPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite" Inverted="false">Path(Context, @'ShipHull01') and Path(Context, @'ShipFactionTimeLords')</InterpreterPrerequisite>
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="2" Y="0" Z="-0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-2" Y="0" Z="-0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="2" Y="0" Z="-1"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-2" Y="0" Z="-1"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="2" Y="0" Z="-1.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-2" Y="0" Z="-1.5"/>
+            </SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+	
+	<!--#################################-->
+	<!--####		MOTHERSHIP		 ####-->
+	<!--#################################-->
+	<!-- Escort around Motherships-->
+	<SquadronMetaFormationDefinition Name="MetaFormationAroundMothership">
+		<PathPrerequisite>ShipSizeMothership</PathPrerequisite>
+		<SubFormationPattern>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="2" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="2" Z="0"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="2" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="2" Z="1"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.5" Y="2" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.5" Y="2" Z="0.5"/>
+			</SubFormation>
+		</SubFormationPattern>
+	</SquadronMetaFormationDefinition>
+	
+	<!--#################################-->
+	<!--####		FALLBACK		 ####-->
+	<!--#################################-->
+	<!--Fallback Metaformation-->
+    <SquadronMetaFormationDefinition Name="MetaFormationGeneric">
+        <SubFormationPattern>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0" Z="0.5"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0" Y="0.02" Z="0.75"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="-0.3" Y="0.05" Z="0.3"/>
+            </SubFormation>
+            <SubFormation Role="Escort">
+                <Offset X="0.32" Y="-0.03" Z="0.28"/>
+            </SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="1" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="1" Z="0.75"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.3" Y="1" Z="0.3"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.32" Y="1" Z="0.28"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="0.02" Z="0.75"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.3" Y="0.05" Z="0.3"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.32" Y="-0.03" Z="0.28"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="1" Z="0.5"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0" Y="1" Z="0.75"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="-0.3" Y="1" Z="0.3"/>
+			</SubFormation>
+			<SubFormation Role="Escort">
+				<Offset X="0.32" Y="1" Z="0.28"/>
+			</SubFormation>
+        </SubFormationPattern>
+    </SquadronMetaFormationDefinition>
+    
+</Datatable>

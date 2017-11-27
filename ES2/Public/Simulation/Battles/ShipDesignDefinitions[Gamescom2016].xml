@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/ShipDesignDefinition.xsd">
+
+<!-- *** SHIPS FOR BATTLE GAMESCOM2016 PUBLIC *** -->
+
+
+    <!-- ################################ -->
+    <!-- #######      CRAVERS     ####### -->
+    <!-- ################################ -->
+
+    <ShipDesignDefinition Name="Cravers_SmallAttack_Gamescom2016">
+        <HullReference Name="HullSmall01Cravers"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- SE Section -->
+
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!-- SW Section -->
+
+        <!-- W Section -->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- NW Section -->
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+         
+    
+    <ShipDesignDefinition Name="Cravers_MediumAttack_Gamescom2016">
+        <HullReference Name="HullMedium01Cravers"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- N Section -->
+        <SlotBinding SlotName="SectionN.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- E Section -->
+
+        <!-- SE Section -->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!-- SW Section -->
+        <SlotBinding SlotName="SectionSW.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <!-- W Section -->
+
+        <!-- NW Section -->
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    
+    
+
+    <ShipDesignDefinition Name="Cravers_MediumDefense_Gamescom2016">
+        <HullReference Name="HullMedium02Cravers"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <!-- N Section -->
+
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- SE Section -->
+
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!-- SW Section -->
+
+        <!-- W Section -->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- NW Section -->
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+
+    <ShipDesignDefinition Name="Cravers_LargeCarrier_Gamescom2016">
+        <HullReference Name="HullLarge01Cravers"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+        <!-- Core Section -->
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.LargeWeapon02">
+            <ModuleReference Name="ModuleWeaponLaser1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!-- N Section -->
+        <SlotBinding SlotName="SectionN.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!-- NE Section -->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- E Section -->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon02">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- SE Section -->
+        <SlotBinding SlotName="SectionSE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- S Section -->
+        <SlotBinding SlotName="SectionS.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- SW Section -->
+        <SlotBinding SlotName="SectionSW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+        <!-- W Section -->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Weapon02">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <!-- NW Section -->
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponKinetic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating5"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+
+    <!-- ################################ -->
+    <!-- #######      SOPHONS     ####### -->
+    <!-- ################################ -->
+
+    <ShipDesignDefinition Name="Sophons_SmallAttack_Gamescom2016">
+        <HullReference Name="HullSmall01Sophons"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponBeam3Strategic4"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+
+    <ShipDesignDefinition Name="Sophons_MediumAttack_Gamescom2016">
+        <HullReference Name="HullMedium01Sophons"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionSW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+
+    <ShipDesignDefinition Name="Sophons_LargeCarrier_Gamescom2016">
+        <HullReference Name="HullLarge01Sophons"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon02">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Weapon03">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionSE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionSW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionSW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Weapon02">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Weapon03">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+
+    </ShipDesignDefinition>
+
+
+    <!-- ################################ -->
+    <!-- #######    VENETIANS     ####### -->
+    <!-- ################################ -->
+
+    <ShipDesignDefinition Name="Venetians_SmallAttack_Gamescom2016">
+        <HullReference Name="HullSmall01Venetians"/>
+        <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Support02">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--S Section-->
+
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionSW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating1"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+
+    <ShipDesignDefinition Name="Venetians_MediumAttack_Gamescom2016">
+        <HullReference Name="HullMedium01Venetians"/>
+        <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <!--N Section-->
+
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionSW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+
+    <ShipDesignDefinition Name="Venetians_MediumDefense_Gamescom2016">
+        <HullReference Name="HullMedium02Venetians"/>
+        <ShipRoleReference Name="ShipRoleMediumSupport"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionSW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating2"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+
+    <ShipDesignDefinition Name="Venetians_LargeCarrier_Gamescom2016">
+        <HullReference Name="HullLarge01Venetians"/>
+        <ShipRoleReference Name="ShipRoleCarrier"/>
+        <!--Core Section-->
+        <SlotBinding SlotName="CoreSection.LargeWeapon01">
+            <ModuleReference Name="ModuleWeaponBeam3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="CoreSection.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--N Section-->
+        <SlotBinding SlotName="SectionN.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--NE Section-->
+        <SlotBinding SlotName="SectionNE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--E Section-->
+        <SlotBinding SlotName="SectionE.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionE.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--SE Section-->
+        <SlotBinding SlotName="SectionSE.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--S Section-->
+        <SlotBinding SlotName="SectionS.Support01">
+            <ModuleReference Name="ModuleSupportEngine1"/>
+        </SlotBinding>
+        <!--SW Section-->
+        <SlotBinding SlotName="SectionSW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <!--W Section-->
+        <SlotBinding SlotName="SectionW.Weapon01">
+            <ModuleReference Name="ModuleWeaponMissile2Strategic1"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+        <!--NW Section-->
+        <SlotBinding SlotName="SectionNW.Weapon01">
+            <ModuleReference Name="ModuleWeaponLaser3Strategic4"/>
+        </SlotBinding>
+        <SlotBinding SlotName="SectionNW.Defense01">
+            <ModuleReference Name="ModuleDefenseHullPlating3"/>
+        </SlotBinding>
+    </ShipDesignDefinition>
+    
+</Datatable>

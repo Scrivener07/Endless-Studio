@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/GovernmentDefinition.xsd">
+
+	<!--**************************************************************************************************-->
+	<!--**                                        A N A R C H Y                                         **-->
+	<!--**************************************************************************************************-->
+
+	<GovernmentDefinition Name="GovernmentAnarchy" RequiredHappiness="0" Fixed="true" Hidden="true">
+
+		<Tags>Anarchy</Tags>
+
+        <!-- <DurationFormula>(20 - Min(15, (Property(Context, @ClassEmpire, Happiness) - $(NextGovernmentRequiredHappiness)) * Property(Context, @ClassEmpire/ClassSenate, AnarchyReduction)))  * Property(Context, @ClassEmpire, GameSpeedMultiplier)</DurationFormula>-->
+        <DurationFormula>(Property(Context, @ClassEmpire/ClassSenate, AnarchyDuration) * Property(Context, @ClassEmpire/ClassSenate, AnarchyReduction))  * Property(Context, @ClassEmpire, GameSpeedMultiplier)</DurationFormula>
+
+		<SimulationDescriptorReference Name="GovernmentAnarchy"/>
+
+		<OnStart>
+			<Action_ClearSenators/>
+			<Action_Notify Class="EventAnarchyStarted"/>
+		</OnStart>
+
+	</GovernmentDefinition>
+
+	<GovernmentDefinition Name="GovernmentAnarchyRebellion" ChangeGovernmentCooldown="10" CancelNextForcedElection="true" RequiredHappiness="0" Fixed="true" Hidden="true">
+
+		<Tags>Anarchy</Tags>
+
+		<DurationFormula>1</DurationFormula>
+		
+		<SimulationDescriptorReference Name="GovernmentAnarchy"/>
+
+		<OnStart>
+			<Action_ClearSenators/>
+			<Action_Notify Class="EventAnarchyStarted"/>
+			<Action_ClearLaws/>  
+			<Action_CreateOppositeSenator/>
+		</OnStart>
+		
+		<OnEnd>
+			<!--<Action_TriggerTemporaryEffect Name="EmpireRebellion" />-->
+			<Action_TriggerPoliticalPopulationEvent Name="PopulationPoliticalEventEmpireRebellion" />
+		</OnEnd>
+
+	</GovernmentDefinition>
+
+	<!--**************************************************************************************************-->
+	<!--**                                      D E M O C R A C Y                                       **-->
+	<!--**************************************************************************************************-->
+
+	<GovernmentDefinition Name="GovernmentDemocracy" RequiredHappiness="50" InitialRepresentativeCount="3" InitialGovernmentCost="10">
+		<SimulationDescriptorReference Name="GovernmentDemocracy"/>
+
+		<RepresentativesElectionProcessReference Name="Democracy_Representatives"/>
+		<SenateElectionProcessReference          Name="Democracy_Senators"/>
+		<SurveyElectionProcessReference          Name="Democracy_Survey"/>
+
+        <CustomCost ResourceName="EmpireEmpirePoint" Instant="true">100 * Property(StockLocation, @ClassEmpire,SystemCount)  * Property(StockLocation, @ClassEmpire/ClassSenate, GovernmentDemocracyCostMultiplier)</CustomCost>
+
+        <NextGovernmentReference Name="GovernmentRepublic"/>
+        <AnarchyGovernmentReference Name="GovernmentAnarchy"/>
+
+		<OnStart>
+			<Action_ForceElection/>
+			<Action_Notify Class="EventGovernmentStarted"/>
+		</OnStart>
+
+		<OnEnd>
+			<Action_ClearLaws/>      
+		</OnEnd>
+
+	</GovernmentDefinition>
+
+	<!--**************************************************************************************************-->
+	<!--**                                   D I C T A T O R S H I P                                    **-->
+	<!--**************************************************************************************************-->
+
+	<GovernmentDefinition Name="GovernmentDictatorship" RequiredHappiness="50" InitialRepresentativeCount="4" InitialGovernmentCost="10">
+
+		<SimulationDescriptorReference Name="GovernmentDictatorship"/>
+        <SimulationDescriptorReference Name="GovernmentDictatorshipCommon"/>
+
+
+        <RepresentativesElectionProcessReference Name="Dictatorship_Representatives"/>
+		<SenateElectionProcessReference          Name="Dictatorship_Senators"/>
+		<SurveyElectionProcessReference          Name="Dictatorship_Survey"/>
+
+		<CustomCost ResourceName="EmpireEmpirePoint" Instant="true">300 * Property(StockLocation, @ClassEmpire,SystemCount) * Property(StockLocation, @ClassEmpire/ClassSenate, GovernmentDictatorshipCostMultiplier)</CustomCost>
+
+		<NextGovernmentReference Name="GovernmentDemocracy"/>
+        <AnarchyGovernmentReference Name="GovernmentAnarchy"/>
+
+		<OnStart>
+			<Action_ForceElection/>
+			<Action_Notify Class="EventGovernmentStarted"/>
+		</OnStart>
+
+		<OnEnd>
+			<Action_ClearLaws/>      
+		</OnEnd>
+
+	</GovernmentDefinition>
+
+	<!--**************************************************************************************************-->
+	<!--**                                   E M P I R E                                                **-->
+	<!--**************************************************************************************************-->
+
+	<GovernmentDefinition Name="GovernmentEmpire" RequiredHappiness="50" InitialRepresentativeCount="4" InitialGovernmentCost="10">
+
+		<SimulationDescriptorReference Name="GovernmentEmpire"/>
+
+		<RepresentativesElectionProcessReference Name="Empire_Representatives"/>
+		<SenateElectionProcessReference          Name="Empire_Senators"/>
+		<SurveyElectionProcessReference          Name="Empire_Survey"/>
+
+		<CustomCost ResourceName="EmpireEmpirePoint" Instant="true">200 * Property(StockLocation, @ClassEmpire,SystemCount) * Property(StockLocation, @ClassEmpire/ClassSenate, GovernmentEmpireCostMultiplier)</CustomCost>
+
+		<NextGovernmentReference Name="GovernmentDictatorship"/>
+        <AnarchyGovernmentReference Name="GovernmentAnarchy"/>
+
+		<OnStart>
+			<Action_ForceElection/>
+			<Action_Notify Class="EventGovernmentStarted"/>
+		</OnStart>
+
+		<OnEnd>
+			<Action_ClearLaws/>      
+		</OnEnd>
+
+	</GovernmentDefinition>
+
+	<!--**************************************************************************************************-->
+	<!--**                                  R E P U B L I C                                             **-->
+	<!--**************************************************************************************************-->
+
+	<GovernmentDefinition Name="GovernmentRepublic" RequiredHappiness="50" InitialRepresentativeCount="3" InitialGovernmentCost="10">
+
+		<SimulationDescriptorReference Name="GovernmentRepublic"/>
+
+		<RepresentativesElectionProcessReference Name="Republic_Representatives"/>
+		<SenateElectionProcessReference          Name="Republic_Senators"/>
+		<SurveyElectionProcessReference          Name="Republic_Survey"/>
+
+
+        <CustomCost ResourceName="EmpireEmpirePoint" Instant="true">200 * Property(StockLocation, @ClassEmpire,SystemCount)  * Property(StockLocation, @ClassEmpire/ClassSenate, GovernmentRepublicCostMultiplier)</CustomCost>
+
+		<NextGovernmentReference Name="GovernmentEmpire"/>
+        <AnarchyGovernmentReference Name="GovernmentAnarchy"/>
+
+		<OnStart>
+			<Action_ForceElection/>
+			<Action_Notify Class="EventGovernmentStarted"/>
+		</OnStart>
+
+		<OnEnd>
+			<Action_ClearLaws/>      
+		</OnEnd>
+
+	</GovernmentDefinition>
+
+
+    <!--**************************************************************************************************-->
+    <!--**                                  DICTATORSHIP CRAVERS                                        **-->
+    <!--**************************************************************************************************-->
+
+    <GovernmentDefinition Name="GovernmentDictatorshipCravers" RequiredHappiness="50" InitialRepresentativeCount="4" InitialGovernmentCost="10" Fixed="true" Hidden="true" >
+
+        <SimulationDescriptorReference Name="GovernmentDictatorshipCravers"/>
+        <SimulationDescriptorReference Name="GovernmentDictatorshipCommon"/>
+        
+        <RepresentativesElectionProcessReference Name="Dictatorship_Representatives"/>
+        <SenateElectionProcessReference          Name="Dictatorship_Senators"/>
+        <SurveyElectionProcessReference          Name="Dictatorship_Survey"/>
+
+        <CustomCost ResourceName="EmpireEmpirePoint" Instant="true">300 * Property(StockLocation, @ClassEmpire,SystemCount) * Property(StockLocation, @ClassEmpire/ClassSenate, GovernmentDictatorshipCostMultiplier)</CustomCost>
+
+        <NextGovernmentReference Name="GovernmentDictatorshipCravers"/>
+        <AnarchyGovernmentReference Name="GovernmentAnarchy"/>
+
+        <OnStart>
+            <Action_ForceElection/>
+            <Action_Notify Class="EventGovernmentStarted"/>
+        </OnStart>
+
+        <OnEnd>
+            <Action_ClearLaws/>
+        </OnEnd>
+
+    </GovernmentDefinition>
+
+</Datatable>

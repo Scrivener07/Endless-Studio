@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/EmpireImprovementDefinition.xsd">
+
+    <!-- ################################################### -->
+    <!-- ##############     FACTION QUESTS      ############ -->
+    <!-- ################################################### -->
+    
+    
+    <!--########  SOPHONS  #########-->
+
+    <!--CH1 - Militarist: Ship Cost Reduction -->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestSophons01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryFleet">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedSophonsQuest02</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestSophons01"/>
+    </EmpireImprovementDefinition>
+
+    <!--CH1 - Pacifist: Bribe MF with Luxuries -->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestSophons03" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedSophonsQuest03</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestSophons03"/>
+    </EmpireImprovementDefinition>
+
+    <!--CH2 - Scientist: Probe Improvement-->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestSophonsProbe01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryExploration">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedScienceSophonsQuest02</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestSophonsProbe01"/>
+    </EmpireImprovementDefinition>
+
+    <!--CH4 - Militarist-->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestSophons11" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedSophonsQuest-Chapter4-Part1-Militarist</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestSophons11"/>
+    </EmpireImprovementDefinition>
+
+    <!--CH4 - Scientist-->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestSophons12" Category="CategoryEmpireImprovement" SubCategory="SubCategoryScience">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedSophonsQuest-Chapter4-Part1-Scientist</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestSophons12"/>
+    </EmpireImprovementDefinition>
+
+    <!--CH4 - Pacifist-->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestSophons13" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedSophonsQuest-Chapter4-Part1-Pacifist</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestSophons13"/>
+    </EmpireImprovementDefinition>
+
+   <!--########  CRAVERS #########-->
+
+    <!--CH1.1 - Outpost Growth Increase -->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestCravers01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryFood">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CraversQuest-Chapter1.1Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestCravers01"/>
+    </EmpireImprovementDefinition>
+    
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestCravers03" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CraversQuest-Chapter3-IndustryC2Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestCravers03"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestCravers04" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CraversQuest-Chapter3-IndustryC1Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestCravers04"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestCravers05" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CraversQuest-Chapter4-C1Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestCravers05"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestCravers06" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CraversQuest-Chapter4-C2Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestCravers06"/>
+    </EmpireImprovementDefinition>
+       
+    <!--####### VAMPIRILIS #########-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVampirilis04" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VampirilisQuest-Chapter2ReligiousReward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVampirilis04"/>
+    </EmpireImprovementDefinition>
+    
+      <EmpireImprovementDefinition Name="EmpireImprovementQuestVampirilis05" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VampirilisQuest-Chapter2Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVampirilis05"/>
+    </EmpireImprovementDefinition>
+    
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVampirilis08" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VampirilisQuest-Chapter3-Rebellious-Step2Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVampirilis08"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVampirilis09" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VampirilisQuest-Chapter3-ReligiousReward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVampirilis09"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVampirilis10" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestVenetians10</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVampirilis10"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVampirilis11" Category="CategoryEmpireImprovement" SubCategory="SubCategoryApproval">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestVenetians11</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVampirilis11"/>
+    </EmpireImprovementDefinition>
+
+    <!--###### Venetians #######-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVenetians01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryIndustry">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VenetiansQuest-Chapter1.2-IndustryReward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVenetians01"/>
+    </EmpireImprovementDefinition>
+    
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVenetians06" Category="CategoryEmpireImprovement" SubCategory="SubCategoryPolitics">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VenetiansQuest-Chapter2.2-EcologistReward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVenetians06"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVenetians07" Category="CategoryEmpireImprovement" SubCategory="SubCategoryPolitics">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VenetiansQuest-Chapter2.2-IndustryReward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVenetians07"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVenetians08" Category="CategoryEmpireImprovement" SubCategory="SubCategoryResourceExploitation">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VenetiansQuest-Chapter3-Step1Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVenetians08"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestVenetians09" Category="CategoryEmpireImprovement" SubCategory="SubCategoryPopulation">
+        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,VenetiansQuest-Chapter3-Step1.2Reward</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestVenetians09"/>
+    </EmpireImprovementDefinition>
+
+    <!--########  UNITED EMPIRE  #########-->
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnitedEmpire01</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire01"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire02" Category="CategoryEmpireImprovement" SubCategory="SubCategoryFood">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnitedEmpire02</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire02"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire07" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnitedEmpire07</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire07"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire08" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDiplomacy">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnitedEmpire08</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire08"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire09" Category="CategoryEmpireImprovement" SubCategory="SubCategoryScience">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnitedEmpire09</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire09"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire10" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyQuestUnitedEmpire10</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire10"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnitedEmpire11" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnitedEmpire11</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnitedEmpire11"/>
+    </EmpireImprovementDefinition>
+
+
+    <!-- ########  HORATIO  ######### -->
+    
+    <!--CH2 - Militarist-->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestHoratio05" Category="CategoryEmpireImprovement" SubCategory="SubCategoryIndustry">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestHoratio05</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestHoratio05"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords05" Category="CategoryEmpireImprovement" SubCategory="SubCategoryFood">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords05</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords05"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords06" Category="CategoryEmpireImprovement" SubCategory="SubCategoryFood">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords06</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords06"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords07" Category="CategoryEmpireImprovement" SubCategory="SubCategoryIndustry">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords07</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords07"/>
+    </EmpireImprovementDefinition>
+
+     <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords08" Category="CategoryEmpireImprovement" SubCategory="SubCategoryInfluence">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords08</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords08"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords09" Category="CategoryEmpireImprovement" SubCategory="SubCategoryIndustry">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords09</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords09"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords10" Category="CategoryEmpireImprovement" SubCategory="SubCategoryIndustry">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords10</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords10"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestTimeLords11" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDust">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestTimeLords11</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestTimeLords11"/>
+    </EmpireImprovementDefinition>
+    
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnfallen08" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDust">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnfallen08</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnfallen08"/>
+    </EmpireImprovementDefinition>
+
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestUnfallen09" Category="CategoryEmpireImprovement" SubCategory="SubCategoryDust">
+        <PathPrerequisite Inverted="false" Flags="Prerequisite,Discard">../ClassEmpire/ClassQuests,CompletedQuestUnfallen09</PathPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestUnfallen09"/>
+    </EmpireImprovementDefinition>
+    
+    <!-- ################################################### -->
+    <!-- #############    FIGHTER AND BOMBER      ########## -->
+    <!-- ################################################### -->
+
+    <!--UNLOCK A SPACE BATTLE PLAY-->
+    <EmpireImprovementDefinition Name="EmpireImprovementQuestFB01" Category="CategoryEmpireImprovement" SubCategory="SubCategoryMilitary">
+        <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyQuestFB01</TechnologyPrerequisite>
+        <SimulationDescriptorReference Name="EmpireImprovementQuestFB01"/>
+    </EmpireImprovementDefinition>
+	
+	
+
+</Datatable>

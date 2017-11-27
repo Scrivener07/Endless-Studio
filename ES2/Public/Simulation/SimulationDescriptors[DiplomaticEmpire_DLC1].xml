@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="FactionPact" Type="FactionPact">
+        <Property Name="FactionPactCurrentTurn" IsSealed="true" BaseValue="0"/>
+        <Property Name="FactionPactDuration" BaseValue="30"/>
+        <Property Name="FactionPactEmpirePointUpkeep" BaseValue="150"/>
+        <Modifier TargetProperty="EmpireEmpirePointUpkeep"  Operation="Addition" Value="$(FactionPactEmpirePointUpkeep)"    Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectCravers" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.01" MaxValue="0.15"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="0.15"                         BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="ShipProductionCostReduction"  Operation="Subtraction" Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="9"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectSophons" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.01" MaxValue="0.15"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="0.15"                         BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="SystemResearch"               Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectTerrans" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.01" MaxValue="0.15"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="0.15"                         BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="SystemProduction"             Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectHoratio" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.02" MaxValue="0.2"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="0.2"                          BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="SystemGrowth"                 Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectVampirilis" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.2" MaxValue="3"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="3"                            BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="ExperiencePerTurn"            Operation="Addition"    Value="$(FactionPactBonusValue)"    Path="ClassHero" Priority="5"/>
+        <Modifier TargetProperty="ExperiencePerTurn"            Operation="Addition"    Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem/ClassHero" TooltipHidden="true" Priority="5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectVenetians" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.01" MaxValue="0.15"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="0.15"                         BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="SystemMoney"                  Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectTimeLords" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="0.005" MaxValue="0.05"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="0.05"                         BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="SystemGrowth"                 Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+        <Modifier TargetProperty="SystemProduction"             Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+        <Modifier TargetProperty="SystemMoney"                  Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+        <Modifier TargetProperty="SystemResearch"               Operation="Percent"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FactionPactEffectUnfallen" Type="FactionPactEffect">
+        <Property Name="FactionPactBonusValue"  BaseValue="1" MaxValue="20"/>
+        <Property Name="FactionPactStepValue"   BaseValue="0" />
+        <BinaryModifier TargetProperty="FactionPactStepValue"   Operation="Force"       Left="20"                           BinaryOperation="Division"          Right="$(FactionPactDuration)"  Priority="3" TooltipHidden="true" />
+        <BinaryModifier TargetProperty="FactionPactBonusValue"  Operation="Addition"    Left="$(FactionPactCurrentTurn)"    BinaryOperation="Multiplication"    Right="$(FactionPactStepValue)" Priority="4" TooltipHidden="true" />
+        <Modifier TargetProperty="Happiness"                    Operation="Addition"     Value="$(FactionPactBonusValue)"    Path="../ClassEmpire/ClassColonizedStarSystem" Priority="5"/>
+    </SimulationDescriptor>
+    
+    
+</Datatable>

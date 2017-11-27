@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/PopulationEventDefinition.xsd">
+    
+    <!-- EMPIRE HAPPINESS -->
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusEmpire0" Category="PoliticalEventHappinessStatusEmpire" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics01"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusEmpire1" Category="PoliticalEventHappinessStatusEmpire" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusEmpire2" Category="PoliticalEventHappinessStatusEmpire" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusEmpire3" Category="PoliticalEventHappinessStatusEmpire" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics04"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusEmpire4" Category="PoliticalEventHappinessStatusEmpire" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics05"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- SYSTEM HAPPINESS-->
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusStarSystem0" Category="PoliticalEventHappinessStatusStarSystem" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics01"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusStarSystem1" Category="PoliticalEventHappinessStatusStarSystem" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusStarSystem2" Category="PoliticalEventHappinessStatusStarSystem" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusStarSystem3" Category="PoliticalEventHappinessStatusStarSystem" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics04"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition IsUnique="true" Name="PopulationPoliticalEventHappinessStatusStarSystem4" Category="PoliticalEventHappinessStatusStarSystem" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_HappinessChanged NoDecay="true"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics05"/>
+    </PopulationPoliticalEventDefinition> 
+
+    <!-- DIPLOMATIC ABILITIES -->
+
+    <!-- For save compatibility. Need to be removed. -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityColdWar" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="ColdWar"/>
+        <Tags/>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- For save compatibility. Need to be removed. -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityUnknown" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="0">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="Unknown"/>
+        <Tags/>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityPeace" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="Peace"/>
+        <Tags/>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityAlliance" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="Alliance"/>
+        <Tags/>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityHotWar" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="HotWar"/>
+        <Tags/>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityWar" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="War"/>
+        <Tags/>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityVisionSharing" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="VisionSharing"/>
+        <Tags/>
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventDiplomaticAbilityScienceAgreement" Category="PopulationPoliticalEventDiplomaticAbility" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_DiplomaticAbilityChanged Action="Remove" DiplomaticAbilityName="ScienceAgreement"/>
+        <Tags/>
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- HEROES -->
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics01"  Category="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_HeroAssignationChanged Action="Unassigned"/>
+        <Tags></Tags>
+        <Politics Name="Politics01"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics02"  Category="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_HeroAssignationChanged Action="Unassigned"/>
+        <Tags></Tags>
+        <Politics Name="Politics02"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics03"  Category="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_HeroAssignationChanged Action="Unassigned"/>
+        <Tags></Tags>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics04"  Category="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_HeroAssignationChanged Action="Unassigned"/>
+        <Tags></Tags>
+        <Politics Name="Politics04"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics05"  Category="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_HeroAssignationChanged Action="Unassigned"/>
+        <Tags></Tags>
+        <Politics Name="Politics05"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics06"  Category="PopulationPoliticalEventHeroAssignedToSystemHeroPolitics" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_HeroAssignationChanged Action="Unassigned"/>
+        <Tags></Tags>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- INFLUENCE STATES -->
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventSystemInfluenceNone"  Category="PopulationPoliticalEventSystemInfluence" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_InfluenceStateChanged State="None"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags></Tags>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventSystemInfluenceOwner"  Category="PopulationPoliticalEventSystemInfluence" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_InfluenceStateChanged State="Owner"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags></Tags>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventSystemInfluenceOwnerFriend"  Category="PopulationPoliticalEventSystemInfluence" Scale="System" Duration="0" Power="0">
+        <StoppingCondition_InfluenceStateChanged State="OwnerFriend"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags></Tags>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventSystemInfluenceOwnerFoe"  Category="PopulationPoliticalEventSystemInfluence" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_InfluenceStateChanged State="OwnerFoe"/>
+        <StoppingCondition_MothershipDetached NoDecay="true"/>
+        <Tags></Tags>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- ACADEMY -->
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventAcademyColonized" Category="PopulationPoliticalEventAcademyColonized" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_AcademyOwnerChanged/>
+        <Tags/>
+        <Politics Name="Politics05"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- BLOCKADE -->
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventSystemBlockaded" Category="PopulationPoliticalEventSystemBlockaded" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_SimulationDescriptorChange Action="Remove" DescriptorName="BlockadedColonizedStarSystem" NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- SIEGE  -->
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventSystemBesieged" Category="PopulationPoliticalEventSystemBesieged" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_SimulationDescriptorChange Action="Remove" DescriptorName="BesiegedColonizedStarSystem" NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- TRADE -->
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventBuildingConstructionTradingCompanyHeadquarters" Category="PoliticalEventConstruction" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_StarSystemImprovementCollectionChanged Action="Remove" ImprovementName="StarSystemImprovementTradingCompanyHeadquarters"/>
+        <Tags>BuildingConstruction,Construction</Tags>
+        <Politics Name="Politics03"/>        
+    </PopulationPoliticalEventDefinition>
+   
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventBuildingConstructionAcademyEmbassy" Category="PoliticalEventConstruction" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_StarSystemImprovementCollectionChanged Action="Remove" ImprovementName="StarSystemImprovementAcademyEmbassy"/>
+        <Tags>BuildingConstruction,Construction</Tags>
+        <Politics Name="Politics05"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventBuildingConstructionTradingCompanyySubsidiary" Category="PoliticalEventConstruction" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_StarSystemImprovementCollectionChanged Action="Remove" ImprovementName="StarSystemImprovementTradingCompanySubsidiary"/>
+        <Tags>BuildingConstruction,Construction</Tags>
+        <Politics Name="Politics03"/>
+    </PopulationPoliticalEventDefinition>
+
+    <!-- VODYANI ABDUCTION -->
+    
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventPopulationAbducted" Category="PoliticalEventFleets" Scale="System" Duration="0" Power="1">
+        <StoppingCondition_SimulationDescriptorChange Action="Remove" DescriptorName="IsTransferringResources" NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics06"/>
+    </PopulationPoliticalEventDefinition>
+
+    <PopulationPoliticalEventDefinition Name="PopulationPoliticalEventFleetAbducting" Category="PoliticalEventFleets" Scale="Empire" Duration="0" Power="1">
+        <StoppingCondition_SimulationDescriptorChange Action="Remove" DescriptorName="FleetActionLogistics" NoDecay="true"/>
+        <Tags/>
+        <Politics Name="Politics05"/>
+    </PopulationPoliticalEventDefinition>
+
+</Datatable>

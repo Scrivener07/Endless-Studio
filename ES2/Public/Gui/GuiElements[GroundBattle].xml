@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- TROOPS -->
+
+    <!-- Common -->
+    <ExtendedGuiElement Name="TroopInfantryCommon">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Pictos/Infantry" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/GroundBattle/Common/InfantryIconMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundTroopInfantryLarge"/>
+        </Icons>
+        <SymbolString>[infantry]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TroopTankCommon">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Pictos/Tank" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/GroundBattle/Common/TankIconMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundTroopTankLarge"/>
+        </Icons>
+        <SymbolString>[tank]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="TroopPlaneCommon">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Pictos/Plane" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/GroundBattle/Common/PlaneIconMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundTroopPlaneLarge"/>
+        </Icons>
+        <SymbolString>[plane]</SymbolString>
+    </ExtendedGuiElement>
+
+    <!-- Cravers -->
+    <GuiElement Name="TroopInfantryAffinityGameplayCravers">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Cravers/CraversInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayCravers">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Cravers/CraversTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayCravers">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Cravers/CraversPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Sophon -->
+    <GuiElement Name="TroopInfantryAffinityGameplaySophons">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Sophon/SophonInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplaySophons">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Sophon/SophonTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplaySophons">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Sophon/SophonPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Terrans -->
+    <GuiElement Name="TroopInfantryAffinityGameplayTerrans">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/UE/UEInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayTerrans">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/UE/UETankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayTerrans">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/UE/UEPlaneSmall" />
+        </Icons>
+    </GuiElement>
+  
+    <!-- Terrans Tutorial -->
+    <GuiElement Name="TroopInfantryAffinityGameplayTerransTutorial">
+      <Title>%TroopInfantryTitle</Title>
+      <Description>%TroopInfantryDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/UE/UEInfantrySmall" />
+      </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayTerransTutorial">
+      <Title>%TroopTankTitle</Title>
+      <Description>%TroopTankDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/UE/UETankSmall" />
+      </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayTerransTutorial">
+      <Title>%TroopPlaneTitle</Title>
+      <Description>%TroopPlaneDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/UE/UEPlaneSmall" />
+      </Icons>
+    </GuiElement>
+
+  <!-- TimeLords -->
+    <GuiElement Name="TroopInfantryAffinityGameplayTimeLords">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Timelords/TimelordsInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayTimeLords">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Timelords/TimelordsTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayTimeLords">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Timelords/TimelordsPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Horatio -->
+    <GuiElement Name="TroopInfantryAffinityGameplayHoratio">
+      <Title>%TroopInfantryTitle</Title>
+      <Description>%TroopInfantryDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Horatio/HoratioInfantrySmall" />
+      </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayHoratio">
+      <Title>%TroopTankTitle</Title>
+      <Description>%TroopTankDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Horatio/HoratioTankSmall" />
+      </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayHoratio">
+      <Title>%TroopPlaneTitle</Title>
+      <Description>%TroopPlaneDescription</Description>
+      <Icons>
+        <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Horatio/HoratioPlaneSmall" />
+      </Icons>
+    </GuiElement>
+  
+    <!-- Vampirilis -->
+    <GuiElement Name="TroopInfantryAffinityGameplayVampirilis">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Vampirilis/VampirilisInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayVampirilis">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Vampirilis/VampirilisTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayVampirilis">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Vampirilis/VampirilisPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Venetians -->
+    <GuiElement Name="TroopInfantryAffinityGameplayVenetians">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Venetian/VenetianInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayVenetians">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Venetian/VenetianTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayVenetians">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Venetian/VenetianPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Unfallen -->
+    <GuiElement Name="TroopInfantryAffinityGameplayUnfallen">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Unfallen/UnfallenInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayUnfallen">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Unfallen/UnfallenTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayUnfallen">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/Unfallen/UnfallenPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Amoeba -->
+    <GuiElement Name="TroopInfantryAffinityGameplayAmoeba">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AmoebaInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayAmoeba">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/InsectoidTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayAmoeba">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/InsectoidPlaneSmall" />
+        </Icons>
+    </GuiElement>
+    
+    <!-- Benthys -->
+    
+    <GuiElement Name="TroopInfantryAffinityGameplayBenthys">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/BenthysInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayBenthys">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PrimitiveTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayBenthys">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PrimitivePlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Bots -->
+    <GuiElement Name="TroopInfantryAffinityGameplayBots">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <!-- TEMP! -->
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/TimebotsInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayBots">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayBots">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Deuyivans -->
+    <GuiElement Name="TroopInfantryAffinityGameplayDeuyivans">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/DeuyivanInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayDeuyivans">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/InsectoidTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayDeuyivans">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/InsectoidPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Haroshems -->
+    <GuiElement Name="TroopInfantryAffinityGameplayHaroshems">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/HaroshemsInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayHaroshems">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayHaroshems">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Hisshos -->
+    <GuiElement Name="TroopInfantryAffinityGameplayHisshos">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/HisshosInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayHisshos">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayHisshos">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Mavros -->
+    <GuiElement Name="TroopInfantryAffinityGameplayMavros">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/MavrosInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayMavros">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayMavros">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Pilgrims -->
+    <GuiElement Name="TroopInfantryAffinityGameplayPilgrims">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PilgrimsInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayPilgrims">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayPilgrims">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+	<!-- Gnashasts -->
+	<GuiElement Name="TroopInfantryAffinityGameplayGnashasts">
+		<Title>%TroopInfantryTitle</Title>
+		<Description>%TroopInfantryDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/GnashastsInfantrySmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopTankAffinityGameplayGnashasts">
+		<Title>%TroopTankTitle</Title>
+		<Description>%TroopTankDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PrimitiveTankSmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopPlaneAffinityGameplayGnashasts">
+		<Title>%TroopPlaneTitle</Title>
+		<Description>%TroopPlaneDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PrimitivePlaneSmall" />
+		</Icons>
+	</GuiElement>
+	
+	<!-- Eyders -->
+	<GuiElement Name="TroopInfantryAffinityGameplayEyders">
+		<Title>%TroopInfantryTitle</Title>
+		<Description>%TroopInfantryDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/EydersInfantrySmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopTankAffinityGameplayEyders">
+		<Title>%TroopTankTitle</Title>
+		<Description>%TroopTankDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopPlaneAffinityGameplayEyders">
+		<Title>%TroopPlaneTitle</Title>
+		<Description>%TroopPlaneDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+		</Icons>
+	</GuiElement>
+			
+		<!-- Bhagabas -->
+	<GuiElement Name="TroopInfantryAffinityGameplayBhagabas">
+		<Title>%TroopInfantryTitle</Title>
+		<Description>%TroopInfantryDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/BhagabasInfantrySmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopTankAffinityGameplayBhagabas">
+		<Title>%TroopTankTitle</Title>
+		<Description>%TroopTankDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopPlaneAffinityGameplayBhagabas">
+		<Title>%TroopPlaneTitle</Title>
+		<Description>%TroopPlaneDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+		</Icons>
+	</GuiElement>
+	
+	<!-- Niris -->
+	<GuiElement Name="TroopInfantryAffinityGameplayNiris">
+		<Title>%TroopInfantryTitle</Title>
+		<Description>%TroopInfantryDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/NirisInfantrySmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopTankAffinityGameplayNiris">
+		<Title>%TroopTankTitle</Title>
+		<Description>%TroopTankDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopPlaneAffinityGameplayNiris">
+		<Title>%TroopPlaneTitle</Title>
+		<Description>%TroopPlaneDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+		</Icons>
+	</GuiElement>
+	
+	<!-- Tikanans -->
+	<GuiElement Name="TroopInfantryAffinityGameplayTikanans">
+		<Title>%TroopInfantryTitle</Title>
+		<Description>%TroopInfantryDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/TikanansInfantrySmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopTankAffinityGameplayTikanans">
+		<Title>%TroopTankTitle</Title>
+		<Description>%TroopTankDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/InsectoidTankSmall" />
+		</Icons>
+	</GuiElement>
+
+	<GuiElement Name="TroopPlaneAffinityGameplayTikanans">
+		<Title>%TroopPlaneTitle</Title>
+		<Description>%TroopPlaneDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/InsectoidPlaneSmall" />
+		</Icons>
+	</GuiElement>
+	
+    <!-- Zvali -->
+    <GuiElement Name="TroopInfantryAffinityGameplayZvali">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/ZvaliInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayZvali">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayZvali">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Remnant -->
+    <GuiElement Name="TroopInfantryAffinityGameplayRemnant">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/RemnantInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayRemnant">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayRemnant">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Pulsos -->
+    <GuiElement Name="TroopInfantryAffinityGameplayPulsos">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PulsosInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayPulsos">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayPulsos">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Guardians -->
+    <GuiElement Name="TroopInfantryAffinityGameplayGuardians">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PulsosInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayGuardians">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayGuardians">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/AdvancedPlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Greenman -->
+    <GuiElement Name="TroopInfantryAffinityGameplayGreenman">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/GreenmanInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayGreenman">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PrimitiveTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayGreenman">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PrimitivePlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Pirates: look like Haroshems for now? -->
+    <GuiElement Name="TroopInfantryAffinityGameplayPirateEmpire">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/HaroshemsInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayPirateEmpire">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayPirateEmpire">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Lesser Empire: TODO -->
+    <GuiElement Name="TroopInfantryAffinityGameplayLesserEmpire">
+        <Title>%TroopInfantryTitle</Title>
+        <Description>%TroopInfantryDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/HaroshemsInfantrySmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopTankAffinityGameplayLesserEmpire">
+        <Title>%TroopTankTitle</Title>
+        <Description>%TroopTankDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PirateTankSmall" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="TroopPlaneAffinityGameplayLesserEmpire">
+        <Title>%TroopPlaneTitle</Title>
+        <Description>%TroopPlaneDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Dynamic/GroundBattle/MinorFaction/PiratePlaneSmall" />
+        </Icons>
+    </GuiElement>
+
+
+    <!-- PLAYS -->
+    <GuiElement Name="GroundBattleAttackerStrategy1">
+        <Title>%NotificationGroundBattleSetupAttackerStrategy1Title</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategy1Description</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerStrategy1Large" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="GroundBattleAttackerStrategy2">
+        <Title>%NotificationGroundBattleSetupAttackerStrategy2Title</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategy2Description</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerStrategy2Large" />
+        </Icons>
+    </GuiElement>
+	
+	<GuiElement Name="GroundBattleAttackerStrategy2Tikanans">
+		<Title>%NotificationGroundBattleSetupAttackerStrategy2TikanansTitle</Title>
+		<Description>%NotificationGroundBattleSetupAttackerStrategy2TikanansDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerStrategy2Large" />
+		</Icons>
+	</GuiElement>
+
+    <GuiElement Name="GroundBattleAttackerStrategy3">
+        <Title>%NotificationGroundBattleSetupAttackerStrategy3Title</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategy3Description</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerStrategy3Large" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="GroundBattleDefenderStrategy1">
+        <Title>%NotificationGroundBattleSetupDefenderStrategy1Title</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategy1Description</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderStrategy1Large" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="GroundBattleDefenderStrategy1Terrans">
+        <Title>%NotificationGroundBattleSetupDefenderStrategy1TerransTitle</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategy1TerransDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderStrategy1UELarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="GroundBattleDefenderStrategy2">
+        <Title>%NotificationGroundBattleSetupDefenderStrategy2Title</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategy2Description</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderStrategy2Large" />
+        </Icons>
+    </GuiElement>
+	
+	<GuiElement Name="GroundBattleDefenderStrategy2Gnashasts">
+		<Title>%NotificationGroundBattleSetupDefenderStrategy2GnashastsTitle</Title>
+		<Description>%NotificationGroundBattleSetupDefenderStrategy2GnashastsDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderStrategy2Large" />
+		</Icons>
+	</GuiElement>
+    
+    <GuiElement Name="GroundBattleDefenderStrategy3">
+        <Title>%NotificationGroundBattleSetupDefenderStrategy3Title</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategy3Description</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderStrategy3Large" />
+        </Icons>
+    </GuiElement>
+	
+	<GuiElement Name="GroundBattleDefenderStrategy3Bhagabas">
+		<Title>%NotificationGroundBattleSetupDefenderStrategy3BhagabasTitle</Title>
+		<Description>%NotificationGroundBattleSetupDefenderStrategy3BhagabasDescription</Description>
+		<Icons>
+			<Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderStrategy3Large" />
+		</Icons>
+	</GuiElement>
+
+    <!--MINOR FACTIONS PLAYS-->
+        <!--NORMAL-->
+    <GuiElement Name="GroundBattleAttackerStrategyMinorFaction">
+        <Title>%NotificationGroundBattleSetupAttackerStrategyMinorFactionTitle</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategyMinorFactionDescription</Description>
+        <Icons><Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerPirateLarge" /></Icons>
+    </GuiElement>
+    <GuiElement Name="GroundBattleDefenderStrategyMinorFaction">
+        <Title>%NotificationGroundBattleSetupDefenderStrategyMinorFactionTitle</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategyMinorFactionDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderPirateLarge" />
+        </Icons>
+    </GuiElement>
+    <!--EASY-->
+    <GuiElement Name="GroundBattleAttackerStrategyMinorFactionEasy">
+        <Title>%NotificationGroundBattleSetupAttackerStrategyMinorFactionTitle</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategyMinorFactionDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerPirateLarge" />
+        </Icons>
+    </GuiElement>
+    <GuiElement Name="GroundBattleDefenderStrategyMinorFactionEasy">
+        <Title>%NotificationGroundBattleSetupDefenderStrategyMinorFactionTitle</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategyMinorFactionDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderPirateLarge" />
+        </Icons>
+    </GuiElement>
+    <!--HARD-->
+    <GuiElement Name="GroundBattleAttackerStrategyMinorFactionHard">
+        <Title>%NotificationGroundBattleSetupAttackerStrategyMinorFactionTitle</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategyMinorFactionDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerPirateLarge" />
+        </Icons>
+    </GuiElement>
+    <GuiElement Name="GroundBattleDefenderStrategyMinorFactionHard">
+        <Title>%NotificationGroundBattleSetupDefenderStrategyMinorFactionTitle</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategyMinorFactionDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderPirateLarge" />
+        </Icons>
+    </GuiElement>
+
+    <!--LESSER EMPIRE-->
+    <GuiElement Name="GroundBattleAttackerStrategyLesserEmpire">
+        <Title>%NotificationGroundBattleSetupAttackerStrategyLesserEmpireTitle</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategyLesserEmpireDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerPirateLarge" />
+        </Icons>
+    </GuiElement>
+    <GuiElement Name="GroundBattleDefenderStrategyLesserEmpire">
+        <Title>%NotificationGroundBattleSetupDefenderStrategyLesserEmpireTitle</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategyLesserEmpireDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderPirateLarge" />
+        </Icons>
+    </GuiElement>
+
+    <!--PIRATE EMPIRE-->
+    <GuiElement Name="GroundBattleAttackerStrategyPirateEmpire">
+        <Title>%NotificationGroundBattleSetupAttackerStrategyPirateEmpireTitle</Title>
+        <Description>%NotificationGroundBattleSetupAttackerStrategyPirateEmpireDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleAttackerPirateLarge" />
+        </Icons>
+    </GuiElement>
+    <GuiElement Name="GroundBattleDefenderStrategyPirateEmpire">
+        <Title>%NotificationGroundBattleSetupDefenderStrategyPirateEmpireTitle</Title>
+        <Description>%NotificationGroundBattleSetupDefenderStrategyPirateEmpireDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/GroundBattle/GroundBattleDefenderPirateLarge" />
+        </Icons>
+    </GuiElement>
+
+</Datatable>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Droplist.xsd">
+
+    <Droplist Name="testDroplist0" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="100" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist1" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="10" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist2" Selector="Weighted">
+        <Technology Name="TechnologyDefinitionEconomyAndTrade25" Weight="1" Constrained="true"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist3" Selector="Weighted">
+        <List Name="testDroplist4" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist4" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="40" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist5" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="50" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist6" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="60" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist7" Selector="Weighted">
+    <Resource Name="EmpireMoney" Quantity="70" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testDroplist8" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="80" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testGlobalDroplist" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="800" Weight="1"/>
+        <Resource Name="EmpireMoney" Quantity="700" Weight="1"/>
+        <Resource Name="EmpireMoney" Quantity="600" Weight="2"/>
+        <Resource Name="EmpireMoney" Quantity="500" Weight="2"/>
+        <Resource Name="EmpireMoney" Quantity="400" Weight="2"/>
+        <Resource Name="EmpireMoney" Quantity="300" Weight="3"/>
+        <Resource Name="EmpireMoney" Quantity="200" Weight="3"/>
+        <Resource Name="EmpireMoney" Quantity="100" Weight="3"/>
+    </Droplist>
+
+    <Droplist Name="CuriosityDustDroplist" Selector="Weighted">
+        <Resource Name="EmpireMoney" Quantity="70" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="CuriosityQuestDroplist" Selector="Weighted">
+        <String Value="TestCooperative" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="TestPlanetTypeDroplist" Selector="Weighted">
+        <String Value="PlanetTypeToundra" Weight="1"/>
+        <String Value="PlanetTypeTerran" Weight="1"/>
+    </Droplist>
+    
+  
+
+    <Droplist Name="TestFleetDroplist" Selector="Weighted">
+        <Fleet>
+            <ShipDesign>Sophons_SmallAttack</ShipDesign>
+            <ShipDesign>Sophons_SmallSupport</ShipDesign>
+        </Fleet>
+        <Fleet>
+            <ShipDesign>Sophons_SmallAttack</ShipDesign>
+            <ShipDesign>Sophons_SmallAttack</ShipDesign>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="TestEmptyFleetDroplistWithHero" Selector="Weighted">
+        <Fleet>
+            <HeroDefinition>HeroSophons01</HeroDefinition>
+        </Fleet>
+    </Droplist>
+
+    <Droplist Name="TestBlueprintDroplist" Selector="Weighted">
+        <Blueprint Name="TechnologyDefinitionEconomyAndTrade3Era1" ConstructibleName="StarSystemImprovementApproval1"/>
+    </Droplist>
+
+    <Droplist Name="TestModuleDroplist" Selector="Weighted">
+        <Module Name="TechnologyDefinitionMilitary1Era1" ModuleName="ModuleWeaponKinetic1Strategic1"/>
+    </Droplist>
+
+    <Droplist Name="TestHeroDroplist" Selector="Weighted">
+        <Hero Name="HeroSophons01"/>
+    </Droplist>
+
+    <Droplist Name="testLuxDroplist" Selector="Weighted" RetryOnFailure="true">
+        <Resource Name="Luxury1" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury2" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury3" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury4" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury5" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury6" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury7" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury8" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury9" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury10" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury11" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury12" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury13" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury14" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury15" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury16" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury17" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury18" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury19" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury20" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury21" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury22" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury23" Quantity="10" Weight="1"/>
+        <Resource Name="Luxury24" Quantity="10" Weight="1"/>
+    </Droplist>
+
+    <Droplist Name="testLaw">
+        <Law Name="LawP01L01"/>
+    </Droplist>
+
+    <Droplist Name="testTurnProgression" Selector="TurnProgression">
+        <Resource Name="EmpireMoney" Quantity="100" MaxTurn="20"/>
+        <Resource Name="EmpireMoney" Quantity="200" MaxTurn="40"/>
+        <Resource Name="EmpireMoney" Quantity="300" MaxTurn="60"/>
+        <Resource Name="EmpireMoney" Quantity="400" MaxTurn="80"/>
+        <Resource Name="EmpireMoney" Quantity="500" />
+    </Droplist>
+
+    <Droplist Name="testUnlock">
+        <Unlock Name="StarSystemImprovementQuestVampirilis06" SimulationTag="VampirilisQuest-Chapter4-Rebellious-Step1Reward"/>
+    </Droplist>
+
+    <Droplist Name="testSpawnHeroReward">
+        <Hero Name="HeroSophons01" Spawn="true" Level="5"/>
+    </Droplist>
+
+</Datatable>

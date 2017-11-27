@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/SenatorInteractionDefinition.xsd">
+
+    <!-- Seduce -->
+    <SenatorInteractionDefinition_Seduce Name="SenatorInteractionSeduce">
+        <CustomCost ResourceName="EmpireEmpirePoint">
+            150 +
+            Property(Senator, @CharacterRoleSenator, SeductionLevel) * 15
+        </CustomCost>
+    </SenatorInteractionDefinition_Seduce>
+
+  <!-- Dismiss -->
+  <SenatorInteractionDefinition_Dismiss Name="SenatorInteractionDismiss">
+    <CustomCost ResourceName="EmpireEmpirePoint">
+      Property(Senator, @CharacterRoleSenator, Support) * 100 + 
+      $(SenatorPopulationPoliticsSupport) * 20
+    </CustomCost>
+  </SenatorInteractionDefinition_Dismiss>
+
+  <!-- Make a coup -->
+  <SenatorInteractionDefinition_MakeACoup Name="SenatorInteractionMakeACoup">
+    <PathPrerequisite Flags="Prerequisite" Inverted="true">PrimeSenator</PathPrerequisite>
+    <CustomCost ResourceName="EmpireEmpirePoint">
+      Max(0, Property(PrimeSenator, @CharacterRoleSenator, Support) -  Property(Senator, @CharacterRoleSenator, Support)) * 500 +
+      Max(0, $(PrimeSenatorPopulationPoliticsSupport) - $(SenatorPopulationPoliticsSupport)) * 300
+    </CustomCost>
+  </SenatorInteractionDefinition_MakeACoup>
+
+    <!-- Assassinate -->
+    <SenatorInteractionDefinition_Assassinate Name="SenatorInteractionAssassinate">
+        <PathPrerequisite Flags="Prerequisite" Inverted="true">PrimeSenator</PathPrerequisite>
+        <CustomCost ResourceName="EmpireEmpirePoint">
+            Property(Senator, @CharacterRoleSenator, Support) * 500 +
+            $(SenatorPopulationPoliticsSupport) * 300
+        </CustomCost>
+    </SenatorInteractionDefinition_Assassinate>
+  
+</Datatable>

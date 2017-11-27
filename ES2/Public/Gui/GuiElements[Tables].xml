@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <TableGuiElement Name ="LoadSaveTable" Height="30">
+        <Column Name="LocalizedTitle" Width="280" Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical" />
+        <Column Name="FactionName"    Width="120" Prefab="Prefabs/Gui/Table/TableCellText" />
+        <Column Name="TurnPlusOne"    Width="60"  Prefab="Prefabs/Gui/Table/TableCellText" />
+        <Column Name="SessionMode"    Width="120" Prefab="Prefabs/Gui/Table/TableCellText" />
+        <Column Name="DateTime"       Width="140" Prefab="Prefabs/Gui/Table/TableCellText" />
+        <Column Name="IsOnCloud"      Width="60"  Prefab="Prefabs/Gui/Table/TableCellCloudSave" />
+        <Column Name="RuntimeModules" Width="120" Prefab="Prefabs/Gui/Table/TableCellMods" />
+    </TableGuiElement>
+
+    <TableGuiElement Name ="FleetListTable" Height="30">
+        <Column Name="LocalizedName"    Width="90" Prefab="Prefabs/Gui/Table/TableCellFleetName" />
+        <Column Name="AssignedHero"     Width="50" Prefab="Prefabs/Gui/Table/TableCellAssignedHero" />
+        <Column Name="CommandPoints"    Width="40" Prefab="Prefabs/Gui/Table/TableCellCommandPoints" />
+        <Column Name="Health"           Width="80" Prefab="Prefabs/Gui/Table/TableCellHealth" />
+        <Column Name="Manpower"         Width="50" Prefab="Prefabs/Gui/Table/TableCellManpower" />
+        <Column Name="MovementPoints"   Width="50" Prefab="Prefabs/Gui/Table/TableCellMovementPoints" />
+        <Column Name="FleetStatus"      Width="72" Prefab="Prefabs/Gui/Table/TableCellFleetStatus" />
+        <Column Name="Upkeep"           Width="50" Prefab="Prefabs/Gui/Table/TableCellUpkeep" DigitsNumber="0"/>
+    </TableGuiElement>
+
+    <TableGuiElement Name ="EnemyFleetListTable" Height="30">
+      <Column Name="Empire"           Width="156" Prefab="Prefabs/Gui/Table/TableCellEmpire" />
+      <Column Name="LocalizedName"    Width="156" Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical" />
+      <Column Name="CommandPoints"    Width="60" Prefab="Prefabs/Gui/Table/TableCellCommandPoints" />
+      <Column Name="Health"           Width="110" Prefab="Prefabs/Gui/Table/TableCellHealth" />
+    </TableGuiElement>
+
+    <TableGuiElement Name ="SystemListTable" Height="42">
+        <Column Name="LocalizedName"        Width="70" Prefab="Prefabs/Gui/Table/TableCellTextAlphabeticalVariable" />
+        <Column Name="Status"               Width="100" Prefab="Prefabs/Gui/Table/TableCellSystemStatus" />
+        <Column Name="Population"           Width="102" Prefab="Prefabs/Gui/Table/TableCellSystemPopulation" />
+        <Column Name="Happiness"            Width="82" Prefab="Prefabs/Gui/Table/TableCellSystemHappiness" />
+        <Column Name="AssignedHero"         Width="50" Prefab="Prefabs/Gui/Table/TableCellAssignedHeroButton" />
+        <Column Name="FoodIncome"           Width="32" Prefab="Prefabs/Gui/Table/TableCellTextFids" DigitsNumber="0"/>
+        <Column Name="IndustryIncome"       Width="32" Prefab="Prefabs/Gui/Table/TableCellTextFids" DigitsNumber="0"/>
+        <Column Name="DustIncome"           Width="32" Prefab="Prefabs/Gui/Table/TableCellTextFids" DigitsNumber="0"/>
+        <Column Name="ScienceIncome"        Width="32" Prefab="Prefabs/Gui/Table/TableCellTextFids" DigitsNumber="0"/>
+        <Column Name="PrestigeIncome"       Width="32" Prefab="Prefabs/Gui/Table/TableCellTextFids" DigitsNumber="0"/>
+        <Column Name="ResourcesIncome"      Width="100" Prefab="Prefabs/Gui/Table/TableCellSystemResources" />
+        <Column Name="ConstructionQueue"    Width="100" Prefab="Prefabs/Gui/Table/TableCellSystemQueue" />
+        <Column Name="Policy"               Width="52" Prefab="Prefabs/Gui/Table/TableCellSystemPolicy" />
+        <Column Name="Hangar"               Width="50" Prefab="Prefabs/Gui/Table/TableCellSystemHangar" />
+    </TableGuiElement>
+
+    <TableGuiElement Name ="HeroCompleteListTable" Height="42">
+        <Column Name="Hero"             Width="240" Prefab="Prefabs/Gui/Table/TableCellHero" />
+        <Column Name="HeroOwner"        Width="180" Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical" />
+        <Column Name="HeroAffinity"     Width="100" Prefab="Prefabs/Gui/Table/TableCellHeroProperty" />
+        <Column Name="HeroPolitics"     Width="100" Prefab="Prefabs/Gui/Table/TableCellHeroPolitics" />
+        <Column Name="HeroClass"        Width="100" Prefab="Prefabs/Gui/Table/TableCellHeroProperty" />
+        <Column Name="LocationName"     Width="100" Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical" />
+        <Column Name="Level"            Width="40"  Prefab="Prefabs/Gui/Table/TableCellText"/>
+    </TableGuiElement>
+
+    <TableGuiElement Name="JoinGameSessionListTable" Height="48">
+        <Column Name="Name" Description="VictoryConditions" Width="220" Prefab="Prefabs/Gui/Table/TableCellTextNoAutoLocalize"/>
+        <Column Name="Turn"                                 Width="70"  Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="PlayerCount"                          Width="110" Prefab="Prefabs/Gui/Table/TableCellRatio"/>
+        <Column Name="CustomFactionsAllowed"                Width="130" Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="Galaxy" Description="GalaxyDetails"   Width="220" Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="GameSpeed"                            Width="110" Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="GameDifficulty"                       Width="170" Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="Timer" Description="TimerDetailed"    Width="90"  Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="Runtime"                              Width="80"  Prefab="Prefabs/Gui/Table/TableCellMods"/>
+    </TableGuiElement>
+
+    <TableGuiElement Name="SystemPopulationPoliticsTable" Height="52">
+        <Column Name="Title"       Width="276" Prefab="Prefabs/Gui/Table/TableCellActivePoliticsInfo" AutoResizeHeight="true" />
+        <!-- The last column is duplicated and renamed for each population -->
+        <Column Name="Population"  Width="42"  Prefab="Prefabs/Gui/Table/TableCellActivePoliticsPopulation"/>
+    </TableGuiElement>
+
+    <TableGuiElement Name="AvailableFactionTraitTable" Height="18">
+        <Column Name="Title"                Width="324"  Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical"/>
+        <Column Name="FormattedLevel"       Width="50"   Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical"/>
+        <Column Name="Cost"                 Width="50"  Prefab="Prefabs/Gui/Table/TableCellFactionTraitCost"/>
+    </TableGuiElement>
+    
+    <TableGuiElement Name="SelectedFactionTraitTable" Height="18">
+        <Column Name="Title"                Width="484"  Prefab="Prefabs/Gui/Table/TableCellTextAlphabetical" />
+        <Column Name="FormattedLevel"       Width="50"   Prefab="Prefabs/Gui/Table/TableCellText"/>
+        <Column Name="Cost"                 Width="50"  Prefab="Prefabs/Gui/Table/TableCellFactionTraitCost"/>
+    </TableGuiElement>
+
+    <TableGuiElement Name ="EndGameSummaryTable" Height="54">        
+        <Column Name="ScoreVictoryStatus" Description="ScoreDescription" Width="120" Prefab="Prefabs/Gui/Table/TableCellScoreRank" />
+        
+        <Column Name="PlayerEmpire" Description="FactionDescription" FilterPropertyName="PlayerFactionName" Width="210" Prefab="Prefabs/Gui/Table/TableCellOfflineEmpire">
+            <Filter>%FactionCraversTitle</Filter>
+            <Filter>%FactionSophonsTitle</Filter>
+            <Filter>%FactionVenetiansTitle</Filter>
+            <Filter>%FactionTerransTitle</Filter>
+            <Filter>%FactionMezariTitle</Filter>
+            <Filter>%FactionSheredynTitle</Filter>
+            <Filter>%FactionHoratioTitle</Filter>
+            <Filter>%FactionVampirilisTitle</Filter>
+            <Filter>%FactionUnfallenTitle</Filter>
+            <Filter>%FactionTimeLordsTitle</Filter>
+            <Filter>%FactionCustomTitle</Filter>
+        </Column>
+        
+        <Column Name="HasWon" Description="WinnerEmpiresDescription" FilterPropertyName="AchievedVictoryTitle" Width="210" Prefab="Prefabs/Gui/Table/TableCellGameResults">
+            <Filter>%VictoryScoreTitle</Filter>
+            <Filter>%VictorySupremacyTitle</Filter>
+            <Filter>%VictoryConquestTitle</Filter>
+            <Filter>%VictoryScienceTitle</Filter>
+            <Filter>%VictoryEconomicTitle</Filter>
+            <Filter>%VictoryWonderTitle</Filter>
+            <Filter>%VictoryMilitaryTitle</Filter>
+        </Column>
+        
+        <Column Name="TurnPlusOne" Width="60" Prefab="Prefabs/Gui/Table/TableCellText" />
+        
+        <Column Name="GameDifficulty" Description="GameDifficultyDescription" Width="100" FilterMenuWidth="140" Prefab="Prefabs/Gui/Table/TableCellText">
+            <Filter>%SettingGameDifficultyNewbieTitle</Filter>
+            <Filter>%SettingGameDifficultyEasyTitle</Filter>
+            <Filter>%SettingGameDifficultyNormalTitle</Filter>
+            <Filter>%SettingGameDifficultyHardTitle</Filter>
+            <Filter>%SettingGameDifficultySeriousTitle</Filter>
+            <Filter>%SettingGameDifficultyImpossibleTitle</Filter>
+            <Filter>%SettingGameDifficultyEndlessTitle</Filter>
+        </Column>
+        
+        <Column Name="GameSpeed" Description="GameSpeedDescription" Width="100" FilterMenuWidth="140" Prefab="Prefabs/Gui/Table/TableCellText">
+            <Filter>%SettingGameSpeedFastTitle</Filter>
+            <Filter>%SettingGameSpeedNormalTitle</Filter>
+            <Filter>%SettingGameSpeedSlowTitle</Filter>
+            <Filter>%SettingGameSpeedEndlessTitle</Filter>
+        </Column>
+
+        <Column Name="SessionMode" Width="100" FilterMenuWidth="140" Prefab="Prefabs/Gui/Table/TableCellSessionInfo">
+            <Filter>%SessionModeSingle</Filter>
+            <Filter>%SessionModePrivate</Filter>
+            <Filter>%SessionModeProtected</Filter>
+            <Filter>%SessionModePublic</Filter>
+        </Column>
+        
+        <Column Name="Date" Width="140" Prefab="Prefabs/Gui/Table/TableCellText" />
+        <Column Name="EndGameSummary" Width="80" Prefab="Prefabs/Gui/Table/TableCellScoreScreenButton" DisableSorting="true" />    
+    </TableGuiElement>
+    
+</Datatable>

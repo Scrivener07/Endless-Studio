@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Game.Orders.OrderPolicySetup.xsd">
+
+  <!--#####################################################-->
+  <!--##                    FALLBACK                     ##-->
+  <!--#####################################################-->
+
+  <Setup Name="Fallback">
+    <Chain Type="Input">
+      <Rule Policy="Accept"/>
+    </Chain>
+    <Chain Type="Output">
+      <Rule Policy="Accept"/>
+    </Chain>
+  </Setup>
+  
+</Datatable>

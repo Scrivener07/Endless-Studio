@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- ########################################## -->
+    <!-- ######        MAJOR FACTIONS        ###### -->
+    <!-- ########################################## -->
+    <!-- AffinityGuiElement is mapped with the AffinityMapping of the Faction's MajorPopulation -->
+    
+	<AffinityGuiElement Name="AffinityMappingCravers" PreloadCount="3" >
+		<Title>%AffinityCraversTitle</Title>
+		<Description>%AffinityCraversDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityCraversSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityCraversMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityCraversMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityCraversLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityCraversLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityCraversMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetCraversSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetCraversMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen03" />
+		</Icons>
+		<SymbolString>[cravers]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_Cravers" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Cravers_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Cravers_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitCraversLeaders01</ModelPath>
+	</AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingSophons" PreloadCount="3" >
+		<Title>%AffinitySophonsTitle</Title>
+		<Description>%AffinitySophonsDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinitySophonsSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinitySophonsMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinitySophonsMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinitySophonsLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinitySophonsLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinitySophonsMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetSophonsSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetSophonsMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen01" />
+		</Icons>
+		<SymbolString>[sophons]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_Sophon" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Sophons_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Sophons_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitSophonsLeaders01</ModelPath>
+	</AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingTerrans" PreloadCount="3" >
+        <Title>%AffinityTerransTitle</Title>
+        <Description>%AffinityTerransDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityTerransSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityTerransMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityTerransMediumInverted" />
+            <Icon Size="Large"  Path="Bitmaps/Dynamic/Affinities/AffinityTerransLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityTerransLeader" />
+            <Icon Size="Mood"   Path="Bitmaps/Dynamic/Affinities/AffinityTerransMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetTerransSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetTerransMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen05" />
+        </Icons>
+        <SymbolString>[terrans]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_UnitedEmpire" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Terrans_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Terrans_Outro_UE.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitTerransLeaders01</ModelPath>
+    </AffinityGuiElement>
+	
+	<AffinityGuiElement Name="AffinityMappingMezari" PreloadCount="1" >
+        <Title>%AffinityMezariTitle</Title>
+        <Description>%AffinityMezariDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityMezariSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityMezariMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityMezariMediumInverted" />
+            <Icon Size="Large"  Path="Bitmaps/Dynamic/Affinities/AffinityMezariLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityMezariLeader" />
+            <Icon Size="Mood"   Path="Bitmaps/Dynamic/Affinities/AffinityMezariMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetMezariSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetMezariMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen05_1" />
+        </Icons>
+        <SymbolString>[mezari]</SymbolString>
+    <Sounds>
+      <Sound EventName="Play_ES2_Voices_OUTRO_UnitedEmpire" Type="Outro"/>
+    </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Terrans_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Terrans_Outro_Mezari.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitMezariLeaders01</ModelPath>
+    </AffinityGuiElement>
+	
+	<AffinityGuiElement Name="AffinityMappingSheredyn" PreloadCount="1" >
+        <Title>%AffinitySheredynTitle</Title>
+        <Description>%AffinitySheredynDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinitySheredynSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinitySheredynMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinitySheredynMediumInverted" />
+            <Icon Size="Large"  Path="Bitmaps/Dynamic/Affinities/AffinitySheredynLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinitySheredynLeader" />
+            <Icon Size="Mood"   Path="Bitmaps/Dynamic/Affinities/AffinitySheredynMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetSheredynSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetSheredynMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen05_2" />
+        </Icons>
+        <SymbolString>[sheredyn]</SymbolString>
+    <Sounds>
+      <Sound EventName="Play_ES2_Voices_OUTRO_UnitedEmpire" Type="Outro"/>
+    </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Terrans_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Terrans_Outro_Sheredyn.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitSheredynLeaders01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingHoratio" PreloadCount="3" >
+        <Title>%AffinityHoratioTitle</Title>
+        <Description>%AffinityHoratioDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityHoratioSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityHoratioMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityHoratioMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityHoratioLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityHoratioLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityHoratioMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetHoratioSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetHoratioMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen06" />
+        </Icons>
+        <SymbolString>[horatio]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_Horatio" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+		<Movies>
+            <Movie Path="Movies/Factions/Horatio_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Horatio_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitHoratioLeaders01</ModelPath>
+    </AffinityGuiElement>
+  
+    <AffinityGuiElement Name="AffinityMappingVenetians" PreloadCount="3" >
+        <Title>%AffinityVenetiansTitle</Title>
+        <Description>%AffinityVenetiansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityVenetiansSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityVenetiansMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityVenetiansMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityVenetiansLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityVenetiansLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityVenetiansMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetVenetiansSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetVenetiansMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen02" />
+        </Icons>
+        <SymbolString>[venetians]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_Lumeris" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Venetians_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Venetians_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitVenetiansLeaders01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingUnfallen" PreloadCount="3" >
+        <Title>%AffinityUnfallenTitle</Title>
+        <Description>%AffinityUnfallenDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityUnfallenSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityUnfallenMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityUnfallenMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityUnfallenLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityUnfallenLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityUnfallenMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetUnfallenSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetUnfallenMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen08" />
+        </Icons>
+        <SymbolString>[unfallen]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_Unfallen" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Unfallen_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Unfallen_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitUnfallenLeaders01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingVampirilis" PreloadCount="3" >
+        <Title>%AffinityVampirilisTitle</Title>
+        <Description>%AffinityVampirilisDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityVampirilisSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityVampirilisMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityVampirilisMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityVampirilisLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityVampirilisLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityVampirilisMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetVampirilisSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetVampirilisMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen04" />
+        </Icons>
+        <SymbolString>[vampirilis]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_Vodyani" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Vampirilis_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Vampirilis_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitVampirilisLeaders01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingTimeLords" PreloadCount="3" >
+        <Title>%AffinityTimeLordsTitle</Title>
+        <Description>%AffinityGameplayTimeLordsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityTimeLordsSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityTimeLordsMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityTimeLordsMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityTimeLordsLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityTimeLordsLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityTimeLordsMood" />
+            <Icon Size="SmallExtended" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetTimeLordsSmall" />
+            <Icon Size="MediumExtended" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMajorEmpireMetTimeLordsMedium" />
+            <Icon Size="Loading" Path="Bitmaps/Dynamic/Moods/LoadingScreen07" />
+        </Icons>
+        <SymbolString>[timelords]</SymbolString>
+        <Sounds>
+            <Sound EventName="Play_ES2_Voices_OUTRO_RiftBorn" Type="Outro"/>
+        </Sounds>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+        <Movies>
+            <Movie Path="Movies/Factions/Timelords_Intro.mp4" Type="Intro" />
+            <Movie Path="Movies/Factions/Timelords_Outro.mp4" Type="Outro" />
+        </Movies>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitTimeLordsLeaders01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityFactionRandom" PreloadCount="3" >
+        <Title>%AffinityGameplayRandomTitle</Title>
+        <Description>%AffinityGameplayRandomDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="AffinityRandomSmall" />
+            <Icon Size="Medium" Path="AffinityRandomMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityRandomMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityRandomLarge" />
+            <Icon Size="Leader" Path="Bitmaps/Dynamic/Affinities/AffinityRandomLeader" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityRandomMood" />
+        </Icons>
+        <SymbolString>[random]</SymbolString>
+        <Color Red="233" Green="105" Blue="237" Alpha="255" />
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitRandom</ModelPath>
+    </AffinityGuiElement>
+
+    <!-- ########################################## -->
+    <!-- ######        BASIC FACTIONS        ###### -->
+    <!-- ########################################## -->
+
+    <AffinityGuiElement Name="AffinityMappingMinorFactionPirates">
+        <Title>%AffinityGameplayPirateTitle</Title>
+        <Description>%AffinityGameplayPirateDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityPirateSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityPirateMedium" />
+        </Icons>
+        <SymbolString>[pirates]</SymbolString>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitPirateEmpire01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingUnknown" PreloadCount="5">
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitUnknownLeaders01</ModelPath>
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingLesserEmpire">
+        <Title>%AffinityGameplayLesserEmpireTitle</Title>
+        <Description>%AffinityGameplayLesserEmpireDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityLesserEmpireSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityLesserEmpireMedium" />
+        </Icons>
+        <ModelPath>Prefabs/Gui/AnimatedPortrait/AnimatedPortraitLesserEmpire01</ModelPath>
+    </AffinityGuiElement>
+
+    <!-- ########################################## -->
+    <!-- ######        MINOR FACTIONS        ###### -->
+    <!-- ########################################## -->
+    
+    <AffinityGuiElement Name="AffinityMappingAmoeba">
+        <Title>%AffinityAmoebaTitle</Title>
+        <Description>%AffinityAmoebaDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityAmoebaSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityAmoebaMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityAmoebaMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityAmoebaLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityAmoebaMood" />
+        </Icons>
+        <SymbolString>[amoebas]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingBenthys">
+        <Title>%AffinityBenthysTitle</Title>
+        <Description>%AffinityBenthysDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityBenthysSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityBenthysMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityBenthysMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityBenthysLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityBenthysMood" />
+        </Icons>
+        <SymbolString>[kalgeros]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingBots">
+        <Title>%AffinityBotsTitle</Title>
+        <Description>%AffinityBotsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityTimebotsSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityTimebotsMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityBotsMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityBotsLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityBotsMood" />
+        </Icons>
+        <SymbolString>[epistis]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingDeuyivans">
+        <Title>%AffinityDeuyivansTitle</Title>
+        <Description>%AffinityDeuyivansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityDeuyivansSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityDeuyivansMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityDeuyivansMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityDeuyivansLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityDeuyivansMood" />
+        </Icons>
+        <SymbolString>[deuyivans]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingHaroshems">
+        <Title>%AffinityHaroshemsTitle</Title>
+        <Description>%AffinityHaroshemsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityHaroshemsSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityHaroshemsMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityHaroshemsMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityHaroshemsLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityHaroshemsMood" />
+        </Icons>
+        <SymbolString>[haroshems]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingHisshos">
+        <Title>%AffinityHisshosTitle</Title>
+        <Description>%AffinityHisshosDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityHisshosSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityHisshosMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityHisshosMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityHisshosLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityHisshosMood" />
+        </Icons>
+        <SymbolString>[hisshos]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingMavros">
+        <Title>%AffinityMavrosTitle</Title>
+        <Description>%AffinityMavrosDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityMavrosSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityMavrosMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityMavrosMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityMavrosLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityMavrosMood" />
+        </Icons>
+        <SymbolString>[mavros]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingPilgrims">
+        <Title>%AffinityPilgrimsTitle</Title>
+        <Description>%AffinityPilgrimsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityPilgrimsSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityPilgrimsMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPilgrimsMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityPilgrimsLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityPilgrimsMood" />
+        </Icons>
+        <SymbolString>[pilgrims]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingZvali">
+        <Title>%AffinityZvaliTitle</Title>
+        <Description>%AffinityZvaliDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityZvaliSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityZvaliMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityZvaliMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityZvaliLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityZvaliMood" />
+        </Icons>
+        <SymbolString>[zvalis]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+	
+	<AffinityGuiElement Name="AffinityMappingTikanans">
+		<Title>%AffinityTikanansTitle</Title>
+		<Description>%AffinityTikanansDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityTikanansSmall" />
+			<Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityTikanansMedium" />
+			<Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityTikanansMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityTikanansLarge" />
+			<Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityTikanansMood" />
+		</Icons>
+		<SymbolString>[tikanans]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+	</AffinityGuiElement>
+
+	<AffinityGuiElement Name="AffinityMappingGnashasts">
+		<Title>%AffinityGnashastsTitle</Title>
+		<Description>%AffinityGnashastsDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityGnashastsSmall" />
+			<Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityGnashastsMedium" />
+			<Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityGnashastsMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityGnashastsLarge" />
+			<Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityGnashastsMood" />
+		</Icons>
+		<SymbolString>[gnashasts]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+	</AffinityGuiElement>
+	
+	<AffinityGuiElement Name="AffinityMappingEyders">
+		<Title>%AffinityEydersTitle</Title>
+		<Description>%AffinityEydersDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityEydersSmall" />
+			<Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityEydersMedium" />
+			<Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityEydersMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityEydersLarge" />
+			<Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityEydersMood" />
+		</Icons>
+		<SymbolString>[eyders]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+	</AffinityGuiElement>
+
+	<AffinityGuiElement Name="AffinityMappingNiris">
+		<Title>%AffinityGameplayNirisTitle</Title>
+		<Description>%AffinityGameplayNirisDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityNirisSmall" />
+			<Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityNirisMedium" />
+			<Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityNirisMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityNirisLarge" />
+			<Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityNirisMood" />
+		</Icons>
+		<SymbolString>[niris]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+	</AffinityGuiElement>
+	
+	<AffinityGuiElement Name="AffinityMappingBhagabas">
+		<Title>%AffinityGameplayBhagabasTitle</Title>
+		<Description>%AffinityGameplayBhagabasDescription</Description>
+		<Icons>
+			<Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityBhagabasSmall" />
+			<Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityBhagabasMedium" />
+			<Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityBhagabasMediumInverted" />
+			<Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityBhagabasLarge" />
+			<Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityBhagabasMood" />
+		</Icons>
+		<SymbolString>[bhagabas]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+	</AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingRemnant">
+        <Title>%AffinityGameplayRemnantTitle</Title>
+        <Description>%AffinityGameplayRemnantDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityRemnantSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityRemnantMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityRemnantMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityRemnantLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityRemnantMood" />
+        </Icons>
+        <SymbolString>[remnants]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingPulsos">
+        <Title>%AffinityGameplayPulsosTitle</Title>
+        <Description>%AffinityGameplayPulsosDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityPulsosSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityPulsosMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPulsosMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityPulsosLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityPulsosMood" />
+        </Icons>
+        <SymbolString>[pulsos]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <AffinityGuiElement Name="AffinityMappingGuardians">
+        <Title>%AffinityGameplayGuardiansTitle</Title>
+        <Description>%AffinityGameplayGuardiansDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityGuardiansSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityGuardiansMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityGuardiansMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityGuardiansLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityGuardiansMood" />
+        </Icons>
+        <SymbolString>[guardians]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <!-- Greenman -->
+    <AffinityGuiElement Name="AffinityMappingGreenman">
+        <Title>%AffinityGameplayGreenmanTitle</Title>
+        <Description>%AffinityGameplayGreenmanDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityGreenmanSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityGreenmanMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityGreenmanMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityGreenmanLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityGreenmanMood" />
+        </Icons>
+        <SymbolString>[greenman]</SymbolString>
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <!-- GROUP -->
+    <AffinityGuiElement Name="AffinityGroup">
+        <Title>%AffinityGameplayGroupTitle</Title>
+        <Description>%AffinityGameplayGroupDescription</Description>
+        <!--<Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/AffinityEydersSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/AffinityEydersMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityEydersMediumInverted" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Affinities/AffinityEydersLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Affinities/AffinityEydersMood" />
+        </Icons>
+        <SymbolString>[eyder]</SymbolString>-->
+        <Color Red="255" Green="255" Blue="255" Alpha="255" />
+    </AffinityGuiElement>
+
+    <!-- ########################################## -->
+    <!-- ######        CUSTOM POPULATIONS    ###### -->
+    <!-- ########################################## -->
+    <!-- These icons overrides the icons defined by the AffinityGuiElement -->
+
+    <ExtendedGuiElement Name="PopulationIconsOverride0">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride00Small" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride00Medium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride00MediumInverted" />
+        </Icons>
+        <SymbolString>[custom00]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride1">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride01Small" />
+            <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride01Medium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride01MediumInverted" />
+        </Icons>
+        <SymbolString>[custom01]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride2">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride02Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride02Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride02MediumInverted" />
+        </Icons>
+        <SymbolString>[custom02]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride3">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride03Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride03Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride03MediumInverted" />
+        </Icons>
+        <SymbolString>[custom03]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride4">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride04Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride04Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride04MediumInverted" />
+        </Icons>
+        <SymbolString>[custom04]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride5">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride05Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride05Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride05MediumInverted" />
+        </Icons>
+        <SymbolString>[custom05]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride6">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride06Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride06Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride06MediumInverted" />
+        </Icons>
+        <SymbolString>[custom06]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride7">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride07Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride07Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride07MediumInverted" />
+        </Icons>
+        <SymbolString>[custom07]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride8">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride08Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride08Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride08MediumInverted" />
+        </Icons>
+        <SymbolString>[custom08]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride9">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride09Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride09Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride09MediumInverted" />
+        </Icons>
+        <SymbolString>[custom09]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride10">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride10Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride10Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride10MediumInverted" />
+        </Icons>
+        <SymbolString>[custom10]</SymbolString>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="PopulationIconsOverride11">
+        <Icons>
+          <Icon Size="Small" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride11Small" />
+          <Icon Size="Medium" Path="Bitmaps/Atlased/Affinities/PopulationIconsOverride11Medium" />
+          <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Affinities/MediumInverted/AffinityPopulationIconsOverride11MediumInverted" />
+        </Icons>
+        <SymbolString>[custom11]</SymbolString>
+    </ExtendedGuiElement>
+    
+</Datatable>

@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/HullDefinition.xsd">
+
+    <!-- ******************** -->
+    <!-- **   CasperTest   ** -->
+    <!-- ******************** -->
+
+    <!--  SLOT EXAMPLES - Undefined, Weapon, Defense
+    <Slot Name="Slot01" RestrictedModuleCategory="Undefined">
+        <Direction X="0" Z="1"/>
+    </Slot>
+    <WeaponSlot RestrictedWeaponType="Kinetic" RestrictedModuleCategory="Undefined">
+        <Direction X="0" Z="1"/>
+        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+    </WeaponSlot> 
+
+
+        <Link>
+            <SlotName>SectionW.Slot01</SlotName>
+            <SlotName>SectionE.Slot01</SlotName>
+        </Link>
+            
+            <TechnologyPrerequisite Flags="Prerequisite,Discard,Technology">TechnologyShip1</TechnologyPrerequisite>
+            
+            Note that visual slot name only currently uses 'weapon modules', so a support module will simply not show up. Also adding weapons without 'visual slots' will still impact battle it is simply not visible.
+            
+            
+            Use technology pre-requisite to hide ships (See Mothership/Hero ships)
+            ** FLAGS **
+            Edition = Ship Designer
+            Discard = Constructible list or Hide slot in GUI
+            Disable = Grey out slot in GUI
+    -->
+
+    <!-- ******************** -->
+    <!-- **     Balancing    ** -->
+    <!-- ******************** -->
+
+    <!-- **   Balancing Small Civilian Hull   ** -->
+    <HullDefinition Name="HullSmall03Balancing" ScoreProvider="CivilianShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign">
+
+      <CostReductionReference Name="ColonyShipConstructible"/>
+      
+      <Cost ResourceName="SystemProduction">45</Cost>
+
+      <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+      <PathPrerequisite Flags="Prerequisite,Discard,Faction">./ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+      <PathPrerequisite Flags="Edition,Faction">ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+      
+      <SimulationDescriptorReference Name="ClassHullSmallCivilianBalancing"/>
+      <SimulationDescriptorReference Name="ShipSizeSmall"/>
+      <SimulationDescriptorReference Name="ShipFactionBalancing"/>
+      <SimulationDescriptorReference Name="ShipHull03"/>
+      
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleExploration"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01">
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon04</UISlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+                    </WeaponSlot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Support01" >
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleColonizer"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore03</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+        
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- **   Balancing Small Attack Hull   ** -->
+    <HullDefinition Name="HullSmall01Balancing" ScoreProvider="WarShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign">
+        <Cost ResourceName="SystemProduction">40</Cost>
+      
+        <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Faction">./ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <PathPrerequisite Flags="Edition,Faction">ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull2Balancing</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallAttackBalancing"/>       
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>
+        <SimulationDescriptorReference Name="ShipFactionBalancing"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleSmallAttacker"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallBalancing"/>
+                    <Slot Name="Defense01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull1</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore07</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" ShowPositionMarker="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull1</TechnologyPrerequisite>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon08</UISlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull1</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore09</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionNW.Defense01"/>
+                        <UISlotName>UIFrontRight02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <WeaponSlot Name="Weapon01">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRightWeapon03</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionW.Defense01"/>
+                        <UISlotName>UIRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallBalancing"/>
+                    <WeaponSlot Name="Weapon01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull1</TechnologyPrerequisite>
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionSW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon05</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack06</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull1</TechnologyPrerequisite>
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackLeftWeapon05</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                        </ModuleModifier>
+                        <UISlotName>UILeftWeapon03</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <UISlotName>UILeft04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <UISlotName>UIFrontLeft02</UISlotName>
+                    </Slot>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+        
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- **   Balancing Small Support Hull   ** -->
+    <HullDefinition Name="HullSmall02Balancing" ScoreProvider="WarShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign">
+        <Cost ResourceName="SystemProduction">45</Cost>
+      
+        <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Faction">./ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <PathPrerequisite Flags="Edition,Faction">ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull3Balancing</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullSmallSupportBalancing"/>
+        <SimulationDescriptorReference Name="ShipSizeSmall"/>   
+        <SimulationDescriptorReference Name="ShipFactionBalancing"/>
+        <SimulationDescriptorReference Name="ShipHull02"/>
+
+       <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleSmallSupport"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UICore09</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Defense01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionNW.Defense01"/>
+                        <UISlotName>UIFrontRight02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionW.Support01"/>
+                        <UISlotName>UIRight03</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionW.Defense01"/>
+                        <UISlotName>UIRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <WeaponSlot Name="Weapon01">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionSW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon05</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionSW.Weapon02"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon06</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongSmallBalancing"/>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack07</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="-1"/>
+                        <UISlotName>UIBack08</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackLeftWeapon05</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackLeftWeapon06</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Support01" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <UISlotName>UILeft03</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <UISlotName>UILeft04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakSmallBalancing"/>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull2</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <UISlotName>UIFrontLeft02</UISlotName>
+                    </Slot>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+        
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- **   Balancing Medium Attacker Hull   ** -->
+    <HullDefinition Name="HullMedium01Balancing" ScoreProvider="WarShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign">
+        <Cost ResourceName="SystemProduction">230</Cost>
+        <Cost ResourceName="Strategic1">1</Cost>
+
+        <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Faction">./ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <PathPrerequisite Flags="Edition,Faction">ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull4Balancing</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullMediumAttackBalancing"/>  
+        <SimulationDescriptorReference Name="ShipSizeMedium"/>
+        <SimulationDescriptorReference Name="ShipFactionBalancing"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+
+      <!-- Additional costs here -->
+        <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleMediumAttacker"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="2">
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon09</UISlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull3</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore10</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore11</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakMediumBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakMediumBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionNW.Defense01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight03</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="2">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull3</TechnologyPrerequisite>
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionNW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRightWeapon04</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="2">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRightWeapon05</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="2">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionSW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon06</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_04</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_05</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakMediumBalancing"/>
+                    <WeaponSlot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull3</TechnologyPrerequisite>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="LargeWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackWeapon07</UISlotName>
+                        <VisualSlotName>MDL_Wp_Medium_Up_00</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack08</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_04</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_05</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakMediumBalancing"/>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull3</TechnologyPrerequisite>
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+        
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- **   Balancing Medium Defender Hull   ** -->
+    <HullDefinition Name="HullMedium02Balancing" ScoreProvider="WarShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign">
+        <Cost ResourceName="SystemProduction">275</Cost>
+        <Cost ResourceName="Strategic2">1</Cost>
+        <!-- Additional cost here -->
+
+        <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Faction">./ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <PathPrerequisite Flags="Edition,Faction">ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull5Balancing</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullMediumDefenseBalancing"/>
+        <SimulationDescriptorReference Name="ShipSizeMedium"/>       
+        <SimulationDescriptorReference Name="ShipFactionBalancing"/>
+        <SimulationDescriptorReference Name="ShipHull02"/>
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleMediumSupport"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreMediumBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore09</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore10</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyImproveHull4</PathPrerequisite>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore11</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront02</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionNW.Defense01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight03</UISlotName>
+                    </Slot>
+                    <Slot Name="Defense02">
+                        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyImproveHull4</PathPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionNW.Defense02"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionW.Defense01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRight05</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="2">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRightWeapon06</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+                    </WeaponSlot>
+
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="2">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionSW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon07</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakMediumBalancing"/>
+                    <WeaponSlot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2">
+                        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyImproveHull4</PathPrerequisite>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="LargeWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackWeapon08</UISlotName>
+                        <VisualSlotName>MDL_Wp_Medium_Up_00</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                    </Slot>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongMediumBalancing"/>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                    </Slot>
+                    <Slot Name="Defense02" IsEditable="false" IsHidden="true">
+                        <PathPrerequisite Flags="Prerequisite,Discard">../ClassEmpire/ClassResearch,TechnologyImproveHull4</PathPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX2"/>
+                        </ModuleModifier>
+                    </Slot>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+        
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+    <!-- **   Balancing Large Carrier Hull   ** -->
+    <HullDefinition Name="HullLarge01Balancing" ScoreProvider="WarShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign">
+        <Cost ResourceName="SystemProduction">940</Cost>
+        <Cost ResourceName="Strategic3">1</Cost>
+        <Cost ResourceName="Strategic4">1</Cost>
+        <!-- Additional cost here -->
+
+        <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+        <PathPrerequisite Flags="Prerequisite,Discard,Faction">./ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <PathPrerequisite Flags="Edition,Faction">ClassEmpire/ClassPopulationEmpireAffinityBalancing,PopulationMajor</PathPrerequisite>
+        <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyHull6Balancing</TechnologyPrerequisite>
+
+        <SimulationDescriptorReference Name="ClassHullLargeCarrierBalancing"/>    
+        <SimulationDescriptorReference Name="ShipSizeLarge"/>
+        <SimulationDescriptorReference Name="ShipFactionBalancing"/>
+        <SimulationDescriptorReference Name="ShipHull01"/>
+
+      <ShipDesignLayout>
+            <ShipRoleReference Name="ShipRoleCarrier"/>
+            <SectionPattern_Eight>
+                <!-- Core Section -->
+                <CoreSection Name="CoreSection">
+                    <VisualSectionName>Core</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionCore"/>
+                    <SimulationDescriptorReference Name="ClassSectionCoreLargeBalancing"/>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Destruction</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="LargeWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UICoreWeapon12</UISlotName>
+                        <VisualSlotName>MDL_Wp_Medium_Up_00</VisualSlotName>
+                    </Slot>
+                    <Slot Name="Defense02">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore13</UISlotName>
+                    </Slot>
+                    <Slot Name="Support02">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore14</UISlotName>
+                    </Slot>
+                    <Slot Name="Support03">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UICore15</UISlotName>
+                    </Slot>
+                </CoreSection>
+
+                <!-- Forward Section -->
+                <Section Name="SectionN">
+                    <VisualSectionName>Front</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongLargeBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFront01</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="4">
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontWeapon02</UISlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_01</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_Small_Up_03</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Forward/Right Section -->
+                <Section Name="SectionNE">
+                    <VisualSectionName>FrontRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakLargeBalancing"/>
+                    <Slot Name="Weapon01" EffectMultiplier="4">
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionNW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRightWeapon03</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_01</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_03</VisualSlotName>
+                    </Slot>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionNW.Defense01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIFrontRight04</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Right Section -->
+                <Section Name="SectionE">
+                    <VisualSectionName>Right</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakLargeBalancing"/>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="4">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRightWeapon05</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_04</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_05</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_06</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_07</VisualSlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" EffectMultiplier="4">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionW.Weapon02"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRightWeapon06</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_08</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_09</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_10</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_11</VisualSlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon03" EffectMultiplier="4">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionW.Weapon03"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIRightWeapon07</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_12</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_13</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_14</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_15</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back/Right Section -->
+                <Section Name="SectionSE">
+                    <VisualSectionName>BackRight</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakLargeBalancing"/>
+                    <Slot Name="Defense01">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="1" Z="0"/>
+                        <ListenerSlot Name="SectionSW.Defense01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRight08</UISlotName>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" EffectMultiplier="4">
+                        <Direction X="1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ListenerSlot Name="SectionSW.Weapon01"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponEast"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackRightWeapon09</UISlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_16</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_17</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_18</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Right_19</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Back Section -->
+                <Section Name="SectionS">
+                    <VisualSectionName>Back</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionStrongLargeBalancing"/>
+                    <Slot Name="LargeWeapon01" IsLargeSlot="true" ModuleCostMultiplier="2">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+                        <RestrictedModuleCategory>Destruction</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <Angle>270</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="TopWeapon"/>
+                            <SimulationDescriptorReference Name="LargeWeapon"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBackWeapon10</UISlotName>
+                        <VisualSlotName>MDL_Wp_Medium_Up_01</VisualSlotName>
+                    </Slot>
+                    <Slot Name="Support01">
+                        <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+                        <Direction X="0" Z="1"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <UISlotName>UIBack11</UISlotName>
+                    </Slot>
+                </Section>
+
+                <!-- Back/Left Section -->
+                <Section Name="SectionSW">
+                    <VisualSectionName>BackLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakLargeBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_16</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_17</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_18</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_19</VisualSlotName>
+                    </WeaponSlot>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                    </Slot>
+                </Section>
+
+                <!-- Left Section -->
+                <Section Name="SectionW">
+                    <VisualSectionName>Left</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakLargeBalancing"/>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_04</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_05</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_06</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_07</VisualSlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon02" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_08</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_09</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_10</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_11</VisualSlotName>
+                    </WeaponSlot>
+                    <WeaponSlot Name="Weapon03" IsEditable="false" IsHidden="true">
+                        <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyImproveHull5</TechnologyPrerequisite>
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_12</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_13</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_14</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_15</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+
+                <!-- Forward/Left Section -->
+                <Section Name="SectionNW">
+                    <VisualSectionName>FrontLeft</VisualSectionName>
+                    <SimulationDescriptorReference Name="ClassSectionWeakLargeBalancing"/>
+                    <Slot Name="Defense01" IsEditable="false" IsHidden="true">
+                        <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+                        <Direction X="-1" Z="0"/>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                    </Slot>
+                    <WeaponSlot Name="Weapon01" IsEditable="false" IsHidden="true">
+                        <Direction X="-1" Z="0"/>
+                        <Angle>120</Angle>
+                        <ModuleModifier>
+                            <SimulationDescriptorReference Name="SideWeaponWest"/>
+                            <SimulationDescriptorReference Name="MultiplierX4"/>
+                        </ModuleModifier>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_00</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_01</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_02</VisualSlotName>
+                        <VisualSlotName>MDL_Wp_SmallSide_Left_03</VisualSlotName>
+                    </WeaponSlot>
+                </Section>
+            </SectionPattern_Eight>
+        </ShipDesignLayout>
+
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+        <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+        <BattleActionReference Name="Ship_Healing"/>
+        <BattleActionReference Name="Ship_OnDestruction"/>
+
+
+        <LevelUpRuleReference Name="ShipLevelUpRule"/>
+    </HullDefinition>
+
+
+</Datatable>

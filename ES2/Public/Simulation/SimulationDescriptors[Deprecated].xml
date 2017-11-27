@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <!-- Beginner save still uses this -->
+    <SimulationDescriptor Name="PlanetSizeTelluricMedium" Type="PlanetSizeTelluric"/>
+    <SimulationDescriptor Name="PlanetSizeTelluricLarge" Type="PlanetSizeTelluric"/>
+    <SimulationDescriptor Name="PlanetSizeTelluricHuge"  Type="PlanetSizeTelluric"/>
+
+    <!-- MOTHERSHIP UPGRADE --> <!-- Now uses an unlock system tied to stages -->
+    <SimulationDescriptor Name="EmpireImprovementSlotsMothership01" Type="EmpireImprovement">
+        <Modifier TargetProperty="ShipStage" Value="1"  Operation="Addition" Path="ClassEmpire//ClassGarrison/ClassShip,ShipSizeMothership" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="EmpireImprovementSlotsMothership02" Type="EmpireImprovement">
+        <Modifier TargetProperty="ShipStage" Value="1"  Operation="Addition" Path="ClassEmpire//ClassGarrison/ClassShip,ShipSizeMothership" TooltipHidden="true"/>
+    </SimulationDescriptor>
+    
+</Datatable>

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+ 
+
+  <!--#######################################
+      #####           QUEST EXPLO     #######
+      ####################################### -->
+   
+    
+
+  <!-- EVENT POLITICAL: MESSAGE FROM COROZ -->
+
+  <QuestDefinition Name="EventPolitical19" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.4" >
+
+    <!--============ TAGS ============-->
+    <Tags></Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+          <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+        </Any>
+      </Var>
+
+      <!--Choice1: Decrease all FIDSI-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect64"/>
+      <!--Choice1: Politic= Militarist-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative41"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: Decrease only Industry -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect65"/>
+      <!--Choice2: Politic= Industry-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative42"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+        <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics02</PathPrerequisite>
+        <PathPrerequisite Inverted="true" Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>      
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical16PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity032PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+  
+  
+  <QuestDefinition Name="EventPolitical19Alt" Category="Event" SubCategory="PoliticalEvent" MinimumTurn="50" TriggeringProbability="0.4">
+
+    <!--============ TAGS ============-->
+    <Tags>BeginTurn</Tags>
+
+    <QuestContextSolo/>
+
+    <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                      NumberOfOccurrencesPerEmpire="1"
+                      NumberOfConcurrentInstances="0"/>
+
+
+    <!--============ VARIABLES ============-->
+    <Vars>
+      <Var VarName="$EffectTarget1">
+        <From Source="$Empire"/>
+      </Var>
+      <Var VarName="$EmpireSystem">
+        <Any>
+          <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+        </Any>
+      </Var>
+
+      <!--Choice1: Increase Science, Decrease Food-->
+      <Var VarName="$EffectName1"  StringValue="EventEffect82"/>
+      <!--Choice1: Politic= Science-->
+      <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative60"/>
+      <Var VarName="$EffectGUID1"/>
+
+      <!--Choice2: Decrease Science, Increase Food -->
+      <Var VarName="$EffectName2"  StringValue="EventEffect83"/>
+      <!--Choice2: Politic= Ecologist-->
+      <Var VarName="$EventName2"   StringValue="PopulationPoliticalEventNarrative61"/>
+      <Var VarName="$EffectGUID2"/>
+      <LocalizationVar Source="$EmpireSystem" LocalizationKey="$SystemName"/>
+
+    </Vars>
+
+    <!--============ PREREQUISITES ============-->
+
+    <Prerequisites Target="$(Empire)">
+      <PathPrerequisite Flags="Prerequisite">ClassEmpire/ClassSenate/ClassSenator,Politics02</PathPrerequisite>
+      <PathPrerequisite Inverted="false" Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityTimeLords,PopulationMajor</PathPrerequisite>
+    </Prerequisites>
+
+    <!--============ STEPS ============-->
+    <Steps>
+      <Step Name="Step1">
+        <Choice DefaultChoiceIndex="0">
+          <ChoiceItem ObjectiveSetIndex="0"/>
+          <ChoiceItem ObjectiveSetIndex="1"/>
+        </Choice>
+        <!--============ STEP 1 ============-->
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID1"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPolitical16PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName1"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step1_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID1"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+        <ObjectiveSet>
+          <StartActions>
+            <Action_ApplyQuestEffect LogAction="true">
+              <Input_EffectName VarName="$EffectName2"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Output_GUID VarName="$EffectGUID2"/>
+            </Action_ApplyQuestEffect>
+            <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventCuriosity03PopulationTitle">
+              <Input_Empire VarName="$EffectTarget1"/>
+              <Input_Target VarName="$EmpireSystem"/>
+              <Input_PopulationEventDefinition VarName="$EventName2"/>
+            </Action_TriggerPopulationEvent>
+          </StartActions>
+          <Objective Name="Step2_Objective1">
+            <Sequence>
+              <Decorator_QuestEffectFinished>
+                <Input_GUID VarName="$EffectGUID2"/>
+              </Decorator_QuestEffectFinished>
+            </Sequence>
+          </Objective>
+        </ObjectiveSet>
+      </Step>
+    </Steps>
+  </QuestDefinition>
+
+
+
+
+    <!--######################-->
+    <!--####   METAPLOT   ####-->
+    <!--######################-->
+
+
+    <QuestDefinition Name="EventMetaplot01" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1" CheckRandom="false">
+
+        <!--============ TAGS ============-->
+        <Tags>EventTechnologyUnlocked, BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$EffectName1"  StringValue="EventEffect88"/>
+            <Var VarName="$EffectGUID"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassResearch,TechnologyMetaplotQuest1</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Output_GUID VarName="$EffectGUID"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <QuestDefinition Name="EventMetaplot02" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1" CheckRandom="false" IsInstant="true">
+
+        <!--============ TAGS ============-->
+        <Tags>EventTechnologyUnlocked, BeginTurn</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$HeroesList">
+                <From Source="$CurrentEmpire.$Heroes"/>
+            </Var>          
+                      
+            <Var VarName="$LevelToAdd" IntValue="4"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassResearch,TechnologyMetaplotQuest2</PathPrerequisite>
+        </Prerequisites>
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_AddLevelsToHeroes LogAction="true" LocalizationKey="%EventMetaplot02Effect">
+                            <Input_Heroes VarName="$HeroesList"/>                          
+                            <Input_Amount VarName="$LevelToAdd"/>
+                        </Action_AddLevelsToHeroes>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>                          
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <QuestDefinition Name="EventMetaplotHiddenTeamA" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1" CheckRandom="false">
+
+        <!--============ TAGS ============-->
+        <Tags>EventMetaplotHiddenTeamA,Hidden</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$MetaplotSystems" IsGlobal="true"/>
+
+            <Var VarName="$EffectName1"  StringValue="MetaplotSystemRestoredEffect"/>
+            <Var VarName="$EffectGUID"/>
+
+        </Vars>
+       
+       <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyNodeEffect>
+                            <Input_Targets VarName="$MetaplotSystems"/>                           
+                            <Input_DefinitionName VarName="$EffectName1"/>
+                            <Output_NodeEffectGUID VarName="$EffectGUID"/>
+                        </Action_ApplyNodeEffect>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <QuestDefinition Name="EventMetaplotHiddenTeamB" Category="Event" SubCategory="TriggeredByaQuest" MinimumTurn="1" CheckRandom="false">
+
+        <!--============ TAGS ============-->
+        <Tags>EventMetaplotHiddenTeamB,Hidden</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$MetaplotSystems" IsGlobal="true"/>
+
+            <Var VarName="$EffectName1"  StringValue="MetaplotSystemDestroyedEffect"/>
+            <Var VarName="$EffectGUID"/>
+
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+     
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyNodeEffect>
+                            <Input_Targets VarName="$MetaplotSystems"/>
+                            <Input_DefinitionName VarName="$EffectName1"/>
+                            <Output_NodeEffectGUID VarName="$EffectGUID"/>
+                        </Action_ApplyNodeEffect>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!--#######################################
+      #####           EVENTS          #######
+      ####################################### -->
+
+
+    <QuestDefinition Name="EventPoliticalResult12" Category="Event" SubCategory="TriggeredByaQuest">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPoliticalResult12</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+            </Var>
+            <!--Choice1: increase dust and pacifism-->
+            <Var VarName="$EffectName1"  StringValue="EventEffect84"/>
+            <Var VarName="$EffectGUID1"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_ApplyQuestEffect LogAction="true">
+                            <Input_EffectName VarName="$EffectName1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Output_GUID VarName="$EffectGUID1"/>
+                        </Action_ApplyQuestEffect>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_QuestEffectFinished>
+                                <Input_GUID VarName="$EffectGUID1"/>
+                            </Decorator_QuestEffectFinished>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <QuestDefinition Name="EventPoliticalResult12a" Category="Event" SubCategory="TriggeredByaQuest">
+
+        <!--============ TAGS ============-->
+        <Tags>EventPoliticalResult12a</Tags>
+
+        <QuestContextSolo/>
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$EffectTarget1">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$EmpireSystems">
+                <From Source="$EffectTarget1.$ColonizedStarSystems"/>
+            </Var>
+            <!--Choice1: increase pacifism-->
+            <Var VarName="$EventName1"   StringValue="PopulationPoliticalEventNarrative62"/>
+            <Var VarName="$EffectGUID1"/>
+
+            <Var VarName="$Duration" IntValue="10"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 1 ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent LogAction="true" LocalizationKey="%EventPoliticalResult12aPopulationTitle">
+                            <Input_Empire VarName="$EffectTarget1"/>
+                            <Input_Target VarName="$EffectTarget1"/>
+                            <Input_PopulationEventDefinition VarName="$EventName1"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Decorator_Wait>
+                                <Input_WaitDuration VarName="$Duration"/>
+                            </Decorator_Wait>
+                        </Sequence>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+   
+    
+</Datatable>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+    <SimulationDescriptor Name="QuestEffect01" Type="QuestEffect">
+        <Modifier TargetProperty="PlanetRawFood"    Operation="Addition" Value="10"   Path="ClassStarSystem/ClassPlanet,PlanetTypeArctic"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="QuestEffect02" Type="QuestEffect">
+        <Modifier TargetProperty="NetSystemMoney"    Operation="Addition" Value="100"   Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="QuestEffect03" Type="QuestEffect">
+        <Modifier TargetProperty="NetSystemMoney"    Operation="Addition" Value="200"   Path="ClassStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="QuestEffect04" Type="QuestEffect">
+        <Modifier TargetProperty="EmpireMoney"    Operation="Addition" Value="3000"   Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="QuestEffectCravers" Type="QuestEffect">
+        <Modifier TargetProperty="EmpireMoney"    Operation="Addition" Value="50"   Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="QuestEffectHappiness" Type="QuestEffect">        
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="30"   Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="QuestEffectFleetUpkeepReduction" Type="QuestEffect">
+        <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Addition" Value="-5" Path="ClassGarrison"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect01SimEffect01" Type="EventEffect01">
+        <Modifier TargetProperty="SystemGrowth" Operation="Addition" Value="20" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect02SimEffect02" Type="EventEffect02">
+        <Modifier TargetProperty="Happiness" Operation="Addition" Value="20" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect03SimEffect03" Type="EventEffect03">
+        <Modifier TargetProperty="SystemResearch" Operation="Addition" Value="-5" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect04SimEffect04" Type="EventEffect04">
+        <Modifier TargetProperty="EmpireMoney" Operation="Addition" Value="75" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+    
+  <SimulationDescriptor Name="EventEffect05SimEffect05" Type="EventEffect05">
+        <Modifier TargetProperty="SystemMoney" Operation="Addition" Value="10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect06SimEffect06" Type="EventEffect06">
+        <Modifier TargetProperty="SystemResearch" Operation="Addition" Value="-20" Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction" Operation="Addition" Value="30" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect07SimEffect07" Type="EventEffect07">
+        <Modifier TargetProperty="SystemResearch" Operation="Addition" Value="30" Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoneyUpkeep" Operation="Addition" Value="20" Path="ClassEmpire/ClassColonizedStarSystem" TooltipHidden="true"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect08SimEffect08" Type="EventEffect08">
+        <Modifier TargetProperty="FleetMaximumHealth"								Operation="Addition"		Value="-0.20"	Path="ClassGarrisonFleet"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect09SimEffect09" Type="EventEffect09">
+        <Modifier TargetProperty="MaximumMovement"                  Operation="Addition"  Value="-2" Path="ClassGarrison/ClassShip"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect10SimEffect10" Type="EventEffect10">
+        <Modifier TargetProperty="SystemProduction"                  Operation="Addition"  Value="15" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect11SimEffect11" Type="EventEffect11">
+        <Modifier TargetProperty="NetStrategic1"                  Operation="Addition"  Value="50" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect12SimEffect12" Type="EventEffect12">
+        <Modifier TargetProperty="EmpireResearch"                  Operation="Addition"  Value="-10" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect13SimEffect13" Type="EventEffect13">
+        <Modifier TargetProperty="Movement"                  Operation="Force"  Value="0" Path="ClassGarrison/ClassShip"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect14SimEffect14" Type="EventEffect14">
+            <Modifier TargetProperty="EmpireMoney" Operation="Addition" Value="100" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect15SimEffect15" Type="EventEffect15">
+        <Modifier TargetProperty="Movement"                  Operation="Multiplication"  Value="0" Path="ClassGarrison/ClassShip"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect16SimEffect16" Type="EventEffect16">
+        <Modifier TargetProperty="PlanetRawFood" Operation="Addition" Value="5" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony/ClassColonizedPlanet,PlanetTypeBarren"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect17SimEffect17" Type="EventEffect17">
+        <Modifier TargetProperty="PlanetRawFood" Operation="Addition" Value="1" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony/ClassColonizedPlanet,PlanetTypeBarren"/>
+        <Modifier TargetProperty="PlanetRawFood" Operation="Addition" Value="1" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony/ClassColonizedPlanet,PlanetTypeLava"/>      
+        <Modifier TargetProperty="PlanetRawFood" Operation="Addition" Value="1" Path="ClassEmpire/ClassStarSystem/ClassPlanet,PlanetGameplayTypeGas"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect18SimEffect18" Type="EventEffect18">
+        <Modifier TargetProperty="Damage"                   Operation="Percent"  Value="0.2" Path="ClassGarrisonFleet/ClassShip"/>
+        <Modifier TargetProperty="MaximumHealth"            Operation="Percent"  Value="0.2" Path="ClassGarrisonFleet/ClassShip/ClassSectionCore"/>
+    </SimulationDescriptor>
+
+
+    <SimulationDescriptor Name="EventEffect19SimEffect19" Type="EventEffect19">
+        <Modifier TargetProperty="ShieldBonus"              Operation="Addition"  Value="70" Path="ClassGarrisonFleet/ClassShip"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect20SimEffect20" Type="EventEffect20">
+        <Modifier TargetProperty="PlanetRawFood"                  Operation="Addition"  Value="1" Path="ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet"/>           
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect21SimEffect21" Type="EventEffect21">
+        <Modifier TargetProperty="VisionRange"                  Operation="Addition"  Value="2" Path="ClassGarrisonFleet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect22SimEffect22" Type="EventEffect22">
+        <Modifier TargetProperty="MaximumMovement"                  Operation="Addition"  Value="-2" Path="ClassGarrisonFleet/ClassShip"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect23SimEffect23" Type="EventEffect23">
+        <Modifier TargetProperty="Happiness" Operation="Addition" Value="20" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect24SimEffect24" Type="EventEffect24">
+        <Modifier TargetProperty="Strategic2Stock" Operation="Addition" Value="10" Path="ClassEmpire"/>
+        <Modifier TargetProperty="EmpireMoney" Operation="Addition" Value="75" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect25SimEffect25" Type="EventEffect25">
+        <Modifier TargetProperty="Happiness" Operation="Addition" Value="-10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    <SimulationDescriptor Name="EventEffect26SimEffect26" Type="EventEffect26">
+        <Modifier TargetProperty="SystemProduction"                  Operation="Addition"  Value="-15" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect27SimEffect27" Type="EventEffect27">
+        <Modifier TargetProperty="Happiness" Operation="Addition" Value="20" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect28SimEffect28" Type="EventEffect28">
+        <Modifier TargetProperty="Movement"                  Operation="Multiplication"  Value="0" Path="ClassGarrison/ClassShip"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect29SimEffect29" Type="EventEffect29">
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="20"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect30SimEffect30" Type="EventEffect30">
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="-5"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemEmpirePoint"    Operation="Addition" Value="10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect31SimEffect31" Type="EventEffect31">
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="5"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemEmpirePoint"    Operation="Addition" Value="-10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect32SimEffect32" Type="EventEffect32">
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="-10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="ShipDamage"    Operation="Addition" Value="0.3"   Path="ClassEmpire/ClassGarrisonFleet"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect33SimEffect33" Type="EventEffect33">
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="10"   Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect34SimEffect34" Type="EventEffect34">
+        <Modifier TargetProperty="SystemEmpirePoint"    Operation="Addition" Value="-10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect35SimEffect35" Type="EventEffect35">
+        <Modifier TargetProperty="SystemMoney"    Operation="Addition" Value="20"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect36SimEffect36" Type="EventEffect36">
+        <Modifier TargetProperty="SystemMoneyUpkeep"    Operation="Addition" Value="-10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="15"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect37SimEffect37" Type="EventEffect37">
+        <Modifier TargetProperty="SystemMoney"    Operation="Addition" Value="10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="-10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect38SimEffect38" Type="EventEffect38">
+        <Modifier TargetProperty="SystemMoneyUpkeep"    Operation="Addition" Value="-25"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="25"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect39SimEffect39" Type="EventEffect39">
+        <Modifier TargetProperty="SystemProduction"    Operation="Percent" Value="0.3"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony" Priority="32"/>
+        <Modifier TargetProperty="SystemEmpirePoint"    Operation="Percent" Value="0.3"   Path="ClassColonizedStarSystem" Priority="32"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect40SimEffect40" Type="EventEffect40">
+        <Modifier TargetProperty="SystemProduction"    Operation="Percent" Value="-0.15"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+        <Modifier TargetProperty="Happiness"    Operation="Addition" Value="30"   Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect41SimEffect41" Type="EventEffect41">
+        <Modifier TargetProperty="SystemProduction"      Operation="Percent" Value="-0.5"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+        <Modifier TargetProperty="SystemResearch"        Operation="Percent" Value="-0.5"   Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoneyUpkeep"     Operation="Percent" Value="-0.5"   Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemEmpirePoint"     Operation="Percent" Value="-0.5"   Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemGrowth"          Operation="Percent" Value="-0.5"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect42SimEffect42" Type="EventEffect42">
+        <Modifier TargetProperty="SystemProduction"      Operation="Multiplication" Value="0"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony" Priority="20"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect43SimEffect43" Type="EventEffect43">
+        <Modifier TargetProperty="Happiness"             Operation="Addition" Value="-10"   Path="ClassColonizedStarSystem" Priority="20"/>
+        <Modifier TargetProperty="SystemMoney"           Operation="Addition" Value="20"   Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect44SimEffect44" Type="EventEffect44">
+        <Modifier TargetProperty="Happiness"                   Operation="Addition" Value="10"   Path="ClassColonizedStarSystem" Priority="20"/>
+        <Modifier TargetProperty="SystemMoneyUpkeep"           Operation="Addition" Value="20"   Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect45SimEffect45" Type="EventEffect45">
+        <Modifier TargetProperty="Happiness"             Operation="Addition" Value="-20"   Path="ClassEmpire/ClassColonizedStarSystem" Priority="20"/>
+        <Modifier TargetProperty="SystemGrowth"             Operation="Addition" Value="60"   Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony" Priority="20"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect46SimEffect46" Type="EventEffect46">
+        <Modifier TargetProperty="Happiness"                Operation="Addition"    Value="10"        Path="ClassEmpire/ClassColonizedStarSystem" Priority="20"/>
+        <Modifier TargetProperty="TechnologyCostReduction"  Operation="Addition"    Value="-0.1"      Path="ClassEmpire/ClassResearch" Priority="20" TooltipHidden="true"/>
+        <Modifier TargetProperty="TechnologyCostReduction"  Operation="Addition"    Value="-0.1"      Path="ClassEmpire"/>
+    </SimulationDescriptor> 
+
+    <SimulationDescriptor Name="EventEffect50SimEffect50" Type="EventEffect50">
+        <Modifier TargetProperty="SystemResearch"               Operation="Addition" Value="20"   Path="ClassColonizedStarSystem" Priority="20"/>
+        <Modifier TargetProperty="SystemProduction"             Operation="Addition" Value="-20"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony" Priority="20"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect51SimEffect51" Type="EventEffect51">
+        <Modifier TargetProperty="SystemResearch"             Operation="Addition" Value="-20"   Path="ClassColonizedStarSystem" Priority="20"/>
+        <Modifier TargetProperty="SystemProduction"           Operation="Addition" Value="20"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony" Priority="20"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect52SimEffect52" Type="EventEffect52">
+        <Modifier TargetProperty="ElectionActionCost"             Operation="Addition" Value="-0.4"   Path="ClassEmpire/ClassSenate"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect53SimEffect53" Type="EventEffect53">
+        <Modifier TargetProperty="EmpireEmpirePoint"             Operation="Addition" Value="10"   Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect54SimEffect54" Type="EventEffect54">
+        <Modifier TargetProperty="LawUpkeep"             Operation="Percent" Value="0.5"   Path="ClassEmpire" Priority="20"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect55SimEffect55" Type="EventEffect55">
+        <Modifier TargetProperty="SystemEmpirePoint"             Operation="Addition" Value="-10"   Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect56SimEffect56" Type="EventEffect56">
+        <BinaryModifier TargetProperty="SystemMoney"       Operation="Addition" Left="0.2"    BinaryOperation="Multiplication" Right="$(SystemGrowth)" SearchValueFromPath="true"  Path="ClassEmpire/ClassColonizedStarSystem"/>      
+        <Modifier       TargetProperty="SystemGrowth"      Operation="Percent"  Value="-0.2"  TooltipHidden="true" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>      
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect57SimEffect57" Type="EventEffect57"> 
+        <Modifier TargetProperty="TradingRouteIncomeModifier"             Operation="Percent"    Value="0.15" Path="ClassEmpire/ClassColonizedStarSystem"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect58SimEffect58" Type="EventEffect58">
+        <Modifier TargetProperty="Happiness"             Operation="Addition"    Value="5" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect59SimEffect59" Type="EventEffect59">
+        <Modifier TargetProperty="PassiveEnrollmentRate"             Operation="Addition"    Value="0.2" Path="ClassEmpire/ClassColonizedStarSystem" Priority="15"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect60SimEffect60" Type="EventEffect60">
+        <Modifier TargetProperty="Happiness"             Operation="Addition"    Value="10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"             Operation="Addition"  Value="15" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect61SimEffect61" Type="EventEffect61">
+        <Modifier TargetProperty="SystemResearch"             Operation="Addition"    Value="10" Path="ClassEmpire/ClassColonizedStarSystem"/>       
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect62SimEffect62" Type="EventEffect62">
+        <Modifier TargetProperty="EmpireEmpirePoint"   Operation="Percent" Value="0.1"   Path="ClassEmpire" ValueMustBePositive="true" />
+        <Modifier TargetProperty="EmpireMoney"         Operation="Percent" Value="0.1"   Path="ClassEmpire" ValueMustBePositive="true" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect63SimEffect63" Type="EventEffect63">
+        <Modifier TargetProperty="EmpireResearch"        Operation="Percent"     Value="0.1" Path="ClassEmpire" ValueMustBePositive="true"/>
+        <Modifier TargetProperty="Happiness"             Operation="Addition"    Value="10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+
+  <SimulationDescriptor Name="EventEffect66SimEffect66" Type="EventEffect66">
+    <Modifier TargetProperty="SystemResearch"                 Operation="Addition"    Value="30"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemEmpirePoint"              Operation="Addition"    Value="-15" Path="ClassEmpire/ClassColonizedStarSystem"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect67SimEffect67" Type="EventEffect67">
+    <Modifier TargetProperty="SystemEmpirePoint"              Operation="Addition"    Value="20"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemResearch"                 Operation="Addition"    Value="-10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+  </SimulationDescriptor>
+  
+  <SimulationDescriptor Name="EventEffect68SimEffect68" Type="EventEffect68">
+    <Modifier TargetProperty="Happiness"                      Operation="Addition"    Value="20"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemProduction"               Operation="Addition"    Value="-30" Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect69SimEffect69" Type="EventEffect69">
+    <Modifier TargetProperty="SystemProduction"               Operation="Addition"    Value="20"  Path="ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+    <Modifier TargetProperty="Happiness"                      Operation="Addition"    Value="-10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect70SimEffect70" Type="EventEffect70">
+    <Modifier TargetProperty="Happiness"                      Operation="Addition"    Value="30"  Path="ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemProduction"               Operation="Addition"    Value="-20" Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect71SimEffect71" Type="EventEffect71">
+    <Modifier TargetProperty="Happiness"                      Operation="Addition"    Value="-10"  Path="ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemProduction"               Operation="Addition"    Value="10"   Path="ClassColonizedStarSystem,ColonizedStarSystemStateColony"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect72SimEffect72" Type="EventEffect72">
+    <Modifier TargetProperty="SystemResearch"                 Operation="Addition"    Value="30"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemEmpirePoint"              Operation="Addition"    Value="-20" Path="ClassEmpire/ClassColonizedStarSystem"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect73SimEffect73" Type="EventEffect73">
+    <Modifier TargetProperty="SystemEmpirePoint"              Operation="Addition"    Value="30"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="SystemMoney"                    Operation="Addition"    Value="-20" Path="ClassEmpire/ClassColonizedStarSystem"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect74SimEffect74" Type="EventEffect74">
+    <Modifier TargetProperty="SystemEmpirePoint"              Operation="Percent"    Value="0.3"  Path="ClassColonizedStarSystem" ValueMustBePositive="true"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect75SimEffect75" Type="EventEffect75">
+    <Modifier TargetProperty="SystemResearch"                 Operation="Percent"    Value="0.4"  Path="ClassColonizedStarSystem" ValueMustBePositive="true"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect76SimEffect76" Type="EventEffect76">
+    <Modifier TargetProperty="Happiness"                 Operation="Addition"        Value="20"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    <Modifier TargetProperty="GarrisonMoneyUpkeep"       Operation="Percent"         Value="0.1"  Path="ClassEmpire"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect77SimEffect77" Type="EventEffect77">
+    <Modifier TargetProperty="Happiness"                 Operation="Addition"        Value="10"  Path="ClassColonizedStarSystem"/>
+  </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect78SimEffect78" Type="EventEffect78">
+    <Modifier TargetProperty="ExperienceMultiplier"         Operation="Addition"  Value="1"  Path="ClassColonizedStarSystem/ClassHero"/>
+  </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect79SimEffect79" Type="EventEffect79">
+        <Modifier TargetProperty="ResourceBonus"         Operation="Addition"  Value="2"  Path="ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet/ClassResourceDeposit,ResourceTypeStrategic"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect80SimEffect80" Type="EventEffect80">
+        <Modifier TargetProperty="RecipeCostReduction"    Operation="Subtraction"  Value="0.1"  Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+  <SimulationDescriptor Name="EventEffect81SimEffect81" Type="EventEffect81">
+    <Modifier     TargetProperty="Happiness"            Operation="Addition"     Value="20"  Path="ClassEmpire"/>
+  </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect86SimEffect86" Type="EventEffect86">
+        <Modifier TargetProperty="EmpireEmpirePoint"   Operation="Percent" Value="0.1"   Path="ClassEmpire" ValueMustBePositive="true" />
+        <Modifier TargetProperty="EmpireMoney"         Operation="Percent" Value="0.1"   Path="ClassEmpire" ValueMustBePositive="true" />
+    </SimulationDescriptor>
+  
+        <SimulationDescriptor Name="EventEffect87SimEffect87" Type="EventEffect87">
+        <Modifier TargetProperty="EmpireResearch"        Operation="Percent"     Value="0.1" Path="ClassEmpire" ValueMustBePositive="true"/>
+        <Modifier TargetProperty="Happiness"             Operation="Addition"    Value="10" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+</Datatable>

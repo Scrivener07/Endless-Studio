@@ -1,0 +1,1945 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <ExtendedGuiElement Name="NotificationAcademyColonized">
+        <Title>%NotificationAcademyColonizedTitle</Title>
+        <Description>%NotificationAcademyColonizedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationAcademyColonizedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyColonizedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyColonizedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Academy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAcademy_Colonized" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAcademyDiscovered">
+        <Title>%NotificationAcademyDiscoveredTitle</Title>
+        <Description>%NotificationAcademyDiscoveredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationAcademyDiscoveredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Academy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAcademy_Discovered" Type="OnFirstShow" IsMusic="true"/>
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAcademyLevelup">
+        <Title>%NotificationAcademyLevelupTitle</Title>
+        <Description>%NotificationAcademyLevelupDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationAcademyDiscoveredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Academy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAcademy_Levelup" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAllianceUpdate">
+        <Title>%NotificationAllianceUpdateTitle</Title>
+        <Description>%NotificationAllianceUpdateDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAllianceUpdateInward">
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAllianceUpdateInwardLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAllianceUpdateOutward">
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAllianceUpdateOutwardLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAnarchyStarted">
+        <Title>%NotificationAnarchyStartedTitle</Title>
+        <Description>%NotificationAnarchyStartedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationAnarchyStartedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationAnarchyStartedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAnarchyStartedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Government" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAnarchyStarted" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAutomatedFleetLost">
+        <Title>%NotificationAutomatedFleetLostTitle</Title>
+        <Description>%NotificationAutomatedFleetLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationAutomatedFleetLostSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationAutomatedFleetLostMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAutomatedFleetLostLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationBailiffImminent">
+        <Title>%NotificationBailiffImminentTitle</Title>
+        <Description>%NotificationBailiffImminentDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBailiffWarningSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationBailiffWarningMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationBailiffLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationBailiffReport">
+        <Title>%NotificationBailiffReportTitle</Title>
+        <Description>%NotificationBailiffReportDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBailiffReportSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationBailiffReportMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationBailiffLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationBattleSetup">
+        <Title>%NotificationBattleSetupTitle</Title>
+        <Description>%NotificationBattleSetupDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationBattleSetupSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationBattleSetupMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Setup" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationBattleReport">
+        <Title>%NotificationBattleReportTitle</Title>
+        <Description>%NotificationBattleReportDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationBattleReportSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationBattleReportMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Report" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationColonizationFailed">
+        <Title>%NotificationColonizationFailedTitle</Title>
+        <Description>%NotificationColonizationFailedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationColonizationFailedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationColonizationFailedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationColonizationFailedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- In case the outpost was not lost to someone else, but instead had no growth or something -->
+    <ExtendedGuiElement Name="NotificationColonizationFailedAlone">
+        <Title>%NotificationColonizationFailedAloneTitle</Title>
+        <Description>%NotificationColonizationFailedAloneDescription</Description>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationConstructionsCompleted">
+        <Title>%NotificationConstructionsCompletedTitle</Title>
+        <Description>%NotificationConstructionsCompletedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationConstructionCompletedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationConstructionCompletedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationConstructionCompletedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationConstructionQueueEmpty">
+        <Title>%NotificationConstructionQueueEmptyTitle</Title>
+        <Description>%NotificationConstructionQueueEmptyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationConstructionEmptySmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationConstructionEmptyMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationConstructionCompletedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationContextualDiplomaticExchangeCancelled">
+        <Title>%NotificationContextualDiplomaticExchangeCancelledTitle</Title>
+        <Description>%NotificationContextualDiplomaticExchangeCancelledDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceRefusedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationContextualDiplomaticExchangeStarted">
+        <Title>%NotificationContextualDiplomaticExchangeStartedTitle</Title>
+        <Description>%NotificationContextualDiplomaticExchangeStartedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceAcceptedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationContextualDiplomaticExchangeUpdated">
+        <Title>%NotificationContextualDiplomaticExchangeUpdatedTitle</Title>
+        <Description>%NotificationContextualDiplomaticExchangeUpdatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceAcceptedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationCuriosityDiscovered">
+        <Title>%NotificationCuriosityDiscoveredTitle</Title>
+        <Description>%NotificationCuriosityDiscoveredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationCuriosityDiscoveredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityDiscoveredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationCuriosityFailed">
+        <Title>%NotificationCuriosityFailedTitle</Title>
+        <Description>%NotificationCuriosityFailedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationCuriosityFailedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationCuriosityTrapped">
+        <Title>%NotificationCuriosityTrappedTitle</Title>
+        <Description>%NotificationCuriosityTrappedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationCuriosityFailedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+	
+	<ExtendedGuiElement Name="NotificationCuriosityGuardian">
+        <Title>%NotificationCuriosityGuardianTitle</Title>
+        <Description>%NotificationCuriosityGuardianDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationCuriosityGuardianSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityGuardianMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityGuardianLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationDeedCompleted">
+        <Title>%NotificationDeedCompletedTitle</Title>
+        <Description>%NotificationDeedCompletedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationDeedCompletedSmall" />
+            <Icon Size="SmallInverted" Path="Bitmaps/Atlased/Notifications/NotificationDeedFailedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDeedCompletedMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Notifications/NotificationDeedFailedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedLarge"/>
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDeedCompleted" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationDiplomaticContractStateChange">
+        <Title>%NotificationDiplomaticContractStateChangeTitle</Title>
+        <Description>%NotificationDiplomaticContractStateChangeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationDiplomaticMoodMessage">
+        <Title>%NotificationDiplomaticMoodMessageTitle</Title>
+        <Description>%NotificationDiplomaticMoodMessageDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationDiplomaticRelationChange">
+        <Title>%NotificationDiplomaticRelationChangeTitle</Title>
+        <Description>%NotificationDiplomaticRelationChangeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationElectionSurvey">
+        <Title>%NotificationElectionSurveyTitle</Title>
+        <Description>%NotificationElectionSurveyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationPoliticalSurveySmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPoliticalSurveyMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationElectionSurveyLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationEmpireCancelledAttackRestriction">
+        <Title>%NotificationEmpireCancelledAttackRestrictionTitle</Title>
+        <Description>%NotificationEmpireCancelledAttackRestrictionDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationAutomatedFleetLostSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationAutomatedFleetLostMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAutomatedFleetLostLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEmpire_Eliminated" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationEmpireEliminated">
+        <Title>%NotificationEmpireEliminatedTitle</Title>
+        <Description>%NotificationEmpireEliminatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationEmpireEliminatedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireEliminatedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireEliminatedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEmpire_Eliminated" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationEmpireIntroduction">
+        <Title>%NotificationEmpireIntroductionTitle</Title>
+        <Description>%NotificationEmpireIntroductionDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationEmpireIntroductionSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireIntroductionMedium" />
+            <!-- No large: using the Affinity's Mood -->
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="Play_Narrator" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Stop_Narrator" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationEnemyAutomatedFleetsDestroyed">
+        <Title>%NotificationEnemyAutomatedFleetsDestroyedTitle</Title>
+        <Description>%NotificationEnemyAutomatedFleetsDestroyedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationEnemyAutomatedFleetsDestroyedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationEnemyAutomatedFleetsDestroyedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationEnemyAutomatedFleetsDestroyedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <!-- Unused, but required by the system -->
+    <ExtendedGuiElement Name="NotificationFactionSwitched">
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationFactionSwitched_AffinityMappingTerrans">
+        <Title>%NotificationFactionSwitchedTerransTitle</Title>
+        <Description>%NotificationFactionSwitchedTerransDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFactionSwitchedSmall_AffinityTerrans" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFactionSwitchedMedium_AffinityTerrans" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFactionSwitchedLarge_AffinityTerrans" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationQuestCompleted" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationFactionSwitched_AffinityMappingSheredyn">
+        <Title>%NotificationFactionSwitchedSheredynTitle</Title>
+        <Description>%NotificationFactionSwitchedSheredynDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFactionSwitchedSmall_AffinitySheredyn" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFactionSwitchedMedium_AffinitySheredyn" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFactionSwitchedLarge_AffinitySheredyn" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationQuestCompleted" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationFactionSwitched_AffinityMappingMezari">
+        <Title>%NotificationFactionSwitchedMezariTitle</Title>
+        <Description>%NotificationFactionSwitchedMezariDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFactionSwitchedSmall_AffinityMezari" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFactionSwitchedMedium_AffinityMezari" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFactionSwitchedLarge_AffinityMezari" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationQuestCompleted" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationFleetFinishedAutoExplore">
+        <Title>%NotificationFleetFinishedAutoExploreTitle</Title>
+        <Description>%NotificationFleetFinishedAutoExploreDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFleetFinishedAutoExploreSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedAutoExploreMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedAutoExploreLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- For when the fleet has been destroyed before the notification is closed (cf. NotificationOnFleet.cs) -->
+    <ExtendedGuiElement Name="NotificationFleetFinishedAutoExploreDead">
+        <Title>%NotificationFleetFinishedAutoExploreDeadTitle</Title>
+        <Description>%NotificationFleetFinishedAutoExploreDeadDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFleetFinishedAutoExploreSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedAutoExploreMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedAutoExploreLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationFleetFinishedSleep_EnemyDetected">
+        <Title>%NotificationFleetFinishedSleep_EnemyDetectedTitle</Title>
+        <Description>%NotificationFleetFinishedSleep_EnemyDetectedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFleetFinishedSleepSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleepMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleep_EnemyDetectedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- For when the fleet has been destroyed before the notification is closed (cf. NotificationOnFleet.cs) -->
+    <ExtendedGuiElement Name="NotificationFleetFinishedSleep_EnemyDetectedDead">
+        <Title>%NotificationFleetFinishedSleep_EnemyDetectedDeadTitle</Title>
+        <Description>%NotificationFleetFinishedSleep_EnemyDetectedDeadDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFleetFinishedSleepSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleepMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleep_EnemyDetectedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationFleetFinishedSleep_ExpeditionAvailable">
+        <Title>%NotificationFleetFinishedSleep_ExpeditionAvailableTitle</Title>
+        <Description>%NotificationFleetFinishedSleep_ExpeditionAvailableDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFleetFinishedSleepSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleepMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleep_ExpeditionAvailableLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- For when the fleet has been destroyed before the notification is closed (cf. NotificationOnFleet.cs) -->
+    <ExtendedGuiElement Name="NotificationFleetFinishedSleep_ExpeditionAvailableDead">
+        <Title>%NotificationFleetFinishedSleep_ExpeditionAvailableDeadTitle</Title>
+        <Description>%NotificationFleetFinishedSleep_ExpeditionAvailableDeadDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationFleetFinishedSleepSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleepMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationFleetFinishedSleep_ExpeditionAvailableLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationForceTruceProposed">
+        <Title>%NotificationForceTruceProposedTitle</Title>
+        <Description>%NotificationForceTruceProposedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationForceTruceMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceProposedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationForceTruceAnswered">
+        <Title>%NotificationForceTruceAnsweredTitle</Title>
+        <Description>%NotificationForceTruceAnsweredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationForceTruceMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceAcceptedLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Notifications/NotificationForceTruceRefusedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Diplomacy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationDiplomacy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationGalaxyDiscoveryMilestoneReached">
+        <Title>%NotificationGalaxyDiscoveredAt{0}PercentsTitle</Title>
+        <Description>%NotificationGalaxyDiscoveredAt{0}PercentsDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationGalaxyDiscoveryMilestoneReachedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationGalaxyDiscoveryMilestoneReachedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationGalaxyDiscoveryMilestoneReachedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationGovernmentStarted">
+        <Title>%NotificationGovernmentStartedTitle</Title>
+        <Description>%NotificationGovernmentStartedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationGovernmentStartedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationGovernmentStartedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationGovernmentStartedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Government" Type="OnLoadEvent" />
+            <Sound EventName="NotificationGovernment_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationGroundBattleSetup">
+        <Title>%NotificationGroundBattleSetupTitle</Title>
+        <Description>%NotificationGroundBattleSetupDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationGroundBattleSetupSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationGroundBattleSetupMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationGroundBattleSetupLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Setup" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationGroundBattleReport">
+        <Title>%NotificationGroundBattleReportTitle</Title>
+        <Description>%NotificationGroundBattleReportDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationGroundBattleReportSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationGroundBattleReportMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationGroundBattleReportLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Report" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationGroundBattleAborted">
+        <Title>%NotificationGroundBattleAbortedTitle</Title>
+        <Description>%NotificationGroundBattleAbortedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationDiplomaticMessageSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDiplomaticMessageMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationGroundBattleAbortedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationHeroInjured">
+        <Title>%NotificationHeroInjuredTitle</Title>
+        <Description>%NotificationHeroInjuredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationHeroInjuredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationHeroInjuredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationDefault" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Hero" Type="OnLoadEvent" />
+            <Sound EventName="NotificationHero_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationHeroLevelup">
+        <Title>%NotificationHeroLevelupTitle</Title>
+        <Description>%NotificationHeroLevelupDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationHeroLevelUpSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationHeroLevelUpMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationDefault" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Hero" Type="OnLoadEvent" />
+            <Sound EventName="NotificationHero_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationHeroRecovered">
+        <Title>%NotificationHeroRecoveredTitle</Title>
+        <Description>%NotificationHeroRecoveredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationHeroRecoveredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationHeroRecoveredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationDefault" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Hero" Type="OnLoadEvent" />
+            <Sound EventName="NotificationHero_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationHeroRecruited">
+        <Title>%NotificationHeroRecruitedTitle</Title>
+        <Description>%NotificationHeroRecruitedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationHeroUpdateSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationHeroUpdateMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationDefault" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Hero" Type="OnLoadEvent" />
+            <Sound EventName="NotificationHero_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationHeroRecruitment">
+        <Title>%NotificationHeroRecruitmentTitle</Title>
+        <Description>%NotificationHeroRecruitmentDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationHeroRecruitmentSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationHeroRecruitmentMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationDefault" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Hero" Type="OnLoadEvent" />
+            <Sound EventName="NotificationHero_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationHeroLeftUnassigned">
+        <Title>%NotificationHeroLeftUnassignedTitle</Title>
+        <Description>%NotificationHeroLeftUnassignedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationHeroLeftUnassignedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationHeroLeftUnassignedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationAcademyDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Hero" Type="OnLoadEvent" />
+            <Sound EventName="NotificationHero_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationInformation">
+        <!-- No title: defined by the notification event type -->
+        <!-- No description: defined by the notification event type -->
+        <Icons>
+            <Icon Size="Small" Path="NotificationDefault" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationDefaultMedium" />
+            <Icon Size="Large" Path="Bitmaps/Atlased/Notifications/NotificationDefault" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationInformationMessage">
+        <!-- No title: defined by the message -->
+        <!-- No description: defined by the message -->
+        <!-- No icons: defined by the message -->
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMinigameObjectiveSecured">
+        <Title>%Notification{0}ObjectiveSecuredBy{1}Title</Title>
+        <Description>%Notification{0}ObjectiveSecuredBy{1}Description</Description>
+        <Icons>
+            <Icon Size="Small" Path="Notification{0}ObjectiveSecuredBy{1}Small" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/Notification{0}ObjectiveSecuredBy{1}Medium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/Notification{0}ObjectiveSecuredBy{1}Large" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationQuest_Positive" Type="OnFirstShow" IsMusic="true"/>
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationLawCancelled">
+        <Title>%NotificationLawCancelledTitle</Title>
+        <Description>%NotificationLawCancelledDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationLawCancelledSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationLawCancelledMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationLawCancelledLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Government" Type="OnLoadEvent" />
+            <Sound EventName="NotificationGovernment_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationForcedLawActivated">
+        <Title>%NotificationForcedLawActivatedTitle</Title>
+        <Description>%NotificationForcedLawActivatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationLawActivatedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationLawActivatedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotififcationGovernmentChangeLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Government" Type="OnLoadEvent" />
+            <Sound EventName="NotificationGovernment_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationLuxuryDiscovered">
+        <Title>%NotificationLuxuryDiscoveredTitle</Title>
+        <Description>%NotificationLuxuryDiscoveredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationLuxuryDiscoveredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationLuxuryDiscoveredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationLuxuryDiscoveredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationLowEmpireManpower">
+        <Title>%NotificationLowEmpireManpowerTitle</Title>
+        <Description>%NotificationLowEmpireManpowerDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationLowEmpireManpowerSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationLowEmpireManpowerMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationLowEmpireManpowerLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Setup" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMajorEmpireMet">
+        <Title>%NotificationMajorEmpireMetTitle</Title>
+        <Description>%NotificationMajorEmpireMetDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMinorEmpireMet">
+        <Title>%NotificationMinorEmpireMetTitle</Title>
+        <Description>%NotificationMinorEmpireMetDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationEmpireMet/NotificationMinorEmpireMetSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireMet/NotificationMinorEmpireMetMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMinorEmpireIntegrated">
+        <Title>%NotificationMinorEmpireIntegratedTitle</Title>
+        <Description>%NotificationMinorEmpireIntegratedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationMinorEmpireIntegratedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationMinorEmpireIntegratedMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMinorEmpireDead">
+        <Title>%NotificationMinorEmpireDeadTitle</Title>
+        <Description>%NotificationMinorEmpireDeadDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationEmpireEliminatedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationEmpireEliminatedMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- NEW NOTIFICATION (Benjamin) -->
+    <ExtendedGuiElement Name="NotificationMinorEmpireSuzerainChanged">
+        <Title>%NotificationMinorEmpireSuzerainChangedTitle</Title>
+        <Description>%NotificationMinorEmpireSuzerainChangedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationMinorEmpireIntegratedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationMinorEmpireIntegratedMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- NEW NOTIFICATION (Benjamin) -->
+    <ExtendedGuiElement Name="NotificationMinorEmpireUnderInfluence">
+        <Title>%NotificationMinorEmpireUnderInfluenceTitle</Title>
+        <Description>%NotificationMinorEmpireUnderInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationMinorEmpireIntegratedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationMinorEmpireIntegratedMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMarketplaceAdvertisementPosted">
+        <Title>%NotificationMarketplaceAdvertisementPostedTitle</Title>
+        <Description>%NotificationMarketplaceAdvertisementPostedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationBailiffReportSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationBailiffReportMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationMarketplaceAdvertisementPostedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMarketplaceEventStarted">
+        <Title>%NotificationMarketplaceEventStartedTitle</Title>
+        <Description>%NotificationMarketplaceEventStartedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationMarketplaceEventStartedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationMarketplaceEventStartedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationMarketplaceEventStartedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMothershipLost">
+        <Title>%NotificationMothershipLostTitle</Title>
+        <Description>%NotificationMothershipLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationMothershipLostSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationMothershipLostMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationMothershipLostLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationMothershipLost" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationMothershipReclaimed">
+        <Title>%NotificationMothershipReclaimedTitle</Title>
+        <Description>%NotificationMothershipReclaimedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationMothershipReclaimedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationMothershipReclaimedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationMothershipReclaimedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationMothershipReclaimed" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationNarrativeEventBegun">
+        <Title>%NotificationNarrativeEventBegunTitle</Title>
+        <Description>%NotificationNarrativeEventBegunDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationNarrativeEventBegunSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationNarrativeEventBegunMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationNarrativeEventBegun" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationNarrativeEventCompleted">
+        <Title>%NotificationNarrativeEventCompletedTitle</Title>
+        <Description>%NotificationNarrativeEventCompletedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationNarrativeEventCompletedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationNarrativeEventCompletedMedium" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationNarrativeEventCompleted" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationOutpostConcurrence">
+        <Title>%NotificationOutpostConcurrenceTitle</Title>
+        <Description>%NotificationOutpostConcurrenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationOutpostConcurrenceSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationOutpostConcurrenceMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationOutpostConcurrenceLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationOutpostLocked">
+        <Title>%NotificationOutpostLockedTitle</Title>
+        <Description>%NotificationOutpostLockedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationOutpostConcurrenceSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationOutpostConcurrenceMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationOutpostConcurrenceLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationOutpostToColony">
+        <Title>%NotificationOutpostToColonyTitle</Title>
+        <Description>%NotificationOutpostToColonyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationColonizationSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationColonizationMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationColonizationFinishedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPlayDeckFreeCost">
+        <Title>%NotificationPlayDeckFreeCostTitle</Title>
+        <Description>%NotificationPlayDeckFreeCostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationPlayDeckGenericSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPlayDeckGenericMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPlayDeckGenericLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPlayDeckNewSlot">
+        <Title>%NotificationPlayDeckNewSlotTitle</Title>
+        <Description>%NotificationPlayDeckNewSlotDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationPlayDeckGenericSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPlayDeckGenericMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPlayDeckGenericLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Battle" Type="OnLoadEvent" />
+            <Sound EventName="NotificationBattle_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPoliticsUnlocked">
+        <Title>%NotificationPoliticsUnlockedTitle</Title>
+        <Description>%NotificationPoliticsUnlockedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationPoliticsUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPoliticsUnlockedMedium" />
+            <!-- The correct image name is built by the code, adding the politics name at the end of the string below-->
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPoliticUnlockedLarge_" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Government" Type="OnLoadEvent" />
+            <Sound EventName="NotificationGovernment_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPopulationCollectionThresholdReached">
+        <Title>%NotificationPopulationCollectionThresholdReachedTitle</Title>
+        <Description>%NotificationPopulationCollectionThresholdReachedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationPopulationGainedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationGainedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationGrowthLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationPopulationCollectionThresholdReached" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPopulationAlmostLost">
+        <Title>%NotificationPopulationAlmostLostTitle</Title>
+        <Description>%NotificationPopulationAlmostLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationPopulationNegativeGrowthSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationNegativeGrowthMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationLostWarningLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPopulationGained">
+        <Title>%NotificationPopulationGainedTitle</Title>
+        <Description>%NotificationPopulationGainedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationPopulationGainedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationGainedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationGrowthLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPopulationLost">
+        <Title>%NotificationPopulationLostTitle</Title>
+        <Description>%NotificationPopulationLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationPopulationLossSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationLossMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationLostLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPopulationBoostEnded">
+        <Title>%NotificationPopulationBoostEndedTitle</Title>
+        <Description>%NotificationPopulationBoostEndedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationPopulationBoostEndedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationBoostEndedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPopulationBoostEndedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- This notification is special: the text and image depend on the event fired by the action, defined in EntityActions.xml -> TransferResourcesFleetAction.xxxEventName -->
+    <ExtendedGuiElement Name="NotificationResourcesTransferred">
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- Cf. NotificationResourcesTransferred -->
+    <ExtendedGuiElement Name="NotificationAbductionStarted">
+        <Title>%NotificationAbductionStartedTitle</Title>
+        <Description>%NotificationAbductionStartedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationVampirilisAbductionSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationVampirilisAbductionMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationVampirilisAbductionStartedLarge" />
+        </Icons>
+            <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAbductionStarted" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <!-- Cf. NotificationResourcesTransferred -->
+    <ExtendedGuiElement Name="NotificationAbductionStockEmpty">
+        <Title>%NotificationAbductionStockEmptyTitle</Title>
+        <Description>%NotificationAbductionStockEmptyDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationVampirilisAbductionSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationVampirilisAbductionMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationVampirilisAbductionEmptyLarge" />
+        </Icons>
+            <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAbductionStockEmpty" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationQuestBegun">
+        <Title>%NotificationQuestBegunTitle</Title>
+        <Description>%NotificationQuestBegunDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationQuestBegunSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationQuestBegunMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedLarge"/>
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationQuestBegun" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationQuestCompleted">
+        <Title>%NotificationQuestCompletedTitle</Title>
+        <Description>%NotificationQuestCompletedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationQuestCompletedSmall" />
+            <Icon Size="SmallInverted" Path="Bitmaps/Atlased/Notifications/NotificationQuestFailedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationQuestCompletedMedium" />
+            <Icon Size="MediumInverted" Path="Bitmaps/Dynamic/Notifications/NotificationQuestFailedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedLarge"/>
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Quest" Type="OnLoadEvent" />
+            <Sound EventName="NotificationQuestCompleted" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+        <Movies>
+            <Movie Path="Movies/Metaplot/Metaplot_LostBack.mp4" Type="MetaplotLostBack"/>
+            <Movie Path="Movies/Metaplot/Metaplot_LostNotBack.mp4" Type="MetaplotLostNotBack"/>
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationRebellionImminent">
+        <Title>%NotificationRebellionImminentTitle</Title>
+        <Description>%NotificationRebellionImminentDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationRebellionSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationRebellionMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationRebellionImminentLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationRebellionRogueFleetCreated">
+        <Title>%NotificationRebellionRogueFleetCreatedTitle</Title>
+        <Description>%NotificationRebellionRogueFleetCreatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationRebellionSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationRebellionMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationRebellionRogueFleetCreatedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationSpecialNodeDiscovered">
+        <Title>%NotificationSpecialNodeDiscoveredTitle</Title>
+        <Description>%NotificationSpecialNodeDiscoveredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationSpecialNodeSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationSpecialNodeMedium" />
+            <!-- No large: it depends on the SpecialNode type -->
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationSpecialNodeLost">
+        <Title>%NotificationSpecialNodeLostTitle</Title>
+        <!-- No description : it depends on if it was stolen or just lost -->
+        <Icons>
+            <Icon Size="Small" Path="NotificationSpecialNodeSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationSpecialNodeMedium" />
+            <!-- No large: it depends on the SpecialNode type -->
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationSpecialNodeOwned">
+        <Title>%NotificationSpecialNodeOwnedTitle</Title>
+        <Description>%NotificationSpecialNodeOwnedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationSpecialNodeSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationSpecialNodeMedium" />
+            <!-- No large: it depends on the SpecialNode type -->
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationSystemGainedFromInfluence">
+        <Title>%NotificationSystemGainedFromInfluenceTitle</Title>
+        <Description>%NotificationSystemGainedFromInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationSystemGainedFromInfluenceSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationSystemGainedFromInfluenceMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationSystemGainedFromInfluenceLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationSystemLostToInfluence">
+        <Title>%NotificationSystemLostToInfluenceTitle</Title>
+        <Description>%NotificationSystemLostToInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationSystemLostToInfluenceSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationSystemLostToInfluenceMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationSystemLostToInfluenceLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationSystemUnderInfluence">
+        <Title>%NotificationSystemUnderInfluenceTitle</Title>
+        <Description>%NotificationSystemUnderInfluenceDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationSystemUnderInfluenceSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationSystemUnderInfluenceMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationSystemUnderInfluenceLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTimeBubbleCreated">
+        <Title>%NotificationTimeBubbleCreatedTitle</Title>
+        <Description>%NotificationTimeBubbleCreatedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTimeBubbleCreatedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTimeBubbleCreatedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTimeBubbleCreatedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationTimeBubbleCreated" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTimeBubbleExpired">
+        <Title>%NotificationTimeBubbleExpiredTitle</Title>
+        <Description>%NotificationTimeBubbleExpiredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTimeBubbleCreatedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTimeBubbleCreatedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTimeBubbleExpiredLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationTimeBubbleExpired" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTimeBubbleUnused">
+        <Title>%NotificationTimeBubbleUnusedTitle</Title>
+        <Description>%NotificationTimeBubbleUnusedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTimeBubbleCreatedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTimeBubbleCreatedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTimeBubbleUnusedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Faction" Type="OnLoadEvent" />
+            <Sound EventName="NotificationTimeBubbleExpired" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+    
+    <ExtendedGuiElement Name="NotificationTechnologyNeeded">
+        <Title>%NotificationTechnologyNeededTitle</Title>
+        <Description>%NotificationTechnologyNeededDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTechnologyNeededSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTechnologyNeededMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTechnologyNeededLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Technology" Type="OnLoadEvent" />
+            <Sound EventName="NotificationTechnology_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTechnologyStageUnlocked">
+        <Title>%NotificationTechnologyStageUnlockedTitle</Title>
+        <Description>%NotificationTechnologyStageUnlockedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTechnologyStageUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTechnologyStageUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTechnologyUnlockedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Technology" Type="OnLoadEvent" />
+            <Sound EventName="NotificationTechnologyStageUnlocked" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTechnologyUnlocked">
+        <Title>%NotificationTechnologyUnlockedTitle</Title>
+        <Description>%NotificationTechnologyUnlockedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTechnologyUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTechnologyUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTechnologyUnlockedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Technology" Type="OnLoadEvent" />
+            <Sound EventName="NotificationTechnology_Unlock" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTradingHeadquarterUnlocked">
+        <Title>%NotificationTradingHeadquarterUnlockedTitle</Title>
+        <Description>%NotificationTradingHeadquarterUnlockedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTradeRouteHeadquarterUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteHeadquarterUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteBlockadeLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTradingBlockade">
+        <Title>%NotificationTradingBlockadeTitle</Title>
+        <Description>%NotificationTradingBlockadeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTradeRouteHeadquarterUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteHeadquarterUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteBlockadeLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Economy" Type="OnLoadEvent" />
+            <Sound EventName="NotificationEconomy_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTradingSubsidiaryLost">
+        <Title>%NotificationTradingSubsidiaryLostTitle</Title>
+        <Description>%NotificationTradingSubsidiaryLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTradeRouteHeadquarterUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteHeadquarterUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteCapturedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTradingSubsidiaryDestroyed">
+        <Title>%NotificationTradingSubsidiaryDestroyedTitle</Title>
+        <Description>%NotificationTradingSubsidiaryDestroyedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTradeRouteHeadquarterUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteHeadquarterUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteDestroyedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTradingHeadquarterLost">
+        <Title>%NotificationTradingHeadquarterLostTitle</Title>
+        <Description>%NotificationTradingHeadquarterLostDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTradeRouteHeadquarterUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteHeadquarterUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteCapturedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationTradingHeadquarterDestroyed">
+        <Title>%NotificationTradingHeadquarterDestroyedTitle</Title>
+        <Description>%NotificationTradingHeadquarterDestroyedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationTradeRouteHeadquarterUnlockedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteHeadquarterUnlockedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationTradeRouteDestroyedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationUniquePlanetDiscovered">
+        <Title>%NotificationUniquePlanetDiscoveredTitle</Title>
+        <Description>%NotificationUniquePlanetDiscoveredDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationUniquePlanetDiscoveredSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationUniquePlanetDiscoveredMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationUniquePlanetDiscoveryLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Exploration" Type="OnLoadEvent" />
+            <Sound EventName="NotificationExploration_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationVictoryAchieved">
+        <Title>%NotificationVictoryAchievedTitle</Title>
+        <Description>%NotificationVictoryAchievedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationVictoryAchievedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationVictoryAchievedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationVictoryAchievedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEventVictory" Type="OnLoadEvent" />
+            <Sound EventName="NotificationVictoryAchieved" Type="OnFirstShow" IsMusic="true"/>
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+        <Movies>
+            <Movie Path="Movies/Metaplot/Metaplot_LostBackVictory.mp4" Type="MetaplotLostBackSuccess"/>
+        </Movies>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationVictoryImminent">
+        <Title>%NotificationVictoryImminentTitle</Title>
+        <Description>%NotificationVictoryImminentDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationVictoryImminentSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationVictoryImminentMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationVictoryImminentLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEventVictory" Type="OnLoadEvent" />
+            <Sound EventName="NotificationVictoryImminent" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationAllianceVictoryImminent">
+        <Title>%NotificationAllianceVictoryImminentTitle</Title>
+        <Description>%NotificationAllianceVictoryImminentDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationVictoryImminentSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationVictoryImminentMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationVictoryImminentLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEventVictory" Type="OnLoadEvent" />
+            <Sound EventName="NotificationAllianceVictoryImminent" Type="OnFirstShow" IsMusic="true" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationPlanetDestroyed">
+        <Title>%NotificationPlanetDestroyedTitle</Title>
+        <Description>%NotificationPlanetDestroyedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="NotificationPlanetDestroyedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationPlanetDestroyedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationPlanetDestroyedLarge" />
+            <Icon Size="Mood" Path="Bitmaps/Dynamic/Notifications/NotificationPlanetDestroyedGasLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationCompetitiveQuestWarning">
+        <Title>%NotificationCompetitiveQuestWarningTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationQuestBegunSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationQuestBegunMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedLarge"/>
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Neutral" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationLostRootsConnectivity">
+        <Title>%NotificationLostRootsConnectivityTitle</Title>
+        <Description>%NotificationLostRootsConnectivityDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationLostRootsConnectivitySmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationLostRootsConnectivityMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationLostRootsConnectivityLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationRootsColonized">
+        <Title>%NotificationRootsColonizedTitle</Title>
+        <Description>%NotificationRootsColonizedDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationRootsColonizedSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationRootsColonizedMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationRootsColonizedLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationNewForeignOutpostOnRootedNode">
+        <Title>%NotificationNewForeignOutpostOnRootedNodeTitle</Title>
+        <Description>%NotificationNewForeignOutpostOnRootedNodeDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationLostRootsConnectivitySmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationLostRootsConnectivityMedium" />
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationNewForeignOutpostOnRootedNodeLarge" />
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+
+    
+    <ExtendedGuiElement Name="NotificationNewDownloadableContent">
+        <Title>%NotificationNewDownloadableContentTitle</Title>
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Notifications/NotificationNewDownloadableContentSmall" />
+            <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationNewDownloadableContentMedium" />
+            <!-- No large: using the DLC's Large -->
+        </Icons>
+        <Sounds>
+            <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+            <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+            <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+        </Sounds>
+    </ExtendedGuiElement>
+  
+    <ExtendedGuiElement Name="NotificationConstellationOwnerChangedGained">
+          <Title>%NotificationConstellationOwnerChangedGainedTitle</Title>
+          <Description>%NotificationConstellationOwnerChangedGainedDescription</Description>
+          <Icons>
+              <Icon Size="Small" Path="NotificationCuriosityDiscoveredSmall" />
+              <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityDiscoveredMedium" />
+              <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationGalaxyDiscoveryMilestoneReachedLarge20" />
+          </Icons>
+          <Sounds>
+              <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+              <Sound EventName="NotifcationEmpire_Positive" Type="OnFirstShow" />
+              <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+              <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+          </Sounds>
+    </ExtendedGuiElement>
+
+    <ExtendedGuiElement Name="NotificationConstellationOwnerChangedLost">
+          <Title>%NotificationConstellationOwnerChangedLostTitle</Title>
+          <!-- No description : it depends on if it was stolen or just lost -->
+          <Icons>
+              <Icon Size="Small" Path="NotificationCuriosityFailedSmall" />
+              <Icon Size="Medium" Path="Bitmaps/Dynamic/Notifications/NotificationCuriosityFailedMedium" />
+              <Icon Size="Large" Path="Bitmaps/Dynamic/Notifications/NotificationGalaxyDiscoveryMilestoneReachedLarge20" />
+          </Icons>
+          <Sounds>
+              <Sound EventName="OnLoadEvent_Empire" Type="OnLoadEvent" />
+              <Sound EventName="NotifcationEmpire_Negative" Type="OnFirstShow" />
+              <Sound EventName="Play_ES2_GUI_Notif_OnShow" Type="OnShow" />
+              <Sound EventName="Play_ES2_GUI_Notif_OnHide" Type="OnHide" />
+          </Sounds>
+    </ExtendedGuiElement>
+  
+</Datatable>

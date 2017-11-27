@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- ************************ -->
+    <!-- ** Fleet group image  ** -->
+    <!-- ************************ -->
+
+    <GuiElement Name="GuiFleetGroup">
+        <Icons>
+            <Icon Size="Small" Path="Bitmaps/Atlased/Headers/HeaderFleet" />
+        </Icons>
+    </GuiElement>
+    
+    <!-- ************************ -->
+    <!-- ** Fleet statuses ** -->
+    <!-- ************************ -->
+
+    <GuiElement Name="FleetStatusOrbiting">
+        <Description>%FleetStatusOrbitingDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="HeaderSystem" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="FleetStatusMoving">
+        <Description>%FleetStatusMovingDescription</Description>
+        <Icons>
+            <Icon Size="Small" Path="MovementPoint" />
+        </Icons>
+    </GuiElement>
+
+</Datatable>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+
+    <!--############################-->
+    <!--####### FREE CONTENT   #####-->
+    <!--############################-->
+
+    <SimulationDescriptor Name="EmpireImprovementQuestMetaplot1" Type="EmpireImprovement">
+        <Modifier TargetProperty="MaximumShipManpower"								Operation="Percent"			Value="0.2"		Path="ClassEmpire/ClassGarrison/ClassShip" Priority="100" />
+        <Modifier TargetProperty="MaximumShipManpower"								Operation="Percent"			Value="0.2"		Path="ClassEmpire/ClassColonizedStarSystem/ClassGarrison/ClassShip" TooltipHidden="true"  Priority="100"/>      
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementQuestMetaplot2" Type="EmpireImprovement">
+        <Modifier TargetProperty="CriticalHitChance"								Operation="Addition"	    Value="0.2"		Path="ClassEmpire/ClassGarrisonFleet/ClassShip"/>
+    </SimulationDescriptor>
+
+    <!-- ################################################### -->
+    <!-- #######               DEEDS             ####### -->
+    <!-- ################################################### -->
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds01" Type="EmpireImprovement">
+        <Modifier TargetProperty="BasePressureMultiplier" Operation="Percent" Value="0.5" Path="../ClassEmpire/ClassDiplomacy" TooltipOverride="%EmpireImprovementDeeds01TooltipsEffect" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds02" Type="EmpireImprovement">
+        <Modifier TargetProperty="DiplomacyCostReduction" Operation="Percent" Value="-0.5" Path="../ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds03" Type="EmpireImprovement">
+        <Modifier TargetProperty="RetrofitCostMultiplier" Operation="Percent" Value="-0.25" Path="../ClassEmpire" TooltipOverride="%EmpireImprovementDeeds03TooltipsEffect"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds04" Type="EmpireImprovement">
+        <Modifier TargetProperty="LawUpkeep" Operation="Percent" Value="-0.5" Path="../ClassEmpire" TooltipOverride="%EmpireImprovementDeeds04TooltipsEffect"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds05" Type="EmpireImprovement">
+        <BinaryModifier TargetProperty="EmpireMoney" Operation="Addition" Left="5" BinaryOperation="Multiplication" Right="$(ScienceBuildingCount)" Path="ClassEmpire" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds06" Type="EmpireImprovement">
+        <BinaryModifier TargetProperty="EmpireEmpirePoint" Operation="Addition" Left="5" BinaryOperation="Multiplication" Right="$(ScienceBuildingCount)" Path="ClassEmpire" SearchValueFromPath="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds07" Type="EmpireImprovement">
+        <Modifier TargetProperty="TerraformationModifier"             Operation="Addition" Value="-0.5"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireImprovementDeeds08" Type="EmpireImprovement">
+        <Modifier TargetProperty="MaximumCommandPoints"               Operation="Addition" Value="2"  Path="ClassEmpire" />
+    </SimulationDescriptor>
+</Datatable>

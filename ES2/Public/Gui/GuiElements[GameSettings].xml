@@ -1,0 +1,1379 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+    <!-- Settings Groups -->
+    <GuiElement Name="NewGameSession">
+        <Title>%NewGameSessionTitle</Title>
+        <Description>%NewGameSessionDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsSessionLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="NewGameGameplay">
+        <Title>%NewGameGameplayTitle</Title>
+        <Description>%NewGameGameplayDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGameplayLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="NewGameGalaxy">
+        <Title>%NewGameGalaxyTitle</Title>
+        <Description>%NewGameGalaxyDescription</Description>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGalaxyLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="NewGameEmpireSlot">
+        <Title>%NewGameEmpireSlotTitle</Title>
+        <Description>%NewGameEmpireSlotDescription</Description>
+    </GuiElement>
+    
+    <GuiElement Name="NewGameCompetitors">
+        <Title>%NewGameCompetitorsTitle</Title>
+        <Description>%NewGameCompetitorsDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="NewGameChat">
+        <Title>%NewGameChatTitle</Title>
+        <Description>%NewGameChatDescription</Description>
+    </GuiElement>
+
+    <!-- Advanced Settings Groups -->
+    <GuiElement Name="AdvancedSettingsGalaxyStructure">
+        <Title>%AdvancedSettingsGalaxyStructureTitle</Title>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGalaxyStructureLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="AdvancedSettingsGalaxyContent">
+        <Title>%AdvancedSettingsGalaxyContentTitle</Title>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGalaxyContentLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="AdvancedSettingsGameEnvironment">
+        <Title>%AdvancedSettingsGameEnvironmentTitle</Title>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGameplayEnvironmentLarge" />
+        </Icons>
+    </GuiElement>
+
+
+    <GuiElement Name="AdvancedSettingsTimeManagement">
+        <Title>%AdvancedSettingsTimeManagementTitle</Title>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGameplayTimeManagementLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="AdvancedSettingsGameNarration">
+        <Title>%AdvancedSettingsGameNarrationTitle</Title>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGameplayNarrationLarge" />
+        </Icons>
+    </GuiElement>
+
+    <GuiElement Name="AdvancedSettingsVictoryConditions">
+        <Title>%AdvancedSettingsVictoryConditionsTitle</Title>
+        <Icons>
+            <Icon Size="Large" Path="Bitmaps/Dynamic/Settings/SettingsGameplayVictoryConditionsLarge" />
+        </Icons>
+    </GuiElement>
+
+    <!-- Session Name -->
+
+    <GuiElement Name="SettingSessionName">
+        <Title>%SettingSessionNameTitle</Title>
+        <Description>%SettingSessionNameDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSessionNameEnterName">
+        <Title>%SettingSessionNameEnterNameTitle</Title>
+        <Description>%SettingSessionNameEnterNameDescription</Description>
+    </GuiElement>
+
+    <!-- Session Mode -->
+
+    <GuiElement Name="SettingSessionMode">
+        <Title>%SettingSessionModeTitle</Title>
+        <Description>%SettingSessionModeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSessionModeSingle">
+        <Title>%SettingSessionModeSingleTitle</Title>
+        <Description>%SettingSessionModeSingleDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSessionModePrivate">
+        <Title>%SettingSessionModePrivateTitle</Title>
+        <Description>%SettingSessionModePrivateDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSessionModeProtected">
+        <Title>%SettingSessionModeProtectedTitle</Title>
+        <Description>%SettingSessionModeProtectedDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSessionModePublic">
+        <Title>%SettingSessionModePublicTitle</Title>
+        <Description>%SettingSessionModePublicDescription</Description>
+    </GuiElement>
+
+    <!-- Tutorial Mode -->
+
+    <GuiElement Name="SettingTutorialMode">
+        <Title>%SettingTutorialModeTitle</Title>
+        <Description>%SettingTutorialModeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingTutorialModeBeginner">
+        <Title>%SettingTutorialModeBeginnerTitle</Title>
+        <Description>%SettingTutorialModeBeginnerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingTutorialModeAdvanced">
+        <Title>%SettingTutorialModeAdvancedTitle</Title>
+        <Description>%SettingTutorialModeAdvancedDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingTutorialModeExpert">
+        <Title>%SettingTutorialModeExpertTitle</Title>
+        <Description>%SettingTutorialModeExpertDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingTutorialModeNone">
+        <Title>%SettingTutorialModeNoneTitle</Title>
+        <Description>%SettingTutorialModeNoneDescription</Description>
+    </GuiElement>
+
+    <!-- Allow Custom Factions -->
+
+    <GuiElement Name="SettingAllowCustomFactions">
+        <Title>%SettingAllowCustomFactionsTitle</Title>
+        <Description>%SettingAllowCustomFactionsDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAllowCustomFactionsFalse">
+        <Title>%SettingAllowCustomFactionsFalseTitle</Title>
+        <Description>%SettingAllowCustomFactionsFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAllowCustomFactionsTrue">
+        <Title>%SettingAllowCustomFactionsTrueTitle</Title>
+        <Description>%SettingAllowCustomFactionsTrueDescription</Description>
+    </GuiElement>
+
+    <!-- Competitors Count -->
+
+    <GuiElement Name="SettingCompetitorCount">
+        <Title>%SettingCompetitorCountTitle</Title>
+        <Description>%SettingCompetitorCountDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount2">
+        <Title>%SettingCompetitorCount2Title</Title>
+        <Description>%SettingCompetitorCount2Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount3">
+        <Title>%SettingCompetitorCount3Title</Title>
+        <Description>%SettingCompetitorCount3Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount4">
+        <Title>%SettingCompetitorCount4Title</Title>
+        <Description>%SettingCompetitorCount4Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount5">
+        <Title>%SettingCompetitorCount5Title</Title>
+        <Description>%SettingCompetitorCount5Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount6">
+        <Title>%SettingCompetitorCount6Title</Title>
+        <Description>%SettingCompetitorCount6Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount7">
+        <Title>%SettingCompetitorCount7Title</Title>
+        <Description>%SettingCompetitorCount7Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount8">
+        <Title>%SettingCompetitorCount8Title</Title>
+        <Description>%SettingCompetitorCount8Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount9">
+        <Title>%SettingCompetitorCount9Title</Title>
+        <Description>%SettingCompetitorCount9Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount10">
+        <Title>%SettingCompetitorCount10Title</Title>
+        <Description>%SettingCompetitorCount10Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount11">
+        <Title>%SettingCompetitorCount11Title</Title>
+        <Description>%SettingCompetitorCount11Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCompetitorCount12">
+        <Title>%SettingCompetitorCount12Title</Title>
+        <Description>%SettingCompetitorCount12Description</Description>
+    </GuiElement>
+
+    <!-- Game Speed -->
+
+    <GuiElement Name="SettingGameSpeed">
+        <Title>%SettingGameSpeedTitle</Title>
+        <Description>%SettingGameSpeedDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameSpeedFast">
+        <Title>%SettingGameSpeedFastTitle</Title>
+        <Description>%SettingGameSpeedFastDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameSpeedNormal">
+        <Title>%SettingGameSpeedNormalTitle</Title>
+        <Description>%SettingGameSpeedNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameSpeedSlow">
+        <Title>%SettingGameSpeedSlowTitle</Title>
+        <Description>%SettingGameSpeedSlowDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameSpeedEndless">
+        <Title>%SettingGameSpeedEndlessTitle</Title>
+        <Description>%SettingGameSpeedEndlessDescription</Description>
+    </GuiElement>
+
+    <!-- Game Difficulty -->
+
+    <GuiElement Name="SettingGameDifficulty">
+        <Title>%SettingGameDifficultyTitle</Title>
+        <Description>%SettingGameDifficultyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultyNewbie">
+        <Title>%SettingGameDifficultyNewbieTitle</Title>
+        <Description>%SettingGameDifficultyNewbieDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultyEasy">
+        <Title>%SettingGameDifficultyEasyTitle</Title>
+        <Description>%SettingGameDifficultyEasyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultyNormal">
+        <Title>%SettingGameDifficultyNormalTitle</Title>
+        <Description>%SettingGameDifficultyNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultyHard">
+        <Title>%SettingGameDifficultyHardTitle</Title>
+        <Description>%SettingGameDifficultyHardDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultySerious">
+        <Title>%SettingGameDifficultySeriousTitle</Title>
+        <Description>%SettingGameDifficultySeriousDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultyImpossible">
+        <Title>%SettingGameDifficultyImpossibleTitle</Title>
+        <Description>%SettingGameDifficultyImpossibleDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGameDifficultyEndless">
+        <Title>%SettingGameDifficultyEndlessTitle</Title>
+        <Description>%SettingGameDifficultyEndlessDescription</Description>
+    </GuiElement>
+
+    <!-- Unique random -->
+    <GuiElement Name="SettingUniqueRandom">
+        <Title>%SettingUniqueRandomTitle</Title>
+        <Description>%SettingUniqueRandomDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingUniqueRandomFalse">
+        <Title>%SettingUniqueRandomFalseTitle</Title>
+        <Description>%SettingUniqueRandomFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingUniqueRandomTrue">
+        <Title>%SettingUniqueRandomTrueTitle</Title>
+        <Description>%SettingUniqueRandomTrueDescription</Description>
+    </GuiElement>
+
+    <!-- Time Management -->
+
+    <GuiElement Name="SettingEndTurnTimer">
+        <Title>%SettingEndTurnTimerTitle</Title>
+        <Description>%SettingEndTurnTimerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerFalse">
+        <Title>%SettingEndTurnTimerFalseTitle</Title>
+        <Description>%SettingEndTurnTimerFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerTrue">
+        <Title>%SettingEndTurnTimerTrueTitle</Title>
+        <Description>%SettingEndTurnTimerTrueDescription</Description>
+    </GuiElement>
+
+    <!--<GuiElement Name="SettingEndTurnMode">
+        <Title>%SettingEndTurnModeTitle</Title>
+        <Description>%SettingEndTurnModeDescription</Description>
+    </GuiElement>-->
+
+    <!--<GuiElement Name="SettingEndTurnModeLastPlayer">
+        <Title>%SettingEndTurnModeLastPlayerTitle</Title>
+        <Description>%SettingEndTurnModeLastPlayerDescription</Description>
+    </GuiElement>-->
+
+    <!--<GuiElement Name="SettingEndTurnModeAllPlayer">
+        <Title>%SettingEndTurnModeAllPlayerTitle</Title>
+        <Description>%SettingEndTurnModeAllPlayerDescription</Description>
+    </GuiElement>-->
+
+    <!--<GuiElement Name="SettingEndTurnModeBlitz">
+        <Title>%SettingEndTurnModeBlitzTitle</Title>
+        <Description>%SettingEndTurnModeBlitzDescription</Description>
+    </GuiElement>-->
+
+    <!--<GuiElement Name="SettingEndTurnModeOvertime">
+        <Title>%SettingEndTurnModeOvertimeTitle</Title>
+        <Description>%SettingEndTurnModeOvertimeDescription</Description>
+    </GuiElement>-->
+
+    <!--<GuiElement Name="SettingEndTurnModeGlobal">
+        <Title>%SettingEndTurnModeGlobalTitle</Title>
+        <Description>%SettingEndTurnModeGlobalDescription</Description>
+    </GuiElement>-->
+
+    <GuiElement Name="SettingAllPlayerTimer">
+        <Title>%SettingAllPlayerTimerTitle</Title>
+        <Description>%SettingAllPlayerTimerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAllPlayerTimerFalse">
+        <Title>%SettingAllPlayerTimerFalseTitle</Title>
+        <Description>%SettingAllPlayerTimerFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAllPlayerTimerTrue">
+        <Title>%SettingAllPlayerTimerTrueTitle</Title>
+        <Description>%SettingAllPlayerTimerTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingLastPlayerTimer">
+        <Title>%SettingLastPlayerTimerTitle</Title>
+        <Description>%SettingLastPlayerTimerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingLastPlayerTimerFalse">
+        <Title>%SettingLastPlayerTimerFalseTitle</Title>
+        <Description>%SettingLastPlayerTimerFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingLastPlayerTimerTrue">
+        <Title>%SettingLastPlayerTimerTrueTitle</Title>
+        <Description>%SettingLastPlayerTimerTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGlobalTimer">
+        <Title>%SettingGlobalTimerTitle</Title>
+        <Description>%SettingGlobalTimerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGlobalTimerFalse">
+        <Title>%SettingGlobalTimerFalseTitle</Title>
+        <Description>%SettingGlobalTimerFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGlobalTimerTrue">
+        <Title>%SettingGlobalTimerTrueTitle</Title>
+        <Description>%SettingGlobalTimerTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingOvertimeMode">
+        <Title>%SettingOvertimeModeTitle</Title>
+        <Description>%SettingOvertimeModeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingOvertimeModeFalse">
+        <Title>%SettingOvertimeModeFalseTitle</Title>
+        <Description>%SettingOvertimeModeFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingOvertimeModeTrue">
+        <Title>%SettingOvertimeModeTrueTitle</Title>
+        <Description>%SettingOvertimeModeTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMaxOvertime">
+        <Title>%SettingMaxOvertimeTitle</Title>
+        <Description>%SettingMaxOvertimeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMaxOvertime60">
+        <Title>%SettingMaxOvertime60Description</Title>
+        <Description>%SettingMaxOvertime60Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMaxOvertime120">
+        <Title>%SettingMaxOvertime120Description</Title>
+        <Description>%SettingMaxOvertime120Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMaxOvertime180">
+        <Title>%SettingMaxOvertime180Description</Title>
+        <Description>%SettingMaxOvertime180Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMaxOvertime240">
+        <Title>%SettingMaxOvertime240Description</Title>
+        <Description>%SettingMaxOvertime240Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMaxOvertime300">
+        <Title>%SettingMaxOvertime300Description</Title>
+        <Description>%SettingMaxOvertime300Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration">
+        <Title>%SettingEndTurnTimerDurationTitle</Title>
+        <Description>%SettingEndTurnTimerDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration30">
+        <Title>%SettingEndTurnTimerDuration30Description</Title>
+        <Description>%SettingEndTurnTimerDuration45Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration45">
+        <Title>%SettingEndTurnTimerDuration45Description</Title>
+        <Description>%SettingEndTurnTimerDuration45Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration60">
+        <Title>%SettingEndTurnTimerDuration60Description</Title>
+        <Description>%SettingEndTurnTimerDuration60Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration90">
+        <Title>%SettingEndTurnTimerDuration90Description</Title>
+        <Description>%SettingEndTurnTimerDuration90Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration120">
+        <Title>%SettingEndTurnTimerDuration120Description</Title>
+        <Description>%SettingEndTurnTimerDuration120Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerDuration180">
+        <Title>%SettingEndTurnTimerDuration180Description</Title>
+        <Description>%SettingEndTurnTimerDuration180Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerLastPlayerDuration">
+        <Title>%SettingEndTurnTimerLastPlayerDurationTitle</Title>
+        <Description>%SettingEndTurnTimerLastPlayerDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerLastPlayerDuration20">
+        <Title>%SettingEndTurnTimerLastPlayerDuration20Description</Title>
+        <Description>%SettingEndTurnTimerLastPlayerDuration20Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerLastPlayerDuration30">
+        <Title>%SettingEndTurnTimerLastPlayerDuration30Description</Title>
+        <Description>%SettingEndTurnTimerLastPlayerDuration30Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerLastPlayerDuration45">
+        <Title>%SettingEndTurnTimerLastPlayerDuration45Description</Title>
+        <Description>%SettingEndTurnTimerLastPlayerDuration45Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerLastPlayerDuration60">
+        <Title>%SettingEndTurnTimerLastPlayerDuration60Description</Title>
+        <Description>%SettingEndTurnTimerLastPlayerDuration60Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerLastPlayerDuration90">
+        <Title>%SettingEndTurnTimerLastPlayerDuration90Description</Title>
+        <Description>%SettingEndTurnTimerLastPlayerDuration90Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerEraAdditionalDuration">
+        <Title>%SettingEndTurnTimerEraAdditionalDurationTitle</Title>
+        <Description>%SettingEndTurnTimerEraAdditionalDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerEraAdditionalDuration0">
+        <Title>%SettingEndTurnTimerEraAdditionalDuration0Description</Title>
+        <Description>%SettingEndTurnTimerEraAdditionalDuration0Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerEraAdditionalDuration20">
+        <Title>%SettingEndTurnTimerEraAdditionalDuration20Description</Title>
+        <Description>%SettingEndTurnTimerEraAdditionalDuration20Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerEraAdditionalDuration40">
+        <Title>%SettingEndTurnTimerEraAdditionalDuration40Description</Title>
+        <Description>%SettingEndTurnTimerEraAdditionalDuration40Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerEraAdditionalDuration60">
+        <Title>%SettingEndTurnTimerEraAdditionalDuration60Description</Title>
+        <Description>%SettingEndTurnTimerEraAdditionalDuration60Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerEraAdditionalDuration80">
+        <Title>%SettingEndTurnTimerEraAdditionalDuration80Description</Title>
+        <Description>%SettingEndTurnTimerEraAdditionalDuration80Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerSystemAdditionalDuration">
+        <Title>%SettingEndTurnTimerSystemAdditionalDurationTitle</Title>
+        <Description>%SettingEndTurnTimerSystemAdditionalDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerSystemAdditionalDuration0">
+        <Title>%SettingEndTurnTimerSystemAdditionalDuration0Description</Title>
+        <Description>%SettingEndTurnTimerSystemAdditionalDuration0Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerSystemAdditionalDuration10">
+        <Title>%SettingEndTurnTimerSystemAdditionalDuration10Description</Title>
+        <Description>%SettingEndTurnTimerSystemAdditionalDuration10Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerSystemAdditionalDuration20">
+        <Title>%SettingEndTurnTimerSystemAdditionalDuration20Description</Title>
+        <Description>%SettingEndTurnTimerSystemAdditionalDuration20Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerSystemAdditionalDuration30">
+        <Title>%SettingEndTurnTimerSystemAdditionalDuration30Description</Title>
+        <Description>%SettingEndTurnTimerSystemAdditionalDuration30Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerGlobalDuration">
+        <Title>%SettingEndTurnTimerGlobalDurationTitle</Title>
+        <Description>%SettingEndTurnTimerGlobalDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerGlobalDuration10800">
+        <Title>%SettingEndTurnTimerGlobalDuration10800Description</Title>
+        <Description>%SettingEndTurnTimerGlobalDuration10800Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerGlobalDuration14400">
+        <Title>%SettingEndTurnTimerGlobalDuration14400Description</Title>
+        <Description>%SettingEndTurnTimerGlobalDuration14400Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEndTurnTimerGlobalDuration18000">
+        <Title>%SettingEndTurnTimerGlobalDuration1800Description</Title>
+        <Description>%SettingEndTurnTimerGlobalDuration1800Description</Description>
+    </GuiElement>
+    
+	<GuiElement Name="SettingAllowSpaceBattleRewatch">
+        <Title>%SettingAllowSpaceBattleRewatchTitle</Title>
+        <Description>%SettingAllowSpaceBattleRewatchDescription</Description>
+    </GuiElement>
+
+	<GuiElement Name="SettingAllowSpaceBattleRewatchTrue">
+        <Title>%SettingAllowSpaceBattleRewatchTitleTrue</Title>
+        <Description>%SettingAllowSpaceBattleRewatchDescriptionTrue</Description>
+    </GuiElement>
+	
+	<GuiElement Name="SettingAllowSpaceBattleRewatchFalse">
+        <Title>%SettingAllowSpaceBattleRewatchTitleFalse</Title>
+        <Description>%SettingAllowSpaceBattleRewatchDescriptionFalse</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimer">
+        <Title>%SettingBattleAutoStartTimerTitle</Title>
+        <Description>%SettingBattleAutoStartTimerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerTrue">
+        <Title>%SettingBattleAutoStartTimerTrueTitle</Title>
+        <Description>%SettingBattleAutoStartTimerTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerFalse">
+        <Title>%SettingBattleAutoStartTimerFalseTitle</Title>
+        <Description>%SettingBattleAutoStartTimerFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerDuration">
+        <Title>%SettingBattleAutoStartTimerDurationTitle</Title>
+        <Description>%SettingBattleAutoStartTimerDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerDuration10">
+        <Title>%SettingBattleAutoStartTimerDuration10Description</Title>
+        <Description>%SettingBattleAutoStartTimerDuration10Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerDuration15">
+        <Title>%SettingBattleAutoStartTimerDuration15Description</Title>
+        <Description>%SettingBattleAutoStartTimerDuration15Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerDuration20">
+        <Title>%SettingBattleAutoStartTimerDuration20Description</Title>
+        <Description>%SettingBattleAutoStartTimerDuration20Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingBattleAutoStartTimerDuration30">
+        <Title>%SettingBattleAutoStartTimerDuration30Description</Title>
+        <Description>%SettingBattleAutoStartTimerDuration30Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimer">
+        <Title>%SettingGroundBattleAutoStartTimerTitle</Title>
+        <Description>%SettingGroundBattleAutoStartTimerDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerTrue">
+        <Title>%SettingGroundBattleAutoStartTimerTrueTitle</Title>
+        <Description>%SettingGroundBattleAutoStartTimerTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerFalse">
+        <Title>%SettingGroundBattleAutoStartTimerFalseTitle</Title>
+        <Description>%SettingGroundBattleAutoStartTimerFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerDuration">
+        <Title>%SettingGroundBattleAutoStartTimerDurationTitle</Title>
+        <Description>%SettingGroundBattleAutoStartTimerDurationDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerDuration10">
+        <Title>%SettingGroundBattleAutoStartTimerDuration10Description</Title>
+        <Description>%SettingGroundBattleAutoStartTimerDuration10Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerDuration15">
+        <Title>%SettingGroundBattleAutoStartTimerDuration15Description</Title>
+        <Description>%SettingGroundBattleAutoStartTimerDuration15Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerDuration20">
+        <Title>%SettingGroundBattleAutoStartTimerDuration20Description</Title>
+        <Description>%SettingGroundBattleAutoStartTimerDuration20Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGroundBattleAutoStartTimerDuration30">
+        <Title>%SettingGroundBattleAutoStartTimerDuration30Description</Title>
+        <Description>%SettingGroundBattleAutoStartTimerDuration30Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnimationSpeedMultiplier">
+        <Title>%SettingAnimationSpeedMultiplierTitle</Title>
+        <Description>%SettingAnimationSpeedMultiplierDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnimationSpeedMultiplier1">
+        <Title>%SettingAnimationSpeedMultiplier1Title</Title>
+        <Description>%SettingAnimationSpeedMultiplier1Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnimationSpeedMultiplier2">
+        <Title>%SettingAnimationSpeedMultiplier2Title</Title>
+        <Description>%SettingAnimationSpeedMultiplier2Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnimationSpeedMultiplier4">
+        <Title>%SettingAnimationSpeedMultiplier4Title</Title>
+        <Description>%SettingAnimationSpeedMultiplier4Description</Description>
+    </GuiElement>
+
+    <!-- With Random Events -->
+
+    <GuiElement Name="SettingWithRandomEvents">
+        <Title>%SettingWithRandomEventsTitle</Title>
+        <Description>%SettingWithRandomEventsDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingWithRandomEventsFalse">
+        <Title>%SettingWithRandomEventsFalseTitle</Title>
+        <Description>%SettingWithRandomEventsFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingWithRandomEventsTrue">
+        <Title>%SettingWithRandomEventsTrueTitle</Title>
+        <Description>%SettingWithRandomEventsTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingRandomEventsRarity">
+        <Title>%SettingRandomEventsRarityTitle</Title>
+        <Description>%SettingRandomEventsRarityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingRandomEventsRarityRare">
+        <Title>%SettingRandomEventsRarityRareTitle</Title>
+        <Description>%SettingRandomEventsRarityRareDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingRandomEventsRarityNormal">
+        <Title>%SettingRandomEventsRarityNormalTitle</Title>
+        <Description>%SettingRandomEventsRarityNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingRandomEventsRarityAbundant">
+        <Title>%SettingRandomEventsRarityAbundantTitle</Title>
+        <Description>%SettingRandomEventsRarityAbundantDescription</Description>
+    </GuiElement>
+
+    <!-- Metaplot -->
+    <!-- If we decide to use slider instead of checkbox, change names and localization -->
+
+    <GuiElement Name="SettingMetaplotProbability">
+        <Title>%SettingMetaplotProbabilityTitle</Title>
+        <Description>%SettingMetaplotProbabilityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMetaplotProbabilityFalse">
+        <Title>%SettingMetaplotProbabilityFalseTitle</Title>
+        <Description>%SettingMetaplotProbabilityFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMetaplotProbabilityTrue">
+        <Title>%SettingMetaplotProbabilityTrueTitle</Title>
+        <Description>%SettingMetaplotProbabilityTrueDescription</Description>
+    </GuiElement>
+
+    <!-- Multiplayer Quests / Events -->
+    <!-- If we decide to use slider instead of checkbox, change names and localization -->
+
+    <GuiElement Name="SettingMultiplayerQuestsEventsProbability">
+        <Title>%SettingMultiplayerQuestsEventsProbabilityTitle</Title>
+        <Description>%SettingMultiplayerQuestsEventsProbabilityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMultiplayerQuestsEventsProbabilityFalse">
+        <Title>%SettingMultiplayerQuestsEventsProbabilityFalseTitle</Title>
+        <Description>%SettingMultiplayerQuestsEventsProbabilityFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMultiplayerQuestsEventsProbabilityTrue">
+        <Title>%SettingMultiplayerQuestsEventsProbabilityTrueTitle</Title>
+        <Description>%SettingMultiplayerQuestsEventsProbabilityTrueDescription</Description>
+    </GuiElement>
+
+    <!-- Minor Factions Difficulty -->
+
+    <GuiElement Name="SettingMinorFactionsDifficulty">
+        <Title>%SettingMinorFactionsDifficultyTitle</Title>
+        <Description>%SettingMinorFactionsDifficultyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsDifficultyEasy">
+        <Title>%SettingMinorFactionsDifficultyEasyTitle</Title>
+        <Description>%SettingMinorFactionsDifficultyEasyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsDifficultyNormal">
+        <Title>%SettingMinorFactionsDifficultyNormalTitle</Title>
+        <Description>%SettingMinorFactionsDifficultyNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsDifficultyHard">
+        <Title>%SettingMinorFactionsDifficultyHardTitle</Title>
+        <Description>%SettingMinorFactionsDifficultyHardDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsQuantity">
+        <Title>%SettingMinorFactionsQuantityTitle</Title>
+        <Description>%SettingMinorFactionsQuantityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsQuantityLow">
+        <Title>%SettingMinorFactionsQuantityLowTitle</Title>
+        <Description>%SettingMinorFactionsQuantityLowDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsQuantityMedium">
+        <Title>%SettingMinorFactionsQuantityMediumTitle</Title>
+        <Description>%SettingMinorFactionsQuantityMediumDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMinorFactionsQuantityHigh">
+        <Title>%SettingMinorFactionsQuantityHighTitle</Title>
+        <Description>%SettingMinorFactionsQuantityHighDescription</Description>
+    </GuiElement>
+
+    <!-- Pirates difficulty -->
+
+    <GuiElement Name="SettingPiratesDifficulty">
+        <Title>%SettingPiratesDifficultyTitle</Title>
+        <Description>%SettingPiratesDifficultyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingPiratesDifficultyNone">
+        <Title>%SettingPiratesDifficultyNoneTitle</Title>
+        <Description>%SettingPiratesDifficultyNoneDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingPiratesDifficultyEasy">
+        <Title>%SettingPiratesDifficultyEasyTitle</Title>
+        <Description>%SettingPiratesDifficultyEasyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingPiratesDifficultyNormal">
+        <Title>%SettingPiratesDifficultyNormalTitle</Title>
+        <Description>%SettingPiratesDifficultyNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingPiratesDifficultyHard">
+        <Title>%SettingPiratesDifficultyHardTitle</Title>
+        <Description>%SettingPiratesDifficultyHardDescription</Description>
+    </GuiElement>
+
+    <!-- Victory Conditions -->
+    <GuiElement Name="SettingScore">
+        <Title>%SettingScoreTitle</Title>
+        <Description>%SettingScoreDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingScoreTrue">
+        <Title>%SettingScoreTrueTitle</Title>
+        <Description>%SettingScoreTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingScoreFalse">
+        <Title>%SettingScoreFalseTitle</Title>
+        <Description>%SettingScoreFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSupremacy">
+        <Title>%SettingSupremacyTitle</Title>
+        <Description>%SettingSupremacyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSupremacyTrue">
+        <Title>%SettingSupremacyTrueTitle</Title>
+        <Description>%SettingSupremacyTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSupremacyFalse">
+        <Title>%SettingSupremacyFalseTitle</Title>
+        <Description>%SettingSupremacyFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMilitary">
+        <Title>%SettingMilitaryTitle</Title>
+        <Description>%SettingMilitaryDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMilitaryTrue">
+        <Title>%SettingMilitaryTrueTitle</Title>
+        <Description>%SettingMilitaryTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingMilitaryFalse">
+        <Title>%SettingMilitaryFalseTitle</Title>
+        <Description>%SettingMilitaryFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConquest">
+        <Title>%SettingConquestTitle</Title>
+        <Description>%SettingConquestDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConquestTrue">
+        <Title>%SettingConquestTrueTitle</Title>
+        <Description>%SettingConquestTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConquestFalse">
+        <Title>%SettingConquestFalseTitle</Title>
+        <Description>%SettingConquestFalseDescription</Description>
+    </GuiElement>
+    <!--
+    <GuiElement Name="SettingTemples">
+        <Title>%SettingTemplesTitle</Title>
+        <Description>%SettingTemplesDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingTemplesTrue">
+        <Title>%SettingTemplesTrueTitle</Title>
+        <Description>%SettingTemplesTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingTemplesFalse">
+        <Title>%SettingTemplesFalseTitle</Title>
+        <Description>%SettingTemplesFalseDescription</Description>
+    </GuiElement> -->
+
+    <GuiElement Name="SettingEconomy">
+        <Title>%SettingEconomyTitle</Title>
+        <Description>%SettingEconomyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEconomyTrue">
+        <Title>%SettingEconomyTrueTitle</Title>
+        <Description>%SettingEconomyTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEconomyFalse">
+        <Title>%SettingEconomyFalseTitle</Title>
+        <Description>%SettingEconomyFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingScience">
+        <Title>%SettingScienceTitle</Title>
+        <Description>%SettingScienceDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingScienceTrue">
+        <Title>%SettingScienceTrueTitle</Title>
+        <Description>%SettingScienceTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingScienceFalse">
+        <Title>%SettingScienceFalseTitle</Title>
+        <Description>%SettingScienceFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingWonder">
+        <Title>%SettingWonderTitle</Title>
+        <Description>%SettingWonderDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingWonderTrue">
+        <Title>%SettingWonderTrueTitle</Title>
+        <Description>%SettingWonderTrueDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingWonderFalse">
+        <Title>%SettingWonderFalseTitle</Title>
+        <Description>%SettingWonderFalseDescription</Description>
+    </GuiElement>
+
+
+    <!-- Galaxy Shape -->
+
+    <GuiElement Name="SettingGalaxyShape">
+        <Title>%SettingGalaxyShapeTitle</Title>
+        <Description>%SettingGalaxyShapeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeSpiral2">
+        <Title>%SettingGalaxyShapeSpiral2Title</Title>
+        <Description>%SettingGalaxyShapeSpiral2Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeSpiral4">
+        <Title>%SettingGalaxyShapeSpiral4Title</Title>
+        <Description>%SettingGalaxyShapeSpiral4Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeSpiral8">
+        <Title>%SettingGalaxyShapeSpiral8Title</Title>
+        <Description>%SettingGalaxyShapeSpiral8Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeDisk">
+        <Title>%SettingGalaxyShapeDiskTitle</Title>
+        <Description>%SettingGalaxyShapeDiskDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeDisk4">
+        <Title>%SettingGalaxyShapeDisk4Title</Title>
+        <Description>%SettingGalaxyShapeDisk4Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeDisk8">
+        <Title>%SettingGalaxyShapeDisk8Title</Title>
+        <Description>%SettingGalaxyShapeDisk8Description</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeOvoid">
+        <Title>%SettingGalaxyShapeOvoidTitle</Title>
+        <Description>%SettingGalaxyShapeOvoidDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeTwinElliptical">
+        <Title>%SettingGalaxyShapeTwinEllipticalTitle</Title>
+        <Description>%SettingGalaxyShapeTwinEllipticalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeRing">
+        <Title>%SettingGalaxyShapeRingTitle</Title>
+        <Description>%SettingGalaxyShapeRingDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyShapeRandom">
+        <Title>%SettingGalaxyShapeRandomTitle</Title>
+        <Description>%SettingGalaxyShapeRandomDescription</Description>
+    </GuiElement>
+
+    <!-- Galaxy Size -->
+
+    <GuiElement Name="SettingGalaxySize">
+        <Title>%SettingGalaxySizeTitle</Title>
+        <Description>%SettingGalaxySizeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeTiny">
+        <Title>%SettingGalaxySizeTinyTitle</Title>
+        <Description>%SettingGalaxySizeTinyDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeSmall">
+        <Title>%SettingGalaxySizeSmallTitle</Title>
+        <Description>%SettingGalaxySizeSmallDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeNormal">
+        <Title>%SettingGalaxySizeNormalTitle</Title>
+        <Description>%SettingGalaxySizeNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeLarge">
+        <Title>%SettingGalaxySizeLargeTitle</Title>
+        <Description>%SettingGalaxySizeLargeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeHuge">
+        <Title>%SettingGalaxySizeHugeTitle</Title>
+        <Description>%SettingGalaxySizeHugeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeColossal">
+        <Title>%SettingGalaxySizeColossalTitle</Title>
+        <Description>%SettingGalaxySizeColossalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeGigantic">
+        <Title>%SettingGalaxySizeGiganticTitle</Title>
+        <Description>%SettingGalaxySizeGiganticDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxySizeRandom">
+        <Title>%SettingGalaxySizeRandomTitle</Title>
+        <Description>%SettingGalaxySizeRandomDescription</Description>
+    </GuiElement>
+
+    <!-- Galaxy Age -->
+
+    <GuiElement Name="SettingGalaxyAge">
+        <Title>%SettingGalaxyAgeTitle</Title>
+        <Description>%SettingGalaxyAgeDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyAgeYoung">
+        <Title>%SettingGalaxyAgeYoungTitle</Title>
+        <Description>%SettingGalaxyAgeYoungDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyAgeNormal">
+        <Title>%SettingGalaxyAgeNormalTitle</Title>
+        <Description>%SettingGalaxyAgeNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyAgeOld">
+        <Title>%SettingGalaxyAgeOldTitle</Title>
+        <Description>%SettingGalaxyAgeOldDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyAgeRandom">
+        <Title>%SettingGalaxyAgeRandomTitle</Title>
+        <Description>%SettingGalaxyAgeRandomDescription</Description>
+    </GuiElement>
+
+    <!-- Galaxy Density -->
+
+    <GuiElement Name="SettingGalaxyDensity">
+        <Title>%SettingGalaxyDensityTitle</Title>
+        <Description>%SettingGalaxyDensityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyDensityLow">
+        <Title>%SettingGalaxyDensityLowTitle</Title>
+        <Description>%SettingGalaxyDensityLowDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyDensityMedium">
+        <Title>%SettingGalaxyDensityMediumTitle</Title>
+        <Description>%SettingGalaxyDensityMediumDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyDensityHigh">
+        <Title>%SettingGalaxyDensityHighTitle</Title>
+        <Description>%SettingGalaxyDensityHighDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingGalaxyDensityRandom">
+        <Title>%SettingGalaxyDensityRandomTitle</Title>
+        <Description>%SettingGalaxyDensityRandomDescription</Description>
+    </GuiElement>
+
+    <!-- Galaxy Connectivity -->
+
+    <GuiElement Name="SettingConnectivityDensity">
+        <Title>%SettingConnectivityDensityTitle</Title>
+        <Description>%SettingConnectivityDensityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConnectivityDensityLow">
+        <Title>%SettingConnectivityDensityLowTitle</Title>
+        <Description>%SettingConnectivityDensityLowDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConnectivityDensityMedium">
+        <Title>%SettingConnectivityDensityMediumTitle</Title>
+        <Description>%SettingConnectivityDensityMediumDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConnectivityDensityHigh">
+        <Title>%SettingConnectivityDensityHighTitle</Title>
+        <Description>%SettingConnectivityDensityHighDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConnectivityDensityRandom">
+        <Title>%SettingConnectivityDensityRandomTitle</Title>
+        <Description>%SettingConnectivityDensityRandomDescription</Description>
+    </GuiElement>
+
+    <!-- Constellation Quantity -->
+
+    <GuiElement Name="SettingConstellationQuantity">
+        <Title>%SettingConstellationQuantityTitle</Title>
+        <Description>%SettingConstellationQuantityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConstellationQuantityOne">
+        <Title>%SettingConstellationQuantityOneTitle</Title>
+        <Description>%SettingConstellationQuantityOneDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConstellationQuantitySeveral">
+        <Title>%SettingConstellationQuantitySeveralTitle</Title>
+        <Description>%SettingConstellationQuantitySeveralDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingConstellationQuantityMany">
+        <Title>%SettingConstellationQuantityManyTitle</Title>
+        <Description>%SettingConstellationQuantityManyDescription</Description>
+    </GuiElement>
+
+    <!-- Galaxy Generation Seed -->
+
+    <GuiElement Name="SettingGalaxyGenerationSeed">
+        <Title>%SettingGalaxyGenerationSeedTitle</Title>
+        <Description>%SettingGalaxyGenerationSeedDescription</Description>
+    </GuiElement>
+
+    <!-- Resources Abundance -->
+
+    <GuiElement Name="SettingResourcesAbundance">
+        <Title>%SettingResourcesAbundanceTitle</Title>
+        <Description>%SettingResourcesAbundanceDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingResourcesAbundanceRare">
+        <Title>%SettingResourcesAbundanceRareTitle</Title>
+        <Description>%SettingResourcesAbundanceRareDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingResourcesAbundanceNormal">
+        <Title>%SettingResourcesAbundanceNormalTitle</Title>
+        <Description>%SettingResourcesAbundanceNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingResourcesAbundanceAbundant">
+        <Title>%SettingResourcesAbundanceAbundantTitle</Title>
+        <Description>%SettingResourcesAbundanceAbundantDescription</Description>
+    </GuiElement>
+
+    <!-- Curiosity Abundance -->
+
+    <GuiElement Name="SettingCuriosityAbundance">
+        <Title>%SettingCuriosityAbundanceTitle</Title>
+        <Description>%SettingCuriosityAbundanceDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCuriosityAbundanceRare">
+        <Title>%SettingCuriosityAbundanceRareTitle</Title>
+        <Description>%SettingCuriosityAbundanceRareDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCuriosityAbundanceNormal">
+        <Title>%SettingCuriosityAbundanceNormalTitle</Title>
+        <Description>%SettingCuriosityAbundanceNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingCuriosityAbundanceAbundant">
+        <Title>%SettingCuriosityAbundanceAbundantTitle</Title>
+        <Description>%SettingCuriosityAbundanceAbundantDescription</Description>
+    </GuiElement>
+
+    <!-- Anomaly Abundance -->
+
+    <GuiElement Name="SettingAnomalyAbundance">
+        <Title>%SettingAnomalyAbundanceTitle</Title>
+        <Description>%SettingAnomalyAbundanceDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnomalyAbundanceRare">
+        <Title>%SettingAnomalyAbundanceRareTitle</Title>
+        <Description>%SettingAnomalyAbundanceRareDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnomalyAbundanceNormal">
+        <Title>%SettingAnomalyAbundanceNormalTitle</Title>
+        <Description>%SettingAnomalyAbundanceNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingAnomalyAbundanceAbundant">
+        <Title>%SettingAnomalyAbundanceAbundantTitle</Title>
+        <Description>%SettingAnomalyAbundanceAbundantDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="RecipeCostReduction">
+        <Title>%RecipeCostReductionTitle</Title>
+        <Description>%RecipeCostReductionDescription</Description>
+    </GuiElement>
+
+    <!-- Special Nodes Multiplier -->
+
+    <GuiElement Name="SettingSpecialNodesMultiplier">
+        <Title>%SettingSpecialNodesMultiplierTitle</Title>
+        <Description>%SettingSpecialNodesMultiplierDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSpecialNodesMultiplierNone">
+        <Title>%SettingSpecialNodesMultiplierNoneTitle</Title>
+        <Description>%SettingSpecialNodesMultiplierNoneDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSpecialNodesMultiplierRare">
+        <Title>%SettingSpecialNodesMultiplierRareTitle</Title>
+        <Description>%SettingSpecialNodesMultiplierRareDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSpecialNodesMultiplierNormal">
+        <Title>%SettingSpecialNodesMultiplierNormalTitle</Title>
+        <Description>%SettingSpecialNodesMultiplierNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingSpecialNodesMultiplierAbundant">
+        <Title>%SettingSpecialNodesMultiplierAbundantTitle</Title>
+        <Description>%SettingSpecialNodesMultiplierAbundantDescription</Description>
+    </GuiElement>
+
+    <!-- Star Based Planet Order -->
+
+    <GuiElement Name="SettingStarBasedPlanetOrder">
+        <Title>%SettingStarBasedPlanetOrderTitle</Title>
+        <Description>%SettingStarBasedPlanetOrderDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingStarBasedPlanetOrderFalse">
+        <Title>%SettingStarBasedPlanetOrderFalseTitle</Title>
+        <Description>%SettingStarBasedPlanetOrderFalseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingStarBasedPlanetOrderTrue">
+        <Title>%SettingStarBasedPlanetOrderTrueTitle</Title>
+        <Description>%SettingStarBasedPlanetOrderTrueDescription</Description>
+    </GuiElement>
+
+    <!-- Empires Start Minimal Distance -->
+
+    <GuiElement Name="SettingEmpiresStartMinimalDistance">
+        <Title>%SettingEmpiresStartMinimalDistanceTitle</Title>
+        <Description>%SettingEmpiresStartMinimalDistanceDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpiresStartMinimalDistanceNone">
+        <Title>%SettingEmpiresStartMinimalDistanceNoneTitle</Title>
+        <Description>%SettingEmpiresStartMinimalDistanceNoneDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpiresStartMinimalDistanceClose">
+        <Title>%SettingEmpiresStartMinimalDistanceCloseTitle</Title>
+        <Description>%SettingEmpiresStartMinimalDistanceCloseDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpiresStartMinimalDistanceMedium">
+        <Title>%SettingEmpiresStartMinimalDistanceMediumTitle</Title>
+        <Description>%SettingEmpiresStartMinimalDistanceMediumDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpiresStartMinimalDistanceFar">
+        <Title>%SettingEmpiresStartMinimalDistanceFarTitle</Title>
+        <Description>%SettingEmpiresStartMinimalDistanceFarDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpiresStartMinimalDistanceRandom">
+        <Title>%SettingEmpiresStartMinimalDistanceRandomTitle</Title>
+        <Description>%SettingEmpiresStartMinimalDistanceRandomDescription</Description>
+    </GuiElement>
+
+    <!-- Empire Spawn Method -->
+
+    <GuiElement Name="SettingEmpireSpawnMethod">
+        <Title>%SettingEmpireSpawnMethodTitle</Title>
+        <Description>%SettingEmpireSpawnMethodDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpireSpawnMethodStandard">
+        <Title>%SettingEmpireSpawnMethodStandardTitle</Title>
+        <Description>%SettingEmpireSpawnMethodStandardDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpireSpawnMethodChaotic">
+        <Title>%SettingEmpireSpawnMethodChaoticTitle</Title>
+        <Description>%SettingEmpireSpawnMethodChaoticDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingEmpireSpawnMethodClustered">
+        <Title>%SettingEmpireSpawnMethodClusteredTitle</Title>
+        <Description>%SettingEmpireSpawnMethodClusteredDescription</Description>
+    </GuiElement>
+
+    <!-- Home System Quality -->
+
+    <GuiElement Name="SettingHomeSystemQuality">
+        <Title>%SettingHomeSystemQualityTitle</Title>
+        <Description>%SettingHomeSystemQualityDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingHomeSystemQualityNormal">
+        <Title>%SettingHomeSystemQualityNormalTitle</Title>
+        <Description>%SettingHomeSystemQualityNormalDescription</Description>
+    </GuiElement>
+
+    <GuiElement Name="SettingHomeSystemQualityChaotic">
+        <Title>%SettingHomeSystemQualityChaoticTitle</Title>
+        <Description>%SettingHomeSystemQualityChaoticDescription</Description>
+    </GuiElement>
+
+
+    <GuiElement Name="Strategic2Stock">
+        <Title>%Strategic2StockTitle</Title>
+    </GuiElement>
+
+</Datatable>

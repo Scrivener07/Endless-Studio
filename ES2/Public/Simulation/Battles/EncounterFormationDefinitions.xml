@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/EncounterFormationDefinition.xsd">
+
+    <!-- GUIDELINE -->
+    <!-- Sorting defines the order of which ships are put into the formation (Size defines the slot its put into) -->
+    <!-- Large Z Axis 'size' = ~5 -->
+    <!-- Medium Z Axis 'size' = ~2.5 -->
+    <!-- Small Z Axis 'size' = ~1 -->
+    
+    
+    
+    <Formation Name="FormationTest01" DefaultPatternName="Pattern02">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <Pattern Name="Pattern01">
+            <Slot Name="SlotLarge01" ShipSize="ShipSizeLarge" X="0" Y="0" Z="-0.5"/>
+            <Slot Name="SlotLarge01" ShipSize="ShipSizeLarge" X="-1" Y="0" Z="-1"/>
+            <Slot Name="SlotLarge01" ShipSize="ShipSizeLarge" X="1" Y="0" Z="-1"/>
+            <!--<Slot Name="SlotLarge01" ShipSize="ShipSizeLarge" X="0" Y="0" Z="-1.7"/>-->
+
+            <!--<NextPattern PatternName="Pattern01" X="0" Y="0" Z="-2.4"/>-->
+            <NextPattern PatternName="Pattern01" X="0" Y="0" Z="-1.7"/>
+        </Pattern>
+
+
+        <Pattern Name="Pattern02">
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="0"        Y="0.25"   Z="-0.25" OrderOfAppearance="1"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="-0.35"     Y="0.1"   Z="-0.5" OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="0.35"      Y="0.1"   Z="-0.5" OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="-0.7"       Y="-0.05"   Z="-0.9" OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="0.7"        Y="-0.05"   Z="-0.9" OrderOfAppearance="5"/>
+
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.85"      Y="0.25"  Z="-1.75" OrderOfAppearance="5"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.85"       Y="0.25"  Z="-1.75" OrderOfAppearance="6"/>
+
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0"       Y="0"     Z="-5" OrderOfAppearance="0"/>
+            
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="-0.45"     Y="0.35"   Z="-2.25" OrderOfAppearance="8"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="0.45"      Y="0.35"   Z="-2.25" OrderOfAppearance="9"/>
+
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0"       Y="-0.15"  Z="-2.9" OrderOfAppearance="10"/>
+            
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="-1"      Y="0.1"   Z="-3.25" OrderOfAppearance="11"/>
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="1"       Y="0.1"   Z="-3.25" OrderOfAppearance="12"/>
+
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="-0.45"     Y="-0.25"   Z="-3.5" OrderOfAppearance="13"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"   X="0.45"      Y="-0.25"   Z="-3.5" OrderOfAppearance="14"/>
+
+            <NextPattern PatternName="Pattern02" X="0" Y="0" Z="-3.75" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <!-- Substitution patterns -->
+        <Pattern Name="SlotLarge01ToMedium">
+            <Slot Name="SlotMedium01" ShipSize="ShipSizeMedium" X="-0.1" Y="0" Z="0.5"/>
+            <Slot Name="SlotMedium01" ShipSize="ShipSizeMedium" X="0.1" Y="0" Z="-0.5"/>
+        </Pattern>
+
+        <Pattern Name="SlotLarge01ToSmall">
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="0" Y="0" Z="0"/>
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="0.25" Y="-0.25" Z="-0.35"/>
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="-0.25" Y="-0.25" Z="0.35"/>
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="-0.25" Y="0.25" Z="-0.35"/>
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="0.25" Y="0.25" Z="0.35"/>
+        </Pattern>
+
+        <Pattern Name="SlotMedium01ToSmall">
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="0" Y="0.25" Z="0"/>
+            <Slot Name="SlotSmall01" ShipSize="ShipSizeSmall" X="0" Y="-0.25" Z="0"/>
+        </Pattern>
+
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SlotLarge01ToMedium"/>
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SlotLarge01ToSmall"/>
+        <SlotSubstitution SlotName="SlotMedium01" SubstitutionPatternName="SlotMedium01ToSmall"/>
+    </Formation>
+
+    <Formation Name="Formation01" DefaultPatternName="PatternStep01">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <!-- Escort large ship pattern -->
+        <Pattern Name="PatternStep01">
+            <Slot Name="SlotMothership01"   ShipSize="ShipSizeMothership"   X="-1"           Y="-0.5"       Z="-11.5"    OrderOfAppearance="1"/>
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0.1"       Y="0"       Z="-0.5"       OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.6"     Y="0.5"     Z="1.25"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.8"    Y="-0.5"    Z="-1"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="1"     Y="-0.5"    Z="-1"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.4"    Y="0.5"     Z="1.25"    OrderOfAppearance="6"/>
+            
+            <NextPattern PatternName="PatternStep03" X="0" Y="0.5" Z="-3.5" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <!-- Escort large ship pattern -->
+        <Pattern Name="PatternStep02">
+            <Slot Name="SlotMothership01"   ShipSize="ShipSizeMothership"   X="-1"           Y="-0.5"       Z="-11.5"    OrderOfAppearance="1"/>
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="-0.8"       Y="0"       Z="-1"       OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.4"     Y="0.5"     Z="-0.30"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-1"    Y="-0.5"    Z="-0.30"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.4"     Y="-0.5"    Z="-0.25"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.6"    Y="0.5"     Z="-0.25"    OrderOfAppearance="6"/>
+
+            <NextPattern PatternName="PatternStep03" X="0" Y="0.5" Z="-2.5" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <!-- In case of many large ships, triangle pattern -->
+        <Pattern Name="PatternStep03">
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0"       Y="1"       Z="-0.5"       OrderOfAppearance="2"/>
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="2"     Y="0.25"     Z="-1.5"    OrderOfAppearance="3"/>
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="-2"    Y="0.25"    Z="-1.5"    OrderOfAppearance="4"/>
+
+            <NextPattern PatternName="PatternStep01" X="0" Y="0" Z="-5" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteLargeToMedium">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.4"       Y="0"       Z="0"         OrderOfAppearance="1"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.4"       Y="0.2"     Z="-2.3"    OrderOfAppearance="2"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteLargeToSmall">
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0"       Y="0"       Z="0"          OrderOfAppearance="1"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.5"     Y="0.5"     Z="-0.5"       OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.9"    Y="-0.5"    Z="-0.5"       OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.9"     Y="-0.5"    Z="-0.5"       OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0"      Y="0.5"     Z="-0.5"       OrderOfAppearance="5"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteSmallToLarge">
+           <!--  <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0"        Y="0"        Z="-0.5"           OrderOfAppearance="1" /> -->
+            <!-- <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="-1"        Y="-1"        Z="-0.5"           OrderOfAppearance="2" />-->
+        </Pattern>
+        
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SubstituteLargeToMedium" />
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SubstituteLargeToSmall" />
+        <!-- <SlotSubstitution SlotName="SlotSmall01" SubstitutionPatternName="SubstituteSmallToLarge"/>-->
+    </Formation>
+
+    <Formation Name="Formation02" DefaultPatternName="PatternStep01">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <Pattern Name="PatternStep01">
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.6"     Y="0.5"     Z="0"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-1"    Y="-0.5"    Z="0"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="1"     Y="-0.5"    Z="-0.05"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.6"    Y="0.5"     Z="-0.05"    OrderOfAppearance="6"/>
+
+            <NextPattern PatternName="PatternStep02" X="0" Y="0.50" Z="-5" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <Pattern Name="PatternStep02">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0"           Y="0"       Z="0"    OrderOfAppearance="2"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-2"        Y="0"       Z="-0.25"    OrderOfAppearance="3"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="2"         Y="0"       Z="-0.25"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-2.75"       Y="0.5"     Z="-0.3"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-2.85"       Y="-0.5"    Z="-0.3"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="2.75"        Y="0.5"     Z="-0.3"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="2.85"       Y="-0.5"    Z="-0.3"    OrderOfAppearance="6"/>
+
+            <NextPattern PatternName="PatternStep03" X="0" Y="0.50" Z="-5" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <Pattern Name="PatternStep03">
+            <Slot Name="SlotLarge01"   ShipSize="ShipSizeLarge"   X="0"           Y="0.75"       Z="-2.5"    OrderOfAppearance="3"/>
+            <Slot Name="SlotLarge01"   ShipSize="ShipSizeLarge"   X="0"           Y="-1.25"       Z="0"    OrderOfAppearance="2"/>
+
+            <NextPattern PatternName="PatternStep01" X="0" Y="0.50" Z="-5" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteMediumToLarge">
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0"       Y="0"       Z="0"       OrderOfAppearance="2"/> <!-- old 0 -0.3 -2.5-->
+        </Pattern>
+
+        <SlotSubstitution SlotName="SlotMedium01" SubstitutionPatternName="SubstituteMediumToLarge" />
+    </Formation>
+
+    <Formation Name="Formation03" DefaultPatternName="PatternStep01">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <Pattern Name="PatternStep01">
+            <Slot Name="SlotMothership01"   ShipSize="ShipSizeMothership"   X="-0.5"           Y="-0.5"       Z="-11.5"    OrderOfAppearance="1"/>
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0"       Y="0"       Z="-2"       OrderOfAppearance="1"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.3"        Y="0.75"       Z="-5"    OrderOfAppearance="2"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.4"       Y="-0.75"       Z="-5"    OrderOfAppearance="2"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.4"       Y="0.75"       Z="0"    OrderOfAppearance="2"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.5"       Y="-0.75"       Z="0"    OrderOfAppearance="2"/>
+            
+            <NextPattern PatternName="PatternStep02" X="0" Y="0.25" Z="-3" OrderOfAppearanceOffset="10"/>
+        </Pattern>
+
+        <Pattern Name="PatternStep02">
+            <Slot Name="SlotMothership01"   ShipSize="ShipSizeMothership"   X="0"           Y="-0.5"       Z="-11.5"    OrderOfAppearance="1"/>
+            <Slot Name="SlotLarge01"   ShipSize="ShipSizeLarge"   X="-0.8"           Y="1"       Z="-2.5"    OrderOfAppearance="3"/>
+            <Slot Name="SlotLarge01"   ShipSize="ShipSizeLarge"   X="0.8"           Y="-1.25"       Z="0"    OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"   X="-0.6"           Y="1"       Z="-2.75"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"   X="-0.7"           Y="1.3"       Z="-3"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"   X="-0.8"           Y="1.6"       Z="-3"    OrderOfAppearance="6"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"   X="0.5"           Y="1"        Z="-2.75"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"   X="0.6"           Y="1.3"       Z="-3"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"   X="0.7"           Y="1.6"    Z="-3"    OrderOfAppearance="6"/>
+
+            <NextPattern PatternName="PatternStep01" X="0" Y="0.25" Z="-2" OrderOfAppearanceOffset="15"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteLargeToMedium">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.1"       Y="0.3"       Z="-2.5"       OrderOfAppearance="1"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.1"       Y="0"     Z="0"    OrderOfAppearance="2"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteMediumToSmall">
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.8"   Y="0"       Z="-1"       OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0"   Y="-0.15"   Z="1.8"     OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.4"   Y="-0.30"   Z="0"     OrderOfAppearance="2"/>
+        </Pattern>
+
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SubstituteLargeToMedium" />
+        <SlotSubstitution SlotName="SlotMedium01" SubstitutionPatternName="SubstituteMediumToSmall" />
+    </Formation>
+
+
+    <Formation Name="Formation04" DefaultPatternName="PatternStep01">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <Pattern Name="PatternStep01">
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0"       Y="0"       Z="0"       OrderOfAppearance="1"/>
+
+            <NextPattern PatternName="PatternStep02" X="0.1" Y="1" Z="-2" OrderOfAppearanceOffset="10"/>
+        </Pattern>
+
+        <Pattern Name="PatternStep02">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0"       Y="0"       Z="-0.75"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"     X="0.1"       Y="0.25"    Z="0"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"     X="-0.1"       Y="0.3"    Z="-1.25"    OrderOfAppearance="5"/>
+            
+            <NextPattern PatternName="PatternStep03" X="-0.1" Y="-2" Z="0" OrderOfAppearanceOffset="10"/>
+        </Pattern>
+
+        <Pattern Name="PatternStep03">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0"       Y="0"       Z="-0.75"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"     X="-0.1"       Y="-0.45"    Z="0"    OrderOfAppearance="1"/>
+            <Slot Name="SlotSmall01"   ShipSize="ShipSizeSmall"     X="0.1"       Y="-0.50"    Z="-1.25"    OrderOfAppearance="5"/>
+
+            <NextPattern PatternName="PatternStep01" X="0.1" Y="1.3" Z="-5" OrderOfAppearanceOffset="10"/>
+        </Pattern>    
+
+        <Pattern Name="SubstituteLargeToMedium">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.1"       Y="0.3"       Z="-2.5"       OrderOfAppearance="1"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.1"       Y="0"     Z="0"    OrderOfAppearance="2"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteMediumToSmall">
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0"   Y="0"       Z="-1.6"       OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.3"   Y="-0.15"   Z="-0.8"     OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.6"   Y="-0.30"   Z="0"     OrderOfAppearance="2"/>
+        </Pattern>
+
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SubstituteLargeToMedium" />
+        <SlotSubstitution SlotName="SlotMedium01" SubstitutionPatternName="SubstituteMediumToSmall" />
+    </Formation>
+
+
+    <Formation Name="FormationRemiTest01" DefaultPatternName="PatternStep01">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <Pattern Name="PatternStep01">
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="0.1"       Y="0"       Z="-3.2"       OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.1"       Y="0.2"     Z="0"     OrderOfAppearance="1"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.6"     Y="0.5"     Z="-2.5"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.8"    Y="-0.5"    Z="-2.5"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="1"     Y="-0.5"    Z="-2.55"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.4"    Y="0.5"     Z="-2.55"    OrderOfAppearance="6"/>
+
+            <NextPattern PatternName="PatternStep02" X="0" Y="0.30" Z="-5" OrderOfAppearanceOffset="5"/>
+        </Pattern>
+
+        <Pattern Name="PatternStep02">
+            <Slot Name="SlotLarge01"    ShipSize="ShipSizeLarge"    X="-0.1"       Y="0"       Z="-3.2"       OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.1"       Y="0.2"     Z="0"     OrderOfAppearance="1"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.4"     Y="0.5"     Z="-2.5"    OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-1"    Y="-0.5"    Z="-2.5"    OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.8"     Y="-0.5"    Z="-2.55"    OrderOfAppearance="5"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.6"    Y="0.5"     Z="-2.55"    OrderOfAppearance="6"/>
+
+            <NextPattern PatternName="PatternStep01" X="0" Y="0.30" Z="-5" OrderOfAppearanceOffset="5"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteLargeToMedium">
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="0.1"       Y="0"       Z="0"       OrderOfAppearance="1"/>
+            <Slot Name="SlotMedium01"   ShipSize="ShipSizeMedium"   X="-0.1"       Y="0.2"     Z="-2.3"    OrderOfAppearance="2"/>
+        </Pattern>
+
+        <Pattern Name="SubstituteLargeToSmall">
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0"       Y="0"       Z="0"     OrderOfAppearance="1"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.5"     Y="0.5"     Z="-0.5"       OrderOfAppearance="2"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0.9"    Y="-0.5"    Z="-0.5"       OrderOfAppearance="3"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="0.9"     Y="-0.5"    Z="-0.5"       OrderOfAppearance="4"/>
+            <Slot Name="SlotSmall01"    ShipSize="ShipSizeSmall"    X="-0"      Y="0.5"     Z="-0.5"       OrderOfAppearance="5"/>
+        </Pattern>
+
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SubstituteLargeToMedium" />
+        <SlotSubstitution SlotName="SlotLarge01" SubstitutionPatternName="SubstituteLargeToSmall" />
+    </Formation>
+	
+	<Formation Name="FormationUnique" DefaultPatternName="PatternStep01">
+        <!-- Formation sorting criteria -->
+        <SortingCriterion DescriptorType="ShipSize">
+            <Descriptor Name="ShipSizeMothership"/>
+            <Descriptor Name="ShipSizeLarge"/>
+            <Descriptor Name="ShipSizeMedium"/>
+            <Descriptor Name="ShipSizeSmall"/>
+        </SortingCriterion>
+        <SortingCriterion DescriptorType="ShipRole">
+            <Descriptor Name="ShipRoleSmallAttacker"/>
+            <Descriptor Name="ShipRoleMediumAttacker"/>
+            <Descriptor Name="ShipRoleSmallSupport"/>
+            <Descriptor Name="ShipRoleMediumSupport"/>
+            <Descriptor Name="ShipRoleCarrier"/>
+            <Descriptor Name="ShipRoleHero"/>
+            <Descriptor Name="ShipRoleMothership"/>
+            <Descriptor Name="ShipRoleColonizer"/>
+            <Descriptor Name="ShipRoleExploration"/>
+            <Descriptor Name="ShipRoleLeecher"/>
+            <Descriptor Name="ShipRoleRootCreator"/>
+        </SortingCriterion>
+
+        <!-- Formation patterns -->
+        <Pattern Name="PatternStep01">
+            <Slot Name="SlotMedium01"    ShipSize="ShipSizeMedium"    X="0"       Y="0"       Z="0"       OrderOfAppearance="2"/>
+        </Pattern>
+    </Formation>
+    
+    
+</Datatable>

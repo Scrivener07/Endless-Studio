@@ -1,0 +1,2561 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Gui.GuiElement.xsd">
+
+  <!-- TutorialGuiElements work like QuestGuiElements, except they must provide a title & description for the pop-up, and can highlight stuff -->
+  <!-- PopupTitle and PopupDescription are used for the top-right corner of the screen (looks like the Pinned quest panel, but isn't) -->
+  <!-- Highlights allow to highlight a thing in the Gui. Each element is set by code/gui, so you must ask a programmer to include a new one -->
+  <!-- Current existing highlightable elements: -->
+  <!-- All FleetActionButtons, formatted like 'FleetsScreen_<ActionNameInXml>Button' (without the <>) -->
+  <!-- All Control banner buttons, formatted like 'ControlBanner_<ScreenTitle>Toggle' (without the <>) -->
+  <!-- SenateScreen_ActiveLawsPanel, SenateScreen_VoteLawButton (in Senate screen & active laws modal window) -->
+  <!-- AcademyScreen_HealButton, AcademyScreen_InspectButton, AcademyScreen_AssignToFleetButton, , AcademyScreen_AssignToSystemButton, AcademyScreen_CreateFleetButton, AcademyScreen_UnassignButton -->
+  <!-- BattleSetupNotification_Arena, BattleSetupNotification_Play, BattleSetupNotification_AlliedFleets, BattleSetupNotification_EnemyFleets, BattleSetupNotification_StartBattle -->
+  <!-- Minor interaction button in system label, named 'StarSystemLabelMinorInteractionButton $LocalizationVar' -->
+  <!-- Fleet line in fleet screen, named 'FleetsScreenLine $LocalizationVar' -->
+  <!-- Fleet line in fleet selection modal window (eg. for hero assignment), named 'FleetSelectionLine $LocalizationVar' -->
+  <!-- System line in system selection modal window (eg. for hero assignment), named 'SystemSelectionLine $LocalizationVar' -->
+
+    <TutorialGuiElement Name="TutorialMovement" AnchorMode="RightCentered">
+        <Title>%TutorialMovementTitle</Title>
+        <Description>%TutorialMovementDescription</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Sophon/Sophon_quest_chap1_MIL_v1" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Sophon/Sophon_quest_chap1_MIL_v1" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet>
+                <Objective Name="Step1_Objective1">%TutorialMovement_Step1_Objective1Description</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialMovementPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialMovementPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialCuriosity">
+        <Title>%TutorialCuriosityTitle</Title>
+        <Description>%TutorialCuriosityDescription</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Sophon/Sophon_quest_chap1_MIL_v1" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Sophon/Sophon_quest_chap1_MIL_v1" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet>
+                <Objective Name="Step1_Objective1">%TutorialCuriosity_Step1_Objective1Description</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialCuriosityPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialCuriosityPopupDescription</Description>
+            <Highlight Name="FleetsScreen_ExpeditionFleetActionButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialCuriosity2">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialCuriosity2PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialCuriosity2PopupDescription</Description>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="TutorialQuest01">
+        <Title>%TutorialQuest01Title</Title>
+        <Description>%TutorialQuest01Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest01Large" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest01Large" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics02">
+                <OutcomeCompleted>%TutorialQuest01-Outcome</OutcomeCompleted>
+                <Objective Name="Step1_Objective1">%TutorialQuest01-Objective</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialQuest01PopupTitle</PopupTitle>
+        <PopupPage HighlightLanes="true">
+            <Description>%TutorialQuest01PopupDescription</Description>
+            <!--<Highlight Name="StarSystemLabelMinorInteractionButton_AffinityGameplayMavros" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_StartBattle" Type="Interactive"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest01_1">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialQuest01_1PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest01_1PopupDescription</Description>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="TutorialQuest01_2">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialQuest01_2PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest01_2PopupDescription</Description>
+            <Highlight Name="EndTurnWindow_ApplyMovementsButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest02">
+        <Title>%TutorialQuest02Title</Title>
+        <Description>%TutorialQuest02Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest02Large" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest02Large" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics02">
+                <OutcomeCompleted>%TutorialQuest02-Outcome</OutcomeCompleted>
+                <Objective Name="Step1_Objective1">%TutorialQuest02-Objective</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialQuest02PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest02PopupDescription</Description>
+            <Highlight Name="FleetsScreen_ExpeditionFleetActionButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest01_3">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialQuest01_3PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest01_3PopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest01_4">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialQuest01_4PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest01_4PopupDescription</Description>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest03">
+        <Title>%TutorialQuest03Title</Title>
+        <Description>%TutorialQuest03Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest03Large" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest03Large" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics06">
+                <OutcomeCompleted>%TutorialQuest03-Outcome</OutcomeCompleted>
+                <Objective Name="Step1_Objective1">%TutorialQuest03-Objective</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialQuest03PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest03PopupDescription</Description>
+            <Highlight Name="ControlBanner_SenateScreenToggle" Type="Interactive"/>        
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest03-Alt">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialQuest03-AltPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest03-AltPopupDescription</Description>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest04">
+        <Title>%TutorialQuest04Title</Title>
+        <Description>%TutorialQuest04Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest04Large" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest04Large" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics06">
+                <OutcomeCompleted>%TutorialQuest04-Outcome</OutcomeCompleted>
+                <Objective Name="Step1_Objective1">%TutorialQuest04-Objective</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialQuest04PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest04PopupDescription</Description>
+            <Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest04-Alt">
+        <Title>%TutorialQuest04Title</Title>
+        <Description>%TutorialQuest04Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest04Large" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest04Large" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics06">
+                <OutcomeCompleted>%TutorialQuest04-Outcome</OutcomeCompleted>
+                <Objective Name="Step1_Objective1">%TutorialQuest04-Objective</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialQuest04PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest04PopupDescription</Description>
+            <Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialHero1">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialHero1PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialHero1PopupDescription</Description>
+            <Highlight Name="HeroDetailedCard $HeroName" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_AssignToFleetButton" Type="Interactive"/>
+        </PopupPage>
+        </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="TutorialHero1-Alt">
+    <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+    <PopupTitle>%TutorialHero1-AltPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialHero1-AltPopupDescription</Description>
+            <Highlight Name="HeroDetailedCard $HeroName" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_UnassignButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_AssignToFleetButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialHero2" AnchorMode="BottomLeft">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialHero2PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialHero2PopupDescription</Description>
+            <Highlight Name="FleetSelectionLine $FleetName" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialHero3">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialHero3PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialHero3PopupDescription</Description>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest05">
+        <Title>%TutorialQuest05Title</Title>
+        <Description>%TutorialQuest05Description</Description>
+        <Icons>
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest05Large" Size="Small" />
+            <Icon Path="Bitmaps/Dynamic/Quests/Tutorial/TutorialQuest05Large" Size="Large" />
+        </Icons>
+        <Steps>
+            <Step Name="Step1">
+            <ObjectiveSet Politics="Politics06">
+                <OutcomeCompleted>%TutorialQuest05-Outcome</OutcomeCompleted>
+                <Objective Name="Step1_Objective1">%TutorialQuest05-Objective</Objective>
+            </ObjectiveSet>
+            </Step>
+        </Steps>
+        <PopupTitle>%TutorialQuest05PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest05PopupDescription</Description>
+            <Highlight Name="FleetsScreen_AttackFleetActionButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialBattle01">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialBattle01PopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialBattle01PopupDescription</Description>
+            <Highlight Name="BattleSetupNotification_Play" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_StartBattle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenVictory">
+        <PopupTitle>%Tutorial_ScreenVictoryPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenVictoryPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+    <TutorialGuiElement Name="Tutorial_ScreenSenate">
+        <PopupTitle>%Tutorial_ScreenSenatePopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenSenatePopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenEconomy">
+        <PopupTitle>%Tutorial_ScreenEconomyPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenEconomyPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenTechnology">
+        <PopupTitle>%Tutorial_ScreenTechnologyPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenTechnologyPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenMilitary">
+        <PopupTitle>%Tutorial_ScreenMilitaryPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenMilitaryPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenAcademy">
+        <PopupTitle>%Tutorial_ScreenAcademyPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenAcademyPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenNarrative">
+        <PopupTitle>%Tutorial_ScreenNarrativePopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenNarrativePopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ScreenDiplomatic">
+        <PopupTitle>%Tutorial_ScreenDiplomaticPopupTitle</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ScreenDiplomaticPopupDescription</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialNavigation01">
+        <!-- Just a pop up: no need to set Title/Description/whatever for the Notification -->
+        <PopupTitle>%TutorialNavigation01Title</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialNavigation01Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TutorialQuest_MinorFaction01">
+        <PopupTitle>%TutorialQuest_MinorFaction01</PopupTitle>
+        <PopupPage>
+            <Description>%TutorialQuest_MinorFaction01</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TestGuiDisabler" AnchorMode="LeftCentered">
+        <PopupTitle>TestGuiDisabler</PopupTitle>
+        <PopupPage>
+            <Description>Everything is highlighted!</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TestTutorialHasTutorialKeys" AnchorMode="LeftCentered">
+        <PopupTitle>TestTutorialHasTutorialKeys</PopupTitle>
+        <PopupPage>
+            <Description>Open the scan view dawg</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="TestTutorialSpaceport" AnchorMode="LeftCentered">
+        <PopupTitle>TestTutorialSpaceport</PopupTitle>
+        <PopupPage>
+            <Description>Drag population, select destination</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="TutorialHighlightTest" AnchorMode="LeftCentered">
+        <PopupTitle>Highlight tests</PopupTitle>
+        <PopupPage>
+            <Title>Titre override!</Title>
+            <Description>Everything is highlighted!</Description>
+            <!--<Highlight Name="TutorialPopup_NextButton" Type="Interactive"/>-->
+            <!-- Control banner toggles (screen access) -->
+            <!--<Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+            <Highlight Name="ControlBanner_LifeforceArea" Type="Informative"/>
+            <Highlight Name="ControlBanner_StrategicResources" Type="Informative"/>-->
+            <!-- End turn window -->
+            <!--<Highlight Name="EndTurnWindow_GameMenuButton" Type="Interactive"/>
+            <Highlight Name="EndTurnWindow_NextIdleFleetButton" Type="Interactive"/>
+            <Highlight Name="EndTurnWindow_ApplyMovementsButton" Type="Interactive"/>
+            <Highlight Name="EndTurnWindow_SynchronizationState" Type="Interactive"/>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>-->
+            <!-- Fleet action buttons -->
+            <!--<Highlight Name="FleetsScreen_AttackFleetActionButton" Type="Interactive"/>-->
+            <!-- Senate screen -->
+            <!--<Highlight Name="SenateScreen_ActiveLawsPanel" Type="Interactive"/>
+            <Highlight Name="SenateScreen_SenatorsPanel" Type="Interactive"/>
+            <Highlight Name="SenateScreen_PopulationsPanel" Type="Interactive"/>
+            <Highlight Name="SenateScreen_PoliticsPanel" Type="Interactive"/>
+            <Highlight Name="SenateScreen_AbrogateButton" Type="Interactive"/>
+            <Highlight Name="SenateScreen_VoteLawsButton" Type="Interactive"/>
+            <Highlight Name="SenateScreen_SenatorCard Politics02" Type="Interactive"/>
+            <Highlight Name="SenateScreen_LawCard LawP02L01" Type="Interactive"/>
+            <Highlight Name="SenateScreen_AvailableLawSlot 1" Type="Interactive"/>
+            <Highlight Name="SenateScreen_LockedLawSlot 2" Type="Interactive"/>-->
+            <!-- Laws management modal window -->
+            <!--<Highlight Name="LawsManagementModalWindow_VoteLawButton" Type="Interactive"/>
+            <Highlight Name="LawsManagementModalWindow_LawCard LawP02L01" Type="Interactive"/>-->
+            <!-- Elections modal window -->
+            <!--<Highlight Name="ElectionsModalWindow_CandidateCard Politics02" Type="Interactive"/>
+            <Highlight Name="ElectionsModalWindow_CandidateCards" Type="Interactive"/>
+            <Highlight Name="ElectionsModalWindow_ElectionActions" Type="Interactive"/>
+            <Highlight Name="ElectionsModalWindow_PoliticalTrendsPanel" Type="Interactive"/>-->
+            <!-- Empire screen -->
+            <!--<Highlight Name="EmpireDescriptionSidePanel" Type="Informative"/>
+            <Highlight Name="EmpireScreen_Hexagon" Type="Informative"/>-->
+            <!-- Academy screen -->
+            <!--<Highlight Name="AcademyScreen_HealButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_InspectButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_AssignToFleetButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_AssignToSystemButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_CreateFleetButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_UnassignButton" Type="Interactive"/>
+            <Highlight Name="AcademyScreen_ButtonsBottom" Type="Interactive"/>
+            <Highlight Name="AcademySidePanel_HeroCount" Type="Informative"/>
+            <Highlight Name="HeroUnlockGaugeItem_Gauge" Type="Interactive"/>
+            <Highlight Name="HeroUnlockGaugeItem_Odds" Type="Interactive"/>-->
+            <!-- Economy screen -->
+            <!--<Highlight Name="EconomyScreen_RecipesPanel" Type="Interactive"/>
+            <Highlight Name="EconomyScreen_LuxuriesPanel" Type="Interactive"/>
+            <Highlight Name="EconomyScreen_TradeCompaniesPanel" Type="Interactive"/>
+            <Highlight Name="EconomyScreen_SystemUpgrade 1" Type="Interactive"/>
+            <Highlight Name="EconomyScreen_LockedCompanyGauge" Type="Informative"/>
+            <Highlight Name="EconomyScreen_ToggleSystems" Type="Informative"/>
+            <Highlight Name="EconomyScreen_ToggleEconomy" Type="Informative"/>-->
+            <!-- Military screen -->
+            <!--<Highlight Name="MilitaryScreen_CreateShipDesign" Type="Interactive"/>
+            <Highlight Name="MilitaryScreen_EditShipDesign" Type="Interactive"/>
+            <Highlight Name="MilitaryScreen_ShipDesignPanel" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_FleetsListPanel" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_ManPowerSidePanel" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_ManPowerDetails" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_ManPowerGauge" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_ManPowerRefillGauge" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_GroundBattleUnits" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_UpgradeManpowerButton" Type="Informative"/>-->
+            <!-- Senate screen -->
+            <!--<Highlight Name="GovernmentModalPanel_GovernmentChoice" Type="Interactive"/>
+            <Highlight Name="SenateScreen_GovernmentChange" Type="Interactive"/>-->
+            <!-- Manpower Management -->
+            <!--<Highlight Name="ManpowerManagement_InfantryStats" Type="Informative"/>
+            <Highlight Name="ManpowerManagement_TankStats" Type="Informative"/>
+            <Highlight Name="ManpowerManagement_PlaneStats" Type="Informative"/>-->
+            <!-- Hero Inspection -->
+            <!--<Highlight Name="HeroInspection_ShipDesignOverview" Type="Interactive"/>
+            <Highlight Name="HeroInspection_SkillTreeOverview" Type="Interactive"/>
+            <Highlight Name="HeroInspection_SkillTreeAvailablePoints" Type="Informative"/>
+            <Highlight Name="HeroInspection_SkillTreeBonuses" Type="Informative"/>
+            <Highlight Name="SkillTree_Stage0" Type="Informative"/>
+            <Highlight Name="SkillTree_Stage1" Type="Informative"/>
+            <Highlight Name="SkillTree_Stage2" Type="Informative"/>-->
+            <!-- Hero -->
+            <!--<Highlight Name="HeroUpdate_AssignSkillButton" Type="Interactive"/>
+            <Highlight Name="HeroUpdate_HeroManagementButton" Type="Interactive"/>-->
+            <!-- ShipDesign -->
+            <!--<Highlight Name="ShipDesignEdition_UpgradeCost" Type="Informative"/>
+
+            <Highlight Name="ShipDesign_AttackCategory" Type="Interactive"/>
+            <Highlight Name="ShipDesign_DefenseCategory" Type="Interactive"/>
+            <Highlight Name="ShipDesign_SupportCategory" Type="Interactive"/>
+            <Highlight Name="ShipDesign_ModuleScrollView" Type="Interactive"/>
+            <Highlight Name="ShipDesign_ShipStatistics" Type="Interactive"/>
+            <Highlight Name="ShipDesign_ManpowerMaxStock" Type="Interactive"/>
+            <Highlight Name="ShipDesign_WeaponDefenseType" Type="Interactive"/>
+            <Highlight Name="ShipDesign_CostGroup" Type="Interactive"/>
+
+            <Highlight Name="ShipDesign_CreateDesign" Type="Interactive"/>
+            <Highlight Name="ShipDesignModal_CloseButton" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_NameTextField" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_HullDroplist" Type="Interactive"/>-->
+            <!--First line of ship stats-->
+            <!--<Highlight Name="ShipDesignEdition_SimpleStats" Type="Interactive"/>-->
+            <!--All toggles-->
+            <!--<Highlight Name="ShipDesignEdition_ModuleCategories" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_ModulePanel" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_OffensivePower" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_DefensivePower" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_RangeEfficiencies" Type="Interactive"/>-->
+            <!--Cara info-->
+            <!--<Highlight Name="ShipDesignEdition_CharacteristicsInfos" Type="Interactive"/>-->
+            <!-- Recipe creation window -->
+            <!--<Highlight Name="RecipeCreationModalWindow_AvailableIngredientsGroup" Type="Interactive"/>
+            <Highlight Name="RecipeCreationModalWindow_RecipeInformationGroup" Type="Interactive"/>-->
+            <!-- Battle notification -->
+            <!--<Highlight Name="BattleSetupNotification_Play" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_AlliedFleets" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_EnemyFleets" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_StartBattle" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_PowerBalance" Type="Interactive"/>
+            <Highlight Name="BattleSetupNotification_AdvancedPlay" Type="Interactive"/>
+            <Highlight Name="BattleReportNotificationWindow_Experience" Type="Interactive"/>-->
+            <!-- GroundBattle notification-->
+            <!--<Highlight Name="GroundBattleSetupNotification_Plays" Type="Interactive"/>
+            <Highlight Name="GroundBattleSetupNotification_PowerGauge" Type="Interactive"/>-->
+            <!-- Advanced play selection -->
+            <!--<Highlight Name="AdvancedBattleSetup_Frame" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_Arena" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_PlayerPlaysList" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_EnemyPlaysList" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_PlayerPlay" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_EnemyPlay" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_ReinforcementsButton" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_EnemyFleetsButton" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_StartBattleButton" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_StatsButtons" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_SortingButtons" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_RetreatButton" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_WatchToggle" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_FlotillaLeft" Type="Informative"/>-->
+            <!-- Battle deck -->
+            <!--<Highlight Name="BattleDeckWindow_CurrentDeck" Type="Interactive"/>
+            <Highlight Name="BattleDeckWindow_ValidateButton" Type="Interactive"/>
+            <Highlight Name="BattleDeckWindow_PlayCardDeckModalWindow_AvailableCard0" Type="Interactive"/>
+            <Highlight Name="MilitaryPlaySidePanel_OpenButton" Type="Interactive"/>
+
+            <Highlight Name="DiplomacyScreen_Sector $MajorEmpireName" Type="Interactive"/>-->
+            
+            <!-- System scan view -->
+            <!--<Highlight Name="StarSystemManagementScanViewWindow_ResourcesLine" Type="Interactive"/>
+            <Highlight Name="StarSystemManagementScanViewWindow_PlanetsLine" Type="Interactive"/>
+            <Highlight Name="StarSystemManagementScanViewWindow_PoliticsLine" Type="Interactive"/>
+            <Highlight Name="StarSystemManagementScanViewWindow_ManPowerGauge" Type="Interactive"/>-->
+            
+            <!-- System screen -->
+            <!--<Highlight Name="StarSystemScreen_ConstructiblesList" Type="Interactive"/>
+            <Highlight Name="StarSystemScreen_ConstructiblesFilterConstructibleFilterAll" Type="Interactive"/>
+            <Highlight Name="StarSystemScreen_ConstructiblesFilterConstructibleFilterImprovements" Type="Interactive"/>
+            <Highlight Name="StarSystemScreen_ConstructiblesFilterConstructibleFilterShips" Type="Interactive"/>
+            <Highlight Name="StarSystemScreen_ConstructionLine 0" Type="Interactive"/>-->
+            <!--<Highlight Name="StarSystemManagement $PlanetName" Type="Interactive"/>-->
+            <!--<Highlight Name="StarSystemScreen_Hangar" Type="Interactive"/>
+            <Highlight Name="ColonySidePanel_HappinessGroup" Type="Interactive"/>
+            <Highlight Name="ColonySidePanel_ImprovementsButton" Type="Interactive"/>
+            <Highlight Name="ColonySidePanel_FidsiBanner" Type="Interactive"/>
+            <Highlight Name="ColonyPopulationSidePanel_PopulationsCount" Type="Interactive"/>
+            <Highlight Name="ColonyPopulationSidePanel_Details" Type="Interactive"/>-->
+            
+            <!-- Specific items in list -->
+            <!--<Highlight Name="FleetsScreen_FleetHero" Type="Interactive"/>
+            <Highlight Name="FleetsScreenLine $FleetName" Type="Interactive"/>
+            <Highlight Name="FleetsScreenLine AllFleets" Type="Interactive"/>
+            <Highlight Name="FleetsScreenLine Hangar" Type="Interactive"/>
+            <Highlight Name="ShipItem AllShips" Type="Interactive"/>
+            <Highlight Name="HeroDetailedCard $HeroName" Type="Interactive"/>
+            <Highlight Name="HeroDetailedCard_ClassLine" Type="Informative"/>
+            <Highlight Name="HeroDetailedCard_UpkeepLine" Type="Informative"/>
+            <Highlight Name="FleetSelectionLine $FleetName" Type="Interactive"/>
+            <Highlight Name="SystemSelectionLine $SystemName" Type="Interactive"/>
+            <Highlight Name="PlanetCuriosityItem $CuriosityName" Type="Interactive"/>
+            <Highlight Name="ShipDesignItem $ShipDesignName" Type="Interactive"/>
+            <Highlight Name="ShipDesignModuleItem ModuleDefenseHullPlatingEra1" Type="Interactive"/>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementScience1" Type="Interactive"/>-->
+            <!--<Highlight Name="EconomyScreen_TradeCompany $TradeCompanyName" Type="Interactive"/>-->
+            <!-- Minor faction interaction button -->
+            <!--<Highlight Name="StarSystemLabelMinorInteractionButton $EmpireName" Type="Interactive"/>
+            <Highlight Name="MinorEmpireMetNotification_StartNegociationsButton" Type="Interactive"/>
+            <Highlight Name="MinorEmpireMetNotification_EmpireCard" Type="Informative"/>
+            <Highlight Name="MinorEmpireDiplomacy_RelationGauge" Type="Informative"/>
+            <Highlight Name="MinorEmpireDiplomacy_MinorTrait" Type="Informative"/>-->
+            <!-- Spaceport -->
+            <!--<Highlight Name="SpaceportSidePanel_Frame" Type="Interactive"/>
+            <Highlight Name="SpaceportSidePanel_DestinationButton" Type="Informative"/>
+            <Highlight Name="SpaceportSidePanel_Slot0" Type="Informative"/>-->
+            <!-- Rebellion -->
+            <!--<Highlight Name="RebellionSidePanel_RebellionSuppressionAction_InvestManpowerButton" Type="Interactive"/>
+            <Highlight Name="RebellionSidePanel_RebellionSuppressionAction_InvestLuxuryButton" Type="Interactive"/>-->
+            <!-- SystemRepresentatives -->
+            <!--<Highlight Name="SystemRepresentativesSidePanel_PopulationPanelButton" Type="Interactive"/>--><!--BUTTON-->
+            <!--<Highlight Name="SystemRepresentativesSidePanel_PoliticalResume" Type="Informative"/>--><!--political resume-->
+            <!-- StarSystemPopulation window -->
+            <!--<Highlight Name="StarSystemPopulationWindow_PoliticsToggles" Type="Interactive"/>
+            <Highlight Name="StarSystemPopulationWindow_CloseButton" Type="Informative"/>-->
+            <!-- StarSystem ColonyInfo SidePanel -->
+            <!--<Highlight Name="ColonyInfoSidePanel_Security" Type="Informative"/>
+            <Highlight Name="StarSystemFidsi_NetSystemGrowth" Type="Informative"/>-->
+            <!-- Planet label -->
+            <!--<Highlight Name="PlanetLabel_OutpostActions" Type="Interactive"/>
+            <Highlight Name="GameOverlayWindow_HoratioManagePopulation" Type="Interactive"/>
+            <Highlight Name="GameOverlay_TimeBubblePanel" Type="Interactive"/>
+            <Highlight Name="GameOverlay_TimeBubbleInfo" Type="Interactive"/>-->
+            <!--<Highlight Name="SenateScreen_PopulationsPanel" Type="Informative"/>-->
+            <!--<Highlight Name="SenateScreen_ManageGeneButton" Type="Interactive"/>
+            <Highlight Name="PopulationAffinityFilter_Assimilable" Type="Interactive"/>
+            <Highlight Name="PopulationAffinityFilter_Population0" Type="Interactive"/>  
+            <Highlight Name="PopulationModalWindow_CollectionBonus" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_CollectionBonusEffects" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_AssimilationEffects" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_AssimilateButton" Type="Interactive"/>
+            <Highlight Name="PopulationModalWindow_PoliticalEventPanel" Type="Interactive"/> 
+            <Highlight Name="PopulationModalWindow_PoliticalOutput" Type="Interactive"/>
+            <Highlight Name="PopulationModalWindow_PsychotraitsList" Type="Interactive"/>
+            <Highlight Name="PopulationModalWindow_PoliticsList" Type="Interactive"/>-->
+            <!-- Negotiation Screen -->
+            <!--<Highlight Name="NegotiationWindow_Threshold0" Type="Informative"/>
+            <Highlight Name="NegotiationWindow_PressureGauge" Type="Informative"/>
+            <Highlight Name="NegotiationWindow_DiplomaticAbilities" Type="Informative"/>
+            <Highlight Name="NegotiationWindow_OtherEmpireAttitude" Type="Informative"/>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms" Type="Informative"/>
+            <Highlight Name="NegotiationWindow_ApprovalGroup" Type="Informative"/>
+            <Highlight Name="NegotiationWindow_ValidateButton" Type="Informative"/>-->
+
+            <!-- Science -->
+            <!--<Highlight Name="ResearchStatusSidePanel_NetScienceLine" Type="Informative"/>
+            <Highlight Name="TechnologyScreen_AllUnlockMarkers" Type="Informative"/>
+            <Highlight Name="TechnologyScreen_AllStages" Type="Informative"/>-->
+            
+            <!--<Highlight Name="StarSystemPopulationWindow_Events" Type="Informative"/>
+            <Highlight Name="StarSystemPopulationWindow_Impacts" Type="Informative"/>-->
+
+            <!--<Highlight Name="ElectionsModalWindow_CandidateCard Politics01" Type="Informative"/>
+            <Highlight Name="ElectionsModalWindow_CandidateCard Politics02" Type="Informative"/>
+            <Highlight Name="ElectionsModalWindow_CandidateCard Politics03" Type="Informative"/>
+            <Highlight Name="ElectionsModalWindow_CandidateCard Politics04" Type="Informative"/>
+            <Highlight Name="ElectionsModalWindow_CandidateCard Politics05" Type="Informative"/>
+            <Highlight Name="ElectionsModalWindow_CandidateCard Politics06" Type="Informative"/>
+
+            <Highlight Name="StarSystemScreen_ConstructionLine 0" Type="Informative"/>
+            <Highlight Name="StarSystemScreen_ConstructionLine 3" Type="Informative"/>-->
+
+            <Highlight Name="PlanetCuriosityItem" Type="Interactive"/>
+            <Highlight Name="ResearchStatusSidePanel_TechnologyQueue" Type="Interactive"/>
+            <Highlight Name="ColonyPopulationSidePanel_NextPopulation" Type="Informative"/>
+            <Highlight Name="ColonyPopulationSidePanel_SystemPopulation" Type="Interactive"/>
+            <Highlight Name="StarSystemManagement_PlanetColonizedPopulation" Type="Interactive"/>
+            <Highlight Name="StarSystemManagement_PlanetType" Type="Informative"/>
+            <Highlight Name="EmpireScreen_SystemsManagementTable" Type="Interactive"/>
+            <Highlight Name="EmpireStatusSidePanel_Frame" Type="Informative"/>
+            <Highlight Name="EmpireStatusSidePanel_OvercolonizationGroup" Type="Informative"/>
+
+            <Highlight Name="EmpireScreen_Hexagon" Type="Informative"/>
+            
+            <!--<Disabler Name="EndTurnWindow_EndTurnButton" Disable="true"/>-->
+        </PopupPage>
+        <PopupPage>
+            <Description>Second page text</Description>
+            <!--<Disabler Name="EndTurnWindow_EndTurnButton" Disable="false"/>-->
+        </PopupPage>
+        <PopupPage>
+            <Description>Third page text</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>Last page text, also this is very long and super interesting. Who could have known so much stuff could be taught with so few text? Nature sure is amazing!</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+
+    <!-- ############################## -->
+    <!-- ####### CROSS-FACTION  ####### -->
+    <!-- ############################## -->
+
+    <!-- #### BEGINNER ####-->
+    
+    <TutorialGuiElement Name="Tutorial_Introduction">
+        <PopupTitle>%Tutorial_Introduction-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Introduction-Page1-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Introduction-Page2-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_StarSystem">
+        <PopupTitle>%Tutorial_StarSystem-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page1-Description</Description>
+            <Highlight Name="StarSystemManagement $PlanetName" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page2-Description</Description>
+            <Highlight Name="StarSystemManagement $PlanetName" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page3-Description</Description>
+            <Highlight Name="ColonySidePanel_FidsiBanner" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page4-Description</Description>
+            <Highlight Name="ColonySidePanel_ImprovementsButton" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page5-Description</Description>
+            <Highlight Name="StarSystemScreen_ConstructiblesList" Type="Informative"/>
+            <Highlight Name="StarSystemScreen_ConstructiblesFilterConstructiblesFilterImprovements" Type="Informative"/>
+            <Highlight Name="StarSystemFidsi_NetSystemProduction" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page6-Description</Description>
+            <Highlight Name="StarSystemScreen_ConstructiblesList" Type="Informative"/>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementStartingFoodIndustry" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StarSystem-Page7-Description</Description>
+            <Highlight Name="StarSystemScreen_ConstructionLine 0" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <!--<TutorialGuiElement Name="Tutorial_ConstructionQueue">
+        <PopupTitle>%Tutorial_ConstructionQueue-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ConstructionQueue-Page1-Description</Description>
+            <Highlight Name="StarSystemScreen_ConstructionLine 0" Type="Informative"/>
+            --><!--<Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>--><!--
+        </PopupPage>
+    </TutorialGuiElement>-->
+
+    <TutorialGuiElement Name="Tutorial_Hook-Population">
+        <PopupTitle>%Tutorial_Hook-Population-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-Population-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Population">
+        <PopupTitle>%Tutorial_Population-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Population-Page1-Description</Description>
+            <Highlight Name="StarSystemFidsi_NetSystemGrowth" Type="Informative"/>
+            <Highlight Name="ColonyPopulationSidePanel_PopulationsCount" Type="Informative"/>
+            <!--<Highlight Name="ColonyPopulationSidePanel_Details" Type="Informative"/>-->
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Population-Page2-Description</Description>
+            <Highlight Name="StarSystemFidsi_NetSystemGrowth" Type="Informative"/>
+            <Highlight Name="ColonyPopulationSidePanel_SystemPopulation" Type="Informative"/>
+            <!--<Highlight Name="ColonyPopulationSidePanel_Details" Type="Informative"/>-->
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Population-Page3-Description</Description>
+            <Highlight Name="StarSystemFidsi_NetSystemGrowth" Type="Informative"/>
+            <Highlight Name="ColonyPopulationSidePanel_PopulationsCount" Type="Informative"/>
+            <!--<Highlight Name="ColonyPopulationSidePanel_Details" Type="Informative"/>-->
+            <Highlight Name="ColonyPopulationSidePanel_NextPopulation" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Population-Page4-Description</Description>
+            <Highlight Name="StarSystemFidsi_NetSystemResearch" Type="Informative"/>
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+            <!--<Disabler Name="ControlBanner_TechnologyScreenToggle" Disable="false"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_TechnologyScreen">
+        <PopupTitle>%Tutorial_TechnologyScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TechnologyScreen-Page1-Description</Description>
+            <Highlight Name="ResearchStatusSidePanel_NetScienceLine" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_TechnologyScreen-Page2-Description</Description>
+            <!--<Highlight Name="TechnologyScreen_Stage0" Type="Informative"/>-->
+            <Highlight Name="TechnologyScreen_AllUnlockMarkers" Type="Informative"/>
+            <Highlight Name="TechnologyScreen_AllStages" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_TechnologyScreen-Page3-Description</Description>
+            <Highlight Name="TechnologyScreen_AllStages" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <TutorialLevelPrerequisite>Beginner</TutorialLevelPrerequisite>
+            <Description>%Tutorial_TechnologyScreen-Page4-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <TutorialLevelPrerequisite>Beginner</TutorialLevelPrerequisite>
+            <Description>%Tutorial_TechnologyScreen-Page5-Description</Description>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration1" Type="Interactive" Persistent="false"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionMilitary1" Type="Interactive" Persistent="false"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionEmpireDevelopment2" Type="Interactive" Persistent="false"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionEconomyAndTrade2" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+        <PopupPage>
+            <TutorialLevelPrerequisite>Beginner</TutorialLevelPrerequisite>
+            <Description>%Tutorial_TechnologyScreen-Page6-Description</Description>
+            <Highlight Name="ResearchStatusSidePanel_TechnologyQueue" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-TechnologyScreen">
+        <PopupTitle>%Tutorial_Hook-TechnologyScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-TechnologyScreen-Page1-Description</Description>
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_StepBackThroughMenus">
+        <PopupTitle>%Tutorial_StepBackThroughMenus-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_StepBackThroughMenus-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_StepBackThroughMenusSystemView">
+        <PopupTitle>%Tutorial_StepBackThroughMenus-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_StepBackThroughMenus-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <!--<TutorialGuiElement Name="Tutorial_TechnologyQueue">
+        <PopupTitle>%Tutorial_TechnologyQueue-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TechnologyQueue-Page1-Description</Description>
+            <Highlight Name="ResearchStatusSidePanel_TechnologyQueue" Type="Informative"/>
+            --><!--<Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>--><!--
+        </PopupPage>
+    </TutorialGuiElement>-->
+
+    <TutorialGuiElement Name="Tutorial_Hook-QuestJournal"> 
+        <PopupTitle>%Tutorial_Hook-QuestJournal-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-QuestJournal-Page1-Description</Description>
+            <Highlight Name="ControlBanner_NarrativeScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_SystemColonization">
+        <PopupTitle>%Tutorial_SystemColonization-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_SystemColonization-Page1-Description</Description>
+            <Highlight Name="StarSystemManagement_PlanetType" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_SystemColonization-Page2-Description</Description>
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+            <Highlight Name="PlanetLabel_ColonizeStateHostile" Type="Informative"/>
+            <!--<Highlight Name="PlanetLabel_ColonizeStateColonizedByMe,
+                       PlanetLabel_ColonizeStateColonizedByEnemy,
+                       PlanetLabel_ColonizeStateOutpostByMe,
+                       PlanetLabel_ColonizeStateOutpostByEnemy,
+                       PlanetLabel_ColonizeStateDestroyed,
+                       PlanetLabel_ColonizeStateUnavailable,
+                       PlanetLabel_ColonizeStateHostile,
+                       PlanetLabel_ColonizeStateColonizable" Type="Interactive"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ColonizationTechnologies">
+        <PopupTitle>%Tutorial_ColonizationTechnologies-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ColonizationTechnologies-Page1-Description</Description>
+            
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration1"  Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration2"  Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration25" Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration4"  Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration5"  Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration28" Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration6"  Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration7"  Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration9"  Type="Informative"/>
+            
+            <Highlight Name="TechnologyItem TechnologyDefinitionEconomyAndTrade25"       Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionEconomyAndTrade8"        Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionEconomyAndTrade23"       Type="Informative"/>
+
+            <Highlight Name="TechnologyItem TechnologyDefinitionEmpireDevelopment5"      Type="Informative"/>
+            <Highlight Name="TechnologyItem TechnologyDefinitionEmpireDevelopment17"     Type="Informative"/>
+
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-Fleets">
+        <PopupTitle>%Tutorial_Hook-Fleets-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-Fleets-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Fleets">
+        <PopupTitle>%Tutorial_Fleets-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Fleets-Page1-Description</Description>
+            <Highlight Name="FleetsScreenLine AllFleets" Type="Informative"/>
+            <Highlight Name="ShipItem AllShips" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Fleets-Page2-Description</Description>
+            <Highlight Name="FleetsScreenLine AllFleets" Type="Interactive" Persistent="false"/>
+            <Highlight Name="ShipItem AllShips" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Fleets-Page3-Description</Description>
+            <Highlight Name="FleetsScreenLine AllFleets" Type="Informative"/>          
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Fleets-Page4-Description</Description>
+            <Highlight Name="FleetsScreenLine AllFleets" Type="Informative"/>
+        </PopupPage>
+        <PopupPage HighlightLanes="true">
+            <Description>%Tutorial_Fleets-Page5-Description</Description>
+        </PopupPage>
+        <PopupPage HighlightLanes="true">
+            <Description>%Tutorial_Fleets-Page6-Description</Description>
+            <Highlight Name="FleetsScreenLine AllFleets" Type="Interactive" Persistent="false"/>
+            <Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook2-Fleets">
+        <PopupTitle>%Tutorial_Hook2-Fleets-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook2-Fleets-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_StudyingCuriosities">
+        <PopupTitle>%Tutorial_StudyingCuriosities-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_StudyingCuriosities-Page1-Description</Description>
+            <Highlight Name="PlanetCuriosityItem" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_FleetsReminder">
+        <PopupTitle>%Tutorial_FleetsReminder-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_FleetsReminder-Page1-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_FleetsReminder-Page2-Description</Description>
+            <!--<Highlight Name="EndTurnWindow_EndTurnButton" Type="Interactive"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipConstruction">
+        <PopupTitle>%Tutorial_ShipConstruction-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipConstruction-Page1-Description</Description>
+            <Highlight Name="StarSystemScreen_ConstructiblesList" Type="Informative"/>
+            <Highlight Name="StarSystemScreen_ConstructiblesFilterConstructibleFilterShips" Type="Interactive"/>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel ShipDesignDecolonizationTerrans" Type="Interactive"/>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel ShipDesignAutomatedShipTerrans" Type="Interactive"/>
+        </PopupPage>
+         <PopupPage>
+            <Description>%Tutorial_ShipConstruction-Page2-Description</Description>
+            <Highlight Name="ControlBanner_MilitaryScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Hook-AcademyScreen">
+        <PopupTitle>%Tutorial_Hook-AcademyScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-AcademyScreen-Page1-Description</Description>
+            <Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Hook-EmpireScreen">
+        <PopupTitle>%Tutorial_Hook-EmpireScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-EmpireScreen-Page1-Description</Description>
+            <Highlight Name="ControlBanner_EmpireScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_EmpireScreen" AnchorMode="RightCentered">
+        <PopupTitle>%Tutorial_EmpireScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_EmpireScreen-Page1-Description</Description>
+            <Highlight Name="EmpireDescriptionSidePanel" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_EmpireScreen-Page2-Description</Description>
+            <Highlight Name="EmpireScreen_SystemsManagementTable" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_EmpireScreen-Page3-Description</Description>
+            <Highlight Name="EmpireScreen_ToggleVictory" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-VictoryScreen">
+        <PopupTitle>%Tutorial_Hook-VictoryScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-VictoryScreen-Page1-Description</Description>
+            <Highlight Name="EmpireScreen_ToggleVictory" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_VictoryScreen">
+        <PopupTitle>%Tutorial_VictoryScreen-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_VictoryScreen-Page1-Description</Description>
+            <Highlight Name="EmpireScreen_Hexagon" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hangar">
+        <PopupTitle>%Tutorial_Hangar-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hangar-Page1-Description</Description>
+            <Highlight Name="StarSystemScreen_Hangar" Type="Interactive"/>
+            <Highlight Name="FleetsScreenLine Hangar" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Besieged">
+        <PopupTitle>%Tutorial_Besieged-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Besieged-Page1-Description</Description>
+            <Highlight Name="ColonyInfoSidePanel_SystemMilitaryStatus" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_FleetManagement">
+        <PopupTitle>%Tutorial_FleetManagement-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_FleetManagement-Page1-Description</Description>
+            <!--<Highlight Name="FleetsScreenLine AllFleets" Type="Informative"/>
+            <Highlight Name="ShipItem AllShips" Type="Informative"/>-->
+            <Highlight Name="FleetsScreen_MergeFleetsButton" Type="Interactive" Persistent="false"/>
+            <Highlight Name="FleetsScreen_CreateFleetButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_FleetManagement-Page2-Description</Description>
+            <Highlight Name="FleetsScreen_DisbandFleetsButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-Approval">
+        <PopupTitle>%Tutorial_Hook-Approval-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-Approval-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Approval">
+        <PopupTitle>%Tutorial_Approval-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Approval-Page1-Description</Description>
+            <Highlight Name="ColonySidePanel_HappinessGroup" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Approval-Page2-Description</Description>
+            <Highlight Name="ColonySidePanel_HappinessGroup" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_StartExpeditionFleetAction">
+        <PopupTitle>%Tutorial_StartExpeditionFleetAction-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_StartExpeditionFleetAction-Page1-Description</Description>
+            <Highlight Name="FleetsScreen_ExpeditionFleetActionButton" Type="Interactive" Persistent="false"/>
+            <Highlight Name="PlanetCuriosityItem" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StartExpeditionFleetAction-Page2-Description</Description>
+            <Highlight Name="FleetsScreen_ExpeditionFleetActionButton" Type="Interactive" Persistent="false"/>
+            <Highlight Name="PlanetCuriosityItem" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_OrbitalStartExpedition">
+        <PopupTitle>%Tutorial_OrbitalStartExpedition-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_OrbitalStartExpedition-Page1-Description</Description>
+            <Highlight Name="PlanetCuriosityItem" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ColonizablePlanet">
+        <PopupTitle>%Tutorial_ColonizablePlanet-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ColonizablePlanet-Page1-Description</Description>
+            <Highlight Name="PlanetLabel_ColonizeStateColonizable" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ColonizeFleetAction">
+        <PopupTitle>%Tutorial_ColonizeFleetAction-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ColonizeFleetAction-Page1-Description</Description>
+            <Highlight Name="FleetsScreen_ColonizeFleetActionButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_OrbitalColonizablePlanet">
+        <PopupTitle>%Tutorial_OrbitalColonizablePlanet-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_OrbitalColonizablePlanet-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_AttackFleetAction">
+        <PopupTitle>%Tutorial_AttackFleetAction-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_AttackFleetAction-Page1-Description</Description>
+            <Highlight Name="FleetsScreen_AttackFleetActionButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_MovingPopulation">
+        <PopupTitle>%Tutorial_MovingPopulation-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_MovingPopulation-Page1-Description</Description>
+            <Highlight Name="StarSystemManagement_PlanetColonizedPopulation" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Repair">
+        <PopupTitle>%Tutorial_Repair-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Repair-Page1-Description</Description>
+            <Highlight Name="FleetsScreen_RepairButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_GuardFleetAction">
+        <PopupTitle>%Tutorial_GuardFleetAction-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_GuardFleetAction-Page1-Description</Description>
+            <Highlight Name="FleetsScreen_InitiateGuardFleetActionButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ConfortFleetActions">
+        <PopupTitle>%Tutorial_ConfortFleetActions-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ConfortFleetActions-Page1-Description</Description>
+            <Highlight Name="FleetsScreen_AutoExploreFleetActionButton" Type="Interactive" Persistent="false"/>
+            <Highlight Name="FleetsScreen_SleepFleetActionButton" Type="Interactive" Persistent="false"/>
+            <Highlight Name="FleetsScreen_SleepForThisTurnFleetActionButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Hook-Marketplace">
+        <PopupTitle>%Tutorial_Hook-Marketplace-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-Marketplace-Page1-Description</Description>
+            <Highlight Name="EconomyScreen_ToggleMarketplace" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-OvercolonizationDisapproval">
+        <PopupTitle>%Tutorial_Hook-OvercolonizationDisapproval-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-OvercolonizationDisapproval-Page1-Description</Description>
+            <Highlight Name="ControlBanner_EmpireScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_OvercolonizationDisapproval">
+        <PopupTitle>%Tutorial_OvercolonizationDisapproval-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_OvercolonizationDisapproval-Page1-Description</Description>
+            <Highlight Name="EmpireStatusSidePanel_Frame" Type="Informative"/>
+            <Highlight Name="EmpireStatusSidePanel_OvercolonizationGroup" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_InfluenceRadius">
+        <PopupTitle>%Tutorial_InfluenceRadius-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_InfluenceRadius-Page1-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-ScanView">
+        <PopupTitle>%Tutorial_Hook-ScanView-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-ScanView-Page1-Description</Description>
+            <Highlight Name="GameOverlay_ScanViewButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Hook-Event">
+        <PopupTitle>%Tutorial_Hook-Event-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Hook-Event-Page1-Description</Description>
+            <Highlight Name="ControlBanner_NarrativeScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+
+
+    <!-- #### EXPERT ####-->
+    
+    <TutorialGuiElement Name="Tutorial_WelcomeExpert">
+        <PopupTitle>%Tutorial_WelcomeExpertPopup-Title</PopupTitle>
+        <PopupPage>
+          <Description>%Tutorial_WelcomeExpertPopup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LevellingSystem01">
+        <PopupTitle>%Tutorial_LevellingSystem01Popup-Title</PopupTitle>
+        <PopupPage>
+          <Description>%Tutorial_LevellingSystem01Popup-Description</Description>
+          <Highlight Name="ControlBanner_EconomyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    <TutorialGuiElement Name="Tutorial_LevellingSystem01Alt">
+        <PopupTitle>%Tutorial_LevellingSystem01Popup-Title</PopupTitle>
+        <PopupPage>
+          <Description>%Tutorial_LevellingSystem01Popup-Description</Description>
+          <Highlight Name="ControlBanner_EconomyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LevellingSystem02" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_LevellingSystem02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_LevellingSystem02Popup-Description</Description>
+            <Highlight Name="EconomyScreen_SystemUpgrade 1" Type="Interactive"/>
+            <Highlight Name="EconomyScreen_ToggleEconomy" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LevellingSystem03">
+        <PopupTitle>%Tutorial_LevellingSystem03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_LevellingSystem03Popup-Description</Description>
+            <Highlight Name="RecipeCreationModalWindow_AvailableIngredientsGroup" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LevellingSystem04">
+        <PopupTitle>%Tutorial_LevellingSystem04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_LevellingSystem04Popup-Description</Description>
+            <Highlight Name="RecipeCreationModalWindow_RecipeInformationGroup" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LevellingSystem05">
+        <PopupTitle>%Tutorial_LevellingSystem05Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_LevellingSystem05Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Battle01">
+        <PopupTitle>%Tutorial_Battle01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle01Popup-Description</Description>
+            <Highlight Name="BattleSetupNotification_PowerBalance" Type="Informative"/>
+            <Highlight Name="BattleSetupNotification_AdvancedPlay" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Battle02">
+        <PopupTitle>%Tutorial_Battle02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle02Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_Arena" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle03Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_Frame" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_StatsButtons" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Battle04">
+        <PopupTitle>%Tutorial_Battle04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle04Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_StatsButtons" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_Frame" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle05Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_PlayerPlaysList" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement> 
+
+    <TutorialGuiElement Name="Tutorial_Battle06">
+        <PopupTitle>%Tutorial_Battle06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle06Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_Frame" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_PlayerPlaysList" Type="Interactive"/>           
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle06TerPopup-Description</Description>           
+            <Highlight Name="AdvancedBattleSetup_SortingButtons" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Battle06Bis">
+        <PopupTitle>%Tutorial_Battle06BisPopup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle06BisPopup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_Frame" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_PlayerPlaysList" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_ToggleTrajectoriesButton" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle07BisPopup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_StartBattleButton" Type="Interactive"/>
+            <Highlight Name="AdvancedBattleSetup_FlotillaLeft" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_RetreatButton" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_WatchToggle" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+   
+    <TutorialGuiElement Name="Tutorial_Battle07">
+        <PopupTitle>%Tutorial_Battle07Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle07Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_FlotillaLeft" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle08Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_FlotillaLeft" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_SortingButtons" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle09Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_StartBattleButton" Type="Interactive"/>    
+            <Highlight Name="AdvancedBattleSetup_RetreatButton" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_WatchToggle" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Battle10">
+        <PopupTitle>%Tutorial_Battle10Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle10Popup-Description</Description>
+            <Highlight Name="BattleReportNotificationWindow_Experience" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Battle11">
+        <PopupTitle>%Tutorial_Battle11Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Battle11Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_FlotillaLeft" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle12Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_FlotillaLeft" Type="Informative"/>
+            <Highlight Name="AdvancedBattleSetup_SortingButtons" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Battle13Popup-Description</Description>
+            <Highlight Name="AdvancedBattleSetup_StartBattleButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_BattleResults01">
+        <PopupTitle>%Tutorial_BattleResults01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_BattleResults01Popup-Description</Description>
+            <Highlight Name="AdvancedBattleReport_LeftFlotillas" Type="Informative"/>           
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_BattleResults02Popup-Description</Description>
+            <Highlight Name="AdvancedBattleReport_LeftDamageGauge" Type="Informative"/>
+            <Highlight Name="AdvancedBattleReport_ShowMissedToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+
+    <!-- #### EARLY ACCESS ####-->
+
+    <TutorialGuiElement Name="Tutorial_Laws01">
+        <PopupTitle>%Tutorial_Laws01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Laws01Popup-Description</Description>
+            <Highlight Name="ControlBanner_SenateScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Laws02">
+        <PopupTitle>%Tutorial_Laws02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Laws02Popup-Description</Description>
+            <Highlight Name="SenateScreen_ActiveLawsPanel" Type="Interactive"/>
+            <Highlight Name="SenateScreen_SenatorsPanel" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Laws03" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_Laws03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Laws03Popup-Description</Description>
+            <Highlight Name="LawsManagementModalWindow_VoteLawButton" Type="Interactive"/>
+            <!--<Highlight Name="SenateScreen_VoteLawButton" Type="Interactive"/>-->
+            <Highlight Name="LawsManagementModalWindow_LawCard" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Laws04" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_Laws04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Laws04Popup-Description</Description>
+            <!--<Highlight Name="SenateScreen_VoteLawButton" Type="Interactive"/>
+            <Highlight Name="LawsManagementModalWindow_LawCard" Type="Interactive"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Survey">
+        <PopupTitle>%Tutorial_SurveyScreenPopup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_SurveyScreenPopup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_SurveyBis">
+        <PopupTitle>%Tutorial_SurveyScreenBisPopup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_SurveyScreenBisPopup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Election01" AnchorMode="TopLeft">
+        <PopupTitle>%Tutorial_Election01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Election01Popup-Description</Description>     
+            <Highlight Name="ElectionsModalWindow_ElectionActions" Type="Interactive"/>       
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Election02" AnchorMode="TopLeft">
+        <PopupTitle>%Tutorial_Election02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Election02Popup-Description</Description>
+            <Highlight Name="ElectionsModalWindow_PoliticalTrendsPanel" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Election03" AnchorMode="TopLeft">
+        <PopupTitle>%Tutorial_Election03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Election03Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ManPower01">
+        <PopupTitle>%Tutorial_ManPower01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ManPower01Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ManPower02">
+        <PopupTitle>%Tutorial_ManPower02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ManPower02Popup-Description</Description>
+            <Highlight Name="ColonyInfoSidePanel_Security" Type="Informative"/>
+            <Highlight Name="ControlBanner_MilitaryScreenToggle" Type="Interactive"/>
+            <Highlight Name="StarSystemFidsi_NetSystemGrowth" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ManPower03">
+        <PopupTitle>%Tutorial_ManPower03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ManPower03Popup-Description</Description>
+            <Highlight Name="MilitaryScreen_ManPowerDetails" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ManPower04Popup-Description</Description>
+            <Highlight Name="MilitaryScreen_ManPowerDetails" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ManPower05Popup-Description</Description>
+            <Highlight Name="MilitaryScreen_UpgradeManpowerButton" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ManPower06">
+        <PopupTitle>%Tutorial_ManPower06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ManPower06Popup-Description</Description>
+            <Highlight Name="ManpowerManagement_InfantryStats" Type="Informative"/>
+            <Highlight Name="ManpowerManagement_TankStats" Type="Informative"/>
+            <Highlight Name="ManpowerManagement_PlaneStats" Type="Informative"/>
+        </PopupPage> 
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_GroundBattle05">
+        <PopupTitle>%Tutorial_GroundBattle05Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_GroundBattle04Popup-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_GroundBattle05Popup-Description</Description>
+            <Highlight Name="FleetsScreen_FleetActionButtonGroundBattle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_GroundBattle06" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_GroundBattle06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_GroundBattle06Popup-Description</Description>
+            <Highlight Name="GroundBattleSetupNotification_StartButton" Type="Interactive"/>
+            <Highlight Name="GroundBattleSetupNotification_PowerGauge" Type="Informative"/>
+            <Highlight Name="GroundBattleSetupNotification_Plays" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_GroundBattle07">
+        <PopupTitle>%Tutorial_GroundBattle07Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_GroundBattle07Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_GroundBattle07Atl">
+        <PopupTitle>%Tutorial_GroundBattle07AtlPopup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_GroundBattle07AltPopup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_GroundBattle08">
+        <PopupTitle>%Tutorial_GroundBattle08Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_GroundBattle08Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Trading01">  
+        <PopupTitle>%Tutorial_Trading01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Trading01Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Trading02">
+        <PopupTitle>%Tutorial_Trading02Popup-Title</PopupTitle>
+        <PopupPage>            
+            <Description>%Tutorial_Trading02Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementTradingCompanyHeadquarters" Type="Interactive"/>        
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Trading03">
+        <PopupTitle>%Tutorial_Trading03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Trading03Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementTradingCompanySubsidiary" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Trading04">
+        <PopupTitle>%Tutorial_Trading04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Trading04Popup-Description</Description>
+            <Highlight Name="ControlBanner_EconomyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+        
+    </TutorialGuiElement>
+    <TutorialGuiElement Name="Tutorial_Trading05">
+        <PopupTitle>%Tutorial_Trading05Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Trading05Popup-Description</Description>            
+            <Highlight Name="EconomyScreen_TradeCompaniesPanel" Type="Interactive"/>
+            <Highlight Name="EconomyScreen_ToggleEconomy" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Trading06">
+        <PopupTitle>%Tutorial_Trading06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Trading06Popup-Description</Description>
+            <Highlight Name="ControlBanner_EconomyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Trading07">
+        <PopupTitle>%Tutorial_Trading07Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Trading07Popup-Description</Description>
+            <Highlight Name="EconomyScreen_TradeCompaniesPanel" Type="Informative"/>            
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Government01">
+        <PopupTitle>%Tutorial_Government01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Government01Popup-Description</Description>
+            <Highlight Name="ControlBanner_SenateScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Government02">
+        <PopupTitle>%Tutorial_Government02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Government02Popup-Description</Description>
+            <Highlight Name="SenateScreen_ActiveLawsPanel" Type="Informative"/>
+            <Highlight Name="SenateScreen_SenatorsPanel" Type="Informative"/>
+            <Highlight Name="SenateScreen_GovernmentChange" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Government03" AnchorMode="TopLeft">
+        <PopupTitle>%Tutorial_Government03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Government03Popup-Description</Description>
+            <Highlight Name="GovernmentModalPanel_GovernmentChoice" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Government04Popup-Description</Description>            
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_AcademyScreen02">
+        <PopupTitle>%Tutorial_AcademyScreen02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen02Popup-Description</Description>
+            <Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_AcademyScreen02Alt">
+        <PopupTitle>%Tutorial_AcademyScreen02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen02AltPopup-Description</Description>
+            <Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_AcademyScreen03">
+        <PopupTitle>%Tutorial_AcademyScreen03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen03Popup-Description</Description>
+            <Highlight Name="HeroUnlockGaugeItem_Gauge" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen04Popup-Description</Description>
+            <Highlight Name="HeroUnlockGaugeItem_Odds" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen05Popup-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen06Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_AcademyScreen03Alt">
+        <PopupTitle>%Tutorial_AcademyScreen03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen03AltPopup-Description</Description>
+            <Highlight Name="HeroUnlockGaugeItem_Gauge" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen04Popup-Description</Description>
+            <Highlight Name="HeroUnlockGaugeItem_Odds" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen05Popup-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_AcademyScreen06Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_EconomyScreen01">
+        <PopupTitle>%Tutorial_EconomyScreen01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_EconomyScreen01Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Outpost01">
+        <PopupTitle>%Tutorial_Outpost01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Outpost01Popup-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Outpost02Popup-Description</Description>
+            <Highlight Name="PlanetLabel_OutpostActions" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+
+    <TutorialGuiElement Name="Tutorial_Probe01">
+        <PopupTitle>%Tutorial_Probe01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Probe01Popup-Description</Description>
+            <Highlight Name="FleetsScreen_LaunchProbeFleetActionButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+
+    <TutorialGuiElement Name="Tutorial_FreeMove01">
+        <PopupTitle>%Tutorial_FreeMove01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_FreeMove01Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_DiplomaticPressure01">
+        <PopupTitle>%Tutorial_DiplomaticPressure01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_DiplomaticPressure01Popup-Description</Description>
+            <Highlight Name="ControlBanner_DiplomacyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+
+    <TutorialGuiElement Name="Tutorial_DiplomaticPressure02">
+        <PopupTitle>%Tutorial_DiplomaticPressure02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_DiplomaticPressure02Popup-Description</Description>
+            <Highlight Name="ControlBanner_DiplomacyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_DiplomaticPressure03">
+        <PopupTitle>%Tutorial_DiplomaticPressure03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_DiplomaticPressure03Popup-Description</Description>
+            <Highlight Name="DiplomacyScreen_Sector $PressureEmpireName" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_DiplomaticPressure04">
+        <PopupTitle>%Tutorial_DiplomaticPressure04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_DiplomaticPressure04Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_PressureGauge" Type="Informative"/>          
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_WarExhaust01">
+        <PopupTitle>%Tutorial_WarExhaust01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_WarExhaust01Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_PressureGauge" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_FreeMove02">
+        <PopupTitle>%Tutorial_FreeMove02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_FreeMove02Popup-Description</Description>
+            <Highlight Name="TechnologyItem TechnologyDefinitionScienceAndExploration4"       Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Senate01" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_Senate01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Senate01Popup-Description</Description>
+            <Highlight Name="SenateScreen_SenatorsPanel" Type="Informative"/>
+            <Highlight Name="SenateScreen_PoliticsPanel" Type="Informative"/>
+            <!--<Highlight Name="SenateScreen_ActiveLawsPanel" Type="Informative"/>-->
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Senate02Popup-Description</Description>
+            <Highlight Name="SenateScreen_SenatorsPanel" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Senate03Popup-Description</Description>
+            <Highlight Name="SenateScreen_PopulationsPanel" Type="Informative"/>     
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <!--<TutorialGuiElement Name="Tutorial_Senate04" AnchorMode="TopRight" Layer="AboveModalWindows">
+        <PopupTitle>%Tutorial_Senate04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Senate04Popup-Description</Description>
+        </PopupPage>        
+    </TutorialGuiElement>-->
+    
+    <TutorialGuiElement Name="Tutorial_MinorFaction01" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_MinorFaction01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_MinorFaction01Popup-Description</Description>
+            <Highlight Name="MinorEmpireMetNotification_EmpireCard" Type="Informative"/>
+            <Highlight Name="MinorEmpireMetNotification_StartNegociationsButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_MinorFaction02" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_MinorFaction02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_MinorFaction02Popup-Description</Description>
+            <Highlight Name="MinorEmpireDiplomacy_RelationGauge" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_MinorFaction03Popup-Description</Description>
+            <Highlight Name="MinorEmpireDiplomacy_MinorTrait" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LuxuryResources00" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_LuxuryResources00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_LuxuryResources00Popup-Description</Description>
+            <Highlight Name="ControlBanner_EconomyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_LuxuryResources01" AnchorMode="LeftCentered">
+        <PopupTitle>%Tutorial_LuxuryResources01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_LuxuryResources01Popup-Description</Description>
+            <Highlight Name="EconomyScreen_LuxuriesPanel" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_LuxuryResources02Popup-Description</Description>
+            <Highlight Name="EconomyScreen_RecipesPanel" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_StrategicResources01">
+        <PopupTitle>%Tutorial_StrategicResources01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_StrategicResources01Popup-Description</Description>
+            <Highlight Name="ControlBanner_StrategicResources" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StrategicResources02Popup-Description</Description>
+            <Highlight Name="ControlBanner_StrategicResources" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_StrategicResources03Popup-Description</Description>
+            <Highlight Name="ControlBanner_StrategicResources" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_SpacePort01">
+        <PopupTitle>%Tutorial_SpacePort01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_SpacePort01Popup-Description</Description>           
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_SpacePort02">
+        <PopupTitle>%Tutorial_SpacePort02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_SpacePort02Popup-Description</Description>
+            <Highlight Name="SpaceportSidePanel_Frame" Type="Informative"/>
+            <Highlight Name="SpaceportSidePanel_Slot0"  Type="Interactive"/>
+            <Highlight Name="SpaceportSidePanel_Slot-1"  Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_SpacePort03">
+        <PopupTitle>%Tutorial_SpacePort03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_SpacePort03Popup-Description</Description>
+            <Highlight Name="SpaceportSidePanel_DestinationButton" Type="Interactive"/>           
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PopulationCollection01" AnchorMode="BottomRight">
+        <PopupTitle>%Tutorial_PopulationCollection01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PopulationCollection01Popup-Description</Description>
+            <!--<Highlight Name="PopulationAffinityFilter_Population0" Type="Interactive"/>
+            <Highlight Name="PopulationModalWindow_CollectionBonus" Type="Informative"/>-->
+            <Highlight Name="PopulationModalWindow_CollectionBonus" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_CollectionBonusEffects" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign01" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_ShipDesign01APopup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign01APopup-Description</Description>           
+            <Highlight Name="MilitaryScreen_ManPowerGauge" Type="Informative"/>           
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign01BPopup-Description</Description>
+            <Highlight Name="MilitaryScreen_FleetsListPanel" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign01CPopup-Description</Description>
+            <Highlight Name="MilitaryScreen_ShipDesignPanel" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign02" AnchorMode="LeftCentered">
+        <PopupTitle>%Tutorial_ShipDesign02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign02Popup-Description</Description>
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign03">
+        <PopupTitle>%Tutorial_ShipDesign03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign03Popup-Description</Description>
+            <Highlight Name="ControlBanner_MilitaryScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign04" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_ShipDesign04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign04Popup-Description</Description>
+            <Highlight Name="MilitaryScreen_ShipDesignPanel" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_CreateShipDesign" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign05Bis" AnchorMode="LeftCentered">
+        <PopupTitle>%Tutorial_ShipDesign05BisPopup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign05BisPopup-Description</Description>
+            <Highlight Name="MilitaryScreen_ShipDesignPanel" Type="Informative"/>
+            <Highlight Name="MilitaryScreen_CreateShipDesign" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign05" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_ShipDesign05Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign05Popup-Description</Description>            
+            <Highlight Name="ShipDesignEdition_NameTextField" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_HullDroplist" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_CharacteristicsInfos" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign06" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_ShipDesign06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign06Popup-Description</Description>
+            <Highlight Name="ShipDesignEdition_ModulePanel" Type="Informative"/>
+            <Highlight Name="ShipDesign_ShipStatistics" Type="Informative"/>
+            <Highlight Name="ShipDesign_CostGroup" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign07Popup-Description</Description>
+            <Highlight Name="ShipDesignEdition_ModuleCategories" Type="Interactive"/>
+            <Highlight Name="ShipDesign_ModuleScrollView" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+ 
+    <TutorialGuiElement Name="Tutorial_ShipDesign08" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_ShipDesign08Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign08Popup-Description</Description>
+            <Highlight Name="ShipDesign_ShipStatistics" Type="Informative"/>
+            <Highlight Name="ShipDesignEdition_ModuleCategories" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_OffensivePower" Type="Informative"/>
+            <Highlight Name="ShipDesignEdition_DefensivePower" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign09Popup-Description</Description>
+            <Highlight Name="ShipDesign_ManpowerMaxStock" Type="Informative"/>
+            <Highlight Name="ShipDesignEdition_OffensivePower" Type="Informative"/>        
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign10Popup-Description</Description>
+            <Highlight Name="ShipDesign_AttackCategory" Type="Interactive"/>
+            <Highlight Name="ShipDesign_DefenseCategory" Type="Interactive"/>
+            <Highlight Name="ShipDesign_WeaponDefenseType" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign11Popup-Description</Description>
+            <Highlight Name="ShipDesign_AttackCategory" Type="Interactive"/>
+            <Highlight Name="ShipDesignEdition_RangeEfficiencies" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign12Popup-Description</Description>
+            <Highlight Name="ShipDesign_CreateDesign" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ShipDesign13" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_ShipDesign13Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ShipDesign13Popup-Description</Description>
+            <Highlight Name="MilitaryScreen_EditShipDesign" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Rebellion00" AnchorMode="BelowPinnedQuest">
+        <PopupTitle>%Tutorial_Rebellion00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Rebellion00Popup-Description</Description>
+            <Highlight Name="ShipDesignEdition_SimpleStats" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Rebellion01" AnchorMode="BelowPinnedQuest">
+        <PopupTitle>%Tutorial_Rebellion01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Rebellion01Popup-Description</Description>
+            <Highlight Name="ColonySidePanel_HappinessGroup" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Rebellion02Popup-Description</Description>
+            <Highlight Name="ColonySidePanel_HappinessGroup" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Rebellion03Popup-Description</Description>
+            <Highlight Name="RebellionSidePanel_RebellionSuppressionAction_InvestManpowerButton" Type="Interactive"/>
+            <Highlight Name="RebellionSidePanel_RebellionSuppressionAction_InvestLuxuryButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_HeroAssignment01" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_HeroAssignment01Popup-Title</PopupTitle>
+        <PopupPage>
+            <TutorialLevelPrerequisite>Advanced</TutorialLevelPrerequisite>
+            <Description>%Tutorial_HeroAssignment01Popup-Description</Description>
+            <Highlight Name="HeroDetailedCard_ClassLine" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <TutorialLevelPrerequisite>Advanced</TutorialLevelPrerequisite>
+            <Description>%Tutorial_HeroAssignment02Popup-Description</Description>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_HeroAssignment03Popup-Description</Description>
+            <Highlight Name="AcademyScreen_InspectButton" Type="Interactive" Persistent="true"/>
+            <Highlight Name="AcademyScreen_AssignToFleetButton" Type="Interactive" Persistent="true"/>
+            <Highlight Name="AcademyScreen_AssignToSystemButton" Type="Interactive" Persistent="true"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_HeroOverview01">
+        <PopupTitle>%Tutorial_HeroOverview01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_HeroOverview01Popup-Description</Description>
+            <Highlight Name="HeroDetailedCard_ClassLine" Type="Informative"/>
+            <Highlight Name="HeroInspection_ShipDesignOverview" Type="Interactive"/>
+            <Highlight Name="HeroInspection_SkillTreeOverview" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_MoreHeroes00" AnchorMode="BelowPinnedQuest">
+        <PopupTitle>%Tutorial_MoreHeroes00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_MoreHeroes00Popup-Description</Description>
+            <Highlight Name="ControlBanner_AcademyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_MoreHeroes01" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_MoreHeroes01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_MoreHeroes01Popup-Description</Description>
+            <Highlight Name="HeroDetailedCard_UpkeepLine" Type="Informative"/>
+            <Highlight Name="AcademySidePanel_HeroCount" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_HeroSkillTree00" AnchorMode="BelowPinnedQuest">
+        <PopupTitle>%Tutorial_HeroSkillTree00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_HeroSkillTree00Popup-Description</Description>
+            <Highlight Name="HeroUpdate_AssignSkillButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_HeroSkillTree01" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_HeroSkillTree01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_HeroSkillTree01Popup-Description</Description>
+            <Highlight Name="HeroInspection_SkillTreeAvailablePoints" Type="Informative"/>
+            <Highlight Name="HeroInspection_SkillTreeBonuses" Type="Informative"/>
+            <Highlight Name="SkillTree_Stage0" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_HeroSkillTree02Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_HeroShipDesign00" AnchorMode="RightCentered">
+        <PopupTitle>%Tutorial_HeroShipDesign00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_HeroShipDesign00Popup-Description</Description>
+            <Highlight Name="FleetsScreen_FleetHero" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_HeroShipDesign01" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_HeroShipDesign01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_HeroShipDesign01Popup-Description</Description>
+            <Highlight Name="ShipDesignEdition_UpgradeCost" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent01">
+        <PopupTitle>%Tutorial_PoliticalEvent01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent01Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent02">
+        <PopupTitle>%Tutorial_PoliticalEvent02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent02Popup-Description</Description>
+            <Highlight Name="SystemRepresentativesSidePanel_PopulationPanelButton" Type="Interactive"/>
+            <Highlight Name="SystemRepresentativesSidePanel_PoliticalResume" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent02Bis">
+        <PopupTitle>%Tutorial_PoliticalEvent02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent02Popup-Description</Description>
+            <Highlight Name="SystemRepresentativesSidePanel_PopulationPanelButton" Type="Interactive"/>
+            <Highlight Name="SystemRepresentativesSidePanel_PoliticalResume" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent03" AnchorMode="BottomRight">
+        <PopupTitle>%Tutorial_PoliticalEvent03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent03Popup-Description</Description>
+            <Highlight Name="StarSystemPopulationWindow_Events" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent04Popup-Description</Description>
+            <Highlight Name="StarSystemPopulationWindow_PoliticsToggles" Type="Interactive"/>
+            <Highlight Name="StarSystemPopulationWindow_Impacts" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent05Popup-Description</Description>
+            <Highlight Name="StarSystemPopulationWindow_CloseButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent06">
+        <PopupTitle>%Tutorial_PoliticalEvent06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent06Popup-Description</Description>        
+            <Highlight Name="ControlBanner_SenateScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent07">
+        <PopupTitle>%Tutorial_PoliticalEvent07Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent07Popup-Description</Description>
+            <Highlight Name="SenateScreen_PopulationDetailsButton" Type="Interactive"/>
+            <Highlight Name="SenateScreen_PopulationsPanel"        Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PoliticalEvent08" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_PoliticalEvent08Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent08Popup-Description</Description>
+            <Highlight Name="PopulationModalWindow_PsychotraitsList" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_PoliticalEventPanel" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_PoliticalOutput" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_PoliticalEvent09Popup-Description</Description>
+            <Highlight Name="PopulationModalWindow_PoliticalOutput" Type="Informative"/>
+            <Highlight Name="PopulationModalWindow_PoliticsList" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Tactics01">
+        <PopupTitle>%Tutorial_Tactics01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Tactics01Popup-Description</Description>
+            <Highlight Name="MilitaryPlaySidePanel_OpenButton" Type="Interactive"/>
+            <!--<Highlight Name="MilitaryPlaySidePanel_BattleTactics" Type="Informative"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Tactics02">
+        <PopupTitle>%Tutorial_Tactics02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Tactics02Popup-Description</Description>
+            <Highlight Name="BattleDeckWindow_CurrentDeck" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Tactics03Popup-Description</Description>
+            <Highlight Name="BattleDeckWindow_PlayCardDeckModalWindow_AvailableCard0" Type="Interactive"/>
+            <Highlight Name="BattleDeckWindow_ValidateButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+   <TutorialGuiElement Name="Tutorial_WarStatus01">
+        <PopupTitle>%Tutorial_WarStatus01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_WarStatus01Popup-Description</Description>
+            <Highlight Name="ControlBanner_DiplomacyScreenToggle" Type="Interactive"/>
+            <Highlight Name="DiplomacyScreen_Sector $AtWarEmpireName" Type="Interactive"/>
+        </PopupPage>      
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_ModuleHelp01">
+        <PopupTitle>%Tutorial_ModuleHelp01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_ModuleHelp01Popup-Description</Description>
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_PopulationGrowth01">
+        <PopupTitle>%Tutorial_PopulationGrowth01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PopulationGrowth01Popup-Description</Description>
+            <Highlight Name="ControlBanner_SenateScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PopulationGrowth02">
+        <PopupTitle>%Tutorial_PopulationGrowth02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PopulationGrowth02Popup-Description</Description>
+            <Highlight Name="SenateScreen_PopulationsPanel" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_PopulationGrowth03">
+        <PopupTitle>%Tutorial_PopulationGrowth03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_PopulationGrowth03Popup-Description</Description>
+            <Highlight Name="PopulationAffinityFilter_LuxuryBoost $AffinityName"  Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    
+    <!-- ###### DIPLOMACY ####### -->
+
+    <TutorialGuiElement Name="Tutorial_Diplomacy00" AnchorMode="BottomLeft">
+        <PopupTitle>%Tutorial_Diplomacy00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Diplomacy00Popup-Description</Description>
+            <Highlight Name="ControlBanner_DiplomacyScreenToggle" Type="Interactive"/>
+            <!--<Highlight Name="DiploScreenShortcut"  Type="Interactive"/>-->
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <!--<TutorialGuiElement Name="Tutorial_Diplomacy01" DisplayedUnderNotifications="true">
+        <PopupTitle>%Tutorial_Diplomacy01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Diplomacy01Popup-Description</Description>
+            <Highlight Name="ControlBanner_DiplomacyScreenToggle" Type="Interactive"/>
+            <Highlight Name="IntroduceYourselfShortcut"  Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>-->
+    
+    <TutorialGuiElement Name="Tutorial_Diplomacy02">
+        <PopupTitle>%Tutorial_Diplomacy02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Diplomacy02Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Diplomacy03">
+        <PopupTitle>%Tutorial_Diplomacy03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Diplomacy03Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    
+    <!-- ###### DIPLOMACY: NEGOTIATIONS ####### -->
+
+    <TutorialGuiElement Name="Tutorial_Negotiations00" AnchorMode="RightCentered">
+        <PopupTitle>%Tutorial_Negotiations00Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations00Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms"  Type="Interactive"/>
+            <Highlight Name="NegotiationWindow_ValidateButton"  Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Negotiations01" AnchorMode="RightCentered">
+        <PopupTitle>%Tutorial_Negotiations01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations01Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_OtherEmpireAttitude"  Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations02Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_DiplomaticAbilities"  Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations03Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms"  Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations03BPopup-Description</Description>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms"  Type="Interactive"/>
+            <Highlight Name="NegotiationWindow_ApprovalGroup"  Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <PathPrerequisite Inverted="true">../EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+            <Description>%Tutorial_Negotiations04Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms"  Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Negotiations05" AnchorMode="RightCentered">
+        <PopupTitle>%Tutorial_Negotiations05Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations05Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms"  Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Negotiations06Popup-Description</Description>
+            <Highlight Name="NegotiationWindow_MyEmpireTerms"  Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+
+    <!-- ############################### -->
+    <!-- ###### FACTION SPECIFIC ####### -->
+    <!-- ############################### -->
+
+    
+    <!-- ###### SOPHONS ####### -->
+    
+    <TutorialGuiElement Name="Tutorial_Sophons01">
+        <PopupTitle>%Tutorial_Sophons01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Sophons01Popup-Description</Description>
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+        </PopupPage>      
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Sophons02">
+        <PopupTitle>%Tutorial_Sophons01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Sophons02Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    
+    <!-- ###### CRAVERS ####### -->
+    
+    <TutorialGuiElement Name="Tutorial_Cravers01">
+        <PopupTitle>%Tutorial_Cravers01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Cravers01Popup-Description</Description>
+            <Highlight Name="ControlBanner_EmpireScreenToggle" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Cravers02">
+        <PopupTitle>%Tutorial_Cravers01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Cravers02Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Cravers03">
+        <PopupTitle>%Tutorial_Cravers01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Cravers03Popup-Description</Description>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    
+    <!-- ###### VENETIANS ####### -->
+
+    <TutorialGuiElement Name="Tutorial_Venetians01">
+        <PopupTitle>%Tutorial_Venetians01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Venetians01Popup-Description</Description>
+        </PopupPage>        
+    </TutorialGuiElement>
+
+    
+    <!-- ###### VAMPIRLIS ####### -->
+
+    <TutorialGuiElement Name="Tutorial_Vampirilis01">
+        <PopupTitle>%Tutorial_Vampirilis01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Vampirilis01Popup-Description</Description>
+            <Highlight Name="FleetsScreenLine $TheArkFleet" Type="Interactive"/>
+            <Highlight Name="FleetsScreen_AttachMothershipFleetActionButton" Type="Informative"/>            
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Vampirilis02Popup-Description</Description>
+            <Highlight Name="ControlBanner_LifeforceArea" Type="Informative"/>
+            <Highlight Name="FleetsScreen_TransferResourcesInFleetActionButton" Type="Informative"/>
+             <Highlight Name="FleetsScreenLine $OtherFleetLocalized" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Vampirilis03">
+        <PopupTitle>%Tutorial_Vampirilis03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Vampirilis03Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementDustToLifeforce" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Vampirilis04Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementGrowthFromLifeforce" Type="Informative"/>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel $Vampirilis_MothershipName" Type="Interactive"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Vampirilis05Popup-Description</Description>           
+        </PopupPage>
+    </TutorialGuiElement>
+
+    
+    <!-- ###### UNITED EMPIRE ####### -->
+
+    <TutorialGuiElement Name="Tutorial_UE01">
+        <PopupTitle>%Tutorial_UE01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_UE01Popup-Description</Description>            
+            <Highlight Name="ControlBanner_TechnologyScreenToggle" Type="Interactive"/>
+        </PopupPage>       
+    </TutorialGuiElement>
+       
+    <TutorialGuiElement Name="Tutorial_UE02">
+        <PopupTitle>%Tutorial_UE02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_UE02Popup-Description</Description>
+            <Highlight Name="ScienceCurrentResearchSidePanel_InfluenceBuyout" Type="Interactive"/>
+        </PopupPage>        
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_UE03">
+        <PopupTitle>%Tutorial_UE03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_UE03Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementStartingDustScience" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_UE04">
+        <PopupTitle>%Tutorial_UE04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_UE04Popup-Description</Description>
+            <Highlight Name="ConstructionLine_InfluenceBuyout" Type="Informative"/>            
+        </PopupPage>        
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_UE05">
+        <PopupTitle>%Tutorial_UE04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_UE05Popup-Description</Description>
+            <Highlight Name="ScienceCurrentResearchSidePanel_InfluenceBuyout" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    
+    <!-- ###### HORATIO ####### -->
+
+    <TutorialGuiElement Name="Tutorial_Horatio01">
+        <PopupTitle>%Tutorial_Horatio01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Horatio01Popup-Description</Description>
+            <Highlight Name="ControlBanner_SenateScreenToggle" Type="Interactive"/>
+            <Highlight Name="GameOverlayWindow_HoratioManagePopulation" Type="Interactive"/>
+        </PopupPage>       
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Horatio02">
+        <PopupTitle>%Tutorial_Horatio02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Horatio02Popup-Description</Description>
+            <Highlight Name="SenateScreen_PopulationsPanel" Type="Informative"/>
+            <Highlight Name="SenateScreen_ManageGeneButton" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_Horatio03" AnchorMode="TopRight">
+        <PopupTitle>%Tutorial_Horatio03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Horatio03Popup-Description</Description>
+            <Highlight Name="PopulationAffinityFilter_Assimilable" Type="Interactive"/>
+            <Highlight Name="PopulationModalWindow_AssimilationEffects" Type="Informative"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Horatio04Popup-Description</Description>
+            <Highlight Name="PopulationModalWindow_AssimilateButton" Type="Informative"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    
+    <!-- ###### TIME LORDS ####### -->
+
+    <TutorialGuiElement Name="Tutorial_TimeLords01">
+        <PopupTitle>%Tutorial_TimeLords01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords01Popup-Description</Description>            
+        </PopupPage>       
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_TimeLords02">
+        <PopupTitle>%Tutorial_TimeLords02Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords02Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementCreateMajorPopulation" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_TimeLords03">
+        <PopupTitle>%Tutorial_TimeLords03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords03Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemImprovementIndustryToManpower" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    
+    <TutorialGuiElement Name="Tutorial_TimeLords04">
+        <PopupTitle>%Tutorial_TimeLords04Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords04Popup-Description</Description>            
+        </PopupPage>       
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_TimeLords05">
+        <PopupTitle>%Tutorial_TimeLords05Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords05Popup-Description</Description>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemTimeBubbleImprovementAcceleratingTime" Type="Interactive"/>
+            <Highlight Name="StarSystemConstructibleItem_StarSystemConstructiblePanel StarSystemTimeBubbleImprovementSlowingTime" Type="Interactive"/>
+            <Highlight Name="GameOverlay_TimeBubblePanel" Type="Informative"/>
+        </PopupPage>        
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_TimeLords06">
+        <PopupTitle>%Tutorial_TimeLords06Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords06Popup-Description</Description>
+           <!--Highlight: Filled Slot-->
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_TimeLords07Popup-Description</Description>
+            <Highlight Name="GameOverlay_TimeBubbleInfo" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+
+    <TutorialGuiElement Name="Tutorial_Unfallen01">
+        <PopupTitle>%Tutorial_Unfallen01Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Unfallen01Popup-Description</Description>           
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Unfallen02Popup-Description</Description>
+            <Highlight Name="FleetSelectionLine $fleetName" Type="Interactive"/>
+        </PopupPage>
+    </TutorialGuiElement>
+    <TutorialGuiElement Name="Tutorial_Unfallen03">
+        <PopupTitle>%Tutorial_Unfallen03Popup-Title</PopupTitle>
+        <PopupPage>
+            <Description>%Tutorial_Unfallen03Popup-Description</Description>
+            <Highlight Name="FleetsScreen_RootNodeFleetActionButton" Type="Interactive" Persistent="false"/>
+        </PopupPage>
+        <PopupPage>
+            <Description>%Tutorial_Unfallen04Popup-Description</Description>            
+        </PopupPage>
+    </TutorialGuiElement>
+</Datatable>

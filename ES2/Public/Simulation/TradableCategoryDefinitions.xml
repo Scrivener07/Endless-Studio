@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/TradableCategoryDefinition.xsd">
+
+    <!-- Do not rename these entries -->
+    
+    <TradableCategoryDefinition Name="TradableCategoryResource">
+        <SimulationDescriptorReference Name="TradableCategoryResource"/>
+        <MetaPrerequisite Operator="Or">
+            <TechnologyPrerequisite Flags="Technology">TechnologyMarketplace1</TechnologyPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">../ClassEmpire/ClassColonizedStarSystem/StarSystemImprovementWonder3</PathPrerequisite>
+        </MetaPrerequisite>
+        <SubCategory Name="TradableSubCategoryResourceLuxury"/>
+        <SubCategory Name="TradableSubCategoryResourceStrategic"/>
+    </TradableCategoryDefinition>
+
+    <TradableCategoryDefinition Name="TradableCategoryHero">
+        <SimulationDescriptorReference Name="TradableCategoryHero"/>
+        <InterpreterPrerequisite Flags="Prerequisite,HeroUnlockIsCurrentlyLocked">Property(Context, @'ClassEmpire,EmpireTypeMajor', HeroPurchaseLocked) eq 0</InterpreterPrerequisite>
+        <InterpreterPrerequisite Flags="Prerequisite,Discard">Property(Context, @'ClassEmpire,EmpireTypeMajor', HeroPurchaseInvisible) eq 0</InterpreterPrerequisite>
+        <MetaPrerequisite Operator="Or">
+            <TechnologyPrerequisite Flags="Technology">TechnologyMarketplace2</TechnologyPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">../ClassEmpire/ClassColonizedStarSystem/StarSystemImprovementWonder3</PathPrerequisite>
+        </MetaPrerequisite>
+        
+        <SubCategory Name="TradableSubCategoryHeroAdmiral"/>
+        <SubCategory Name="TradableSubCategoryHeroAdministrator"/>
+        <SubCategory Name="TradableSubCategoryHeroAdventurer"/>
+        <SubCategory Name="TradableSubCategoryHeroCorporate"/>
+    </TradableCategoryDefinition>
+
+    <TradableCategoryDefinition Name="TradableCategoryShip">
+        <SimulationDescriptorReference Name="TradableCategoryShip"/>
+        <MetaPrerequisite Operator="Or">
+            <TechnologyPrerequisite Flags="Technology">TechnologyMarketplace2</TechnologyPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">../ClassEmpire/ClassColonizedStarSystem/StarSystemImprovementWonder3</PathPrerequisite>
+        </MetaPrerequisite>
+        
+        <SubCategory Name="TradableSubCategoryShipColonizer"/>
+        <SubCategory Name="TradableSubCategoryShipExplorer"/>
+        <SubCategory Name="TradableSubCategoryShipOffense"/>
+        <SubCategory Name="TradableSubCategoryShipSupport"/>
+        <SubCategory Name="TradableSubCategoryShipCarrier"/>
+        <SubCategory Name="TradableSubCategoryShipLeecher"/>
+		<SubCategory Name="TradableSubCategoryShipRootCreator"/>
+    </TradableCategoryDefinition>
+
+</Datatable>

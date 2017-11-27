@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/QuestDefinition.xsd">
+
+    <!-- ####################################### -->
+    <!--                CRAVERS QUEST            -->
+    <!-- ####################################### -->
+
+    <!-- ##### Sophons QUEST 00 #####-->
+
+    <QuestDefinition Name="CraversQuest-Chapter0" Category="Test" SubCategory="">
+
+        <!--============ TAGS ============-->
+        <Tags>Hidden, BeginTurn</Tags>
+
+        <QuestContextSolo/>
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$HomeSystem">
+                <From Source="$CurrentEmpire.$StartingNode"/>
+            </Var>
+            <Var VarName="$AllStarSystems">
+                <From Source="$Constellations.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Flags="Prerequisite">ClassStarSystem, QuestNode</PathPrerequisite>
+                    </Where>
+                </From>
+            </Var>
+            <Var VarName="$CraversSystem" IsGlobal="true" AutoLockTargets="true">
+                <First>
+                    <From Source="$AllStarSystems">
+                        <OrderBy>
+                            <SortSystemByDistance OriginVarName="$HomeSystem" SortBy="Nearest" MinimumDistance="1" MinimumCandidateCount="1" ConsiderFreeMovement="true"/>
+                        </OrderBy>
+                    </From>
+                </First>
+            </Var>            
+            <Var VarName="$DefinitionName01" StringValue="QuestNodeCravers"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <!-- The quest starts after 5 turns -->
+                    <Objective Name="Step1_Objective1">
+                        <Sequence>
+                            <Action_ApplyStarSystemDefinition>
+                                <Input_DefinitionName VarName="$DefinitionName01"/>
+                                <Input_StarSystemNode VarName="$CraversSystem"/>
+                            </Action_ApplyStarSystemDefinition>                            
+                            <Decorator_BeginTurn/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter1</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ####################################### -->
+    <!--          CRAVERS QUEST Chapter1         -->
+    <!-- ####################################### -->
+
+    <QuestDefinition Name="CraversQuest-Chapter1" Category="MajorQuest" SubCategory="Cravers" MinimumTurn="5">
+
+        <!--============ TAGS ============-->
+        <Tags>BeginTurn,CraversQuest-Chapter1</Tags>
+
+        <QuestContextSolo/>
+        
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+           
+            <!--Variables for Step 1 - Industry -->
+         
+            <!--Determine the Fleet Spawn Point-->
+            <Var VarName="$HomeSystem">
+                <From Source="$CurrentEmpire.$HomeStarSystem"/>
+            </Var>
+            <Var VarName="$HomeConstellation">
+                <From Source="$HomeSystem.$Constellation"/>
+            </Var>
+            <!--Systems among my Constellation which is not colonized and not an IsolatedNode-->
+            <Var VarName="$SystemFirstSelections">
+                <From Source="$HomeConstellation.$StarSystems">
+                    <Where>
+                        <PathPrerequisite Inverted="true" Flags="Prerequisite">ClassStarSystem,IsolatedNode</PathPrerequisite>
+                        <IsNot EntityVarName="$HomeSystem"/>
+                    </Where>
+                </From>
+            </Var>
+            <!--System among this other election and not too closed-->
+            <Var VarName="$System">
+                <First>
+                    <From Source="$SystemFirstSelections">
+                        <OrderBy>
+                            <SortSystemByDistance OriginVarName="$HomeSystem" SortBy="Nearest" MinimumDistance="35" MinimumCandidateCount="1"/>
+                        </OrderBy>
+                    </From>
+                </First>
+            </Var>
+            <Var VarName="$SystemGUID" IsGlobal="true">
+                <From Source="$System.$GUID"/>
+            </Var>
+            <!--1 planet where the EvilCraversShip has been destroyed-->
+            <Var IsGlobal="true" VarName="$CrashPlanet">
+                <Any>
+                    <From Source="$System.$Planets"/>
+                </Any>
+            </Var>
+            <Var VarName="$Marker01"/>
+            <Var VarName="$Marker02"/>
+
+
+            <!--Ship for Step1-->
+            <DroplistVar VarName="$FleetToSpawn01" Droplist="CraversShip01"/>
+            <Var VarName="$GUIDSpawn01"/>
+            <Var VarName="$FleetMissionDefinitionName01" StringValue="DefendSystem"/> 
+            
+            <!--Curiosity Definition-->
+            <Var VarName="$GUID01" IsGlobal="true"/>
+            <Var VarName="$GUID02" IsGlobal="true"/>
+            <Var VarName="$GUID03" IsGlobal="true"/>
+            
+            <Var VarName="$CuriosityDefinition01" StringValue="Curiosity_Quest_Cravers1"/>
+            <Var VarName="$CuriosityDefinition02" StringValue="Curiosity_Quest_Cravers2"/>
+            <Var VarName="$CuriosityDefinition03" StringValue="Curiosity_Quest_Cravers3"/>
+           
+  <!--Variables for Step 1 - Religious -->
+
+            <!--Ship for Step 01 - Religious-->
+            <DroplistVar VarName="$SpawnedFleet02"  Droplist="CraversShip02"/> 
+
+            <!--GUID of Fleet-->
+            <Var VarName="$QuestFleetGUID" IsGlobal="true"/>
+            <Var VarName="$FleetCreated02"/>
+            <Var VarName="$NoBattle" StringValue="CannotFight"/>
+            <Var VarName="$StayInFleet" StringValue="DisbandOnlyGarrison"/>
+            
+            <Var VarName="$FleetMissionDefinitionName02" StringValue="CraversRoam"/>     
+                      
+            <Var VarName="$GUIDSpawn02"/>
+            <Var VarName="$QuestFleet"/>         
+            <Var VarName="$NoUpKeep" StringValue="NoUpkeepGarrison"/>
+
+            <Var VarName="$GUIDRespawn01"/>
+            <Var VarName="$MissionGUID"/>
+            <Var VarName="$MissionGUID2"/>
+
+            <!--POLITICAL EFFECT LAUNCHED FROM THE BEGINNING-->
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers01Industry"/>
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers01Religious"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+        <Prerequisites Target="$(Empire)">
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassPopulation,ClassPopulationEmpireAffinityCravers,PopulationMajor</PathPrerequisite>
+            <PathPrerequisite Flags="Prerequisite">EmpireTypeMajor/ClassStarSystem,HomeSystem</PathPrerequisite>
+        </Prerequisites>
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>                   
+                </Choice>
+                
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                            <Action_TriggerPopulationEvent>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_Target VarName="$CurrentEmpire"/>
+                                <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                            </Action_TriggerPopulationEvent>                       
+                        <!--Spawn ENFER Military Version-->
+                        <Action_AddQuestMarkers>
+                            <Input_Targets VarName="$System"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                        <Action_SpawnFleets>
+                            <Input_Empire VarName="$IAEmpire"/>
+                            <Input_Locations VarName="$System"/>
+                            <Input_DroppableFleet VarName="$FleetToSpawn01"/>                            
+                            <Output_FleetGUIDs VarName="$GUIDSpawn01"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMissionDefinitionName01"/>
+                            <Input_FleetGUIDs VarName="$GUIDSpawn01"/>                           
+                            <Input_TargetEmpires VarName="$CurrentEmpire"/>                            
+                            <Output_MissionGUIDs VarName="$MissionGUID"/>
+                        </Action_CreateFleetMissions>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <!-- Destroy the rogue fleet -->
+                        <AIHint Category="DestroyFleet" Motivation="0.7">
+                            <Input_Var VarName="$GUIDSpawn01"/>
+                        </AIHint>
+                        <Sequence>
+                            <Decorator_BattleEnded Initiator="AllEmpires">
+                                <Condition_BattleEnded_FleetDestroyed>
+                                    <Input_FleetGUIDs VarName="$GUIDSpawn01"/>
+                                </Condition_BattleEnded_FleetDestroyed>
+                            </Decorator_BattleEnded>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CrashPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CuriosityDefinition01"/>
+                                <Output_CuriosityGUIDs VarName="$GUID01"/>
+                            </Action_SpawnCuriosity>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CrashPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CuriosityDefinition02"/>
+                                <Output_CuriosityGUIDs VarName="$GUID02"/>
+                            </Action_SpawnCuriosity>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CrashPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CuriosityDefinition03"/>                                
+                                <Output_CuriosityGUIDs VarName="$GUID03"/>                                
+                            </Action_SpawnCuriosity>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversChapter1.1-Military</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    <Reward Droplist="DroplistStrategicsEra2" Picks="1"/>
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <!-- Capture the rogue fleet (guard) -->
+                        <AIHint Category="Minimal"/>
+                        <!--Spawn the good fleet-->
+                        <Sequence>
+                            <Action_SpawnFleets>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_Locations VarName="$System"/>
+                                <Input_DroppableFleet VarName="$SpawnedFleet02"/>
+                                <Output_FleetGUIDs VarName="$GUIDSpawn02"/>
+                            </Action_SpawnFleets>                         
+                           <Decorator_EntityCreated>
+                                <Input_GUID VarName="$GUIDSpawn02"/>
+                                <Output_Entity VarName="$FleetCreated02"/>
+                            </Decorator_EntityCreated>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$NoBattle"/>
+                                <Input_Targets VarName="$FleetCreated02"/>
+                            </Action_ApplyDescriptor>
+                            <Action_AddQuestMarkers>                                
+                                <Input_Targets VarName="$FleetCreated02"/>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Output_Markers VarName="$Marker02"/>
+                            </Action_AddQuestMarkers>
+                            <Action_CreateFleetMissions>
+                                <Input_MissionDefinitionName VarName="$FleetMissionDefinitionName02"/>
+                                <Input_FleetGUIDs VarName="$GUIDSpawn02"/>
+                                <Output_MissionGUIDs VarName="$MissionGUID2"/>
+                            </Action_CreateFleetMissions>     
+                                    <Decorator_Intercept Initiator="Empire">
+                                        <Input_VictimFleetGUID VarName="$GUIDSpawn02"/>
+                                        <Output_Node VarName="$GUIDRespawn01"/>
+                                    </Decorator_Intercept>
+                                    <Action_RemoveQuestMarkers>
+                                        <Input_Markers VarName="$Marker02"/>
+                                    </Action_RemoveQuestMarkers>
+                                    <!--KILL IT-->
+                                    <Action_DestroyFleets>
+                                        <Input_FleetGUIDs VarName="$GUIDSpawn02"/>
+                                    </Action_DestroyFleets>
+                                    <!-- Spawn it again-->                            
+                                    <Action_SpawnFleets>
+                                        <Input_Empire VarName="$CurrentEmpire"/>
+                                        <Input_Locations VarName="$GUIDRespawn01"/>
+                                        <Input_DroppableFleet VarName="$SpawnedFleet02"/>
+                                        <Output_FleetGUIDs VarName="$QuestFleetGUID"/>
+                                    </Action_SpawnFleets>
+                                    <Decorator_EntityCreated>
+                                        <Input_GUID VarName="$QuestFleetGUID"/>
+                                        <Output_Entity VarName="$QuestFleet"/>
+                                    </Decorator_EntityCreated>
+                                   <Action_ApplyDescriptor>
+                                        <Input_DescriptorName VarName="$StayInFleet"/>
+                                        <Input_Targets VarName="$QuestFleet"/>
+                                    </Action_ApplyDescriptor>
+                                    <Action_ApplyDescriptor>
+                                        <Input_DescriptorName VarName="$NoBattle"/>
+                                        <Input_Targets VarName="$QuestFleet"/>
+                                    </Action_ApplyDescriptor>
+                                    <Action_ApplyDescriptor>
+                                        <Input_DescriptorName VarName="$NoUpKeep"/>
+                                        <Input_Targets VarName="$QuestFleet"/>
+                                    </Action_ApplyDescriptor>                                                  
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversChapter1.1-Religious</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    <Reward Droplist="DroplistLuxuriesEra2" Picks="1"/>
+                </ObjectiveSet>                
+            </Step>            
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ############################################## -->
+    <!--          CRAVERS QUEST Chapter 1.1 INDUSTRY         -->
+    <!-- ############################################## -->
+
+    <QuestDefinition Name="CraversQuest-Chapter1.1" Category="MajorQuest" SubCategory="Sophons">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversChapter1.1-Military</Tags>
+
+        <QuestContextSolo/>
+          
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$CuriosityType01"  StringValue="CuriosityTypeQuest"/>          
+            
+            <Var VarName="$PlaceToBe"/>        
+
+            <Var IsGlobal="true" VarName="$CrashPlanet"/>
+            
+            <!--GUID of $Crash Planet's System-->
+            <Var VarName="$SystemGUID" IsGlobal="true"/>
+            
+            <!--Remember this variable later-->
+           <Var IsGlobal="true" VarName="$GlobalPlanet"/>
+            <Var IsGlobal="true" VarName="$GUID06"/>
+
+            <Var VarName="$Marker01"></Var>
+            <LocalizationVar Source="$CrashPlanet" LocalizationKey="$PlanetName"/>
+
+            <!--POLITICAL EFFECT LAUNCHED FROM THE BEGINNING-->
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers01.1Industry"/>
+
+            <Var VarName="$GUID01" IsGlobal="true"/>
+            <Var VarName="$GUID02" IsGlobal="true"/>
+            <Var VarName="$GUID03" IsGlobal="true"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+ 
+        <!--============ STEPS ============-->
+
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>                   
+                            <Action_TriggerPopulationEvent>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_Target VarName="$CurrentEmpire"/>
+                                <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                            </Action_TriggerPopulationEvent>                   
+                        <Action_AddQuestMarkers>
+                            <Input_Targets VarName="$CrashPlanet"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>    
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <!-- Send expeditions to specific curiorities -->
+						<AIHint Category="Curiosity" Motivation="0.8">
+							<Input_Var VarName="$SystemGUID"/>
+						</AIHint>
+						<Sequence>
+                             <Parallel CompletionPolicy="All">
+                                 <Sequence>
+                                     <!--Search 3 Curiosities-->
+                                    <Decorator_CuriosityDiscovered Initiator="Empire">
+                                        <Input_CuriosityGUIDs VarName="$GUID01"/>
+                                        <Output_Planet VarName="$GlobalPlanet"/>
+                                        <Output_Node VarName="$PlaceToBe"/>                                   
+                                    </Decorator_CuriosityDiscovered>
+                                   </Sequence>
+                                 <Sequence>
+                                     <!--Search 3 Curiosities-->
+                                     <Decorator_CuriosityDiscovered Initiator="Empire">
+                                         <Input_CuriosityGUIDs VarName="$GUID02"/>                                         
+                                     </Decorator_CuriosityDiscovered>
+                                 </Sequence>
+                                 <Sequence>
+                                     <!--Search 3 Curiosities-->
+                                     <Decorator_CuriosityDiscovered Initiator="Empire">
+                                         <Input_CuriosityGUIDs VarName="$GUID03"/>
+                                     </Decorator_CuriosityDiscovered>
+                                 </Sequence>
+                             </Parallel>                                               
+                             <Action_RemoveQuestMarkers> 
+                                 <Input_Markers VarName="$Marker01"/>
+                             </Action_RemoveQuestMarkers>
+                             <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>                        
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversChapter2-Industry</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <Reward Droplist="DroplistCraversReward01" Picks="1"/>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ################################################ -->
+    <!--          CRAVERS QUEST - Religious Chapter1.2    -->
+    <!-- ################################################ -->
+
+    <QuestDefinition Name="CraversQuest-Chapter1.2" Category="MajorQuest" SubCategory="Cravers">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversChapter1.1-Religious</Tags>
+
+            <QuestContextSolo/>
+            
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$AllMySystems">
+                <From Source="$CurrentEmpire.$ColonizedStarSystems.$Hangar"/>
+            </Var>
+            <Var VarName="$Expression01" StringValue="ClassEmpire/ClassColonizedStarSystem/ClassGarrison/ClassShip/ClassSection/ClassModule,ClassModuleSupportExplorationQuestSophons"/>
+            <Var VarName="$Module" StringValue="ModuleExplorationQuestSophons"/>
+            <Var VarName="$QuestFleetGUID" IsGlobal="true"/>
+            <Var VarName="$Amount" IntValue="1"/>
+            <!--POLITICAL EFFECT LAUNCHED FROM THE BEGINNING-->
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers01.1Religious"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+        <!--============ STEPS ============-->
+  
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <!-- Bring the renegade ship back to the home system and put it in the hangar -->
+						<AIHint Category="ReturnToBase" Motivation="1">
+							<Input_Var VarName="$QuestFleetGUID"/>
+						</AIHint>
+                        <Sequence>
+                            <Parallel CompletionPolicy="Any">
+                                <Sequence>
+                                    <Decorator_ShipDisbanded>
+                                        <Input_FleetGUID VarName="$QuestFleetGUID"/>                               
+                                    </Decorator_ShipDisbanded>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_ShipDisbanded>
+                                        <Condition_CheckPath>
+                                            <Input_SimulationObject VarName="$CurrentEmpire"/>
+                                            <Input_Path VarName="$Expression01"/>
+                                        </Condition_CheckPath>
+                                    </Decorator_ShipDisbanded>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_BeginTurn>
+                                        <Condition_CheckPath>
+                                            <Input_SimulationObject VarName="$CurrentEmpire"/>
+                                            <Input_Path VarName="$Expression01"/>                                            
+                                        </Condition_CheckPath>
+                                    </Decorator_BeginTurn>
+                                </Sequence>
+                            </Parallel>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversChapter2-Religious</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                </ObjectiveSet>
+                <Reward Droplist="DroplistCraversReward02" Picks="1"/>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    
+    <!-- #############################################-->
+    <!--          CRAVERS QUEST Chapter2 - Industry   -->
+    <!-- #############################################-->
+
+    <QuestDefinition Name="CraversQuest-Chapter2-Industry" Category="MajorQuest" SubCategory="Cravers">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversChapter2-Industry</Tags>
+
+        <QuestContextSolo/>
+        
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+       
+            <Var VarName="$HomeSystemLocation">
+                <From Source="$CurrentEmpire.$HomeStarSystem"/>              
+            </Var>                       
+            
+            <Var VarName="$Planet"/>
+            
+            <!--Define the Building-->
+            <Var VarName="$TechnologyName" StringValue="TechnologyDefinitionQuestCravers03"/>
+            <Var VarName="$Antenna" StringValue="StarSystemImprovementIndustryCravers"/>
+            <!--Define the Marker for the Quest Marker-->
+            <Var VarName="$Marker"/>
+            <Var VarName="$Marker02"/>
+
+            <Var VarName="$CuriosityDefinition05" StringValue="Curiosity_Quest_VirtualBody"/>
+            <!--Remember this variable later-->  
+          
+            <!--##### Step 2 #####-->           
+           
+            <Var VarName="$GUID04"/>
+            
+            <Var VarName="$PlanetToBe"/>
+            <Var IsGlobal="true" VarName="$GlobalPlanet"/>
+            <Var IsGlobal="true" VarName="$GUID06"/>
+
+            <LocalizationVar LocalizationKey="$PlanetName" Source="$GlobalPlanet"/>
+            <!--POLITICAL EFFECT LAUNCHED FROM THE BEGINNING-->
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers02.1Industry"/>
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers02.1Religious"/>
+
+            <Var VarName="$Amount" IntValue="-50"/>
+            <Var VarName="$ResourceName1" StringValue="Strategic1"/>
+            <Var VarName="$ResourceName2" StringValue="Strategic2"/>
+
+            <!--VIRTUAL HERO-->
+            <Var VarName="$Hero" StringValue="QuestHeroEndless01"/>
+            <Var VarName="$HeroLevel" IntValue="8"/>
+
+            <DroplistVar VarName="$DroppableHero" Droplist="DroplistCraversQuestHero01"/>
+          
+        </Vars>
+
+      <!--============ PREREQUISITES ============-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>                     
+                        <!--Unlock the Antenna only for this part of the Quest-->
+                        <Action_UnlockTechnology>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_TechnologyName VarName="$TechnologyName"/>
+                        </Action_UnlockTechnology>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <!-- Build improvement on Minor Faction Home System -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <!--Build the Antenna on it-->
+                            <Decorator_ConstructionCompleted Initiator="Empire">
+                                <Input_ConstructionName VarName="$Antenna"/>
+                            </Decorator_ConstructionCompleted>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter3-Industry</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    
+                    <Reward Droplist="DroplistCraversReward03" Picks="1"/>
+
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                        <Action_SpawnCuriosity>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Input_Planets VarName="$GlobalPlanet"/>
+                            <Input_CuriosityDefinition VarName="$CuriosityDefinition05"/>
+                            <Output_CuriosityGUIDs VarName="$GUID06"/>
+                        </Action_SpawnCuriosity>
+                        <!--Indicate the Global Planet-->
+                        <Action_AddQuestMarkers>
+                            <Input_Targets VarName="$GlobalPlanet"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker02"/>
+                        </Action_AddQuestMarkers>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <!-- Send an expedition to the Infinite Factory when you have 50 Titanium and Hyperium -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <!--To continue the Quest, the player needs 50 Hyperium and 50 Titanium-->
+                            <Decorator_CuriosityDiscovered>
+                                <Input_CuriosityGUIDs VarName="$GUID06"/>
+                            </Decorator_CuriosityDiscovered>
+                            <Action_TransferResource>
+                                <Input_Location VarName="$CurrentEmpire"/>
+                                <Input_ResourceName VarName="$ResourceName1"/>
+                                <Input_Amount VarName="$Amount"/>
+                            </Action_TransferResource>
+                            <Action_TransferResource>
+                                <Input_Location VarName="$CurrentEmpire"/>
+                                <Input_ResourceName VarName="$ResourceName2"/>
+                                <Input_Amount VarName="$Amount"/>
+                            </Action_TransferResource>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker02"/>
+                            </Action_RemoveQuestMarkers>                           
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                            <Action_SpawnHero>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_HeroDefinition VarName="$Hero"/>
+                                <Input_HeroLevel VarName="$HeroLevel"/>
+                            </Action_SpawnHero>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter3-Religious</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    
+                    <Reward DropVar="$DroppableHero"/>
+                    
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+
+    <!-- #############################################-->
+    <!--          CRAVERS QUEST Chapter2 - Religious   -->
+    <!-- #############################################-->
+
+    <QuestDefinition Name="CraversQuest-Chapter2-Religious" Category="MajorQuest" SubCategory="Cravers">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversChapter2-Religious</Tags>
+
+        <QuestContextSolo/>
+        
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+
+            <Var VarName="$HomeSystemLocation">
+                <From Source="$CurrentEmpire.$HomeStarSystem"/>
+            </Var>
+
+            <Var VarName="$MinorEmpireList">
+                <From Source="$MinorEmpires"/>
+            </Var>
+            <Var VarName="$MinorHomeSystems">
+                <From Source="$MinorEmpireList.$HomeStarSystem">
+                </From>
+            </Var>
+            <Var VarName="$MinorHomeSystem">
+                <First>
+                    <From Source="$MinorHomeSystems">
+                        <OrderBy>
+                            <SortSystemByDistance OriginVarName="$HomeSystemLocation" SortBy="Nearest"/>
+                        </OrderBy>
+                    </From>
+                </First>
+            </Var>
+            <Var VarName="$OtherMinorHome">
+                <First>
+                    <From Source="$MinorHomeSystems">
+                        <OrderBy>
+                            <SortSystemByDistance OriginVarName="$MinorHomeSystem" SortBy="Nearest"/>
+                        </OrderBy>                        
+                    </From>
+                </First>
+            </Var>
+            
+            <Var VarName="$Marker01"/>
+            <Var VarName="$Marker02"/>
+            
+            <!--STEP 2 - RELIGIOUS-->
+            <Var VarName="$VirtualBodyTechno" StringValue="TechnologyDefinitionQuestCravers04"/>
+            <Var VarName="$VirtualBody" StringValue="StarSystemImprovementHeroCravers"/>
+            <Var VarName="$EffectName1" StringValue="DefinitionQuestEffectHappiness"/>
+
+            <!--POLITICAL EFFECT LAUNCHED FROM THE BEGINNING-->
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers02.2Industry"/>
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers02.2Religious"/>
+
+            <!--VIRTUAL HERO-->
+            <Var VarName="$Hero" StringValue="QuestHeroEndless01"/>
+            <Var VarName="$HeroLevel" IntValue="8"/>
+
+            <DroplistVar VarName="$DroppableHero" Droplist="DroplistCraversQuestHero01"/>
+            
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>
+                        <Action_AddQuestMarkers>
+                            <Input_Targets VarName="$MinorHomeSystem"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker01"/>
+                        </Action_AddQuestMarkers>
+                        <Action_AddQuestMarkers>
+                            <Input_Targets VarName="$OtherMinorHome"/>
+                            <Input_Empires VarName="$CurrentEmpire"/>
+                            <Output_Markers VarName="$Marker02"/>
+                        </Action_AddQuestMarkers>
+                    </StartActions>
+                    
+                    <Objective Name="Step2_1_Objective1" StartValue="0" EndValue="2">
+                        <!-- Build the "Virtual Body" Wonder -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Parallel CompletionPolicy="All">
+                                <Sequence>
+                                    <Decorator_BeginTurn ProgressionIncrement="1">
+                                        <!--Own this first System-->
+                                        <Condition_IsSystemOwnedBy>
+                                            <Input_Empire VarName="$CurrentEmpire"/>
+                                            <Input_System VarName="$MinorHomeSystem"/>
+                                        </Condition_IsSystemOwnedBy>
+                                    </Decorator_BeginTurn>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_BeginTurn ProgressionIncrement="1">
+                                        <!--Own this second System-->
+                                        <Condition_IsSystemOwnedBy>
+                                            <Input_Empire VarName="$CurrentEmpire"/>
+                                            <Input_System VarName="$OtherMinorHome"/>
+                                        </Condition_IsSystemOwnedBy>
+                                    </Decorator_BeginTurn>                                  
+                                </Sequence>
+                            </Parallel>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker02"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter3-Industry</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+
+                    <Reward Droplist="DroplistCraversReward03" Picks="1"/>
+
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                        <Action_UnlockTechnology>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_TechnologyName VarName="$VirtualBodyTechno"/>
+                        </Action_UnlockTechnology>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <!-- Obtain 2 Minor Faction home systems -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Decorator_ConstructionCompleted Initiator="Empire">
+                                <Input_ConstructionName VarName="$VirtualBody"/>                      
+                            </Decorator_ConstructionCompleted>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                            <Action_SpawnHero>
+                                <Input_Empire VarName="$CurrentEmpire"/>
+                                <Input_HeroDefinition VarName="$Hero"/>
+                                <Input_HeroLevel VarName="$HeroLevel"/>
+                            </Action_SpawnHero>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter3-Religious</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    
+                    <Reward DropVar="$DroppableHero"/>     
+                    
+                </ObjectiveSet>
+            </Step>            
+        </Steps>
+    </QuestDefinition>
+
+
+    <!-- ####################################### -->
+    <!--    CRAVERS QUEST Chapter3 Industry      -->
+    <!-- ####################################### -->
+
+    <QuestDefinition Name="CraversQuest-Chapter3-Industry" Category="MajorQuest" SubCategory="Cravers" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversQuest-Chapter3-Industry</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+            <Var VarName="$CraversSystem" IsGlobal="true"/>
+            <Var VarName="$CraversPlanet">
+                <Any>
+                    <From Source="$CraversSystem.$Planets"/>
+                </Any>
+            </Var>
+            <Var VarName="$CraversSystemName" StringValue="%CraversQuest-Chapter3-SystemName"/>
+            <Var VarName="$ColonizedStarSystemGUID"/>
+            <Var VarName="$ColonizedPlanetGUID"/>
+            <Var VarName="$ColonizedStarSystem"/>
+            <Var VarName="$ColonizedPlanet"/>
+            <Var VarName="$SystemControllerName" StringValue="%CraversQuest-Chapter3-LesserName"/>
+            <Var VarName="$Marker01"/>
+
+            <Var VarName="$CraversCuriosity01" StringValue="Curiosity_Quest_Cravers4"/>
+            <Var VarName="$CraversCuriosity02" StringValue="Curiosity_Quest_Cravers5"/>
+            <Var VarName="$CraversCuriosity01GUID"/>
+            <Var VarName="$CraversCuriosity02GUID"/>
+            <Var VarName="$ExtraManpower" StringValue="QuestCraversSystem" />
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers031Industry"/>
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers031Religious"/>
+            <Var VarName="$PopAffinity" StringValue="AffinityCravers"/>
+            <Var VarName="$Amount01"  IntValue="3"/>
+            <Var VarName="$Amount02"  IntValue="1000"/>
+            <Var VarName="$Amount03"  IntValue="12"/>
+            <Var VarName="$Amount04"  IntValue="-1000"/>                       
+            <Var VarName="$ResourceName01"  StringValue="EmpireMoney"/>
+            <Var VarName="$ResourceName02"  StringValue="SystemManpower"/>
+            
+            <Var VarName="$Descriptor01" StringValue="ManpowerStockIncreased"/>
+            <Var VarName="$Descriptor02" StringValue="CannotBeDestroyed"/>
+            <Var VarName="$Descriptor03" StringValue="CannotBeInvaded"/>
+            <LocalizationVar LocalizationKey="$Amount02Name" Source="$Amount02"/>
+            <LocalizationVar LocalizationKey="$Amount03Name" Source="$Amount03"/>            
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->       
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <!-- Send an expedition with 2000 dust to the curiosity on the Infinite Factory planet -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Action_SetInvisibility Invisible="false">
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_TargetEntities VarName="$CraversSystem"/>
+                            </Action_SetInvisibility>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$ExtraManpower"/>
+                                <Input_Targets VarName="$CraversSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RenameSystem>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Name VarName="$CraversSystemName"/>
+                            </Action_RenameSystem>
+                            <Action_Colonize>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_Planet VarName="$CraversPlanet"/>
+                                <Output_ColonizedStarSystemGUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_ColonizedPlanetGUID VarName="$ColonizedPlanetGUID"/>
+                            </Action_Colonize>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_Entity VarName="$ColonizedStarSystem"/>
+                            </Decorator_EntityCreated>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedPlanetGUID"/>
+                                <Output_Entity VarName="$ColonizedPlanet"/>
+                            </Decorator_EntityCreated>
+                            <Action_RegisterLesserName>
+                                <Input_GUIDs VarName="$ColonizedStarSystemGUID"/>
+                                <Input_Name VarName="$SystemControllerName"/>
+                            </Action_RegisterLesserName>
+                            <Action_SpawnPopulation>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Amount VarName="$Amount01"/>
+                                <Input_PopulationAffinity VarName="$PopAffinity"/>
+                            </Action_SpawnPopulation>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor01"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_TransferResource>
+                                <Input_Location VarName="$ColonizedStarSystem"/>
+                                <Input_ResourceName VarName="$ResourceName02"/>
+                                <Input_Amount VarName="$Amount02"/>
+                            </Action_TransferResource>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor02"/>
+                                <Input_Targets VarName="$CraversPlanet"/>
+                            </Action_ApplyDescriptor>
+                            <Action_AddQuestMarkers RevealsLocation="true">
+                                <Input_Targets VarName="$CraversSystem"/>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Output_Markers VarName="$Marker01"/>
+                            </Action_AddQuestMarkers>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CraversPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CraversCuriosity01"/>
+                                <Output_CuriosityGUIDs VarName="$CraversCuriosity01GUID"/>
+                            </Action_SpawnCuriosity>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            
+                            <Decorator_CuriosityDiscovered Initiator="Empire">                                
+                                <Input_CuriosityGUIDs VarName="$CraversCuriosity01GUID"/>
+                            </Decorator_CuriosityDiscovered>
+                            
+                            <Action_ApplyDescriptor Remove="true">
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_TransferResource>                            
+                                <Input_Location VarName="$CurrentEmpire"/>
+                                <Input_ResourceName VarName="$ResourceName01"/>
+                                <Input_Amount VarName="$Amount04"/>
+                            </Action_TransferResource>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                          <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>   
+                         <Outcome Name="Outcome1">
+                                <Triggers Weight="1">
+                                    <QuestTrigger>
+                                        <Tags>CraversQuest-Chapter4-Industry</Tags>
+                                        <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                    </QuestTrigger>
+                                </Triggers>
+                            </Outcome>
+                     </Objective>                    
+                    
+                    <Reward Droplist="DroplistCraversReward05" Picks="1"/>
+                    
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <!-- Raise any hero to level 15 -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <!--Spawn the good fleet-->
+                        <Sequence>
+                            <Action_SetInvisibility Invisible="false">
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_TargetEntities VarName="$CraversSystem"/>
+                            </Action_SetInvisibility>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$ExtraManpower"/>
+                                <Input_Targets VarName="$CraversSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RenameSystem>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Name VarName="$CraversSystemName"/>
+                            </Action_RenameSystem>
+                            <Action_Colonize>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_Planet VarName="$CraversPlanet"/>
+                                <Output_ColonizedStarSystemGUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_ColonizedPlanetGUID VarName="$ColonizedPlanetGUID"/>
+                            </Action_Colonize>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_Entity VarName="$ColonizedStarSystem"/>
+                            </Decorator_EntityCreated>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedPlanetGUID"/>
+                                <Output_Entity VarName="$ColonizedPlanet"/>
+                            </Decorator_EntityCreated>
+                            <Action_RegisterLesserName>
+                                <Input_GUIDs VarName="$ColonizedStarSystemGUID"/>
+                                <Input_Name VarName="$SystemControllerName"/>
+                            </Action_RegisterLesserName>
+                            <Action_SpawnPopulation>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Amount VarName="$Amount01"/>
+                                <Input_PopulationAffinity VarName="$PopAffinity"/>
+                            </Action_SpawnPopulation>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor01"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_TransferResource>
+                                <Input_Location VarName="$ColonizedStarSystem"/>
+                                <Input_ResourceName VarName="$ResourceName02"/>
+                                <Input_Amount VarName="$Amount02"/>
+                            </Action_TransferResource>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor02"/>
+                                <Input_Targets VarName="$CraversPlanet"/>
+                            </Action_ApplyDescriptor>
+                            <Action_AddQuestMarkers RevealsLocation="true">
+                                <Input_Targets VarName="$CraversSystem"/>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Output_Markers VarName="$Marker01"/>
+                            </Action_AddQuestMarkers>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CraversPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CraversCuriosity02"/>
+                                <Output_CuriosityGUIDs VarName="$CraversCuriosity02GUID"/>
+                            </Action_SpawnCuriosity>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            
+                            <Decorator_CuriosityDiscovered Initiator="Empire">
+                                <Input_CuriosityGUIDs VarName="$CraversCuriosity02GUID"/>
+                            </Decorator_CuriosityDiscovered>
+
+                            <Action_ApplyDescriptor Remove="true">
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                         <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter4-Religious</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                        </Objective>
+                    
+                    <Reward Droplist="DroplistCraversReward04" Picks="1"/>
+                    
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    
+    <!-- ####################################### -->
+    <!--  CRAVERS QUEST Chapter3 Religious       -->
+    <!-- ####################################### -->
+
+    <QuestDefinition Name="CraversQuest-Chapter3-Religious" Category="MajorQuest" SubCategory="Cravers" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversQuest-Chapter3-Religious</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+            <Var VarName="$CraversSystem" IsGlobal="true"/>
+            <Var VarName="$CraversPlanet">
+                <Any>
+                    <From Source="$CraversSystem.$Planets"/>
+                </Any>
+            </Var>
+            <Var VarName="$CraversSystemName" StringValue="%CraversQuest-Chapter3-SystemName"/>
+            <Var VarName="$ColonizedStarSystemGUID"/>
+            <Var VarName="$ColonizedPlanetGUID"/>
+            <Var VarName="$ColonizedStarSystem"/>
+            <Var VarName="$ColonizedPlanet"/>
+            <Var VarName="$SystemControllerName" StringValue="%CraversQuest-Chapter3-LesserName"/>
+            <Var VarName="$Marker01"/>
+            <Var VarName="$ExtraManpower" StringValue="QuestCraversSystem" />
+
+            <Var VarName="$CraversCuriosity01" StringValue="Curiosity_Quest_Cravers6"/>
+            <Var VarName="$CraversCuriosity02" StringValue="Curiosity_Quest_Cravers7"/>
+            <Var VarName="$CraversCuriosity01GUID"/>
+            <Var VarName="$CraversCuriosity02GUID"/>
+
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers031Industry"/>
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers031Religious"/>
+            <Var VarName="$PopAffinity" StringValue="AffinityCravers"/>
+            <Var VarName="$Amount01"  IntValue="3"/>
+            <Var VarName="$Amount02"  IntValue="9"/>
+            <Var VarName="$Amount03"  IntValue="200"/>
+            
+            <Var VarName="$Amount04"  IntValue="1000"/>
+            <Var VarName="$ResourceName02"  StringValue="SystemManpower"/>
+
+            <Var VarName="$Descriptor01" StringValue="ManpowerStockIncreased"/>
+            <Var VarName="$Descriptor02" StringValue="CannotBeDestroyed"/>
+            <Var VarName="$Descriptor03" StringValue="CannotBeInvaded"/>
+            <Var VarName="$HeroVirtual"  StringValue="QuestHeroEndless01"/>
+            <LocalizationVar LocalizationKey="$Amount02Name" Source="$Amount02"/>
+            <LocalizationVar LocalizationKey="$Amount03Name" Source="$Amount03"/>
+            <LocalizationVar LocalizationKey="$HeroVirtualName" Source="$HeroVirtual"/>
+            
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->     
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_1_Objective1">
+                        <!-- Bring the level 15 hero to the Infinite Factory -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Action_SetInvisibility Invisible="false">
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_TargetEntities VarName="$CraversSystem"/>
+                            </Action_SetInvisibility>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$ExtraManpower"/>
+                                <Input_Targets VarName="$CraversSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RenameSystem>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Name VarName="$CraversSystemName"/>
+                            </Action_RenameSystem>
+                            <Action_Colonize>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_Planet VarName="$CraversPlanet"/>
+                                <Output_ColonizedStarSystemGUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_ColonizedPlanetGUID VarName="$ColonizedPlanetGUID"/>
+                            </Action_Colonize>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_Entity VarName="$ColonizedStarSystem"/>
+                            </Decorator_EntityCreated>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedPlanetGUID"/>
+                                <Output_Entity VarName="$ColonizedPlanet"/>
+                            </Decorator_EntityCreated>
+                            <Action_RegisterLesserName>
+                                <Input_GUIDs VarName="$ColonizedStarSystemGUID"/>
+                                <Input_Name VarName="$SystemControllerName"/>
+                            </Action_RegisterLesserName>
+                           <Action_SpawnPopulation>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Amount VarName="$Amount01"/>
+                                <Input_PopulationAffinity VarName="$PopAffinity"/>
+                            </Action_SpawnPopulation>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor01"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_TransferResource>
+                                <Input_Location VarName="$ColonizedStarSystem"/>
+                                <Input_ResourceName VarName="$ResourceName02"/>
+                                <Input_Amount VarName="$Amount04"/>
+                            </Action_TransferResource>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor02"/>
+                                <Input_Targets VarName="$CraversPlanet"/>
+                            </Action_ApplyDescriptor>
+                            <Action_AddQuestMarkers RevealsLocation="true">
+                                <Input_Targets VarName="$CraversSystem"/>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Output_Markers VarName="$Marker01"/>
+                            </Action_AddQuestMarkers>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CraversPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CraversCuriosity01"/>
+                                <Output_CuriosityGUIDs VarName="$CraversCuriosity01GUID"/>
+                            </Action_SpawnCuriosity>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            
+                            <Decorator_CuriosityDiscovered Initiator="Empire">
+                                <Input_CuriosityGUIDs VarName="$CraversCuriosity01GUID"/>
+                            </Decorator_CuriosityDiscovered>
+                            
+                            <Action_ApplyDescriptor Remove="true">
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                        <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                         <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter4-QuestHeroEndless01-Industry</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    
+                    <Reward Droplist="DroplistCraversReward05" Picks="1"/>
+                    
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_2_Objective1">
+                        <!-- Search the curiosity with a fleet of at least X manpower -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <!--Spawn the good fleet-->
+                        <Sequence>
+                            <Action_SetInvisibility Invisible="false">
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_TargetEntities VarName="$CraversSystem"/>
+                            </Action_SetInvisibility>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$ExtraManpower"/>
+                                <Input_Targets VarName="$CraversSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RenameSystem>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Name VarName="$CraversSystemName"/>
+                            </Action_RenameSystem>
+                            <Action_Colonize>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_Planet VarName="$CraversPlanet"/>
+                                <Output_ColonizedStarSystemGUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_ColonizedPlanetGUID VarName="$ColonizedPlanetGUID"/>
+                            </Action_Colonize>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedStarSystemGUID"/>
+                                <Output_Entity VarName="$ColonizedStarSystem"/>
+                            </Decorator_EntityCreated>
+                            <Decorator_EntityCreated>
+                                <Input_GUID VarName="$ColonizedPlanetGUID"/>
+                                <Output_Entity VarName="$ColonizedPlanet"/>
+                            </Decorator_EntityCreated>
+                            <Action_RegisterLesserName>
+                                <Input_GUIDs VarName="$ColonizedStarSystemGUID"/>
+                                <Input_Name VarName="$SystemControllerName"/>
+                            </Action_RegisterLesserName>
+                           <Action_SpawnPopulation>
+                                <Input_Empire VarName="$IAEmpire"/>
+                                <Input_System VarName="$CraversSystem"/>
+                                <Input_Amount VarName="$Amount01"/>
+                                <Input_PopulationAffinity VarName="$PopAffinity"/>
+                            </Action_SpawnPopulation>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor01"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_TransferResource>
+                                <Input_Location VarName="$ColonizedStarSystem"/>
+                                <Input_ResourceName VarName="$ResourceName02"/>
+                                <Input_Amount VarName="$Amount02"/>
+                            </Action_TransferResource>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor02"/>
+                                <Input_Targets VarName="$CraversPlanet"/>
+                            </Action_ApplyDescriptor>
+                            <Action_AddQuestMarkers RevealsLocation="true">
+                                <Input_Targets VarName="$CraversSystem"/>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Output_Markers VarName="$Marker01"/>
+                            </Action_AddQuestMarkers>
+                            <Action_SpawnCuriosity>
+                                <Input_Empires VarName="$CurrentEmpire"/>
+                                <Input_Planets VarName="$CraversPlanet"/>
+                                <Input_CuriosityDefinition VarName="$CraversCuriosity02"/>
+                                <Output_CuriosityGUIDs VarName="$CraversCuriosity02GUID"/>
+                            </Action_SpawnCuriosity>
+                            <Action_ApplyDescriptor>
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            
+                            <Decorator_CuriosityDiscovered Initiator="Empire">
+                                <Input_CuriosityGUIDs VarName="$CraversCuriosity02GUID"/>
+                            </Decorator_CuriosityDiscovered>
+
+                            <Action_ApplyDescriptor Remove="true">
+                                <Input_DescriptorName VarName="$Descriptor03"/>
+                                <Input_Targets VarName="$ColonizedStarSystem"/>
+                            </Action_ApplyDescriptor>
+                            <Action_RemoveQuestMarkers>
+                                <Input_Markers VarName="$Marker01"/>
+                            </Action_RemoveQuestMarkers>
+                            <Action_ChooseOutcome Name="Outcome1"/>
+                        </Sequence>
+                        <Outcome Name="Outcome1">
+                            <Triggers Weight="1">
+                                <QuestTrigger>
+                                    <Tags>CraversQuest-Chapter4-QuestHeroEndless01-Religious</Tags>
+                                    <QuestContextSolo ParticipantsVarName="$CurrentEmpire"/>
+                                </QuestTrigger>
+                            </Triggers>
+                        </Outcome>
+                    </Objective>
+                    
+                    <Reward Droplist="DroplistCraversReward04" Picks="1"/>
+                    
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+      <!-- ################################################ -->
+    <!--          CRAVERS QUEST - Industry Chapter4    -->
+    <!-- ################################################ -->
+
+    <QuestDefinition Name="CraversQuest-Chapter4-Industry" Category="MajorQuest" SubCategory="Cravers">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversQuest-Chapter4-Industry,FactionFinalQuest,FactionQuestCravers</Tags>
+
+            <QuestContextSolo/>
+            
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers04Industry"/>
+            <Var VarName="$FleetMissionDefinitionName01" StringValue="DefendSystem"/>
+            <Var VarName="$CraversSystem" IsGlobal="true"/>
+            <Var VarName="$GUIDSpawn01"/>
+            <Var VarName="$MissionGUID"/>
+            <DroplistVar VarName="$FleetToSpawn01" Droplist="EndlessFleet"/>
+            <Var VarName="$Amount01" IntValue="1"/>
+            <LocalizationVar VarName="$CraversSystemName" Source="$CraversSystem"/>            
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+   
+        <!--============ STEPS ============-->
+
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>
+                         <Action_SpawnFleets>
+                            <Input_Empire VarName="$IAEmpire"/>
+                            <Input_Locations VarName="$CraversSystem"/>
+                            <Input_DroppableFleet VarName="$FleetToSpawn01"/>                            
+                            <Output_FleetGUIDs VarName="$GUIDSpawn01"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMissionDefinitionName01"/>
+                            <Input_FleetGUIDs VarName="$GUIDSpawn01"/>                           
+                            <Input_TargetEmpires VarName="$CurrentEmpire"/>                           
+                            <Output_MissionGUIDs VarName="$MissionGUID"/>
+                        </Action_CreateFleetMissions>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <!-- Invade the Infinite Factory -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                                           
+                            <Sequence>
+                                <Parallel CompletionPolicy="All">
+                                    <Sequence>
+                                        <Decorator_BeginTurn>
+                                            <Condition_HasSystems>
+                                                <Input_Empires VarName="$CurrentEmpire"/>
+                                                <Input_MinimumAmount VarName="$Amount01"/>
+                                                <Input_Systems VarName="$CraversSystem"/>
+                                            </Condition_HasSystems>
+                                        </Decorator_BeginTurn>
+                                    </Sequence>
+                                    <Sequence>
+                                        <Decorator_BattleEnded Status="Won" Initiator="AllEmpires">
+                                            <Condition_BattleEnded_FleetDestroyed>
+                                                <Input_FleetGUIDs VarName="$GUIDSpawn01"/>
+                                            </Condition_BattleEnded_FleetDestroyed>
+                                        </Decorator_BattleEnded>
+                                    </Sequence>
+                                </Parallel>
+                            </Sequence>
+                    
+                    </Objective>
+                </ObjectiveSet>
+                <Reward Droplist="DroplistCraversReward06" Picks="1"/>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+     <!-- ################################################ -->
+    <!--          CRAVERS QUEST - Religious Chapter4    -->
+    <!-- ################################################ -->
+
+    <QuestDefinition Name="CraversQuest-Chapter4-Religious" Category="MajorQuest" SubCategory="Cravers">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversQuest-Chapter4-Religious,FactionFinalQuest,FactionQuestCravers</Tags>
+
+            <QuestContextSolo/>
+            
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+
+            <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>            
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers04Religious"/>
+            <Var VarName="$CraversSystem" IsGlobal="true"/>
+             <InterpretedVar VarName="$Amount01" Target="$(Empire)">
+                <Expression>(Count(Context, @'ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet') + 5)</Expression>
+            </InterpretedVar>
+            <LocalizationVar VarName="$CraversSystemName" Source="$CraversSystem"/>
+            <LocalizationVar VarName="$Amount01Name" Source="$Amount01"/>
+        
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->
+ 
+        <!--============ STEPS ============-->
+
+        <Steps>
+            <!--============ STEP 1 ============-->
+            <Step Name="Step1">
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <!-- Collect planets -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Decorator_BeginTurn>
+                                <Condition_HasPlanets>
+                                    <Input_EmpireOrSystem VarName="$CurrentEmpire"/>
+                                    <Input_MinimumAmount VarName="$Amount01"/>
+                                </Condition_HasPlanets>
+                            </Decorator_BeginTurn>                    
+                        </Sequence>                       
+                    </Objective>
+                </ObjectiveSet>
+                <Reward Droplist="DroplistCraversReward07" Picks="1"/>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+    
+    <!-- ####################################### -->
+    <!--  CRAVERS QUEST Chapter4 Religious       -->
+    <!-- ####################################### -->
+
+    <QuestDefinition Name="CraversQuest-Chapter4-QuestHeroEndless01-Religious" Category="MajorQuest" SubCategory="Cravers" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversQuest-Chapter4-QuestHeroEndless01-Religious,FactionFinalQuest,FactionQuestCravers</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+              <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers04Industry"/>                   
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers04Religious"/>
+            <Var VarName="$CraversSystem" IsGlobal="true"/>
+            <Var VarName="$GUIDSpawn01"/>
+            <Var VarName="$MissionGUID"/>
+            <Var VarName="$FleetMissionDefinitionName01" StringValue="DefendSystem"/>
+            <DroplistVar VarName="$FleetToSpawn01" Droplist="EndlessFleet"/>
+            
+             <InterpretedVar VarName="$Amount01" Target="$(Empire)">
+                <Expression>(Count(Context, @'ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet') + 5)</Expression>
+            </InterpretedVar>
+            
+            <LocalizationVar LocalizationKey="$CraversSystemName" Source="$CraversSystem"/>
+            <LocalizationVar  LocalizationKey="$Amount01Name" Source="$Amount01"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->     
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>
+                        <Action_SpawnFleets>
+                            <Input_Empire VarName="$IAEmpire"/>
+                            <Input_Locations VarName="$CraversSystem"/>
+                            <Input_DroppableFleet VarName="$FleetToSpawn01"/>
+                            <Output_FleetGUIDs VarName="$GUIDSpawn01"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMissionDefinitionName01"/>
+                            <Input_FleetGUIDs VarName="$GUIDSpawn01"/>
+                            <Input_TargetEmpires VarName="$CurrentEmpire"/>
+                            <Output_MissionGUIDs VarName="$MissionGUID"/>
+                        </Action_CreateFleetMissions>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <!-- Invade the Infinite Factory -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Decorator_InvadeSystem>                                
+                                <Input_System VarName="$CraversSystem"/>
+                            </Decorator_InvadeSystem>                        
+                        </Sequence>                       
+                    </Objective>
+                    <Reward Droplist="DroplistCraversReward06" Picks="1"/>
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <!-- Collect planets -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Decorator_BeginTurn>
+                                <Condition_HasPlanets>
+                                    <Input_EmpireOrSystem VarName="$CurrentEmpire"/>
+                                    <Input_MinimumAmount VarName="$Amount01"/>
+                                </Condition_HasPlanets>
+                            </Decorator_BeginTurn>                    
+                        </Sequence>                       
+                    </Objective>
+                    <Reward Droplist="DroplistCraversReward07" Picks="1"/>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+
+    <!-- ####################################### -->
+    <!--  CRAVERS QUEST Chapter4 Religious       -->
+    <!-- ####################################### -->
+
+    <QuestDefinition Name="CraversQuest-Chapter4-QuestHeroEndless01-Industry" Category="MajorQuest" SubCategory="Cravers" MinimumTurn="1">
+
+        <!--============ TAGS ============-->
+        <Tags>CraversQuest-Chapter4-QuestHeroEndless01-Industry,FactionFinalQuest,FactionQuestCravers</Tags>
+
+        <QuestContextSolo/>
+
+
+        <RepetitionRules  NumberOfOccurrencesPerGame="0"
+                          NumberOfOccurrencesPerEmpire="1"
+                          NumberOfConcurrentInstances="0"/>
+
+        <!--============ VARIABLES ============-->
+        <Vars>
+              <Var VarName="$CurrentEmpire">
+                <From Source="$Empire"/>
+            </Var>
+            <Var VarName="$IAEmpire">
+                <From Source="$LesserEmpire"/>
+            </Var>
+            <Var VarName="$PoliticalEffectIndustry" StringValue="PopulationEventCravers04Industry"/>          
+            <Var VarName="$PoliticalEffectReligious" StringValue="PopulationEventCravers04Religious"/>
+            <Var VarName="$CraversSystem" IsGlobal="true"/>
+            <Var VarName="$GUIDSpawn01"/>
+            <Var VarName="$MissionGUID"/>
+            <Var VarName="$FleetMissionDefinitionName01" StringValue="DefendSystem"/>
+            <DroplistVar VarName="$FleetToSpawn01" Droplist="EndlessFleet"/>
+            
+            <InterpretedVar VarName="$Amount01" Target="$(Empire)">                
+                <Expression>(Count(Context, @'ClassEmpire/ClassColonizedStarSystem/ClassColonizedPlanet') + 5)</Expression>
+            </InterpretedVar>
+            <Var VarName="$Amount02" IntValue="1"/>
+            <LocalizationVar LocalizationKey="$CraversSystemName" Source="$CraversSystem"/>
+            <LocalizationVar LocalizationKey="$Amount01Name" Source="$Amount01"/>
+        </Vars>
+
+        <!--============ PREREQUISITES ============-->     
+
+        <!--============ STEPS ============-->
+        <Steps>
+            <Step Name="Step1">
+                <!--============ STEP 0 - Choose ============-->
+                <Choice DefaultChoiceIndex="0">
+                    <ChoiceItem ObjectiveSetIndex="0"/>
+                    <ChoiceItem ObjectiveSetIndex="1"/>
+                </Choice>
+
+
+                <!--============ STEP 1 - Industry ============-->
+                <ObjectiveSet ObjectiveComposition="All">
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectIndustry"/>
+                        </Action_TriggerPopulationEvent>
+                        <Action_SpawnFleets>
+                            <Input_Empire VarName="$IAEmpire"/>
+                            <Input_Locations VarName="$CraversSystem"/>
+                            <Input_DroppableFleet VarName="$FleetToSpawn01"/>
+                            <Output_FleetGUIDs VarName="$GUIDSpawn01"/>
+                        </Action_SpawnFleets>
+                        <Action_CreateFleetMissions>
+                            <Input_MissionDefinitionName VarName="$FleetMissionDefinitionName01"/>
+                            <Input_FleetGUIDs VarName="$GUIDSpawn01"/>
+                            <Input_TargetEmpires VarName="$CurrentEmpire"/>
+                            <Output_MissionGUIDs VarName="$MissionGUID"/>
+                        </Action_CreateFleetMissions>
+                    </StartActions>
+                    <Objective Name="Step1_Objective1">
+                        <!-- Invade the Infinite Factory -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />  
+                            <Parallel CompletionPolicy="All">
+                                <Sequence>
+                                    <Decorator_BeginTurn>
+                                        <Condition_HasSystems>
+                                            <Input_Empires VarName="$CurrentEmpire"/>
+                                            <Input_MinimumAmount VarName="$Amount02"/>
+                                            <Input_Systems VarName="$CraversSystem"/>
+                                        </Condition_HasSystems>
+                                    </Decorator_BeginTurn>
+                                </Sequence>
+                                <Sequence>
+                                    <Decorator_BattleEnded Status="Won" ProgressionIncrement="1">
+                                        <Condition_BattleEnded_FleetDestroyed>
+                                            <Input_FleetGUIDs VarName="$GUIDSpawn01"/>
+                                        </Condition_BattleEnded_FleetDestroyed>
+                                    </Decorator_BattleEnded>
+                                </Sequence>
+                            </Parallel>                           
+                    </Objective>
+                    <Reward Droplist="DroplistCraversReward06" Picks="1"/>
+                </ObjectiveSet>
+
+                <!--============ STEP 2 - RELIGIOUS ============-->
+                <ObjectiveSet>
+                    <StartActions>
+                        <Action_TriggerPopulationEvent>
+                            <Input_Empire VarName="$CurrentEmpire"/>
+                            <Input_Target VarName="$CurrentEmpire"/>
+                            <Input_PopulationEventDefinition VarName="$PoliticalEffectReligious"/>
+                        </Action_TriggerPopulationEvent>
+                    </StartActions>
+                    <Objective Name="Step2_Objective1">
+                        <!-- Collect planets -->
+                        <AIHint Category="Minimal" MinAutoResolutionTurn="45" MaxAutoResolutionTurn="60" AutoResolutionProbability="1" />
+                        <Sequence>
+                            <Decorator_BeginTurn>
+                                <Condition_HasPlanets>
+                                    <Input_EmpireOrSystem VarName="$CurrentEmpire"/>
+                                    <Input_MinimumAmount VarName="$Amount01"/>
+                                </Condition_HasPlanets>
+                            </Decorator_BeginTurn>                    
+                        </Sequence>                       
+                    </Objective>
+                    <Reward Droplist="DroplistCraversReward07" Picks="1"/>
+                </ObjectiveSet>
+            </Step>
+        </Steps>
+    </QuestDefinition>
+</Datatable>

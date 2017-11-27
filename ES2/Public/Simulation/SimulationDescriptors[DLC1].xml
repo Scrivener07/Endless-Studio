@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+
+      <SimulationDescriptor Name="EventEffect82SimEffect82" Type="EventEffect82">
+         <Modifier TargetProperty="SystemResearch"           Operation="Addition"        Value="20"      Path="ClassColonizedStarSystem"/>
+         <Modifier TargetProperty="SystemProduction"             Operation="Addition"        Value="-20"     Path="ClassColonizedStarSystem"/>
+      </SimulationDescriptor>
+
+      <SimulationDescriptor Name="EventEffect83SimEffect83" Type="EventEffect83">
+        <Modifier TargetProperty="SystemProduction"             Operation="Addition"        Value="20"      Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"           Operation="Addition"        Value="-20"     Path="ClassColonizedStarSystem"/>
+      </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect64SimEffect64" Type="EventEffect64">
+        <Modifier TargetProperty="SystemResearch"           Operation="Addition"     Value="20" Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemGrowth"             Operation="Addition"    Value="-20" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect65SimEffect65" Type="EventEffect65">
+        <Modifier TargetProperty="SystemGrowth"               Operation="Addition"    Value="20" Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"             Operation="Addition"    Value="-20" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect85SimEffect85" Type="EventEffect85">
+        <Modifier TargetProperty="EmpireResearch"           Operation="Percent"        Value="0.2"      Path="ClassEmpire"/>       
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="EventEffect88SimEffect88" Type="EventEffect88">
+        <Modifier TargetProperty="SystemFIDSIPercent"           Operation="Addition"        Value="0.2"      Path="ClassEmpire/ClassColonizedStarSystem"/>        
+    </SimulationDescriptor>
+    
+     <SimulationDescriptor Name="EventEffect89SimEffect89" Type="EventEffect89">
+        <Modifier TargetProperty="Happiness"                Operation="Addition"        Value="-5"      Path="ClassEmpire/ClassColonizedStarSystem"/> 
+        <Modifier TargetProperty="SystemResearch"           Operation="Addition"        Value="20"      Path="ClassEmpire/ClassColonizedStarSystem"/>        
+    </SimulationDescriptor>
+    
+     <SimulationDescriptor Name="EventEffect90SimEffect90" Type="EventEffect90">
+        <Modifier TargetProperty="Happiness"                Operation="Addition"        Value="-10"      Path="ClassColonizedStarSystem"/> 
+        <Modifier TargetProperty="SystemResearch"           Operation="Addition"        Value="50"       Path="ClassColonizedStarSystem"/>        
+    </SimulationDescriptor>
+    
+
+
+    <!--#################################-->
+    <!--####         METAPLOT       #####-->
+    <!--#################################-->
+
+
+    <SimulationDescriptor Name="StarSystemImprovementMetaplot01" Type="StarSystemImprovement">
+        <Modifier TargetProperty="PlanetRawFIDSI"          Operation="Addition" Value="1"   Path="./ClassColonizedStarSystem/ClassColonizedPlanet"/>
+        <Modifier TargetProperty="PlanetRawFIDSI"          Operation="Addition" Value="2"   Path="./ClassColonizedStarSystem/ClassColonizedPlanet,PlanetSizeSmall"/>
+        <Modifier TargetProperty="PlanetRawFIDSI"          Operation="Addition" Value="3"   Path="./ClassColonizedStarSystem/ClassColonizedPlanet,PlanetSizeTiny"/>
+    </SimulationDescriptor>
+
+
+
+    <!-- ######## CONTEXTUAL DIPLOMACY ######## -->
+    
+    <!-- Empire -->
+    <SimulationDescriptor Name="EmpireHappinessMalusWeak" Type="EmpireHappinessMalus">
+        <Modifier TargetProperty="Happiness" Operation="Subtraction" Value="5" Priority="2" Path="../ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpireHappinessMalusMedium" Type="EmpireHappinessMalus">
+        <Modifier TargetProperty="Happiness" Operation="Subtraction" Value="10" Priority="10" Path="../ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ScienceIncreaseFromDiplomacyMedium" Type="ScienceIncreaseFromDiplomacyMedium">
+        <Modifier TargetProperty="EmpireResearch" Operation="Percent" Value="0.1" Path="ClassEmpire"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FIDSIncreaseFromDiplomacy" Type="FIDSIncreaseFromDiplomacy">
+        <Modifier TargetProperty="NetSystemGrowth"      Operation="Percent" Value="0.02"    Path="ClassEmpire/ClassColonizedStarSystem" Priority="10"/>
+        <Modifier TargetProperty="NetSystemProduction"    Operation="Percent" Value="0.02"    Path="ClassEmpire/ClassColonizedStarSystem" Priority="10"/>
+        <Modifier TargetProperty="NetSystemMoney"       Operation="Percent" Value="0.02"    Path="ClassEmpire/ClassColonizedStarSystem" Priority="10"/>
+        <Modifier TargetProperty="NetSystemResearch"    Operation="Percent" Value="0.02"    Path="ClassEmpire/ClassColonizedStarSystem" Priority="10"/>
+        <Modifier TargetProperty="NetSystemLifeforce"   Operation="Percent" Value="0.02"    Path="ClassEmpire/ClassColonizedStarSystem,ClassExploitedStarSystem" Priority="10" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ZeroInfluenceConversion" Type="ZeroInfluenceConversion">
+        <Modifier TargetProperty="InfluenceConversionGainMultiplier" Operation="Force" Value="0"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FoodIncreaseOnEmpireFromDiplomacy" Type="FoodIncreaseOnEmpireFromDiplomacy">
+        <Modifier TargetProperty="NetSystemGrowth" Operation="Percent" Value="0.15" Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FoodDecreaseOnHomeSystemFromDiplomacy" Type="FoodDecreaseOnHomeSystemFromDiplomacy">
+        <Modifier TargetProperty="NetSystemGrowth" Operation="Percent" Value="-0.2" Path="ClassEmpire/ClassColonizedStarSystem,MajorHomeSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="BonusManpowerFromContextualDiplomacy" Type="BonusManpowerFromContextualDiplomacy">
+        <Modifier TargetProperty="NetSystemManpower" Operation="Addition" Value="10" Path="ClassColonizedStarSystem" Priority="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="BonusFleetDamageFromContextualDiplomacy" Type="BonusFleetDamageFromContextualDiplomacy">
+        <Modifier TargetProperty="DamagePerSecond" Operation="Percent" Value="0.1" Path="ClassGarrisonFleet/ClassShip" Priority="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="BonusFleetEvasionFromContextualDiplomacy" Type="BonusFleetEvasionFromContextualDiplomacy">
+        <Modifier TargetProperty="Evasion" Operation="Percent" Value="0.1" Path="ClassGarrisonFleet/ClassShip" Priority="1"/>
+    </SimulationDescriptor>
+
+    <!-- ColonizedStarSystem -->
+    <SimulationDescriptor Name="PacificConversionInvestment" Type="PacificConversionInvestment">
+        <Modifier TargetProperty="NetSystemEmpirePoint" Operation="Percent" Value="0.25" Path="ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="NetSystemMoney" Operation="Percent" Value="-0.25" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FoodIncreaseFromDiplomacyWeak" Type="FoodIncreaseFromDiplomacy">
+        <Modifier TargetProperty="NetSystemGrowth" Operation="Percent" Value="0.1" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="BonusFoodFromContextualDiplomacy" Type="BonusFoodFromContextualDiplomacy">
+        <Modifier TargetProperty="NetSystemGrowth" Operation="Percent" Value="0.1" Path="ClassStarSystem" Priority="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ScienceIncreaseFromDiplomacyWeak" Type="ScienceIncreaseFromDiplomacy">
+        <Modifier TargetProperty="NetSystemResearch" Operation="Percent" Value="0.05" Path="ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+    
+    <!-- DiplomaticEmpire -->
+    <SimulationDescriptor Name="PressureIncrease" Type="Pressure">
+        <Modifier TargetProperty="ContextualDiplomacyPressureBonus" Operation="Addition" Value="0.5" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PressureIncreaseSymmetricalEffect" Type="Pressure">
+        <Modifier TargetProperty="ContextualDiplomacyPressureHiddenBonus" Operation="Addition" Value="-0.5" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PressureReduction" Type="Pressure">
+        <Modifier TargetProperty="ContextualDiplomacyPressureBonus" Operation="Addition" Value="-0.5" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PressureReductionSymmetricalEffect" Type="Pressure">
+        <Modifier TargetProperty="ContextualDiplomacyPressureHiddenBonus" Operation="Addition" Value="0.5" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="CloseBordersCostReductionWithOtherEmpire" Type="CloseBordersCostReduction">
+        <Modifier TargetProperty="CloseBordersCostReduction" Operation="Percent" Value="-0.25"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PeacefulTreatyCostReductionWithOtherEmpire" Type="PeacefulTreatyCostReduction">
+        <Modifier TargetProperty="PeacefulTreatyCostReduction" Operation="Percent" Value="-0.25"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="WarDeclarationCostReductionWithOtherEmpire50" Type="WarDeclarationCostReduction">
+        <Modifier TargetProperty="WarDeclarationCostReduction" Operation="Percent" Value="-0.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="WarDeclarationCostReductionWithOtherEmpire25" Type="WarDeclarationCostReduction">
+        <Modifier TargetProperty="WarDeclarationCostReduction" Operation="Percent" Value="-0.25"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PeaceAndAllianceCostReductionWithAllOtherEmpires" Type="PeaceAndAllianceCostReduction">
+        <Modifier TargetProperty="PeaceCostReduction" Operation="Percent" Value="-0.5"/>
+        <Modifier TargetProperty="AllianceCostReduction" Operation="Percent" Value="-0.5"/>
+    </SimulationDescriptor>
+    
+    <SimulationDescriptor Name="PressureReductionFromDiplomacy" Type="Pressure">
+        <Modifier TargetProperty="CurrentRelationMultiplier" Operation="Percent" Value="-0.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PressureIncreaseFromDiplomacyInitiator" Type="Pressure">
+        <Modifier TargetProperty="CurrentEffectsBonus" Operation="Addition" Value="2.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="PressureIncreaseFromDiplomacyTarget" Type="Pressure">
+        <Modifier TargetProperty="CurrentEffectsBonus" Operation="Addition" Value="-2.5"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="GeneratePressureTermActivate" Type="GeneratePressure">
+        <Modifier TargetProperty="GeneratePressureTermActive" Operation="Addition" Value="1"/>
+    </SimulationDescriptor>
+
+    <!-- Demand penalties -->
+    <SimulationDescriptor Name="FleetUpkeepIncreaseFromDemand" Type="FleetUpkeepIncreaseFromDemand">
+        <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Percent" Value="1" Path="ClassEmpire/ClassGarrisonFleet/ClassShip" Priority="1" TooltipHidden="true"/>
+        <Modifier TargetProperty="GarrisonMoneyUpkeep" Operation="Percent" Value="1" Path="ClassEmpire/ClassColonizedStarSystem/ClassGarrisonFleet/ClassShip" Priority="1"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FIDSMalusFromDemand" Type="FIDSMalusFromDemand">
+        <Modifier TargetProperty="SystemGrowth"     Operation="Percent" Value="-0.15"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction" Operation="Percent" Value="-0.15"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"   Operation="Percent" Value="-0.15"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"      Operation="Percent" Value="-0.15"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="FIDSMalusFromDemand2" Type="FIDSMalusFromDemand">
+        <Modifier TargetProperty="SystemGrowth"     Operation="Percent" Value="-0.30"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction" Operation="Percent" Value="-0.30"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemResearch"   Operation="Percent" Value="-0.30"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemMoney"      Operation="Percent" Value="-0.30"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpirePointMalusFromDemand" Type="EmpirePointMalusFromDemand">
+        <Modifier TargetProperty="EmpireEmpirePoint"       Operation="Percent" Value="-0.35"    Path="ClassEmpire" Priority="10"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EmpirePointMalusFromDemand2" Type="EmpirePointMalusFromDemand">
+        <Modifier TargetProperty="EmpireEmpirePoint"       Operation="Percent" Value="-0.75"    Path="ClassEmpire" Priority="10"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MilitaryShipCostIncreaseFromDemand" Type="MilitaryShipCostIncreaseFromDemand">
+        <Modifier TargetProperty="MilitaryShipProductionCostReduction"  Operation="Addition" Value="2"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MilitaryShipCostIncreaseFromDemand2" Type="MilitaryShipCostIncreaseFromDemand">
+        <Modifier TargetProperty="MilitaryShipProductionCostReduction"  Operation="Addition" Value="4"    Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="MilitaryShipMovementReductionFromDemand" Type="MilitaryShipMovementReductionFromDemand">
+        <Modifier TargetProperty="MaximumMovement"  Operation="Percent" Value="-0.75"    Path="ClassEmpire/ClassGarrisonFleet/ClassShip,ShipForBattle" Priority="100"/>
+        <Modifier TargetProperty="MaximumMovement"  Operation="Percent" Value="-0.75"    Path="ClassEmpire/ClassColonizedStarSystem/ClassGarrisonFleet/ClassShip,ShipForBattle" TooltipHidden="true" Priority="100"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="WarDeclarationForbidden" Type="WarDeclarationForbidden">
+        <Modifier TargetProperty="FakeModifier" Value="1" Operation="Addition" TooltipOverride="%WarDeclarationForbiddenFollowingDemand"/>
+    </SimulationDescriptor>
+
+    <!-- ######## DEEDS ######## -->
+
+    <SimulationDescriptor Name="StarSystemImprovementDeeds01" Type="StarSystemImprovement">
+        <Modifier TargetProperty="MaximumSystemManpower" Operation="Addition" Value="400"  Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="GroundBattleBombardmentAttackerDamages"           Operation="Addition" Value="600" Path="./ColonizedStarSystemStateColony,ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="BuildingStarSystemImprovementDeeds02" Type="BuildingStarSystemImprovement"/>
+
+    <SimulationDescriptor Name="StarSystemImprovementDeeds02" Type="StarSystemImprovement">
+        <Modifier TargetProperty="SystemProduction" Operation="Percent" Value="0.2"  Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="SystemProduction" Operation="Percent" Value="0.2"  Path="./ClassColonizedStarSystem,HappinessStatusStarSystem3"/>
+        <Modifier TargetProperty="SystemProduction" Operation="Percent" Value="0.2"  Path="./ClassColonizedStarSystem,HappinessStatusStarSystem4"  TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="StarSystemImprovementDeeds03" Type="StarSystemImprovement">
+        <Modifier TargetProperty="TradingRouteIncomeModifier"   Operation="Percent"  Value="0.5" Path="./ClassColonizedStarSystem"/>
+        <BinaryModifier TargetProperty="SystemEmpirePoint"        Operation="Addition"        Left="1"    BinaryOperation="Multiplication"    Right="$(Population)"   Path="./ClassColonizedStarSystem"   SearchValueFromPath="true" />
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="StarSystemImprovementDeeds04" Type="StarSystemImprovement">
+        <Modifier TargetProperty="TradingRouteIncomeModifier"   Operation="Percent"  Value="0.5" Path="./ClassColonizedStarSystem"/>
+        <Modifier TargetProperty="ResourceBonus"              Operation="Addition"  Value="2"   Path="./ClassColonizedStarSystem/ClassColonizedPlanet/ResourceTypeLuxury"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="EventEffect84SimEffect84" Type="EventEffect84">
+        <Modifier     TargetProperty="Happiness"            Operation="Addition"     Value="-5"  Path="ClassEmpire/ClassColonizedStarSystem"/>
+    </SimulationDescriptor>
+
+</Datatable>

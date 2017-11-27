@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
+   
+    
+    <SimulationDescriptor Name="ModuleDefenseHullPlatingQuest1"  Type="ModuleDefense">
+        <Modifier TargetProperty="SectionHealthBonus"               Operation="Addition" Value="480"  Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="HullPlatingAbsorption"            Operation="Addition" Value="75"  Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShipManpowerKillAbsorption"       Operation="Addition" Value="0.1"  Path="ClassModuleDefense"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleWeaponMissileQuest01"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                       Operation="Addition" Value="450"     TooltipHidden="true"/>
+        <Modifier TargetProperty="CriticalHitChance"            Operation="Addition" Value="0.15"   TooltipHidden="true"/>
+
+        <!-- Must be same value as Salvo Health-->
+        <Modifier TargetProperty="MissileHealth"                Operation="Addition" Value="90" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleSupportEngineQuest1" Type="ModuleSupportEngine">
+        <Modifier TargetProperty="MaximumMovement"         Operation="Addition"     Value="4"      Path="ModuleSupportEngine"/>
+        <Modifier TargetProperty="Evasion"                 Operation="Addition"     Value="0.2"    Path="ModuleSupportEngine"/>
+    </SimulationDescriptor>
+      
+    <!--##### DEEDS ####-->
+    <SimulationDescriptor Name="ModuleWeaponKineticFlackQuest01"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                    Operation="Addition"  Value="21"    TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="DefensiveMilitaryPower"    Operation="Addition" Left="$(FlakDPSMissile)" BinaryOperation="Division" Right="2"      Path="ClassModule" TooltipHidden="true"/>
+
+        <!--DPS against Missile / Squadrons-->
+        <BinaryModifier TargetProperty="FlakDPSMissile"      Operation="Addition" Left="100" BinaryOperation="Division" Right="0.25"     Path="ClassModule" TooltipHidden="true"/>
+        <Modifier TargetProperty="EfficiencyAgainstSquadron" Operation="Addition" Value="1"     Path="ClassModule" TooltipHidden="true"/>
+        <BinaryModifier TargetProperty="FlakDPSSquadron"      Operation="Addition" Left="$(FlakDPSMissile)" BinaryOperation="Multiplication" Right="$(EfficiencyAgainstSquadron)"     Path="ClassModule" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <!--Flack 06 -->
+    <SimulationDescriptor Name="ModuleWeaponFlackQuest01"  Type="ModuleWeaponFlack">
+        <Modifier TargetProperty="Damage"                       Operation="Addition" Value="100" TooltipHidden="true"/>
+        <Modifier TargetProperty="EfficiencyAgainstSquadron" Operation="Addition" Value="1" Path="ClassModule" TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleDefenseHullQuest01"  Type="ModuleDefense"> 
+        <Property Name="MaximumHealthFleet" BaseValue="0"/>
+        <Modifier TargetProperty="MaximumHealthFleet"             Operation="Addition"            Value="0.1"     Path="ClassModule"/>
+        <Modifier TargetProperty="SectionHealthBonus"               Operation="Addition" Value="360"  Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="HullPlatingAbsorption"            Operation="Addition" Value="53"   Path="ClassModuleDefense"/>
+        
+        <Modifier TargetProperty="MaximumHealth"             Operation="Percent"            Value="0.1"     Path="../ClassGarrisonFleet/ClassShip,!ShipRoleHero/ClassSection,ClassSectionCore"/>
+        <Modifier TargetProperty="MaximumHealth"             Operation="Percent"            Value="0.1"     Path="../ClassShip/ClassSection,ClassSectionCore"/>      
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleSupportExperienceQuest01"  Type="ModuleSupport">
+        <Property Name="ExperiencePerTurnFleet" BaseValue="0"/>
+        <Modifier TargetProperty="ExperiencePerTurnFleet"             Operation="Addition"            Value="2"     Path="ClassModule"/>
+        
+        <Modifier TargetProperty="ExperiencePerTurn"             Operation="Addition"            Value="2"     Path="../ClassGarrisonFleet/ClassShip"/>
+        <Modifier TargetProperty="ExperiencePerTurn"             Operation="Addition"            Value="2"     Path="../ClassGarrisonFleet/ClassHero"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ClassModuleSpecialHeroOnly" Type="ClassModuleSpecialHeroOnly"/>
+    <SimulationDescriptor Name="ClassModuleShootsOncePerPhase" Type="ClassModuleShootsOncePerPhase"/>
+    <SimulationDescriptor Name="ClassModuleIgnoresDefenses" Type="ClassModuleIgnoresDefenses"/>
+
+
+    <!--################################-->
+    <!--###             TAGS         ###-->
+    <!--################################-->
+    <!-- Tags -->
+    <SimulationDescriptor Name="ClassModuleCanOnlyBeFittedOnSmallSlots" Type="ClassModuleCanOnlyBeFittedOnSmallSlots"/>
+    <SimulationDescriptor Name="ClassModuleCanOnlyBeFittedOnLargeSlots" Type="ClassModuleCanOnlyBeFittedOnLargeSlots"/>
+
+    
+    <!--#################
+        ##### DEEDS #####
+        #################-->
+
+    <SimulationDescriptor Name="ModuleSupportDeedsCrew1"    Type="ModuleSupport">
+        <Modifier TargetProperty="SectionHealthBonus"       Operation="Addition" Value="150"    Path="ClassModule"/>
+        <Modifier TargetProperty="LocalManpower"           Operation="Addition" Value="350"    Path="ModuleSupportCrew"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleSupportDeedsSiege1"    Type="ModuleSupport">
+        <Modifier TargetProperty="SiegePower"       Operation="Addition" Value="30"    Path="ModuleSupportSiege"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleWeaponBeamDeeds01"  Type="ModuleWeapon">
+        <Modifier TargetProperty="Damage"                       Operation="Addition"    Value="3952"       TooltipHidden="true"/>
+        <Modifier TargetProperty="Cooldown"                     Operation="Addition"    Value="40"         TooltipHidden="true"/>
+        <Modifier TargetProperty="CriticalHitChance"            Operation="Addition"    Value="0.05"       TooltipHidden="true"/>
+        <Modifier TargetProperty="ShipManpowerKillPerHit"       Operation="Addition"    Value="100"        TooltipHidden="true"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleSupportBaitBeamDeeds01"      Type="ModuleSupportBait">
+        <Modifier TargetProperty="TargetingWeightBonus" Operation="Addition" Value="50" Path="ModuleSupportBait"/>
+    </SimulationDescriptor>
+
+    <SimulationDescriptor Name="ModuleDefenseShieldDeeds01"  Type="ModuleDefense">
+        <Modifier TargetProperty="SectionHealthBonus"               Operation="Addition" Value="400"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="HullPlatingAbsorption"            Operation="Addition" Value="50"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldAbsorption"                 Operation="Addition" Value="600"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldBonus"                      Operation="Addition" Value="3000"    Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="ShieldReloadPerPhase"             Operation="Addition" Value="3000"   Path="ClassModuleDefense"/>
+    </SimulationDescriptor>
+
+    <!--##################
+        #### METAPLOT ####
+        ##################-->
+
+    <SimulationDescriptor Name="ModuleDefenseHullPlatingMetaplot1"  Type="ModuleDefense">
+        <Modifier TargetProperty="SectionHealthBonus"               Operation="Addition" Value="520"  Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="HullPlatingAbsorption"            Operation="Addition" Value="120"  Path="ClassModuleDefense"/>
+        <Modifier TargetProperty="RepairFlatPerDamageAbsorbedByHullPlating"         Operation="Addition" Value="0.5"   Path="ClassModuleDefense"/>
+    </SimulationDescriptor>
+</Datatable>

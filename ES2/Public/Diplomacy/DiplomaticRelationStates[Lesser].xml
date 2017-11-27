@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/DiplomaticRelationState.xsd">
+
+    <!--======================================================================================================-->
+    <!--                                                                                                      -->
+    <!--                                     L E S S E R     E M P I R E S                                    -->
+    <!--                                                                                                      -->
+    <!--======================================================================================================-->
+    
+    <DiplomaticRelationState Name="DiplomaticRelationStateLesserDefault">
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="IsKnown" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedFleets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="AttackInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeOwnedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="SiegeInfluencedSystems" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="GuardBlockade" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="OpenBorders" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanIntercept" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CaptureSystemsWithInfluence" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanDestroyOwnedPlanets" />
+        <DiplomaticAbilityChange Operation="Add"    DiplomaticAbilityReference="CanDestroyInfluencedPlanets" />
+        <DiplomaticAbilityChange Operation="Add" 	DiplomaticAbilityReference="CanRootStarSystems" />
+
+        <DiplomaticAbilityChange Operation="Remove" DiplomaticAbilityReference="FakeCloseBorders" />
+    </DiplomaticRelationState>
+    
+</Datatable>
