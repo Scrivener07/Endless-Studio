@@ -82,5 +82,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ES2.XSD\ES2.XSD.csproj">
+      <Project>{3e2007da-13ba-4e57-9317-fe6d45655542}</Project>
+      <Name>ES2.XSD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
