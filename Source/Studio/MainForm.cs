@@ -1,20 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Amplitude.Studio
+namespace Studio
 {
-    public partial class MainForm : Form
-    {
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class MainForm : Form
+	{
+		StudioContext context;
+
+
+		public MainForm()
+		{
+			context = new StudioContext();
+			InitializeComponent();
+		}
+
+
+		private void OnLoad(object sender, EventArgs e)
+		{
+			propertyGrid.SelectedObject = context.DataSource;
+		}
+
+
+	}
 }
