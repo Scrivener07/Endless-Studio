@@ -1,5 +1,14 @@
 ﻿namespace Studio.EntityFramework
 {
+	public class Category
+	{
+		private readonly ObservableListSource<Product> _products = new ObservableListSource<Product>();
+
+		public int CategoryId { get; set; }
+		public string Name { get; set; }
+		public virtual ObservableListSource<Product> Products { get { return _products; } }
+	}
+
 
 	public class Product
 	{
@@ -17,16 +26,6 @@
 			Color = ColorType.Blue;
 			Weight = 0;
 		}
-	}
-
-
-	public class Category
-	{
-		private readonly ObservableListSource<Product> _products = new ObservableListSource<Product>();
-
-		public int CategoryId { get; set; }
-		public string Name { get; set; }
-		public virtual ObservableListSource<Product> Products { get { return _products; } }
 	}
 
 

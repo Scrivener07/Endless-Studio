@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ES2.EntityFramework;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,8 +12,11 @@ namespace ES2.Amplitude
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class Tags : INotifyPropertyChanged
+	public class Tags : INotifyPropertyChanged, IEntity
 	{
+		public int ID { get; set; } // EF6
+
+
 		private string valueField;
 
 

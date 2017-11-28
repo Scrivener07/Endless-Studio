@@ -1,4 +1,5 @@
 ﻿using ES2.Amplitude.Unity.Runtime.Plugins;
+using ES2.EntityFramework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -16,8 +17,12 @@ namespace ES2.Amplitude.Unity.Runtime
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class RuntimePlugin : INotifyPropertyChanged
+	public class RuntimePlugin : INotifyPropertyChanged, IEntity
 	{
+		public int ID { get; set; } // EF6
+		public virtual RuntimeModule RuntimeModule { get; set; } // EF6 navigation property
+
+
 		private int priorityField;
 
 

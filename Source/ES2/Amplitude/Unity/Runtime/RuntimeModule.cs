@@ -1,5 +1,7 @@
 ﻿
 using ES2.Amplitude.Unity.Runtime.Plugins;
+using ES2.EntityFramework;
+using Studio.EntityFramework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -15,8 +17,11 @@ namespace ES2.Amplitude.Unity.Runtime
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	[XmlRoot(Namespace = "", IsNullable = true)]
-	public class RuntimeModule : INotifyPropertyChanged
+	public class RuntimeModule : INotifyPropertyChanged, IEntity
 	{
+		public int ID { get; set; }
+
+
 		private string titleField;
 
 		private string descriptionField;
@@ -33,7 +38,7 @@ namespace ES2.Amplitude.Unity.Runtime
 
 		private string[] thumbnailField;
 
-		private RuntimePlugin[] pluginsField;
+
 
 		private RuntimeModuleType typeField;
 
@@ -150,7 +155,7 @@ namespace ES2.Amplitude.Unity.Runtime
 		[XmlArrayItem(typeof(DatabasePlugin), Form = XmlSchemaForm.Unqualified, IsNullable = false)]
 		[XmlArrayItem(typeof(LocalizationPlugin), Form = XmlSchemaForm.Unqualified, IsNullable = false)]
 		[XmlArrayItem(typeof(RegistryPlugin), Form = XmlSchemaForm.Unqualified, IsNullable = false)]
-		public RuntimePlugin[] Plugins
+		public virtual ObservableListSource<RuntimePlugin> Plugins // EF6 navigation property
 		{
 			get { return this.pluginsField; }
 			set
@@ -159,6 +164,18 @@ namespace ES2.Amplitude.Unity.Runtime
 				this.RaisePropertyChanged("Plugins");
 			}
 		}
+		private ObservableListSource<RuntimePlugin> pluginsField;
+
+
+
+		//public virtual ObservableListSource<RuntimePlugin> RuntimePlugins { get { return _runtimePlugins; } }
+		//private readonly ObservableListSource<RuntimePlugin> _runtimePlugins = new ObservableListSource<RuntimePlugin>();
+
+
+
+
+
+
 
 		/// <remarks/>
 		[XmlAttribute]

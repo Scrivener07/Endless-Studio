@@ -1,8 +1,8 @@
-﻿using Amplitude.Unity.Runtime;
+﻿using ES2.Amplitude.Unity.Runtime;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Studio.ES2
+namespace Studio
 {
 	public static class Extensions
 	{
