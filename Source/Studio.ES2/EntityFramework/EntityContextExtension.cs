@@ -25,6 +25,9 @@ namespace Studio.EntityFramework
 		public static List<DbSet> GetTables(this EntityContext context)
 		{
 			List<DbSet> list = new List<DbSet>();
+			list.Add(context.RuntimeModules);
+			list.Add(context.RuntimePlugins);
+			list.Add(context.Tags);
 			//list.Add(context.AffinityMappings);
 			//list.Add(context.Affinitys);
 			//list.Add(context.AIParameters);
