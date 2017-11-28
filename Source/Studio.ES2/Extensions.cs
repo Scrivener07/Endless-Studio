@@ -2,9 +2,9 @@
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Studio
+namespace Studio.ES2
 {
-	public static class StudioExtensions
+	public static class Extensions
 	{
 		public static void Serialize(this RuntimeModule runtimeModule, string path)
 		{
