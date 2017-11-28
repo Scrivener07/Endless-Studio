@@ -4,26 +4,20 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace ES2.Amplitude.Unity.Framework
+namespace ES2.Amplitude.Unity.Localization
 {
 	/// <remarks/>
+	[XmlRoot("LocalizationPair")]
+	[XmlType("LocalizationPair")]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class Command : INotifyPropertyChanged
+	public class LocalizationDatatableElement : INotifyPropertyChanged
 	{
-
 		private string nameField;
+		private string valueField;
 
-		private string argumentsField;
-
-		private int priorityField;
-
-		public Command()
-		{
-			this.priorityField = 0;
-		}
 
 		/// <remarks/>
 		[XmlAttribute]
@@ -38,27 +32,14 @@ namespace ES2.Amplitude.Unity.Framework
 		}
 
 		/// <remarks/>
-		[XmlAttribute]
-		public string Arguments
+		[XmlText]
+		public string Value
 		{
-			get { return this.argumentsField; }
+			get { return this.valueField; }
 			set
 			{
-				this.argumentsField = value;
-				this.RaisePropertyChanged("Arguments");
-			}
-		}
-
-		/// <remarks/>
-		[XmlAttribute]
-		[DefaultValue(0)]
-		public int Priority
-		{
-			get { return this.priorityField; }
-			set
-			{
-				this.priorityField = value;
-				this.RaisePropertyChanged("Priority");
+				this.valueField = value;
+				this.RaisePropertyChanged("Value");
 			}
 		}
 

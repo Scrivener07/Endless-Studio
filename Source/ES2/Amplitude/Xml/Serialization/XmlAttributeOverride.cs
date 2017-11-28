@@ -1,30 +1,38 @@
-﻿using ES2.Amplitude.Unity.Simulation;
-using System;
+﻿using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Reflection;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace ES2.Amplitude.Unity.Framework
+namespace ES2.Amplitude.Xml.Serialization
 {
 	/// <remarks/>
-	[XmlInclude(typeof(FactionTrait))]
-	[XmlInclude(typeof(FactionTraitStartingSenate))]
-	[XmlInclude(typeof(Faction))]
-	[XmlInclude(typeof(BasicFaction))]
-	[XmlInclude(typeof(PirateFaction))]
-	[XmlInclude(typeof(LesserFaction))]
-	[XmlInclude(typeof(MinorFaction))]
-	[XmlInclude(typeof(MajorFaction))]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class DatatableElement : INotifyPropertyChanged
+	public partial class XmlAttributeOverride : INotifyPropertyChanged
 	{
+		private XmlExtraType[] extraTypeField;
 
 		private string nameField;
 
+		private string dataTypeField;
+
+
+		/// <remarks/>
+		[XmlElement("ExtraType", Form = XmlSchemaForm.Unqualified)]
+		public XmlExtraType[] ExtraType
+		{
+			get { return this.extraTypeField; }
+			set
+			{
+				this.extraTypeField = value;
+				this.RaisePropertyChanged("ExtraType");
+			}
+		}
 
 		/// <remarks/>
 		[XmlAttribute]
@@ -37,6 +45,19 @@ namespace ES2.Amplitude.Unity.Framework
 				this.RaisePropertyChanged("Name");
 			}
 		}
+
+		/// <remarks/>
+		[XmlAttribute]
+		public string DataType
+		{
+			get { return this.dataTypeField; }
+			set
+			{
+				this.dataTypeField = value;
+				this.RaisePropertyChanged("DataType");
+			}
+		}
+
 
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -51,11 +72,5 @@ namespace ES2.Amplitude.Unity.Framework
 		}
 
 
-	}
-
-	public interface IDatatableElement
-	{
-		string Name { get; }
-		void PostDeserialization();
 	}
 }

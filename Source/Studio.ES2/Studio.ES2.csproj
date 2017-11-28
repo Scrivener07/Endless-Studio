@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\Domain.cs" />
-    <Compile Include="EntityFramework\ProductContext.cs" />
+    <Compile Include="EntityFramework\EntityContext.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="EntityFramework\ObservableListSource_T.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +63,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ES2\ES2.csproj">
+      <Project>{45c1df2d-7b22-4843-a894-130bbf29fa14}</Project>
+      <Name>ES2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

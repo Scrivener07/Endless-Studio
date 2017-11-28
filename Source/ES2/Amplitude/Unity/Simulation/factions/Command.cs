@@ -1,30 +1,30 @@
-﻿using ES2.Amplitude.Unity.Simulation;
-using System;
+﻿using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace ES2.Amplitude.Unity.Framework
+namespace ES2.Amplitude.Unity.Simulation
 {
 	/// <remarks/>
-	[XmlInclude(typeof(FactionTrait))]
-	[XmlInclude(typeof(FactionTraitStartingSenate))]
-	[XmlInclude(typeof(Faction))]
-	[XmlInclude(typeof(BasicFaction))]
-	[XmlInclude(typeof(PirateFaction))]
-	[XmlInclude(typeof(LesserFaction))]
-	[XmlInclude(typeof(MinorFaction))]
-	[XmlInclude(typeof(MajorFaction))]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class DatatableElement : INotifyPropertyChanged
+	public class Command : INotifyPropertyChanged
 	{
 
 		private string nameField;
 
+		private string argumentsField;
+
+		private int priorityField;
+
+
+		public Command()
+		{
+			this.priorityField = 0;
+		}
 
 		/// <remarks/>
 		[XmlAttribute]
@@ -35,6 +35,31 @@ namespace ES2.Amplitude.Unity.Framework
 			{
 				this.nameField = value;
 				this.RaisePropertyChanged("Name");
+			}
+		}
+
+		/// <remarks/>
+		[XmlAttribute]
+		public string Arguments
+		{
+			get { return this.argumentsField; }
+			set
+			{
+				this.argumentsField = value;
+				this.RaisePropertyChanged("Arguments");
+			}
+		}
+
+		/// <remarks/>
+		[XmlAttribute]
+		[DefaultValue(0)]
+		public int Priority
+		{
+			get { return this.priorityField; }
+			set
+			{
+				this.priorityField = value;
+				this.RaisePropertyChanged("Priority");
 			}
 		}
 
@@ -51,11 +76,5 @@ namespace ES2.Amplitude.Unity.Framework
 		}
 
 
-	}
-
-	public interface IDatatableElement
-	{
-		string Name { get; }
-		void PostDeserialization();
 	}
 }

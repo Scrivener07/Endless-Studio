@@ -1,29 +1,21 @@
-﻿using ES2.Amplitude.Unity.Simulation;
-using System;
+﻿using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace ES2.Amplitude.Unity.Framework
+namespace ES2.Amplitude.Xml.Serialization
 {
 	/// <remarks/>
-	[XmlInclude(typeof(FactionTrait))]
-	[XmlInclude(typeof(FactionTraitStartingSenate))]
-	[XmlInclude(typeof(Faction))]
-	[XmlInclude(typeof(BasicFaction))]
-	[XmlInclude(typeof(PirateFaction))]
-	[XmlInclude(typeof(LesserFaction))]
-	[XmlInclude(typeof(MinorFaction))]
-	[XmlInclude(typeof(MajorFaction))]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class DatatableElement : INotifyPropertyChanged
+	public class XmlExtraType : INotifyPropertyChanged
 	{
-
 		private string nameField;
+
+		private string dataTypeField;
 
 
 		/// <remarks/>
@@ -35,6 +27,18 @@ namespace ES2.Amplitude.Unity.Framework
 			{
 				this.nameField = value;
 				this.RaisePropertyChanged("Name");
+			}
+		}
+
+		/// <remarks/>
+		[XmlAttribute]
+		public string DataType
+		{
+			get { return this.dataTypeField; }
+			set
+			{
+				this.dataTypeField = value;
+				this.RaisePropertyChanged("DataType");
 			}
 		}
 
@@ -51,11 +55,5 @@ namespace ES2.Amplitude.Unity.Framework
 		}
 
 
-	}
-
-	public interface IDatatableElement
-	{
-		string Name { get; }
-		void PostDeserialization();
 	}
 }

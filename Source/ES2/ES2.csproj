@@ -40,9 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Amplitude\Unity\Framework\Command.cs" />
+    <Compile Include="Amplitude\Diagnostics.cs" />
+    <Compile Include="Amplitude\Tags.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\Configuration.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\Plugins\DatabasePlugin.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\Plugins\AIPlugin.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\Plugins\LocalizationPlugin.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\Plugins\RegistryPlugin.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\RuntimeModule.cs" />
+    <Compile Include="Amplitude\Unity\Localization\LocalizationDatatableElement.cs" />
+    <Compile Include="Amplitude\Unity\Framework\Database_T.cs" />
+    <Compile Include="Amplitude\Unity\Framework\Databases.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\RuntimeModuleType.cs" />
+    <Compile Include="Amplitude\Unity\Runtime\RuntimePlugin.cs" />
+    <Compile Include="Amplitude\Unity\Simulation\factions\Command.cs" />
     <Compile Include="Amplitude\Unity\Framework\DatatableElement.cs" />
-    <Compile Include="Amplitude\Unity\Simulation\ColonizablePlanetType.cs" />
+    <Compile Include="Amplitude\Unity\Framework\Datatable_T.cs" />
+    <Compile Include="Amplitude\Unity\Simulation\other\ColonizablePlanetType.cs" />
     <Compile Include="Amplitude\Unity\Simulation\factions\BasicFaction.cs" />
     <Compile Include="Amplitude\Unity\Simulation\factions\Faction.cs" />
     <Compile Include="Amplitude\Unity\Simulation\factions\FactionTrait.cs" />
@@ -52,12 +66,14 @@
     <Compile Include="Amplitude\Unity\Simulation\factions\PirateFaction.cs" />
     <Compile Include="Amplitude\Unity\Simulation\factions\FactionTraitStartingSenate.cs" />
     <Compile Include="Amplitude\Unity\Simulation\factions\FactionTraitTooltipOverride.cs" />
-    <Compile Include="Amplitude\Unity\Simulation\OverrideType.cs" />
-    <Compile Include="Amplitude\Unity\Simulation\PoliticsWeight.cs" />
+    <Compile Include="Amplitude\Unity\Simulation\factions\OverrideType.cs" />
+    <Compile Include="Amplitude\Unity\Simulation\other\PoliticsWeight.cs" />
     <Compile Include="Amplitude\Unity\Simulation\SimulationDescriptorReference.cs" />
-    <Compile Include="Amplitude\Unity\Simulation\StartingPopulation.cs" />
+    <Compile Include="Amplitude\Unity\Simulation\factions\StartingPopulation.cs" />
     <Compile Include="Amplitude\Unity\Simulation\ValueType.cs" />
     <Compile Include="Amplitude\Unity\Xml\XmlNamedReference.cs" />
+    <Compile Include="Amplitude\Xml\Serialization\XmlAttributeOverride.cs" />
+    <Compile Include="Amplitude\Xml\Serialization\XmlExtraType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

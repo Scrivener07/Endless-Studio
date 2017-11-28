@@ -9,7 +9,7 @@ namespace Studio
 {
 	public partial class MainForm : Form
 	{
-		ProductContext _context;
+		EntityContext _context;
 
 
 		public MainForm()
@@ -20,7 +20,7 @@ namespace Studio
 
 		private void OnLoad(object sender, EventArgs e)
 		{
-			_context = new ProductContext();
+			_context = new EntityContext();
 
 			// Call the Load method to get the data for the given DbSet from the database. 
 			// The data is materialized as entities. The entities are managed by the DbContext instance. 
