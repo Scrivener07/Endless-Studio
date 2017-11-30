@@ -19,6 +19,7 @@ namespace ES2.Amplitude.Unity.Runtime
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class RuntimeModule : INotifyPropertyChanged, IEntity
 	{
+		[XmlIgnore]
 		public int ID { get; set; }
 
 

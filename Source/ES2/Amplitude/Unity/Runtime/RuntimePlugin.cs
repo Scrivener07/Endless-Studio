@@ -19,7 +19,10 @@ namespace ES2.Amplitude.Unity.Runtime
 	[DesignerCategory("code")]
 	public class RuntimePlugin : INotifyPropertyChanged, IEntity
 	{
+		[XmlIgnore]
 		public int ID { get; set; } // EF6
+
+		[XmlIgnore]
 		public virtual RuntimeModule RuntimeModule { get; set; } // EF6 navigation property
 
 

@@ -14,7 +14,8 @@ namespace ES2.Amplitude
 	[DesignerCategory("code")]
 	public class Tags : INotifyPropertyChanged, IEntity
 	{
-		public int ID { get; set; } // EF6
+		[XmlIgnore]
+		public int ID { get; set; }
 
 
 		private string valueField;
