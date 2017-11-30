@@ -10,7 +10,11 @@ using System.Xml.Serialization;
 namespace ES2.Amplitude.Unity.Simulation
 {
 	/// <remarks/>
+	[XmlInclude(typeof(FactionPopulationTrait))]
+	[XmlInclude(typeof(FactionAffinityMapping))]
+	[XmlInclude(typeof(FactionAffinity))]
 	[XmlInclude(typeof(FactionTraitStartingSenate))]
+	[XmlRoot(Namespace = "", IsNullable = true)]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]

@@ -1,1 +1,2 @@
 Faction.cs
+FactionTrait.cs

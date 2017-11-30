@@ -7,7 +7,10 @@ using System.Xml.Serialization;
 
 namespace ES2.Amplitude.Unity.Framework
 {
-	/// <remarks/>
+	[XmlInclude(typeof(FactionTrait))]
+	[XmlInclude(typeof(FactionPopulationTrait))]
+	[XmlInclude(typeof(FactionAffinityMapping))]
+	[XmlInclude(typeof(FactionAffinity))]
 	[XmlInclude(typeof(FactionTrait))]
 	[XmlInclude(typeof(FactionTraitStartingSenate))]
 	[XmlInclude(typeof(Faction))]
