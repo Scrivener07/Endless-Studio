@@ -1,2 +1,4 @@
 Faction.cs
+FactionAffinity.cs
+FactionAffinityMapping.cs
 FactionTrait.cs

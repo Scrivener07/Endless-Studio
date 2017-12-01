@@ -10,9 +10,9 @@ using System.Xml.Serialization;
 namespace ES2.Amplitude.Unity.Simulation
 {
 	/// <remarks/>
-	[XmlInclude(typeof(FactionPopulationTrait))]
-	[XmlInclude(typeof(FactionAffinityMapping))]
 	[XmlInclude(typeof(FactionAffinity))]
+	[XmlInclude(typeof(FactionAffinityMapping))]
+	[XmlInclude(typeof(FactionPopulationTrait))]
 	[XmlInclude(typeof(FactionTraitStartingSenate))]
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
@@ -21,7 +21,6 @@ namespace ES2.Amplitude.Unity.Simulation
 	[DesignerCategory("code")]
 	public class FactionTrait : DatatableElement
 	{
-
 		private Command[] commandField;
 
 		private XmlNamedReference[] outpostImprovementReferenceField;
@@ -74,14 +73,12 @@ namespace ES2.Amplitude.Unity.Simulation
 			this.traitSubCategoryField = "";
 		}
 
+
 		/// <remarks/>
 		[XmlElement("Command", Form = XmlSchemaForm.Unqualified)]
 		public Command[] Command
 		{
-			get
-			{
-				return this.commandField;
-			}
+			get { return this.commandField; }
 			set
 			{
 				this.commandField = value;
@@ -93,10 +90,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlElement("OutpostImprovementReference", Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference[] OutpostImprovementReference
 		{
-			get
-			{
-				return this.outpostImprovementReferenceField;
-			}
+			get { return this.outpostImprovementReferenceField; }
 			set
 			{
 				this.outpostImprovementReferenceField = value;
@@ -108,10 +102,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlElement("ColonyImprovementReference", Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference[] ColonyImprovementReference
 		{
-			get
-			{
-				return this.colonyImprovementReferenceField;
-			}
+			get { return this.colonyImprovementReferenceField; }
 			set
 			{
 				this.colonyImprovementReferenceField = value;
@@ -123,10 +114,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlElement("SubTrait", Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference[] SubTrait
 		{
-			get
-			{
-				return this.subTraitField;
-			}
+			get { return this.subTraitField; }
 			set
 			{
 				this.subTraitField = value;
@@ -138,10 +126,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlElement("SimulationDescriptorReference", Form = XmlSchemaForm.Unqualified)]
 		public SimulationDescriptorReference[] SimulationDescriptorReference
 		{
-			get
-			{
-				return this.simulationDescriptorReferenceField;
-			}
+			get { return this.simulationDescriptorReferenceField; }
 			set
 			{
 				this.simulationDescriptorReferenceField = value;
@@ -153,10 +138,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public FactionTraitTooltipOverride FactionTraitTooltipOverride
 		{
-			get
-			{
-				return this.factionTraitTooltipOverrideField;
-			}
+			get { return this.factionTraitTooltipOverrideField; }
 			set
 			{
 				this.factionTraitTooltipOverrideField = value;
@@ -168,10 +150,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public string Prerequisites
 		{
-			get
-			{
-				return this.prerequisitesField;
-			}
+			get { return this.prerequisitesField; }
 			set
 			{
 				this.prerequisitesField = value;
@@ -184,10 +163,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(0)]
 		public int Cost
 		{
-			get
-			{
-				return this.costField;
-			}
+			get { return this.costField; }
 			set
 			{
 				this.costField = value;
@@ -199,10 +175,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlAttribute]
 		public string Family
 		{
-			get
-			{
-				return this.familyField;
-			}
+			get { return this.familyField; }
 			set
 			{
 				this.familyField = value;
@@ -215,10 +188,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(true)]
 		public bool Hidden
 		{
-			get
-			{
-				return this.hiddenField;
-			}
+			get { return this.hiddenField; }
 			set
 			{
 				this.hiddenField = value;
@@ -231,10 +201,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(false)]
 		public bool Custom
 		{
-			get
-			{
-				return this.customField;
-			}
+			get { return this.customField; }
 			set
 			{
 				this.customField = value;
@@ -247,10 +214,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(false)]
 		public bool HiddenOnFailPrerequisites
 		{
-			get
-			{
-				return this.hiddenOnFailPrerequisitesField;
-			}
+			get { return this.hiddenOnFailPrerequisitesField; }
 			set
 			{
 				this.hiddenOnFailPrerequisitesField = value;
@@ -263,10 +227,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(false)]
 		public bool ValidWithAtLeastOnePrerequisite
 		{
-			get
-			{
-				return this.validWithAtLeastOnePrerequisiteField;
-			}
+			get { return this.validWithAtLeastOnePrerequisiteField; }
 			set
 			{
 				this.validWithAtLeastOnePrerequisiteField = value;
@@ -279,10 +240,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(typeof(float), "0")]
 		public float Level
 		{
-			get
-			{
-				return this.levelField;
-			}
+			get { return this.levelField; }
 			set
 			{
 				this.levelField = value;
@@ -294,10 +252,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlAttribute]
 		public string Root
 		{
-			get
-			{
-				return this.rootField;
-			}
+			get { return this.rootField; }
 			set
 			{
 				this.rootField = value;
@@ -310,10 +265,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue(false)]
 		public bool IgnoreForTraitsCount
 		{
-			get
-			{
-				return this.ignoreForTraitsCountField;
-			}
+			get { return this.ignoreForTraitsCountField; }
 			set
 			{
 				this.ignoreForTraitsCountField = value;
@@ -325,10 +277,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[XmlAttribute]
 		public string SubCategory
 		{
-			get
-			{
-				return this.subCategoryField;
-			}
+			get { return this.subCategoryField; }
 			set
 			{
 				this.subCategoryField = value;
@@ -341,10 +290,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue("")]
 		public string TraitCategory
 		{
-			get
-			{
-				return this.traitCategoryField;
-			}
+			get { return this.traitCategoryField; }
 			set
 			{
 				this.traitCategoryField = value;
@@ -357,10 +303,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		[DefaultValue("")]
 		public string TraitSubCategory
 		{
-			get
-			{
-				return this.traitSubCategoryField;
-			}
+			get { return this.traitSubCategoryField; }
 			set
 			{
 				this.traitSubCategoryField = value;
