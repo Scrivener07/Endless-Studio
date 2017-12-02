@@ -7,6 +7,8 @@ using System.Xml.Serialization;
 
 namespace ES2.Amplitude.Unity.Framework
 {
+	[XmlInclude(typeof(QuestDefinition))]
+	[XmlInclude(typeof(TutorialDefinition))]
 	[XmlInclude(typeof(BasicFaction))]
 	[XmlInclude(typeof(Faction))]
 	[XmlInclude(typeof(FactionAffinity))]

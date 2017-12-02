@@ -13,8 +13,8 @@ namespace ES2.Amplitude.Unity.Simulation
 	[DesignerCategory("code")]
 	public class SimulationDescriptorReference : ValueType
 	{
-
 		private string nameField;
+
 
 		/// <remarks/>
 		[XmlAttribute]

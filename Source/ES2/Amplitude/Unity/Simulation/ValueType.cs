@@ -17,6 +17,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
+
 		protected void RaisePropertyChanged(string propertyName)
 		{
 			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
