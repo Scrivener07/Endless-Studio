@@ -473,12 +473,6 @@
     <Compile Include="Studio\Framework\Sources\EntityBindingNavigator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Studio\Forms\RecordNavigator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Studio\Forms\RecordNavigator.Designer.cs">
-      <DependentUpon>RecordNavigator.cs</DependentUpon>
-    </Compile>
     <Compile Include="Studio\Framework\Sources\EntityBindingList.cs" />
     <Compile Include="Studio\Framework\Sources\EntitySet.cs" />
     <Compile Include="Studio\Framework\Sources\EntitySetCollection.cs" />
@@ -536,9 +530,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Studio\Forms\RecordNavigator.resx">
-      <DependentUpon>RecordNavigator.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Studio\Framework\Sources\EntityBindingNavigator.png" />
@@ -550,5 +541,6 @@
       <Name>Studio.Sharp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
