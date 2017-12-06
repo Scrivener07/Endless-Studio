@@ -43,6 +43,12 @@ namespace Studio
 				context.MinorFactions.Load();
 				context.MajorFactions.Load();
 				context.PirateFactions.Load();
+				context.FactionAffinitys.Load();
+				context.FactionAffinityMappings.Load();
+				context.FactionPopulationTraits.Load();
+				context.FactionTraits.Load();
+				context.FactionTraitCategoryDefinitions.Load();
+				context.FactionTraitStartingSenates.Load();
 			}
 			return true;
 		}

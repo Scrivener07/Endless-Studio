@@ -31,23 +31,18 @@ namespace Studio.Framework
 			return new List<DbSet>
 			{
 				context.RuntimeModules,
-	//			context.RuntimePlugins,
-				//context.Tags,
-				//context.QuestDefinitions,
-				//context.TutorialDefinitions,
 				context.Factions,
 				context.BasicFactions,
 				context.LesserFactions,
 				context.MajorFactions,
 				context.MinorFactions,
-				context.PirateFactions
-				//context.FactionAffinitys,
-				//context.FactionAffinityMappings,
-				//context.FactionPopulationTraits,
-				//context.FactionTraits,
-				//context.FactionTraitCategoryDefinitions,
-				//context.FactionTraitStartingSenates,
-
+				context.PirateFactions,
+				context.FactionAffinitys,
+				context.FactionAffinityMappings,
+				context.FactionPopulationTraits,
+				context.FactionTraits,
+				context.FactionTraitCategoryDefinitions,
+				context.FactionTraitStartingSenates
 			};
 		}
 
