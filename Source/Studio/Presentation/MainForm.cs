@@ -26,7 +26,6 @@ namespace Studio.Presentation
 			context.ClearTables();
 			context.SaveChanges();
 			context.RuntimeModules.Load();
-			//this.runtimeModuleBindingSource.DataSource = context.RuntimeModules.Local.ToBindingList();
 		}
 
 

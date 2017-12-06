@@ -30,7 +30,7 @@ namespace Studio.Framework
 
 			//Project = new ProjectModel();
 
-			MainForm = new SplashWindow();
+			MainForm = new MainSplash();
 			Initialize();
 		}
 

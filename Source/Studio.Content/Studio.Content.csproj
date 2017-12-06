@@ -7,8 +7,8 @@
     <ProjectGuid>{45C1DF2D-7B22-4843-A894-130BBF29FA14}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ES2</RootNamespace>
-    <AssemblyName>ES2</AssemblyName>
+    <RootNamespace>Studio</RootNamespace>
+    <AssemblyName>Studio.Content</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,6 +41,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -464,6 +465,33 @@
     <Compile Include="ES2\Amplitude\Unity\Xml\XmlNamedReference.cs" />
     <Compile Include="ES2\Amplitude\Xml\Serialization\XmlAttributeOverride.cs" />
     <Compile Include="ES2\Amplitude\Xml\Serialization\XmlExtraType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\EntityBindingNavigator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Studio\Forms\RecordNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Studio\Forms\RecordNavigator.Designer.cs">
+      <DependentUpon>RecordNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\EntityBindingList.cs" />
+    <Compile Include="Studio\Framework\Sources\EntitySet.cs" />
+    <Compile Include="Studio\Framework\Sources\EntitySetCollection.cs" />
+    <Compile Include="Studio\Framework\Sources\DataErrorEventArgs.cs" />
+    <Compile Include="Studio\Framework\Sources\Design\ContextTypeConverter.cs" />
+    <Compile Include="Studio\Framework\Sources\Design\EntitySetTypeDescriptor.cs" />
+    <Compile Include="Studio\Framework\Sources\EntityDataSource.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\EntityDataSource.Designer.cs">
+      <DependentUpon>EntityDataSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\ListDictionary.cs" />
     <Compile Include="Studio\Model\ElementCache.cs" />
     <Compile Include="Studio\Model\Entity.cs" />
     <Compile Include="Studio\Model\EntityType.cs" />
@@ -486,6 +514,35 @@
     <None Include="packages.config" />
     <None Include="XSD.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\VS2017\BindingSource\BindingSource_16x_32.bmp" />
+    <None Include="Resources\VS2017\BindingSource\BindingSource_16x_24.bmp" />
+    <None Include="Resources\VS2017\BindingNavigator\BindingNavigator_16x_32.bmp" />
+    <None Include="Resources\VS2017\BindingNavigator\BindingNavigator_16x_24.bmp" />
+    <None Include="Resources\VS2017\Undo\Undo_16x.png" />
+    <None Include="Resources\VS2017\Save\Save_16x.png" />
+    <None Include="Resources\VS2017\Refresh\Refresh_16x.png" />
+    <None Include="Resources\VS2017\Previous\Previous_16x.png" />
+    <None Include="Resources\VS2017\Next\Next_16x.png" />
+    <None Include="Resources\VS2017\Forward\Forward_16x.png" />
+    <None Include="Resources\VS2017\Cancel\Cancel_16x.png" />
+    <None Include="Resources\VS2017\BindingSource\BindingSource_16x.png" />
+    <None Include="Resources\VS2017\BindingNavigator\BindingNavigator_16x.png" />
+    <None Include="Resources\VS2017\Backward\Backward_16x.png" />
+    <None Include="Resources\VS2017\Add\Add_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Studio\Forms\RecordNavigator.resx">
+      <DependentUpon>RecordNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Studio\Framework\Sources\EntityBindingNavigator.png" />
+    <EmbeddedResource Include="Studio\Framework\Sources\EntityDataSource.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
