@@ -4,6 +4,7 @@ using System.ComponentModel;
 namespace Studio.Model
 {
 	[Serializable]
+	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public abstract class Entity : INotifyPropertyChanged
 	{
 		#region INotifyPropertyChanged
