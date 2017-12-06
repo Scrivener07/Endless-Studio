@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45C1DF2D-7B22-4843-A894-130BBF29FA14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Studio</RootNamespace>
+    <AssemblyName>Studio.Content</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ES2\Amplitude\Diagnostics.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQuery.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQueryAny.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQueryCount.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQueryFirst.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQueryLast.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQueryLimit.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQueryPrerequisites.cs" />
+    <Compile Include="ES2\Amplitude\Query\Xml\XmlQuerySorter.cs" />
+    <Compile Include="ES2\Amplitude\Tags.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\DownloadableContentPrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\InterpreterPrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\PathPrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\Prerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\PathValidityPrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\BattleState.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\CheckComposition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\ConstructibleType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\CountValidationType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\DepositResourceType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\DiplomaticContractState.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\ElementName.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\HeroAssignationFilter.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\ProgressCalculation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestAIHintDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestCompletionStateCondition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetComparativeProgress.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetForceGuiDisable.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetHappinessStatusSet.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetInvisibility.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetMinorRelationPoints.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetNotificationSilent.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetProgress.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SetQuestVisibility.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SpawnAnomaly.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SpawnCuriosity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SpawnFleet.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SpawnHero.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SpawnImprovement.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SpawnPopulation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_StartMinigame.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_StartTimer.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_SwitchEmpireFaction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_TransferLocalManpower.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_TransferResource.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_TriggerPopulationEvent.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_TriggerTutorial.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_TruncateVariable.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_UnlockTechnology.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCompletionPolicy.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_AreVariablesEqual.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_BattleEndedWithShips.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_BattleEnded_FleetDestroyed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_CheckDiplomaticAbility.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_CheckDiplomaticRelation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_CheckInterpreter.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_CheckPath.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_CheckSenateComposition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_CountSimulationObjectsWithTag.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_DiplomaticContracts.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_ExplorationProgress.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_FleetHasHero.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_FleetShipStats.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_FleetShipStatsOnNode.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_GovernmentType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasDeposits.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasFidsi.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasFleets.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasGarrisonComposition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasHappiness.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasHeroes.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasLaws.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasManpower.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasPlanets.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasPoliticsScore.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasPopulationAmount.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasPopulationDiversity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasPopulationSlots.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasResource.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasSpecialNodes.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasSystemDefense.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasSystems.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasTradeIncome.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_HasTradeRoutes.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_IsFleetDockedOnNode.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_IsProgressionComplete.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_IsSystemOwnedBy.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_IsVariableNotEmpty.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_ManpowerDistribution.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_MinorFactionRelationship.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_Pressure.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_ShipHasResourceCost.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_ShipStats.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_SystemsHaveFidsi.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition_TimerEnded.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeController_Loop.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeController_Parallel.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeController_Sequence.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorMinigameObjectiveSecured.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventBattleEnded.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventBeginTurn.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventColonizedStarSystemLevelChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventColonyEstablished.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventConstructionCancelled.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventConstructionCompleted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventConstructionProgressed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventConstructionQueued.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventCuriosityDiscovered.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventDiplomaticContractStateChange.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventDiplomaticRelationChange.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventElectionActionApplied.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventEndTurn.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventFleetDocked.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventFleetHasInterceptedAnEnemy.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventFleetMoveStarted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventFleetUsedPortal.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventGameNodeDiscovered.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventGarrisonCompositionChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventGovernmentStarted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventGroundBattleWon.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventHeroAssigned.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventHeroLevelup.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventHeroRecruited.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventLawAbrogated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventLawActivated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventLocalizedNameChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventMinigameFinished.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventMinigameObjectiveSecured.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventMinorEmpireIntegrated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventMothershipAttached.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventOnColonizedPlanet.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventOnQuestCompleted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventOutpostActionStarted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventOutpostCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventPlanetDestroyed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventPlanetTerraformed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventPopulationBoostApplied.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventPopulationGained.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventPopulationTransferredToSpaceport.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventPostEndTurn.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventProbeLaunched.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventQuestEffectFinished.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventRecipeCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventResearchQueued.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventShipConstructed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventShipDesignCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventShipDestroyed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventShipDisbanded.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventShipLayoutChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventShipLevelup.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventSystemDecolonized.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventSystemGainedFromInfluence.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTechnologyUnlocked.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTimeBubbleCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorialKeysChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorialPageOpened.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_AdvancedBattleSetupElementSelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_DisplayedTutorialChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_ElectionStepValidated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_FleetsSelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_IngredientSelectedForRecipe.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_SimpleActionExecuted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfEventTutorial_TechnologySelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecoratorOfQuestEventEntityCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_BattleEnded.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_BeginTurn.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ColonizedPlanet.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ColonizedSystem.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ConstructionCancelled.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ConstructionCompleted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ConstructionProgressed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ConstructionQueued.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_CuriosityDiscovered.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_DiplomaticContractStateChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_DiplomaticRelationChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ElectionActionApplied.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventBattleEnded.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventColonizedStarSystemLevelChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventColonyEstablished.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventConstructionCancelled.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventConstructionCompleted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventConstructionProgressed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventConstructionQueued.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventCuriosityDiscovered.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventElectionActionApplied.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventFleetDocked.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventFleetHasInterceptedAnEnemy.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventFleetMoveStarted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventFleetUsedPortal.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventGameNodeDiscovered.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventGarrisonCompositionChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventHeroAssigned.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventHeroLevelup.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventHeroRecruited.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventLawAbrogated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventLawActivated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventMinorEmpireIntegrated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventMothershipAttached.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventOnColonizedPlanet.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventOnQuestCompleted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventOutpostActionStarted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventOutpostCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventPlanetDestroyed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventPopulationBoostApplied.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventPopulationGained.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventPopulationTransferredToSpaceport.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventProbeLaunched.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventRecipeCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventResearchQueued.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventShipLevelup.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventSystemDecolonized.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventSystemGainedFromInfluence.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTechnologyUnlocked.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTimeBubbleCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorialPageOpened.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_AdvancedBattleSetupElementSelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_DisplayedTutorialChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_ElectionStepValidated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_FleetsSelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_IngredientSelectedForRecipe.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_SimpleActionExecuted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EmpireEventOfEventTutorial_TechnologySelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EndTurn.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_EntityCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ExploredNode.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_FleetDocked.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_FleetHasShipCount.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_FleetMoved.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_FleetUsedPortal.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_GovernmentChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_GuardNode.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_HasTutorialKeys.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_HeroAssigned.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_HeroLevelUp.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_HeroRecruited.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Intercept.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_InvadeSystem.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_IsShipInGarrison.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_LawAbrogated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_LawActivated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_MinigameWon.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_MinorEmpireIntegrated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_MinorFactionRelation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_MothershipAttached.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_NameChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_OutpostActionStarted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_OutpostCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_PlanetDestroyed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_PlanetTerraformed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_PopulationBoostApplied.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_PopulationGained.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_PopulationTransferredToSpaceport.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_PostEndTurn.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ProbeLaunched.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_QuestEffectFinished.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_QuestFinished.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_RecipeCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ResearchQueued.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ShipConstructed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ShipDesignCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ShipDestroyed.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ShipDisbanded.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ShipHasModule.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_ShipLevelUp.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_SystemDecolonized.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_SystemGainedFromInfluence.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_SystemLevelChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_TechnologyUnlocked.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_TimeBubbleCreated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_TutorialPageOpened.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_BattleSetupElementSelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_DisplayedTutorialChanged.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_ElectionStepValidated.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_FleetsSelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_IngredientSelectedForRecipe.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_SimpleActionExecuted.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Tutorial_TechnologySelected.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeDecorator_Wait.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeResetPolicy.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestInitiatorFilter.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestObjectiveDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestObjectiveSetDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_AddExperienceToFleets.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_AddLevelsToHeroes.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_AddQuestMarker.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ApplyDescriptor.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ApplyNodeEffect.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ApplyQuestEffect.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ApplyStarSystemDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_AssignHero.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_AssimilateMinorEmpire.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_BuildMinigameTeam.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ChooseOutcome.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ClearForceGuiDisable.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_ClearSilentNotifications.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_Colonize.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_CompetitiveQuestWarning.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_CopyVariable.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_CreateFleetMission.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_DestroyFleet.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_DestroyShip.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_EliminateEmpire.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_Fail.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_HealFleets.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_LockTargets.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_Message.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RefreshGameNodesVisibility.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RefreshInterpretedVariable.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RegisterLesserName.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RemoveCuriosity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RemoveNodeEffect.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RemoveQuestEffect.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RemoveQuestMarker.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RenameSystem.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_RevealEntities.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestInputArgument.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestOutputArgument.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestStartActionsDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestStepChoiceItemDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestTargetLockOption.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\ColonizationState.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\CuriosityCountOperation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\CuriosityFilteringOperation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\PlanetCuriosityCountOperation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\PlanetCuriosityFilteringOperation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestAIHintCategory.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestAIHintResources.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestDroplistVariableDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeCondition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterByStringValue.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterConstellationByDistance.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterDifferentEntity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterPlanetByCuriosity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterShipDesignByModule.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterSystemByCuriosity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterSystemByDistance.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestFilterSystemByStatus.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestGuiElementOverrideDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\GlobalCooldownLiability.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\GlobalRepetitionRules.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\GameSettingPrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestInterpretedVariableDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestLocalizationVariableDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestOutcomeDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestPrerequisitesDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestState.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestStatePrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestStepDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestVariableDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestVariablesDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestWeightedTriggers.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\StarSystemState.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\TechnologyPrerequisite.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\Configuration.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\Plugins\DatabasePlugin.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\Plugins\AIPlugin.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\Plugins\LocalizationPlugin.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\Plugins\RegistryPlugin.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\RuntimeModule.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Localization\LocalizationDatatableElement.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\Database_T.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\Databases.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\RuntimeModuleType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Runtime\RuntimePlugin.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\AbstractToShipDesignPair.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionAffinity.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionAffinityMapping.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionPopulationTrait.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\Command.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\DatatableElement.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Framework\Datatable_T.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionTraitCategoryDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\other\ColonizablePlanetType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\BasicFaction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\Faction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionTrait.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\LesserFaction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\MajorFaction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\MinorFaction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\PirateFaction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionTraitStartingSenate.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionTraitTooltipOverride.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\OverrideType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\other\PoliticsWeight.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeNode.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeController.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestExecutionTreeAction_HighlightGui.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestSorterConstellationByDistance.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestTeam.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\EmpireDistribution.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestObjectiveComposition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestPodiumRewardDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestProgressionType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestQuestTrigger.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestRewardDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestRewardItemDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestTrigger.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestTriggeringContextMulti.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestTriggeringContextSolo.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\RewardEvaluationMethod.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\tutorial\TutorialKey.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\RepetitionRules.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\SimulationDescriptorReference.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\factions\StartingPopulation.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\tutorial\TutorialDefinition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\tutorial\TutorialLevel.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\tutorial\TutorialPopupLayer.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\State.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\TagsComposition.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\ValueType.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Xml\XmlNamedReference.cs" />
+    <Compile Include="ES2\Amplitude\Xml\Serialization\XmlAttributeOverride.cs" />
+    <Compile Include="ES2\Amplitude\Xml\Serialization\XmlExtraType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\EntityBindingNavigator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Studio\Forms\RecordNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Studio\Forms\RecordNavigator.Designer.cs">
+      <DependentUpon>RecordNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\EntityBindingList.cs" />
+    <Compile Include="Studio\Framework\Sources\EntitySet.cs" />
+    <Compile Include="Studio\Framework\Sources\EntitySetCollection.cs" />
+    <Compile Include="Studio\Framework\Sources\DataErrorEventArgs.cs" />
+    <Compile Include="Studio\Framework\Sources\Design\ContextTypeConverter.cs" />
+    <Compile Include="Studio\Framework\Sources\Design\EntitySetTypeDescriptor.cs" />
+    <Compile Include="Studio\Framework\Sources\EntityDataSource.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\EntityDataSource.Designer.cs">
+      <DependentUpon>EntityDataSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Studio\Framework\Sources\ListDictionary.cs" />
+    <Compile Include="Studio\Model\ElementCache.cs" />
+    <Compile Include="Studio\Model\Entity.cs" />
+    <Compile Include="Studio\Model\EntityType.cs" />
+    <Compile Include="Studio\Model\EntityMeta.cs" />
+    <Compile Include="Studio\Model\EntityTypeComplex.cs" />
+    <Compile Include="Studio\Model\GameType.cs" />
+    <Compile Include="Studio\Model\MetaInfo.cs" />
+    <Compile Include="Studio\Model\ModelSettings.cs" />
+    <Compile Include="Studio\Model\TextData.cs" />
+    <Compile Include="Studio\Framework\EntityContext.cs" />
+    <Compile Include="Studio\Framework\EntityInitializer.cs" />
+    <Compile Include="Studio\Framework\Extensions.cs" />
+    <Compile Include="Studio\Model\INamed.cs" />
+    <Compile Include="Studio\Framework\ObservableListSource.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestStepChoiceDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="XSD.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VS2017\BindingSource\BindingSource_16x_32.bmp" />
+    <None Include="Resources\VS2017\BindingSource\BindingSource_16x_24.bmp" />
+    <None Include="Resources\VS2017\BindingNavigator\BindingNavigator_16x_32.bmp" />
+    <None Include="Resources\VS2017\BindingNavigator\BindingNavigator_16x_24.bmp" />
+    <None Include="Resources\VS2017\Undo\Undo_16x.png" />
+    <None Include="Resources\VS2017\Save\Save_16x.png" />
+    <None Include="Resources\VS2017\Refresh\Refresh_16x.png" />
+    <None Include="Resources\VS2017\Previous\Previous_16x.png" />
+    <None Include="Resources\VS2017\Next\Next_16x.png" />
+    <None Include="Resources\VS2017\Forward\Forward_16x.png" />
+    <None Include="Resources\VS2017\Cancel\Cancel_16x.png" />
+    <None Include="Resources\VS2017\BindingSource\BindingSource_16x.png" />
+    <None Include="Resources\VS2017\BindingNavigator\BindingNavigator_16x.png" />
+    <None Include="Resources\VS2017\Backward\Backward_16x.png" />
+    <None Include="Resources\VS2017\Add\Add_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Studio\Forms\RecordNavigator.resx">
+      <DependentUpon>RecordNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Studio\Framework\Sources\EntityBindingNavigator.png" />
+    <EmbeddedResource Include="Studio\Framework\Sources\EntityDataSource.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
