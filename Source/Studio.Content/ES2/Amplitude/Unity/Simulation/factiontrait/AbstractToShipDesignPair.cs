@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,12 +12,12 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class AbstractToShipDesignPair : INotifyPropertyChanged
+	public class AbstractToShipDesignPair : EntityTypeComplex
 	{
-
 		private string abstractField;
 
 		private string shipDesignField;
+
 
 		/// <remarks/>
 		[XmlAttribute]
@@ -39,18 +40,6 @@ namespace ES2.Amplitude.Unity.Simulation
 			{
 				this.shipDesignField = value;
 				this.RaisePropertyChanged("ShipDesign");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 

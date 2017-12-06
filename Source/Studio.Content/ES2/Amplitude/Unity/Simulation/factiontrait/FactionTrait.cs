@@ -1,6 +1,6 @@
 ﻿using ES2.Amplitude.Unity.Framework;
 using ES2.Amplitude.Unity.Xml;
-using Studio.Model;
+using Studio.Framework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -20,17 +20,17 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class FactionTrait : DatatableElement, INamed
+	public class FactionTrait : DatatableElement
 	{
-		private Command[] commandField;
+		private ObservableListSource<Command> commandField;
 
-		private XmlNamedReference[] outpostImprovementReferenceField;
+		private ObservableListSource<XmlNamedReference> outpostImprovementReferenceField;
 
-		private XmlNamedReference[] colonyImprovementReferenceField;
+		private ObservableListSource<XmlNamedReference> colonyImprovementReferenceField;
 
-		private XmlNamedReference[] subTraitField;
+		private ObservableListSource<XmlNamedReference> subTraitField;
 
-		private SimulationDescriptorReference[] simulationDescriptorReferenceField;
+		private ObservableListSource<SimulationDescriptorReference> simulationDescriptorReferenceField;
 
 		private FactionTraitTooltipOverride factionTraitTooltipOverrideField;
 
@@ -72,12 +72,18 @@ namespace ES2.Amplitude.Unity.Simulation
 			this.ignoreForTraitsCountField = false;
 			this.traitCategoryField = "";
 			this.traitSubCategoryField = "";
+			commandField = new ObservableListSource<Command>();
+			outpostImprovementReferenceField = new ObservableListSource<XmlNamedReference>();
+			colonyImprovementReferenceField = new ObservableListSource<XmlNamedReference>();
+			subTraitField = new ObservableListSource<XmlNamedReference>();
+			simulationDescriptorReferenceField = new ObservableListSource<SimulationDescriptorReference>();
+			factionTraitTooltipOverrideField = new FactionTraitTooltipOverride();
 		}
 
 
 		/// <remarks/>
 		[XmlElement("Command", Form = XmlSchemaForm.Unqualified)]
-		public Command[] Command
+		public ObservableListSource<Command> Command
 		{
 			get { return this.commandField; }
 			set
@@ -89,7 +95,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("OutpostImprovementReference", Form = XmlSchemaForm.Unqualified)]
-		public XmlNamedReference[] OutpostImprovementReference
+		public ObservableListSource<XmlNamedReference> OutpostImprovementReference
 		{
 			get { return this.outpostImprovementReferenceField; }
 			set
@@ -101,7 +107,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("ColonyImprovementReference", Form = XmlSchemaForm.Unqualified)]
-		public XmlNamedReference[] ColonyImprovementReference
+		public ObservableListSource<XmlNamedReference> ColonyImprovementReference
 		{
 			get { return this.colonyImprovementReferenceField; }
 			set
@@ -113,7 +119,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("SubTrait", Form = XmlSchemaForm.Unqualified)]
-		public XmlNamedReference[] SubTrait
+		public ObservableListSource<XmlNamedReference> SubTrait
 		{
 			get { return this.subTraitField; }
 			set
@@ -125,7 +131,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("SimulationDescriptorReference", Form = XmlSchemaForm.Unqualified)]
-		public SimulationDescriptorReference[] SimulationDescriptorReference
+		public ObservableListSource<SimulationDescriptorReference> SimulationDescriptorReference
 		{
 			get { return this.simulationDescriptorReferenceField; }
 			set

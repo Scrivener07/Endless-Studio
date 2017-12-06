@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,12 +12,12 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public partial class ColonizablePlanetType : INotifyPropertyChanged
+	public partial class ColonizablePlanetType : EntityTypeComplex
 	{
-
 		private string typeField;
 
 		private int priorityField;
+
 
 		/// <remarks/>
 		[XmlAttribute]
@@ -39,18 +40,6 @@ namespace ES2.Amplitude.Unity.Simulation
 			{
 				this.priorityField = value;
 				this.RaisePropertyChanged("Priority");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 

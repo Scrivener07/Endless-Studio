@@ -1,4 +1,5 @@
 ﻿using ES2.Amplitude.Unity.Xml;
+using Studio.Framework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -21,7 +22,15 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		private XmlNamedReference politicsField;
 
-		private ColonizablePlanetType[] colonizablePlanetField;
+		private ObservableListSource<ColonizablePlanetType> colonizablePlanetField;
+
+
+		public MinorFaction() : base()
+		{
+			personalityField = new XmlNamedReference();
+			politicsField = new XmlNamedReference();
+			colonizablePlanetField = new ObservableListSource<ColonizablePlanetType>();
+		}
 
 
 		/// <remarks/>
@@ -50,7 +59,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("ColonizablePlanet", Form = XmlSchemaForm.Unqualified)]
-		public ColonizablePlanetType[] ColonizablePlanet
+		public ObservableListSource<ColonizablePlanetType> ColonizablePlanet
 		{
 			get { return this.colonizablePlanetField; }
 			set

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,9 +12,8 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class FactionTraitTooltipOverride : INotifyPropertyChanged
+	public class FactionTraitTooltipOverride : EntityTypeComplex
 	{
-
 		private OverrideType typeField;
 
 		private string overrideNameField;
@@ -40,18 +40,6 @@ namespace ES2.Amplitude.Unity.Simulation
 			{
 				this.overrideNameField = value;
 				this.RaisePropertyChanged("OverrideName");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 

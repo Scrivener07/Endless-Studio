@@ -1,4 +1,5 @@
 ﻿using ES2.Amplitude.Unity.Simulation;
+using Studio.Model;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -25,38 +26,7 @@ namespace ES2.Amplitude.Unity.Framework
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class DatatableElement : INotifyPropertyChanged
-	{
-
-		private string nameField;
-
-
-		/// <remarks/>
-		[XmlAttribute]
-		public string Name
-		{
-			get { return this.nameField; }
-			set
-			{
-				this.nameField = value;
-				this.RaisePropertyChanged("Name");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-
-
-	}
+	public class DatatableElement : EntityType { }
 
 	public interface IDatatableElement
 	{

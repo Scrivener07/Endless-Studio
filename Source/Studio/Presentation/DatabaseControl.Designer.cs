@@ -33,26 +33,16 @@
 			this.c_SplitContainerA = new System.Windows.Forms.SplitContainer();
 			this.c_SplitContainerB = new System.Windows.Forms.SplitContainer();
 			this.c_TreeView = new System.Windows.Forms.TreeView();
+			this.c_DataGridView = new System.Windows.Forms.DataGridView();
+			this.EntityBinding = new System.Windows.Forms.BindingSource(this.components);
 			this.c_PropertyGrid = new System.Windows.Forms.PropertyGrid();
 			this.SelectedToolStrip = new System.Windows.Forms.ToolStrip();
 			this.c_SelectedLabel = new System.Windows.Forms.ToolStripLabel();
 			this.c_ToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.c_TabelLabel = new System.Windows.Forms.ToolStripLabel();
 			this.c_RecordLabel = new System.Windows.Forms.ToolStripLabel();
-			this.c_DataGridView = new System.Windows.Forms.DataGridView();
-			this.EntityBinding = new System.Windows.Forms.BindingSource(this.components);
-			this.EntitySource = new Studio.Framework.Sources.EntityDataSource(this.components);
 			this.EntityNavigator = new Studio.Framework.Sources.EntityBindingNavigator();
-			this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.homepageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.previewImageFileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.releaseNotesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.tagsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.metaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntitySource = new Studio.Framework.Sources.EntityDataSource(this.components);
 			this.c_TableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.c_SplitContainerA)).BeginInit();
 			this.c_SplitContainerA.Panel1.SuspendLayout();
@@ -62,9 +52,9 @@
 			this.c_SplitContainerB.Panel1.SuspendLayout();
 			this.c_SplitContainerB.Panel2.SuspendLayout();
 			this.c_SplitContainerB.SuspendLayout();
-			this.SelectedToolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.c_DataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.EntityBinding)).BeginInit();
+			this.SelectedToolStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// c_TableLayoutPanel
@@ -132,6 +122,26 @@
 			this.c_TreeView.TabIndex = 1;
 			this.c_TreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.c_TreeView_NodeMouseClick);
 			// 
+			// c_DataGridView
+			// 
+			this.c_DataGridView.AutoGenerateColumns = false;
+			this.EntitySource.SetAutoLookup(this.c_DataGridView, true);
+			this.c_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.c_DataGridView.DataSource = this.EntityBinding;
+			this.c_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.c_DataGridView.Location = new System.Drawing.Point(0, 0);
+			this.c_DataGridView.Name = "c_DataGridView";
+			this.c_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.c_DataGridView.Size = new System.Drawing.Size(375, 241);
+			this.c_DataGridView.TabIndex = 1;
+			this.c_DataGridView.SelectionChanged += new System.EventHandler(this.c_DataGridView_SelectionChanged);
+			// 
+			// EntityBinding
+			// 
+			this.EntityBinding.AllowNew = true;
+			this.EntityBinding.DataSource = this.EntitySource;
+			this.EntityBinding.Position = 0;
+			// 
 			// c_PropertyGrid
 			// 
 			this.c_PropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -179,43 +189,8 @@
 			this.c_RecordLabel.Size = new System.Drawing.Size(41, 22);
 			this.c_RecordLabel.Text = "record";
 			// 
-			// c_DataGridView
-			// 
-			this.c_DataGridView.AutoGenerateColumns = false;
-			this.c_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.c_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.typeDataGridViewTextBoxColumn,
-            this.versionDataGridViewTextBoxColumn,
-            this.titleDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.homepageDataGridViewTextBoxColumn,
-            this.previewImageFileDataGridViewTextBoxColumn,
-            this.releaseNotesDataGridViewTextBoxColumn,
-            this.tagsDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.metaDataGridViewTextBoxColumn});
-			this.c_DataGridView.DataSource = this.EntityBinding;
-			this.c_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.c_DataGridView.Location = new System.Drawing.Point(0, 0);
-			this.c_DataGridView.Name = "c_DataGridView";
-			this.c_DataGridView.Size = new System.Drawing.Size(375, 241);
-			this.c_DataGridView.TabIndex = 1;
-			this.c_DataGridView.SelectionChanged += new System.EventHandler(this.c_DataGridView_SelectionChanged);
-			// 
-			// EntityBinding
-			// 
-			this.EntityBinding.AllowNew = true;
-			this.EntityBinding.DataMember = "RuntimeModules";
-			this.EntityBinding.DataSource = this.EntitySource;
-			this.EntityBinding.Position = 0;
-			// 
-			// EntitySource
-			// 
-			this.EntitySource.ContextType = typeof(Studio.Framework.EntityContext);
-			// 
 			// EntityNavigator
 			// 
-			this.EntityNavigator.DataMember = "RuntimeModules";
 			this.EntityNavigator.DataSource = this.EntitySource;
 			this.EntityNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.EntityNavigator.Location = new System.Drawing.Point(0, 0);
@@ -224,65 +199,9 @@
 			this.EntityNavigator.TabIndex = 3;
 			this.EntityNavigator.Text = "entityBindingNavigator1";
 			// 
-			// typeDataGridViewTextBoxColumn
+			// EntitySource
 			// 
-			this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-			this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-			this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-			// 
-			// versionDataGridViewTextBoxColumn
-			// 
-			this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
-			this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
-			this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
-			// 
-			// titleDataGridViewTextBoxColumn
-			// 
-			this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-			this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-			this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-			// 
-			// descriptionDataGridViewTextBoxColumn
-			// 
-			this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-			this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-			this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-			// 
-			// homepageDataGridViewTextBoxColumn
-			// 
-			this.homepageDataGridViewTextBoxColumn.DataPropertyName = "Homepage";
-			this.homepageDataGridViewTextBoxColumn.HeaderText = "Homepage";
-			this.homepageDataGridViewTextBoxColumn.Name = "homepageDataGridViewTextBoxColumn";
-			// 
-			// previewImageFileDataGridViewTextBoxColumn
-			// 
-			this.previewImageFileDataGridViewTextBoxColumn.DataPropertyName = "PreviewImageFile";
-			this.previewImageFileDataGridViewTextBoxColumn.HeaderText = "PreviewImageFile";
-			this.previewImageFileDataGridViewTextBoxColumn.Name = "previewImageFileDataGridViewTextBoxColumn";
-			// 
-			// releaseNotesDataGridViewTextBoxColumn
-			// 
-			this.releaseNotesDataGridViewTextBoxColumn.DataPropertyName = "ReleaseNotes";
-			this.releaseNotesDataGridViewTextBoxColumn.HeaderText = "ReleaseNotes";
-			this.releaseNotesDataGridViewTextBoxColumn.Name = "releaseNotesDataGridViewTextBoxColumn";
-			// 
-			// tagsDataGridViewTextBoxColumn
-			// 
-			this.tagsDataGridViewTextBoxColumn.DataPropertyName = "Tags";
-			this.tagsDataGridViewTextBoxColumn.HeaderText = "Tags";
-			this.tagsDataGridViewTextBoxColumn.Name = "tagsDataGridViewTextBoxColumn";
-			// 
-			// nameDataGridViewTextBoxColumn
-			// 
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			// 
-			// metaDataGridViewTextBoxColumn
-			// 
-			this.metaDataGridViewTextBoxColumn.DataPropertyName = "Meta";
-			this.metaDataGridViewTextBoxColumn.HeaderText = "Meta";
-			this.metaDataGridViewTextBoxColumn.Name = "metaDataGridViewTextBoxColumn";
+			this.EntitySource.ContextType = typeof(Studio.Framework.EntityContext);
 			// 
 			// DatabaseControl
 			// 
@@ -302,10 +221,10 @@
 			this.c_SplitContainerB.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.c_SplitContainerB)).EndInit();
 			this.c_SplitContainerB.ResumeLayout(false);
-			this.SelectedToolStrip.ResumeLayout(false);
-			this.SelectedToolStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.c_DataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.EntityBinding)).EndInit();
+			this.SelectedToolStrip.ResumeLayout(false);
+			this.SelectedToolStrip.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -326,15 +245,5 @@
 		private System.Windows.Forms.DataGridView c_DataGridView;
 		private Framework.Sources.EntityBindingNavigator EntityNavigator;
 		private Framework.Sources.EntityDataSource EntitySource;
-		private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn homepageDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn previewImageFileDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn releaseNotesDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn tagsDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn metaDataGridViewTextBoxColumn;
 	}
 }

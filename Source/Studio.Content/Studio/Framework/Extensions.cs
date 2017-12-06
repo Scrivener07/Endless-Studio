@@ -35,18 +35,19 @@ namespace Studio.Framework
 				//context.Tags,
 				//context.QuestDefinitions,
 				//context.TutorialDefinitions,
-				//context.BasicFactions,
-				//context.Factions,
+				context.Factions,
+				context.BasicFactions,
+				context.LesserFactions,
+				context.MajorFactions,
+				context.MinorFactions,
+				context.PirateFactions
 				//context.FactionAffinitys,
 				//context.FactionAffinityMappings,
 				//context.FactionPopulationTraits,
 				//context.FactionTraits,
 				//context.FactionTraitCategoryDefinitions,
 				//context.FactionTraitStartingSenates,
-				//context.LesserFactions,
-				//context.MajorFactions,
-				//context.MinorFactions,
-				//context.PirateFactions
+
 			};
 		}
 

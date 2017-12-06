@@ -1,6 +1,5 @@
 ﻿using Studio.Framework;
 using Studio.Model;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,11 +8,18 @@ namespace Studio.Presentation
 {
 	public partial class DatabaseControl : UserControl
 	{
+		//[Category("Data")]
+		//public BindingSource BindingSource
+		//{
+		//	get { return EntityBinding; }
+		//	set { EntityBinding = value; }
+		//}
+
 
 		public DatabaseControl()
 		{
 			InitializeComponent();
-			this.c_DataGridView.AutoGenerateColumns = true;
+			this.c_DataGridView.AutoGenerateColumns = true; // create columns automatically
 			this.c_DataGridView.AllowUserToOrderColumns = true;
 			this.c_DataGridView.AllowUserToResizeRows = false;
 			this.c_DataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
@@ -31,6 +37,8 @@ namespace Studio.Presentation
 
 		private void OnLoad(object sender, System.EventArgs e)
 		{
+			this.c_DataGridView.AutoGenerateColumns = true; // create columns automatically
+
 			c_TreeView.Nodes.Add(new TreeNode("default"));
 
 			using (EntityContext context = new EntityContext())
@@ -38,7 +46,7 @@ namespace Studio.Presentation
 				context.GetTableNames().ForEach(name => c_TreeView.Nodes.Add(new TreeNode(name) { Name = name }));
 			}
 
-			//TableSelected("RuntimeModules"); // TODO: temporary mic test
+			TableSelected("RuntimeModules"); // TODO: temporary mic test
 		}
 
 
@@ -48,12 +56,7 @@ namespace Studio.Presentation
 		}
 
 
-		[Category("Data")]
-		public BindingSource BindingSource
-		{
-			get { return EntityBinding; }
-			set { EntityBinding = value; }
-		}
+
 
 
 		#region Selected

@@ -1,4 +1,5 @@
 ﻿using ES2.Amplitude.Unity.Xml;
+using Studio.Framework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -16,20 +17,28 @@ namespace ES2.Amplitude.Unity.Simulation
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class FactionPopulationTrait : FactionTrait
 	{
+		private ObservableListSource<XmlNamedReference> majorPopulationDescriptorsField;
 
-		private XmlNamedReference[] majorPopulationDescriptorsField;
+		private ObservableListSource<XmlNamedReference> nonMajorPopulationDescriptorsField;
 
-		private XmlNamedReference[] nonMajorPopulationDescriptorsField;
+		private ObservableListSource<XmlNamedReference> majorPopulationAspirationsField;
 
-		private XmlNamedReference[] majorPopulationAspirationsField;
+		private ObservableListSource<XmlNamedReference> nonMajorPopulationsAspirationsField;
 
-		private XmlNamedReference[] nonMajorPopulationsAspirationsField;
+
+		public FactionPopulationTrait()
+		{
+			majorPopulationDescriptorsField = new ObservableListSource<XmlNamedReference>();
+			nonMajorPopulationDescriptorsField = new ObservableListSource<XmlNamedReference>();
+			majorPopulationAspirationsField = new ObservableListSource<XmlNamedReference>();
+			nonMajorPopulationsAspirationsField = new ObservableListSource<XmlNamedReference>();
+		}
 
 
 		/// <remarks/>
 		[XmlArray(Form = XmlSchemaForm.Unqualified)]
 		[XmlArrayItem("SimulationDescriptorReference", Form = XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] MajorPopulationDescriptors
+		public ObservableListSource<XmlNamedReference> MajorPopulationDescriptors
 		{
 			get { return this.majorPopulationDescriptorsField; }
 			set
@@ -42,7 +51,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		/// <remarks/>
 		[XmlArray(Form = XmlSchemaForm.Unqualified)]
 		[XmlArrayItem("SimulationDescriptorReference", Form = XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] NonMajorPopulationDescriptors
+		public ObservableListSource<XmlNamedReference> NonMajorPopulationDescriptors
 		{
 			get { return this.nonMajorPopulationDescriptorsField; }
 			set
@@ -55,7 +64,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		/// <remarks/>
 		[XmlArray(Form = XmlSchemaForm.Unqualified)]
 		[XmlArrayItem("AspirationReference", Form = XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] MajorPopulationAspirations
+		public ObservableListSource<XmlNamedReference> MajorPopulationAspirations
 		{
 			get { return this.majorPopulationAspirationsField; }
 			set
@@ -68,7 +77,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		/// <remarks/>
 		[XmlArray(Form = XmlSchemaForm.Unqualified)]
 		[XmlArrayItem("AspirationReference", Form = XmlSchemaForm.Unqualified, IsNullable = false)]
-		public XmlNamedReference[] NonMajorPopulationsAspirations
+		public ObservableListSource<XmlNamedReference> NonMajorPopulationsAspirations
 		{
 			get { return this.nonMajorPopulationsAspirationsField; }
 			set

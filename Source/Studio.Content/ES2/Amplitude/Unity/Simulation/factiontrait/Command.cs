@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,9 +12,8 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class Command : INotifyPropertyChanged
+	public class Command : EntityTypeComplex
 	{
-
 		private string nameField;
 
 		private string argumentsField;
@@ -25,6 +25,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		{
 			this.priorityField = 0;
 		}
+
 
 		/// <remarks/>
 		[XmlAttribute]
@@ -60,18 +61,6 @@ namespace ES2.Amplitude.Unity.Simulation
 			{
 				this.priorityField = value;
 				this.RaisePropertyChanged("Priority");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 

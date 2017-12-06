@@ -15,7 +15,6 @@ namespace ES2.Amplitude.Unity.Simulation
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class FactionAffinity : FactionTrait
 	{
-
 		private string defaultColonizerField;
 
 		private string automatedShipField;

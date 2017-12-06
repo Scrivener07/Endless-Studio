@@ -1,5 +1,4 @@
 ﻿using ES2.Amplitude.Unity.Framework;
-using Studio.Model;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -14,7 +13,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	[XmlRoot(Namespace = "", IsNullable = true)]
-	public class FactionTraitCategoryDefinition : DatatableElement, INamed
+	public class FactionTraitCategoryDefinition : DatatableElement
 	{
 		private bool isSubstituteField;
 

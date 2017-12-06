@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,7 +12,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class StartingPopulation : INotifyPropertyChanged
+	public class StartingPopulation : EntityTypeComplex
 	{
 		private string affinityField;
 
@@ -43,16 +44,7 @@ namespace ES2.Amplitude.Unity.Simulation
 		}
 
 
-		public event PropertyChangedEventHandler PropertyChanged;
 
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
 
 
 	}

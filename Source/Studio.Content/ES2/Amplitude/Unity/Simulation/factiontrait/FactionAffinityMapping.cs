@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Framework;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -15,12 +16,18 @@ namespace ES2.Amplitude.Unity.Simulation
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class FactionAffinityMapping : FactionTrait
 	{
+		private ObservableListSource<AbstractToShipDesignPair> shipDesignField;
 
-		private AbstractToShipDesignPair[] shipDesignField;
+
+		public FactionAffinityMapping()
+		{
+			shipDesignField = new ObservableListSource<AbstractToShipDesignPair>();
+		}
+
 
 		/// <remarks/>
 		[XmlElement("ShipDesign", Form = XmlSchemaForm.Unqualified)]
-		public AbstractToShipDesignPair[] ShipDesign
+		public ObservableListSource<AbstractToShipDesignPair> ShipDesign
 		{
 			get { return this.shipDesignField; }
 			set

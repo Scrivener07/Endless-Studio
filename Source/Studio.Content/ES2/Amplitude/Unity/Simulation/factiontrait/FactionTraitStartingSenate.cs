@@ -1,4 +1,5 @@
 ﻿using ES2.Amplitude.Unity.Xml;
+using Studio.Framework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -15,16 +16,17 @@ namespace ES2.Amplitude.Unity.Simulation
 	[DesignerCategory("code")]
 	public class FactionTraitStartingSenate : FactionTrait
 	{
-
 		private XmlNamedReference governmentField;
 
-		private PoliticsWeight[] politicsWeightField;
+		private ObservableListSource<PoliticsWeight> politicsWeightField;
 
 		private int priorityField;
 
 
 		public FactionTraitStartingSenate()
 		{
+			governmentField = new XmlNamedReference();
+			politicsWeightField = new ObservableListSource<PoliticsWeight>();
 			this.priorityField = 0;
 		}
 
@@ -43,7 +45,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("PoliticsWeight", Form = XmlSchemaForm.Unqualified)]
-		public PoliticsWeight[] PoliticsWeight
+		public ObservableListSource<PoliticsWeight> PoliticsWeight
 		{
 			get { return this.politicsWeightField; }
 			set

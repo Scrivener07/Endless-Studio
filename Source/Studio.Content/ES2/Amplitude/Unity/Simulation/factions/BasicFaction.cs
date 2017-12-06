@@ -21,6 +21,11 @@ namespace ES2.Amplitude.Unity.Simulation
 		private XmlNamedReference affinityMappingField;
 
 
+		public BasicFaction() : base()
+		{
+			affinityMappingField = new XmlNamedReference();
+		}
+
 		/// <remarks/>
 		[XmlElement(Form = XmlSchemaForm.Unqualified)]
 		public XmlNamedReference AffinityMapping

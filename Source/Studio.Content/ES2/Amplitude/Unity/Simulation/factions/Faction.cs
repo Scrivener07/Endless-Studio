@@ -1,6 +1,6 @@
 ﻿using ES2.Amplitude.Unity.Framework;
 using ES2.Amplitude.Unity.Xml;
-using Studio.Model;
+using Studio.Framework;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -21,19 +21,19 @@ namespace ES2.Amplitude.Unity.Simulation
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	[XmlRoot(Namespace = "", IsNullable = true)]
-	public class Faction : DatatableElement, INamed
+	public class Faction : DatatableElement
 	{
 		private XmlNamedReference affinityField;
 
-		private XmlNamedReference[] traitField;
+		private ObservableListSource<XmlNamedReference> traitField;
 
 		private FactionTraitStartingSenate traitStartingSenateField;
 
-		private XmlNamedReference[] bailiffField;
+		private ObservableListSource<XmlNamedReference> bailiffField;
 
 		private StartingPopulation majorPopulationField;
 
-		private StartingPopulation[] minorPopulationField;
+		private ObservableListSource<StartingPopulation> minorPopulationField;
 
 		private string localizedDescriptionField;
 
@@ -52,6 +52,12 @@ namespace ES2.Amplitude.Unity.Simulation
 		{
 			this.authorField = "";
 			this.hiddenField = false;
+			this.affinityField = new XmlNamedReference();
+			this.traitField = new ObservableListSource<XmlNamedReference>();
+			this.traitStartingSenateField = new FactionTraitStartingSenate();
+			this.bailiffField = new ObservableListSource<XmlNamedReference>();
+			this.majorPopulationField = new StartingPopulation();
+			this.minorPopulationField = new ObservableListSource<StartingPopulation>();
 		}
 
 		/// <remarks/>
@@ -68,7 +74,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("Trait", Form = XmlSchemaForm.Unqualified)]
-		public XmlNamedReference[] Trait
+		public ObservableListSource<XmlNamedReference> Trait
 		{
 			get { return this.traitField; }
 			set
@@ -92,7 +98,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("Bailiff", Form = XmlSchemaForm.Unqualified)]
-		public XmlNamedReference[] Bailiff
+		public ObservableListSource<XmlNamedReference> Bailiff
 		{
 			get { return this.bailiffField; }
 			set
@@ -116,7 +122,7 @@ namespace ES2.Amplitude.Unity.Simulation
 
 		/// <remarks/>
 		[XmlElement("MinorPopulation", Form = XmlSchemaForm.Unqualified)]
-		public StartingPopulation[] MinorPopulation
+		public ObservableListSource<StartingPopulation> MinorPopulation
 		{
 			get { return this.minorPopulationField; }
 			set

@@ -1,6 +1,7 @@
 ﻿using Studio.Framework;
 using Studio.Presentation;
 using System;
+using System.Data.Entity;
 using System.IO;
 using System.Windows.Forms;
 
@@ -35,6 +36,13 @@ namespace Studio
 				new EntityInitializer().InitializeDatabase(context);
 				context.ClearTables();
 				context.SaveChanges();
+				context.RuntimeModules.Load();
+				context.Factions.Load();
+				context.BasicFactions.Load();
+				context.LesserFactions.Load();
+				context.MinorFactions.Load();
+				context.MajorFactions.Load();
+				context.PirateFactions.Load();
 			}
 			return true;
 		}
