@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml;
 
-namespace Studio.Model
+namespace Studio.Serialization
 {
-	public class ElementCache : Dictionary<string, GameType>
+	public class TypeCache : Dictionary<string, GameType>
 	{
 
 		public void Store(Type type)

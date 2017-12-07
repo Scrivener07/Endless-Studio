@@ -16,7 +16,7 @@ namespace ES2.Amplitude.Unity.Runtime
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	[XmlRoot(Namespace = "", IsNullable = true)]
-	public class RuntimeModule : EntityType, INotifyPropertyChanged
+	public class RuntimeModule : EntityType
 	{
 		private RuntimeModuleType typeField;
 
@@ -47,19 +47,6 @@ namespace ES2.Amplitude.Unity.Runtime
 			Tags = new Tags();
 			pluginsField = new ObservableListSource<RuntimePlugin>();
 		}
-
-
-		///// <remarks/>
-		//[XmlAttribute]
-		//new public string Name
-		//{
-		//	get { return this.nameField; }
-		//	set
-		//	{
-		//		this.nameField = value;
-		//		this.RaisePropertyChanged("Name");
-		//	}
-		//}
 
 
 		/// <remarks/>

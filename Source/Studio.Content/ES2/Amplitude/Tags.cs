@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -11,7 +12,7 @@ namespace ES2.Amplitude
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class Tags : INotifyPropertyChanged
+	public class Tags : EntityTypeComplex
 	{
 		private string valueField;
 
@@ -25,18 +26,6 @@ namespace ES2.Amplitude
 			{
 				this.valueField = value;
 				this.RaisePropertyChanged("Value");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 

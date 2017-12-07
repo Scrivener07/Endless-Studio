@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studio.Serialization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +12,6 @@ namespace Studio.Model
 	public abstract class EntityType : Entity, INamed
 	{
 		[Key, Column(Order = 1)]
-		//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Category("Attribute"), Description("The unique key name of this element.")]
 		[XmlAttribute("Name")]
 		public virtual string Name { get; set; }
@@ -24,13 +24,12 @@ namespace Studio.Model
 		public virtual EntityMeta Meta { get; set; }
 
 
-
-
+		/// <summary>
+		/// Each entity must store its type within the element cache. 
+		/// Store the type in the entities static constructor or use the annotation attribute.
+		/// </summary>
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public static ElementCache Serializer { get; private set; }
-
-
-
+		public static TypeCache Serializer { get; private set; }
 
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -38,12 +37,9 @@ namespace Studio.Model
 		public virtual List<MetaInfo> DependencyList { get; set; }
 
 
-
-
-
 		static EntityType()
 		{
-			Serializer = new ElementCache();
+			Serializer = new TypeCache();
 		}
 
 		public EntityType()

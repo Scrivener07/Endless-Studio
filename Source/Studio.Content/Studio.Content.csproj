@@ -410,8 +410,8 @@
     <Compile Include="ES2\Amplitude\Unity\Runtime\Plugins\RegistryPlugin.cs" />
     <Compile Include="ES2\Amplitude\Unity\Runtime\RuntimeModule.cs" />
     <Compile Include="ES2\Amplitude\Unity\Localization\LocalizationDatatableElement.cs" />
-    <Compile Include="ES2\Amplitude\Unity\Framework\Database_T.cs" />
-    <Compile Include="ES2\Amplitude\Unity\Framework\Databases.cs" />
+    <Compile Include="Studio\Database.cs" />
+    <Compile Include="Studio\Databases.cs" />
     <Compile Include="ES2\Amplitude\Unity\Runtime\RuntimeModuleType.cs" />
     <Compile Include="ES2\Amplitude\Unity\Runtime\RuntimePlugin.cs" />
     <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\AbstractToShipDesignPair.cs" />
@@ -420,7 +420,7 @@
     <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionPopulationTrait.cs" />
     <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\Command.cs" />
     <Compile Include="ES2\Amplitude\Unity\Framework\DatatableElement.cs" />
-    <Compile Include="ES2\Amplitude\Unity\Framework\Datatable_T.cs" />
+    <Compile Include="Studio\Datatable.cs" />
     <Compile Include="ES2\Amplitude\Unity\Simulation\factiontrait\FactionTraitCategoryDefinition.cs" />
     <Compile Include="ES2\Amplitude\Unity\Simulation\other\ColonizablePlanetType.cs" />
     <Compile Include="ES2\Amplitude\Unity\Simulation\factions\BasicFaction.cs" />
@@ -486,22 +486,24 @@
       <DependentUpon>EntityDataSource.cs</DependentUpon>
     </Compile>
     <Compile Include="Studio\Framework\Sources\ListDictionary.cs" />
-    <Compile Include="Studio\Model\ElementCache.cs" />
+    <Compile Include="Studio\Projects\Module.cs" />
+    <Compile Include="Studio\Serialization\TypeCache.cs" />
     <Compile Include="Studio\Model\Entity.cs" />
     <Compile Include="Studio\Model\EntityType.cs" />
     <Compile Include="Studio\Model\EntityMeta.cs" />
     <Compile Include="Studio\Model\EntityTypeComplex.cs" />
-    <Compile Include="Studio\Model\GameType.cs" />
+    <Compile Include="Studio\Serialization\GameType.cs" />
     <Compile Include="Studio\Model\MetaInfo.cs" />
     <Compile Include="Studio\Model\ModelSettings.cs" />
     <Compile Include="Studio\Model\TextData.cs" />
     <Compile Include="Studio\Framework\EntityContext.cs" />
     <Compile Include="Studio\Framework\EntityInitializer.cs" />
-    <Compile Include="Studio\Framework\Extensions.cs" />
+    <Compile Include="Studio\Framework\EntityExtensions.cs" />
     <Compile Include="Studio\Model\INamed.cs" />
     <Compile Include="Studio\Framework\ObservableListSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ES2\Amplitude\Unity\Simulation\quest\QuestStepChoiceDefinition.cs" />
+    <Compile Include="Studio\Serialization\GameTypeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

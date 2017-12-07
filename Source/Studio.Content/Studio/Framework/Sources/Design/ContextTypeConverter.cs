@@ -5,7 +5,6 @@ using System.ComponentModel.Design;
 using System.Data.Entity;
 using System.Globalization;
 
-
 namespace Studio.Framework.Sources.Design
 {
 	/// <summary>

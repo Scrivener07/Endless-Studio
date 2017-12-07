@@ -1,9 +1,5 @@
-﻿using System;
+﻿using ES2.Amplitude.Xml.Serialization;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ES2.Amplitude.Xml.Serialization;
 
 namespace ES2.Amplitude.Unity.Framework
 {
@@ -17,13 +13,12 @@ namespace ES2.Amplitude.Unity.Framework
 		{
 			try
 			{
-				object obj;
-				if (!Databases.databases.TryGetValue(typeof(T), out obj))
+				if (!databases.TryGetValue(typeof(T), out object obj))
 				{
 					Database<T> database = new Database<T>();
 					if (database.LoadFile(path, overrides, extraTypes))
 					{
-						Databases.databases.Add(typeof(T), (object)database);
+						databases.Add(typeof(T), database);
 						return true;
 					}
 				}
@@ -34,7 +29,7 @@ namespace ES2.Amplitude.Unity.Framework
 			}
 			catch (System.Exception ex)
 			{
-				Diagnostics.LogWarning("Exception caught while loading file '{0}' in database of type '{1}'. Exception: {2}", (object)path, (object)typeof(T).ToString(), (object)ex.ToString());
+				Diagnostics.LogWarning("Exception caught while loading file '{0}' in database of type '{1}'. Exception: {2}", path, typeof(T).ToString(), ex.ToString());
 			}
 			return false;
 		}

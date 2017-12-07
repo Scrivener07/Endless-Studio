@@ -1,19 +1,22 @@
-﻿using System;
+﻿using ES2.Amplitude.Unity.Simulation;
+using Studio.Serialization;
+using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace Studio.Model
 {
+	[GameType(typeof(MajorFaction))]
 	public class GameType : IEquatable<GameType>
 	{
 		public string Name { get { return SystemType.Name; } }
 		public readonly string NameXml;
-		public readonly Type SystemType;
+		public readonly System.Type SystemType;
 		public readonly XmlSerializer Serializer;
 
 
 
-		public GameType(Type type)
+		public GameType(System.Type type)
 		{
 			if (type == null) { throw new ArgumentNullException("type", "The type argument cannot be null."); }
 			SystemType = type;
@@ -27,20 +30,18 @@ namespace Studio.Model
 
 
 
-		private static string GetXmlName(Type type)
+		private static string GetXmlName(System.Type type)
 		{
 			Attribute[] attributes = Attribute.GetCustomAttributes(type);
 
 			foreach (Attribute attribute in attributes)
 			{
-				if (attribute is XmlRootAttribute)
+				if (attribute is XmlRootAttribute xmlRoot)
 				{
-					XmlRootAttribute xmlRoot = (XmlRootAttribute)attribute;
 					return xmlRoot.ElementName;
 				}
-				if (attribute is XmlTypeAttribute)
+				if (attribute is XmlTypeAttribute xmlType)
 				{
-					XmlTypeAttribute xmlType = (XmlTypeAttribute)attribute;
 					return xmlType.TypeName;
 				}
 			}
@@ -48,23 +49,20 @@ namespace Studio.Model
 		}
 
 
-
-
 		#region IEquatable<GameType> Members
 
 		public bool Equals(GameType other)
 		{
 			if (other == null) return false;
-			return (this.NameXml.Equals(other.NameXml));
+			return (NameXml.Equals(other.NameXml));
 		}
-
 
 
 		/// <summary>Returns the hashcode for the types Name property.</summary>
 		/// <returns>A hash code for the current types Name.</returns>
 		public override int GetHashCode()
 		{
-			return this.NameXml.GetHashCode();
+			return NameXml.GetHashCode();
 		}
 
 		/// <summary>Override is needed to be able to use the same validation independent of the way of comparing.</summary>
@@ -85,9 +83,9 @@ namespace Studio.Model
 		/// <remarks>Needed when working with value types.</remarks>
 		public static bool operator ==(GameType A, GameType B)
 		{
-			if (object.ReferenceEquals(A, B)) return true;
-			if (object.ReferenceEquals(A, null)) return false;
-			if (object.ReferenceEquals(B, null)) return false;
+			if (ReferenceEquals(A, B)) return true;
+			if (A is null) return false;
+			if (B is null) return false;
 			return A.Equals(B);
 		}
 
@@ -99,9 +97,9 @@ namespace Studio.Model
 		/// <remarks>Needed when working with value types.</remarks>
 		public static bool operator !=(GameType A, GameType B)
 		{
-			if (object.ReferenceEquals(A, B)) return false;
-			if (object.ReferenceEquals(A, null)) return true;
-			if (object.ReferenceEquals(B, null)) return true;
+			if (ReferenceEquals(A, B)) return false;
+			if (A is null) return true;
+			if (B is null) return true;
 			return !A.Equals(B);
 		}
 
