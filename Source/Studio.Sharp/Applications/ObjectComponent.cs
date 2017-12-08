@@ -3,6 +3,10 @@ using System.ComponentModel;
 
 namespace Sharp.Applications
 {
+	/// <summary>
+	/// Classes which inherit ObjectComponent<T> act as components of the parameter type.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public abstract class ObjectComponent<T> where T : class
 	{

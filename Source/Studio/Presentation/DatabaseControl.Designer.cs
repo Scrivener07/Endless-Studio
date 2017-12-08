@@ -41,8 +41,8 @@
 			this.c_ToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.c_TabelLabel = new System.Windows.Forms.ToolStripLabel();
 			this.c_RecordLabel = new System.Windows.Forms.ToolStripLabel();
-			this.EntityNavigator = new Studio.Framework.Sources.EntityBindingNavigator();
-			this.EntitySource = new Studio.Framework.Sources.EntityDataSource(this.components);
+			this.EntityNavigator = new ES2.Editor.Framework.Binding.EntityBindingNavigator();
+			this.EntitySource = new ES2.Editor.Framework.Binding.EntityDataSource(this.components);
 			this.c_TableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.c_SplitContainerA)).BeginInit();
 			this.c_SplitContainerA.Panel1.SuspendLayout();
@@ -62,7 +62,6 @@
 			this.c_TableLayoutPanel.ColumnCount = 1;
 			this.c_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.c_TableLayoutPanel.Controls.Add(this.c_SplitContainerA, 0, 2);
-			this.c_TableLayoutPanel.Controls.Add(this.EntityNavigator, 0, 0);
 			this.c_TableLayoutPanel.Controls.Add(this.SelectedToolStrip, 0, 1);
 			this.c_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.c_TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -78,7 +77,7 @@
 			// c_SplitContainerA
 			// 
 			this.c_SplitContainerA.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.c_SplitContainerA.Location = new System.Drawing.Point(3, 53);
+			this.c_SplitContainerA.Location = new System.Drawing.Point(3, 28);
 			this.c_SplitContainerA.Name = "c_SplitContainerA";
 			this.c_SplitContainerA.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
@@ -88,9 +87,10 @@
 			// 
 			// c_SplitContainerA.Panel2
 			// 
+			this.c_SplitContainerA.Panel2.Controls.Add(this.EntityNavigator);
 			this.c_SplitContainerA.Panel2.Controls.Add(this.c_PropertyGrid);
-			this.c_SplitContainerA.Size = new System.Drawing.Size(583, 507);
-			this.c_SplitContainerA.SplitterDistance = 241;
+			this.c_SplitContainerA.Size = new System.Drawing.Size(583, 532);
+			this.c_SplitContainerA.SplitterDistance = 252;
 			this.c_SplitContainerA.SplitterWidth = 12;
 			this.c_SplitContainerA.TabIndex = 0;
 			// 
@@ -108,7 +108,7 @@
 			// c_SplitContainerB.Panel2
 			// 
 			this.c_SplitContainerB.Panel2.Controls.Add(this.c_DataGridView);
-			this.c_SplitContainerB.Size = new System.Drawing.Size(583, 241);
+			this.c_SplitContainerB.Size = new System.Drawing.Size(583, 252);
 			this.c_SplitContainerB.SplitterDistance = 196;
 			this.c_SplitContainerB.SplitterWidth = 12;
 			this.c_SplitContainerB.TabIndex = 1;
@@ -118,21 +118,20 @@
 			this.c_TreeView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.c_TreeView.Location = new System.Drawing.Point(0, 0);
 			this.c_TreeView.Name = "c_TreeView";
-			this.c_TreeView.Size = new System.Drawing.Size(196, 241);
+			this.c_TreeView.Size = new System.Drawing.Size(196, 252);
 			this.c_TreeView.TabIndex = 1;
 			this.c_TreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.c_TreeView_NodeMouseClick);
 			// 
 			// c_DataGridView
 			// 
 			this.c_DataGridView.AutoGenerateColumns = false;
-			this.EntitySource.SetAutoLookup(this.c_DataGridView, true);
 			this.c_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.c_DataGridView.DataSource = this.EntityBinding;
 			this.c_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.c_DataGridView.Location = new System.Drawing.Point(0, 0);
 			this.c_DataGridView.Name = "c_DataGridView";
 			this.c_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.c_DataGridView.Size = new System.Drawing.Size(375, 241);
+			this.c_DataGridView.Size = new System.Drawing.Size(375, 252);
 			this.c_DataGridView.TabIndex = 1;
 			this.c_DataGridView.SelectionChanged += new System.EventHandler(this.c_DataGridView_SelectionChanged);
 			// 
@@ -147,7 +146,7 @@
 			this.c_PropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.c_PropertyGrid.Location = new System.Drawing.Point(0, 0);
 			this.c_PropertyGrid.Name = "c_PropertyGrid";
-			this.c_PropertyGrid.Size = new System.Drawing.Size(583, 254);
+			this.c_PropertyGrid.Size = new System.Drawing.Size(583, 268);
 			this.c_PropertyGrid.TabIndex = 1;
 			// 
 			// SelectedToolStrip
@@ -158,7 +157,7 @@
             this.c_ToolStripSeparator,
             this.c_TabelLabel,
             this.c_RecordLabel});
-			this.SelectedToolStrip.Location = new System.Drawing.Point(0, 25);
+			this.SelectedToolStrip.Location = new System.Drawing.Point(0, 0);
 			this.SelectedToolStrip.Name = "SelectedToolStrip";
 			this.SelectedToolStrip.Size = new System.Drawing.Size(589, 25);
 			this.SelectedToolStrip.TabIndex = 2;
@@ -192,16 +191,15 @@
 			// EntityNavigator
 			// 
 			this.EntityNavigator.DataSource = this.EntitySource;
-			this.EntityNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.EntityNavigator.Location = new System.Drawing.Point(0, 0);
 			this.EntityNavigator.Name = "EntityNavigator";
-			this.EntityNavigator.Size = new System.Drawing.Size(589, 25);
-			this.EntityNavigator.TabIndex = 3;
+			this.EntityNavigator.Size = new System.Drawing.Size(583, 25);
+			this.EntityNavigator.TabIndex = 2;
 			this.EntityNavigator.Text = "entityBindingNavigator1";
 			// 
 			// EntitySource
 			// 
-			this.EntitySource.ContextType = typeof(Studio.Framework.EntityContext);
+			this.EntitySource.ContextType = null;
 			// 
 			// DatabaseControl
 			// 
@@ -215,6 +213,7 @@
 			this.c_TableLayoutPanel.PerformLayout();
 			this.c_SplitContainerA.Panel1.ResumeLayout(false);
 			this.c_SplitContainerA.Panel2.ResumeLayout(false);
+			this.c_SplitContainerA.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.c_SplitContainerA)).EndInit();
 			this.c_SplitContainerA.ResumeLayout(false);
 			this.c_SplitContainerB.Panel1.ResumeLayout(false);
@@ -243,7 +242,7 @@
 		private System.Windows.Forms.ToolStripLabel c_RecordLabel;
 		private System.Windows.Forms.TreeView c_TreeView;
 		private System.Windows.Forms.DataGridView c_DataGridView;
-		private Framework.Sources.EntityBindingNavigator EntityNavigator;
-		private Framework.Sources.EntityDataSource EntitySource;
+		private ES2.Editor.Framework.Binding.EntityBindingNavigator EntityNavigator;
+		private ES2.Editor.Framework.Binding.EntityDataSource EntitySource;
 	}
 }

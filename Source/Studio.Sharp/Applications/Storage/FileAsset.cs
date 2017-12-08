@@ -28,7 +28,7 @@ namespace Sharp.Applications.Storage
 
 		public FileAsset() : base()
 		{
-			FilePath = Guid.NewGuid().ToString(); ;
+			FilePath = Guid.NewGuid().ToString();
 		}
 
 

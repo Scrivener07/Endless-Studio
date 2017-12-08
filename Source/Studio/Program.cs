@@ -1,4 +1,5 @@
-﻿using Studio.Framework;
+﻿using ES2.Editor;
+using ES2.Editor.Framework;
 using Studio.Presentation;
 using System;
 using System.Data.Entity;
@@ -10,7 +11,7 @@ namespace Studio
 	internal static class Program
 	{
 		public static StudioContext<MainForm> Studio { get; private set; }
-
+		public static ProjectContext Game { get; private set; }
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -21,6 +22,7 @@ namespace Studio
 			AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			Game = new ProjectContext();
 			Studio = new StudioContext<MainForm>(new MainForm());
 			Application.Run(Studio);
 		}
