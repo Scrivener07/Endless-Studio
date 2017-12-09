@@ -292,22 +292,22 @@ namespace ES2.Editor
 							return false;
 						}
 					}
-					else if (DataManagerIndex.Xml.Game.RequestedDLCName == Index.DLC.Disharmony)
-					{
-						Report.Progress(progress, Report.Message("Detected a disharmony source dependency."));
-						string path = Owner.Game.PublicXp + @"\index.xml";
+					//else if (DataManagerIndex.Xml.Game.RequestedDLCName == Index.DLC.Disharmony)
+					//{
+					//	Report.Progress(progress, Report.Message("Detected a disharmony source dependency."));
+					//	string path = Owner.Game.PublicXp + @"\index.xml";
 
-						if (DependenciesSource.Open(path, progress))
-						{
-							return true;
-						}
-						else
-						{
-							Report.Progress(progress, Report.Message("Could not auto find the dependency at " + path, DisplayIcon.Error));
-							DependenciesSource = null;
-							return false;
-						}
-					}
+					//	if (DependenciesSource.Open(path, progress))
+					//	{
+					//		return true;
+					//	}
+					//	else
+					//	{
+					//		Report.Progress(progress, Report.Message("Could not auto find the dependency at " + path, DisplayIcon.Error));
+					//		DependenciesSource = null;
+					//		return false;
+					//	}
+					//}
 					else
 					{
 						Report.Progress(progress, Report.Message("The requested dlc is unknown. " + DataManagerIndex.Xml.Game.RequestedDLCName, DisplayIcon.Error));
@@ -411,7 +411,7 @@ namespace ES2.Editor
 
 		#region Methods
 
-		private void DependenciesSetSource(string filepath, IProgress<ProgressEventArgs> progress = null)
+		public void DependenciesSetSource(string filepath, IProgress<ProgressEventArgs> progress = null)
 		{
 			var modification = new ModificationAsset(filepath);
 
@@ -625,7 +625,7 @@ namespace ES2.Editor
 		}
 
 
-		private void InvokeUpdate()
+		public void InvokeUpdate()
 		{
 			EventUpdated?.Invoke(null, new ProjectUpdatedEventArgs(State, DataManagerIndex));
 		}

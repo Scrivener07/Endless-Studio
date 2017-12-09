@@ -7,8 +7,7 @@ namespace ES2.Editor.Assets
 	public class GameFolder : FolderAsset
 	{
 		public string Public { get { return Path.Combine(Location, "Public"); } }
-		public string PublicXp { get { return Path.Combine(Location, "Public_xp1"); } }
-		public string Data { get { return Path.Combine(Location, "EndlessSpace_Data"); } }
+		public string Data { get { return Path.Combine(Location, "EndlessSpace2_Data"); } }
 
 		public GameFolder() : base(AutoDetect()) { }
 		public GameFolder(string location) : base(location) { }
@@ -21,7 +20,7 @@ namespace ES2.Editor.Assets
 			if (key != null)
 			{
 				string value = key.GetValue("SteamPath").ToString();
-				string result = Path.Combine(value, "SteamApps", "common", "Endless Space");
+				string result = Path.Combine(value, "SteamApps", "common", "Endless Space 2");
 				return result;
 			}
 			return null;

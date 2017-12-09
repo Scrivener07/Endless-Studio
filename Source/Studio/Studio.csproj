@@ -73,6 +73,36 @@
     <Compile Include="Presentation\MainSplash.Designer.cs">
       <DependentUpon>MainSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\MessageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\MessageWindow.Designer.cs">
+      <DependentUpon>MessageWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProjectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\ProjectControl.Designer.cs">
+      <DependentUpon>ProjectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProjectWindowNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ProjectWindowNew.Designer.cs">
+      <DependentUpon>ProjectWindowNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProjectWindowOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ProjectWindowOpen.Designer.cs">
+      <DependentUpon>ProjectWindowOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProjectWindowProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ProjectWindowProperties.Designer.cs">
+      <DependentUpon>ProjectWindowProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudioContext.cs" />
@@ -84,6 +114,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MainSplash.resx">
       <DependentUpon>MainSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MessageWindow.resx">
+      <DependentUpon>MessageWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ProjectControl.resx">
+      <DependentUpon>ProjectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ProjectWindowNew.resx">
+      <DependentUpon>ProjectWindowNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ProjectWindowOpen.resx">
+      <DependentUpon>ProjectWindowOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ProjectWindowProperties.resx">
+      <DependentUpon>ProjectWindowProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

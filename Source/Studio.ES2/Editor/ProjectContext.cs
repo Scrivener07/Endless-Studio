@@ -6,8 +6,8 @@ namespace ES2.Editor
 {
 	public class ProjectContext : IProject
 	{
-		ProjectModule Project;
-		public Version Supported { get; set; }
+		public ProjectModule Project { get; private set; }
+		public Version Supported { get; private set; }
 		public AppFolder App { get; private set; }
 		public GameFolder Game { get; private set; }
 		public UserFolder User { get; private set; }
@@ -15,7 +15,7 @@ namespace ES2.Editor
 
 		public ProjectContext()
 		{
-			Supported = new Version(1, 1, 58, 3);
+			Supported = new Version(5, 5, 1, 7352351);
 			App = new AppFolder();
 			Game = new GameFolder();
 			User = new UserFolder();
@@ -23,10 +23,12 @@ namespace ES2.Editor
 		}
 
 
+
+
 		#region IProject
 
 		/// <summary>
-		/// Will allocate the project model from an index file.
+		/// Will allocate an existing modification from an index file.
 		/// </summary>
 		/// <param name="filepath">The path to an index file.</param>
 		/// <param name="progress"></param>

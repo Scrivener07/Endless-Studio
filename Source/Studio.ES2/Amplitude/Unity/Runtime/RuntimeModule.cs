@@ -13,7 +13,10 @@ using System.Xml.Serialization;
 
 namespace ES2.Amplitude.Unity.Runtime
 {
-	/// <remarks/>
+	/// <summary>
+	/// This class should implement the IDatatableElement interface.
+	/// See the decompiled assembly source code.
+	/// </summary>
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]
@@ -21,8 +24,11 @@ namespace ES2.Amplitude.Unity.Runtime
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class RuntimeModule : EntityType
 	{
-		// TODO: Depreciate the index class.
-		[XmlElement("Game")]
+		/// <summary>
+		/// TODO: Depreciate the index class. This was inherited from the old code base.
+		/// </summary>
+		[Obsolete]
+		[XmlIgnore]
 		public Index Game { get; set; }
 
 		private RuntimeModuleType typeField;
@@ -53,6 +59,7 @@ namespace ES2.Amplitude.Unity.Runtime
 			this.versionField = "1.0";
 			Tags = new Tags();
 			pluginsField = new ObservableListSource<RuntimePlugin>();
+			Game = new Index();
 		}
 
 

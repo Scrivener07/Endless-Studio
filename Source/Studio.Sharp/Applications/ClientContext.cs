@@ -1,6 +1,8 @@
 ﻿using Sharp.Applications.Messages;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Sharp.Applications
@@ -15,12 +17,96 @@ namespace Sharp.Applications
 
 		public ClientContext(T client) : base(client)
 		{
-			if (client == null)
-				throw new ArgumentNullException("client", "The argument Form cannot be null.");
-
-			Client = client;
+			Client = client ?? throw new ArgumentNullException("client", "The argument Form cannot be null.");
 			History = new BindingList<string>();
 		}
+
+
+		public virtual void ShowWindow(Form form)
+		{
+			if (form != null)
+			{
+				foreach (Form child in OpenForms)
+				{
+					if (child.GetType() == form.GetType())
+					{
+						child.WindowState = FormWindowState.Normal;
+						child.Focus();
+						return;
+					}
+				}
+
+				form.StartPosition = FormStartPosition.CenterScreen;
+				form.Show();
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		public virtual void ShowDialog(Form form)
+		{
+			if (Client is IClient && Client.IsMdiContainer)
+			{
+				try
+				{
+					if (form != null)
+					{
+						form.StartPosition = FormStartPosition.CenterScreen;
+						form.ShowDialog(Client);
+					}
+				}
+				catch (Exception exception)
+				{
+					Trace.WriteLine(exception.InnerException.Message);
+				}
+			}
+		}
+
+
+		public virtual void CloseAll(List<string> ignores = null)
+		{
+			if (ignores == null || ignores.Count <= 0)
+			{
+				foreach (Form child in Client.MdiChildren)
+				{
+					child.Close();
+				}
+				return;
+			}
+			else
+			{
+				foreach (Form child in Client.MdiChildren)
+				{
+					if (!ignores.Contains(child.GetType().Name))
+					{
+						child.Close();
+					}
+				}
+				return;
+			}
+		}
+
+
+
+
+
+
+
+
+
+
 
 
 		#region IClient

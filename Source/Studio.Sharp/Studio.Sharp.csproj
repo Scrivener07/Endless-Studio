@@ -48,6 +48,12 @@
     <Compile Include="Applications\Dialogs\WindowWrapper.cs" />
     <Compile Include="Applications\Messages\ExceptionMessage.cs" />
     <Compile Include="Applications\ClientContext.cs" />
+    <Compile Include="Applications\Controls\ProgressWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ProgressWidget.Designer.cs">
+      <DependentUpon>ProgressWidget.cs</DependentUpon>
+    </Compile>
     <Compile Include="Collections\CollectionChangedEventArgs.cs" />
     <Compile Include="SharpCollection.cs" />
     <Compile Include="Collections\IKeyed.cs" />
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Dialogs\splash\SplashBase.resx">
       <DependentUpon>SplashBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Controls\ProgressWidget.resx">
+      <DependentUpon>ProgressWidget.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

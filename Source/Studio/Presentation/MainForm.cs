@@ -14,6 +14,12 @@ namespace Studio.Presentation
 		}
 
 
+		private void OnLoad(object sender, EventArgs e)
+		{
+			Main_ProjectControl.Context = Program.Game;
+		}
+
+
 		#region IClient
 
 		public void Log(string message, BindingList<string> history)
@@ -27,6 +33,27 @@ namespace Studio.Presentation
 		}
 
 		#endregion
+
+
+		private void ViewMessages_ToolStripMenuItem_OnClick(object sender, EventArgs e)
+		{
+			Program.Studio.ShowMessages();
+		}
+
+		private void FileNew_ToolStripMenuItem_OnClick(object sender, EventArgs e)
+		{
+			Program.Studio.ShowProjectNew();
+		}
+
+		private void FileOpen_ToolStripMenuItem_OnClick(object sender, EventArgs e)
+		{
+			Program.Studio.ShowProjectOpen();
+		}
+
+		private void FileExit_ToolStripMenuItem_OnClick(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 
 
 	}

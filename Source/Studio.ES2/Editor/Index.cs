@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ES2.Editor.Model;
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -6,7 +7,7 @@ namespace ES2.Editor
 {
 	[Obsolete]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
-	public class Index
+	public class Index : EntityTypeComplex
 	{
 		public string Name { get; set; }
 		public bool Standalone { get; set; }
@@ -30,12 +31,11 @@ namespace ES2.Editor
 			Repositories = new BindingList<Repository>();
 
 		}
-
 	}
 
-
+	[Obsolete]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
-	public class Repository
+	public class Repository : EntityTypeComplex
 	{
 		[XmlAttribute("Target")]
 		public string Target { get; set; }
@@ -52,8 +52,9 @@ namespace ES2.Editor
 			Files = new BindingList<File>();
 		}
 
+		[Obsolete]
 		[TypeConverter(typeof(ExpandableObjectConverter))]
-		public class File
+		public class File : EntityTypeComplex
 		{
 			[XmlText]
 			public string Path { get; set; }

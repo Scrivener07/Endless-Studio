@@ -6,9 +6,13 @@ namespace ES2.Editor.Assets
 {
 	public class UserFolder : FolderAsset
 	{
-		public string Mods { get { return Path.Combine(Location, "Modding"); } }
-		public string ModsXp { get { return Path.Combine(Location, "Disharmony", "Modding"); } }
-		public string Editor { get { return Path.Combine(Location, "Editor"); } }
+		public string Mods { get { return Path.Combine(Location, "Community"); } }
+		public string CustomFactions { get { return Path.Combine(Location, "Custom Factions"); } }
+		public string ResourcesExport { get { return Path.Combine(Location, "Resources Export"); } }
+		public string SaveFiles { get { return Path.Combine(Location, "Save Files"); } }
+		public string Screenshots { get { return Path.Combine(Location, "screenshots"); } }
+		public string TemporaryFiles { get { return Path.Combine(Location, "Temporary Files"); } }
+		public string Users { get { return Path.Combine(Location, "Users"); } }
 
 		public UserFolder() : base(AutoDetect()) { }
 		public UserFolder(string location) : base(location) { }
@@ -16,8 +20,8 @@ namespace ES2.Editor.Assets
 
 		public static string AutoDetect()
 		{
-			string mydocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			return Path.Combine(mydocs, "Endless Space");
+			string myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			return Path.Combine(myDocuments, "Endless Space 2");
 		}
 
 

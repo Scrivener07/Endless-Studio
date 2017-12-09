@@ -13,9 +13,9 @@ namespace ES2.Editor.Serialization
 		{
 			string typeName = type.Name;
 
-			if (!this.ContainsKey(typeName))
+			if (!ContainsKey(typeName))
 			{
-				this.Add(typeName, new GameType(type));
+				Add(typeName, new GameType(type));
 			}
 		}
 

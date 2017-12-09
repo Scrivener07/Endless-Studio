@@ -14,17 +14,15 @@ namespace Sharp.Applications.Messages
 
 		void OnLoad(object sender, EventArgs e)
 		{
-
+			Dummy();
 		}
 
 
 		public void Message(string text, int image = -1, bool popup = false)
 		{
 			ListViewItem message = new ListViewItem(text, image);
-			this.c_ErrorsListView.Items.Add(message);
-			//		this.c_ErrorsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent); //performance heavy for EVERY call
+			c_ErrorsListView.Items.Add(message);
 			message.EnsureVisible();
-
 			if (popup)
 			{
 				if (image == DisplayIcon.Error || image == DisplayIcon.Warning)
@@ -37,7 +35,7 @@ namespace Sharp.Applications.Messages
 
 		public void Clear()
 		{
-			this.c_ErrorsListView.Items.Clear();
+			c_ErrorsListView.Items.Clear();
 		}
 
 
