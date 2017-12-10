@@ -81,7 +81,9 @@ namespace ES2.Editor
 			{
 				MajorFaction faction = new MajorFaction()
 				{
-					Name = "Amarr"
+					Name = "Amarr",
+					Author = "Scrivener07",
+					LocalizedDescription = "This faction was created by the Endless Studio editor."
 				};
 
 				Datatable datatable = new Datatable();
@@ -92,24 +94,16 @@ namespace ES2.Editor
 					Xml = datatable
 				};
 
-				//TableAssets.Add(fileAsset);
-
 				try
 				{
-					bool breakpoint = fileAsset.Write(progress);
-					breakpoint.ToString(); // TODO: Delete this line, its for a break point only.
+					fileAsset.Write(progress);
 				}
 				catch (Exception exception)
 				{
 					Report.Progress(progress, Report.Message(ExceptionMessage.GetWarning(exception), DisplayIcon.Error));
 				}
 
-
-
-
-
-
-				TableAssets.ToList().ForEach(tableAsset => ExportAsset(tableAsset, progress));
+				//TableAssets.ToList().ForEach(tableAsset => ExportAsset(tableAsset, progress));
 				success = true;
 			}
 			catch (Exception exception)
