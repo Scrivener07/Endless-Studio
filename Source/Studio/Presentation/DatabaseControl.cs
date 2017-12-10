@@ -46,7 +46,7 @@ namespace Studio.Presentation
 				context.GetTableNames().ForEach(name => c_TreeView.Nodes.Add(new TreeNode(name) { Name = name }));
 			}
 
-			TableSelected("RuntimeModules"); // TODO: temporary mic test
+			//TableSelected("RuntimeModules"); // TODO: temporary mic test
 		}
 
 

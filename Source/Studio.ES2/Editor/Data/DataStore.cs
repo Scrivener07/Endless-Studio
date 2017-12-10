@@ -79,7 +79,7 @@ namespace ES2.Editor
 			bool success = false;
 			try
 			{
-				Faction faction = new Faction()
+				MajorFaction faction = new MajorFaction()
 				{
 					Name = "Amarr"
 				};

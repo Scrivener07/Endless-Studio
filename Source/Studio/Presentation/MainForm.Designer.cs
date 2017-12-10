@@ -32,7 +32,7 @@
 			this.Main_TabControl = new System.Windows.Forms.TabControl();
 			this.MainProject_TabPage = new System.Windows.Forms.TabPage();
 			this.MainDatabases_TabPage = new System.Windows.Forms.TabPage();
-			this.messageWidget1 = new Sharp.Applications.Messages.MessageWidget();
+			this.Main_OpenButton = new System.Windows.Forms.Button();
 			this.Main_SaveButton = new System.Windows.Forms.Button();
 			this.Main_MenuStrip = new System.Windows.Forms.MenuStrip();
 			this.File_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +42,7 @@
 			this.FileExit_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.View_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ViewMessages_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.Main_OpenButton = new System.Windows.Forms.Button();
+			this.databaseControl1 = new Studio.Presentation.DatabaseControl();
 			this.Main_TabControl.SuspendLayout();
 			this.MainDatabases_TabPage.SuspendLayout();
 			this.Main_MenuStrip.SuspendLayout();
@@ -71,9 +71,7 @@
 			// 
 			// MainDatabases_TabPage
 			// 
-			this.MainDatabases_TabPage.Controls.Add(this.Main_OpenButton);
-			this.MainDatabases_TabPage.Controls.Add(this.messageWidget1);
-			this.MainDatabases_TabPage.Controls.Add(this.Main_SaveButton);
+			this.MainDatabases_TabPage.Controls.Add(this.databaseControl1);
 			this.MainDatabases_TabPage.Location = new System.Drawing.Point(4, 22);
 			this.MainDatabases_TabPage.Name = "MainDatabases_TabPage";
 			this.MainDatabases_TabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -82,16 +80,19 @@
 			this.MainDatabases_TabPage.Text = "Databases";
 			this.MainDatabases_TabPage.UseVisualStyleBackColor = true;
 			// 
-			// messageWidget1
+			// Main_OpenButton
 			// 
-			this.messageWidget1.Location = new System.Drawing.Point(8, 35);
-			this.messageWidget1.Name = "messageWidget1";
-			this.messageWidget1.Size = new System.Drawing.Size(448, 368);
-			this.messageWidget1.TabIndex = 1;
+			this.Main_OpenButton.Location = new System.Drawing.Point(93, 0);
+			this.Main_OpenButton.Name = "Main_OpenButton";
+			this.Main_OpenButton.Size = new System.Drawing.Size(75, 23);
+			this.Main_OpenButton.TabIndex = 2;
+			this.Main_OpenButton.Text = "Open";
+			this.Main_OpenButton.UseVisualStyleBackColor = true;
+			this.Main_OpenButton.Click += new System.EventHandler(this.Main_OpenButton_Click);
 			// 
 			// Main_SaveButton
 			// 
-			this.Main_SaveButton.Location = new System.Drawing.Point(89, 6);
+			this.Main_SaveButton.Location = new System.Drawing.Point(174, 0);
 			this.Main_SaveButton.Name = "Main_SaveButton";
 			this.Main_SaveButton.Size = new System.Drawing.Size(75, 23);
 			this.Main_SaveButton.TabIndex = 0;
@@ -168,15 +169,13 @@
 			this.ViewMessages_ToolStripMenuItem.Text = "Messages";
 			this.ViewMessages_ToolStripMenuItem.Click += new System.EventHandler(this.ViewMessages_ToolStripMenuItem_OnClick);
 			// 
-			// Main_OpenButton
+			// databaseControl1
 			// 
-			this.Main_OpenButton.Location = new System.Drawing.Point(8, 6);
-			this.Main_OpenButton.Name = "Main_OpenButton";
-			this.Main_OpenButton.Size = new System.Drawing.Size(75, 23);
-			this.Main_OpenButton.TabIndex = 2;
-			this.Main_OpenButton.Text = "Open";
-			this.Main_OpenButton.UseVisualStyleBackColor = true;
-			this.Main_OpenButton.Click += new System.EventHandler(this.Main_OpenButton_Click);
+			this.databaseControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.databaseControl1.Location = new System.Drawing.Point(3, 3);
+			this.databaseControl1.Name = "databaseControl1";
+			this.databaseControl1.Size = new System.Drawing.Size(620, 556);
+			this.databaseControl1.TabIndex = 3;
 			// 
 			// MainForm
 			// 
@@ -184,6 +183,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(634, 612);
 			this.Controls.Add(this.Main_TabControl);
+			this.Controls.Add(this.Main_SaveButton);
+			this.Controls.Add(this.Main_OpenButton);
 			this.Controls.Add(this.Main_MenuStrip);
 			this.MainMenuStrip = this.Main_MenuStrip;
 			this.Name = "MainForm";
@@ -213,8 +214,8 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.TabPage MainDatabases_TabPage;
 		private System.Windows.Forms.Button Main_SaveButton;
-		private Sharp.Applications.Messages.MessageWidget messageWidget1;
 		private System.Windows.Forms.Button Main_OpenButton;
+		private DatabaseControl databaseControl1;
 	}
 }
 
