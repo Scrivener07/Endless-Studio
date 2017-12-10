@@ -6,7 +6,7 @@ namespace Sharp.Applications
 	/// <summary>
 	/// Classes which inherit ObjectComponent<T> act as components of the parameter type.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
+	/// <typeparam name="T">The type which is the owner.</typeparam>
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public abstract class ObjectComponent<T> where T : class
 	{

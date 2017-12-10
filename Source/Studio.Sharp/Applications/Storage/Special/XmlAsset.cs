@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Sharp.Applications.Storage.Special
 {
+	[DebuggerStepThrough]
 	public abstract class XmlAsset<T> : FileAsset where T : class
 	{
 		public virtual T Xml { get; set; }
-		public bool HasXml { get { return Xml != null; } }
+		public bool HasXmlData { get { return Xml != null; } }
 
 		protected override string DefaultExtension { get { return ext; } }
 		const string ext = ".xml";

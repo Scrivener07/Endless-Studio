@@ -1,15 +1,17 @@
 ﻿using ES2.Editor.Assets;
 using Sharp.Applications;
 using System;
+using System.IO;
 
 namespace ES2.Editor
 {
 	public class ProjectContext : IProject
 	{
-		public ProjectModule Project { get; private set; }
+		DataStore Data;
+
 		public Version Supported { get; private set; }
 		public AppFolder App { get; private set; }
-		public GameFolder Game { get; private set; }
+		public SteamFolder Steam { get; private set; }
 		public UserFolder User { get; private set; }
 
 
@@ -17,15 +19,19 @@ namespace ES2.Editor
 		{
 			Supported = new Version(5, 5, 1, 7352351);
 			App = new AppFolder();
-			Game = new GameFolder();
+			Steam = new SteamFolder();
 			User = new UserFolder();
-			Project = new ProjectModule(this);
+			Data = new DataStore(Path.Combine(User.Mods, "Vanilla"));
 		}
 
 
-
-
 		#region IProject
+
+		public bool Open(IProgress<ProgressEventArgs> progress = null)
+		{
+			return Data.Allocate(progress) && Data.Import(progress);
+		}
+
 
 		/// <summary>
 		/// Will allocate an existing modification from an index file.
@@ -35,7 +41,7 @@ namespace ES2.Editor
 		/// <returns></returns>
 		public bool Open(string filepath, IProgress<ProgressEventArgs> progress = null)
 		{
-			return Project.Open(filepath, progress);
+			throw new NotImplementedException();
 		}
 
 
@@ -47,7 +53,7 @@ namespace ES2.Editor
 		/// <returns></returns>
 		public bool New(string directory, IProgress<ProgressEventArgs> progress = null)
 		{
-			return Project.New(directory, progress);
+			throw new NotImplementedException("Creating a new project is not implemented yet.");
 		}
 
 
@@ -57,10 +63,16 @@ namespace ES2.Editor
 		/// <returns></returns>
 		public bool Unload()
 		{
-			return Project.Unload();
+			throw new NotImplementedException("Unloading a project is not implemented yet.");
 		}
 
 		#endregion
+
+
+		public bool Save(IProgress<ProgressEventArgs> progress = null)
+		{
+			return Data.Export(progress);
+		}
 
 
 	}

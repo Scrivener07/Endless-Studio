@@ -411,11 +411,12 @@
     <Compile Include="Amplitude\Unity\Runtime\RuntimeModule.cs" />
     <Compile Include="Amplitude\Unity\Localization\LocalizationDatatableElement.cs" />
     <Compile Include="Editor\Assets\AppFolder.cs" />
+    <Compile Include="Editor\Data\DataStore.cs" />
     <Compile Include="Editor\Index.cs" />
     <Compile Include="Editor\IProject.cs" />
     <Compile Include="Editor\ProjectContext.cs" />
-    <Compile Include="Editor\Assets\GameFolder.cs" />
-    <Compile Include="Editor\IDataStore.cs" />
+    <Compile Include="Editor\Assets\SteamFolder.cs" />
+    <Compile Include="Editor\Data\IDataStore.cs" />
     <Compile Include="Editor\ProjectModule.cs" />
     <Compile Include="Editor\ProjectState.cs" />
     <Compile Include="Editor\ProjectUpdatedEventArgs.cs" />
@@ -557,6 +558,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\VS2017\NewSolutionFolder\NewSolutionFolder_16x.png" />
     <EmbeddedResource Include="Resources\VS2017\OpenFolder\OpenFolder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\VS2017\Flag\FlagThreadFlagged_16x.png" />
+    <Content Include="Resources\VS2017\Flag\FlagThreadNotFlagged_16x.png" />
+    <Content Include="Resources\VS2017\Flag\Flag_16x.png" />
+    <Content Include="RuntimeModule.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

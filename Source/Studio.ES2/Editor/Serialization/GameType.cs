@@ -1,11 +1,11 @@
 ﻿using ES2.Amplitude.Unity.Simulation;
+using ES2.Editor.Model;
 using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace ES2.Editor.Serialization
 {
-	[GameType(typeof(MajorFaction))]
 	public class GameType : IEquatable<GameType>
 	{
 		public string Name { get { return SystemType.Name; } }

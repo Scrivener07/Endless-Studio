@@ -1,6 +1,4 @@
-﻿using Studio.Presentation;
-
-namespace Studio.Presentation
+﻿namespace Studio.Presentation
 {
 	partial class MainForm
 	{
@@ -33,7 +31,9 @@ namespace Studio.Presentation
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.Main_TabControl = new System.Windows.Forms.TabControl();
 			this.MainProject_TabPage = new System.Windows.Forms.TabPage();
-			this.Main_ProjectControl = new Studio.Presentation.ProjectControl();
+			this.MainDatabases_TabPage = new System.Windows.Forms.TabPage();
+			this.messageWidget1 = new Sharp.Applications.Messages.MessageWidget();
+			this.Main_SaveButton = new System.Windows.Forms.Button();
 			this.Main_MenuStrip = new System.Windows.Forms.MenuStrip();
 			this.File_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.FileNew_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,9 +42,9 @@ namespace Studio.Presentation
 			this.FileExit_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.View_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ViewMessages_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.MainDatabases_TabPage = new System.Windows.Forms.TabPage();
+			this.Main_OpenButton = new System.Windows.Forms.Button();
 			this.Main_TabControl.SuspendLayout();
-			this.MainProject_TabPage.SuspendLayout();
+			this.MainDatabases_TabPage.SuspendLayout();
 			this.Main_MenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -61,7 +61,6 @@ namespace Studio.Presentation
 			// 
 			// MainProject_TabPage
 			// 
-			this.MainProject_TabPage.Controls.Add(this.Main_ProjectControl);
 			this.MainProject_TabPage.Location = new System.Drawing.Point(4, 22);
 			this.MainProject_TabPage.Name = "MainProject_TabPage";
 			this.MainProject_TabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -70,14 +69,35 @@ namespace Studio.Presentation
 			this.MainProject_TabPage.Text = "Project";
 			this.MainProject_TabPage.UseVisualStyleBackColor = true;
 			// 
-			// Main_ProjectControl
+			// MainDatabases_TabPage
 			// 
-			this.Main_ProjectControl.Context = null;
-			this.Main_ProjectControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Main_ProjectControl.Location = new System.Drawing.Point(3, 3);
-			this.Main_ProjectControl.Name = "Main_ProjectControl";
-			this.Main_ProjectControl.Size = new System.Drawing.Size(620, 556);
-			this.Main_ProjectControl.TabIndex = 0;
+			this.MainDatabases_TabPage.Controls.Add(this.Main_OpenButton);
+			this.MainDatabases_TabPage.Controls.Add(this.messageWidget1);
+			this.MainDatabases_TabPage.Controls.Add(this.Main_SaveButton);
+			this.MainDatabases_TabPage.Location = new System.Drawing.Point(4, 22);
+			this.MainDatabases_TabPage.Name = "MainDatabases_TabPage";
+			this.MainDatabases_TabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.MainDatabases_TabPage.Size = new System.Drawing.Size(626, 562);
+			this.MainDatabases_TabPage.TabIndex = 1;
+			this.MainDatabases_TabPage.Text = "Databases";
+			this.MainDatabases_TabPage.UseVisualStyleBackColor = true;
+			// 
+			// messageWidget1
+			// 
+			this.messageWidget1.Location = new System.Drawing.Point(8, 35);
+			this.messageWidget1.Name = "messageWidget1";
+			this.messageWidget1.Size = new System.Drawing.Size(448, 368);
+			this.messageWidget1.TabIndex = 1;
+			// 
+			// Main_SaveButton
+			// 
+			this.Main_SaveButton.Location = new System.Drawing.Point(89, 6);
+			this.Main_SaveButton.Name = "Main_SaveButton";
+			this.Main_SaveButton.Size = new System.Drawing.Size(75, 23);
+			this.Main_SaveButton.TabIndex = 0;
+			this.Main_SaveButton.Text = "Save";
+			this.Main_SaveButton.UseVisualStyleBackColor = true;
+			this.Main_SaveButton.Click += new System.EventHandler(this.Main_SaveButton_Click);
 			// 
 			// Main_MenuStrip
 			// 
@@ -148,15 +168,15 @@ namespace Studio.Presentation
 			this.ViewMessages_ToolStripMenuItem.Text = "Messages";
 			this.ViewMessages_ToolStripMenuItem.Click += new System.EventHandler(this.ViewMessages_ToolStripMenuItem_OnClick);
 			// 
-			// MainDatabases_TabPage
+			// Main_OpenButton
 			// 
-			this.MainDatabases_TabPage.Location = new System.Drawing.Point(4, 22);
-			this.MainDatabases_TabPage.Name = "MainDatabases_TabPage";
-			this.MainDatabases_TabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.MainDatabases_TabPage.Size = new System.Drawing.Size(626, 562);
-			this.MainDatabases_TabPage.TabIndex = 1;
-			this.MainDatabases_TabPage.Text = "Databases";
-			this.MainDatabases_TabPage.UseVisualStyleBackColor = true;
+			this.Main_OpenButton.Location = new System.Drawing.Point(8, 6);
+			this.Main_OpenButton.Name = "Main_OpenButton";
+			this.Main_OpenButton.Size = new System.Drawing.Size(75, 23);
+			this.Main_OpenButton.TabIndex = 2;
+			this.Main_OpenButton.Text = "Open";
+			this.Main_OpenButton.UseVisualStyleBackColor = true;
+			this.Main_OpenButton.Click += new System.EventHandler(this.Main_OpenButton_Click);
 			// 
 			// MainForm
 			// 
@@ -170,7 +190,7 @@ namespace Studio.Presentation
 			this.Text = "Studio";
 			this.Load += new System.EventHandler(this.OnLoad);
 			this.Main_TabControl.ResumeLayout(false);
-			this.MainProject_TabPage.ResumeLayout(false);
+			this.MainDatabases_TabPage.ResumeLayout(false);
 			this.Main_MenuStrip.ResumeLayout(false);
 			this.Main_MenuStrip.PerformLayout();
 			this.ResumeLayout(false);
@@ -183,7 +203,6 @@ namespace Studio.Presentation
 
 		private System.Windows.Forms.TabControl Main_TabControl;
 		private System.Windows.Forms.TabPage MainProject_TabPage;
-		private ProjectControl Main_ProjectControl;
 		private System.Windows.Forms.MenuStrip Main_MenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem File_ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem FileNew_ToolStripMenuItem;
@@ -193,6 +212,9 @@ namespace Studio.Presentation
 		private System.Windows.Forms.ToolStripMenuItem ViewMessages_ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.TabPage MainDatabases_TabPage;
+		private System.Windows.Forms.Button Main_SaveButton;
+		private Sharp.Applications.Messages.MessageWidget messageWidget1;
+		private System.Windows.Forms.Button Main_OpenButton;
 	}
 }
 

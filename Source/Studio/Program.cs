@@ -1,5 +1,7 @@
-﻿using ES2.Editor;
+﻿using ES2.Amplitude.Unity.Simulation;
+using ES2.Editor;
 using ES2.Editor.Framework;
+using ES2.Editor.Model;
 using Studio.Presentation;
 using System;
 using System.Data.Entity;
@@ -33,6 +35,20 @@ namespace Studio
 		/// <returns></returns>
 		public static bool Initialize()
 		{
+			EntityType.Serializer.Store(typeof(QuestDefinition));
+			EntityType.Serializer.Store(typeof(TutorialDefinition));
+			EntityType.Serializer.Store(typeof(BasicFaction));
+			EntityType.Serializer.Store(typeof(FactionAffinity));
+			EntityType.Serializer.Store(typeof(FactionAffinityMapping));
+			EntityType.Serializer.Store(typeof(FactionPopulationTrait));
+			EntityType.Serializer.Store(typeof(FactionTrait));
+			EntityType.Serializer.Store(typeof(FactionTraitCategoryDefinition));
+			EntityType.Serializer.Store(typeof(FactionTraitStartingSenate));
+			EntityType.Serializer.Store(typeof(LesserFaction));
+			EntityType.Serializer.Store(typeof(MajorFaction));
+			EntityType.Serializer.Store(typeof(MinorFaction));
+			EntityType.Serializer.Store(typeof(PirateFaction));
+
 			using (var context = new EntityContext())
 			{
 				new EntityInitializer().InitializeDatabase(context);

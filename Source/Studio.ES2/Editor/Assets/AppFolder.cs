@@ -9,7 +9,6 @@ namespace ES2.Editor.Assets
 	{
 		public string ContentDirectory { get { return Path.Combine(Location, "Content"); } }
 		public ZipAsset ArchivePublic { get; private set; }
-		public ZipAsset ArchivePublicXp { get; private set; }
 
 
 		public AppFolder() : base(AutoDetect())
@@ -27,7 +26,6 @@ namespace ES2.Editor.Assets
 		private void Construct()
 		{
 			ArchivePublic = new ZipAsset(Path.Combine(ContentDirectory, "Public.zip"));
-			ArchivePublicXp = new ZipAsset(Path.Combine(ContentDirectory, "Public_xp1.zip"));
 		}
 
 

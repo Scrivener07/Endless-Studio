@@ -54,7 +54,6 @@ namespace Studio.Presentation
 		}
 
 
-
 		private void UserDataTextBox_OnTextChanged(object sender, EventArgs e)
 		{
 			c_UserDataTextBox.BackColor = Color.MistyRose;
@@ -68,23 +67,19 @@ namespace Studio.Presentation
 			c_NameTextBox.Text = null;
 
 			var progress = new Progress<ProgressEventArgs>(OnProgress);
+			Program.Game.New(c_UserDataTextBox.Text, progress);
 
-			Program.Game.Project.New(c_UserDataTextBox.Text, progress);
-
-			if (Program.Game.Project.DataManagerIndex.HasFormat)
+			if (Program.Game.Project.Index.HasFormat)
 			{
 				c_UserDataTextBox.BackColor = Color.Honeydew;
 
 				c_NameTextBox.Enabled = true;
-				c_NameTextBox.Text = Program.Game.Project.DataManagerIndex.Xml.Name;
+				c_NameTextBox.Text = Program.Game.Project.Index.Xml.Name;
 
 				c_SourceSelectButton.Enabled = true;
 				c_SourceTextBox.Enabled = true;
 			}
 		}
-
-
-
 
 		#endregion
 
@@ -95,17 +90,17 @@ namespace Studio.Presentation
 		{
 			c_NameTextBox.BackColor = Color.MistyRose;
 
-			if (Program.Game.Project.DataManagerIndex.HasXml)
+			if (Program.Game.Project.Index.HasXmlData)
 			{
 				c_NameTextBox.BackColor = Color.Honeydew;
 
 
 				if (String.IsNullOrWhiteSpace(c_NameTextBox.Text))
 				{
-					c_NameTextBox.Text = new DirectoryInfo(Program.Game.Project.DataManagerIndex.Location).Name;
+					c_NameTextBox.Text = new DirectoryInfo(Program.Game.Project.Index.Location).Name;
 				}
 
-				Program.Game.Project.DataManagerIndex.Xml.Name = c_NameTextBox.Text;
+				Program.Game.Project.Index.Xml.Name = c_NameTextBox.Text;
 			}
 		}
 
@@ -116,7 +111,7 @@ namespace Studio.Presentation
 
 		private void SourceSelectButton_OnClick(object sender, EventArgs e)
 		{
-			c_SourceTextBox.Text = SharpDialog.ShowFileBrowser(Program.Game.Game.Location, "Modification |index.xml");
+			c_SourceTextBox.Text = SharpDialog.ShowFileBrowser(Program.Game.Steam.Location);
 
 			var progress = new Progress<ProgressEventArgs>(OnProgress);
 			Program.Game.Project.DependenciesSetSource(c_SourceTextBox.Text, progress);
@@ -128,9 +123,9 @@ namespace Studio.Presentation
 		{
 			c_SourceTextBox.BackColor = Color.MistyRose;
 
-			if (Program.Game.Project.DataManagerIndex.HasXml)
+			if (Program.Game.Project.Index.HasXmlData)
 			{
-				if (Program.Game.Project.DataManagerIndex.Xml.Game.Standalone || Program.Game.Project.DependenciesHasSource)
+				if (Program.Game.Project.Index.Xml.Game_Depreciated.Standalone || Program.Game.Project.DependenciesHasSource)
 				{
 					c_SourceTextBox.BackColor = Color.Honeydew;
 					c_AcceptButton.Enabled = true;
@@ -147,7 +142,7 @@ namespace Studio.Presentation
 		private async void AcceptButton_OnClick(object sender, EventArgs e)
 		{
 			var progress = new Progress<ProgressEventArgs>(OnProgress);
-			if (Program.Game.Project.DataManagerIndex.HasXml)
+			if (Program.Game.Project.Index.HasXmlData)
 			{
 				if (await Program.Game.Project.ImportAsync(progress))
 				{

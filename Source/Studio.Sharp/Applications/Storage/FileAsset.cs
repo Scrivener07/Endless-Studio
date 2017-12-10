@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 
 namespace Sharp.Applications.Storage
 {
+	[DebuggerStepThrough]
 	public class FileAsset : Asset
 	{
 		[DisplayName("File")]

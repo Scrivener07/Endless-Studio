@@ -2,6 +2,7 @@
 using Sharp.Applications.Messages;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Studio.Presentation
@@ -16,7 +17,6 @@ namespace Studio.Presentation
 
 		private void OnLoad(object sender, EventArgs e)
 		{
-			Main_ProjectControl.Context = Program.Game;
 		}
 
 
@@ -24,16 +24,20 @@ namespace Studio.Presentation
 
 		public void Log(string message, BindingList<string> history)
 		{
-			throw new NotImplementedException("IClient member is not implemented.");
+			Trace.WriteLine(message);
+			//messageStatusStrip1.Log(message, Program.Studio.History);
 		}
 
 		public void Log(MessageItem message, BindingList<string> history)
 		{
-			throw new NotImplementedException("IClient member is not implemented.");
+			Trace.WriteLine(message);
+			//messageStatusStrip1.Log(message, Program.Studio.History);
 		}
 
 		#endregion
 
+
+		#region ToolStrip
 
 		private void ViewMessages_ToolStripMenuItem_OnClick(object sender, EventArgs e)
 		{
@@ -54,6 +58,34 @@ namespace Studio.Presentation
 		{
 			Application.Exit();
 		}
+
+
+		#endregion
+
+
+		#region Dummy
+
+		void OnProgress(ProgressEventArgs e)
+		{
+
+		}
+
+
+		private void Main_OpenButton_Click(object sender, EventArgs e)
+		{
+			var progress = new Progress<ProgressEventArgs>(OnProgress);
+			Program.Game.Open(progress);
+		}
+
+
+		private void Main_SaveButton_Click(object sender, EventArgs e)
+		{
+			var progress = new Progress<ProgressEventArgs>(OnProgress);
+			Program.Game.Save(progress);
+		}
+
+
+		#endregion
 
 
 	}

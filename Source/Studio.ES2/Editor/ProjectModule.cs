@@ -22,12 +22,10 @@ namespace ES2.Editor
 	{
 		// Assets
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public ModificationAsset DataManagerIndex { get; set; }
+		public ModificationAsset Index { get; set; }
 
 
 		public BindingList<TableAsset> FactionRepository { get; private set; }
-
-
 		public BindingList<TableAsset> FactionTraits { get; private set; }
 
 
@@ -41,12 +39,16 @@ namespace ES2.Editor
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool DependenciesHasSource { get { return DependenciesSource != null; } }
 
+
+
+
+
 		// Simulations
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public string SimulationComponentExportLocation { get { return Path.Combine(DataManagerIndex.Location, "Export"); } }
+		public string SimulationComponentExportLocation { get { return Path.Combine(Index.Location, "Export"); } }
 
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public string Err_HasNoXml { get { return "Modification xml is null for " + DataManagerIndex.GetName() + ", consider calling read first."; } }
+		public string Err_HasNoXml { get { return "Modification xml is null for " + Index.GetName() + ", consider calling read first."; } }
 
 		// State
 		public ProjectState State { get; private set; }
@@ -60,7 +62,7 @@ namespace ES2.Editor
 		public ProjectModule(ProjectContext project) : base(project)
 		{
 			State = ProjectState.Unloaded;
-			DataManagerIndex = new ModificationAsset();
+			Index = new ModificationAsset();
 			FactionRepository = new BindingList<TableAsset>();
 			FactionTraits = new BindingList<TableAsset>();
 			DependenciesSource = null;
@@ -80,19 +82,19 @@ namespace ES2.Editor
 		{
 			if (State == ProjectState.Unloaded)
 			{
-				DataManagerIndex = new ModificationAsset(filepath);
+				Index = new ModificationAsset(filepath);
 
-				if (DataManagerIndex.Read(progress))
+				if (Index.Read(progress))
 				{
 					if (true)
 					{ // TODO: eliminate duplicated code, post flatten
-						if (DataManagerIndex.HasXml == false)
+						if (Index.HasXmlData == false)
 						{
-							Report.Progress(progress, Report.Message("Simulation allocation failed to start for " + DataManagerIndex.GetName(), DisplayIcon.Error));
+							Report.Progress(progress, Report.Message("Simulation allocation failed to start for " + Index.GetName(), DisplayIcon.Error));
 							return Report.Failed;
 						}
 
-						if (DataManagerIndex.HasXml == false)
+						if (Index.HasXmlData == false)
 						{
 							Report.Progress(progress, Report.Message(GetType().Name + " allocation failed.", DisplayIcon.Error));
 							return Report.Failed;
@@ -103,15 +105,15 @@ namespace ES2.Editor
 					FactionComponentReset();
 
 
-					DataManagerIndex.Xml.Game.Repositories
+					Index.Xml.Game_Depreciated.Repositories
 							.Where(repository => repository.Target.Equals("Faction")).ToList()
 							.ForEach(repository => repository.Files.ToList()
-							.ForEach(file => FactionRepository.Add(new TableAsset(DataManagerIndex.GetResolvedPath(file)))));
+							.ForEach(file => FactionRepository.Add(new TableAsset(Index.GetResolvedPath(file)))));
 
-					DataManagerIndex.Xml.Game.Repositories
+					Index.Xml.Game_Depreciated.Repositories
 						.Where(repository => repository.Target.Equals("FactionTrait")).ToList()
 						.ForEach(repository => repository.Files.ToList()
-						.ForEach(file => FactionTraits.Add(new TableAsset(DataManagerIndex.GetResolvedPath(file)))));
+						.ForEach(file => FactionTraits.Add(new TableAsset(Index.GetResolvedPath(file)))));
 
 					DependenciesAllocate(progress);
 
@@ -153,8 +155,8 @@ namespace ES2.Editor
 						return false;
 					}
 				}
-				DataManagerIndex = new ModificationAsset(Path.Combine(directory, "index.xml"));
-				DataManagerIndex.Xml = new Amplitude.Unity.Runtime.RuntimeModule() { Name = new DirectoryInfo(DataManagerIndex.Location).Name };
+				Index = new ModificationAsset(Path.Combine(directory, "index.xml"));
+				Index.Xml = new Amplitude.Unity.Runtime.RuntimeModule() { Name = new DirectoryInfo(Index.Location).Name };
 				DependenciesAllocate(progress);
 				InvokeUpdate();
 				return true;
@@ -207,7 +209,7 @@ namespace ES2.Editor
 		{
 			DependenciesSource = null;
 			DependenciesMerged = new BindingList<ProjectModule>();
-			DataManagerIndex = new ModificationAsset();
+			Index = new ModificationAsset();
 			FactionComponentReset();
 			DataManagerAttemptedFiles.Clear();
 		}
@@ -232,7 +234,7 @@ namespace ES2.Editor
 				// TODO:
 			}
 
-			if (DataManagerIndex.HasXml)
+			if (Index.HasXmlData)
 			{
 				DataManagerImport(progress);
 				DependenciesImport(progress);
@@ -241,7 +243,7 @@ namespace ES2.Editor
 			}
 			else
 			{
-				DataManagerIndex.Logs.Entry(Err_HasNoXml);
+				Index.Logs.Entry(Err_HasNoXml);
 				Report.Progress(progress, Report.Message(Err_HasNoXml, DisplayIcon.Error));
 				return false;
 			}
@@ -270,16 +272,16 @@ namespace ES2.Editor
 
 		private bool DependenciesAllocate(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (DataManagerIndex.HasXml)
+			if (Index.HasXmlData)
 			{
-				if (DataManagerIndex.Xml.Game.Standalone == false)
+				if (Index.Xml.Game_Depreciated.Standalone == false)
 				{
 					DependenciesSource = new ProjectModule(Owner);
 
-					if (DataManagerIndex.Xml.Game.RequestedDLCName == Index.DLC.Vanilla)
+					if (Index.Xml.Game_Depreciated.RequestedDLCName == Editor.Index.DLC.Vanilla)
 					{
 						Report.Progress(progress, Report.Message("Detected a vanillia source dependency."));
-						string path = Owner.Game.Public + @"\index.xml";
+						string path = Owner.Steam.Public + @"\index.xml";
 
 						if (DependenciesSource.Open(path, progress))
 						{
@@ -310,7 +312,7 @@ namespace ES2.Editor
 					//}
 					else
 					{
-						Report.Progress(progress, Report.Message("The requested dlc is unknown. " + DataManagerIndex.Xml.Game.RequestedDLCName, DisplayIcon.Error));
+						Report.Progress(progress, Report.Message("The requested dlc is unknown. " + Index.Xml.Game_Depreciated.RequestedDLCName, DisplayIcon.Error));
 						DependenciesSource = null;
 						return false;
 					}
@@ -333,7 +335,7 @@ namespace ES2.Editor
 
 		private void DependenciesImport(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (DependenciesHasSource && DependenciesSource.DataManagerIndex.HasXml)
+			if (DependenciesHasSource && DependenciesSource.Index.HasXmlData)
 			{
 				DependenciesSource.Import(progress);
 				DependenciesMerged.ToList().ForEach(mod => mod.Import(progress));
@@ -343,7 +345,7 @@ namespace ES2.Editor
 
 		private bool DataManagerImport(IProgress<ProgressEventArgs> progress = null)
 		{
-			Report.Progress(progress, Report.Message("Import started by " + DataManagerIndex.GetName(), DisplayIcon.Information));
+			Report.Progress(progress, Report.Message("Import started by " + Index.GetName(), DisplayIcon.Information));
 
 			DataManagerAttemptedFiles.Clear();
 			bool complete = SimulationComponentImport(progress);
@@ -396,7 +398,7 @@ namespace ES2.Editor
 
 		private bool FactionComponentExport(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (DataManagerIndex != null && Directory.Exists(SimulationComponentExportLocation))
+			if (Index != null && Directory.Exists(SimulationComponentExportLocation))
 			{
 				FactionComponentExportFactions(progress);
 				FactionComponentExportTraits(progress);
@@ -417,13 +419,13 @@ namespace ES2.Editor
 
 			if (modification.Exists && modification.HasFormat)
 			{
-				if (modification.Read() && modification.HasXml && modification.Xml.Game.Standalone)
+				if (modification.Read() && modification.HasXmlData && modification.Xml.Game_Depreciated.Standalone)
 				{
-					if (modification.Xml.Game.RequestedDLCName == DataManagerIndex.Xml.Game.RequestedDLCName)
+					if (modification.Xml.Game_Depreciated.RequestedDLCName == Index.Xml.Game_Depreciated.RequestedDLCName)
 					{
 						DependenciesSource = new ProjectModule(Owner)
 						{
-							DataManagerIndex = modification
+							Index = modification
 						};
 						Report.Progress(progress, Report.Message("Set the source dependency. " + filepath, DisplayIcon.Complete));
 						return;
@@ -465,7 +467,7 @@ namespace ES2.Editor
 					{
 						DataManagerAttemptedFiles.Add(file.FilePath);
 
-						if (file.Read(progress) && file.HasXml && file.Xml.Count > 0)
+						if (file.Read(progress) && file.HasXmlData && file.Xml.Count > 0)
 						{
 							DataManagerProcessFile(file, progress);
 						}
@@ -484,7 +486,7 @@ namespace ES2.Editor
 		{
 			try
 			{
-				if (file != null && file.HasXml)
+				if (file != null && file.HasXmlData)
 				{
 					using (var context = new EntityContext())
 					{
@@ -514,7 +516,7 @@ namespace ES2.Editor
 
 		private void DataManagerProcessEntity(EntityType entity, EntityContext context, IProgress<ProgressEventArgs> progress = null)
 		{
-			string currentMod = DataManagerIndex.GetName();
+			string currentMod = Index.GetName();
 
 
 			DbSet dbset = context.Set(entity.GetType());
@@ -569,7 +571,7 @@ namespace ES2.Editor
 
 		private void DataManagerUpdateMeta(EntityType entity, EntityContext context)
 		{
-			string currentMod = DataManagerIndex.GetName();
+			string currentMod = Index.GetName();
 
 			entity.Meta.Comment = "I updated my entity comment from " + currentMod;
 			entity.Meta.NameStack.Push(currentMod);
@@ -577,15 +579,15 @@ namespace ES2.Editor
 			entity.Meta.TextList.Add(new TextData() { Text = currentMod });
 
 			// Mod info
-			entity.DependencyList.Add(new MetaInfo() { Mod = currentMod, File = DataManagerIndex.Location });
+			entity.DependencyList.Add(new MetaInfo() { Mod = currentMod, File = Index.Location });
 		}
 
 
 		private bool SimulationComponentSaveFile(TableAsset asset, IProgress<ProgressEventArgs> progress = null)
 		{
-			if (asset != null && asset.HasXml && asset.Xml.Count > 0 && asset.Write())
+			if (asset != null && asset.HasXmlData && asset.Xml.Count > 0 && asset.Write())
 			{
-				asset.OpenInSystem();
+				asset.Open();
 				return true;
 			}
 
@@ -601,7 +603,7 @@ namespace ES2.Editor
 
 			using (var context = new EntityContext())
 			{
-				var query = context.Factions.Where(entity => entity.Meta.Owner.Equals(DataManagerIndex.Xml.Name));
+				var query = context.Factions.Where(entity => entity.Meta.Owner.Equals(Index.Xml.Name));
 				query.ToList().ForEach(entity => file.Xml.Add(entity.Name, entity));
 			}
 
@@ -617,7 +619,7 @@ namespace ES2.Editor
 
 			using (var context = new EntityContext())
 			{
-				var query = context.FactionTraits.Where(entity => entity.Meta.Owner.Equals(DataManagerIndex.Xml.Name));
+				var query = context.FactionTraits.Where(entity => entity.Meta.Owner.Equals(Index.Xml.Name));
 				query.ToList().ForEach(entity => file.Xml.Add(entity.Name, entity));
 			}
 
@@ -627,13 +629,13 @@ namespace ES2.Editor
 
 		public void InvokeUpdate()
 		{
-			EventUpdated?.Invoke(null, new ProjectUpdatedEventArgs(State, DataManagerIndex));
+			EventUpdated?.Invoke(null, new ProjectUpdatedEventArgs(State, Index));
 		}
 
 
 		public string GetName()
 		{
-			return DataManagerIndex.GetName();
+			return Index.GetName();
 		}
 
 
@@ -657,11 +659,11 @@ namespace ES2.Editor
 
 		private string DataManagerToString()
 		{
-			if (DataManagerIndex == null)
+			if (Index == null)
 			{
 				return base.ToString();
 			}
-			return DataManagerIndex.GetName();
+			return Index.GetName();
 		}
 
 
@@ -677,6 +679,11 @@ namespace ES2.Editor
 			if (DependenciesMerged != null)
 				count = count + DependenciesMerged.Count;
 			return String.Concat(count, " dependencies.");
+		}
+
+		public bool Open(IProgress<ProgressEventArgs> progress = null)
+		{
+			throw new NotImplementedException();
 		}
 
 		#endregion

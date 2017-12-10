@@ -153,6 +153,36 @@ namespace ES2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Flag_16x {
+            get {
+                object obj = ResourceManager.GetObject("Flag_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FlagThreadFlagged_16x {
+            get {
+                object obj = ResourceManager.GetObject("FlagThreadFlagged_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FlagThreadNotFlagged_16x {
+            get {
+                object obj = ResourceManager.GetObject("FlagThreadNotFlagged_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Forward_16x {
             get {
                 object obj = ResourceManager.GetObject("Forward_16x", resourceCulture);

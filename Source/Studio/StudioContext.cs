@@ -58,19 +58,19 @@ namespace Studio
 
 		public void ShowProjectNew()
 		{
-			ShowWindow(new ProjectWindowNew());
+			//ShowWindow(new ProjectWindowNew());
 		}
 
 
 		public void ShowProjectOpen()
 		{
-			ShowWindow(new ProjectWindowOpen());
+			//ShowWindow(new ProjectWindowOpen());
 		}
 
 
 		public void ShowProjectProperties()
 		{
-			ShowWindow(new ProjectWindowProperties());
+			//ShowWindow(new ProjectWindowProperties());
 		}
 
 

@@ -6,6 +6,7 @@ using System.IO;
 
 namespace Sharp.Applications.Storage
 {
+	[DebuggerStepThrough]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public abstract class Asset : IEquatable<Asset>
 	{
@@ -41,27 +42,27 @@ namespace Sharp.Applications.Storage
 			}
 			catch (Exception exception)
 			{
-				this.Logs.Entry(ExceptionMessage.GetWarning(exception));
+				Logs.Entry(ExceptionMessage.GetWarning(exception));
 			}
 		}
 
 
 		#region Utility Methods
 
-		public void OpenInSystem()
+		public void Open()
 		{
-			OpenInSystem(Location);
-			this.Logs.Entry("Opening the asset location in explorer. '" + Location + "'.");
+			Open(Location);
+			Logs.Entry("Opening the asset location in explorer. '" + Location + "'.");
 		}
 
 
-		public static void OpenInSystem(string path)
+		public static void Open(string path)
 		{
 			if (Directory.Exists(path) || File.Exists(path))
 			{
-				FileAttributes attr = File.GetAttributes(path);
+				FileAttributes attribute = File.GetAttributes(path);
 
-				if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+				if ((attribute & FileAttributes.Directory) == FileAttributes.Directory)
 					Process.Start(path);
 				else
 					Process.Start(Path.GetDirectoryName(path));
@@ -71,12 +72,12 @@ namespace Sharp.Applications.Storage
 		#endregion
 
 
-		#region IEquatable<Asset> Members
+		#region IEquatable<Asset>
 
 		public bool Equals(Asset other)
 		{
 			if (other == null) return false;
-			return (this.Key.Equals(other.Key));
+			return (Key.Equals(other.Key));
 		}
 
 
@@ -85,9 +86,7 @@ namespace Sharp.Applications.Storage
 		public override int GetHashCode()
 		{
 			return Key == null ? 0 : Key.GetHashCode();
-			//			return this.Key.GetHashCode();
 		}
-
 
 
 		/// <summary>Override is needed to be able to use the same validation independent of the way of comparing.</summary>

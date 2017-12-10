@@ -85,23 +85,11 @@
     <Compile Include="Presentation\ProjectControl.Designer.cs">
       <DependentUpon>ProjectControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ProjectWindowNew.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Presentation\MessageStatusStrip.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\ProjectWindowNew.Designer.cs">
-      <DependentUpon>ProjectWindowNew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ProjectWindowOpen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ProjectWindowOpen.Designer.cs">
-      <DependentUpon>ProjectWindowOpen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ProjectWindowProperties.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ProjectWindowProperties.Designer.cs">
-      <DependentUpon>ProjectWindowProperties.cs</DependentUpon>
+    <Compile Include="Presentation\MessageStatusStrip.Designer.cs">
+      <DependentUpon>MessageStatusStrip.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,14 +109,8 @@
     <EmbeddedResource Include="Presentation\ProjectControl.resx">
       <DependentUpon>ProjectControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ProjectWindowNew.resx">
-      <DependentUpon>ProjectWindowNew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ProjectWindowOpen.resx">
-      <DependentUpon>ProjectWindowOpen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ProjectWindowProperties.resx">
-      <DependentUpon>ProjectWindowProperties.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\MessageStatusStrip.resx">
+      <DependentUpon>MessageStatusStrip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

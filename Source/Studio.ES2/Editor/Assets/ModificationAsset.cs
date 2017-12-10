@@ -54,7 +54,7 @@ namespace ES2.Editor.Assets
 
 		private bool PostRead(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (HasXml)
+			if (HasXmlData)
 			{
 				string msg = "The modification " + Xml.Name + " has been read from the file " + FilePath;
 				Logs.Entry(msg);
@@ -95,7 +95,7 @@ namespace ES2.Editor.Assets
 
 		public string GetName()
 		{
-			if (HasXml)
+			if (HasXmlData)
 				if (!String.IsNullOrWhiteSpace(Xml.Name))
 					return Xml.Name;
 			if (!String.IsNullOrWhiteSpace(Key))

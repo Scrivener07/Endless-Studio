@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Sharp.Applications
 {
@@ -21,12 +22,14 @@ namespace Sharp.Applications
 
 		public static ProgressEventArgs Message(string message, int image = -1)
 		{
+			Trace.WriteLine(message);
 			return new ProgressEventArgs(0, message, image);
 		}
 
 
 		public static ProgressEventArgs Percent(int percent, string message = null, int image = -1)
 		{
+			Trace.WriteLine(message);
 			return new ProgressEventArgs(percent, message, image);
 		}
 
@@ -34,14 +37,14 @@ namespace Sharp.Applications
 		public static ProgressEventArgs Percent(int total, int completed, string message = null, int image = -1)
 		{
 			int percent = CalculatePercent(total, completed);
+			Trace.WriteLine(string.Format("{0} {1}%", message, percent));
 			return new ProgressEventArgs(percent, message, image);
 		}
 
 
-		public static int CalculatePercent(int total, int completed)
+		private static int CalculatePercent(int total, int completed)
 		{
-			int percentage = (total <= 0 ? 0 : (100 * completed) / total);
-			return percentage;
+			return (total <= 0 ? 0 : (100 * completed) / total);
 		}
 
 

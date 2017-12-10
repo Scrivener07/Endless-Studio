@@ -1,14 +1,15 @@
-﻿using Sharp.Applications;
-using System;
+﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Sharp.Applications.Storage
 {
+	[DebuggerStepThrough]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public class AssetLog : ObjectComponent<Asset>
 	{
-		public string Message { get { return current; } }
-		string current;
+		string last;
+		public string Message { get { return last; } }
 
 		private BindingList<string> History { get; set; }
 
@@ -16,7 +17,7 @@ namespace Sharp.Applications.Storage
 		public AssetLog(Asset owner) : base(owner)
 		{
 			History = new BindingList<string>();
-			current = String.Empty;
+			last = String.Empty;
 		}
 
 
@@ -26,8 +27,7 @@ namespace Sharp.Applications.Storage
 			{
 				History.Add(String.Concat("Time [", DateTime.Now.ToUniversalTime(), "] Message: ", message));
 			}
-
-			current = message;
+			last = message;
 		}
 
 

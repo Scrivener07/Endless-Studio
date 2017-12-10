@@ -29,7 +29,7 @@ namespace ES2.Amplitude.Unity.Runtime
 		/// </summary>
 		[Obsolete]
 		[XmlIgnore]
-		public Index Game { get; set; }
+		public Index Game_Depreciated { get; set; }
 
 		private RuntimeModuleType typeField;
 
@@ -59,7 +59,7 @@ namespace ES2.Amplitude.Unity.Runtime
 			this.versionField = "1.0";
 			Tags = new Tags();
 			pluginsField = new ObservableListSource<RuntimePlugin>();
-			Game = new Index();
+			Game_Depreciated = new Index();
 		}
 
 

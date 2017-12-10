@@ -63,15 +63,15 @@ namespace Studio.Presentation
 
 			if (Program.Game.Project.Open(c_UserDataTextBox.Text, progress))
 			{
-				if (Program.Game.Project.DataManagerIndex.HasXml)
+				if (Program.Game.Project.Index.HasXmlData)
 				{
 					c_UserDataTextBox.BackColor = Color.White;
 
 					c_NameTextBox.Enabled = false;
-					c_NameTextBox.Text = Program.Game.Project.DataManagerIndex.GetName();
+					c_NameTextBox.Text = Program.Game.Project.Index.GetName();
 					c_NameTextBox.BackColor = Color.White;
 
-					if (Program.Game.Project.DataManagerIndex.Xml.Game.Standalone)
+					if (Program.Game.Project.Index.Xml.Game_Depreciated.Standalone)
 					{
 						c_SourceSelectButton.Enabled = false;
 						c_SourceTextBox.Enabled = false;
@@ -84,7 +84,7 @@ namespace Studio.Presentation
 
 						if (Program.Game.Project.DependenciesHasSource)
 						{
-							c_SourceTextBox.Text = Program.Game.Project.DependenciesSource.DataManagerIndex.FilePath;
+							c_SourceTextBox.Text = Program.Game.Project.DependenciesSource.Index.FilePath;
 							c_SourceTextBox.BackColor = Color.White;
 							c_AcceptButton.Enabled = true;
 						}
@@ -94,8 +94,6 @@ namespace Studio.Presentation
 							c_SourceTextBox.Enabled = true;
 						}
 					}
-
-
 				}
 			}
 		}
@@ -103,7 +101,7 @@ namespace Studio.Presentation
 
 		private void c_SourceSelectButton_Click(object sender, EventArgs e)
 		{
-			c_SourceTextBox.Text = SharpDialog.ShowFileBrowser(Program.Game.Game.Location, "Modification |index.xml");
+			c_SourceTextBox.Text = SharpDialog.ShowFileBrowser(Program.Game.Steam.Location, "Modification |index.xml");
 
 			var progress = new Progress<ProgressEventArgs>(OnProgress);
 			Program.Game.Project.DependenciesSetSource(c_SourceTextBox.Text, progress);
@@ -115,7 +113,7 @@ namespace Studio.Presentation
 			if (c_SourceTextBox.Enabled)
 			{
 				c_SourceTextBox.BackColor = Color.MistyRose;
-				if (Program.Game.Project.DependenciesHasSource && Program.Game.Project.DependenciesSource.DataManagerIndex.HasXml)
+				if (Program.Game.Project.DependenciesHasSource && Program.Game.Project.DependenciesSource.Index.HasXmlData)
 				{
 					// do stuff
 				}
@@ -125,7 +123,7 @@ namespace Studio.Presentation
 
 		private async void c_AcceptButton_Click(object sender, EventArgs e)
 		{
-			if (Program.Game.Project.DataManagerIndex.HasXml || Program.Game.Project.State == ProjectState.Ready)
+			if (Program.Game.Project.Index.HasXmlData || Program.Game.Project.State == ProjectState.Ready)
 			{
 				c_AcceptButton.Enabled = false;
 				c_CancelButton.Enabled = false;
