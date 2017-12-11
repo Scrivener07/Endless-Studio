@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Studio.Presentation
 {
-	public partial class MessageWindow : Form
+	public partial class MessageWindow : Form, IMessage
 	{
 		public MessageWindow()
 		{

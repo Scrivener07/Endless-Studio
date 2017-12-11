@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Sharp.Reporting
 {
-	public partial class MessageWidget : UserControl
+	public partial class MessageWidget : UserControl, IMessage
 	{
 
 		public MessageWidget()
@@ -39,7 +39,7 @@ namespace Sharp.Reporting
 		}
 
 
-		public void Dummy()
+		private void Dummy()
 		{
 			Clear();
 			Message("This is a standard message.", MessageIcon.None);
