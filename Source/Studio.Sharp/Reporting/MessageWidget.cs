@@ -20,10 +20,11 @@ namespace Sharp.Reporting
 
 		public void Message(string text, int image = -1, bool popup = false)
 		{
-			ListViewItem message = new ListViewItem(text, image);
-			c_ErrorsListView.Items.Add(message);
-			message.EnsureVisible();
-			if (popup) // TODO: Fix this block
+			ListViewItem listViewItem = new ListViewItem(text, image);
+			c_ErrorsListView.Items.Add(listViewItem);
+			listViewItem.EnsureVisible();
+
+			if (popup)
 			{
 				if (image == MessageIcon.Error || image == MessageIcon.Warning)
 				{

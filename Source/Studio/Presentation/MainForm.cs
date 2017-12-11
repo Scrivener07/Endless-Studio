@@ -21,7 +21,7 @@ namespace Studio.Presentation
 		}
 
 
-		private void testToolStripMenuItem_Click(object sender, EventArgs e)
+		private void testToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			Program.Game.Steam.Executable.OpenDirectory();
 		}
@@ -32,13 +32,11 @@ namespace Studio.Presentation
 		public void Log(string message, BindingList<string> history)
 		{
 			Trace.WriteLine(message);
-			//messageStatusStrip1.Log(message, Program.Studio.History);
 		}
 
 		public void Log(MessageItem message, BindingList<string> history)
 		{
 			Trace.WriteLine(message);
-			//messageStatusStrip1.Log(message, Program.Studio.History);
 		}
 
 		#endregion
@@ -50,12 +48,10 @@ namespace Studio.Presentation
 		{
 			try
 			{
-				// TODO: Fix the null reference exception.
-
 				var window = Program.Studio.GetMessageWindow();
 				if (window != null)
 				{
-					window.Message(e.Text, e.Image);
+					messageWidget1.Message(e.Text, e.Image);
 				}
 			}
 			catch (Exception exception)
@@ -107,7 +103,6 @@ namespace Studio.Presentation
 		{
 			Application.Exit();
 		}
-
 
 		#endregion
 
