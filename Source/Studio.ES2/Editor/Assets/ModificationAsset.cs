@@ -1,21 +1,13 @@
 ﻿using ES2.Amplitude.Unity.Runtime;
-using Sharp.Applications;
-using Sharp.Applications.Messages;
-using Sharp.Applications.Storage.Special;
+using Sharp.Reporting;
+using Sharp.Storage.Special;
 using System;
-using System.IO;
 
 namespace ES2.Editor.Assets
 {
 	public class ModificationAsset : XmlAsset<RuntimeModule>
 	{
 		public override RuntimeModule Xml { get; set; }
-
-
-		public ModificationAsset() : base()
-		{
-			Xml = null;
-		}
 
 
 		public ModificationAsset(string filepath) : base(filepath)
@@ -36,9 +28,9 @@ namespace ES2.Editor.Assets
 				}
 				catch (Exception exception)
 				{
-					string warning = ExceptionMessage.GetWarning(exception);
+					string warning = MessageFormat.GetWarning(exception);
 					Logs.Entry(warning);
-					Report.Progress(progress, Report.Message(warning, DisplayIcon.Error));
+					Report.Progress(progress, Report.Message(warning, MessageIcon.Error));
 					return false;
 				}
 				return PostRead(progress);
@@ -47,25 +39,25 @@ namespace ES2.Editor.Assets
 			{
 				string warning = "The file at " + FilePath + " does not exist.";
 				Logs.Entry(warning);
-				Report.Progress(progress, Report.Message(warning, DisplayIcon.Warning));
+				Report.Progress(progress, Report.Message(warning, MessageIcon.Warning));
 				return false;
 			}
 		}
 
 		private bool PostRead(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (HasXmlData)
+			if (!IsNull)
 			{
-				string msg = "The modification " + Xml.Name + " has been read from the file " + FilePath;
-				Logs.Entry(msg);
-				Report.Progress(progress, Report.Message(msg));
+				string message = "The modification " + Xml.Name + " has been read from the file " + FilePath;
+				Logs.Entry(message);
+				Report.Progress(progress, Report.Message(message));
 				return true;
 			}
 			else
 			{
-				string msg = "Could not read the file at " + FilePath;
-				Logs.Entry(msg);
-				Report.Progress(progress, Report.Message(msg, DisplayIcon.Warning));
+				string warning = "Could not read the file at " + FilePath;
+				Logs.Entry(warning);
+				Report.Progress(progress, Report.Message(warning, MessageIcon.Warning));
 				return false;
 			}
 		}
@@ -73,41 +65,20 @@ namespace ES2.Editor.Assets
 
 		public override bool Write(IProgress<ProgressEventArgs> progress = null)
 		{
-			throw new NotImplementedException();
+			throw new NotImplementedException("Writing a runtime module to disk is not yet implemented.");
 		}
 
 		#endregion
 
 
-		public string GetResolvedPath(Repository.File file)
-		{
-			return Path.Combine(Location, file.Path);
-		}
-
-
-		protected override bool EvaluateFormat(string filepath)
-		{
-			bool hasFormat = base.EvaluateFormat(filepath);
-			bool matches = String.Equals("index.xml", Path.GetFileName(filepath), StringComparison.OrdinalIgnoreCase);
-			return hasFormat && matches;
-		}
-
-
-		public string GetName()
-		{
-			if (HasXmlData)
-				if (!String.IsNullOrWhiteSpace(Xml.Name))
-					return Xml.Name;
-			if (!String.IsNullOrWhiteSpace(Key))
-				return Key;
-			return "null";
-		}
-
-
-
 		public override string ToString()
 		{
-			return GetName();
+			if (!IsNull)
+				if (!String.IsNullOrWhiteSpace(Xml.Name))
+					return Xml.Name;
+			if (!String.IsNullOrWhiteSpace(URI))
+				return URI;
+			return "null";
 		}
 
 

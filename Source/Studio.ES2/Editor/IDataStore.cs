@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Sharp.Reporting;
+using System;
 using System.Threading.Tasks;
-using Sharp.Applications;
 
 namespace ES2.Editor
 {

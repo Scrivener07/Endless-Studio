@@ -1,7 +1,6 @@
-﻿
-namespace Sharp.Applications.Messages
+﻿namespace Sharp.Reporting
 {
-	public static class DisplayIcon
+	public static class MessageIcon
 	{
 		public const int None = -1;
 

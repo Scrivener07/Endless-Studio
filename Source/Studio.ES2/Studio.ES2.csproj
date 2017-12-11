@@ -411,13 +411,11 @@
     <Compile Include="Amplitude\Unity\Runtime\RuntimeModule.cs" />
     <Compile Include="Amplitude\Unity\Localization\LocalizationDatatableElement.cs" />
     <Compile Include="Editor\Assets\AppFolder.cs" />
-    <Compile Include="Editor\Data\DataStore.cs" />
-    <Compile Include="Editor\Index.cs" />
+    <Compile Include="Editor\DataStore.cs" />
     <Compile Include="Editor\IProject.cs" />
     <Compile Include="Editor\ProjectContext.cs" />
     <Compile Include="Editor\Assets\SteamFolder.cs" />
-    <Compile Include="Editor\Data\IDataStore.cs" />
-    <Compile Include="Editor\ProjectModule.cs" />
+    <Compile Include="Editor\IDataStore.cs" />
     <Compile Include="Editor\ProjectState.cs" />
     <Compile Include="Editor\ProjectUpdatedEventArgs.cs" />
     <Compile Include="Editor\Assets\ModificationAsset.cs" />
@@ -499,14 +497,12 @@
     </Compile>
     <Compile Include="Editor\Framework\Binding\ListDictionary.cs" />
     <Compile Include="Editor\Serialization\TypeCache.cs" />
-    <Compile Include="Editor\Model\entities\Entity.cs" />
-    <Compile Include="Editor\Model\entities\EntityType.cs" />
-    <Compile Include="Editor\Model\entities\meta\EntityMeta.cs" />
-    <Compile Include="Editor\Model\entities\EntityTypeComplex.cs" />
+    <Compile Include="Editor\Model\Entity.cs" />
+    <Compile Include="Editor\Model\EntityType.cs" />
+    <Compile Include="Editor\Model\EntityMeta.cs" />
+    <Compile Include="Editor\Model\EntityTypeComplex.cs" />
     <Compile Include="Editor\Serialization\GameType.cs" />
-    <Compile Include="Editor\Model\entities\meta\MetaInfo.cs" />
     <Compile Include="Editor\Model\ModelSettings.cs" />
-    <Compile Include="Editor\Model\TextData.cs" />
     <Compile Include="Editor\Framework\EntityContext.cs" />
     <Compile Include="Editor\Framework\EntityInitializer.cs" />
     <Compile Include="Editor\Framework\EntityExtensions.cs" />
@@ -563,7 +559,6 @@
     <Content Include="Resources\VS2017\Flag\FlagThreadFlagged_16x.png" />
     <Content Include="Resources\VS2017\Flag\FlagThreadNotFlagged_16x.png" />
     <Content Include="Resources\VS2017\Flag\Flag_16x.png" />
-    <Content Include="RuntimeModule.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,29 +1,16 @@
-﻿using Sharp.Applications.Messages;
+﻿using Sharp.Reporting;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 
-
-namespace Sharp.Applications.Storage.Special
+namespace Sharp.Storage.Special
 {
 	public class ZipAsset : FileAsset
 	{
-		protected override string DefaultExtension { get { return ext; } }
-		const string ext = ".zip";
-
-
-		public ZipAsset() : base()
-		{
-			// constructor
-		}
-
-
-		public ZipAsset(string filepath) : base(filepath)
-		{
-			// constructor
-		}
+		protected override string DefaultExtension { get { return ".zip"; } }
+		public ZipAsset(string filepath) : base(filepath) { }
 
 
 		public ZipArchiveEntry[] GetEntries()
@@ -47,7 +34,7 @@ namespace Sharp.Applications.Storage.Special
 				}
 				catch (Exception exception)
 				{
-					this.Logs.Entry(ExceptionMessage.GetWarning(exception));
+					Logs.Entry(MessageFormat.GetWarning(exception));
 					throw;
 				}
 			}

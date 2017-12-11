@@ -1,62 +1,40 @@
-﻿using Sharp.Applications.Messages;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 
-namespace Sharp.Applications.Storage
+namespace Sharp.Storage
 {
 	[DebuggerStepThrough]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public abstract class Asset : IEquatable<Asset>
 	{
-		[DisplayName("Location")]
-		public virtual string Key { get { return Location; } }
-
-		public readonly string Location = null;
-
-		public virtual bool Exists { get { return Directory.Exists(Location); } }
+		protected readonly string URI;
+		public virtual bool Exists { get { return Directory.Exists(URI); } }
 
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public AssetLog Logs { get; private set; }
 
 
-		public Asset()
+		public Asset(string uri)
 		{
-			Location = "Dummy";
+			URI = Path.GetFullPath(uri);
 			Logs = new AssetLog(this);
-			Logs.Entry("Created dummy asset.");
+			Logs.Entry("Allocated asset URI for " + uri);
 		}
 
 
-		public Asset(string location)
+		#region Utility
+
+		public void OpenDirectory()
 		{
-			Location = location;
-			Logs = new AssetLog(this);
-			Logs.Entry("Created new asset at " + location);
-
-			try
-			{
-				Path.GetFullPath(location);
-			}
-			catch (Exception exception)
-			{
-				Logs.Entry(ExceptionMessage.GetWarning(exception));
-			}
+			Logs.Entry("Opening the asset URI in windows explorer. '" + URI + "'.");
+			OpenDirectory(URI);
 		}
 
 
-		#region Utility Methods
-
-		public void Open()
-		{
-			Open(Location);
-			Logs.Entry("Opening the asset location in explorer. '" + Location + "'.");
-		}
-
-
-		public static void Open(string path)
+		public static void OpenDirectory(string path)
 		{
 			if (Directory.Exists(path) || File.Exists(path))
 			{
@@ -77,7 +55,7 @@ namespace Sharp.Applications.Storage
 		public bool Equals(Asset other)
 		{
 			if (other == null) return false;
-			return (Key.Equals(other.Key));
+			return (URI.Equals(other.URI));
 		}
 
 
@@ -85,7 +63,7 @@ namespace Sharp.Applications.Storage
 		/// <returns>A hash code for the current assets Key.</returns>
 		public override int GetHashCode()
 		{
-			return Key == null ? 0 : Key.GetHashCode();
+			return URI == null ? 0 : URI.GetHashCode();
 		}
 
 
@@ -110,9 +88,9 @@ namespace Sharp.Applications.Storage
 		/// <remarks>Needed when working with value types.</remarks>
 		public static bool operator ==(Asset A, Asset B)
 		{
-			if (object.ReferenceEquals(A, B)) return true;
-			if (object.ReferenceEquals(A, null)) return false;
-			if (object.ReferenceEquals(B, null)) return false;
+			if (ReferenceEquals(A, B)) return true;
+			if (ReferenceEquals(A, null)) return false;
+			if (ReferenceEquals(B, null)) return false;
 			return A.Equals(B);
 		}
 
@@ -124,9 +102,9 @@ namespace Sharp.Applications.Storage
 		/// <remarks>Needed when working with value types.</remarks>
 		public static bool operator !=(Asset A, Asset B)
 		{
-			if (object.ReferenceEquals(A, B)) return false;
-			if (object.ReferenceEquals(A, null)) return true;
-			if (object.ReferenceEquals(B, null)) return true;
+			if (ReferenceEquals(A, B)) return false;
+			if (ReferenceEquals(A, null)) return true;
+			if (ReferenceEquals(B, null)) return true;
 			return !A.Equals(B);
 		}
 

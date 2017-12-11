@@ -1,4 +1,4 @@
-﻿using Sharp.Applications.Messages;
+﻿using Sharp.Reporting;
 using System;
 using System.ComponentModel;
 using System.Drawing;

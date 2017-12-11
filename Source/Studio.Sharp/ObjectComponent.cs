@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Sharp.Applications
+namespace Sharp
 {
 	/// <summary>
 	/// Classes which inherit ObjectComponent<T> act as components of the parameter type.

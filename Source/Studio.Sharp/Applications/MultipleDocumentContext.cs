@@ -14,7 +14,7 @@ namespace Sharp.Applications
 		}
 
 
-		public virtual void ShowWindow(Form form)
+		public override void ShowWindow(Form form)
 		{
 			if (Client is T && Client.IsMdiContainer)
 			{
@@ -37,7 +37,7 @@ namespace Sharp.Applications
 		}
 
 
-		public virtual void ShowDialog(Form form)
+		public override void ShowDialog(Form form)
 		{
 			if (Client is IClient && Client.IsMdiContainer)
 			{
@@ -57,7 +57,7 @@ namespace Sharp.Applications
 		}
 
 
-		public virtual void CloseAll(List<string> ignores = null)
+		public override void CloseAll(List<string> ignores = null)
 		{
 			if (ignores == null || ignores.Count <= 0)
 			{

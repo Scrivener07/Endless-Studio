@@ -1,4 +1,4 @@
-﻿namespace Sharp.Applications.Messages
+﻿namespace Sharp.Reporting
 {
 	partial class MessageWidget
 	{

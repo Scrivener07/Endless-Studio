@@ -1,26 +1,35 @@
 ﻿using ES2.Editor.Assets;
-using Sharp.Applications;
+using Sharp.Reporting;
 using System;
+using System.ComponentModel;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ES2.Editor
 {
-	public class ProjectContext : IProject
+	public class ProjectContext : IProject, IDataStore
 	{
 		DataStore Data;
 
+		[Description("The Endless Space 2 game version that is supported by the editor.")]
 		public Version Supported { get; private set; }
-		public AppFolder App { get; private set; }
+
+		[Description("The Endless Space 2 game directory.")]
 		public SteamFolder Steam { get; private set; }
+
+		[Description("The windows user data directory used by Endless Space 2.")]
 		public UserFolder User { get; private set; }
+
+
+		public AppFolder App { get; private set; }
 
 
 		public ProjectContext()
 		{
 			Supported = new Version(5, 5, 1, 7352351);
-			App = new AppFolder();
 			Steam = new SteamFolder();
 			User = new UserFolder();
+			App = new AppFolder();
 			Data = new DataStore(Path.Combine(User.Mods, "Vanilla"));
 		}
 
@@ -29,6 +38,7 @@ namespace ES2.Editor
 
 		public bool Open(IProgress<ProgressEventArgs> progress = null)
 		{
+			Report.Progress(progress, Report.Message("Allocating and importing the vanilla content."));
 			return Data.Allocate(progress) && Data.Import(progress);
 		}
 
@@ -41,7 +51,7 @@ namespace ES2.Editor
 		/// <returns></returns>
 		public bool Open(string filepath, IProgress<ProgressEventArgs> progress = null)
 		{
-			throw new NotImplementedException();
+			throw new NotImplementedException("Opening a project is not implemented yet.");
 		}
 
 
@@ -57,6 +67,12 @@ namespace ES2.Editor
 		}
 
 
+		public bool Save(IProgress<ProgressEventArgs> progress = null)
+		{
+			return Data.Export(progress);
+		}
+
+
 		/// <summary>
 		/// Unloads any loaded project model.
 		/// </summary>
@@ -66,13 +82,45 @@ namespace ES2.Editor
 			throw new NotImplementedException("Unloading a project is not implemented yet.");
 		}
 
-		#endregion
+		public void Reset()
+		{
+			Data.Reset();
+		}
 
+		public bool Allocate(IProgress<ProgressEventArgs> progress = null)
+		{
+			return Data.Allocate(progress);
+		}
 
-		public bool Save(IProgress<ProgressEventArgs> progress = null)
+		public async Task<bool> AllocateAsync(IProgress<ProgressEventArgs> progress = null)
+		{
+			return await Data.AllocateAsync(progress);
+		}
+
+		public bool Import(IProgress<ProgressEventArgs> progress = null)
+		{
+			return Data.Import(progress);
+		}
+
+		public async Task<bool> ImportAsync(IProgress<ProgressEventArgs> progress = null)
+		{
+			return await Data.ImportAsync(progress);
+		}
+
+		public bool Export(IProgress<ProgressEventArgs> progress = null)
 		{
 			return Data.Export(progress);
 		}
+
+		public async Task<bool> ExportAsync(IProgress<ProgressEventArgs> progress = null)
+		{
+			return await Data.ExportAsync(progress);
+		}
+
+		#endregion
+
+
+
 
 
 	}

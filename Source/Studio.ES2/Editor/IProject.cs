@@ -1,4 +1,4 @@
-﻿using Sharp.Applications;
+﻿using Sharp.Reporting;
 using System;
 
 namespace ES2.Editor
@@ -8,6 +8,7 @@ namespace ES2.Editor
 		bool Open(IProgress<ProgressEventArgs> progress = null);
 		bool Open(string filepath, IProgress<ProgressEventArgs> progress = null);
 		bool New(string directory, IProgress<ProgressEventArgs> progress = null);
+		bool Save(IProgress<ProgressEventArgs> progress = null);
 		bool Unload();
 	}
 }

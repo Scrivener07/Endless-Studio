@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Sharp.Applications.Messages
+namespace Sharp.Reporting
 {
 	public partial class MessageWidget : UserControl
 	{
@@ -14,7 +14,7 @@ namespace Sharp.Applications.Messages
 
 		void OnLoad(object sender, EventArgs e)
 		{
-			Dummy();
+			//Dummy();
 		}
 
 
@@ -23,9 +23,9 @@ namespace Sharp.Applications.Messages
 			ListViewItem message = new ListViewItem(text, image);
 			c_ErrorsListView.Items.Add(message);
 			message.EnsureVisible();
-			if (popup)
+			if (popup) // TODO: Fix this block
 			{
-				if (image == DisplayIcon.Error || image == DisplayIcon.Warning)
+				if (image == MessageIcon.Error || image == MessageIcon.Warning)
 				{
 					MessageBox.Show(this, text);
 				}
@@ -42,11 +42,11 @@ namespace Sharp.Applications.Messages
 		public void Dummy()
 		{
 			Clear();
-			Message("This is a standard message.", DisplayIcon.None);
-			Message("This is an information message.", DisplayIcon.Information);
-			Message("This is a success message.", DisplayIcon.Complete);
-			Message("This is a warning message.", DisplayIcon.Warning);
-			Message("This is an error message.", DisplayIcon.Error);
+			Message("This is a standard message.", MessageIcon.None);
+			Message("This is an information message.", MessageIcon.Information);
+			Message("This is a success message.", MessageIcon.Complete);
+			Message("This is a warning message.", MessageIcon.Warning);
+			Message("This is an error message.", MessageIcon.Error);
 		}
 
 

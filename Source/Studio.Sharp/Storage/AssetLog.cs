@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace Sharp.Applications.Storage
+namespace Sharp.Storage
 {
 	[DebuggerStepThrough]
 	[TypeConverter(typeof(ExpandableObjectConverter))]

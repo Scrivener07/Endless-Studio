@@ -1,10 +1,10 @@
-﻿using ES2.Amplitude.Unity.Simulation;
-using ES2.Editor.Assets;
+﻿using ES2.Editor.Assets;
 using ES2.Editor.Framework;
 using ES2.Editor.Model;
-using Sharp.Applications;
-using Sharp.Applications.Messages;
+using Sharp.Reporting;
+using Sharp.Storage;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -15,17 +15,15 @@ using System.Threading.Tasks;
 
 namespace ES2.Editor
 {
-	public class DataStore : IDataStore
+	public class DataStore : FolderAsset, IDataStore
 	{
-		DirectoryInfo Info;
 		ModificationAsset ModificationAsset;
 		BindingList<TableAsset> TableAssets;
 
 
-		public DataStore(string directory)
+		public DataStore(string directory) : base(directory)
 		{
-			Info = new DirectoryInfo(directory);
-			ModificationAsset = new ModificationAsset(Path.Combine(directory, "index.xml"));
+			ModificationAsset = new ModificationAsset(Path.Combine(FolderPath, "index.xml"));
 			TableAssets = new BindingList<TableAsset>();
 		}
 
@@ -36,15 +34,21 @@ namespace ES2.Editor
 		{
 			bool success = false;
 			try
-			{
-				Info.GetFiles("*.xml", SearchOption.AllDirectories)
-					.ToList()
-					.ForEach(file => TableAssets.Add(new TableAsset(file.FullName)));
+			{ // TODO: Allocation needs to invalidate previous allocations!
+				List<TableAsset> assets = new List<TableAsset>();
+
+				// TODO: these queries may be a bit abusive
+				Info.GetFiles("*.xml", SearchOption.AllDirectories).ToList()
+					.ForEach(file => assets.Add(new TableAsset(this, file.FullName)));
+
+				assets.Where(asset => TableAssets.Contains(asset) == false).ToList()
+					.ForEach(asset => TableAssets.Add(asset));
+
 				success = true;
 			}
 			catch (Exception exception)
 			{
-				Report.Progress(progress, Report.Message(ExceptionMessage.GetWarning(exception), DisplayIcon.Error));
+				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
 			}
 			return success;
 		}
@@ -64,7 +68,7 @@ namespace ES2.Editor
 			}
 			catch (Exception exception)
 			{
-				Report.Progress(progress, Report.Message(ExceptionMessage.GetWarning(exception), DisplayIcon.Error));
+				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
 			}
 			return success;
 		}
@@ -79,36 +83,30 @@ namespace ES2.Editor
 			bool success = false;
 			try
 			{
-				MajorFaction faction = new MajorFaction()
+				using (var context = new EntityContext())
 				{
-					Name = "Amarr",
-					Author = "Scrivener07",
-					LocalizedDescription = "This faction was created by the Endless Studio editor."
-				};
+					var tables = context.GetTables();
+					foreach (var dbset in tables)
+					{
+						foreach (var entry in dbset)
+						{
+							if (entry is EntityType)
+							{
+								// TODO: exporting is not yet suported.
 
-				Datatable datatable = new Datatable();
-				datatable.Add(faction.Name, faction);
+								//var entity = entry as EntityType;
+								//entity.Meta.Asset.Write(progress);
 
-				TableAsset fileAsset = new TableAsset(Path.Combine(Info.FullName, "MyRepoName.xml"))
-				{
-					Xml = datatable
-				};
-
-				try
-				{
-					fileAsset.Write(progress);
+								throw new NotImplementedException("Exporting projects is not yet suported.");
+							}
+						}
+					}
 				}
-				catch (Exception exception)
-				{
-					Report.Progress(progress, Report.Message(ExceptionMessage.GetWarning(exception), DisplayIcon.Error));
-				}
-
-				//TableAssets.ToList().ForEach(tableAsset => ExportAsset(tableAsset, progress));
 				success = true;
 			}
 			catch (Exception exception)
 			{
-				Report.Progress(progress, Report.Message(ExceptionMessage.GetWarning(exception), DisplayIcon.Error));
+				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
 			}
 			return success;
 		}
@@ -130,10 +128,10 @@ namespace ES2.Editor
 
 		private void ImportAsset(TableAsset file, IProgress<ProgressEventArgs> progress = null)
 		{
-			if (file == null) { Report.Progress(progress, Report.Message("Cannot import null table asset, skipping.", DisplayIcon.Warning)); return; }
+			if (file == null) { Report.Progress(progress, Report.Message("Cannot import null table asset, skipping.", MessageIcon.Warning)); return; }
 			try
 			{
-				if (file.Read(progress) && file.HasXmlData && file.Xml.Count > 0)
+				if (file.Read(progress) && !file.IsNull && file.Xml.Count > 0)
 				{
 					try
 					{
@@ -146,7 +144,7 @@ namespace ES2.Editor
 
 								// ---
 
-								string currentMod = ModificationAsset.GetName();
+								string currentMod = ModificationAsset.ToString();
 
 								DbSet dbset = context.Set(entity.GetType());
 								dbset.Load();
@@ -183,12 +181,12 @@ namespace ES2.Editor
 										var msg = "Dropped the entity '" + entity.Name + "' from " + currentMod
 												+ " because it is overridden by an entity in " + existing.Meta.Owner;
 
-										var arg = Report.Message(msg, DisplayIcon.InformationB);
+										var arg = Report.Message(msg, MessageIcon.InformationB);
 										Report.Progress(progress, arg);
 									}
 									else
 									{
-										Report.Progress(progress, Report.Message("Ignored the entity '" + entity.Name + "'", DisplayIcon.Warning));
+										Report.Progress(progress, Report.Message("Ignored the entity '" + entity.Name + "'", MessageIcon.Warning));
 									}
 								}
 							}
@@ -197,28 +195,28 @@ namespace ES2.Editor
 					}
 					catch (DbUpdateException exception)
 					{
-						var message1 = ExceptionMessage.GetWarning(exception);
+						var message1 = MessageFormat.GetWarning(exception);
 						var message2 = String.Empty;
 
 						if (exception.InnerException != null)
 						{
-							message2 = ExceptionMessage.GetWarning(exception.InnerException);
+							message2 = MessageFormat.GetWarning(exception.InnerException);
 						}
-						Report.Progress(progress, Report.Message("Entity Framework Exception: " + message1 + message2, DisplayIcon.Error));
+						Report.Progress(progress, Report.Message("Entity Framework Exception: " + message1 + message2, MessageIcon.Error));
 					}
 				}
 			}
 			catch (Exception exception)
 			{
-				var message = ExceptionMessage.GetWarning(exception);
-				Report.Progress(progress, Report.Message("Exception: '" + message + "', File Message: '" + file.Logs.Message + "'", DisplayIcon.Error));
+				var message = MessageFormat.GetWarning(exception);
+				Report.Progress(progress, Report.Message("Exception: '" + message + "', File Message: '" + file.Logs.Message + "'", MessageIcon.Error));
 			}
 		}
 
 
 		private void UpdateMeta(EntityType entity, EntityContext context)
 		{
-			string currentMod = ModificationAsset.GetName();
+			string currentMod = ModificationAsset.ToString();
 
 			entity.Meta.Comment = "I updated my entity comment from " + currentMod;
 			entity.Meta.NameStack.Push(currentMod);
@@ -226,35 +224,8 @@ namespace ES2.Editor
 			entity.Meta.TextList.Add(new TextData() { Text = currentMod });
 
 			// Mod info
-			entity.DependencyList.Add(new MetaInfo() { Mod = currentMod, File = ModificationAsset.Location });
+			entity.DependencyList.Add(new MetaInfo() { Mod = currentMod, File = ModificationAsset.FolderPath });
 		}
-
-
-
-		private bool ExportAsset(TableAsset file, IProgress<ProgressEventArgs> progress = null)
-		{
-			using (var context = new EntityContext())
-			{
-				context.Factions
-					.Where(entity => entity.Meta.Owner.Equals(ModificationAsset.Xml.Name)).ToList()
-					.ForEach(entity => file.Xml.Add(entity.Name, entity));
-			}
-
-			return SaveFile(file);
-		}
-
-
-		public bool SaveFile(TableAsset asset, IProgress<ProgressEventArgs> progress = null)
-		{
-			if (asset != null && asset.HasXmlData && asset.HasXmlElements && asset.Write())
-			{
-				asset.Open();
-				return true;
-			}
-
-			return false;
-		}
-
 
 		#endregion
 

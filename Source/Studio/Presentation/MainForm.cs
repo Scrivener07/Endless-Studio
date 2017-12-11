@@ -1,5 +1,5 @@
 ﻿using Sharp.Applications;
-using Sharp.Applications.Messages;
+using Sharp.Reporting;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -17,6 +17,13 @@ namespace Studio.Presentation
 
 		private void OnLoad(object sender, EventArgs e)
 		{
+			propertyGrid1.SelectedObject = Program.Game;
+		}
+
+
+		private void testToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Program.Game.Steam.Executable.OpenDirectory();
 		}
 
 
@@ -32,6 +39,48 @@ namespace Studio.Presentation
 		{
 			Trace.WriteLine(message);
 			//messageStatusStrip1.Log(message, Program.Studio.History);
+		}
+
+		#endregion
+
+
+		#region Vanilla
+
+		private void OnProgress(ProgressEventArgs e)
+		{
+			try
+			{
+				// TODO: Fix the null reference exception.
+
+				var window = Program.Studio.GetMessageWindow();
+				if (window != null)
+				{
+					window.Message(e.Text, e.Image);
+				}
+			}
+			catch (Exception exception)
+			{
+				throw exception;
+			}
+		}
+
+
+		private async void allocateToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var progress = new Progress<ProgressEventArgs>(OnProgress);
+			await Program.Game.AllocateAsync(progress);
+		}
+
+		private async void importToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var progress = new Progress<ProgressEventArgs>(OnProgress);
+			await Program.Game.ImportAsync(progress);
+		}
+
+		private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var progress = new Progress<ProgressEventArgs>(OnProgress);
+			await Program.Game.ExportAsync(progress);
 		}
 
 		#endregion
@@ -57,31 +106,6 @@ namespace Studio.Presentation
 		private void FileExit_ToolStripMenuItem_OnClick(object sender, EventArgs e)
 		{
 			Application.Exit();
-		}
-
-
-		#endregion
-
-
-		#region Dummy
-
-		void OnProgress(ProgressEventArgs e)
-		{
-
-		}
-
-
-		private void Main_OpenButton_Click(object sender, EventArgs e)
-		{
-			var progress = new Progress<ProgressEventArgs>(OnProgress);
-			Program.Game.Open(progress);
-		}
-
-
-		private void Main_SaveButton_Click(object sender, EventArgs e)
-		{
-			var progress = new Progress<ProgressEventArgs>(OnProgress);
-			Program.Game.Save(progress);
 		}
 
 

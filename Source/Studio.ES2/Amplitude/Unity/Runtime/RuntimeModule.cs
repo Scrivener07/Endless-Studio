@@ -1,5 +1,4 @@
 ﻿using ES2.Amplitude.Unity.Runtime.Plugins;
-using ES2.Editor;
 using ES2.Editor.Framework;
 using ES2.Editor.Model;
 using System;
@@ -24,13 +23,6 @@ namespace ES2.Amplitude.Unity.Runtime
 	[XmlRoot(Namespace = "", IsNullable = true)]
 	public class RuntimeModule : EntityType
 	{
-		/// <summary>
-		/// TODO: Depreciate the index class. This was inherited from the old code base.
-		/// </summary>
-		[Obsolete]
-		[XmlIgnore]
-		public Index Game_Depreciated { get; set; }
-
 		private RuntimeModuleType typeField;
 
 		private string versionField;
@@ -59,7 +51,6 @@ namespace ES2.Amplitude.Unity.Runtime
 			this.versionField = "1.0";
 			Tags = new Tags();
 			pluginsField = new ObservableListSource<RuntimePlugin>();
-			Game_Depreciated = new Index();
 		}
 
 

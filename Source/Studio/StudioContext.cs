@@ -4,6 +4,7 @@ using Studio.Presentation;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Studio
 {
@@ -15,7 +16,7 @@ namespace Studio
 
 		public StudioContext(T client) : base(client)
 		{
-			Name = "Studio";
+			Name = "Endless Studio";
 			Version = new Version(0, 3, 1, 0);
 			MainForm = new MainSplash();
 			Initialize();
@@ -58,25 +59,45 @@ namespace Studio
 
 		public void ShowProjectNew()
 		{
+			throw new NotImplementedException();
 			//ShowWindow(new ProjectWindowNew());
 		}
 
 
 		public void ShowProjectOpen()
 		{
+			throw new NotImplementedException();
 			//ShowWindow(new ProjectWindowOpen());
 		}
 
 
 		public void ShowProjectProperties()
 		{
+			throw new NotImplementedException();
 			//ShowWindow(new ProjectWindowProperties());
 		}
 
 
 		public void ShowMessages()
 		{
-			ShowWindow(new MessageWindow());
+			GetMessageWindow(); // TODO: something silly
+		}
+
+
+		public MessageWindow GetMessageWindow()
+		{
+			var query = OpenForms.Cast<Form>().Where(form => form.Name == "MessageWindow");
+			if (query is MessageWindow)
+			{
+				return query as MessageWindow;
+			}
+			else
+			{
+				MessageWindow window = new MessageWindow();
+				ShowWindow(window);
+				return window;
+			}
+
 		}
 
 		#endregion

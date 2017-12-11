@@ -1,8 +1,7 @@
-﻿using Sharp.Applications.Messages;
+﻿using Sharp.Reporting;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Sharp.Applications
@@ -42,71 +41,50 @@ namespace Sharp.Applications
 		}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 		public virtual void ShowDialog(Form form)
 		{
-			if (Client is IClient && Client.IsMdiContainer)
-			{
-				try
-				{
-					if (form != null)
-					{
-						form.StartPosition = FormStartPosition.CenterScreen;
-						form.ShowDialog(Client);
-					}
-				}
-				catch (Exception exception)
-				{
-					Trace.WriteLine(exception.InnerException.Message);
-				}
-			}
+			throw new NotImplementedException();
+			//if (Client is IClient && Client.IsMdiContainer)
+			//{
+			//	try
+			//	{
+			//		if (form != null)
+			//		{
+			//			form.StartPosition = FormStartPosition.CenterScreen;
+			//			form.ShowDialog(Client);
+			//		}
+			//	}
+			//	catch (Exception exception)
+			//	{
+			//		Trace.WriteLine(exception.InnerException.Message);
+			//	}
+			//}
 		}
 
 
 		public virtual void CloseAll(List<string> ignores = null)
 		{
-			if (ignores == null || ignores.Count <= 0)
-			{
-				foreach (Form child in Client.MdiChildren)
-				{
-					child.Close();
-				}
-				return;
-			}
-			else
-			{
-				foreach (Form child in Client.MdiChildren)
-				{
-					if (!ignores.Contains(child.GetType().Name))
-					{
-						child.Close();
-					}
-				}
-				return;
-			}
+			throw new NotImplementedException();
+			//if (ignores == null || ignores.Count <= 0)
+			//{
+			//	foreach (Form child in Client.MdiChildren)
+			//	{
+			//		child.Close();
+			//	}
+			//	return;
+			//}
+			//else
+			//{
+			//	foreach (Form child in Client.MdiChildren)
+			//	{
+			//		if (!ignores.Contains(child.GetType().Name))
+			//		{
+			//			child.Close();
+			//		}
+			//	}
+			//	return;
+			//}
 		}
-
-
-
-
-
-
-
-
-
-
 
 
 		#region IClient

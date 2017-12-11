@@ -1,5 +1,5 @@
-﻿using Sharp.Applications.Storage;
-using Sharp.Applications.Storage.Special;
+﻿using Sharp.Storage;
+using Sharp.Storage.Special;
 using System.IO;
 using System.Windows.Forms;
 
@@ -7,7 +7,7 @@ namespace ES2.Editor.Assets
 {
 	public class AppFolder : FolderAsset
 	{
-		public string ContentDirectory { get { return Path.Combine(Location, "Content"); } }
+		public string ContentDirectory { get { return Path.Combine(URI, "Content"); } }
 		public ZipAsset ArchivePublic { get; private set; }
 
 

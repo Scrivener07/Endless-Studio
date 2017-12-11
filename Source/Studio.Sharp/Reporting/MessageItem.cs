@@ -1,4 +1,4 @@
-﻿namespace Sharp.Applications.Messages
+﻿namespace Sharp.Reporting
 {
 	public struct MessageItem
 	{

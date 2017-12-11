@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ES2.Editor.Assets;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing.Design;
 
@@ -10,6 +12,14 @@ namespace ES2.Editor.Model
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public class EntityMeta
 	{
+
+		/// <summary>
+		/// The asset that "owns" this entity.
+		/// </summary>
+		[NotMapped]
+		public TableAsset Asset { get; set; }
+
+
 
 		// current
 		public string Owner { get; set; }
@@ -68,5 +78,51 @@ namespace ES2.Editor.Model
 
 
 		const string arrayeditor = "System.Windows.Forms.Design.StringArrayEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	}
+
+
+
+
+
+
+	[ComplexType]
+	[TypeConverter(typeof(ExpandableObjectConverter))]
+	public class MetaInfo
+	{
+		public string Mod { get; set; }
+		public string File { get; set; }
+
+
+
+		public MetaInfo()
+		{
+			Mod = String.Empty;
+			File = String.Empty;
+		}
+
+
+		public override string ToString()
+		{
+			return Mod;
+		}
+	}
+
+
+
+
+
+
+	[ComplexType]
+	[TypeConverter(typeof(ExpandableObjectConverter))]
+	public class TextData
+	{
+		[Key]
+		public virtual string Id { get; set; }
+		public string Text { get; set; }
+
+		public TextData()
+		{
+			Id = Guid.NewGuid().ToString();
+		}
 	}
 }

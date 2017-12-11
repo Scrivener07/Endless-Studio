@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Sharp.Applications.Messages
+namespace Sharp.Reporting
 {
-	public static class ExceptionMessage
+	public static class MessageFormat
 	{
 		private static class ExceptionParse
 		{

@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Applications\Dialogs\FileFilter.cs" />
     <Compile Include="Applications\Dialogs\WindowWrapper.cs" />
-    <Compile Include="Applications\Messages\ExceptionMessage.cs" />
+    <Compile Include="Reporting\MessageFormat.cs" />
     <Compile Include="Applications\ClientContext.cs" />
     <Compile Include="Applications\Controls\ProgressWidget.cs">
       <SubType>UserControl</SubType>
@@ -63,16 +63,16 @@
     <Compile Include="SharpIO.cs" />
     <Compile Include="SharpObject.cs" />
     <Compile Include="SharpString.cs" />
-    <Compile Include="Applications\Messages\DisplayIcon.cs" />
-    <Compile Include="Applications\Messages\MessageItem.cs" />
-    <Compile Include="Applications\Messages\MessageWidget.cs">
+    <Compile Include="Reporting\MessageIcon.cs" />
+    <Compile Include="Reporting\MessageItem.cs" />
+    <Compile Include="Reporting\MessageWidget.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Messages\MessageWidget.Designer.cs">
+    <Compile Include="Reporting\MessageWidget.Designer.cs">
       <DependentUpon>MessageWidget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Report.cs" />
-    <Compile Include="Applications\ProgressEventArgs.cs" />
+    <Compile Include="Reporting\Report.cs" />
+    <Compile Include="Reporting\ProgressEventArgs.cs" />
     <Compile Include="Applications\Dialogs\splash\ISplash.cs" />
     <Compile Include="Applications\Dialogs\splash\SplashBase.cs">
       <SubType>Form</SubType>
@@ -81,23 +81,23 @@
       <DependentUpon>SplashBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Dialogs\splash\SplashStatus.cs" />
-    <Compile Include="Applications\Storage\Asset.cs" />
-    <Compile Include="Applications\Storage\AssetLog.cs" />
-    <Compile Include="Applications\Storage\FileAsset.cs" />
-    <Compile Include="Applications\Storage\FolderAsset.cs" />
-    <Compile Include="Applications\Storage\Special\DllAsset.cs" />
-    <Compile Include="Applications\Storage\Special\TxtAsset.cs" />
-    <Compile Include="Applications\Storage\Special\XmlAsset.cs" />
-    <Compile Include="Applications\Storage\Special\ZipAsset.cs" />
+    <Compile Include="Storage\Asset.cs" />
+    <Compile Include="Storage\AssetLog.cs" />
+    <Compile Include="Storage\FileAsset.cs" />
+    <Compile Include="Storage\FolderAsset.cs" />
+    <Compile Include="Storage\Special\DllAsset.cs" />
+    <Compile Include="Storage\Special\TxtAsset.cs" />
+    <Compile Include="Storage\Special\XmlAsset.cs" />
+    <Compile Include="Storage\Special\ZipAsset.cs" />
     <Compile Include="Applications\Dialogs\SharpDialog.cs" />
-    <Compile Include="Applications\ObjectComponent.cs" />
+    <Compile Include="ObjectComponent.cs" />
     <Compile Include="Applications\ArgumentContextException.cs" />
     <Compile Include="Applications\IClient.cs" />
     <Compile Include="Applications\MultipleDocumentContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Applications\Messages\MessageWidget.resx">
+    <EmbeddedResource Include="Reporting\MessageWidget.resx">
       <DependentUpon>MessageWidget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Dialogs\splash\SplashBase.resx">

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sharp.Applications
+namespace Sharp.Reporting
 {
 	public class ProgressEventArgs : EventArgs
 	{

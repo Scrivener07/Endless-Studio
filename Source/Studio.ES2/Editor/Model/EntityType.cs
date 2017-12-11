@@ -17,11 +17,19 @@ namespace ES2.Editor.Model
 		public virtual string Name { get; set; }
 
 
+
+
+
 		[XmlIgnore]
 		[Column(Order = 0), Category(ModelSettings.Studio.DefaultCategory), Description(ModelSettings.Studio.DefaultDescription)]
 		[Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 		[EditorBrowsable(EditorBrowsableState.Always)]
 		public virtual EntityMeta Meta { get; set; }
+
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+		[EditorBrowsable(EditorBrowsableState.Always)]
+		public virtual List<MetaInfo> DependencyList { get; set; }
 
 
 		/// <summary>
@@ -30,11 +38,6 @@ namespace ES2.Editor.Model
 		/// </summary>
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public static TypeCache Serializer { get; private set; }
-
-
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		[EditorBrowsable(EditorBrowsableState.Always)]
-		public virtual List<MetaInfo> DependencyList { get; set; }
 
 
 		static EntityType()

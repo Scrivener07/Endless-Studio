@@ -28,64 +28,98 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.messageWidget1 = new Sharp.Applications.Messages.MessageWidget();
-			this.messageStatusStrip1 = new Studio.Presentation.MessageStatusStrip();
-			this.tableLayoutPanel1.SuspendLayout();
+			this.components = new System.ComponentModel.Container();
+			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.messageWidget1 = new Sharp.Reporting.MessageWidget();
+			this.tabControl1.SuspendLayout();
+			this.tabPage1.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// tableLayoutPanel1
+			// listBox1
 			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.messageWidget1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.messageStatusStrip1, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(406, 176);
-			this.tableLayoutPanel1.TabIndex = 2;
+			this.listBox1.DataSource = this.bindingSource1;
+			this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBox1.FormattingEnabled = true;
+			this.listBox1.Location = new System.Drawing.Point(3, 3);
+			this.listBox1.Name = "listBox1";
+			this.listBox1.Size = new System.Drawing.Size(570, 230);
+			this.listBox1.TabIndex = 1;
+			// 
+			// tabControl1
+			// 
+			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl1.Location = new System.Drawing.Point(0, 0);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(584, 262);
+			this.tabControl1.TabIndex = 3;
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.messageWidget1);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(576, 236);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "Problems";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.Controls.Add(this.listBox1);
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(576, 236);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Log";
+			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// bindingSource1
+			// 
+			this.bindingSource1.AllowNew = false;
 			// 
 			// messageWidget1
 			// 
 			this.messageWidget1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.messageWidget1.Location = new System.Drawing.Point(3, 3);
 			this.messageWidget1.Name = "messageWidget1";
-			this.messageWidget1.Size = new System.Drawing.Size(400, 139);
+			this.messageWidget1.Size = new System.Drawing.Size(570, 230);
 			this.messageWidget1.TabIndex = 0;
-			// 
-			// messageStatusStrip1
-			// 
-			this.messageStatusStrip1.AutoSize = true;
-			this.messageStatusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.messageStatusStrip1.Location = new System.Drawing.Point(3, 148);
-			this.messageStatusStrip1.MinimumSize = new System.Drawing.Size(50, 25);
-			this.messageStatusStrip1.Name = "messageStatusStrip1";
-			this.messageStatusStrip1.Size = new System.Drawing.Size(400, 25);
-			this.messageStatusStrip1.TabIndex = 1;
 			// 
 			// MessageWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(406, 176);
-			this.Controls.Add(this.tableLayoutPanel1);
+			this.ClientSize = new System.Drawing.Size(584, 262);
+			this.Controls.Add(this.tabControl1);
 			this.Name = "MessageWindow";
 			this.Text = "Messages";
 			this.Load += new System.EventHandler(this.MessageWindow_Load);
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
+			this.tabControl1.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
+			this.tabPage2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private Sharp.Applications.Messages.MessageWidget messageWidget1;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private MessageStatusStrip messageStatusStrip1;
+		private Sharp.Reporting.MessageWidget messageWidget1;
+		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.BindingSource bindingSource1;
 	}
 }

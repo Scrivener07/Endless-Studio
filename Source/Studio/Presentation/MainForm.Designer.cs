@@ -30,10 +30,11 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.Main_TabControl = new System.Windows.Forms.TabControl();
+			this.MainSettings_TabPage = new System.Windows.Forms.TabPage();
+			this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
 			this.MainProject_TabPage = new System.Windows.Forms.TabPage();
 			this.MainDatabases_TabPage = new System.Windows.Forms.TabPage();
-			this.Main_OpenButton = new System.Windows.Forms.Button();
-			this.Main_SaveButton = new System.Windows.Forms.Button();
+			this.databaseControl1 = new Studio.Presentation.DatabaseControl();
 			this.Main_MenuStrip = new System.Windows.Forms.MenuStrip();
 			this.File_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.FileNew_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +43,20 @@
 			this.FileExit_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.View_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ViewMessages_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.databaseControl1 = new Studio.Presentation.DatabaseControl();
+			this.vanillaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.allocateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Main_TabControl.SuspendLayout();
+			this.MainSettings_TabPage.SuspendLayout();
 			this.MainDatabases_TabPage.SuspendLayout();
 			this.Main_MenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Main_TabControl
 			// 
+			this.Main_TabControl.Controls.Add(this.MainSettings_TabPage);
 			this.Main_TabControl.Controls.Add(this.MainProject_TabPage);
 			this.Main_TabControl.Controls.Add(this.MainDatabases_TabPage);
 			this.Main_TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -58,6 +65,25 @@
 			this.Main_TabControl.SelectedIndex = 0;
 			this.Main_TabControl.Size = new System.Drawing.Size(634, 588);
 			this.Main_TabControl.TabIndex = 1;
+			// 
+			// MainSettings_TabPage
+			// 
+			this.MainSettings_TabPage.Controls.Add(this.propertyGrid1);
+			this.MainSettings_TabPage.Location = new System.Drawing.Point(4, 22);
+			this.MainSettings_TabPage.Name = "MainSettings_TabPage";
+			this.MainSettings_TabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.MainSettings_TabPage.Size = new System.Drawing.Size(626, 562);
+			this.MainSettings_TabPage.TabIndex = 2;
+			this.MainSettings_TabPage.Text = "Settings";
+			this.MainSettings_TabPage.UseVisualStyleBackColor = true;
+			// 
+			// propertyGrid1
+			// 
+			this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.propertyGrid1.Location = new System.Drawing.Point(3, 3);
+			this.propertyGrid1.Name = "propertyGrid1";
+			this.propertyGrid1.Size = new System.Drawing.Size(620, 556);
+			this.propertyGrid1.TabIndex = 1;
 			// 
 			// MainProject_TabPage
 			// 
@@ -80,31 +106,21 @@
 			this.MainDatabases_TabPage.Text = "Databases";
 			this.MainDatabases_TabPage.UseVisualStyleBackColor = true;
 			// 
-			// Main_OpenButton
+			// databaseControl1
 			// 
-			this.Main_OpenButton.Location = new System.Drawing.Point(93, 0);
-			this.Main_OpenButton.Name = "Main_OpenButton";
-			this.Main_OpenButton.Size = new System.Drawing.Size(75, 23);
-			this.Main_OpenButton.TabIndex = 2;
-			this.Main_OpenButton.Text = "Open";
-			this.Main_OpenButton.UseVisualStyleBackColor = true;
-			this.Main_OpenButton.Click += new System.EventHandler(this.Main_OpenButton_Click);
-			// 
-			// Main_SaveButton
-			// 
-			this.Main_SaveButton.Location = new System.Drawing.Point(174, 0);
-			this.Main_SaveButton.Name = "Main_SaveButton";
-			this.Main_SaveButton.Size = new System.Drawing.Size(75, 23);
-			this.Main_SaveButton.TabIndex = 0;
-			this.Main_SaveButton.Text = "Save";
-			this.Main_SaveButton.UseVisualStyleBackColor = true;
-			this.Main_SaveButton.Click += new System.EventHandler(this.Main_SaveButton_Click);
+			this.databaseControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.databaseControl1.Location = new System.Drawing.Point(3, 3);
+			this.databaseControl1.Name = "databaseControl1";
+			this.databaseControl1.Size = new System.Drawing.Size(620, 556);
+			this.databaseControl1.TabIndex = 3;
 			// 
 			// Main_MenuStrip
 			// 
 			this.Main_MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.File_ToolStripMenuItem,
-            this.View_ToolStripMenuItem});
+            this.View_ToolStripMenuItem,
+            this.vanillaToolStripMenuItem,
+            this.testToolStripMenuItem});
 			this.Main_MenuStrip.Location = new System.Drawing.Point(0, 0);
 			this.Main_MenuStrip.Name = "Main_MenuStrip";
 			this.Main_MenuStrip.Size = new System.Drawing.Size(634, 24);
@@ -169,13 +185,43 @@
 			this.ViewMessages_ToolStripMenuItem.Text = "Messages";
 			this.ViewMessages_ToolStripMenuItem.Click += new System.EventHandler(this.ViewMessages_ToolStripMenuItem_OnClick);
 			// 
-			// databaseControl1
+			// vanillaToolStripMenuItem
 			// 
-			this.databaseControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.databaseControl1.Location = new System.Drawing.Point(3, 3);
-			this.databaseControl1.Name = "databaseControl1";
-			this.databaseControl1.Size = new System.Drawing.Size(620, 556);
-			this.databaseControl1.TabIndex = 3;
+			this.vanillaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allocateToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.exportToolStripMenuItem});
+			this.vanillaToolStripMenuItem.Name = "vanillaToolStripMenuItem";
+			this.vanillaToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+			this.vanillaToolStripMenuItem.Text = "Vanilla";
+			// 
+			// allocateToolStripMenuItem
+			// 
+			this.allocateToolStripMenuItem.Name = "allocateToolStripMenuItem";
+			this.allocateToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.allocateToolStripMenuItem.Text = "Allocate";
+			this.allocateToolStripMenuItem.Click += new System.EventHandler(this.allocateToolStripMenuItem_Click);
+			// 
+			// importToolStripMenuItem
+			// 
+			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+			this.importToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.importToolStripMenuItem.Text = "Import";
+			this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+			// 
+			// exportToolStripMenuItem
+			// 
+			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+			this.exportToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.exportToolStripMenuItem.Text = "Export";
+			this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+			// 
+			// testToolStripMenuItem
+			// 
+			this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+			this.testToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+			this.testToolStripMenuItem.Text = "Test";
+			this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -183,14 +229,13 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(634, 612);
 			this.Controls.Add(this.Main_TabControl);
-			this.Controls.Add(this.Main_SaveButton);
-			this.Controls.Add(this.Main_OpenButton);
 			this.Controls.Add(this.Main_MenuStrip);
 			this.MainMenuStrip = this.Main_MenuStrip;
 			this.Name = "MainForm";
-			this.Text = "Studio";
+			this.Text = "Endless Studio";
 			this.Load += new System.EventHandler(this.OnLoad);
 			this.Main_TabControl.ResumeLayout(false);
+			this.MainSettings_TabPage.ResumeLayout(false);
 			this.MainDatabases_TabPage.ResumeLayout(false);
 			this.Main_MenuStrip.ResumeLayout(false);
 			this.Main_MenuStrip.PerformLayout();
@@ -213,9 +258,14 @@
 		private System.Windows.Forms.ToolStripMenuItem ViewMessages_ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.TabPage MainDatabases_TabPage;
-		private System.Windows.Forms.Button Main_SaveButton;
-		private System.Windows.Forms.Button Main_OpenButton;
 		private DatabaseControl databaseControl1;
+		private System.Windows.Forms.ToolStripMenuItem vanillaToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem allocateToolStripMenuItem;
+		private System.Windows.Forms.TabPage MainSettings_TabPage;
+		private System.Windows.Forms.PropertyGrid propertyGrid1;
+		private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
 	}
 }
 

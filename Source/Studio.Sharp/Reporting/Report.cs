@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Sharp.Applications
+namespace Sharp.Reporting
 {
 	public static class Report
 	{

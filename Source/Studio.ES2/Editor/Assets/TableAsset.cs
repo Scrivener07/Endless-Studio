@@ -1,7 +1,6 @@
 ﻿using ES2.Editor.Model;
-using Sharp.Applications;
-using Sharp.Applications.Messages;
-using Sharp.Applications.Storage.Special;
+using Sharp.Reporting;
+using Sharp.Storage.Special;
 using System;
 using System.Xml;
 using System.Xml.Serialization;
@@ -10,25 +9,18 @@ namespace ES2.Editor.Assets
 {
 	public class TableAsset : XmlAsset<Datatable>
 	{
+		private readonly DataStore Data;
 		public override Datatable Xml { get; set; }
 
-		public bool HasXmlElements { get { return Xml.Count > 0; } }
 
-
-
-
-		public TableAsset() : base()
+		public TableAsset(DataStore datastore, string filepath) : base(filepath)
 		{
-			Xml = null;
-		}
-
-		public TableAsset(string filepath) : base(filepath)
-		{
+			Data = datastore;
 			Xml = new Datatable();
 		}
 
 
-		#region Xml Overrides
+		#region Xml Asset
 
 		public override bool Write(IProgress<ProgressEventArgs> progress = null)
 		{
@@ -47,9 +39,9 @@ namespace ES2.Editor.Assets
 				}
 				catch (Exception exception)
 				{
-					var message = ExceptionMessage.GetWarning(exception);
+					var message = MessageFormat.GetWarning(exception);
 					Logs.Entry(message);
-					Report.Progress(progress, Report.Message("Message: '" + Logs.Message + "' Exception: '" + message + "'", DisplayIcon.Error));
+					Report.Progress(progress, Report.Message("Message: '" + Logs.Message + "' Exception: '" + message + "'", MessageIcon.Error));
 					return false;
 				}
 			}
@@ -76,18 +68,17 @@ namespace ES2.Editor.Assets
 				}
 				catch (Exception exception)
 				{
-					var message = ExceptionMessage.GetWarning(exception);
+					var message = MessageFormat.GetWarning(exception);
 					Logs.Entry(message);
-					Report.Progress(progress, Report.Message("Message: '" + Logs.Message + "' Exception: '" + message + "'", DisplayIcon.Error));
+					Report.Progress(progress, Report.Message("Message: '" + Logs.Message + "' Exception: '" + message + "'", MessageIcon.Error));
 				}
-
 				return PostRead(progress);
 			}
 			else
 			{
-				var msg = "Aborting deserialization. The file '" + FilePath + "' cannot be found";
-				Logs.Entry(msg);
-				Report.Progress(progress, Report.Message(msg, DisplayIcon.Error));
+				var message = "Aborting deserialization. The file '" + FilePath + "' cannot be found";
+				Logs.Entry(message);
+				Report.Progress(progress, Report.Message(message, MessageIcon.Error));
 				return false;
 			}
 		}
@@ -97,26 +88,38 @@ namespace ES2.Editor.Assets
 
 		private bool PostRead(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (HasXmlData)
+			if (!IsNull)
 			{
-				var msg = "The file '" + FilePath + "' contains '" + Xml.Count + "' elements.";
-				Logs.Entry(msg);
+				var message = "The file '" + FilePath + "' contains '" + Xml.Count + "' elements.";
+				Logs.Entry(message);
 
 				if (Xml.Count <= 0)
 				{
-					Report.Progress(progress, Report.Message(msg, DisplayIcon.Warning));
+					Report.Progress(progress, Report.Message(message, MessageIcon.Warning));
 					return true;
 				}
-
-				Report.Progress(progress, Report.Message(msg, DisplayIcon.Complete));
-				return true;
+				else
+				{
+					Report.Progress(progress, Report.Message(message, MessageIcon.Complete));
+					return true;
+				}
 			}
 			else
 			{
-				var msg = "The file '" + FilePath + "' could not be deserialized.";
-				Logs.Entry(msg);
-				Report.Progress(progress, Report.Message(msg, DisplayIcon.Error));
+				var message = "The file '" + FilePath + "' could not be deserialized.";
+				Logs.Entry(message);
+				Report.Progress(progress, Report.Message(message, MessageIcon.Error));
 				return false;
+			}
+		}
+
+
+		public bool HasElements
+		{
+			get
+			{
+				if (Xml != null) return Xml.Count > 0;
+				else return false;
 			}
 		}
 
