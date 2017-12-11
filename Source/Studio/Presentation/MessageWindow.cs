@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sharp.Reporting;
+using System;
 using System.Windows.Forms;
 
 namespace Studio.Presentation
