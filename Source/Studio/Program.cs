@@ -1,9 +1,5 @@
-﻿using ES2.Amplitude.Unity.Localization;
-using ES2.Amplitude.Unity.Runtime;
-using ES2.Amplitude.Unity.Simulation;
-using ES2.Editor;
+﻿using ES2.Editor;
 using ES2.Editor.Framework;
-using ES2.Editor.Model;
 using Studio.Presentation;
 using System;
 using System.Data.Entity;
@@ -37,40 +33,15 @@ namespace Studio
 		/// <returns></returns>
 		public static bool Initialize()
 		{
-			EntityType.Serializer.Initialize(typeof(RuntimeModule));
-			EntityType.Serializer.Initialize(typeof(QuestDefinition));
-			EntityType.Serializer.Initialize(typeof(TutorialDefinition));
-			EntityType.Serializer.Initialize(typeof(BasicFaction));
-			EntityType.Serializer.Initialize(typeof(FactionAffinity));
-			EntityType.Serializer.Initialize(typeof(FactionAffinityMapping));
-			EntityType.Serializer.Initialize(typeof(FactionPopulationTrait));
-			EntityType.Serializer.Initialize(typeof(FactionTrait));
-			EntityType.Serializer.Initialize(typeof(FactionTraitCategoryDefinition));
-			EntityType.Serializer.Initialize(typeof(FactionTraitStartingSenate));
-			EntityType.Serializer.Initialize(typeof(LesserFaction));
-			EntityType.Serializer.Initialize(typeof(MajorFaction));
-			EntityType.Serializer.Initialize(typeof(MinorFaction));
-			EntityType.Serializer.Initialize(typeof(PirateFaction));
-			EntityType.Serializer.Initialize(typeof(LocalizationDatatableElement));
-
 			using (var context = new EntityContext())
 			{
 				new EntityInitializer().InitializeDatabase(context);
 				context.ClearTables();
 				context.SaveChanges();
-				context.RuntimeModules.Load();
-				context.Factions.Load();
-				context.BasicFactions.Load();
-				context.LesserFactions.Load();
-				context.MinorFactions.Load();
-				context.MajorFactions.Load();
-				context.PirateFactions.Load();
-				context.FactionAffinitys.Load();
-				context.FactionAffinityMappings.Load();
-				context.FactionPopulationTraits.Load();
-				context.FactionTraits.Load();
-				context.FactionTraitCategoryDefinitions.Load();
-				context.FactionTraitStartingSenates.Load();
+
+				// TODO: I think this defeats the purpose of calling load?
+				// Syntax wise, its better than writing out Load() for each dbset
+				context.GetTables().ForEach(table => table.Load());
 			}
 			return true;
 		}

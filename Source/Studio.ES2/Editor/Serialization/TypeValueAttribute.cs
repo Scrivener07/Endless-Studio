@@ -1,4 +1,4 @@
-﻿using ES2.Editor.Model;
+﻿using ES2.Editor.Framework;
 using System;
 
 namespace ES2.Editor.Serialization
@@ -11,7 +11,7 @@ namespace ES2.Editor.Serialization
 	{
 		public TypeValueAttribute(Type type)
 		{
-			EntityType.Serializer.Initialize(type);
+			EntityContext.Serializer.Initialize(type);
 		}
 	}
 }

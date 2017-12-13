@@ -1,5 +1,4 @@
-﻿using ES2.Editor.Serialization;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -29,23 +28,9 @@ namespace ES2.Editor.Model
 		public virtual List<MetaInfo> DependencyList { get; set; }
 
 
-		/// <summary>
-		/// Each entity must store its type within the element cache. 
-		/// Store the type in the entities static constructor or use the annotation attribute.
-		/// </summary>
-		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public static TypeDictionary Serializer { get; private set; }
-
-
-		static EntityType()
-		{
-			Serializer = new TypeDictionary();
-		}
-
 		public EntityType()
 		{
 			Name = Guid.NewGuid().ToString();
-
 			Meta = new EntityTypeMeta();
 			DependencyList = new List<MetaInfo>();
 		}

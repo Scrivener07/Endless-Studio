@@ -80,11 +80,6 @@ namespace Studio.Presentation
 
 		#region ToolStrip
 
-		private void ViewMessages_ToolStripMenuItem_OnClick(object sender, EventArgs e)
-		{
-			Program.Studio.ShowMessages();
-		}
-
 		private void FileNew_ToolStripMenuItem_OnClick(object sender, EventArgs e)
 		{
 			Program.Studio.ShowProjectNew();

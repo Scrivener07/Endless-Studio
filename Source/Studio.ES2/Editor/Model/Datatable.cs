@@ -1,4 +1,5 @@
-﻿using ES2.Editor.Serialization;
+﻿using ES2.Editor.Framework;
+using ES2.Editor.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,9 +33,9 @@ namespace ES2.Editor.Model
 			{
 				var key = kvp.Value.GetType().Name;
 
-				if (EntityType.Serializer.ContainsKey(key))
+				if (EntityContext.Serializer.ContainsKey(key))
 				{
-					TypeValue valueType = EntityType.Serializer[key];
+					TypeValue valueType = EntityContext.Serializer[key];
 					valueType.Serialize(xml, kvp.Value, namespaces);
 				}
 				else
@@ -55,7 +56,7 @@ namespace ES2.Editor.Model
 				{
 					if (xml.Depth == 1 && xml.NodeType == XmlNodeType.Element)
 					{
-						EntityType element = EntityType.Serializer.Read(xml);
+						EntityType element = EntityContext.Serializer.Read(xml);
 						if (Store(element))
 						{
 							Trace.WriteLine("Xml Reader: Allocated: " + element.Name);
