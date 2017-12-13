@@ -13,7 +13,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("FactionAffinityMapping", Namespace = "", IsNullable = true)]
 	public class FactionAffinityMapping : FactionTrait
 	{
 		private ObservableListSource<AbstractToShipDesignPair> shipDesignField;

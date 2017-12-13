@@ -20,7 +20,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("Faction", Namespace = "", IsNullable = true)]
 	public class Faction : DatatableElement
 	{
 		private XmlNamedReference affinityField;

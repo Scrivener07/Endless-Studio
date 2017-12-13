@@ -1,4 +1,6 @@
-﻿using ES2.Amplitude.Unity.Simulation;
+﻿using ES2.Amplitude.Unity.Localization;
+using ES2.Amplitude.Unity.Runtime;
+using ES2.Amplitude.Unity.Simulation;
 using ES2.Editor;
 using ES2.Editor.Framework;
 using ES2.Editor.Model;
@@ -35,19 +37,21 @@ namespace Studio
 		/// <returns></returns>
 		public static bool Initialize()
 		{
-			EntityType.Serializer.Store(typeof(QuestDefinition));
-			EntityType.Serializer.Store(typeof(TutorialDefinition));
-			EntityType.Serializer.Store(typeof(BasicFaction));
-			EntityType.Serializer.Store(typeof(FactionAffinity));
-			EntityType.Serializer.Store(typeof(FactionAffinityMapping));
-			EntityType.Serializer.Store(typeof(FactionPopulationTrait));
-			EntityType.Serializer.Store(typeof(FactionTrait));
-			EntityType.Serializer.Store(typeof(FactionTraitCategoryDefinition));
-			EntityType.Serializer.Store(typeof(FactionTraitStartingSenate));
-			EntityType.Serializer.Store(typeof(LesserFaction));
-			EntityType.Serializer.Store(typeof(MajorFaction));
-			EntityType.Serializer.Store(typeof(MinorFaction));
-			EntityType.Serializer.Store(typeof(PirateFaction));
+			EntityType.Serializer.Initialize(typeof(RuntimeModule));
+			EntityType.Serializer.Initialize(typeof(QuestDefinition));
+			EntityType.Serializer.Initialize(typeof(TutorialDefinition));
+			EntityType.Serializer.Initialize(typeof(BasicFaction));
+			EntityType.Serializer.Initialize(typeof(FactionAffinity));
+			EntityType.Serializer.Initialize(typeof(FactionAffinityMapping));
+			EntityType.Serializer.Initialize(typeof(FactionPopulationTrait));
+			EntityType.Serializer.Initialize(typeof(FactionTrait));
+			EntityType.Serializer.Initialize(typeof(FactionTraitCategoryDefinition));
+			EntityType.Serializer.Initialize(typeof(FactionTraitStartingSenate));
+			EntityType.Serializer.Initialize(typeof(LesserFaction));
+			EntityType.Serializer.Initialize(typeof(MajorFaction));
+			EntityType.Serializer.Initialize(typeof(MinorFaction));
+			EntityType.Serializer.Initialize(typeof(PirateFaction));
+			EntityType.Serializer.Initialize(typeof(LocalizationDatatableElement));
 
 			using (var context = new EntityContext())
 			{

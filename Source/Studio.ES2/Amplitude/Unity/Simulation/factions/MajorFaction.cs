@@ -11,7 +11,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("MajorFaction", Namespace = "", IsNullable = true)]
 	public class MajorFaction : Faction
 	{
 	}

@@ -25,8 +25,8 @@ namespace ES2.Editor.Model
 		{
 			if (xml == null) throw new ArgumentNullException("xml");
 
-			XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-			ns.Add("", "");
+			XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+			namespaces.Add("", "");
 
 			foreach (var kvp in this)
 			{
@@ -34,8 +34,8 @@ namespace ES2.Editor.Model
 
 				if (EntityType.Serializer.ContainsKey(key))
 				{
-					GameType gametype = EntityType.Serializer[key];
-					gametype.Serializer.Serialize(xml, kvp.Value, ns);
+					TypeValue valueType = EntityType.Serializer[key];
+					valueType.Serialize(xml, kvp.Value, namespaces);
 				}
 				else
 				{
@@ -75,9 +75,9 @@ namespace ES2.Editor.Model
 		{
 			if (element != null)
 			{
-				if (!this.ContainsKey(element.Name))
+				if (!ContainsKey(element.Name))
 				{
-					this.Add(element.Name, element);
+					Add(element.Name, element);
 					return true;
 				}
 				else

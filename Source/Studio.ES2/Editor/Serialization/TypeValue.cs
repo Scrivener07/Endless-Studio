@@ -1,33 +1,48 @@
-﻿using ES2.Amplitude.Unity.Simulation;
-using ES2.Editor.Model;
-using System;
+﻿using System;
 using System.Diagnostics;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace ES2.Editor.Serialization
 {
-	public class GameType : IEquatable<GameType>
+	public class TypeValue : IEquatable<TypeValue>
 	{
-		public string Name { get { return SystemType.Name; } }
-		public readonly string NameXml;
-		public readonly System.Type SystemType;
-		public readonly XmlSerializer Serializer;
+		private readonly string Name;
+		private readonly string NameKey;
+		private readonly XmlSerializer Serializer;
+		public string Key { get { return NameKey; } }
 
 
-		public GameType(System.Type type)
+		public TypeValue(Type type)
 		{
-			if (type == null) { throw new ArgumentNullException("type", "The type argument cannot be null."); }
-			SystemType = type;
-
-			Serializer = new XmlSerializer(type);
-			if (Serializer == null) { throw new InvalidOperationException("Could not initialize serializer for the system type " + type.Name); }
-
-			NameXml = GetXmlName(type);
-			Trace.WriteLine("Created new GameType of " + Name);
+			if (type == null)
+			{
+				throw new ArgumentNullException("type", "The argument cannot be null.");
+			}
+			else
+			{
+				Name = type.Name;
+				NameKey = GetKeyName(type);
+				Serializer = new XmlSerializer(type);
+				if (Serializer == null) { throw new InvalidOperationException("Could not initialize serializer for the system type " + type.Name); }
+				Trace.WriteLine("Created new type value of " + Name + " for xml serialization.");
+			}
 		}
 
 
-		private static string GetXmlName(System.Type type)
+		public void Serialize(XmlWriter xml, object o, XmlSerializerNamespaces namespaces)
+		{
+			Serialize(xml, o, namespaces);
+		}
+
+
+		public object Deserialize(XmlReader xml)
+		{
+			return Serializer.Deserialize(xml);
+		}
+
+
+		private static string GetKeyName(Type type)
 		{
 			Attribute[] attributes = Attribute.GetCustomAttributes(type);
 
@@ -46,12 +61,12 @@ namespace ES2.Editor.Serialization
 		}
 
 
-		#region IEquatable<GameType> Members
+		#region IEquatable<GameType>
 
-		public bool Equals(GameType other)
+		public bool Equals(TypeValue other)
 		{
 			if (other == null) return false;
-			return (NameXml.Equals(other.NameXml));
+			return (NameKey.Equals(other.NameKey));
 		}
 
 
@@ -59,7 +74,7 @@ namespace ES2.Editor.Serialization
 		/// <returns>A hash code for the current types Name.</returns>
 		public override int GetHashCode()
 		{
-			return NameXml.GetHashCode();
+			return NameKey.GetHashCode();
 		}
 
 
@@ -67,8 +82,8 @@ namespace ES2.Editor.Serialization
 		/// <returns>True if the specified <see cref="T:System.Object"></see> is a GameType object and its Name is the same as the current types Name; otherwise False;</returns>
 		public override bool Equals(object obj)
 		{
-			if (obj != null && obj is GameType)
-				return Equals((GameType)obj);
+			if (obj != null && obj is TypeValue)
+				return Equals((TypeValue)obj);
 			else
 				return false;
 		}
@@ -79,7 +94,7 @@ namespace ES2.Editor.Serialization
 		/// <param name="B">Second type to compare with.</param>
 		/// <returns>True if the Name property for both types is the same; otherwise false.</returns>
 		/// <remarks>Needed when working with value types.</remarks>
-		public static bool operator ==(GameType A, GameType B)
+		public static bool operator ==(TypeValue A, TypeValue B)
 		{
 			if (ReferenceEquals(A, B)) return true;
 			if (A is null) return false;
@@ -93,7 +108,7 @@ namespace ES2.Editor.Serialization
 		/// <param name="B">Second type to compare with.</param>
 		/// <returns>True if the Name property for both types are different; otherwise false.</returns>
 		/// <remarks>Needed when working with value types.</remarks>
-		public static bool operator !=(GameType A, GameType B)
+		public static bool operator !=(TypeValue A, TypeValue B)
 		{
 			if (ReferenceEquals(A, B)) return false;
 			if (A is null) return true;

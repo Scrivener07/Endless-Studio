@@ -48,11 +48,7 @@ namespace Studio.Presentation
 		{
 			try
 			{
-				var window = Program.Studio.GetMessageWindow();
-				if (window != null)
-				{
-					messageWidget1.Message(e.Text, e.Image);
-				}
+				messageWidget1.Message(e.Text, e.Image);
 			}
 			catch (Exception exception)
 			{

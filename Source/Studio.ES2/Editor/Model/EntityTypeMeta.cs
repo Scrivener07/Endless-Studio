@@ -10,7 +10,7 @@ namespace ES2.Editor.Model
 {
 	[ComplexType]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
-	public class EntityMeta
+	public class EntityTypeMeta
 	{
 
 		/// <summary>
@@ -20,12 +20,14 @@ namespace ES2.Editor.Model
 		public TableAsset Asset { get; set; }
 
 
-
 		// current
 		public string Owner { get; set; }
 		public string Location { get; set; }
 
-		// override
+
+		/// <summary>
+		/// Preserves XML comments after deserialization.
+		/// </summary>
 		public string Comment { get; set; }
 
 
@@ -47,13 +49,13 @@ namespace ES2.Editor.Model
 		[Description("Description that would be viewed")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 		[EditorBrowsable(EditorBrowsableState.Always)]
-		[Editor(arrayeditor, typeof(UITypeEditor))]
+		[Editor(Annotations.Design.StringArrayEditor, typeof(UITypeEditor))]
 		public virtual string[] Dependencies { get; set; }
 
 
 
 
-		public EntityMeta()
+		public EntityTypeMeta()
 		{
 			Owner = "unknown";
 			Location = "unknown";
@@ -77,7 +79,7 @@ namespace ES2.Editor.Model
 		}
 
 
-		const string arrayeditor = "System.Windows.Forms.Design.StringArrayEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+
 	}
 
 

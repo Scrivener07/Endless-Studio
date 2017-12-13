@@ -11,7 +11,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("LesserFaction", Namespace = "", IsNullable = true)]
 	public class LesserFaction : BasicFaction
 	{
 	}

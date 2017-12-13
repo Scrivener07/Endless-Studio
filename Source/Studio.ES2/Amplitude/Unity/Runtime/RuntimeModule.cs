@@ -20,7 +20,7 @@ namespace ES2.Amplitude.Unity.Runtime
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("RuntimeModule", Namespace = "", IsNullable = true)]
 	public class RuntimeModule : EntityType
 	{
 		private RuntimeModuleType typeField;

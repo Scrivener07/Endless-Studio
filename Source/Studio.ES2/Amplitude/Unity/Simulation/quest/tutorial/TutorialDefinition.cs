@@ -12,7 +12,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("TutorialDefinition", Namespace = "", IsNullable = true)]
 	public class TutorialDefinition : QuestDefinition
 	{
 

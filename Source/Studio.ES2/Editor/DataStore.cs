@@ -30,14 +30,15 @@ namespace ES2.Editor
 
 		#region IDataStore
 
+		// TODO: Allocation needs to invalidate previous allocations!
 		public bool Allocate(IProgress<ProgressEventArgs> progress = null)
 		{
 			bool success = false;
 			try
-			{ // TODO: Allocation needs to invalidate previous allocations!
+			{
 				List<TableAsset> assets = new List<TableAsset>();
 
-				// TODO: these queries may be a bit abusive
+				// TODO: Allocation queries may be a bit abusive.
 				Info.GetFiles("*.xml", SearchOption.AllDirectories).ToList()
 					.ForEach(file => assets.Add(new TableAsset(this, file.FullName)));
 
@@ -213,7 +214,7 @@ namespace ES2.Editor
 			}
 		}
 
-
+		// TODO: Refactor entity meta data.
 		private void UpdateMeta(EntityType entity, EntityContext context)
 		{
 			string currentMod = ModificationAsset.ToString();

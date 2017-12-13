@@ -77,10 +77,11 @@ namespace Studio
 			//ShowWindow(new ProjectWindowProperties());
 		}
 
-
+		[Obsolete]
 		public void ShowMessages()
 		{
-			GetMessageWindow(); // TODO: something silly
+			// TODO: depreciate StudioContext.ShowMessages
+			//GetMessageWindow(); 
 		}
 
 

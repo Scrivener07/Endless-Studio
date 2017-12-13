@@ -1,4 +1,5 @@
-﻿using ES2.Amplitude.Unity.Runtime;
+﻿using ES2.Amplitude.Unity.Localization;
+using ES2.Amplitude.Unity.Runtime;
 using ES2.Amplitude.Unity.Simulation;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ namespace ES2.Editor.Framework
 		private const string ConnectionString = "DBConnectionString";
 
 		public DbSet<RuntimeModule> RuntimeModules { get; set; }
+
 		public DbSet<Faction> Factions { get; set; }
 		public DbSet<BasicFaction> BasicFactions { get; set; }
 		public DbSet<LesserFaction> LesserFactions { get; set; }
@@ -22,6 +24,7 @@ namespace ES2.Editor.Framework
 		public DbSet<FactionTrait> FactionTraits { get; set; }
 		public DbSet<FactionTraitCategoryDefinition> FactionTraitCategoryDefinitions { get; set; }
 		public DbSet<FactionTraitStartingSenate> FactionTraitStartingSenates { get; set; }
+		public DbSet<LocalizationDatatableElement> LocalizationDatatableElements { get; set; }
 
 
 		public EntityContext() : base(ConnectionString)
@@ -58,7 +61,8 @@ namespace ES2.Editor.Framework
 				FactionPopulationTraits,
 				FactionTraits,
 				FactionTraitCategoryDefinitions,
-				FactionTraitStartingSenates
+				FactionTraitStartingSenates,
+				LocalizationDatatableElements
 			};
 		}
 

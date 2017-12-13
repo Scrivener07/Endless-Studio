@@ -15,7 +15,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[XmlInclude(typeof(FactionAffinityMapping))]
 	[XmlInclude(typeof(FactionPopulationTrait))]
 	[XmlInclude(typeof(FactionTraitStartingSenate))]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("FactionTrait", Namespace = "", IsNullable = true)]
 	[GeneratedCode("xsd", "2.0.50727.3038")]
 	[Serializable]
 	[DebuggerStepThrough]

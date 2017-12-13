@@ -12,7 +12,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("FactionAffinity", Namespace = "", IsNullable = true)]
 	public class FactionAffinity : FactionTrait
 	{
 		private string defaultColonizerField;

@@ -92,9 +92,9 @@ namespace Studio.Presentation
 
 						string selectedName = "unknown";
 
-						if (dataItem is INamed)
+						if (dataItem is IEntityNamed)
 						{
-							var kSelected = dataItem as INamed;
+							var kSelected = dataItem as IEntityNamed;
 							selectedName = kSelected.Name;
 						}
 

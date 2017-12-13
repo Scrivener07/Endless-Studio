@@ -496,21 +496,21 @@
       <DependentUpon>EntityDataSource.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\Framework\Binding\ListDictionary.cs" />
-    <Compile Include="Editor\Serialization\TypeCache.cs" />
+    <Compile Include="Editor\Serialization\TypeDictionary.cs" />
     <Compile Include="Editor\Model\Entity.cs" />
     <Compile Include="Editor\Model\EntityType.cs" />
-    <Compile Include="Editor\Model\EntityMeta.cs" />
+    <Compile Include="Editor\Model\EntityTypeMeta.cs" />
     <Compile Include="Editor\Model\EntityTypeComplex.cs" />
-    <Compile Include="Editor\Serialization\GameType.cs" />
-    <Compile Include="Editor\Model\ModelSettings.cs" />
+    <Compile Include="Editor\Serialization\TypeValue.cs" />
+    <Compile Include="Editor\Model\Annotations.cs" />
     <Compile Include="Editor\Framework\EntityContext.cs" />
     <Compile Include="Editor\Framework\EntityInitializer.cs" />
     <Compile Include="Editor\Framework\EntityExtensions.cs" />
-    <Compile Include="Editor\Model\INamed.cs" />
+    <Compile Include="Editor\Model\IEntityNamed.cs" />
     <Compile Include="Editor\Framework\ObservableListSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Amplitude\Unity\Simulation\quest\QuestStepChoiceDefinition.cs" />
-    <Compile Include="Editor\Serialization\GameTypeAttribute.cs" />
+    <Compile Include="Editor\Serialization\TypeValueAttribute.cs" />
     <Compile Include="Editor\Assets\UserFolder.cs" />
   </ItemGroup>
   <ItemGroup>

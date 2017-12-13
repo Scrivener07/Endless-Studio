@@ -14,7 +14,7 @@ namespace ES2.Amplitude.Unity.Simulation
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	[XmlRoot(Namespace = "", IsNullable = true)]
+	[XmlRoot("FactionPopulationTrait", Namespace = "", IsNullable = true)]
 	public class FactionPopulationTrait : FactionTrait
 	{
 		private ObservableListSource<XmlNamedReference> majorPopulationDescriptorsField;

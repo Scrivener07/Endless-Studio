@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace ES2.Editor.Model
 {
 	[DefaultProperty("Name")]
-	public abstract class EntityType : Entity, INamed
+	public abstract class EntityType : Entity, IEntityNamed
 	{
 		[Key, Column(Order = 1)]
 		[Category("Attribute"), Description("The unique key name of this element.")]
@@ -17,14 +17,11 @@ namespace ES2.Editor.Model
 		public virtual string Name { get; set; }
 
 
-
-
-
 		[XmlIgnore]
-		[Column(Order = 0), Category(ModelSettings.Studio.DefaultCategory), Description(ModelSettings.Studio.DefaultDescription)]
+		[Column(Order = 0), Category(Annotations.Studio.DefaultCategory), Description(Annotations.Studio.DefaultDescription)]
 		[Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 		[EditorBrowsable(EditorBrowsableState.Always)]
-		public virtual EntityMeta Meta { get; set; }
+		public virtual EntityTypeMeta Meta { get; set; }
 
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -37,19 +34,20 @@ namespace ES2.Editor.Model
 		/// Store the type in the entities static constructor or use the annotation attribute.
 		/// </summary>
 		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public static TypeCache Serializer { get; private set; }
+		public static TypeDictionary Serializer { get; private set; }
 
 
 		static EntityType()
 		{
-			Serializer = new TypeCache();
+			Serializer = new TypeDictionary();
 		}
 
 		public EntityType()
 		{
 			Name = Guid.NewGuid().ToString();
+
+			Meta = new EntityTypeMeta();
 			DependencyList = new List<MetaInfo>();
-			Meta = new EntityMeta();
 		}
 
 

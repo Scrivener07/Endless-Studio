@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ES2.Editor.Model;
+using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -13,23 +14,9 @@ namespace ES2.Amplitude.Unity.Localization
 	[Serializable]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
-	public class LocalizationDatatableElement : INotifyPropertyChanged
+	public class LocalizationDatatableElement : DatatableElement
 	{
-		private string nameField;
 		private string valueField;
-
-
-		/// <remarks/>
-		[XmlAttribute]
-		public string Name
-		{
-			get { return this.nameField; }
-			set
-			{
-				this.nameField = value;
-				this.RaisePropertyChanged("Name");
-			}
-		}
 
 		/// <remarks/>
 		[XmlText]
@@ -40,18 +27,6 @@ namespace ES2.Amplitude.Unity.Localization
 			{
 				this.valueField = value;
 				this.RaisePropertyChanged("Value");
-			}
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-			if ((propertyChanged != null))
-			{
-				propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 
