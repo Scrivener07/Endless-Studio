@@ -21,7 +21,7 @@ namespace ES2.Editor
 		public UserFolder User { get; private set; }
 
 
-		public AppFolder App { get; private set; }
+		public StudioFolder App { get; private set; }
 
 
 		public ProjectContext()
@@ -29,7 +29,7 @@ namespace ES2.Editor
 			Supported = new Version(5, 5, 1, 7352351);
 			Steam = new SteamFolder();
 			User = new UserFolder();
-			App = new AppFolder();
+			App = new StudioFolder();
 			Data = new DataStore(Path.Combine(User.Mods, "Vanilla"));
 		}
 
@@ -82,6 +82,11 @@ namespace ES2.Editor
 			throw new NotImplementedException("Unloading a project is not implemented yet.");
 		}
 
+		#endregion
+
+
+		#region IDataStore
+
 		public void Reset()
 		{
 			Data.Reset();
@@ -118,9 +123,6 @@ namespace ES2.Editor
 		}
 
 		#endregion
-
-
-
 
 
 	}

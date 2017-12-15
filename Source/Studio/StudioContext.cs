@@ -17,7 +17,7 @@ namespace Studio
 		public StudioContext(T client) : base(client)
 		{
 			Name = "Endless Studio";
-			Version = new Version(0, 3, 1, 0);
+			Version = new Version(0, 0, 0, 1);
 			MainForm = new MainSplash();
 			Initialize();
 		}

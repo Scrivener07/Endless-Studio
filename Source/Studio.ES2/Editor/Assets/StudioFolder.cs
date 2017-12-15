@@ -5,19 +5,19 @@ using System.Windows.Forms;
 
 namespace ES2.Editor.Assets
 {
-	public class AppFolder : FolderAsset
+	public class StudioFolder : FolderAsset
 	{
 		public string ContentDirectory { get { return Path.Combine(URI, "Content"); } }
 		public ZipAsset ArchivePublic { get; private set; }
 
 
-		public AppFolder() : base(AutoDetect())
+		public StudioFolder() : base(AutoDetect())
 		{
 			Construct();
 		}
 
 
-		public AppFolder(string location) : base(location)
+		public StudioFolder(string location) : base(location)
 		{
 			Construct();
 		}
