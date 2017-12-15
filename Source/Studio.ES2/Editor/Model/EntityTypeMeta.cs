@@ -1,130 +1,37 @@
-﻿using ES2.Editor.Assets;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing.Design;
 
 namespace ES2.Editor.Model
 {
-	[ComplexType]
+	[NotMapped]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public class EntityTypeMeta
 	{
-
 		/// <summary>
-		/// The asset that "owns" this entity.
+		/// The table that "owns" this entity.
 		/// </summary>
-		[NotMapped]
-		public TableAsset Asset { get; set; }
-
-
-		// current
-		public string Owner { get; set; }
-		public string Location { get; set; }
+		public Stack<Datatable> TableStack { get; set; }
 
 
 		/// <summary>
 		/// Preserves XML comments after deserialization.
 		/// </summary>
-		public string Comment { get; set; }
-
-
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		[EditorBrowsable(EditorBrowsableState.Always)]
-		public virtual BindingList<TextData> TextList { get; set; }
-
-
-
-
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		[EditorBrowsable(EditorBrowsableState.Always)]
-		public virtual Stack<string> NameStack { get; set; }
-
-
-
-
-		[Browsable(true), DisplayName("Dependencies")]
-		[Description("Description that would be viewed")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-		[EditorBrowsable(EditorBrowsableState.Always)]
-		[Editor(Annotations.Design.StringArrayEditor, typeof(UITypeEditor))]
-		public virtual string[] Dependencies { get; set; }
-
-
+		public BindingList<string> Comments { get; set; }
 
 
 		public EntityTypeMeta()
 		{
-			Owner = "unknown";
-			Location = "unknown";
-			Comment = String.Empty;
-
-			Dependencies = new string[2];
-			Dependencies[0] = "none";
-			Dependencies[1] = "none";
-
-			NameStack = new Stack<string>();
-
-
-			TextList = new BindingList<TextData>();
+			TableStack = new Stack<Datatable>();
+			Comments = new BindingList<string>();
 		}
 
 
-
-		public override string ToString()
+		public string GetTablePath()
 		{
-			return Owner;
+			return TableStack.Peek().Asset.FilePath;
 		}
 
 
-
-	}
-
-
-
-
-
-
-	[ComplexType]
-	[TypeConverter(typeof(ExpandableObjectConverter))]
-	public class MetaInfo
-	{
-		public string Mod { get; set; }
-		public string File { get; set; }
-
-
-
-		public MetaInfo()
-		{
-			Mod = String.Empty;
-			File = String.Empty;
-		}
-
-
-		public override string ToString()
-		{
-			return Mod;
-		}
-	}
-
-
-
-
-
-
-	[ComplexType]
-	[TypeConverter(typeof(ExpandableObjectConverter))]
-	public class TextData
-	{
-		[Key]
-		public virtual string Id { get; set; }
-		public string Text { get; set; }
-
-		public TextData()
-		{
-			Id = Guid.NewGuid().ToString();
-		}
 	}
 }

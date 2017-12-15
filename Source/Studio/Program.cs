@@ -1,8 +1,8 @@
 ﻿using ES2.Editor;
 using ES2.Editor.Framework;
+using ES2.Editor.Model;
 using Studio.Presentation;
 using System;
-using System.Data.Entity;
 using System.IO;
 using System.Windows.Forms;
 
@@ -28,20 +28,18 @@ namespace Studio
 		}
 
 		/// <summary>
-		/// Initializes the entity framework database context.
+		/// Initializes the entity framework database and serializers.
 		/// </summary>
 		/// <returns></returns>
 		public static bool Initialize()
 		{
+			Datatable.Initialize();
 			using (var context = new EntityContext())
 			{
 				new EntityInitializer().InitializeDatabase(context);
 				context.ClearTables();
 				context.SaveChanges();
-
-				// TODO: I think this defeats the purpose of calling load?
-				// Syntax wise, its better than writing out Load() for each dbset
-				context.GetTables().ForEach(table => table.Load());
+				context.LoadTables();
 			}
 			return true;
 		}

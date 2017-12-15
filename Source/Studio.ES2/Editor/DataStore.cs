@@ -13,6 +13,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+// TODO: Ensure that all runtime modules are deserialized before any tables.
+
 namespace ES2.Editor
 {
 	public class DataStore : FolderAsset, IDataStore
@@ -98,7 +100,7 @@ namespace ES2.Editor
 								//var entity = entry as EntityType;
 								//entity.Meta.Asset.Write(progress);
 
-								throw new NotImplementedException("Exporting projects is not yet suported.");
+								throw new NotImplementedException("Exporting data stores is not yet suported.");
 							}
 						}
 					}
@@ -119,7 +121,7 @@ namespace ES2.Editor
 
 		public void Reset()
 		{
-			throw new NotImplementedException();
+			throw new NotImplementedException("Reseting data stores is not yet suported.");
 		}
 
 		#endregion
@@ -134,61 +136,71 @@ namespace ES2.Editor
 			{
 				if (file.Read(progress) && !file.IsNull && file.Xml.Count > 0)
 				{
+					// Reading the xml file was a success
+					// The xml file also contained viable elements to import.
+					// Continue with trying to import these elements into the database context.
+
 					try
 					{
 						using (var context = new EntityContext())
 						{
+							// Iterate over the datatable elements.
 							foreach (var kvp in file.Xml)
 							{
-								EntityType entity = kvp.Value;
-								entity.Meta.Location = file.FilePath;
+								EntityType entity = kvp.Value; // for syntax
 
-								// ---
+								// Create meta data for this entity.
+								EntityTypeMeta meta = new EntityTypeMeta();
+								meta.TableStack.Push(file.Xml);
+								meta.Comments.Add("I updated my entity comment from " + ModificationAsset.ModName);
 
-								string currentMod = ModificationAsset.ToString();
-
+								// Get the DbSet for the entities type and load it.
 								DbSet dbset = context.Set(entity.GetType());
 								dbset.Load();
 
 
-								if (dbset != null)
+								if (dbset != null) // The database set was successfully retrieved.
 								{
-									Debug.WriteLine("Finding the entity: " + entity.Name);
+									Trace.WriteLine("Checking database for existing '" + entity.Name + "' entity.");
 									var found = dbset.Find(entity.Name);
 
 
-									if (found == null)
+									if (found == null) // No entity by this name already exists.
 									{
-										context.Entry(entity).Entity.Meta.Owner = currentMod;
-										//---------------------------------------------
-										UpdateMeta(entity, context);
-										//---------------------------------------------
+										// Set the entities meta data.
+										meta.TableStack.Push(file.Xml);
+										meta.Comments.Add("Created by " + file.FilePath);
+										context.Entry(entity).Entity.SetMeta(meta);
 										context.Entry(entity).State = EntityState.Added;
 										context.SaveChanges();
-
 									}
-									else if (found is EntityType)
+									else if (found is EntityType) // An entity with this name already exists!
 									{
+										// modify the existing entity in the database.
 										var existing = found as EntityType;
-										existing.Meta.TextList.Add(new TextData() { Text = currentMod });
-										//---------------------------------------------
-										UpdateMeta(existing, context);
-										//---------------------------------------------
-
+										var existingMeta = existing.GetMeta();
+										existingMeta.TableStack.Push(file.Xml);
+										existingMeta.Comments.Add("Overriding an existing entity..");
 										context.Entry(existing).State = EntityState.Modified;
-										context.Entry(existing).ComplexProperty("Meta").IsModified = true;
 										context.SaveChanges();
 
-										var msg = "Dropped the entity '" + entity.Name + "' from " + currentMod
-												+ " because it is overridden by an entity in " + existing.Meta.Owner;
+										var msg = "Dropped the entity '" + entity.Name + "' from " + ModificationAsset.ModName
+												+ " because it is overridden by an entity in " + existingMeta.GetTablePath();
 
 										var arg = Report.Message(msg, MessageIcon.InformationB);
 										Report.Progress(progress, arg);
 									}
-									else
+
+
+
+									else // Something unexpected happend!
 									{
 										Report.Progress(progress, Report.Message("Ignored the entity '" + entity.Name + "'", MessageIcon.Warning));
 									}
+								}
+								else
+								{
+									Report.Progress(progress, Report.Message("The DbSet for entity '" + entity.Name + "' count not be found.", MessageIcon.Warning));
 								}
 							}
 							context.SaveChanges();
@@ -212,20 +224,6 @@ namespace ES2.Editor
 				var message = MessageFormat.GetWarning(exception);
 				Report.Progress(progress, Report.Message("Exception: '" + message + "', File Message: '" + file.Logs.Message + "'", MessageIcon.Error));
 			}
-		}
-
-		// TODO: Refactor entity meta data.
-		private void UpdateMeta(EntityType entity, EntityContext context)
-		{
-			string currentMod = ModificationAsset.ToString();
-
-			entity.Meta.Comment = "I updated my entity comment from " + currentMod;
-			entity.Meta.NameStack.Push(currentMod);
-			entity.Meta.Dependencies[1] = currentMod;
-			entity.Meta.TextList.Add(new TextData() { Text = currentMod });
-
-			// Mod info
-			entity.DependencyList.Add(new MetaInfo() { Mod = currentMod, File = ModificationAsset.FolderPath });
 		}
 
 		#endregion

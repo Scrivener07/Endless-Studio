@@ -10,13 +10,12 @@ namespace ES2.Editor.Assets
 	public class TableAsset : XmlAsset<Datatable>
 	{
 		private readonly DataStore Data;
-		public override Datatable Xml { get; set; }
+		public override Datatable Xml { get; protected set; }
 
 
 		public TableAsset(DataStore datastore, string filepath) : base(filepath)
 		{
 			Data = datastore;
-			Xml = new Datatable();
 		}
 
 

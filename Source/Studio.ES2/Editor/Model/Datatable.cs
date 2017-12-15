@@ -1,5 +1,8 @@
-﻿using ES2.Editor.Framework;
-using ES2.Editor.Serialization;
+﻿using ES2.Amplitude.Unity.Localization;
+using ES2.Amplitude.Unity.Runtime;
+using ES2.Amplitude.Unity.Simulation;
+using ES2.Editor.Assets;
+using ES2.Editor.Model.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,15 +15,50 @@ namespace ES2.Editor.Model
 	[XmlRoot("Datatable")]
 	public class Datatable : Dictionary<string, EntityType>, IXmlSerializable
 	{
+		[XmlIgnore]
+		public TableAsset Asset { get; set; }
+
+
 		public Datatable() : base(0) { }
+
+
+		#region Types
+
+		/// <summary>
+		/// Each entity must store its type within the types dictionary. 
+		/// </summary>
+		private static TypeDictionary Types;
+
+		/// <summary>
+		/// Initializes the datatable type dictionary. Called during application startup.
+		/// </summary>
+		public static void Initialize()
+		{
+			Types = new TypeDictionary();
+			Types.Initialize(typeof(RuntimeModule));
+			Types.Initialize(typeof(QuestDefinition));
+			Types.Initialize(typeof(TutorialDefinition));
+			Types.Initialize(typeof(BasicFaction));
+			Types.Initialize(typeof(FactionAffinity));
+			Types.Initialize(typeof(FactionAffinityMapping));
+			Types.Initialize(typeof(FactionPopulationTrait));
+			Types.Initialize(typeof(FactionTrait));
+			Types.Initialize(typeof(FactionTraitCategoryDefinition));
+			Types.Initialize(typeof(FactionTraitStartingSenate));
+			Types.Initialize(typeof(LesserFaction));
+			Types.Initialize(typeof(MajorFaction));
+			Types.Initialize(typeof(MinorFaction));
+			Types.Initialize(typeof(PirateFaction));
+			Types.Initialize(typeof(LocalizationDatatableElement));
+		}
+
+		#endregion
 
 
 		#region IXmlSerializable
 
-		public XmlSchema GetSchema()
-		{
-			return (null);
-		}
+		public XmlSchema GetSchema() { return (null); }
+
 
 		public void WriteXml(XmlWriter xml)
 		{
@@ -32,20 +70,22 @@ namespace ES2.Editor.Model
 			foreach (var kvp in this)
 			{
 				var key = kvp.Value.GetType().Name;
-
-				if (EntityContext.Serializer.ContainsKey(key))
+				if (Types.ContainsKey(key))
 				{
-					TypeValue valueType = EntityContext.Serializer[key];
+					TypeValue valueType = Types[key];
 					valueType.Serialize(xml, kvp.Value, namespaces);
 				}
 				else
 				{
-					throw new Exception("No serializer for the '" + key + "' type.");
+					throw new KeyNotFoundException("No serializer key for the '" + key + "' type.");
 				}
 			}
 		}
 
-
+		/// <summary>
+		/// TODO: Add support for Xml comments.
+		/// </summary>
+		/// <param name="xml"></param>
 		public void ReadXml(XmlReader xml)
 		{
 			if (xml == null) throw new ArgumentNullException("xml");
@@ -56,10 +96,22 @@ namespace ES2.Editor.Model
 				{
 					if (xml.Depth == 1 && xml.NodeType == XmlNodeType.Element)
 					{
-						EntityType element = EntityContext.Serializer.Read(xml);
-						if (Store(element))
+						EntityType element = Types.Read(xml);
+						if (element != null)
 						{
-							Trace.WriteLine("Xml Reader: Allocated: " + element.Name);
+							if (!ContainsKey(element.Name))
+							{
+								Add(element.Name, element);
+								Trace.WriteLine("Xml Reader: Allocated: " + element.Name);
+							}
+							else
+							{
+								Trace.WriteLine("Datatable already contains the element " + element.Name + ". Skipping duplicate Element: '" + element.Name + "'");
+							}
+						}
+						else
+						{
+							Trace.WriteLine("Datatable: Cannot allocate a null element.");
 						}
 					}
 				}
@@ -70,29 +122,6 @@ namespace ES2.Editor.Model
 
 
 		#endregion
-
-
-		private bool Store(EntityType element)
-		{
-			if (element != null)
-			{
-				if (!ContainsKey(element.Name))
-				{
-					Add(element.Name, element);
-					return true;
-				}
-				else
-				{
-					Trace.WriteLine("Datatable already contains the element " + element.Name + ". Skipping duplicate Element: '" + element.Name + "'");
-					return false;
-				}
-			}
-			else
-			{
-				Trace.WriteLine("Datatable: Cannot allocate a null element.");
-				return false;
-			}
-		}
 
 
 	}

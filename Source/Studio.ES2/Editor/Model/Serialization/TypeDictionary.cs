@@ -1,10 +1,9 @@
-﻿using ES2.Editor.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml;
 
-namespace ES2.Editor.Serialization
+namespace ES2.Editor.Model.Serialization
 {
 	/// <summary>
 	/// A dictionary that stores additional information about a class type that can be used for xml serialization.
@@ -30,7 +29,7 @@ namespace ES2.Editor.Serialization
 				return (EntityType)typeVaue.Deserialize(xml);
 			}
 
-			Trace.WriteLine("Element cache has no serializer for " + xml.Name + "'. Skipping..");
+			Trace.WriteLine("The type dictionary has no serializer for " + xml.Name + "'. Skipping..");
 			return null;
 		}
 

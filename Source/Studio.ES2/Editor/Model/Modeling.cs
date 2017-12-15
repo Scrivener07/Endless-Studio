@@ -1,14 +1,9 @@
 ﻿namespace ES2.Editor.Model
 {
-	public static class Annotations
+	public static class Modeling
 	{
 		// TODO: Add category descriptions.
-
-		//public static class ES2
-		//{
-		//	public const string GuiPropertyCategory = "Embedded";
-		//	public const string GuiPropertyDescription = "This is the elements embedded gui configuration.";
-		//}
+		public const string NameDescription = "The unique key name of this element.";
 
 		public static class Studio
 		{

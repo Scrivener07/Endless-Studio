@@ -8,7 +8,7 @@ namespace Sharp.Storage.Special
 	[DebuggerStepThrough]
 	public abstract class XmlAsset<T> : FileAsset where T : class
 	{
-		public virtual T Xml { get; set; }
+		public virtual T Xml { get; protected set; }
 		public bool IsNull { get { return Xml == null; } }
 
 		protected override string DefaultExtension { get { return ".xml"; } }

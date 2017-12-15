@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace ES2.Editor.Serialization
+namespace ES2.Editor.Model.Serialization
 {
 	public class TypeValue : IEquatable<TypeValue>
 	{

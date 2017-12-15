@@ -7,7 +7,16 @@ namespace ES2.Editor.Assets
 {
 	public class ModificationAsset : XmlAsset<RuntimeModule>
 	{
-		public override RuntimeModule Xml { get; set; }
+		public override RuntimeModule Xml { get; protected set; }
+
+		public string ModName
+		{
+			get
+			{
+				if (Xml != null) { return Xml.Name; }
+				else { return "null"; }
+			}
+		}
 
 
 		public ModificationAsset(string filepath) : base(filepath)

@@ -1,9 +1,7 @@
 ﻿using ES2.Amplitude.Unity.Localization;
 using ES2.Amplitude.Unity.Runtime;
 using ES2.Amplitude.Unity.Simulation;
-using ES2.Editor.Serialization;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.Entity;
 
 namespace ES2.Editor.Framework
@@ -11,13 +9,6 @@ namespace ES2.Editor.Framework
 	public class EntityContext : DbContext
 	{
 		private const string ConnectionString = "DBConnectionString";
-
-		/// <summary>
-		/// Each entity must store its type within the element cache. 
-		/// Store the type in the entities static constructor or use the annotation attribute.
-		/// </summary>
-		[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public static TypeDictionary Serializer { get; private set; }
 
 		public DbSet<RuntimeModule> RuntimeModules { get; set; }
 		public DbSet<Faction> Factions { get; set; }
@@ -35,34 +26,25 @@ namespace ES2.Editor.Framework
 		public DbSet<LocalizationDatatableElement> LocalizationDatatableElements { get; set; }
 
 
-		static EntityContext()
-		{
-			Serializer = new TypeDictionary();
-			Serializer.Initialize(typeof(RuntimeModule));
-			Serializer.Initialize(typeof(QuestDefinition));
-			Serializer.Initialize(typeof(TutorialDefinition));
-			Serializer.Initialize(typeof(BasicFaction));
-			Serializer.Initialize(typeof(FactionAffinity));
-			Serializer.Initialize(typeof(FactionAffinityMapping));
-			Serializer.Initialize(typeof(FactionPopulationTrait));
-			Serializer.Initialize(typeof(FactionTrait));
-			Serializer.Initialize(typeof(FactionTraitCategoryDefinition));
-			Serializer.Initialize(typeof(FactionTraitStartingSenate));
-			Serializer.Initialize(typeof(LesserFaction));
-			Serializer.Initialize(typeof(MajorFaction));
-			Serializer.Initialize(typeof(MinorFaction));
-			Serializer.Initialize(typeof(PirateFaction));
-			Serializer.Initialize(typeof(LocalizationDatatableElement));
-		}
-
 		public EntityContext() : base(ConnectionString)
 		{
 			Database.SetInitializer(new EntityInitializer());
 		}
 
 
+		/// <summary>
+		/// TODO: I think the list allocation in GetTables defeats the purpose of calling dbset.load?
+		/// Syntax wise, its better than writing out Load() for each dbset
+		/// </summary>
+		public void LoadTables()
+		{
+			GetTables().ForEach(table => table.Load());
+		}
+
+
 		public void ClearTables()
 		{
+			FactionTraitStartingSenates.Clear();
 			GetTables().ForEach(table => table.Clear());
 		}
 
@@ -72,7 +54,10 @@ namespace ES2.Editor.Framework
 			GetTables().ForEach(table => table.Add(table.Create()));
 		}
 
-
+		/// <summary>
+		/// Gets a list of all DbSets within the context.
+		/// </summary>
+		/// <returns>A list of all DbSets within the context.</returns>
 		public List<DbSet> GetTables()
 		{
 			return new List<DbSet>
