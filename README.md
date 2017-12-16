@@ -1,4 +1,5 @@
 # Endless Studio
+Tooling for user created content in [Endless Space 2](http://store.steampowered.com/app/392110/Endless_Space_2/), a game by Amplitude Studios.
 
 ## Technologies
 * [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/net/download/windows)
