@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 // TODO: Ensure that all runtime modules are deserialized before any tables.
 
@@ -19,54 +20,93 @@ namespace ES2.Editor
 {
 	public class DataStore : FolderAsset, IDataStore
 	{
-		ModificationAsset ModificationAsset;
-		BindingList<TableAsset> TableAssets;
+		ModificationAsset Modification;
+		BindingList<TableAsset> Tables;
 
 
 		public DataStore(string directory) : base(directory)
 		{
-			ModificationAsset = new ModificationAsset(Path.Combine(FolderPath, "index.xml"));
-			TableAssets = new BindingList<TableAsset>();
+			Tables = new BindingList<TableAsset>();
 		}
 
 
 		#region IDataStore
 
-		// TODO: Allocation needs to invalidate previous allocations!
+		/// <summary>
+		/// Allocates the files on disk for import.
+		/// </summary>
+		/// <param name="progress"></param>
+		/// <returns></returns>
+		/// <remarks>TODO: Allocation needs to invalidate previous allocations!</remarks>
 		public bool Allocate(IProgress<ProgressEventArgs> progress = null)
 		{
-			bool success = false;
+			Tables.Clear();
+			Modification = null;
+
 			try
 			{
-				List<TableAsset> assets = new List<TableAsset>();
+				var topFiles = Info.GetFiles("*.xml", SearchOption.TopDirectoryOnly)
+					.Where(file => !String.Equals(file.Name, "Registry.xml", StringComparison.OrdinalIgnoreCase));
 
-				// TODO: Allocation queries may be a bit abusive.
-				Info.GetFiles("*.xml", SearchOption.AllDirectories).ToList()
-					.ForEach(file => assets.Add(new TableAsset(this, file.FullName)));
+				foreach (var file in topFiles)
+				{
+					var xml = XDocument.Load(file.FullName);
+					if (xml.Root.Descendants("RuntimeModule").ToList().Count == 1)
+					{
+						Modification = new ModificationAsset(this, file.FullName);
+						Report.Progress(progress, Report.Message("A modification index was allocated at " + Modification.FilePath, MessageIcon.CompleteB));
+						break;
+					}
+				}
 
-				assets.Where(asset => TableAssets.Contains(asset) == false).ToList()
-					.ForEach(asset => TableAssets.Add(asset));
+				if (Modification != null) // A modification file was allocated.
+				{
+					// Find all xml files recursively in the data store directory.
+					var files = Info.GetFiles("*.xml", SearchOption.AllDirectories)
+						.Where(file => !String.Equals(file.Name, "Registry.xml", StringComparison.OrdinalIgnoreCase))
+						.Where(file => !String.Equals(file.FullName, Modification.FilePath, StringComparison.OrdinalIgnoreCase));
 
-				success = true;
+					List<TableAsset> allocated = new List<TableAsset>();
+					foreach (var file in files)
+					{
+						TableAsset asset = new TableAsset(this, file.FullName);
+						allocated.Add(asset);
+					}
+
+					allocated.Where(asset => Tables.Contains(asset) == false).ToList()
+						.ForEach(asset => Tables.Add(asset));
+
+					return true;
+				}
+				else
+				{
+					Report.Progress(progress, Report.Message("A modification index containing a RuntimeModule could not be found.", MessageIcon.Error));
+					return false;
+				}
 			}
 			catch (Exception exception)
 			{
 				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
 			}
-			return success;
+			return false;
 		}
 		public async Task<bool> AllocateAsync(IProgress<ProgressEventArgs> progress = null)
 		{
 			return await Task.Run(() => Allocate(progress));
 		}
 
-
+		/// <summary>
+		/// Imports assets from xml on disk into the database.
+		/// </summary>
+		/// <param name="progress">The asynchronous progress reporter.</param>
+		/// <returns>Returns true on completion.</returns>
 		public bool Import(IProgress<ProgressEventArgs> progress = null)
 		{
 			bool success = false;
 			try
 			{
-				TableAssets.ToList().ForEach(tableAsset => ImportAsset(tableAsset, progress));
+				ImportAsset(Modification, progress);
+				Tables.ToList().ForEach(tableAsset => ImportAsset(tableAsset, progress));
 				success = true;
 			}
 			catch (Exception exception)
@@ -80,7 +120,11 @@ namespace ES2.Editor
 			return await Task.Run(() => Import(progress));
 		}
 
-
+		/// <summary>
+		/// Exports the database to xml assets on disk.
+		/// </summary>
+		/// <param name="progress"></param>
+		/// <returns></returns>
 		public bool Export(IProgress<ProgressEventArgs> progress = null)
 		{
 			bool success = false;
@@ -118,16 +162,10 @@ namespace ES2.Editor
 			return await Task.Run(() => Export(progress));
 		}
 
-
-		public void Reset()
-		{
-			throw new NotImplementedException("Reseting data stores is not yet suported.");
-		}
-
 		#endregion
 
 
-		#region Datatables
+		#region DataStore
 
 		private void ImportAsset(TableAsset file, IProgress<ProgressEventArgs> progress = null)
 		{
@@ -152,7 +190,7 @@ namespace ES2.Editor
 								// Create meta data for this entity.
 								EntityTypeMeta meta = new EntityTypeMeta();
 								meta.TableStack.Push(file.Xml);
-								meta.Comments.Add("I updated my entity comment from " + ModificationAsset.ModName);
+								meta.Comments.Add("I updated my entity comment from " + Modification.FileName);
 
 								// Get the DbSet for the entities type and load it.
 								DbSet dbset = context.Set(entity.GetType());
@@ -184,7 +222,7 @@ namespace ES2.Editor
 										context.Entry(existing).State = EntityState.Modified;
 										context.SaveChanges();
 
-										var msg = "Dropped the entity '" + entity.Name + "' from " + ModificationAsset.ModName
+										var msg = "Dropped the entity '" + entity.Name + "' from " + Modification.FileName
 												+ " because it is overridden by an entity in " + existingMeta.GetTablePath();
 
 										var arg = Report.Message(msg, MessageIcon.InformationB);

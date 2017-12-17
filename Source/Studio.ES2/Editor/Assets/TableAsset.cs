@@ -2,8 +2,6 @@
 using Sharp.Reporting;
 using Sharp.Storage.Special;
 using System;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace ES2.Editor.Assets
 {
@@ -15,77 +13,11 @@ namespace ES2.Editor.Assets
 
 		public TableAsset(DataStore datastore, string filepath) : base(filepath)
 		{
-			Data = datastore;
+			Data = datastore ?? throw new ArgumentNullException("datastore", "The data store cannot be null.");
 		}
 
 
-		#region Xml Asset
-
-		public override bool Write(IProgress<ProgressEventArgs> progress = null)
-		{
-			XmlSerializer serializer = new XmlSerializer(typeof(Datatable));
-			XmlWriterSettings settings = new XmlWriterSettings
-			{
-				Indent = true
-			};
-
-			using (var writer = XmlWriter.Create(FilePath, settings))
-			{
-				try
-				{
-					serializer.Serialize(writer, Xml);
-					return true;
-				}
-				catch (Exception exception)
-				{
-					var message = MessageFormat.GetWarning(exception);
-					Logs.Entry(message);
-					Report.Progress(progress, Report.Message("Message: '" + Logs.Message + "' Exception: '" + message + "'", MessageIcon.Error));
-					return false;
-				}
-			}
-		}
-
-
-		public override bool Read(IProgress<ProgressEventArgs> progress = null)
-		{
-			if (Exists)
-			{
-				try
-				{
-					XmlReaderSettings settings = new XmlReaderSettings
-					{
-						IgnoreComments = false,
-						IgnoreWhitespace = true,
-						CloseInput = true
-					};
-					using (XmlReader reader = XmlReader.Create(FilePath))
-					{
-						XmlSerializer serializer = new XmlSerializer(typeof(Datatable));
-						Xml = (Datatable)serializer.Deserialize(reader);
-					}
-				}
-				catch (Exception exception)
-				{
-					var message = MessageFormat.GetWarning(exception);
-					Logs.Entry(message);
-					Report.Progress(progress, Report.Message("Message: '" + Logs.Message + "' Exception: '" + message + "'", MessageIcon.Error));
-				}
-				return PostRead(progress);
-			}
-			else
-			{
-				var message = "Aborting deserialization. The file '" + FilePath + "' cannot be found";
-				Logs.Entry(message);
-				Report.Progress(progress, Report.Message(message, MessageIcon.Error));
-				return false;
-			}
-		}
-
-		#endregion
-
-
-		private bool PostRead(IProgress<ProgressEventArgs> progress = null)
+		protected override bool PostRead(IProgress<ProgressEventArgs> progress = null)
 		{
 			if (!IsNull)
 			{
@@ -109,16 +41,6 @@ namespace ES2.Editor.Assets
 				Logs.Entry(message);
 				Report.Progress(progress, Report.Message(message, MessageIcon.Error));
 				return false;
-			}
-		}
-
-
-		public bool HasElements
-		{
-			get
-			{
-				if (Xml != null) return Xml.Count > 0;
-				else return false;
 			}
 		}
 

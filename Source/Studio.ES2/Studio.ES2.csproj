@@ -410,7 +410,7 @@
     <Compile Include="Amplitude\Unity\Runtime\Plugins\RegistryPlugin.cs" />
     <Compile Include="Amplitude\Unity\Runtime\RuntimeModule.cs" />
     <Compile Include="Amplitude\Unity\Localization\LocalizationDatatableElement.cs" />
-    <Compile Include="Editor\Assets\AppFolder.cs" />
+    <Compile Include="Editor\Assets\StudioFolder.cs" />
     <Compile Include="Editor\DataStore.cs" />
     <Compile Include="Editor\IProject.cs" />
     <Compile Include="Editor\ProjectContext.cs" />
@@ -543,12 +543,6 @@
     <EmbeddedResource Include="Editor\Framework\Binding\EntityDataSource.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Studio.Sharp\Studio.Sharp.csproj">
-      <Project>{8e016bfe-8f7e-44f2-b4a2-57105545a239}</Project>
-      <Name>Studio.Sharp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\VS2017\NewSolutionFolder\NewSolutionFolder_16x.png" />
     <EmbeddedResource Include="Resources\VS2017\OpenFolder\OpenFolder_16x.png" />
   </ItemGroup>
@@ -556,6 +550,12 @@
     <Content Include="Resources\VS2017\Flag\FlagThreadFlagged_16x.png" />
     <Content Include="Resources\VS2017\Flag\FlagThreadNotFlagged_16x.png" />
     <Content Include="Resources\VS2017\Flag\Flag_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Studio.Sharp\Studio.Sharp.csproj">
+      <Project>{8e016bfe-8f7e-44f2-b4a2-57105545a239}</Project>
+      <Name>Studio.Sharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

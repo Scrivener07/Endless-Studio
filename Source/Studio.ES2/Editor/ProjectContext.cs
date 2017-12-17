@@ -87,11 +87,6 @@ namespace ES2.Editor
 
 		#region IDataStore
 
-		public void Reset()
-		{
-			Data.Reset();
-		}
-
 		public bool Allocate(IProgress<ProgressEventArgs> progress = null)
 		{
 			return Data.Allocate(progress);
