@@ -29,6 +29,5 @@ namespace ES2.Amplitude.Unity.Xml
 			}
 		}
 
-
 	}
 }

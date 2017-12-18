@@ -240,7 +240,7 @@ namespace ES2.Amplitude.Unity.Runtime
 		[XmlArrayItem(typeof(DatabasePlugin), Form = XmlSchemaForm.Unqualified, IsNullable = false)]
 		[XmlArrayItem(typeof(LocalizationPlugin), Form = XmlSchemaForm.Unqualified, IsNullable = false)]
 		[XmlArrayItem(typeof(RegistryPlugin), Form = XmlSchemaForm.Unqualified, IsNullable = false)]
-		public virtual ObservableListSource<RuntimePlugin> Plugins // EF6 navigation property
+		public virtual ObservableListSource<RuntimePlugin> Plugins
 		{
 			get { return this.pluginsField; }
 			set
@@ -251,16 +251,6 @@ namespace ES2.Amplitude.Unity.Runtime
 		}
 
 		#endregion
-
-
-		public override string ToString()
-		{
-			if (String.IsNullOrWhiteSpace(Name))
-			{
-				return base.ToString();
-			}
-			return Name;
-		}
 
 
 	}

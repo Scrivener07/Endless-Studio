@@ -6,27 +6,23 @@ using Sharp.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-// TODO: Ensure that all runtime modules are deserialized before any tables.
-
 namespace ES2.Editor
 {
-	public class DataStore : FolderAsset, IDataStore
+	public class DataStore : FolderAsset, IDataStore, IDatabase
 	{
-		ModificationAsset Modification;
-		BindingList<TableAsset> Tables;
+		ModificationFile Modification;
+		BindingList<TableFile> Tables;
+		public string Index { get { return Modification.FileName; } }
 
 
 		public DataStore(string directory) : base(directory)
 		{
-			Tables = new BindingList<TableAsset>();
+			Tables = new BindingList<TableFile>();
 		}
 
 
@@ -35,78 +31,111 @@ namespace ES2.Editor
 		/// <summary>
 		/// Allocates the files on disk for import.
 		/// </summary>
-		/// <param name="progress"></param>
-		/// <returns></returns>
-		/// <remarks>TODO: Allocation needs to invalidate previous allocations!</remarks>
+		/// <param name="progress">The asynchronous progress reporter.</param>
+		/// <returns>Returns true on successful completion.</returns>
+		/// TODO: Allocation needs to invalidate previous allocations!
+		/// TODO: Only allocate tables defined in the modifications runtime plugins.
 		public bool Allocate(IProgress<ProgressEventArgs> progress = null)
 		{
-			Tables.Clear();
-			Modification = null;
+			if (AllocateModification(progress))
+			{
+				if (AllocateTables(progress))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 
+
+		public async Task<bool> AllocateAsync(IProgress<ProgressEventArgs> progress = null)
+		{
+			return await Task.Run(() => Allocate(progress));
+		}
+
+
+		private bool AllocateModification(IProgress<ProgressEventArgs> progress = null)
+		{
+			Modification = null;
 			try
 			{
-				var topFiles = Info.GetFiles("*.xml", SearchOption.TopDirectoryOnly)
-					.Where(file => !String.Equals(file.Name, "Registry.xml", StringComparison.OrdinalIgnoreCase));
-
-				foreach (var file in topFiles)
+				var files = GetXmlFiles(SearchOption.TopDirectoryOnly);
+				foreach (var file in files)
 				{
 					var xml = XDocument.Load(file.FullName);
-					if (xml.Root.Descendants("RuntimeModule").ToList().Count == 1)
+					int count = xml.Root.Descendants("RuntimeModule").Count();
+					if (count == 1)
 					{
-						Modification = new ModificationAsset(this, file.FullName);
+						Modification = new ModificationFile(this, file.FullName);
 						Report.Progress(progress, Report.Message("A modification index was allocated at " + Modification.FilePath, MessageIcon.CompleteB));
 						break;
 					}
-				}
-
-				if (Modification != null) // A modification file was allocated.
-				{
-					// Find all xml files recursively in the data store directory.
-					var files = Info.GetFiles("*.xml", SearchOption.AllDirectories)
-						.Where(file => !String.Equals(file.Name, "Registry.xml", StringComparison.OrdinalIgnoreCase))
-						.Where(file => !String.Equals(file.FullName, Modification.FilePath, StringComparison.OrdinalIgnoreCase));
-
-					List<TableAsset> allocated = new List<TableAsset>();
-					foreach (var file in files)
-					{
-						TableAsset asset = new TableAsset(this, file.FullName);
-						allocated.Add(asset);
-					}
-
-					allocated.Where(asset => Tables.Contains(asset) == false).ToList()
-						.ForEach(asset => Tables.Add(asset));
-
-					return true;
-				}
-				else
-				{
-					Report.Progress(progress, Report.Message("A modification index containing a RuntimeModule could not be found.", MessageIcon.Error));
-					return false;
 				}
 			}
 			catch (Exception exception)
 			{
 				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
 			}
-			return false;
+
+			return Modification != null;
 		}
-		public async Task<bool> AllocateAsync(IProgress<ProgressEventArgs> progress = null)
+
+
+		private bool AllocateTables(IProgress<ProgressEventArgs> progress = null)
 		{
-			return await Task.Run(() => Allocate(progress));
+			Tables.Clear();
+			if (Modification != null)
+			{
+				try
+				{
+					// Find all xml files recursively in the data store directory.
+					var files = GetXmlFiles(SearchOption.AllDirectories)
+						.Where(file => !String.Equals(file.FullName, Modification.FilePath, StringComparison.OrdinalIgnoreCase));
+
+					List<TableFile> allocated = new List<TableFile>();
+
+					foreach (var file in files)
+					{
+						TableFile asset = new TableFile(this, file.FullName);
+						allocated.Add(asset);
+					}
+
+					allocated.Where(asset => Tables.Contains(asset) == false).ToList()
+						.ForEach(asset => Tables.Add(asset));
+				}
+				catch (Exception exception)
+				{
+					Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
+				}
+
+				return true;
+			}
+			else
+			{
+				Report.Progress(progress, Report.Message("A modification index containing a RuntimeModule could not be found.", MessageIcon.Error));
+				return false;
+			}
 		}
+
 
 		/// <summary>
 		/// Imports assets from xml on disk into the database.
 		/// </summary>
 		/// <param name="progress">The asynchronous progress reporter.</param>
-		/// <returns>Returns true on completion.</returns>
+		/// <returns>Returns true on successful completion.</returns>
 		public bool Import(IProgress<ProgressEventArgs> progress = null)
 		{
+			if (Modification == null)
+			{
+				Report.Progress(progress, Report.Message("Cannot import a null modification.", MessageIcon.Error));
+				return false;
+			}
+
 			bool success = false;
 			try
 			{
-				ImportAsset(Modification, progress);
-				Tables.ToList().ForEach(tableAsset => ImportAsset(tableAsset, progress));
+				Modification.Import(progress);
+				Tables.ToList().ForEach(file => file.Import(progress));
 				success = true;
 			}
 			catch (Exception exception)
@@ -115,16 +144,19 @@ namespace ES2.Editor
 			}
 			return success;
 		}
+
+
 		public async Task<bool> ImportAsync(IProgress<ProgressEventArgs> progress = null)
 		{
 			return await Task.Run(() => Import(progress));
 		}
 
+
 		/// <summary>
 		/// Exports the database to xml assets on disk.
 		/// </summary>
-		/// <param name="progress"></param>
-		/// <returns></returns>
+		/// <param name="progress">The asynchronous progress reporter.</param>
+		/// <returns>Returns true on successful completion.</returns>
 		public bool Export(IProgress<ProgressEventArgs> progress = null)
 		{
 			bool success = false;
@@ -165,103 +197,12 @@ namespace ES2.Editor
 		#endregion
 
 
-		#region DataStore
+		#region Queries
 
-		private void ImportAsset(TableAsset file, IProgress<ProgressEventArgs> progress = null)
+		public IEnumerable<FileInfo> GetXmlFiles(SearchOption search)
 		{
-			if (file == null) { Report.Progress(progress, Report.Message("Cannot import null table asset, skipping.", MessageIcon.Warning)); return; }
-			try
-			{
-				if (file.Read(progress) && !file.IsNull && file.Xml.Count > 0)
-				{
-					// Reading the xml file was a success
-					// The xml file also contained viable elements to import.
-					// Continue with trying to import these elements into the database context.
-
-					try
-					{
-						using (var context = new EntityContext())
-						{
-							// Iterate over the datatable elements.
-							foreach (var kvp in file.Xml)
-							{
-								EntityType entity = kvp.Value; // for syntax
-
-								// Create meta data for this entity.
-								EntityTypeMeta meta = new EntityTypeMeta();
-								meta.TableStack.Push(file.Xml);
-								meta.Comments.Add("I updated my entity comment from " + Modification.FileName);
-
-								// Get the DbSet for the entities type and load it.
-								DbSet dbset = context.Set(entity.GetType());
-								dbset.Load();
-
-
-								if (dbset != null) // The database set was successfully retrieved.
-								{
-									Trace.WriteLine("Checking database for existing '" + entity.Name + "' entity.");
-									var found = dbset.Find(entity.Name);
-
-
-									if (found == null) // No entity by this name already exists.
-									{
-										// Set the entities meta data.
-										meta.TableStack.Push(file.Xml);
-										meta.Comments.Add("Created by " + file.FilePath);
-										context.Entry(entity).Entity.SetMeta(meta);
-										context.Entry(entity).State = EntityState.Added;
-										context.SaveChanges();
-									}
-									else if (found is EntityType) // An entity with this name already exists!
-									{
-										// modify the existing entity in the database.
-										var existing = found as EntityType;
-										var existingMeta = existing.GetMeta();
-										existingMeta.TableStack.Push(file.Xml);
-										existingMeta.Comments.Add("Overriding an existing entity..");
-										context.Entry(existing).State = EntityState.Modified;
-										context.SaveChanges();
-
-										var msg = "Dropped the entity '" + entity.Name + "' from " + Modification.FileName
-												+ " because it is overridden by an entity in " + existingMeta.GetTablePath();
-
-										var arg = Report.Message(msg, MessageIcon.InformationB);
-										Report.Progress(progress, arg);
-									}
-
-
-
-									else // Something unexpected happend!
-									{
-										Report.Progress(progress, Report.Message("Ignored the entity '" + entity.Name + "'", MessageIcon.Warning));
-									}
-								}
-								else
-								{
-									Report.Progress(progress, Report.Message("The DbSet for entity '" + entity.Name + "' count not be found.", MessageIcon.Warning));
-								}
-							}
-							context.SaveChanges();
-						}
-					}
-					catch (DbUpdateException exception)
-					{
-						var message1 = MessageFormat.GetWarning(exception);
-						var message2 = String.Empty;
-
-						if (exception.InnerException != null)
-						{
-							message2 = MessageFormat.GetWarning(exception.InnerException);
-						}
-						Report.Progress(progress, Report.Message("Entity Framework Exception: " + message1 + message2, MessageIcon.Error));
-					}
-				}
-			}
-			catch (Exception exception)
-			{
-				var message = MessageFormat.GetWarning(exception);
-				Report.Progress(progress, Report.Message("Exception: '" + message + "', File Message: '" + file.Logs.Message + "'", MessageIcon.Error));
-			}
+			return Info.GetFiles("*.xml", search)
+				.Where(file => !String.Equals(file.Name, "Registry.xml", StringComparison.OrdinalIgnoreCase));
 		}
 
 		#endregion

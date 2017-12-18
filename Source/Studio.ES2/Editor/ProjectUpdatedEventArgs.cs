@@ -6,10 +6,10 @@ namespace ES2.Editor
 	public class ProjectUpdatedEventArgs : EventArgs
 	{
 		public readonly ProjectState State;
-		public readonly ModificationAsset Current;
+		public readonly ModificationFile Current;
 
 
-		public ProjectUpdatedEventArgs(ProjectState state, ModificationAsset current)
+		public ProjectUpdatedEventArgs(ProjectState state, ModificationFile current)
 		{
 			State = state;
 			Current = current;

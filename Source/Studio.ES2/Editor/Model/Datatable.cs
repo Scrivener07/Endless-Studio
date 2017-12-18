@@ -16,7 +16,7 @@ namespace ES2.Editor.Model
 	public class Datatable : Dictionary<string, EntityType>, IXmlSerializable
 	{
 		[XmlIgnore]
-		public TableAsset Asset { get; set; }
+		public TableFile Asset { get; set; }
 
 
 		public Datatable() : base(0) { }

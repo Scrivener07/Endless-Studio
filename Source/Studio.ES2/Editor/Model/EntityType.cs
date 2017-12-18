@@ -37,5 +37,18 @@ namespace ES2.Editor.Model
 		}
 
 
+		public override string ToString()
+		{
+			if (String.IsNullOrWhiteSpace(Name))
+			{
+				return base.ToString();
+			}
+			else
+			{
+				return Name;
+			}
+		}
+
+
 	}
 }
