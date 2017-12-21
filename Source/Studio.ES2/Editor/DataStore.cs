@@ -1,4 +1,6 @@
-﻿using ES2.Editor.Assets;
+﻿using ES2.Amplitude.Unity.Runtime;
+using ES2.Amplitude.Unity.Runtime.Plugins;
+using ES2.Editor.Assets;
 using ES2.Editor.Framework;
 using ES2.Editor.Model;
 using Sharp.Reporting;
@@ -6,6 +8,7 @@ using Sharp.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,25 +40,6 @@ namespace ES2.Editor
 		/// TODO: Only allocate tables defined in the modifications runtime plugins.
 		public bool Allocate(IProgress<ProgressEventArgs> progress = null)
 		{
-			if (AllocateModification(progress))
-			{
-				if (AllocateTables(progress))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-
-		public async Task<bool> AllocateAsync(IProgress<ProgressEventArgs> progress = null)
-		{
-			return await Task.Run(() => Allocate(progress));
-		}
-
-
-		private bool AllocateModification(IProgress<ProgressEventArgs> progress = null)
-		{
 			Modification = null;
 			try
 			{
@@ -77,44 +61,89 @@ namespace ES2.Editor
 				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
 			}
 
-			return Modification != null;
+			try
+			{
+				if (Modification != null)
+				{
+					Modification.Read(progress); // deserialize
+					if (Modification.Xml.FirstOrDefault().Value is RuntimeModule runtimeModule)
+					{
+						List<TableFile> allocated = new List<TableFile>();
+
+						foreach (var plugin in runtimeModule.Plugins)
+						{
+							if (plugin is AIPlugin aiPlugin)
+							{
+								Trace.WriteLine(string.Format("{0} has AI contributions. Plugin[Priority:{1}, Configuration:{2}, AssemblyPath:{3}]", runtimeModule.Name, aiPlugin.Priority, aiPlugin.Configuration, aiPlugin.AssemblyPath));
+							}
+							else if (plugin is RegistryPlugin registryPlugin)
+							{
+								Trace.WriteLine(string.Format("{0} has registry contributions. Plugin[Priority:{1}, FilePath:{2}]", runtimeModule.Name, registryPlugin.Priority, registryPlugin.FilePath));
+							}
+							else if (plugin is LocalizationPlugin localizationPlugin)
+							{
+								Trace.WriteLine(string.Format("{0} has localization contributions. Plugin[Priority:{1}, DefaultLanguage:{2}, Directory:{3}]", runtimeModule.Name, localizationPlugin.Priority, localizationPlugin.DefaultLanguage, localizationPlugin.Directory));
+							}
+							else if (plugin is DatabasePlugin databasePlugin)
+							{
+								Trace.WriteLine(string.Format("{0} has database contributions. Plugin[Priority:{1}, FilePath:{2}, DataType:{3}, ExtraTypes:{4}]", runtimeModule.Name, databasePlugin.Priority, databasePlugin.FilePath, databasePlugin.DataType, databasePlugin.ExtraTypes));
+
+								foreach (var pattern in databasePlugin.FilePath)
+								{
+									string filePattern = pattern.Replace(Environment.NewLine, String.Empty).Replace("/", "\\").Trim();
+
+									//string relDirectory = Path.GetDirectoryName(filePattern);
+									string relFile = Path.GetFileName(filePattern);
+
+									string fullPath = Path.Combine(FolderPath, filePattern);
+									string fullDirectoryPath = Path.GetDirectoryName(fullPath);
+
+									if (Directory.Exists(fullDirectoryPath))
+									{
+										var files = Directory.GetFiles(fullDirectoryPath, relFile);
+										foreach (var file in files)
+										{
+											TableFile asset = new TableFile(this, fullPath);
+											allocated.Add(asset);
+											Report.Progress(progress, Report.Message("Index, allocated file: " + asset.FilePath, MessageIcon.InformationB));
+										}
+									}
+									else
+									{
+										Report.Progress(progress, Report.Message("Index, directory does not exist: " + fullDirectoryPath, MessageIcon.Warning));
+									}
+								}
+							}
+							else
+							{
+								throw new InvalidOperationException("Unexpected runtime plugin.");
+							}
+						}
+
+						allocated.Where(asset => Tables.Contains(asset) == false).ToList()
+							.ForEach(asset => Tables.Add(asset));
+					}
+
+					return true; // COMPELTED
+				}
+				else
+				{
+					Report.Progress(progress, Report.Message("A modification index containing a RuntimeModule could not be found.", MessageIcon.Error));
+					return false;
+				}
+			}
+			catch (Exception exception)
+			{
+				Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
+			}
+
+			throw new NotImplementedException("The 'Allocate' method is not implemented yet.");
 		}
 
 
-		private bool AllocateTables(IProgress<ProgressEventArgs> progress = null)
+		public async Task<bool> AllocateAsync(IProgress<ProgressEventArgs> progress = null)
 		{
-			Tables.Clear();
-			if (Modification != null)
-			{
-				try
-				{
-					// Find all xml files recursively in the data store directory.
-					var files = GetXmlFiles(SearchOption.AllDirectories)
-						.Where(file => !String.Equals(file.FullName, Modification.FilePath, StringComparison.OrdinalIgnoreCase));
-
-					List<TableFile> allocated = new List<TableFile>();
-
-					foreach (var file in files)
-					{
-						TableFile asset = new TableFile(this, file.FullName);
-						allocated.Add(asset);
-					}
-
-					allocated.Where(asset => Tables.Contains(asset) == false).ToList()
-						.ForEach(asset => Tables.Add(asset));
-				}
-				catch (Exception exception)
-				{
-					Report.Progress(progress, Report.Message(MessageFormat.GetWarning(exception), MessageIcon.Error));
-				}
-
-				return true;
-			}
-			else
-			{
-				Report.Progress(progress, Report.Message("A modification index containing a RuntimeModule could not be found.", MessageIcon.Error));
-				return false;
-			}
+			return await Task.Run(() => Allocate(progress));
 		}
 
 

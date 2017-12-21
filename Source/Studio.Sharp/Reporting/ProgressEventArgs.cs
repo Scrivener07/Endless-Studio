@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Sharp.Reporting
 {
+	[DebuggerStepThrough]
 	public class ProgressEventArgs : EventArgs
 	{
 		public readonly int Percentage;

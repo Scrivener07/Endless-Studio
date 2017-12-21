@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace Sharp.Reporting
 {
+	[DebuggerStepThrough]
 	public static class Report
 	{
 		public const bool Failed = false;

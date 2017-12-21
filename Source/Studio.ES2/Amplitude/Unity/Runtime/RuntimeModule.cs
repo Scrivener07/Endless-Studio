@@ -5,8 +5,6 @@ using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
@@ -52,63 +50,6 @@ namespace ES2.Amplitude.Unity.Runtime
 			Tags = new Tags();
 			pluginsField = new ObservableListSource<RuntimePlugin>();
 		}
-
-
-		#region Xml-Operations
-
-		public static async Task<RuntimeModule> DeserializeAsync(string path)
-		{
-			return await Task.Run(() => Deserialize(path));
-		}
-
-
-		public static RuntimeModule Deserialize(string path)
-		{
-			TextReader reader = null;
-			XmlSerializer serializer = null;
-			RuntimeModule modification = null;
-
-			try
-			{
-				reader = new StreamReader(path);
-				serializer = new XmlSerializer(typeof(RuntimeModule));
-				modification = (RuntimeModule)serializer.Deserialize(reader);
-			}
-			catch (Exception exception)
-			{
-				Trace.WriteLine("There was an error in serialization.\n" + exception.InnerException.Message);
-			}
-			finally
-			{
-				serializer = null;
-				reader.Close();
-				Trace.WriteLine("RuntimeModule deserialization is complete.");
-			}
-			return modification;
-		}
-
-
-		public async Task<bool> SerializeAsync(string path)
-		{
-			var result = await Task.Run(() => Serialize(path));
-			return result;
-		}
-
-
-		public bool Serialize(string path)
-		{
-			Trace.Assert(Directory.Exists(path), "Cannot serialize index!", "The directory does not exist." + "\n\nPath '" + path + "'");
-			XmlSerializerNamespaces EmptyNameSpace = new XmlSerializerNamespaces();
-			EmptyNameSpace.Add("", "");
-			string file = Path.Combine(path, "index.xml");
-			StreamWriter stream = new StreamWriter(file);
-			XmlSerializer serializer = new XmlSerializer(typeof(RuntimeModule));
-			serializer.Serialize(stream, this, EmptyNameSpace);
-			stream.Close();
-			return true;
-		}
-
-		#endregion
 
 
 		#region Properties

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Sharp
 {
@@ -7,6 +8,7 @@ namespace Sharp
 	/// Classes which inherit ObjectComponent<T> act as components of the parameter type.
 	/// </summary>
 	/// <typeparam name="T">The type which is the owner.</typeparam>
+	[DebuggerStepThrough]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public abstract class ObjectComponent<T> where T : class
 	{

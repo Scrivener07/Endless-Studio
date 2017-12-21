@@ -12,7 +12,7 @@ namespace ES2.Editor.Assets
 {
 	public class TableFile : XmlAsset<Datatable>, IDatabase
 	{
-		private readonly DataStore Data;
+		protected readonly DataStore Data;
 		public override Datatable Xml { get; protected set; }
 
 
@@ -21,6 +21,8 @@ namespace ES2.Editor.Assets
 			Data = datastore ?? throw new ArgumentNullException("datastore", "The data store cannot be null.");
 		}
 
+
+		#region IDatabase
 
 		public bool Import(IProgress<ProgressEventArgs> progress = null)
 		{
@@ -132,8 +134,10 @@ namespace ES2.Editor.Assets
 			return await Task.Run(() => Import(progress));
 		}
 
+		#endregion
 
-		#region XmlAsset
+
+		#region XmlAsset<Datatable>
 
 		protected override bool PostRead(IProgress<ProgressEventArgs> progress = null)
 		{

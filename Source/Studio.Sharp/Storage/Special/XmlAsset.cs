@@ -62,6 +62,7 @@ namespace Sharp.Storage.Special
 			}
 		}
 
+
 		public virtual async Task<bool> ReadAsync(IProgress<ProgressEventArgs> progress = null)
 		{
 			return await Task.Run(() => Read(progress));
@@ -115,6 +116,7 @@ namespace Sharp.Storage.Special
 			PostWrite();
 			return success;
 		}
+
 
 		public virtual async Task<bool> WriteAsync(IProgress<ProgressEventArgs> progress = null)
 		{
